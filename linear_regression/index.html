@@ -1,0 +1,634 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="jp">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.0">
+    
+    
+      
+        <title>Linear regression - Python笔记</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application.0284f74d.css">
+      
+      
+    
+    
+      <script src="../assets/javascripts/modernizr.74668098.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#requirements" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href=".." title="Python笔记" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Python笔记
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Linear regression
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href=".." title="Python笔记" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    Python笔记
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="Welcome to MkDocs" class="md-nav__link">
+      Welcome to MkDocs
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../List/" title="List" class="md-nav__link">
+      List
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+    <a href="./" title="Linear regression" class="md-nav__link md-nav__link--active">
+      Linear regression
+    </a>
+    
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../tuple/" title="Tuple" class="md-nav__link">
+      Tuple
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../浅拷贝_深拷贝/" title="浅拷贝 深拷贝" class="md-nav__link">
+      浅拷贝 深拷贝
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      Numpy笔记
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        Numpy笔记
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy笔记/5.1.创建数组/" title="5.1.创建数组" class="md-nav__link">
+      5.1.创建数组
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy笔记/5.2.索引/" title="5.2.索引" class="md-nav__link">
+      5.2.索引
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy笔记/5.3.属性/" title="5.3.属性" class="md-nav__link">
+      5.3.属性
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy笔记/5.5.常量/" title="5.5.常量" class="md-nav__link">
+      5.5.常量
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy笔记/5.6.打印数组/" title="5.6.打印数组" class="md-nav__link">
+      5.6.打印数组
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy笔记/5.7.形状操纵/" title="5.7.形状操纵" class="md-nav__link">
+      5.7.形状操纵
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy笔记/5.8.ufunc函数/" title="5.8.ufunc函数" class="md-nav__link">
+      5.8.ufunc函数
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy笔记/5.9.函数库/" title="5.9.函数库" class="md-nav__link">
+      5.9.函数库
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <p>% Linear Regression model with Python
+% Matti Pastell
+% 19.4.2013</p>
+<h1 id="requirements">Requirements</h1>
+<p>This en example of doing linear regression analysis using Python
+and <a href="http://statsmodels.sourceforge.net">statsmodels</a>. We'll use the new formula API
+which makes fitting the models very familiar for R users.
+You'll also need <a href="http://www.numpy.org/">Numpy</a>, <a href="http://pandas.pydata.org/">Pandas</a>
+and <a href="http://matplotlib.org/">matplolib</a>.</p>
+<p>The analysis can be published using  Pweave 0.22 and later.</p>
+<p>Import libraries</p>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">statsmodels.formula.api</span> <span class="kn">as</span> <span class="nn">sm</span>
+<span class="kn">import</span> <span class="nn">statsmodels</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+</pre></div>
+
+
+<p>Statsmodels api seems to change often, check release version:</p>
+<div class="codehilite"><pre><span></span><span class="n">statsmodels</span><span class="o">.</span><span class="n">__version__</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="s1">&#39;0.10.0&#39;</span>
+</pre></div>
+
+
+<p>We'll use <a href="http://stat.ethz.ch/R-manual/R-patched/library/MASS/html/whiteside.html">whiteside</a> dataset from R package MASS. You can read the description of the dataset from the link, but in short it contains:</p>
+<blockquote>
+<p><em>The weekly gas consumption and average external temperature at a house in south-east England for two
+heating seasons, one of 26 weeks before, and one of 30 weeks after cavity-wall insulation was installed.</em></p>
+</blockquote>
+<p>Load dataset using Pandas:</p>
+<div class="codehilite"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://raw.githubusercontent.com/mpastell/Rdatasets/master/csv/MASS/whiteside.csv&#39;</span>
+<span class="n">whiteside</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+</pre></div>
+
+
+<h1 id="fitting-the-model">Fitting the model</h1>
+<p>Let's see what the relationship between the gas consumption is before the insulation.
+See <a href="http://statsmodels.sourceforge.net/devel/example_formulas.html">statsmodels documentation</a>
+for more information about the syntax.</p>
+<div class="codehilite"><pre><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">sm</span><span class="o">.</span><span class="n">ols</span><span class="p">(</span><span class="n">formula</span><span class="o">=</span><span class="s1">&#39;Gas ~ Temp&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">whiteside</span><span class="p">,</span> <span class="n">subset</span> <span class="o">=</span> <span class="n">whiteside</span><span class="p">[</span><span class="s1">&#39;Insul&#39;</span><span class="p">]</span><span class="o">==</span><span class="s2">&quot;Before&quot;</span><span class="p">)</span>
+<span class="n">fitted</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">fitted</span><span class="o">.</span><span class="n">summary</span><span class="p">())</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span>                            <span class="n">OLS</span> <span class="n">Regression</span> <span class="n">Results</span>
+<span class="o">==============================================================================</span>
+<span class="n">Dep</span><span class="p">.</span> <span class="k">Variable</span><span class="p">:</span>                    <span class="n">Gas</span>   <span class="n">R</span><span class="o">-</span><span class="n">squared</span><span class="p">:</span>
+<span class="mi">0</span><span class="p">.</span><span class="mi">944</span>
+<span class="n">Model</span><span class="p">:</span>                            <span class="n">OLS</span>   <span class="n">Adj</span><span class="p">.</span> <span class="n">R</span><span class="o">-</span><span class="n">squared</span><span class="p">:</span>
+<span class="mi">0</span><span class="p">.</span><span class="mi">941</span>
+<span class="k">Method</span><span class="p">:</span>                 <span class="n">Least</span> <span class="n">Squares</span>   <span class="n">F</span><span class="o">-</span><span class="n">statistic</span><span class="p">:</span>
+<span class="mi">403</span><span class="p">.</span><span class="mi">1</span>
+<span class="nb">Date</span><span class="p">:</span>                <span class="n">Wed</span><span class="p">,</span> <span class="mi">07</span> <span class="n">Aug</span> <span class="mi">2019</span>   <span class="n">Prob</span> <span class="p">(</span><span class="n">F</span><span class="o">-</span><span class="n">statistic</span><span class="p">):</span>
+<span class="mi">1</span><span class="p">.</span><span class="mi">64</span><span class="n">e</span><span class="o">-</span><span class="mi">16</span>
+<span class="n">Time</span><span class="p">:</span>                        <span class="mi">21</span><span class="p">:</span><span class="mi">59</span><span class="p">:</span><span class="mi">50</span>   <span class="n">Log</span><span class="o">-</span><span class="n">Likelihood</span><span class="p">:</span>
+<span class="o">-</span><span class="mi">2</span><span class="p">.</span><span class="mi">8783</span>
+<span class="k">No</span><span class="p">.</span> <span class="n">Observations</span><span class="p">:</span>                  <span class="mi">26</span>   <span class="n">AIC</span><span class="p">:</span>
+<span class="mi">9</span><span class="p">.</span><span class="mi">757</span>
+<span class="n">Df</span> <span class="n">Residuals</span><span class="p">:</span>                      <span class="mi">24</span>   <span class="n">BIC</span><span class="p">:</span>
+<span class="mi">12</span><span class="p">.</span><span class="mi">27</span>
+<span class="n">Df</span> <span class="n">Model</span><span class="p">:</span>                           <span class="mi">1</span>
+<span class="n">Covariance</span> <span class="k">Type</span><span class="p">:</span>            <span class="n">nonrobust</span>
+<span class="o">==============================================================================</span>
+                 <span class="n">coef</span>    <span class="n">std</span> <span class="n">err</span>          <span class="n">t</span>      <span class="n">P</span><span class="o">&gt;|</span><span class="n">t</span><span class="o">|</span>      <span class="p">[</span><span class="mi">0</span><span class="p">.</span><span class="mi">025</span>
+<span class="mi">0</span><span class="p">.</span><span class="mi">975</span><span class="p">]</span>
+<span class="c1">------------------------------------------------------------------------------</span>
+<span class="n">Intercept</span>      <span class="mi">6</span><span class="p">.</span><span class="mi">8538</span>      <span class="mi">0</span><span class="p">.</span><span class="mi">118</span>     <span class="mi">57</span><span class="p">.</span><span class="mi">876</span>      <span class="mi">0</span><span class="p">.</span><span class="mi">000</span>       <span class="mi">6</span><span class="p">.</span><span class="mi">609</span>
+<span class="mi">7</span><span class="p">.</span><span class="mi">098</span>
+<span class="n">Temp</span>          <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">3932</span>      <span class="mi">0</span><span class="p">.</span><span class="mi">020</span>    <span class="o">-</span><span class="mi">20</span><span class="p">.</span><span class="mi">078</span>      <span class="mi">0</span><span class="p">.</span><span class="mi">000</span>      <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">434</span>
+<span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">353</span>
+<span class="o">==============================================================================</span>
+<span class="n">Omnibus</span><span class="p">:</span>                        <span class="mi">0</span><span class="p">.</span><span class="mi">296</span>   <span class="n">Durbin</span><span class="o">-</span><span class="n">Watson</span><span class="p">:</span>
+<span class="mi">2</span><span class="p">.</span><span class="mi">420</span>
+<span class="n">Prob</span><span class="p">(</span><span class="n">Omnibus</span><span class="p">):</span>                  <span class="mi">0</span><span class="p">.</span><span class="mi">862</span>   <span class="n">Jarque</span><span class="o">-</span><span class="n">Bera</span> <span class="p">(</span><span class="n">JB</span><span class="p">):</span>
+<span class="mi">0</span><span class="p">.</span><span class="mi">164</span>
+<span class="n">Skew</span><span class="p">:</span>                          <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">177</span>   <span class="n">Prob</span><span class="p">(</span><span class="n">JB</span><span class="p">):</span>
+<span class="mi">0</span><span class="p">.</span><span class="mi">921</span>
+<span class="n">Kurtosis</span><span class="p">:</span>                       <span class="mi">2</span><span class="p">.</span><span class="mi">839</span>   <span class="n">Cond</span><span class="p">.</span> <span class="k">No</span><span class="p">.</span>
+<span class="mi">13</span><span class="p">.</span><span class="mi">3</span>
+<span class="o">==============================================================================</span>
+
+<span class="n">Warnings</span><span class="p">:</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="n">Standard</span> <span class="n">Errors</span> <span class="n">assume</span> <span class="n">that</span> <span class="n">the</span> <span class="n">covariance</span> <span class="n">matrix</span> <span class="k">of</span> <span class="n">the</span> <span class="n">errors</span> <span class="k">is</span>
+<span class="n">correctly</span> <span class="n">specified</span><span class="p">.</span>
+</pre></div>
+
+
+<h1 id="plot-the-data-and-fit">Plot the data and fit</h1>
+<div class="codehilite"><pre><span></span><span class="n">Before</span> <span class="o">=</span> <span class="n">whiteside</span><span class="p">[</span><span class="n">whiteside</span><span class="p">[</span><span class="s2">&quot;Insul&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;Before&quot;</span><span class="p">]</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Before</span><span class="p">[</span><span class="s2">&quot;Temp&quot;</span><span class="p">],</span> <span class="n">Before</span><span class="p">[</span><span class="s2">&quot;Gas&quot;</span><span class="p">],</span> <span class="s1">&#39;ro&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Before</span><span class="p">[</span><span class="s2">&quot;Temp&quot;</span><span class="p">],</span> <span class="n">fitted</span><span class="o">.</span><span class="n">fittedvalues</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;Data&#39;</span><span class="p">,</span> <span class="s1">&#39;Fitted model&#39;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Temperature&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Gas&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Before Insulation&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="nb">Text</span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">1</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Before Insulation&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<p><img alt="" src="../figures/linear_regression_figure5_1.png" />\</p>
+<h1 id="fit-diagnostiscs">Fit diagnostiscs</h1>
+<p>Statsmodels <a href="http://statsmodels.sourceforge.net/devel/generated/statsmodels.regression.linear_model.OLSResults.html">OLSresults</a> objects contain the usual diagnostic information about the model and you can use the <code>get_influence()</code> method to get more diagnostic information (such as Cook's distance).</p>
+<h2 id="a-look-at-the-residuals">A look at the residuals</h2>
+<p>Histogram of normalized residuals</p>
+<div class="codehilite"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">fitted</span><span class="o">.</span><span class="n">resid_pearson</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Count&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Normalized residuals&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="nb">Text</span><span class="p">(</span><span class="mi">0</span><span class="p">.</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;Normalized residuals&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<p><img alt="" src="../figures/linear_regression_figure6_1.png" />\</p>
+<h2 id="cooks-distance">Cooks distance</h2>
+<p><a href="http://statsmodels.sourceforge.net/devel/generated/statsmodels.stats.outliers_influence.OLSInfluence.html">OLSInfluence</a>
+ objects contain more diagnostic information</p>
+<div class="codehilite"><pre><span></span><span class="n">influence</span> <span class="o">=</span> <span class="n">fitted</span><span class="o">.</span><span class="n">get_influence</span><span class="p">()</span>
+<span class="c1">#c is the distance and p is p-value</span>
+<span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span> <span class="o">=</span> <span class="n">influence</span><span class="o">.</span><span class="n">cooks_distance</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">c</span><span class="p">)),</span> <span class="n">c</span><span class="p">,</span> <span class="n">markerfmt</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="k">G</span><span class="p">:</span><span class="err">\</span><span class="n">Installed</span><span class="err">\</span><span class="n">Anaconda3</span><span class="err">\</span><span class="n">Scripts</span><span class="err">\</span><span class="n">pweave</span><span class="p">:</span><span class="mi">4</span><span class="p">:</span> <span class="n">UserWarning</span><span class="p">:</span> <span class="k">In</span> <span class="n">Matplotlib</span>
+<span class="mi">3</span><span class="p">.</span><span class="mi">3</span> <span class="n">individual</span> <span class="n">lines</span> <span class="k">on</span> <span class="n">a</span> <span class="n">stem</span> <span class="n">plot</span> <span class="n">will</span> <span class="n">be</span> <span class="n">added</span> <span class="k">as</span> <span class="n">a</span> <span class="n">LineCollection</span>
+<span class="k">instead</span> <span class="k">of</span> <span class="n">individual</span> <span class="n">lines</span><span class="p">.</span> <span class="n">This</span> <span class="n">significantly</span> <span class="n">improves</span> <span class="n">the</span>
+<span class="n">performance</span> <span class="k">of</span> <span class="n">a</span> <span class="n">stem</span> <span class="n">plot</span><span class="p">.</span> <span class="k">To</span> <span class="n">remove</span> <span class="n">this</span> <span class="n">warning</span> <span class="k">and</span> <span class="n">switch</span> <span class="k">to</span> <span class="n">the</span>
+<span class="k">new</span> <span class="n">behaviour</span><span class="p">,</span> <span class="k">set</span> <span class="n">the</span> <span class="ss">&quot;use_line_collection&quot;</span> <span class="n">keyword</span> <span class="n">argument</span> <span class="k">to</span> <span class="k">True</span><span class="p">.</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="o">&lt;</span><span class="n">StemContainer</span> <span class="k">object</span> <span class="k">of</span> <span class="mi">3</span> <span class="n">artists</span><span class="o">&gt;</span>
+</pre></div>
+
+
+<p><img alt="" src="../figures/linear_regression_figure7_1.png" />\</p>
+<h1 id="statsmodels-builtin-plots">Statsmodels builtin plots</h1>
+<p>Statsmodels includes a some builtin function for plotting residuals against leverage:</p>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">statsmodels.graphics.regressionplots</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="n">plot_leverage_resid2</span><span class="p">(</span><span class="n">fitted</span><span class="p">)</span>
+<span class="n">influence_plot</span><span class="p">(</span><span class="n">fitted</span><span class="p">)</span>
+</pre></div>
+
+
+<p><img alt="" src="../figures/linear_regression_figure8_1.png" />\
+<img alt="" src="../figures/linear_regression_figure8_2.png" />\</p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../List/" title="List" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                List
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../tuple/" title="Tuple" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Tuple
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application.245445c6.js"></script>
+      
+        
+        
+          
+          <script src="../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
+      
+        <script src="../javascript/extra.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+    
+  </body>
+</html>
