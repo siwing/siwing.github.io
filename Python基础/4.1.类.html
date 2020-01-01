@@ -1,0 +1,1333 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="zh">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.0">
+    
+    
+      
+        <title>4.1.类 - Python笔记</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application.0284f74d.css">
+      
+      
+    
+    
+      <script src="../assets/javascripts/modernizr.74668098.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#_1" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href=".." title="Python笔记" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Python笔记
+            </span>
+            <span class="md-header-nav__topic">
+              
+                4.1.类
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/example/repository/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href=".." title="Python笔记" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    Python笔记
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/example/repository/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1">
+    
+    <label class="md-nav__link" for="nav-1">
+      计算机基础
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        计算机基础
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../计算机基础/1.1.计算机与程序结构.html" title="1.1.计算机与程序结构" class="md-nav__link">
+      1.1.计算机与程序结构
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../计算机基础/1.2.基本概念.html" title="1.2.基本概念" class="md-nav__link">
+      1.2.基本概念
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../计算机基础/1.3.编译型语言和解释型语言的优缺点对比.html" title="1.3.编译型语言和解释型语言的优缺点对比" class="md-nav__link">
+      1.3.编译型语言和解释型语言的优缺点对比
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../计算机基础/1.4.命名空间与作用域.html" title="1.4.命名空间与作用域" class="md-nav__link">
+      1.4.命名空间与作用域
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../计算机基础/1.5.字符编码.html" title="1.5.字符编码" class="md-nav__link">
+      1.5.字符编码
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      Python 基础
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Python 基础
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="2.1.python基本语法.html" title="2.1.python基本语法" class="md-nav__link">
+      2.1.python基本语法
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="2.2.语句.html" title="2.2.语句" class="md-nav__link">
+      2.2.语句
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="2.3.List.html" title="2.3.List" class="md-nav__link">
+      2.3.List
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="2.4.String.html" title="2.4.String" class="md-nav__link">
+      2.4.String
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="2.5.Tuple.html" title="2.5.Tuple" class="md-nav__link">
+      2.5.Tuple
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="2.6.Dict.html" title="2.6.Dict" class="md-nav__link">
+      2.6.Dict
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="3.1.异常.html" title="3.1.异常" class="md-nav__link">
+      3.1.异常
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="3.2.浅拷贝_深拷贝.html" title="3.2.浅拷贝_深拷贝" class="md-nav__link">
+      3.2.浅拷贝_深拷贝
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        4.1.类
+      </label>
+    
+    <a href="4.1.类.html" title="4.1.类" class="md-nav__link md-nav__link--active">
+      4.1.类
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="类实例" class="md-nav__link">
+    类实例
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="继承" class="md-nav__link">
+    继承
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="多重继承" class="md-nav__link">
+    多重继承
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" title="多态动态绑定和鸭子类型" class="md-nav__link">
+    多态动态绑定和鸭子类型
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" title="静态方法和类方法" class="md-nav__link">
+    静态方法和类方法
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" title="静态方法" class="md-nav__link">
+    静态方法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" title="类方法" class="md-nav__link">
+    类方法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" title="特性" class="md-nav__link">
+    特性
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" title="数据封装和私有属性" class="md-nav__link">
+    数据封装和私有属性
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" title="对象表示和属性绑定" class="md-nav__link">
+    对象表示和属性绑定
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#__slots__" title="__slots__" class="md-nav__link">
+    __slots__
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="4.2.模块.html" title="4.2.模块" class="md-nav__link">
+      4.2.模块
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Numpy笔记
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Numpy笔记
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy笔记/5.1.创建数组.html" title="5.1.创建数组" class="md-nav__link">
+      5.1.创建数组
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy笔记/5.2.索引.html" title="5.2.索引" class="md-nav__link">
+      5.2.索引
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy笔记/5.3.属性.html" title="5.3.属性" class="md-nav__link">
+      5.3.属性
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy笔记/5.5.常量.html" title="5.5.常量" class="md-nav__link">
+      5.5.常量
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy笔记/5.6.打印数组.html" title="5.6.打印数组" class="md-nav__link">
+      5.6.打印数组
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy笔记/5.7.形状操纵.html" title="5.7.形状操纵" class="md-nav__link">
+      5.7.形状操纵
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy笔记/5.8.ufunc函数.html" title="5.8.ufunc函数" class="md-nav__link">
+      5.8.ufunc函数
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy笔记/5.9.函数库.html" title="5.9.函数库" class="md-nav__link">
+      5.9.函数库
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="类实例" class="md-nav__link">
+    类实例
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="继承" class="md-nav__link">
+    继承
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="多重继承" class="md-nav__link">
+    多重继承
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" title="多态动态绑定和鸭子类型" class="md-nav__link">
+    多态动态绑定和鸭子类型
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" title="静态方法和类方法" class="md-nav__link">
+    静态方法和类方法
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" title="静态方法" class="md-nav__link">
+    静态方法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" title="类方法" class="md-nav__link">
+    类方法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" title="特性" class="md-nav__link">
+    特性
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" title="数据封装和私有属性" class="md-nav__link">
+    数据封装和私有属性
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" title="对象表示和属性绑定" class="md-nav__link">
+    对象表示和属性绑定
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#__slots__" title="__slots__" class="md-nav__link">
+    __slots__
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/example/repository/edit/master/docs/Python基础/4.1.类.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                  <h1>4.1.类</h1>
+                
+                <div class="codehilite"><pre><span></span><span class="c1">#&#39; 类提供了一种组合数据和功能的方法。</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">  File &quot;&lt;ipython-input-1-fe4e9713f159&gt;&quot;, line 1</span>
+<span class="err">    ﻿#&#39; 类提供了一种组合数据和功能的方法。</span>
+<span class="err">    ^</span>
+<span class="c">SyntaxError: invalid character in identifier</span>
+</pre></div>
+
+
+<p>类通常是由函数（称为方法，method）、变量（称为类变量，class variable）和计算出的属性（称为特性，property）组成的集合。创建一个新类意味着创建一个新类型的对象，从而允许创建一个该类型的新实例。每个类的实例可以拥有保存自己状态的属性。</p>
+<p>Python 的类提供了面向对象编程的所有标准特性：类继承机制允许多个基类，派生类可以覆盖它基类的任何方法，一个方法可以调用基类中相同名称的的方法。对象可以包含任意数量和类型的数据。和模块一样，类也拥有 Python 天然的动态特性：它们在运行时创建，可以在创建后修改。</p>
+<p><strong>在Python中，约定使用单数并将首字母大写。</strong></p>
+<p>类中定义的函数称为<strong>实例方法</strong>。实例方法是一种在类的实例上进行操作的函数，类实例作为第一个参数传递。根据约定，这个参数称为self，尽管所有合法的标识符都可以使用。<strong>self 参数指向对象本身。</strong></p>
+<blockquote>
+<p>self 很有用，甚至必不可少。如果没有它，所有的方法都无法访问对象本身（要操作的属性所属的对象）。</p>
+</blockquote>
+<p><strong>类变量</strong>是可在类的所有实例之间共享的值（也就是说，它们不是单独分配给每个实例的）。</p>
+<h2 id="_1">类实例</h2>
+<p>类的实例是以函数形式调用类对象来创建的。这种方法将创建一个新实例，然后将该实例传递给类的<code>__init__()</code>方法。<code>__init__()</code>方法的参数包括新创建的实例<code>self</code>和在调用类对象时提供的参数。</p>
+<p>在<code>__init__()</code>内，通过将属性分配给<code>self</code>来将其保存到实例中。例如，<code>self.name = name</code>表示将<code>name</code>属性保存在实例中。其中，点<code>.</code>运算符用于属性绑定。在新创建的实例返回到用户之后，使用点<code>.</code>运算符即可访问这些属性以及类的属性。</p>
+<p>访问属性时，结果值可能来自多个不同的地方。可能来自实例独有的属性，也可能来自类的属性。访问属性时，Python 首先会检查实例，如果不知道该属性的任何信息，则会对实例的类进行搜索。这是类与其所有实例共享其属性的底层机制。</p>
+<h2 id="_2">继承</h2>
+<p>继承是一种创建新类的机制，目的是使用或修改现有类的行为。原始类称为<strong>基类</strong>或<strong>超类</strong>。新类称为<strong>派生类</strong>或<strong>子类</strong>。<mark>通过继承创建类时，所创建的类将“继承”其基类定义的属性。==但是，==派生类可以重新定义任何这些属性并添加自己的新属性。</mark></p>
+<p>在class语句中用以逗号分隔的基类名称列表来指定继承。如果没有有效的基类，类将继承object。object是所有Python对象的根类，提供了一些常见方法（如<code>__str__()</code>，它可创建供打印函数使用的字符串）的默认实现。</p>
+<p>继承通常用于重新定义现有方法的行为。</p>
+<p>继承是用功能稍微增强的点<code>.</code>运算符实现的。具体来讲，如果搜索一个属性时未在实例或实例的类中找到匹配项，将会继续搜索基类。这个过程会一直继续下去，直到没有更多的基类可供搜索为止。</p>
+<p>派生类重定义<code>__init__()</code>时，不会自动调用基类的<code>__init__()</code>方法。因此，如果派生类想重定义<code>__init__()</code>，还想调用基类的<code>__init__()</code>方法，那么要由派生类调用基类的<code>__init__()</code>方法来对它们进行恰当的初始化。如果基类未定义<code>__init__()</code>，就可以忽略这一步。如果不知道基类是否定义了<code>__init__()</code>，可在不提供任何参数的情况下调用它，因为始终存在一个不执行任何操作的默认<code>__init__()</code>实现。</p>
+<div class="codehilite"><pre><span></span><span class="c1"># 定义一个人类</span>
+<span class="k">class</span> <span class="nc">Person</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
+    <span class="k">def</span> <span class="nf">get_name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span>
+    <span class="k">def</span> <span class="nf">get_age</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">age</span>
+
+<span class="c1"># 定义一个美国人类</span>
+<span class="c1">## 现在想给美国人在初始化的时候加上 性别 的属性</span>
+<span class="k">class</span> <span class="nc">American</span><span class="p">(</span><span class="n">Person</span><span class="p">):</span>
+    <span class="c1"># 重新定义__init__()会覆盖Person的__init__()方法</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">gender</span><span class="p">):</span>
+        <span class="n">Person</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span> <span class="p">,</span><span class="n">age</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">gender</span> <span class="o">=</span> <span class="n">gender</span>
+    <span class="k">def</span> <span class="nf">get_gender</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">gender</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="n">jackson</span> <span class="o">=</span> <span class="n">American</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Cesar T. Mauck&quot;</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">14</span><span class="p">,</span> <span class="n">gender</span><span class="o">=</span><span class="s2">&quot;male&quot;</span><span class="p">)</span>
+<span class="n">jackson</span><span class="o">.</span><span class="n">get_age</span><span class="p">()</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">14</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="n">jackson</span><span class="o">.</span><span class="n">get_gender</span><span class="p">()</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">&#39;male&#39;</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="c1"># 有时，派生类将重新实现方法，但是还想调用原始的实现。</span>
+</pre></div>
+
+
+<p>为此，有一种方法可以显式地调用基类中的原始方法，将实例 self 作为第一个参数传递即可，如下所示：</p>
+<div class="codehilite"><pre><span></span><span class="c1"># 定义一个华盛顿人类</span>
+<span class="k">class</span> <span class="nc">Washington</span><span class="p">(</span><span class="n">American</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">get_age</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{self.age}</span><span class="s2"> years old&quot;</span>
+    <span class="k">def</span> <span class="nf">growing_up</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># 显式地调用基类中的原始方法</span>
+        <span class="n">age</span> <span class="o">=</span> <span class="n">American</span><span class="o">.</span><span class="n">get_age</span><span class="p">()</span>
+        <span class="n">age</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Washington people grow up one year old&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+<p>这个例子的微妙之处在于，American这个类其实没有实现<code>get_age()</code>方法。该方法是在Person类中实现的。尽管这段代码能够运行，但它可能会引起一些混淆（例如，American是否应该实现<code>get_age()</code>? ）。因此，替代解决方案是用<code>super()</code>函数，如下所示：</p>
+<div class="codehilite"><pre><span></span><span class="c1"># 定义一个加利福尼亚人类</span>
+<span class="k">class</span> <span class="nc">California</span><span class="p">(</span><span class="n">American</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">get_age</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{self.age}</span><span class="s2"> years old&quot;</span>
+    <span class="k">def</span> <span class="nf">growing_up</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># 显式地调用基类中的原始方法</span>
+        <span class="c1">## 实际上，因为get_age()方法在Person中定义</span>
+        <span class="c1">## 这里可以传入Person的任何一个派生类</span>
+        <span class="n">age</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">California</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">get_age</span><span class="p">()</span>
+        <span class="n">age</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Californians grow up one year old&quot;</span><span class="p">)</span>
+
+<span class="n">Terri</span> <span class="o">=</span> <span class="n">California</span><span class="p">(</span><span class="s2">&quot;Terri H. Booth&quot;</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="s2">&quot;female&quot;</span><span class="p">)</span>
+<span class="n">Terri</span><span class="o">.</span><span class="n">growing_up</span><span class="p">()</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">Californians grow up one year old</span>
+</pre></div>
+
+
+<p><code>super(cls, instance)</code>会返回一个特殊对象，该对象支持在基类上执行属性查找。如果使用该函数，Python将使用本来应该在基类上使用的正常搜索规则来搜索属性。有了这种方式，就无需写死方法位置，并且能更清晰地陈述你的意图（即你希望调用以前的实现，无论它是哪个基类定义的）。然而，<code>super()</code>的语法尚有不足之处。如果使用Python 3，可以使用简化的语句<code>super().get_age()</code>来执行上面示例中的计算。</p>
+<h2 id="_3">多重继承</h2>
+<p>Python支持多重继承。通过让一个类列出多个基类即可指定多重继承。例如，下面给出了一个类集合：</p>
+<div class="codehilite"><pre><span></span><span class="c1"># 定义一个圣拉蒙人类</span>
+<span class="k">class</span> <span class="nc">San_Ramon</span><span class="p">(</span><span class="n">American</span><span class="p">,</span> <span class="n">California</span><span class="p">,</span> <span class="n">Washington</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">growing_up</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+
+<span class="n">Edwin</span> <span class="o">=</span> <span class="n">San_Ramon</span><span class="p">(</span><span class="s2">&quot;Edwin A. Marcotte&quot;</span><span class="p">,</span> <span class="mi">37</span><span class="p">,</span> <span class="s2">&quot;male&quot;</span><span class="p">)</span>
+<span class="n">Edwin</span><span class="o">.</span><span class="n">get_age</span><span class="p">()</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">---------------------------------------------------------------------------TypeError</span>
+<span class="err">Traceback (most recent call last)&lt;ipython-input-1-6c60ffbe4e5a&gt; in</span>
+<span class="err">&lt;module&gt;</span>
+<span class="err">      1 # 定义一个圣拉蒙人类</span>
+<span class="err">----&gt; 2 class San_Ramon(American, California, Washington):</span>
+<span class="err">      3     def growing_up(self):</span>
+<span class="err">      4         pass</span>
+<span class="err">      5</span>
+<span class="c">TypeError: Cannot create a consistent method resolution</span>
+<span class="err">order (MRO) for bases American, California, Washington</span>
+</pre></div>
+
+
+<p>使用多重继承时，属性的解析会变得非常复杂，因为可以使用很多搜索路径来绑定属性。</p>
+<p>在查找使用了多重继承的属性时，会将所有基类按从“最特殊”的类到“最不特殊”的类这种顺序进行排列。然后在搜索属性时，就会按这个顺序搜索，直至找到该属性的第一个定义。对于任何给定的类，通过打印它的 <strong>mro</strong> 属性即可查看基类的顺序，例如：</p>
+<p>在大多数情况下，这个列表基于“有意义”的规则排列得出。也就是说，始终先检查派生类，然后再检查其基类，如果一个类具有多个父类，那么始终按类定义中列出的父类顺序检查这些父类。但是，基类的准确顺序实际上非常复杂，不是基于任何“简单的”算法，如深度优先或广度优先搜索。实际上，基类的顺序由 C3 线性化算法确定，可以在论文“A Monotonic Superclass Linearization for Dylan”（K. Barrett 等，发表于 OOPSLA’96）中找到该算法的介绍。该算法的一个需要注意的地方是，某些类层次结构将被 Python 拒绝并会抛出<code>TypeError</code>错误，例如：</p>
+<p>一般来说，在大多数程序中最好避免使用多重继承。但是，多重继承有时可用于定义所谓的混合（mixin）类。混合类通常定义了要“混合到”其他类中的一组方法，目的是添加更多的功能（这与宏很类似）。通常，混合类中的方法将假定其他方法存在，并将以这些方法为基础构建。</p>
+<h2 id="_4">多态动态绑定和鸭子类型</h2>
+<p>动态绑定（在继承背景下使用时，有时也称为多态性）是指在不考虑实例类型的情况下使用实例只要以<code>obj.attr</code>的形式访问属性，就会按照一定的顺序搜索并定位<code>attr</code>：<strong>首先是实例本身，接着是实例的类定义，然后是基类。</strong>查找过程会返回第一个匹配项。</p>
+<p>这种绑定过程的关键在于，它不受对象 obj 的类型影响。因此，如果执行像 <code>obj.name</code> 这样的查找，对所有拥有 <code>name</code> 属性的 obj 都是适用的。这种行为有时被称为“鸭子类型”（duck typing），这个名称来源于一句谚语：“如果看起来像、叫声像而且走起路来像鸭子，那么它就是鸭子。”</p>
+<p>Python 程序员经常编写利用这种行为的程序。例如，如果想编写现有对象的自定义版本，可以继承该对象，也可以创建一个外观和行为像它但与它无任何关系的全新对象。后一种方法通常用于保持程序组件的松散耦合。例如，可以编写代码来处理任何种类的对象，只要该对象拥有特定的方法集。最常见的例子就是利用标准库中定义的各种“类似文件”的对象。尽管这些对象的工作方式像文件，但它们并不是继承自内置文件对象的。</p>
+<h2 id="_5">静态方法和类方法</h2>
+<h3 id="_6">静态方法</h3>
+<p>在类定义中，所有函数都被假定在实例上操作，该实例总是作为第一个参数 <code>self</code> 传递。但是，还可以定义两种常见的方法。</p>
+<p>静态方法是一种普通函数，只不过它们正好位于类定义的命名空间中。<mark>它不会对任何实例类型进行操作</mark>。要定义静态方法，可使用 <code>@staticmethod</code> 装饰器，如下所示：</p>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Foo</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+　　 <span class="nd">@staticmethod</span>
+　　 <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
+　　　　 <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+</pre></div>
+
+
+<p>要调用静态方法，只需用类名作为它的前缀。无需向它传递任何其他信息，例如：</p>
+<div class="codehilite"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">Foo</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>　　 <span class="c1"># x = 7</span>
+</pre></div>
+
+
+<p>如果在编写类时需要采用很多不同的方式来创建新实例，则常常使用静态方法。因为类中只能有一个 <code>__init__()</code> 函数，所以替代的创建函数通常按如下方式定义：</p>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Date</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+　　<span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">year</span><span class="p">,</span><span class="n">month</span><span class="p">,</span><span class="n">day</span><span class="p">):</span>
+　　　　<span class="bp">self</span><span class="o">.</span><span class="n">year</span> <span class="o">=</span> <span class="n">year</span>
+　　　　<span class="bp">self</span><span class="o">.</span><span class="n">month</span> <span class="o">=</span> <span class="n">month</span>
+　　　　<span class="bp">self</span><span class="o">.</span><span class="n">day</span> <span class="o">=</span> <span class="n">day</span>
+　　<span class="nd">@staticmethod</span>
+　　<span class="k">def</span> <span class="nf">now</span><span class="p">():</span>
+　　　　 <span class="n">t</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">()</span>
+　　　　 <span class="k">return</span> <span class="n">Date</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">tm_year</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">tm_mon</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">tm_day</span><span class="p">)</span>
+　　<span class="nd">@staticmethod</span>
+　　<span class="k">def</span> <span class="nf">tomorrow</span><span class="p">():</span>
+　　　　 <span class="n">t</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span><span class="o">+</span><span class="mi">86400</span><span class="p">)</span>
+　　　　 <span class="k">return</span> <span class="n">Date</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">tm_year</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">tm_mon</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">tm_day</span><span class="p">)</span>
+
+<span class="c1"># 创建日期的示例</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">Date</span><span class="p">(</span><span class="mi">1967</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">Date</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>　　　　 <span class="c1"># 调用静态方法now()</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">Date</span><span class="o">.</span><span class="n">tomorrow</span><span class="p">()</span>　　<span class="c1"># 调用静态方法tomorrow()</span>
+</pre></div>
+
+
+<h3 id="_7">类方法</h3>
+<p>类方法是将类本身作为对象进行操作的方法。类方法使用 <code>@classmethod</code> 装饰器定义，与实例方法不同，因为根据约定，类是作为第一个参数（名为 <code>cls</code>）传递的，例如：</p>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Times</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+　　<span class="n">factor</span> <span class="o">=</span> <span class="mi">1</span>
+　　<span class="nd">@classmethod</span>
+　　<span class="k">def</span> <span class="nf">mul</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span><span class="n">x</span><span class="p">):</span>
+　　　　<span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">factor</span><span class="o">*</span><span class="n">x</span>
+
+<span class="k">class</span> <span class="nc">TwoTimes</span><span class="p">(</span><span class="n">Times</span><span class="p">):</span>
+　　<span class="n">factor</span> <span class="o">=</span> <span class="mi">2</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">TwoTimes</span><span class="o">.</span><span class="n">mul</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>　　<span class="c1"># 调用Times.mul(TwoTimes, 4) -&gt; 8</span>
+</pre></div>
+
+
+<p>在这个例子中，请注意类 TwoTimes 是如何作为对象传递给 mul() 的。尽管这个例子有些深奥，但类方法还有一些实用且巧妙的用法。例如，你定义了一个类，它继承自前面给出的 Date 类并对其略加定制：</p>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">EuroDate</span><span class="p">(</span><span class="n">Date</span><span class="p">):</span>
+　　<span class="c1"># 修改字符串转换，以使用欧洲日期格式</span>
+　　<span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+　　　　<span class="k">return</span> <span class="s2">&quot;</span><span class="si">%02d</span><span class="s2">/</span><span class="si">%02d</span><span class="s2">/</span><span class="si">%4d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">day</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">month</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">year</span><span class="p">)</span>
+</pre></div>
+
+
+<p>由于该类继承自 Date，所以它拥有 Date 的所有特性。但是 now() 和 tomorrow() 方法稍微有点不同。例如，如果调用 EuroDate.now()，则会返回 Date 对象，而不是 EuroDate 对象。类方法可以解决该问题：</p>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Date</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+　　<span class="o">...</span>
+　　<span class="nd">@classmethod</span>
+　　<span class="k">def</span> <span class="nf">now</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+　　　　 <span class="n">t</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">()</span>
+　　　　 <span class="c1"># 创建具有合适类型的对象</span>
+　　　　 <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">tm_year</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">tm_month</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">tm_day</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">EuroDate</span><span class="p">(</span><span class="n">Date</span><span class="p">):</span>
+　　<span class="o">...</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="n">Date</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>　　　　<span class="c1"># 调用Date.now(Date)并返回Date</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">EuroDate</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>　　<span class="c1"># 调用Date.now(EuroDate)并返回EuroDate</span>
+</pre></div>
+
+
+<p>关于静态方法和类方法需要注意的一点是，Python 不会在与实例方法独立的命名空间中管理它们。因此，可以在实例上调用它们。例如：</p>
+<div class="codehilite"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">Date</span><span class="p">(</span><span class="mi">1967</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">9</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>　　　　　<span class="c1"># 调用Date.now(Date)</span>
+</pre></div>
+
+
+<p>这可能很容易引起混淆，因为对 d.now() 的调用与实例d没有任何关系。这种行为是 Python 对象系统与其他面向对象语言（如 Smalltalk 和 Ruby）对象系统的区别之一。在这些语言中，类方法与实例方法是严格分开的。</p>
+<h2 id="_8">特性</h2>
+<blockquote>
+<p><code>@property</code>——把方法变为属性</p>
+</blockquote>
+<p>通常，访问实例或类的属性时，返回的会是所存储的相关值。特性（property）是一种特殊的属性，访问它时会计算它的值。下面是一个简单的例子：</p>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
+<span class="k">class</span> <span class="nc">Circle</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">radius</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">radius</span> <span class="o">=</span> <span class="n">radius</span>
+    <span class="c1"># Circle的一些附加特性</span>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">area</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">radius</span><span class="o">**</span><span class="mi">2</span>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">preimeter</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="mi">2</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">radius</span>
+</pre></div>
+
+
+<p>得到的Circle对象的行为如下：</p>
+<div class="codehilite"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="n">Circle</span><span class="p">(</span><span class="mf">4.0</span><span class="p">)</span>
+<span class="n">c</span><span class="o">.</span><span class="n">radius</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">4.0</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="n">c</span><span class="o">.</span><span class="n">area</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">50.26548245743669</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="n">c</span><span class="o">.</span><span class="n">perimeter</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">---------------------------------------------------------------------------AttributeError</span>
+<span class="err">Traceback (most recent call last)&lt;ipython-input-1-9874f48d40e6&gt; in</span>
+<span class="err">&lt;module&gt;</span>
+<span class="err">----&gt; 1 c.perimeter</span>
+<span class="c">AttributeError: &#39;Circle&#39; object has no attribute &#39;perimeter&#39;</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="n">c</span><span class="o">.</span><span class="n">area</span> <span class="o">=</span> <span class="mi">2</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">---------------------------------------------------------------------------AttributeError</span>
+<span class="err">Traceback (most recent call last)&lt;ipython-input-1-0dac39a0c579&gt; in</span>
+<span class="err">&lt;module&gt;</span>
+<span class="err">----&gt; 1 c.area = 2</span>
+<span class="c">AttributeError: can&#39;t set attribute</span>
+</pre></div>
+
+
+<p>在这个例子中，Circle 实例存储了一个实例变量 <code>c.radius</code>。<code>c.area</code> 和 <code>c.perimeter</code> 是根据该值计算得来的。<code>@property</code> 装饰器支持以简单属性的形式访问后面的方法，无需像平常一样添加额外的 <code>()</code>来调用该方法。对象的使用者很难发现正在计算一个属性，除非在试图重新定义该属性时生成了错误消息（如上面的 AttributeError 异常所示）。</p>
+<p>==这种特性使用方式遵循所谓的统一访问原则。==实际上，如果定义一个类，尽可能保持编程接口的统一总是不错的。如果没有特性，将会以简单属性（如 <code>c.radius</code>）的形式访问对象的某些属性，而其他属性将以方法（如 <code>c.area()</code>）的形式访问。费力去了解何时添加额外的 () 会带来不必要的混淆。特性可以解决该问题。</p>
+<p>Python 程序员很少认识到，方法本身是被隐式地作为一类特性处理的。考虑下面这个类：</p>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Foo</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">name</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+    <span class="k">def</span> <span class="nf">spam</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">x</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">  File &quot;&lt;ipython-input-1-3579cdb072a7&gt;&quot;, line 5</span>
+<span class="err">    print(&quot;%s, %s&quot; % (self.name, x)</span>
+<span class="err">                                   ^</span>
+<span class="c">SyntaxError: unexpected EOF while parsing</span>
+</pre></div>
+
+
+<p>用户创建 <code>f = Foo("Guido")</code> 这样的实例然后访问 <code>f.spam</code> 时，不会返回原始函数对象 <code>spam</code>，而是会得到所谓的绑定方法（bound method），绑定方法是一个对象，代表将在对象上调用 <code>()</code> 运算符时执行的方法调用。绑定方法有点类似于已部分计算的函数，其中的self参数已经填入，但其他参数仍然需要在使用 () 调用该函数时提供。这种绑定方法对象是由在后台执行的特性函数静默地创建的。使用 <code>@staticmethod</code> 和 <code>@classmethod</code> 定义静态方法和类方法时，实际上就指定了使用不同的特性函数，以不同的方式处理对这些方法的访问。例如，<code>@staticmethod</code> 仅“按原样”返回方法函数，不会进行任何特殊的包装或处理。</p>
+<p>特性还可以截获操作权，以设置和删除属性。这是通过向特性附加其他 <code>setter</code> 和 <code>deleter</code> 方法来实现的，如下所示：</p>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Foo</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">name</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__name</span> <span class="o">=</span> <span class="n">name</span>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__name</span>
+    <span class="nd">@name</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">value</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span><span class="nb">str</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Must be a string!&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__name</span> <span class="o">=</span> <span class="n">value</span>
+    <span class="nd">@name</span><span class="o">.</span><span class="n">deleter</span>
+    <span class="k">def</span> <span class="nf">name</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Can&#39;t delete name&quot;</span><span class="p">)</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="n">Foo</span><span class="p">(</span><span class="s2">&quot;Guido&quot;</span><span class="p">)</span>
+<span class="n">n</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">name</span>   <span class="c1"># 调用f.name() – get函数</span>
+<span class="n">f</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Monty&quot;</span>    <span class="c1"># 调用setter name(f,&quot;Monty&quot;)</span>
+<span class="n">f</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="mi">45</span>     <span class="c1"># 调用setter name(f,45) -&gt; TypeError</span>
+<span class="k">del</span> <span class="n">f</span><span class="o">.</span><span class="n">name</span>      <span class="c1"># 调用deleter name(f) -&gt; TypeError</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">---------------------------------------------------------------------------TypeError</span>
+<span class="err">Traceback (most recent call last)&lt;ipython-input-1-a48ffb0076e6&gt; in</span>
+<span class="err">&lt;module&gt;</span>
+<span class="err">     17 n = f.name   # 调用f.name() – get函数</span>
+<span class="err">     18 f.name = &quot;Monty&quot;    # 调用setter name(f,&quot;Monty&quot;)</span>
+<span class="err">---&gt; 19 f.name = 45     # 调用setter name(f,45) -&gt; TypeError</span>
+<span class="err">     20 del f.name      # 调用deleter name(f) -&gt; TypeError</span>
+<span class="err">&lt;ipython-input-1-a48ffb0076e6&gt; in name(self, value)</span>
+<span class="err">      8     def name(self,value):</span>
+<span class="err">      9         if not isinstance(value,str):</span>
+<span class="err">---&gt; 10             raise TypeError(&quot;Must be a string!&quot;)</span>
+<span class="err">     11         self.__name = value</span>
+<span class="err">     12     @name.deleter</span>
+<span class="c">TypeError: Must be a string!</span>
+</pre></div>
+
+
+<p>在这个例子中，首先使用 <code>@property</code> 装饰器和相关方法将属性 <code>name</code> 定义为只读特性。后面的 <code>@name.setter</code> 和 <code>@name.deleter</code>装饰器将其他方法与 name 属性上的设置和删除操作相关联。这些方法的名称必须与原始特性的名称完全匹配。在这些方法中，请注意实际的名称值存储在属性 <code>__name</code> 中。所存储属性的名称无需遵循任何约定，但它必须与特性名称不同，以便将它与特性的名称区分开。</p>
+<p>在以前的代码中，通常会看到用 <code>property(getf=None, setf=None, delf=None, doc=None)</code> 函数来定义特性，往其中传入一组名称不同的方法，用于执行相关操作。例如：</p>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Foo</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">getname</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__name</span>
+    <span class="k">def</span> <span class="nf">setname</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">value</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span><span class="nb">str</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Must be a string!&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__name</span> <span class="o">=</span> <span class="n">value</span>
+    <span class="k">def</span> <span class="nf">delname</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;Can&#39;t delete name&quot;</span><span class="p">)</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="nb">property</span><span class="p">(</span><span class="n">getname</span><span class="p">,</span><span class="n">setname</span><span class="p">,</span><span class="n">delname</span><span class="p">)</span>
+</pre></div>
+
+
+<p>这种老方法仍然可以使用，但装饰器版本会让类看起来更整洁。例如，如果使用装饰器，get、 set 和 delete 函数将不会显示为方法。</p>
+<h2 id="_9">数据封装和私有属性</h2>
+<p>默认情况下，类的所有属性和方法都是“公共的”。这意味着对它们的访问没有任何限制。这还暗示着，在基类中定义的所有内容都会被派生类继承，并可从派生类内进行访问。在面向对象的应用程序中，通常我们不希望发生这种行为，因为它会暴露对象的内部实现，可能导致在派生类中定义的对象与在基类中定义的对象之间发生命名空间冲突。</p>
+<p>为了解决该问题，==类中所有以双下划线开头的名称（如<code>__Foo</code>）都会自动变形，形成具有<code>_Classname__Foo</code>形式的新名称。==这提供了一种在类中添加私有属性和方法的有效方式，因为派生类中使用的私有名称不会与基类中使用的相同私有名称发生冲突，如下所示：</p>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">A</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__X</span> <span class="o">=</span> <span class="mi">3</span>  <span class="c1"># 变形为self._A__X</span>
+    <span class="k">def</span> <span class="nf">__spam</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>  <span class="c1"># 变形为_A__spam()</span>
+        <span class="k">pass</span>
+    <span class="k">def</span> <span class="nf">bar</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__spam</span><span class="p">()</span>  <span class="c1"># 只调用A.__spam()</span>
+<span class="k">class</span> <span class="nc">B</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">A</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__X</span> <span class="o">=</span> <span class="mi">37</span>  <span class="c1"># 变形为self._B__X</span>
+    <span class="k">def</span> <span class="nf">__spam</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>  <span class="c1"># 变形为_B__spam()</span>
+        <span class="k">pass</span>
+</pre></div>
+
+
+<p>尽管这种方案似乎隐藏了数据，但并没有严格的机制来实际阻止对类的“私有”属性进行访问。特别是如果已知类名称和相应私有属性的名称，则可以使用变形后的名称来访问它们。通过重定义 dir() 方法，类可以降低这些属性的可见性，<code>dir()</code> 方法提供了检查对象的 <code>dir()</code> 函数所返回的名称列表。</p>
+<p>尽管这种名称变形似乎是一个额外的处理步骤，但变形过程实际上只在定义类时发生一次。它不会在方法执行期间发生，也不会为程序的执行添加额外的开销。而且要知道，名称变形不会在<code>getattr()</code>、<code>hasattr()</code>、<code>setattr()</code>或<code>delattr()</code>等函数中发生，在这些函数中，属性名被指定为字符串。对于这些函数，需要显式使用变形名称（如<code>__Classname__name</code>）来访问属性。</p>
+<p>建议在定义可变属性时，通过特性来使用私有属性。这样，就可鼓励用户使用特性名称，而无需直接访问底层实例数据（如果你在实例开头添加了一个特性，可能不想采用这种访问方式）。</p>
+<p>==通过为方法提供私有名称，超类可以阻止派生类重新定义和更改方法的实现。==例如，示例中的<code>A.bar()</code>方法只调用<code>A.__spam()</code>，无论 self 具有何种类型，或者派生类中是否存在不同的<code>__spam()</code>方法都是如此。</p>
+<p>最后，不要混淆私有类属性的命名和模块中“私有”定义的命名。一个常见的错误是，在定义类时，在属性名上使用单个前导下划线来隐藏属性值（如<code>_name</code>）。==在模块中，这种命名约定可以阻止通过 <code>from module import *</code> 语句导出名称。==但是在类中，这种命名约定既不能隐藏属性，在某个类继承该类并使用相同名称定义一个新属性或方法时，也不能阻止出现名称冲突。</p>
+<h2 id="_10">对象表示和属性绑定</h2>
+<p>从内部实现上看，实例是使用字典来实现的，可以通过实例的 <code>__dict__</code> 属性访问该字典。这个字典包含的数据对每个实例而言都是唯一的，如下所示：</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">Account</span><span class="p">(</span><span class="s1">&#39;Guido&#39;</span><span class="p">,</span> <span class="mf">1100.0</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="o">.</span><span class="vm">__dict__</span>
+<span class="p">{</span><span class="s1">&#39;balance&#39;</span><span class="p">:</span> <span class="mf">1100.0</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Guido&#39;</span><span class="p">}</span>
+</pre></div>
+
+
+<p>可以在任何时候向实例添加新属性，例如：</p>
+<div class="codehilite"><pre><span></span><span class="n">a</span><span class="o">.</span><span class="n">number</span> <span class="o">=</span> <span class="mi">123456</span>　　<span class="c1">#&#39; 将属性&#39;number&#39;添加到 a.__dict__</span>
+</pre></div>
+
+
+<p>对实例的修改始终会反映到局部 <code>__dict__</code> 属性中。同样，如果直接对 <code>__dict__</code> 进行修改，所做的修改也会反映在实例的属性中。</p>
+<p>实例通过特殊属性 <code>__class__</code> 链接回它们的类。类本身也只是对字典的浅层包装，你可以在实例的 <code>__dict__</code> 属性中找到这个字典。可以在类字典中找到各种方法。例如：</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span><span class="o">.</span><span class="vm">__class__</span>
+<span class="o">&lt;</span><span class="k">class</span> <span class="err">&#39;</span><span class="nc">__main__</span><span class="o">.</span><span class="n">Account</span><span class="s1">&#39;&gt;</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">Account</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+<span class="p">[</span><span class="s1">&#39;__dict__&#39;</span><span class="p">,</span> <span class="s1">&#39;__module__&#39;</span><span class="p">,</span> <span class="s1">&#39;inquiry&#39;</span><span class="p">,</span> <span class="s1">&#39;deposit&#39;</span><span class="p">,</span> <span class="s1">&#39;withdraw&#39;</span><span class="p">,</span>
+<span class="s1">&#39;__del__&#39;</span><span class="p">,</span> <span class="s1">&#39;num_accounts&#39;</span><span class="p">,</span> <span class="s1">&#39;__weakref__&#39;</span><span class="p">,</span> <span class="s1">&#39;__doc__&#39;</span><span class="p">,</span> <span class="s1">&#39;__init__&#39;</span><span class="p">]</span>
+</pre></div>
+
+
+<p>最后，通过特殊属性 <code>__bases__</code> 中将类链接到它们的基类，该属性是一个基类元组。这种底层结构是获取、设置和删除对象属性的所有操作的基础。</p>
+<p>只要使用 <code>obj.name = value</code> 设置了属性，特殊方法 <code>obj.__setattr__("name", value)</code> 就会被调用。如果使用 <code>del obj.name</code> 删除了一个属性，就会调用特殊方法 <code>obj.__delattr__("name")</code>。这些方法的默认行为是修改或删除 <code>obj</code> 的局部 <code>__dict__</code> 的值，除非请求的属性正好是一个特性或描述符。在这种情况下，设置和删除操作将由与该特性相关联的设置和删除函数执行。</p>
+<p>在查找属性（如 <code>obj.name</code>）时，将调用特殊方法 <code>obj.__getattrribute__("name")</code> 。该方法执行搜索来查找该属性，这通常涉及检查特性、查找局部 <code>__dict__</code> 属性、检查类字典以及搜索基类。如果搜索过程失败，最终会尝试调用类的 <code>__getattr__()</code> 方法（如果已定义）来查找该属性。如果这也失败，就会抛出 AttributeError 异常。</p>
+<p>如果有必要，用户定义的类可以实现其自己的属性访问函数。例如：</p>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Circle</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">radius</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">radius</span> <span class="o">=</span> <span class="n">radius</span>
+    <span class="k">def</span> <span class="fm">__getattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">name</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;area&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">radius</span><span class="o">**</span><span class="mi">2</span>
+        <span class="k">elif</span> <span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;perimeter&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">2</span><span class="o">*</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">radius</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="nb">object</span><span class="o">.</span><span class="fm">__getattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">name</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">setattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">name</span><span class="p">,</span><span class="n">value</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;area&#39;</span><span class="p">,</span><span class="s1">&#39;perimeter&#39;</span><span class="p">]:</span>
+            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%s</span><span class="s2"> is readonly&quot;</span> <span class="o">%</span> <span class="n">name</span><span class="p">)</span>
+        <span class="nb">object</span><span class="o">.</span><span class="fm">__setattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">name</span><span class="p">,</span><span class="n">value</span><span class="p">)</span>
+</pre></div>
+
+
+<p>重新实现这些方法的类应该可以依靠 <code>object</code> 中的默认实现来执行实际的工作。这是因为默认实现能够处理类的更高级特性，如描述符和特性。</p>
+<p>一般来讲，类很少重新定义属性访问运算符。但是，在编写通用的包装器和现有对象的代理时，通常会使用属性访问运算符。通过重新定义 <code>__getattr__()</code>、<code>__setattr__()</code> 和 <code>__delattr__()</code>，代理可以捕获属性访问操作，并透明地将这些操作转发给另一个对象。</p>
+<h2 id="__slots__"><code>__slots__</code></h2>
+<p>通过定义特殊变量 <strong>slots</strong>，类可以限制对合法实例属性名称的设置，如下所示：</p>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Account</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+　　<span class="vm">__slots__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span><span class="s1">&#39;balance&#39;</span><span class="p">)</span>
+　　　<span class="o">...</span>
+</pre></div>
+
+
+<p><mark>定义<code>__slots__</code>时，可以将实例上分配的属性名称限制为指定的名称，否则将引发 AttributeError 异常。这种限制可以阻止其他人向现有实例添加新属性，即便用户将属性名称写错，也不会创建出新的属性来。</mark></p>
+<p><strong>在实际使用中，<code>__slots__</code>从未被当作一种安全的特性来实现。它实际上是对内存和执行速度的一种性能优化。</strong>使用<code>__slots__</code>的类的实例不再使用字典来存储实例数据，转而采用一种基于数组的更加紧凑的数据结构。在会创建大量对象的程序中，使用<code>__slots__</code>可以显著减少减少内存占用和执行时间。</p>
+<p>注意，<code>__slots__</code>与继承的配合使用需要一定的技巧。如果类继承自使用<code>__slots__</code>的基类，那么它也需要定义<code>__slots__</code>来存储自己的属性（即使它不会添加任何属性也是如此），这样才能利用<code>__slots__</code>提供的优势。如果忘记了这一点，派生类的运行速度将更慢，占用的内存也更多，比完全不使用<code>__slots__</code>时情况更糟。</p>
+<p><code>__slots__</code>的使用还会破坏期望实例具有底层<code>__dict__</code>属性的代码。尽管这一点通常不适用于用户代码，但对于支持对象的实用库和其他工具，其代码可能要依靠<code>__dict__</code>来调试、序列化对象以及执行其他操作。</p>
+<p>最后，如果类中重新定义了<code>__getattribute__()</code>、<code>__getattr__()</code>和<code>__setattr__()</code>等方法，<code>__slots__</code>的存在不会对它们的调用产生任何影响。但是，这些方法的默认行为将考虑到<code>__slots__</code>。此外应该强调一点，没有必要向<code>__slots__</code>添加方法或特性名称，因为它们存储在类中，而不是存储在每个实例中。</p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="3.2.浅拷贝_深拷贝.html" title="3.2.浅拷贝_深拷贝" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  上一页
+                </span>
+                3.2.浅拷贝_深拷贝
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="4.2.模块.html" title="4.2.模块" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  下一页
+                </span>
+                4.2.模块
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application.245445c6.js"></script>
+      
+        
+        
+          
+          <script src="../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
+      
+        <script src="../javascript/extra.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+    
+  </body>
+</html>

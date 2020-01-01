@@ -1,0 +1,898 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="zh">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.0">
+    
+    
+      
+        <title>1.5.字符编码 - Python笔记</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application.0284f74d.css">
+      
+      
+    
+    
+      <script src="../assets/javascripts/modernizr.74668098.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#ascii" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href=".." title="Python笔记" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Python笔记
+            </span>
+            <span class="md-header-nav__topic">
+              
+                1.5.字符编码
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/example/repository/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href=".." title="Python笔记" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    Python笔记
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/example/repository/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1" checked>
+    
+    <label class="md-nav__link" for="nav-1">
+      计算机基础
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        计算机基础
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="1.1.计算机与程序结构.html" title="1.1.计算机与程序结构" class="md-nav__link">
+      1.1.计算机与程序结构
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="1.2.基本概念.html" title="1.2.基本概念" class="md-nav__link">
+      1.2.基本概念
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="1.3.编译型语言和解释型语言的优缺点对比.html" title="1.3.编译型语言和解释型语言的优缺点对比" class="md-nav__link">
+      1.3.编译型语言和解释型语言的优缺点对比
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="1.4.命名空间与作用域.html" title="1.4.命名空间与作用域" class="md-nav__link">
+      1.4.命名空间与作用域
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        1.5.字符编码
+      </label>
+    
+    <a href="1.5.字符编码.html" title="1.5.字符编码" class="md-nav__link md-nav__link--active">
+      1.5.字符编码
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ascii" title="ASCII码" class="md-nav__link">
+    ASCII码
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ascii_1" title="非ASCII码" class="md-nav__link">
+    非ASCII码
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gb2312" title="GB2312码" class="md-nav__link">
+    GB2312码
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unicode" title="Unicode" class="md-nav__link">
+    Unicode
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unicode_1" title="Unicode 的问题" class="md-nav__link">
+    Unicode 的问题
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#utf-8" title="UTF-8" class="md-nav__link">
+    UTF-8
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="参考" class="md-nav__link">
+    参考
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Python 基础
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Python 基础
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python基础/2.1.python基本语法.html" title="2.1.python基本语法" class="md-nav__link">
+      2.1.python基本语法
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python基础/2.2.语句.html" title="2.2.语句" class="md-nav__link">
+      2.2.语句
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python基础/2.3.List.html" title="2.3.List" class="md-nav__link">
+      2.3.List
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python基础/2.4.String.html" title="2.4.String" class="md-nav__link">
+      2.4.String
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python基础/2.5.Tuple.html" title="2.5.Tuple" class="md-nav__link">
+      2.5.Tuple
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python基础/2.6.Dict.html" title="2.6.Dict" class="md-nav__link">
+      2.6.Dict
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python基础/3.1.异常.html" title="3.1.异常" class="md-nav__link">
+      3.1.异常
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python基础/3.2.浅拷贝_深拷贝.html" title="3.2.浅拷贝_深拷贝" class="md-nav__link">
+      3.2.浅拷贝_深拷贝
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python基础/4.1.类.html" title="4.1.类" class="md-nav__link">
+      4.1.类
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python基础/4.2.模块.html" title="4.2.模块" class="md-nav__link">
+      4.2.模块
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Numpy笔记
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Numpy笔记
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy笔记/5.1.创建数组.html" title="5.1.创建数组" class="md-nav__link">
+      5.1.创建数组
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy笔记/5.2.索引.html" title="5.2.索引" class="md-nav__link">
+      5.2.索引
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy笔记/5.3.属性.html" title="5.3.属性" class="md-nav__link">
+      5.3.属性
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy笔记/5.5.常量.html" title="5.5.常量" class="md-nav__link">
+      5.5.常量
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy笔记/5.6.打印数组.html" title="5.6.打印数组" class="md-nav__link">
+      5.6.打印数组
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy笔记/5.7.形状操纵.html" title="5.7.形状操纵" class="md-nav__link">
+      5.7.形状操纵
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy笔记/5.8.ufunc函数.html" title="5.8.ufunc函数" class="md-nav__link">
+      5.8.ufunc函数
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy笔记/5.9.函数库.html" title="5.9.函数库" class="md-nav__link">
+      5.9.函数库
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ascii" title="ASCII码" class="md-nav__link">
+    ASCII码
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ascii_1" title="非ASCII码" class="md-nav__link">
+    非ASCII码
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gb2312" title="GB2312码" class="md-nav__link">
+    GB2312码
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unicode" title="Unicode" class="md-nav__link">
+    Unicode
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unicode_1" title="Unicode 的问题" class="md-nav__link">
+    Unicode 的问题
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#utf-8" title="UTF-8" class="md-nav__link">
+    UTF-8
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="参考" class="md-nav__link">
+    参考
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/example/repository/edit/master/docs/计算机基础/1.5.字符编码.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                  <h1>1.5.字符编码</h1>
+                
+                <p>相对于数字，字符串比较特殊的是还有一个编码问题。</p>
+<p>一般，计算机的系统结构是基于数字信号来搭建的，计算机中的计算基于数字电路。在计算机内部，所有信息最终都是一个二进制值。计算机只能处理数字，如果要处理文本，就必须先把文本转换为数字才能处理。</p>
+<p>每一个二进制位（bit）有<code>0</code>和<code>1</code>两种状态，最早的计算机在设计时采用8个比特（bit）作为一个字节（byte），因此一个字节可以表示256种状态（$2^8=256$），每一个状态对应一个符号，就是256个符号，从<code>00000000</code>到<code>11111111</code>。一个字节能表示的最大的整数就是255（二进制11111111=十进制255），如果要表示更大的整数，就必须用更多的字节。比如两个字节可以表示的最大整数是<code>65535</code>，4个字节可以表示的最大整数是<code>4294967295</code>。</p>
+<h2 id="ascii">ASCII码</h2>
+<p>因为计算机是美国人发明的，所以在上个世纪60年代，美国制定了一套字符编码，对英语字符与二进制位之间的关系，做了统一规定。这被称为 ASCII 码，一直沿用至今。ASCII 码一共规定了128个字符的编码，比如空格<code>SPACE</code>是32（二进制<code>00100000</code>），大写的字母<code>A</code>是65（二进制<code>01000001</code>）。这128个符号（包括32个不能打印出来的控制符号），只占用了一个字节的后面7位，最前面的一位统一规定为<code>0</code>。</p>
+<h2 id="ascii_1">非ASCII码</h2>
+<p>英语用128个符号编码就够了，但是用来表示其他语言，128个符号是不够的。比如，在法语中，字母上方有注音符号，它就无法用 ASCII 码表示。于是，一些欧洲国家就决定，利用字节中闲置的最高位编入新的符号。比如，法语中的<code>é</code>的编码为130（二进制<code>10000010</code>）。这样一来，这些欧洲国家使用的编码体系，可以表示最多256个符号。</p>
+<p>但是，这里又出现了新的问题。不同的国家有不同的字母，因此，哪怕它们都使用256个符号的编码方式，代表的字母却不一样。比如，130在法语编码中代表了<code>é</code>，在希伯来语编码中却代表了字母<code>Gimel</code> (<code>ג</code>)，在俄语编码中又会代表另一个符号。但是不管怎样，所有这些编码方式中，0--127表示的符号是一样的，不一样的只是128--255的这一段。</p>
+<h3 id="gb2312">GB2312码</h3>
+<p>汉字多达10万左右，要处理中文显然一个字节是不够的，至少需要两个字节，而且还不能和ASCII编码冲突，所以，中国制定了<code>GB2312</code>编码，使用两个字节表示一个汉字，所以理论上最多可以表示 256 x 256 = 65536 个符号。</p>
+<blockquote>
+<p>虽然都是用多个字节表示一个符号，但是GB类的汉字编码与后文的 Unicode 和 UTF-8 是毫无关系的。</p>
+</blockquote>
+<p>可以想得到的是，全世界有上百种语言，日本把日文编到<code>Shift_JIS</code>里，韩国把韩文编到<code>Euc-kr</code>里，各国有各国的标准，就会不可避免地出现冲突，结果就是，在多语言混合的文本中，显示出来会有乱码。</p>
+<h2 id="unicode">Unicode</h2>
+<p>正如上一节所说，世界上存在着多种编码方式，同一个二进制数字可以被解释成不同的符号。因此，要想打开一个文本文件，就必须知道它的编码方式，否则用错误的编码方式解读，就会出现乱码。为什么电子邮件常常出现乱码？就是因为发信人和收信人使用的编码方式不一样。</p>
+<p>因此，Unicode应运而生。Unicode把所有语言都统一到一套编码里，这样就不会再有乱码问题了。 Unicode就像它的名字都表示的，这是一种所有符号的编码。</p>
+<blockquote>
+<p>Unicode标准也在不断发展，但最常用的是用两个字节表示一个字符（如果要用到非常偏僻的字符，就需要4个字节）。现代操作系统和大多数编程语言都直接支持Unicode。</p>
+</blockquote>
+<p>Unicode 是一个很大的集合，现在的规模可以容纳100多万个符号。每个符号的编码都不一样，可以查询<a href="http://www.unicode.org/">unicode.org</a>，或者专门的<a href="http://www.chi2ko.com/tool/CJK.htm">汉字对应表</a>。</p>
+<h2 id="unicode_1">Unicode 的问题</h2>
+<p>需要注意的是，Unicode 只是一个符号集，它只规定了符号的二进制代码，却没有规定这个二进制代码应该如何存储。（<mark>这里说的储存是储存在<strong>ROM</strong>中，比如说硬盘。</mark>）</p>
+<p>比如，汉字<code>严</code>的 Unicode 是十六进制数<code>4E25</code>，转换成二进制数足足有15位（<code>100111000100101</code>），也就是说，这个符号的表示至少需要2个字节。表示其他更大的符号，可能需要3个字节或者4个字节，甚至更多。</p>
+<p>这里就有两个严重的问题，第一个问题是，如何才能区别 Unicode 和 ASCII ？计算机怎么知道三个字节表示一个符号，而不是分别表示三个符号呢？第二个问题是，我们已经知道，英文字母只用一个字节表示就够了，如果 Unicode 统一规定，每个符号用三个或四个字节表示，那么每个英文字母前都必然有二到三个字节是<code>0</code>，这对于存储来说是极大的浪费，文本文件的大小会因此大出二三倍，这是无法接受的。<mark>因此不能用Unicode码直接储存文件。</mark></p>
+<p>它们造成的结果是：</p>
+<ol>
+<li>出现了 Unicode 的多种存储方式，也就是说有许多种不同的二进制格式，可以用来表示 Unicode。</li>
+<li>Unicode 在很长一段时间内无法推广，直到互联网的出现。</li>
+</ol>
+<h2 id="utf-8">UTF-8</h2>
+<p>互联网的普及，强烈要求出现一种统一的编码方式。UTF-8 就是在互联网上使用最广的一种 Unicode 的实现方式。其他实现方式还包括 UTF-16（字符用两个字节或四个字节表示）和 UTF-32（字符用四个字节表示），不过在互联网上基本不用。</p>
+<p>==强调一下Unicode和UTF-8的区别：UTF-8是Unicode的一种储存形式，但计算机只能读取二进制的内容，因此计算机读取UTF-8编码的文件，需要将文件转码为Unicode（Unicode是完全二进制的形式）。也就是说，文件以UTF-8的形式储存在硬盘上，以Unicode的形式储存在内存（Ram）中。==例如：</p>
+<blockquote>
+<p>在计算机内存中，统一使用Unicode编码，当需要保存到硬盘或者需要传输的时候，就转换为UTF-8编码。</p>
+<ul>
+<li>
+<p>用记事本编辑的时候，从文件读取的UTF-8字符被转换为Unicode字符到内存里，编辑完成后，保存的时候再把Unicode转换为UTF-8保存到文件。</p>
+</li>
+<li>
+<p>浏览网页的时候，服务器会把动态生成的Unicode内容转换为UTF-8再传输到浏览器。</p>
+</li>
+</ul>
+<blockquote>
+<p>所以你看到很多网页的源码上会有类似<code>&lt;meta charset="UTF-8" /&gt;</code>的信息，表示该网页正是用的UTF-8编码。</p>
+</blockquote>
+</blockquote>
+<p>UTF-8 最大的一个特点，就是它是一种变长的编码方式。它可以使用1~4个字节表示一个符号，根据不同的符号而变化字节长度。</p>
+<p>UTF-8 的编码规则很简单，只有二条：</p>
+<p>1）对于单字节的符号，字节的第一位设为<code>0</code>，后面7位为这个符号的 Unicode 码。因此对于英语字母，UTF-8 编码和 ASCII 码是相同的。</p>
+<p>2）对于<code>n</code>字节的符号（<code>n &gt; 1</code>），第一个字节的前<code>n</code>位都设为<code>1</code>，第<code>n + 1</code>位设为<code>0</code>，后面字节的前两位一律设为<code>10</code>。剩下的没有提及的二进制位，全部为这个符号的 Unicode 码。</p>
+<p>下表总结了编码规则，字母<code>x</code>表示可用编码的位。</p>
+<blockquote>
+<p><code>Unicode符号范围     |        UTF-8编码方式
+(十六进制)        |              （二进制）
+----------------------+---------------------------------------------
+0000 0000-0000 007F | 0xxxxxxx
+0000 0080-0000 07FF | 110xxxxx 10xxxxxx
+0000 0800-0000 FFFF | 1110xxxx 10xxxxxx 10xxxxxx
+0001 0000-0010 FFFF | 11110xxx 10xxxxxx 10xxxxxx 10xxxxxx</code></p>
+</blockquote>
+<p>跟据上表，解读 UTF-8 编码非常简单。如果一个字节的第一位是<code>0</code>，则这个字节单独就是一个字符；如果第一位是<code>1</code>，则连续有多少个<code>1</code>，就表示当前字符占用多少个字节。</p>
+<p>下面，还是以汉字<code>严</code>为例，演示如何实现 UTF-8 编码。</p>
+<p><code>严</code>的 Unicode 是<code>4E25</code>（<code>100111000100101</code>），根据上表，可以发现<code>4E25</code>处在第三行的范围内（<code>0000 0800 - 0000 FFFF</code>），因此<code>严</code>的 UTF-8 编码需要三个字节，即格式是<code>1110xxxx 10xxxxxx 10xxxxxx</code>。然后，从<code>严</code>的最后一个二进制位开始，依次从后向前填入格式中的<code>x</code>，多出的位补<code>0</code>。这样就得到了，<code>严</code>的 UTF-8 编码是<code>11100100 10111000 10100101</code>，转换成十六进制就是<code>E4B8A5</code>。</p>
+<p>UTF-8编码有一个额外的好处，就是ASCII编码实际上可以被看成是UTF-8编码的一部分，所以，大量只支持ASCII编码的历史遗留软件可以在UTF-8编码下继续工作。</p>
+<h2 id="_1">参考</h2>
+<ol>
+<li><a href="http://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html">字符编码笔记：ASCII，Unicode 和 UTF-8</a></li>
+</ol>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="1.4.命名空间与作用域.html" title="1.4.命名空间与作用域" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  上一页
+                </span>
+                1.4.命名空间与作用域
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../Python基础/2.1.python基本语法.html" title="2.1.python基本语法" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  下一页
+                </span>
+                2.1.python基本语法
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application.245445c6.js"></script>
+      
+        
+        
+          
+          <script src="../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
+      
+        <script src="../javascript/extra.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+    
+  </body>
+</html>
