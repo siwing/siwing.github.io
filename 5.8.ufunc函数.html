@@ -1,0 +1,1242 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="zh">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.0">
+    
+    
+      
+        <title>5.8.ufunc函数 - Python笔记</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application.0284f74d.css">
+      
+      
+    
+    
+      <script src="../assets/javascripts/modernizr.74668098.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#_1" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href=".." title="Python笔记" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Python笔记
+            </span>
+            <span class="md-header-nav__topic">
+              
+                5.8.ufunc函数
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/example/repository/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href=".." title="Python笔记" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    Python笔记
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/example/repository/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1">
+    
+    <label class="md-nav__link" for="nav-1">
+      计算机基础
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        计算机基础
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../计算机基础/1.1.计算机与程序结构.html" title="1.1.计算机与程序结构" class="md-nav__link">
+      1.1.计算机与程序结构
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../计算机基础/1.2.基本概念.html" title="1.2.基本概念" class="md-nav__link">
+      1.2.基本概念
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../计算机基础/1.3.编译型语言和解释型语言的优缺点对比.html" title="1.3.编译型语言和解释型语言的优缺点对比" class="md-nav__link">
+      1.3.编译型语言和解释型语言的优缺点对比
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../计算机基础/1.4.命名空间与作用域.html" title="1.4.命名空间与作用域" class="md-nav__link">
+      1.4.命名空间与作用域
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../计算机基础/1.5.字符编码.html" title="1.5.字符编码" class="md-nav__link">
+      1.5.字符编码
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Python 基础
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Python 基础
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python基础/2.1.python基本语法.html" title="2.1.python基本语法" class="md-nav__link">
+      2.1.python基本语法
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python基础/2.2.语句.html" title="2.2.语句" class="md-nav__link">
+      2.2.语句
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python基础/2.3.List.html" title="2.3.List" class="md-nav__link">
+      2.3.List
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python基础/2.4.String.html" title="2.4.String" class="md-nav__link">
+      2.4.String
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python基础/2.5.Tuple.html" title="2.5.Tuple" class="md-nav__link">
+      2.5.Tuple
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python基础/2.6.Dict.html" title="2.6.Dict" class="md-nav__link">
+      2.6.Dict
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python基础/3.1.异常.html" title="3.1.异常" class="md-nav__link">
+      3.1.异常
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python基础/3.2.浅拷贝和深拷贝.html" title="3.2.浅拷贝和深拷贝" class="md-nav__link">
+      3.2.浅拷贝和深拷贝
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python基础/4.1.类.html" title="4.1.类" class="md-nav__link">
+      4.1.类
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python基础/4.2.模块.html" title="4.2.模块" class="md-nav__link">
+      4.2.模块
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      Numpy笔记
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Numpy笔记
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="5.1.创建数组.html" title="5.1.创建数组" class="md-nav__link">
+      5.1.创建数组
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="5.2.索引.html" title="5.2.索引" class="md-nav__link">
+      5.2.索引
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="5.3.属性.html" title="5.3.属性" class="md-nav__link">
+      5.3.属性
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="5.4.广播.html" title="5.4.广播" class="md-nav__link">
+      5.4.广播
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="5.5.常量.html" title="5.5.常量" class="md-nav__link">
+      5.5.常量
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="5.6.打印数组.html" title="5.6.打印数组" class="md-nav__link">
+      5.6.打印数组
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="5.7.形状操纵.html" title="5.7.形状操纵" class="md-nav__link">
+      5.7.形状操纵
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        5.8.ufunc函数
+      </label>
+    
+    <a href="5.8.ufunc函数.html" title="5.8.ufunc函数" class="md-nav__link md-nav__link--active">
+      5.8.ufunc函数
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="四则运算" class="md-nav__link">
+    四则运算
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="比较运算" class="md-nav__link">
+    比较运算
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="逻辑运算" class="md-nav__link">
+    逻辑运算
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" title="位运算" class="md-nav__link">
+    位运算
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ufunc" title="自定义 ufunc 函数" class="md-nav__link">
+    自定义 ufunc 函数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ufunc_1" title="ufunc 对象的方法" class="md-nav__link">
+    ufunc 对象的方法
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ufuncreduce" title="ufunc.reduce()" class="md-nav__link">
+    ufunc.reduce()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ufuncaccumulate" title="ufunc.accumulate()" class="md-nav__link">
+    ufunc.accumulate()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ufuncouter" title="ufunc.outer()" class="md-nav__link">
+    ufunc.outer()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" title="数学函数" class="md-nav__link">
+    数学函数
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="5.9.函数库.html" title="5.9.函数库" class="md-nav__link">
+      5.9.函数库
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="四则运算" class="md-nav__link">
+    四则运算
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="比较运算" class="md-nav__link">
+    比较运算
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="逻辑运算" class="md-nav__link">
+    逻辑运算
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" title="位运算" class="md-nav__link">
+    位运算
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ufunc" title="自定义 ufunc 函数" class="md-nav__link">
+    自定义 ufunc 函数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ufunc_1" title="ufunc 对象的方法" class="md-nav__link">
+    ufunc 对象的方法
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ufuncreduce" title="ufunc.reduce()" class="md-nav__link">
+    ufunc.reduce()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ufuncaccumulate" title="ufunc.accumulate()" class="md-nav__link">
+    ufunc.accumulate()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ufuncouter" title="ufunc.outer()" class="md-nav__link">
+    ufunc.outer()
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" title="数学函数" class="md-nav__link">
+    数学函数
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/example/repository/edit/master/docs/numpy笔记/5.8.ufunc函数.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                  <h1>5.8.ufunc函数</h1>
+                
+                <div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="n">np</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">threshold</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span>
+</pre></div>
+
+
+<h2 id="_1">四则运算</h2>
+<div class="codehilite"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
+
+<span class="c1"># 表达式形式</span>
+<span class="n">a</span> <span class="o">+</span> <span class="n">a</span>
+<span class="n">a</span> <span class="o">-</span> <span class="n">a</span>
+<span class="n">a</span> <span class="o">*</span> <span class="n">a</span>
+<span class="n">a</span> <span class="o">/</span> <span class="n">a</span>
+
+<span class="c1"># ufunc函数形式</span>
+<span class="n">np</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">a</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">subtract</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">a</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">a</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">true_divide</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">array([1., 1., 1., 1., 1.])</span>
+</pre></div>
+
+
+<h2 id="_2">比较运算</h2>
+<div class="codehilite"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="c1"># 表达式形式</span>
+<span class="n">a</span> <span class="o">==</span> <span class="n">b</span>
+<span class="n">a</span> <span class="o">!=</span> <span class="n">b</span>
+<span class="n">a</span> <span class="o">&lt;</span> <span class="n">b</span>
+<span class="n">a</span> <span class="o">&lt;=</span> <span class="n">b</span>
+<span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span>
+<span class="n">a</span> <span class="o">&gt;=</span> <span class="n">b</span>
+
+<span class="c1"># ufunc函数形式</span>
+<span class="n">np</span><span class="o">.</span><span class="n">equal</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">not_equal</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">less</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">less_equal</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">greater</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">greater_equal</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">array([[False, False, False, False, False, False, False, False, False,</span>
+<span class="err">        False],</span>
+<span class="err">       [False, False, False, False, False, False, False, False, False,</span>
+<span class="err">        False]])</span>
+</pre></div>
+
+
+<h2 id="_3">逻辑运算</h2>
+<div class="codehilite"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="c1"># 与</span>
+<span class="n">np</span><span class="o">.</span><span class="n">logical_and</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<span class="c1"># 或</span>
+<span class="n">np</span><span class="o">.</span><span class="n">logical_or</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<span class="c1"># 非</span>
+<span class="n">np</span><span class="o">.</span><span class="n">logical_not</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<span class="c1"># 异或</span>
+<span class="n">np</span><span class="o">.</span><span class="n">logical_xor</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<span class="c1"># 任意一个元素</span>
+<span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="c1"># 全部元素</span>
+<span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">False</span>
+</pre></div>
+
+
+<h2 id="_4">位运算</h2>
+<div class="codehilite"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="n">a</span> <span class="o">&amp;</span> <span class="n">b</span>
+<span class="n">a</span> <span class="o">|</span> <span class="n">b</span>
+<span class="o">~</span><span class="n">a</span>
+<span class="n">a</span><span class="o">^</span><span class="n">b</span>
+
+<span class="c1"># 按位与</span>
+<span class="n">np</span><span class="o">.</span><span class="n">bitwise_and</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<span class="c1"># 按位或</span>
+<span class="n">np</span><span class="o">.</span><span class="n">bitwise_or</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<span class="c1"># 按位取反</span>
+<span class="n">np</span><span class="o">.</span><span class="n">bitwise_not</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="c1"># 按位异或</span>
+<span class="n">np</span><span class="o">.</span><span class="n">bitwise_xor</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">array([[10, 10, 14, 14, 10, 10, 22, 22, 26, 26],</span>
+<span class="err">       [30, 30, 26, 26, 22, 22, 10, 10, 14, 14]], dtype=int32)</span>
+</pre></div>
+
+
+<h2 id="ufunc">自定义 ufunc 函数</h2>
+<p>可以通过<code>frompyfunc()</code>将计算单个元素的函数转换成ufunc函数。调用格式为如下：</p>
+<div class="codehilite"><pre><span></span><span class="n">numpy</span><span class="o">.</span><span class="n">frompyfunc</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">nin</span><span class="p">,</span> <span class="n">nout</span><span class="p">)</span>
+
+<span class="c1"># func：计算单个元素的函数</span>
+<span class="c1"># nin：func的输入参数的个数 The number of input</span>
+<span class="c1"># nout：func返回值的个数 The number of output</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">my_add</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">z</span>
+
+<span class="n">myufunc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">frompyfunc</span><span class="p">(</span><span class="n">my_add</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">myufunc</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">array([6, 8, 10, 12, 14], dtype=object)</span>
+</pre></div>
+
+
+<p>也可以通过<code>vectorize()</code>函数来实现<code>frompyfunc()</code>的功能。</p>
+<div class="codehilite"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">vectorize</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">otypes</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">doc</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">excluded</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span><span class="err">。</span>
+
+<span class="c1"># func：计算单个元素的函数</span>
+<span class="c1"># otypes：可以是一个表示结果数组元素类型的字符串，也可以是一个类型列表。如果使用类型列表，可以描述多个返回数组的元素类型</span>
+<span class="c1"># doc：函数的描述字符串。若未给定，则使用func.__doc__</span>
+<span class="c1"># excluded：指定func中哪些参数未被向量化。你可以指定一个字符串和整数的集合，其中字符串代表关键字参数，整数代表位置参数。</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">my_add</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">num</span><span class="p">):</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">num</span>
+    <span class="k">return</span> <span class="n">z</span>
+
+<span class="n">myufunc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vectorize</span><span class="p">(</span><span class="n">my_add</span><span class="p">,</span> <span class="n">doc</span><span class="o">=</span><span class="s2">&quot;每一个元素加上一个指定的数&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">myufunc</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span>
+<span class="n">myufunc</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">每一个元素加上一个指定的数</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">array([1, 2, 3, 4, 5])</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">my_add</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">list_num</span><span class="p">):</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">list_num</span><span class="p">:</span>
+        <span class="n">z</span> <span class="o">=</span> <span class="n">z</span> <span class="o">+</span> <span class="n">i</span>
+    <span class="k">return</span> <span class="n">z</span>
+
+<span class="n">myufunc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vectorize</span><span class="p">(</span><span class="n">my_add</span><span class="p">,</span> <span class="n">excluded</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">myufunc</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span> <span class="c1"># list_num 作为一个list，而不是向量化成一个个元素</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">array([11, 13, 15, 17, 19])</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">my_add</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">num</span><span class="p">):</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">num</span>
+    <span class="k">return</span> <span class="n">z</span><span class="p">,</span> <span class="n">z</span>
+
+<span class="n">myufunc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vectorize</span><span class="p">(</span><span class="n">my_add</span><span class="p">,</span> <span class="n">otypes</span><span class="o">=</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">float</span><span class="p">,</span> <span class="nb">int</span><span class="p">])</span>
+<span class="n">myufunc</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">(array([1., 2., 3., 4., 5.]), array([1, 2, 3, 4, 5]))</span>
+</pre></div>
+
+
+<h2 id="ufunc_1">ufunc 对象的方法</h2>
+<p>ufunc函数对象本身还有一些方法。</p>
+<p>这些方法只对于两个输入、一个输出的ufunc函数函数有效。对于其他的ufunc函数对象调用这些方法时，会抛出<code>ValueError</code>异常。</p>
+<h3 id="ufuncreduce"><code>ufunc.reduce()</code></h3>
+<p><code>ufunc.reduce</code>方法：类似于Python的<code>reduce</code>函数，它==沿着==<code>axis</code>参数指定的轴，对数组进行操作。经过一次reduce，结果数组的维度降低一维。</p>
+<p>假设<code>&lt;op&gt;</code>是一个ufunc函数，<code>ufunc.reduce</code>用法如下：</p>
+<div class="codehilite"><pre><span></span><span class="o">&lt;</span><span class="n">op</span><span class="o">&gt;.</span><span class="n">reduce</span><span class="p">(</span><span class="n">array</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="k">[[ 0  1  2  3]</span>
+ <span class="k">[ 4  5  6  7]</span>
+ <span class="k">[ 8  9 10 11]</span>
+ <span class="k">[12 13 14 15]</span>
+ <span class="k">[16 17 18 19]]</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">add</span><span class="o">.</span><span class="n">reduce</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># 沿着 列方向</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">array([ 6, 22, 38, 54, 70])</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">add</span><span class="o">.</span><span class="n">reduce</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># 沿着 行方向</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">array([40, 45, 50, 55])</span>
+</pre></div>
+
+
+<p><mark>相当于将<op>运算符插入到沿着axis轴的所有元素之间：</mark></p>
+<div class="codehilite"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">fun</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">):</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">z</span>
+
+<span class="n">fun2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">frompyfunc</span><span class="p">(</span><span class="n">fun</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">fun2</span><span class="o">.</span><span class="n">reduce</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="k">[[ 0  1  2  3]</span>
+ <span class="k">[ 4  5  6  7]</span>
+ <span class="k">[ 8  9 10 11]</span>
+ <span class="k">[12 13 14 15]</span>
+ <span class="k">[16 17 18 19]]</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">array([9, 25, 41, 57, 73], dtype=object)</span>
+</pre></div>
+
+
+<h3 id="ufuncaccumulate"><code>ufunc.accumulate()</code></h3>
+<p><code>ufunc.accumulate</code>方法：它类似于reduce()的计算过程，但是它会保存所有的中间计算结果，从而使得返回数组的形状和输入数组的形状相同： </p>
+<div class="codehilite"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="k">[[ 0  1  2  3]</span>
+ <span class="k">[ 4  5  6  7]</span>
+ <span class="k">[ 8  9 10 11]</span>
+ <span class="k">[12 13 14 15]</span>
+ <span class="k">[16 17 18 19]]</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">add</span><span class="o">.</span><span class="n">accumulate</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">array([[ 0,  1,  3,  6],</span>
+<span class="err">       [ 4,  9, 15, 22],</span>
+<span class="err">       [ 8, 17, 27, 38],</span>
+<span class="err">       [12, 25, 39, 54],</span>
+<span class="err">       [16, 33, 51, 70]], dtype=int32)</span>
+</pre></div>
+
+
+<h3 id="ufuncouter"><code>ufunc.outer()</code></h3>
+<p><code>ufunc.outer</code>方法：相当于将<op>运算符对输入数组A和输入数组B的每一对元素对(a,b)起作用。设A的shape=(4,5)，B的shape为(4,)，则结果数组的shape=(4,5,4)</p>
+<p>一维数组和一维数组的outer操作为二维数组</p>
+<div class="codehilite"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">add</span><span class="o">.</span><span class="n">outer</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">array([[2, 3, 4, 5],</span>
+<span class="err">       [3, 4, 5, 6],</span>
+<span class="err">       [4, 5, 6, 7],</span>
+<span class="err">       [5, 6, 7, 8],</span>
+<span class="err">       [6, 7, 8, 9]])</span>
+</pre></div>
+
+
+<p>多维数组的outer拆分成各自的一维操作</p>
+<div class="codehilite"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">7</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">add</span><span class="o">.</span><span class="n">outer</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="nb">array</span><span class="p">([[[</span> <span class="mi">2</span><span class="p">,</span>  <span class="mi">3</span><span class="p">,</span>  <span class="mi">4</span><span class="p">,</span>  <span class="mi">5</span><span class="p">],</span>
+        <span class="p">[</span> <span class="mi">3</span><span class="p">,</span>  <span class="mi">4</span><span class="p">,</span>  <span class="mi">5</span><span class="p">,</span>  <span class="mi">6</span><span class="p">],</span>
+        <span class="p">[</span> <span class="mi">4</span><span class="p">,</span>  <span class="mi">5</span><span class="p">,</span>  <span class="mi">6</span><span class="p">,</span>  <span class="mi">7</span><span class="p">]],</span>
+
+       <span class="p">[[</span> <span class="mi">5</span><span class="p">,</span>  <span class="mi">6</span><span class="p">,</span>  <span class="mi">7</span><span class="p">,</span>  <span class="mi">8</span><span class="p">],</span>
+        <span class="p">[</span> <span class="mi">6</span><span class="p">,</span>  <span class="mi">7</span><span class="p">,</span>  <span class="mi">8</span><span class="p">,</span>  <span class="mi">9</span><span class="p">],</span>
+        <span class="p">[</span> <span class="mi">7</span><span class="p">,</span>  <span class="mi">8</span><span class="p">,</span>  <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">]]])</span>
+</pre></div>
+
+
+<h2 id="_5">数学函数</h2>
+<p>下面是一元的数学函数：</p>
+<ol>
+<li>
+<p><code>abs/fabs</code>：计算整数、浮点数或者复数的绝对值。对于非复数值，可以使用更快的fabs</p>
+</li>
+<li>
+<p><code>sqrt</code>：计算平方根，相当于$a^{0.5}$</p>
+</li>
+<li>
+<p><code>square</code>：计算平方，相当于$a^2$</p>
+</li>
+<li>
+<p><code>exp</code>：计算指数$e^x$</p>
+</li>
+<li>
+<p><code>log/log10/log2/log1p</code>：分别为$log_{e}(a), log_{10}(a), log_2(a), log_e(1+x)$</p>
+</li>
+<li>
+<p><code>sign</code>：计算$sign(a)$</p>
+</li>
+<li>
+<p><code>ceil</code>：计算各元素的ceiling值：大于等于该值的最小整数</p>
+</li>
+<li>
+<p><code>floor</code>：计算个元素的floor值：小于等于该值的最大整数</p>
+</li>
+<li>
+<p><code>rint</code>：将各元素四舍五入到最接近的整数，保留<code>dtype</code></p>
+</li>
+<li>
+<p><code>modf</code>：将数组的小数和整数部分以两个独立数组的形式返回</p>
+</li>
+<li>
+<p><code>cos/cosh/sin/sinh/tan/tanh</code>：普通和双曲型三角函数</p>
+</li>
+<li>
+<p><code>arccos/arcsosh/arcsin/arcsinh/arctan/arctanh</code>:反三角函数</p>
+</li>
+<li>
+<p><code>isnan</code>：返回一个布尔数组，该数组指示那些是<code>NaN</code></p>
+</li>
+<li>
+<p><code>isfinite/isinf</code>：返回一个布尔数组，该数组指示哪些是有限的/无限数</p>
+</li>
+</ol>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="5.7.形状操纵.html" title="5.7.形状操纵" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  上一页
+                </span>
+                5.7.形状操纵
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="5.9.函数库.html" title="5.9.函数库" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  下一页
+                </span>
+                5.9.函数库
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application.245445c6.js"></script>
+      
+        
+        
+          
+          <script src="../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
+      
+        <script src="../javascript/extra.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+    
+  </body>
+</html>

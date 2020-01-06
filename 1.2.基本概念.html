@@ -1,0 +1,1113 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="zh">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.0">
+    
+    
+      
+        <title>1.2.基本概念 - Python笔记</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application.0284f74d.css">
+      
+      
+    
+    
+      <script src="../assets/javascripts/modernizr.74668098.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#_1" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href=".." title="Python笔记" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Python笔记
+            </span>
+            <span class="md-header-nav__topic">
+              
+                1.2.基本概念
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/example/repository/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href=".." title="Python笔记" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    Python笔记
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/example/repository/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1" checked>
+    
+    <label class="md-nav__link" for="nav-1">
+      计算机基础
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        计算机基础
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="1.1.计算机与程序结构.html" title="1.1.计算机与程序结构" class="md-nav__link">
+      1.1.计算机与程序结构
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        1.2.基本概念
+      </label>
+    
+    <a href="1.2.基本概念.html" title="1.2.基本概念" class="md-nav__link md-nav__link--active">
+      1.2.基本概念
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="程序和编程语言" class="md-nav__link">
+    程序和编程语言
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" title="解释执行的语言相比编译执行的语言有什么优缺点？" class="md-nav__link">
+    解释执行的语言相比编译执行的语言有什么优缺点？
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="程序的调试" class="md-nav__link">
+    程序的调试
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" title="变量及其行为" class="md-nav__link">
+    变量及其行为
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python" title="基础概念（python）" class="md-nav__link">
+    基础概念（python）
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" title="类的概念" class="md-nav__link">
+    类的概念
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vs" title="对象  vs  变量" class="md-nav__link">
+    对象  vs  变量
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mutable-vs-immutable" title="可更改(mutable)  vs  不可更改(immutable)" class="md-nav__link">
+    可更改(mutable)  vs  不可更改(immutable)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python_1" title="Python的函数参数传递：传值？引用？" class="md-nav__link">
+    Python的函数参数传递：传值？引用？
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="1.3.编译型语言和解释型语言的优缺点对比.html" title="1.3.编译型语言和解释型语言的优缺点对比" class="md-nav__link">
+      1.3.编译型语言和解释型语言的优缺点对比
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="1.4.命名空间与作用域.html" title="1.4.命名空间与作用域" class="md-nav__link">
+      1.4.命名空间与作用域
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="1.5.字符编码.html" title="1.5.字符编码" class="md-nav__link">
+      1.5.字符编码
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Python 基础
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Python 基础
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python基础/2.1.python基本语法.html" title="2.1.python基本语法" class="md-nav__link">
+      2.1.python基本语法
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python基础/2.2.语句.html" title="2.2.语句" class="md-nav__link">
+      2.2.语句
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python基础/2.3.List.html" title="2.3.List" class="md-nav__link">
+      2.3.List
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python基础/2.4.String.html" title="2.4.String" class="md-nav__link">
+      2.4.String
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python基础/2.5.Tuple.html" title="2.5.Tuple" class="md-nav__link">
+      2.5.Tuple
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python基础/2.6.Dict.html" title="2.6.Dict" class="md-nav__link">
+      2.6.Dict
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python基础/3.1.异常.html" title="3.1.异常" class="md-nav__link">
+      3.1.异常
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python基础/3.2.浅拷贝和深拷贝.html" title="3.2.浅拷贝和深拷贝" class="md-nav__link">
+      3.2.浅拷贝和深拷贝
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python基础/4.1.类.html" title="4.1.类" class="md-nav__link">
+      4.1.类
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python基础/4.2.模块.html" title="4.2.模块" class="md-nav__link">
+      4.2.模块
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Numpy笔记
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Numpy笔记
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy笔记/5.1.创建数组.html" title="5.1.创建数组" class="md-nav__link">
+      5.1.创建数组
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy笔记/5.2.索引.html" title="5.2.索引" class="md-nav__link">
+      5.2.索引
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy笔记/5.3.属性.html" title="5.3.属性" class="md-nav__link">
+      5.3.属性
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy笔记/5.4.广播.html" title="5.4.广播" class="md-nav__link">
+      5.4.广播
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy笔记/5.5.常量.html" title="5.5.常量" class="md-nav__link">
+      5.5.常量
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy笔记/5.6.打印数组.html" title="5.6.打印数组" class="md-nav__link">
+      5.6.打印数组
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy笔记/5.7.形状操纵.html" title="5.7.形状操纵" class="md-nav__link">
+      5.7.形状操纵
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy笔记/5.8.ufunc函数.html" title="5.8.ufunc函数" class="md-nav__link">
+      5.8.ufunc函数
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy笔记/5.9.函数库.html" title="5.9.函数库" class="md-nav__link">
+      5.9.函数库
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="程序和编程语言" class="md-nav__link">
+    程序和编程语言
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" title="解释执行的语言相比编译执行的语言有什么优缺点？" class="md-nav__link">
+    解释执行的语言相比编译执行的语言有什么优缺点？
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="程序的调试" class="md-nav__link">
+    程序的调试
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" title="变量及其行为" class="md-nav__link">
+    变量及其行为
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python" title="基础概念（python）" class="md-nav__link">
+    基础概念（python）
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" title="类的概念" class="md-nav__link">
+    类的概念
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vs" title="对象  vs  变量" class="md-nav__link">
+    对象  vs  变量
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mutable-vs-immutable" title="可更改(mutable)  vs  不可更改(immutable)" class="md-nav__link">
+    可更改(mutable)  vs  不可更改(immutable)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python_1" title="Python的函数参数传递：传值？引用？" class="md-nav__link">
+    Python的函数参数传递：传值？引用？
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/example/repository/edit/master/docs/计算机基础/1.2.基本概念.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                  <h1>1.2.基本概念</h1>
+                
+                <h2 id="_1">程序和编程语言</h2>
+<p><strong>程序（Program）</strong>告诉计算机应如何完成一个计算任务，这里的计算可以是数学运算，比如解方程，也可以是符号运算，比如查找和替换文档中的某个单词。从根本上说，==计算机是由数字电路组成的运算机器，只能对数字做运算，程序之所以能做符号运算，是因为符号在计算机内部也是用数字表示的。==此外，程序还可以处理声音和图像，声音和图像在计算机内部必然也是用数字表示的，这些数字经过专门的硬件设备转换成人可以听到、看到的声音和图像。 </p>
+<p>程序由一系列<strong>指令（Instruction）</strong>组成，指令是指示计算机做某种运算的命令，通常包括以下几类： </p>
+<ul>
+<li>
+<p>输入（Input）：从键盘、文件或者其它设备获取数据。</p>
+</li>
+<li>
+<p>输出（Output）：把数据显示到屏幕，或者存入一个文件，或者发送到其它设备。</p>
+</li>
+<li>
+<p>基本运算：执行最基本的数学运算（加减乘除）和数据存取。</p>
+</li>
+<li>
+<p>测试和分支：测试某个条件，然后根据不同的测试结果执行不同的后续指令。</p>
+</li>
+<li>
+<p>循环：重复执行一系列操作。</p>
+</li>
+</ul>
+<p>对于程序来说，有上面这几类指令就足够了。你曾用过的任何一个程序，不管它有多么复杂，都是由这几类指令组成的。程序是那么的复杂，而编写程序可以用的指令却只有这么简单的几种，这中间巨大的落差就要由程序员去填了，所以编写程序理应是一件相当复杂的工作。<strong>编写程序可以说就是这样一个过程：把复杂的任务分解成子任务，把子任务再分解成更简单的任务，层层分解，直到最后简单得可以用以上指令来完成。</strong></p>
+<p><strong>编程语言</strong>：编程语言（Programming Language）分为低级语言（Low-level Language）和高级语言（High-level Language）。</p>
+<p>机器语言（Machine Language）和汇编语言（Assembly Language）属于低级语言，直接用计算机指令编写程序。而C、C++、Java、Python等属于高级语言，用语句（Statement）编写程序，==语句是计算机指令的抽象表示。==举个例子，同样一个语句用C语言、汇编语言和机器语言分别表示如下：</p>
+<blockquote>
+<p>低级编程语言使用计算机指令编写程序；</p>
+<p>高级编程语言使用语句编写程序。</p>
+</blockquote>
+<p><img alt="" src="https://upload.cc/i1/2018/08/06/yHRcYZ.png" /></p>
+<p>计算机只能对数字做运算，符号、声音、图像在计算机内部都要用数字表示，指令也不例外，上表中的机器语言完全由十六进制数字组成。最早的程序员都是直接用机器语言编程，但是很麻烦，需要查大量的表格来确定每个数字表示什么意思，编写出来的程序很不直观，而且容易出错，于是有了==汇编语言，把机器语言中一组一组的数字用助记符（Mnemonic）表示，直接用这些助记符写出汇编程序，然后让汇编器（Assembler）去查表把助记符替换成数字，也就把汇编语言翻译成了机器语言。== 从上面的例子可以看出，<mark>汇编语言和机器语言的指令是一一对应的，汇编语言有三条指令，机器语言也有三条指令，汇编器就是做一个简单的替换工作</mark>，例如在第一条指令中，把<code>movl ?,%eax</code>这种格式的指令替换成机器码<code>a1 ?</code>，?表示一个地址，在汇编指令中是<code>0x804a01c</code>，转换成机器码之后是<code>1c a0 04 08</code>（这是指令中的十六进制数的小端表示，小端表示将在<a href="https://akaedu.github.io/book/ch18s05.html#asm.relocatable">第 5.1 节 “目标文件”</a>介绍）。</p>
+<p>从上面的例子还可以看出，==高级语言的语句和低级语言的指令之间不是简单的一一对应关系，==一条<code>a=b+1;</code>语句要翻译成三条汇编或机器指令，这个过程称为<strong>编译（Compile）</strong>，由编译器（Compiler）来完成，显然编译器的功能比汇编器要复杂得多。用高级语言编写的程序必须经过编译转成机器指令才能被计算机执行，编译需要花一些时间，这是用高级语言编程的一个缺点，然而更多的是优点。首先，用高级语言编程更容易，写出来的代码更紧凑，可读性更强，出了错也更容易改正。其次，高级语言是可移植的（Portable）或者称为平台无关的（Platform Independent）。</p>
+<p><strong>平台</strong>这个词有很多种解释，可以指计算机体系结构（Architecture），也可以指操作系统（Operating System），也可以指开发平台（编译器、链接器等）。不同的计算机体系结构有不同的指令集（Instruction Set），可以识别的机器指令格式是不同的，直接用某种体系结构的汇编或机器指令写出来的程序只能在这种体系结构的计算机上运行，然而各种体系结构的计算机都有各自的C编译器，可以把C程序编译成各种不同体系结构的机器指令，这意味着用C语言写的程序只需稍加修改甚至不用修改就可以在各种不同的计算机上编译运行。各种高级语言都具有C语言的这些优点，所以绝大部分程序是用高级语言编写的，只有和硬件关系密切的少数程序（例如驱动程序）才会用到低级语言。还要注意一点，即使在相同的体系结构和操作系统下，用不同的C编译器（或者同一个C编译器的不同版本）编译同一个程序得到的结果也有可能不同，C语言有些语法特性在C标准中并没有明确规定，各编译器有不同的实现，编译出来的指令的行为特性也会不同，应该尽量避免使用不可移植的语法特性。 </p>
+<p>总结一下编译执行的过程，首先你用文本编辑器写一个C程序，然后保存成一个文件，例如<code>program.c</code>（通常C程序的文件名后缀是<code>.c</code>），这称为源代码（Source Code）或源文件，然后运行编译器对它进行编译，编译的过程并不执行程序，而是把源代码全部翻译成机器指令，再加上一些描述信息，生成一个新的文件，例如<code>a.out</code>，这称为可执行文件，可执行文件可以被操作系统加载运行，计算机执行该文件中由编译器生成的指令，如下图所示： </p>
+<p><img alt="" src="https://upload.cc/i1/2018/08/06/nr5bR1.png" /></p>
+<p>有些高级语言以解释（Interpret）的方式执行，解释执行过程和C语言的编译执行过程很不一样。例如编写一个Shell脚本<code>script.sh</code>，内容如下： </p>
+<div class="codehilite"><pre><span></span><span class="ch">#! /bin/sh</span>
+<span class="nv">VAR</span><span class="o">=</span><span class="m">1</span>
+<span class="nv">VAR</span><span class="o">=</span><span class="k">$((</span><span class="nv">$VAR</span><span class="o">+</span><span class="m">1</span><span class="k">))</span>
+<span class="nb">echo</span> <span class="nv">$VAR</span>
+</pre></div>
+
+
+<p>定义Shell变量<code>VAR</code>的初始值是1，然后自增1，然后打印<code>VAR</code>的值。用Shell程序<code>/bin/sh</code>解释执行这个脚本，结果如下： </p>
+<div class="codehilite"><pre><span></span><span class="err">$</span> <span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">sh</span> <span class="n">script</span><span class="o">.</span><span class="n">sh</span>
+<span class="mi">2</span>
+</pre></div>
+
+
+<p>这里的<code>/bin/sh</code>称为解释器（Interpreter），它把脚本中的每一行当作一条命令解释执行，而不需要先生成包含机器指令的可执行文件再执行。如果把脚本中的这三行当作三条命令直接敲到Shell提示符下，也能得到同样的结果： </p>
+<div class="codehilite"><pre><span></span><span class="err">$</span> <span class="n">VAR</span><span class="o">=</span><span class="mi">1</span>
+<span class="err">$</span> <span class="n">VAR</span><span class="o">=</span><span class="err">$</span><span class="p">((</span><span class="err">$</span><span class="n">VAR</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+<span class="err">$</span> <span class="n">echo</span> <span class="err">$</span><span class="n">VAR</span>
+<span class="mi">2</span>
+</pre></div>
+
+
+<p><img alt="" src="https://upload.cc/i1/2018/08/06/35xOmb.png" /></p>
+<p>编程语言仍在发展演化。以上介绍的机器语言称为第一代语言（1GL，1st Generation Programming Language），汇编语言称为第二代语言（2GL，2nd Generation Programming Language），C、C++、Java、Python等可以称为第三代语言（3GL，3rd Generation Programming Language）。目前已经有了4GL（4th Generation Programming Language）和5GL（5th Generation Programming Language）的概念。3GL的编程语言虽然是用语句编程而不直接用指令编程，但语句也分为输入、输出、基本运算、测试分支和循环等几种，和指令有直接的对应关系。而4GL以后的编程语言更多是描述要做什么（Declarative）而不描述具体一步一步怎么做（Imperative），具体一步一步怎么做完全由编译器或解释器决定，例如SQL语言（SQL，Structured Query Language，结构化查询语言）就是这样的例子。 </p>
+<h3 id="_2">解释执行的语言相比编译执行的语言有什么优缺点？</h3>
+<p>这是我们的第一个思考题。本书的思考题通常要求读者系统地总结当前小节的知识，结合以前的知识，并经过一定的推理，然后作答。本书强调的是基本概念，读者应该抓住概念的定义和概念之间的关系来总结，比如本节介绍了很多概念：程序由语句或指令组成，计算机只能执行<strong>低级语言</strong>中的指令（汇编语言的指令要先转成机器码才能执行），高级语言要执行就必须先翻译成低级语言，翻译的方法有两种：编译和解释，虽然有这样的不便，但高级语言有一个好处是平台无关性。什么是平台？一种平台，就是一种体系结构，就是一种指令集，就是一种机器语言，这些都可看作是一一对应的，上文并没有用“一一对应”这个词，但读者应该能推理出这个结论，而高级语言和它们不是一一对应的，因此高级语言是平台无关的，概念之间像这样的数量对应关系尤其重要。那么编译和解释的过程有哪些不同？主要的不同在于什么时候翻译和什么时候执行。</p>
+<p>现在回答这个思考题，根据编译和解释的不同原理，你能否在执行效率和平台无关性等方面做一下比较？</p>
+<h2 id="_3">程序的调试</h2>
+<p>编程是一件复杂的工作，因为是人做的事情，所以难免经常出错。据说有这样一个典故：早期的计算机体积都很大，有一次一台计算机不能正常工作，工程师们找了半天原因最后发现是一只臭虫钻进计算机中造成的。从此以后，程序中的错误被叫做臭虫（Bug），而找到这些Bug并加以纠正的过程就叫做调试（Debug）。有时候调试是一件非常复杂的工作，要求程序员概念明确、逻辑清晰、性格沉稳，还需要一点运气。调试的技能我们在后续的学习中慢慢培养，但首先我们要区分清楚程序中的Bug分为哪几类。</p>
+<ul>
+<li>编译时错误</li>
+</ul>
+<p>编译器只能翻译语法正确的程序，否则将导致编译失败，无法生成可执行文件。对于自然语言来说，一点语法错误不是很严重的问题，因为我们仍然可以读懂句子。而编译器就没那么宽容了，只要有哪怕一个很小的语法错误，编译器就会输出一条错误提示信息然后罢工，你就得不到你想要的结果。虽然大部分情况下编译器给出的错误提示信息就是你出错的代码行，但也有个别时候编译器给出的错误提示信息帮助不大，甚至会误导你。在开始学习编程的前几个星期，你可能会花大量的时间来纠正语法错误。等到有了一些经验之后，还是会犯这样的错误，不过会少得多，而且你能更快地发现错误原因。等到经验更丰富之后你就会觉得，语法错误是最简单最低级的错误，编译器的错误提示也就那么几种，即使错误提示是有误导的也能够立刻找出真正的错误原因是什么。相比下面两种错误，语法错误解决起来要容易得多。</p>
+<ul>
+<li>运行时错误</li>
+</ul>
+<p>编译器检查不出这类错误，仍然可以生成可执行文件，但在运行时会出错而导致程序崩溃。对于我们接下来的几章将编写的简单程序来说，运行时错误很少见，到了后面的章节你会遇到越来越多的运行时错误。读者在以后的学习中要时刻<em>注意区分编译时和运行时（Run-time）这两个概念</em>，不仅在调试时需要区分这两个概念，在学习C语言的很多语法时都需要区分这两个概念，有些事情在编译时做，有些事情则在运行时做。</p>
+<ul>
+<li>逻辑错误和语义错误</li>
+</ul>
+<p>第三类错误是逻辑错误和语义错误。如果程序里有逻辑错误，编译和运行都会很顺利，看上去也不产生任何错误信息，但是程序没有干它该干的事情，而是干了别的事情。当然不管怎么样，计算机只会按你写的程序去做，问题在于你写的程序不是你真正想要的，这意味着程序的意思（即语义）是错的。找到逻辑错误在哪需要十分清醒的头脑，要通过观察程序的输出回过头来判断它到底在做什么。</p>
+<p>通过本书你将掌握的最重要的技巧之一就是调试。调试的过程可能会让你感到一些沮丧，但调试也是编程中最需要动脑的、最有挑战和乐趣的部分。从某种角度看调试就像侦探工作，根据掌握的线索来推断是什么原因和过程导致了你所看到的结果。调试也像是一门实验科学，每次想到哪里可能有错，就修改程序然后再试一次。如果假设是对的，就能得到预期的正确结果，就可以接着调试下一个Bug，一步一步逼近正确的程序；如果假设错误，只好另外再找思路再做假设。“当你把不可能的全部剔除，剩下的——即使看起来再怎么不可能——就一定是事实。”（即使你没看过福尔摩斯也该看过柯南吧）。</p>
+<p>也有一种观点认为，编程和调试是一回事，编程的过程就是逐步调试直到获得期望的结果为止。你应该总是从一个能正确运行的小规模程序开始，每做一步小的改动就立刻进行调试，这样的好处是总有一个正确的程序做参考：如果正确就继续编程，如果不正确，那么一定是刚才的小改动出了问题。例如，Linux操作系统包含了成千上万行代码，但它也不是一开始就规划好了内存管理、设备管理、文件系统、网络等等大的模块，一开始它仅仅是Linus Torvalds用来琢磨Intel 80386芯片而写的小程序。据Larry Greenfield 说，“Linus的早期工程之一是编写一个交替打印AAAA和BBBB的程序，这玩意儿后来进化成了Linux。”（引自The Linux User's Guide Beta1版）在后面的章节中会给出更多关于调试和编程实践的建议。</p>
+<h2 id="_4">变量及其行为</h2>
+<p>变量（Variable）是编程语言最重要的概念之一。</p>
+<p><strong>变量是计算机存储器中的一块命名的空间，可以在里面存储一个值（Value），存储的值是可以随时变的，比如这次存个字符<code>'a'</code>下次存个字符<code>'b'</code>，正因为变量的值可以随时变所以才叫变量。</strong></p>
+<p><strong>也就是说，变量有一个储存地址，该地址储存的值是可以改变的。或者说，变量是一种使用方便的占位符，用于引用计算机内存地址，变量创建后会占用一定的内存空间。</strong></p>
+<blockquote>
+<p>不要弄混变量和变量名，变量名是标识符的一种。</p>
+<p><strong>占位符</strong>：先占住一个固定的位置，等待值添加到该位置的符号。</p>
+</blockquote>
+<p>变量的类型决定了它所占的存储空间的大小。</p>
+<p><mark>变量的行为一共有四种：声明、定义、初始化、赋值。</mark></p>
+<p><strong>声明</strong>：告诉编译器/解析器有这个变量的存在，这个行为不分配内存空间。</p>
+<p><strong>定义</strong>：为变量分配内存空间。</p>
+<p>实际上，从广义的角度来说，声明有两种：</p>
+<p>引用性声明（defining declaration）：不需要建立储存空间的声明，例如<code>extern in a</code>中的变量<code>a</code>已经在别的文件中被定义。</p>
+<p>定义性声明（referencing declaration）：需要建立储存空间的声明，例如<code>int a</code>在声明时就建立了<code>a</code>的储存空间。</p>
+<blockquote>
+<p>可见从广义的角度来说，声明包含了定义，而并非所有的声明都是定义。一般的情况下我们常常这样叙述，把建立空间的声明称之为"定义"，而把不需要建立存储空间称之为"声明"。</p>
+<p>定义和声明的本质区别就是：定义会给变量分配内存空间，而声明则不会。</p>
+</blockquote>
+<p><strong>初始化</strong>：在定义变量之后，系统为变量分配的内存空间内并没有值，此时值是不确定的。为保证程序的安全性和确定性，需要对这个内存空间进行初始化。初始化一般伴随着定义而产生。初始化是从无到有的过程。</p>
+<blockquote>
+<p>如果变量的定义没有初始化，那这个最初分配的空间的值是随机的（空间上原来存储的值）。不经过初始化的变量可能会为程序带来不安全与不确定性。</p>
+</blockquote>
+<p><strong>赋值</strong>：赋值是变量值得刷新操作。赋值是从旧到新的过程。</p>
+<p><img alt="" src="https://upload.cc/i1/2018/08/07/pArwZe.png" /></p>
+<h2 id="python">基础概念（python）</h2>
+<p><strong>assignment</strong>：Assignments do not copy data — they just <strong>bind</strong> names to objects.</p>
+<p>assignment操作不会拷贝，只是把名字和对象做一个绑定。也就是assignment语句是起一个绑定或重绑定的作用（bind or rebind）。函数调用的参数传递是传引用，不是拷贝。</p>
+<p><strong>引用（reference ）</strong>：一个可以让程式间接存取于电脑记忆体或其他储存装置中一特定资料的值。一般而言，引用会是资料储存于记忆体或储存装置中的实体位址 。因此，引用亦常被称为==该资料==的<strong>指标</strong>或<strong>位址</strong>。</p>
+<p><strong>标识符（identifier，缩写为ID）</strong>：又称为识别码，是一个用来识别不同对象的名称。</p>
+<blockquote>
+<p>在编程语言中，标识符就是程序员自己规定的具有特定含义的词，比如函数名、方法名、类名，变量名、常量名等。 </p>
+</blockquote>
+<p><strong>对象（object）</strong>：是一个记忆体位址，其中拥有值，这个位址可能有标识符指向此处。台湾译作物件。对象是某个类的实例。我们将数据和对数据的操作融为一体，形成具有静态信息和动态行为的对象。    </p>
+<blockquote>
+<p>每个对象都具有一个ID、一个类型、一个值。对象一旦建立，ID便不会改变。这里所说的ID是是对象在内存中的地址，而不是identifier。</p>
+<p>对象可以视为广义的数据，因此和普通数据一样属于某种数据类型。</p>
+</blockquote>
+<p>标识符并不是对象的属性，一个对象可以指向不同的标识符。而管理这些名字（标识符）的事物就是“命名空间”。 </p>
+<p><strong>命名空间（Namespace）</strong>：名字（标识符）到对象的==映射==。 </p>
+<p>A <em>namespace</em> is a mapping from names to objects.</p>
+<blockquote>
+<p>各个命名空间是独立的，没有任何关系的，所以一个命名空间中不能有重名，但不同的命名空间是可以重名而没有任何影响。 </p>
+<p>现今 Python 的大部分命名空间是通过字典来实现的，也即一个命名空间就是名字到对象的映射，标识符是键，对象则是值。 </p>
+</blockquote>
+<p>与命名空间相对的一个概念就是“作用域” 。</p>
+<p><strong>作用域（Scope）</strong>：本质是一块文本区域，Python 通过该文本区域可以<strong>直接访问</strong>相应的命名空间。 </p>
+<p><strong>直接访问</strong>：Python 中不加 <code>.</code> 的访问为直接访问，反之为属性访问。 </p>
+<p><strong>命名空间与作用域的联系</strong>：作用域是<code>Python</code>的一块文本区域，即一块代码区域，需要代码区域引用名字（标识符）来访问变量，那么作用域与命名空间之间就有了联系。</p>
+<p><strong>名字作用域</strong>：名字可以影响到的代码文本区域。</p>
+<p><strong>命名空间的作用域</strong>：就是这个命名空间可以影响到的代码文本区域。</p>
+<blockquote>
+<p>显然可以存在这样的一个代码文本区域，它可以被多个命名空间影响。</p>
+</blockquote>
+<p><strong>面向对象编程</strong>：基于对象概念来分析问题和设计解法，这就是面向对象编程（object-orientation programming，简称OOP）。通过OOP所得到的程序是一个由很多对象组成的系统，可以向对象发送消息来实现对数据的处理，全体对象通过相互协作来完成程序的数据处理功能。</p>
+<p><strong>面向过程编程</strong>：得到的程序是一组对数据进行操作的过程，通过按顺序执行这些过程来实现程序功能。   </p>
+<h2 id="_5">类的概念</h2>
+<p><mark>类是类型概念的发展。</mark></p>
+<p>对象可以视为广义的数据，因此和普通数据一样属于某种数据类型。</p>
+<p>用计算机解决问题时，首先需要明确问题中涉及哪些数据，并在程序中将这些数据用编程语言提供的数据类型表示出来，然后再去考虑需要对这些数据执行何种操作。<mark>为了表示数据，编程语言一般提供若干<strong>基本数据类型</strong>（如Python的int、float、str和list等类型）</mark>，并为这些基本类型提供相应的基本操作（如Python中对int、float、str和list都提供了+运算，尽管含义不同）。</p>
+<p>然而，实际问题中往往涉及很复杂的数据，不能用基本数据类型直接表示。为了表示复杂数据，大体有两种办法：</p>
+<ol>
+<li>一种是将复杂数据分解成若干个简单数据项，以便每个数据项可以用基本类型表示</li>
+<li>另一种是由用户自定义新的数据类型，以便对复杂数据进行直接的、整体的表示。</li>
+</ol>
+<p>例如，如果要表示一个学生的姓名，可以简单地用一个字符串数据表示；如果要表示一个学生的年龄，可以简单地用一个整数数据表示。但如果要整体表示一个“学生”，包括该学生的姓名、年龄、地址等信息，就没法用基本数据类型直接表示了。</p>
+<p>一种解决办法是将整体的“学生”分解成姓名、年龄、地址等简单数据，并通过分别处理这些简单数据而达到处理“学生”数据的目的。但这不是好办法，因为这种表示法丢失了数据的整体性，在维护姓名、年龄、地址等数据间的联系时很麻烦。</p>
+<p>另一种解决办法是将学生整体视为一个数据值，并为这种数据值定义新的数据类型（因为编程语言中没有现成的类型能够表示该数据）。</p>
+<p>假设我们要为“学生“数据定义一个新的数据类型S，那么S应该是由若干更简单的数据项构成的（如学号、姓名等），我们称这些构成S的成员数据为S的属性。除了定义S类型数据的属性，还需要定义能对S数据执行什么操作（如修改姓名或年龄、读取地址等）。可以利用编程语言提供的基本类型和新类型定义机制来实现S，例如用str类型表示姓名和学号，用int类型表示年龄之类，用函数实现对S数据的操作。定义了S，就好像为编程语言添加了一个新的数据类型，应用程序就可以像使用整数、字符串等基本类型一样去使用S。</p>
+<p>由此，我们从传统的数据类型概念发展出了“类”的概念。类（class）是广义的数据类型，能够定义复杂数据的特性，包括静态特性（即数据）和动态特性（即对数据的操作方法）。<mark>类的值就是“对象”，也称为类的实例。</mark></p>
+<h2 id="vs">对象  vs  变量</h2>
+<p>python的入门者可能很容易把变量和对象混为一谈，实际上，可以说python中不存在变量这样的概念，所谓的变量实质上是对象的名字。<mark>在python中，对象属于某一个类型，而变量是没有类型的。所有的变量都是内存中一个对象的“引用”，也就是说变量的值实际上是对象的地址，而不是对象本身的值。</mark></p>
+<p>例如：</p>
+<div class="codehilite"><pre><span></span><span class="n">nfoo</span> <span class="o">=</span> <span class="mi">1</span>   <span class="c1">#一个指向int数据类型的nfoo（再次提醒，nfoo没有类型），在这里，具有类型的是1</span>
+<span class="n">lstFoo</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>   <span class="c1">#一个指向list类型的lstFoo，这个list中包含一个整数1</span>
+</pre></div>
+
+
+<h2 id="mutable-vs-immutable">可更改(mutable)  vs  不可更改(immutable)</h2>
+<p>在python中，strings、tuples、numbers是不可更改(immutable)的对象，而list、dict等则是可以修改(mutable)的对象。那么，这些所谓的可改变和不可改的本质是什么呢？</p>
+<p>mutable、immutable只是python语言的一个规定。从硬件角度说，硬件提供给用户的接口是按照规定设定好的。比如说，操作内存的方式是固定的，不存在可变和不可变。实现python的可变、不可变就是调用了不同的底层api，或者是不同底层api相互组合来实现的。python将这些规定以python语法的形式提供给用户使用，最后还是编译成0、1去让计算机执行。对于用户来说，可变和不可变对象是语言提供的一个特性，可以完成一些功能，但是对于计算机其实是没区别的。</p>
+<p>而在python中，不可变就是对象本身无法被修改，比如对象的值无法被修改。修改不可变对象只能创建新对象，旧对象若没有引用，则会被内存回收机制销毁。而可变对象的值是可以修改的。</p>
+<p>接下来看一个例子：</p>
+<div class="codehilite"><pre><span></span><span class="n">nfoo</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">nfoo</span> <span class="o">=</span> <span class="mi">2</span>
+
+<span class="n">lstFoo</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">lstFoo</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
+</pre></div>
+
+
+<p>代码第2行中，内存中原始的1对象因为不能改变，于是被“抛弃”，另nfoo指向一个新的int对象，其值为2。</p>
+<p>代码第5行中，更改list中第一个元素的值，因为list是可改变的，所以，第一个元素变更为2。其实应该说，lstFoo指向一个<strong>列表对象</strong>。赋值所发生的事情，lstFoo所指向的列表对象的第一个元素被替换为新的值，但是对于lstFoo本身来说，它的值（列表的地址）没有变换，只是列表对象的内容发生变化了。</p>
+<p>如下图所示：</p>
+<p><img alt="mutable-immutable-object.jpg" src="https://upload.cc/i1/2018/09/22/l2bpu1.png" /></p>
+<p>但有时候，即使对象被复制了，修改原对象，两个变量指向的对象都改变了，怎么回事？</p>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">fun2</span><span class="p">():</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]]</span>
+    <span class="n">b</span><span class="o">=</span><span class="n">a</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span> <span class="mi">10</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">fun2_2</span><span class="p">():</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]]</span>
+    <span class="n">b</span><span class="o">=</span><span class="n">a</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
+</pre></div>
+
+
+<p>上面定义了两个函数，两个函数输出的结果会一样吗？让我们看看：</p>
+<div class="codehilite"><pre><span></span><span class="n">fun2</span>
+<span class="o">-------------------</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">]]</span> 
+ <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">]]</span>
+
+<span class="n">fun2_2</span>
+<span class="o">-------------------</span>
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span> 
+ <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]]</span>
+</pre></div>
+
+
+<p>为什么<code>fun2</code>中b的第2个元素的值不变，而第四个元素的值却被改变了，而在<code>fun2_2</code>中b的值都没变？<mark>因为list储存的不是值，而是对象的引用。</mark></p>
+<h2 id="python_1">Python的函数参数传递：传值？引用？</h2>
+<p>python函数参数传递可以理解为就是变量传值操作，入门者可能会发现，不可变对象作为参数，看似是传引用；而可变对象作为参数，看似是传值。举一个例子：</p>
+<div class="codehilite"><pre><span></span><span class="n">不可变对象参数调用</span>
+<span class="k">def</span> <span class="nf">ChangeInt</span><span class="p">(</span> <span class="n">a</span> <span class="p">):</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">nfoo</span> <span class="o">=</span> <span class="mi">2</span> 
+<span class="n">ChangeInt</span><span class="p">(</span><span class="n">nfoo</span><span class="p">)</span>
+<span class="nb">print</span> <span class="n">nfoo</span> <span class="c1">#结果是2</span>
+</pre></div>
+
+
+<p>这时发生了什么？让我们看一下<code>nfoo</code>和<code>a</code>实际的值的变化：</p>
+<div class="codehilite"><pre><span></span><span class="n">nfoo</span> <span class="o">=</span> <span class="mi">2</span> <span class="c1"># nfoo：对象2的地址</span>
+<span class="c1"># 进行传参：</span>
+<span class="n">a</span><span class="o">=</span><span class="n">nfoo</span> <span class="c1"># 函数参数a：对象2的地址</span>
+<span class="c1"># 对a进行赋值</span>
+<span class="n">a</span><span class="o">=</span><span class="mi">10</span> <span class="c1"># 函数参数a：对象10的地址；此时，nfoo的值：对象2的地址</span>
+</pre></div>
+
+
+<p>也就是说，当<code>nfoo</code>传参给<code>ChangeInt()</code>的时候，是传递了<code>nfoo</code>的值，是<strong>值传递</strong>。如下图：</p>
+<p>因为对象是不可变的，所以对b重新赋值的时候，只能创建一个新的对象10，将对象10放进新的地址，而不是将储存于1的地址的值删除，再把10放进1的地址。</p>
+<p><img alt="python 不可变对象赋值" src="figures/python 不可变对象赋值.png" /></p>
+<p>但可变对象不同于不可变对象：</p>
+<div class="codehilite"><pre><span></span><span class="n">可变对象参数调用</span>
+<span class="k">def</span> <span class="nf">ChangeList</span><span class="p">(</span> <span class="n">a</span> <span class="p">):</span>
+    <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">lstFoo</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">ChangeList</span><span class="p">(</span><span class="n">lstFoo</span> <span class="p">)</span>
+<span class="nb">print</span> <span class="n">lstFoo</span> <span class="c1">#结果是[10]</span>
+</pre></div>
+
+
+<p>这时发生了什么？让我们看一下<code>nfoo</code>和<code>a</code>实际的值的变化：</p>
+<div class="codehilite"><pre><span></span><span class="n">lstFoo</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="c1"># nfoo：对象[2]的地址</span>
+<span class="c1"># 进行传参：</span>
+<span class="n">a</span><span class="o">=</span><span class="n">lstFoo</span> <span class="c1"># 函数参数a：对象[2]的地址</span>
+<span class="c1"># 对a进行赋值</span>
+<span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span> <span class="c1"># 函数参数a：对象[2]的地址；此时，nfoo的值：对象[2]的地址</span>
+</pre></div>
+
+
+<p>当<code>lstFoo</code>传参给<code>ChangeList()</code>的时候，<mark>变量仍旧是“传值”</mark>，a复制了变量<code>lstFoo</code> 的值，于是<code>a</code>和<code>lstFoo</code>指向同一个对象，但是，list是可以改变的对象，对<code>a[0]</code>进行赋值，就是更改原对象的值，而<code>lstFoo</code>也指向原对象。于是，这时的<code>a[0] = 10</code>，就是更改了<code>lstFoo</code> 指向的对象的第一个元素。所以，再次输出<code>lstFoo</code> 时，显示<code>[10]</code>，因此，看起来是<code>lstFoo</code>的值改变了。但实际上<code>lstFoo</code>的值还是原对象的地址，<code>lstFoo</code>的值并没有改变，改变的是对象。</p>
+<p><mark>综上所以，python的传参，传进去的是name（变量）的值，而name的值是object的引用。也就是说，传参传的是name的值（object的引用）。传参无法把对象的值传进去。</mark></p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="1.1.计算机与程序结构.html" title="1.1.计算机与程序结构" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  上一页
+                </span>
+                1.1.计算机与程序结构
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="1.3.编译型语言和解释型语言的优缺点对比.html" title="1.3.编译型语言和解释型语言的优缺点对比" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  下一页
+                </span>
+                1.3.编译型语言和解释型语言的优缺点对比
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application.245445c6.js"></script>
+      
+        
+        
+          
+          <script src="../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
+      
+        <script src="../javascript/extra.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+    
+  </body>
+</html>
