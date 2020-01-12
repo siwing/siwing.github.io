@@ -1,0 +1,1327 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="zh">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.0">
+    
+    
+      
+        <title>6.3.内存布局 - Python笔记</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application.0284f74d.css">
+      
+      
+    
+    
+      <script src="../assets/javascripts/modernizr.74668098.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#ndarray" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href=".." title="Python笔记" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Python笔记
+            </span>
+            <span class="md-header-nav__topic">
+              
+                6.3.内存布局
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/example/repository/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href=".." title="Python笔记" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    Python笔记
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/example/repository/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1">
+    
+    <label class="md-nav__link" for="nav-1">
+      计算机基础
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        计算机基础
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../计算机基础/1.1.计算机与程序结构.html" title="1.1.计算机与程序结构" class="md-nav__link">
+      1.1.计算机与程序结构
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../计算机基础/1.2.基本概念.html" title="1.2.基本概念" class="md-nav__link">
+      1.2.基本概念
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../计算机基础/1.3.编译型语言和解释型语言的优缺点对比.html" title="1.3.编译型语言和解释型语言的优缺点对比" class="md-nav__link">
+      1.3.编译型语言和解释型语言的优缺点对比
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../计算机基础/1.4.命名空间与作用域.html" title="1.4.命名空间与作用域" class="md-nav__link">
+      1.4.命名空间与作用域
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../计算机基础/1.5.字符编码.html" title="1.5.字符编码" class="md-nav__link">
+      1.5.字符编码
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Python 基础
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Python 基础
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python基础/2.1.python基本语法.html" title="2.1.python基本语法" class="md-nav__link">
+      2.1.python基本语法
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python基础/2.2.语句.html" title="2.2.语句" class="md-nav__link">
+      2.2.语句
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python基础/2.3.List.html" title="2.3.List" class="md-nav__link">
+      2.3.List
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python基础/2.4.String.html" title="2.4.String" class="md-nav__link">
+      2.4.String
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python基础/2.5.Tuple.html" title="2.5.Tuple" class="md-nav__link">
+      2.5.Tuple
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python基础/2.6.Dict.html" title="2.6.Dict" class="md-nav__link">
+      2.6.Dict
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python基础/3.1.异常.html" title="3.1.异常" class="md-nav__link">
+      3.1.异常
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python基础/3.2.浅拷贝和深拷贝.html" title="3.2.浅拷贝和深拷贝" class="md-nav__link">
+      3.2.浅拷贝和深拷贝
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python基础/3.3.位置参数、默认参数、关键字参数、可变参数区别.html" title="3.3.位置参数、默认参数、关键字参数、可变参数区别" class="md-nav__link">
+      3.3.位置参数、默认参数、关键字参数、可变参数区别
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python基础/3.4.列表生成式.html" title="3.4.列表生成式" class="md-nav__link">
+      3.4.列表生成式
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python基础/3.5.装饰器.html" title="3.5.装饰器" class="md-nav__link">
+      3.5.装饰器
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python基础/4.1.类.html" title="4.1.类" class="md-nav__link">
+      4.1.类
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python基础/4.2.模块.html" title="4.2.模块" class="md-nav__link">
+      4.2.模块
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      开发环境管理
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        开发环境管理
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../开发环境管理/5.1.conda笔记.html" title="5.1.conda笔记" class="md-nav__link">
+      5.1.conda笔记
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../开发环境管理/5.3.pip对比conda.html" title="5.3.pip对比conda" class="md-nav__link">
+      5.3.pip对比conda
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../开发环境管理/5.4.anaconda.html" title="5.4.anaconda" class="md-nav__link">
+      5.4.anaconda
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../开发环境管理/5.5.jupyter使用笔记.html" title="5.5.jupyter使用笔记" class="md-nav__link">
+      5.5.jupyter使用笔记
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
+    
+    <label class="md-nav__link" for="nav-4">
+      Numpy笔记
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Numpy笔记
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="6.1.创建数组.html" title="6.1.创建数组" class="md-nav__link">
+      6.1.创建数组
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="6.2.索引.html" title="6.2.索引" class="md-nav__link">
+      6.2.索引
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        6.3.内存布局
+      </label>
+    
+    <a href="6.3.内存布局.html" title="6.3.内存布局" class="md-nav__link md-nav__link--active">
+      6.3.内存布局
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ndarray" title="ndarray对象" class="md-nav__link">
+    ndarray对象
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="内存布局" class="md-nav__link">
+    内存布局
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="视图和副本" class="md-nav__link">
+    视图和副本
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="6.4.广播.html" title="6.4.广播" class="md-nav__link">
+      6.4.广播
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="6.5.常量.html" title="6.5.常量" class="md-nav__link">
+      6.5.常量
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="6.6.打印数组.html" title="6.6.打印数组" class="md-nav__link">
+      6.6.打印数组
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="6.7.添加和删除.html" title="6.7.添加和删除" class="md-nav__link">
+      6.7.添加和删除
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="6.8.形状操纵.html" title="6.8.形状操纵" class="md-nav__link">
+      6.8.形状操纵
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="6.9.ufunc函数.html" title="6.9.ufunc函数" class="md-nav__link">
+      6.9.ufunc函数
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="6.10.函数库.html" title="6.10.函数库" class="md-nav__link">
+      6.10.函数库
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="6.12.结构化数组.html" title="6.12.结构化数组" class="md-nav__link">
+      6.12.结构化数组
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      pandas笔记
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        pandas笔记
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../pandas笔记/7.1.Series.html" title="7.1.Series" class="md-nav__link">
+      7.1.Series
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../pandas笔记/7.2.DataFrame.html" title="7.2.DataFrame" class="md-nav__link">
+      7.2.DataFrame
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ndarray" title="ndarray对象" class="md-nav__link">
+    ndarray对象
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="内存布局" class="md-nav__link">
+    内存布局
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="视图和副本" class="md-nav__link">
+    视图和副本
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/example/repository/edit/master/docs/numpy笔记/6.3.内存布局.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                  <h1>6.3.内存布局</h1>
+                
+                <div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pprint</span>
+<span class="kn">import</span> <span class="nn">copy</span>
+</pre></div>
+
+
+<h2 id="ndarray">ndarray对象</h2>
+<p>NumPy提供了一个N维数组对象ndarray，它描述了同一类型的元素的集合。可以使用N个整数对元素进行索引。</p>
+<p>ndarray中所有元素都是<a href="https://numpy.org/devdocs/glossary.html#term-homogenous">同质的</a>：每个元素占用相同大小的内存块，并且所有内存块的解释方式完全相同。数组中各元素的解释方式由一个的<a href="https://numpy.org/devdocs/reference/arrays.dtypes.html#arrays-dtypes">data-type</a>对象（dtype）指定。</p>
+<p><img alt="image.png" src="https://docs.scipy.org/doc/numpy/_images/threefundamental.png" />  </p>
+<p>图中显示了用于描述数组中数据的三个基本对象之间的关系：  </p>
+<ol>
+<li>
+<p>ndarray本身 </p>
+</li>
+<li>
+<p>描述数组中单个固定大小元素的内存布局的data-type对象 </p>
+</li>
+<li>
+<p>访问数组的单个元素时返回的数组标量（Python对象）</p>
+</li>
+</ol>
+<p>ndarray类的实例由一个<strong>连续的</strong>一维计算机内存块（由数组或其他对象拥有）和一个索引方案组合而成，该索引方案将N个整数分别映射到内存块中N个元素的位置。索引可以变化的范围被数组的shape限制。</p>
+<p>ndarray看上去似乎可以是多维的，但在内存中，ndarray是一维储存的。有许多方案将N维数组以一维数组的形式储存在内存中。其中numpy有两种储存方式：</p>
+<ul>
+<li>
+<p>元素按行顺序储存（C语言风格）</p>
+</li>
+<li>
+<p>或者按列顺序储存（Fortran语言风格）</p>
+</li>
+</ul>
+<p><img alt="" src="https://morvanzhou.github.io/static/results/np-pd/4-1-4.png" /></p>
+<p>因此，如果要对一个ndarray以行为单位进行操作，最好以C-type的方式创建ndarray；如果要对一个ndarray以列为单位进行操作，则用Fortran方式。</p>
+<p><img alt="" src="https://upload.cc/i1/2018/09/29/46yWIo.png" /></p>
+<h2 id="_1">内存布局</h2>
+<div class="codehilite"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int16</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">array([[0, 1, 2],</span>
+<span class="err">       [3, 4, 5],</span>
+<span class="err">       [6, 7, 8]], dtype=int16)</span>
+</pre></div>
+
+
+<table>
+<thead>
+<tr>
+<th>属性（与数组内存布局有关）</th>
+<th>A的属性值</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A.dtype</td>
+<td><code>dtype('int16')</code></td>
+<td>元素数据类型。A的每个元素是16bit大小的int型数据。</td>
+</tr>
+<tr>
+<td>A.ndim</td>
+<td><code>2</code></td>
+<td>轴（维度）的个数。A有两个轴：0轴、1轴。</td>
+</tr>
+<tr>
+<td>A.shape</td>
+<td><code>(3, 3)</code></td>
+<td>各个轴的大小。0轴有3个元素，1轴有3个元素。</td>
+</tr>
+<tr>
+<td>A.size</td>
+<td><code>9</code></td>
+<td>数组的大小，有多少个元素。</td>
+</tr>
+<tr>
+<td>A.data</td>
+<td><code>&lt;memory at 0x000001B17A238A68&gt;</code></td>
+<td>指向数组的数据的存储区。</td>
+</tr>
+<tr>
+<td>A.itemsize</td>
+<td><code>2</code></td>
+<td>一个元素的长度，以字节为单位。16bit等于2字节。</td>
+</tr>
+<tr>
+<td>A.nbytes</td>
+<td><code>18</code></td>
+<td>数组元素占据的总字节数。</td>
+</tr>
+<tr>
+<td>A.base</td>
+<td><code>None</code></td>
+<td>如果内存来自其他对象，则以此为基础对象。</td>
+</tr>
+<tr>
+<td>A.flags</td>
+<td></td>
+<td>有关数组内存布局的信息。</td>
+</tr>
+<tr>
+<td>A.strides</td>
+<td><code>(6, 2)</code></td>
+<td>一个整数元组，每个元素保存着每个轴上相邻两个元素的地址差。 即当某个轴的下标增加1 时，数据存储区中的指针增加的字节数。</td>
+</tr>
+</tbody>
+</table>
+<p>可以从不同的角度(即布局)观察该array：</p>
+<div class="codehilite"><pre><span></span>               <span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+                 <span class="p">(</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+            <span class="err">┌───────────┐</span>
+
+         <span class="err">┌</span>  <span class="err">┌───┬───┬───┐</span>  <span class="err">┐</span>
+         <span class="err">│</span>  <span class="err">│</span> <span class="mi">0</span> <span class="err">│</span> <span class="mi">1</span> <span class="err">│</span> <span class="mi">2</span> <span class="err">│</span>  <span class="err">│</span>
+         <span class="err">│</span>  <span class="err">├───┼───┼───┤</span>  <span class="err">│</span>
+<span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="err">│</span>  <span class="err">│</span> <span class="mi">3</span> <span class="err">│</span> <span class="mi">4</span> <span class="err">│</span> <span class="mi">5</span> <span class="err">│</span>  <span class="err">│</span> <span class="n">len</span><span class="p">(</span><span class="n">Z</span><span class="p">)</span>
+ <span class="p">(</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>    <span class="err">│</span>  <span class="err">├───┼───┼───┤</span>  <span class="err">│</span>  <span class="p">(</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+         <span class="err">│</span>  <span class="err">│</span> <span class="mi">6</span> <span class="err">│</span> <span class="mi">7</span> <span class="err">│</span> <span class="mi">8</span> <span class="err">│</span>  <span class="err">│</span>
+         <span class="err">└</span>  <span class="err">└───┴───┴───┘</span>  <span class="err">┘</span>
+</pre></div>
+
+
+<p>展开的item layout</p>
+<div class="codehilite"><pre><span></span><span class="err">┌───┬───┬───┬───┬───┬───┬───┬───┬───┐</span>
+<span class="err">│</span> <span class="mi">0</span> <span class="err">│</span> <span class="mi">1</span> <span class="err">│</span> <span class="mi">2</span> <span class="err">│</span> <span class="mi">3</span> <span class="err">│</span> <span class="mi">4</span> <span class="err">│</span> <span class="mi">5</span> <span class="err">│</span> <span class="mi">6</span> <span class="err">│</span> <span class="mi">7</span> <span class="err">│</span> <span class="mi">8</span> <span class="err">│</span>
+<span class="err">└───┴───┴───┴───┴───┴───┴───┴───┴───┘</span>
+
+<span class="err">└───────────────────────────────────┘</span>
+               <span class="n">A</span><span class="p">.</span><span class="k">size</span>
+                <span class="p">(</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span>
+</pre></div>
+
+
+<p>内存布局(C顺序)</p>
+<div class="codehilite"><pre><span></span>                         <span class="n">strides</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+                           <span class="p">(</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+                  <span class="err">┌─────────────────────┐</span>
+
+          <span class="err">┌</span>       <span class="err">┌──────────┬──────────┐</span> <span class="err">┐</span>
+          <span class="err">│</span> <span class="n">p</span><span class="o">+</span><span class="mi">00</span><span class="p">:</span> <span class="err">│</span> <span class="mi">00000000</span> <span class="err">│</span> <span class="mi">00000000</span> <span class="err">│</span> <span class="err">│</span>
+          <span class="err">│</span>       <span class="err">├──────────┼──────────┤</span> <span class="err">│</span>
+          <span class="err">│</span> <span class="n">p</span><span class="o">+</span><span class="mi">02</span><span class="p">:</span> <span class="err">│</span> <span class="mi">00000000</span> <span class="err">│</span> <span class="mi">00000001</span> <span class="err">│</span> <span class="err">│</span> <span class="n">strides</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+          <span class="err">│</span>       <span class="err">├──────────┼──────────┤</span> <span class="err">│</span>   <span class="p">(</span><span class="o">=</span><span class="mi">2</span><span class="n">x3</span><span class="p">)</span>
+          <span class="err">│</span> <span class="n">p</span><span class="o">+</span><span class="mi">04</span>  <span class="err">│</span> <span class="mi">00000000</span> <span class="err">│</span> <span class="mi">00000010</span> <span class="err">│</span> <span class="err">│</span>
+          <span class="err">│</span>       <span class="err">├──────────┼──────────┤</span> <span class="err">┘</span>
+          <span class="err">│</span> <span class="n">p</span><span class="o">+</span><span class="mi">06</span>  <span class="err">│</span> <span class="mi">00000000</span> <span class="err">│</span> <span class="mi">00000011</span> <span class="err">│</span>
+          <span class="err">│</span>       <span class="err">├──────────┼──────────┤</span>
+<span class="n">A</span><span class="p">.</span><span class="n">nbytes</span>  <span class="err">│</span> <span class="n">p</span><span class="o">+</span><span class="mi">08</span><span class="p">:</span> <span class="err">│</span> <span class="mi">00000000</span> <span class="err">│</span> <span class="mi">00000100</span> <span class="err">│</span>
+<span class="p">(</span><span class="o">=</span><span class="mi">3</span><span class="n">x3x2</span><span class="p">)</span>  <span class="err">│</span>       <span class="err">├──────────┼──────────┤</span>
+          <span class="err">│</span> <span class="n">p</span><span class="o">+</span><span class="mi">10</span><span class="p">:</span> <span class="err">│</span> <span class="mi">00000000</span> <span class="err">│</span> <span class="mi">00000101</span> <span class="err">│</span>
+          <span class="err">│</span>       <span class="err">├──────────┼──────────┤</span>
+          <span class="err">│</span> <span class="n">p</span><span class="o">+</span><span class="mi">12</span><span class="p">:</span> <span class="err">│</span> <span class="mi">00000000</span> <span class="err">│</span> <span class="mi">00000110</span> <span class="err">│</span>
+          <span class="err">│</span>       <span class="err">├──────────┼──────────┤</span>
+          <span class="err">│</span> <span class="n">p</span><span class="o">+</span><span class="mi">14</span><span class="p">:</span> <span class="err">│</span> <span class="mi">00000000</span> <span class="err">│</span> <span class="mi">00000111</span> <span class="err">│</span>
+          <span class="err">│</span>       <span class="err">├──────────┼──────────┤</span>
+          <span class="err">│</span> <span class="n">p</span><span class="o">+</span><span class="mi">16</span><span class="p">:</span> <span class="err">│</span> <span class="mi">00000000</span> <span class="err">│</span> <span class="mi">00001000</span> <span class="err">│</span>
+          <span class="err">└</span>       <span class="err">└──────────┴──────────┘</span>
+
+                  <span class="err">└─────────────────────┘</span>
+                        <span class="n">A</span><span class="p">.</span><span class="n">itemsize</span>
+                     <span class="n">A</span><span class="p">.</span><span class="n">dtype</span><span class="p">.</span><span class="n">itemsize</span>
+                           <span class="p">(</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+
+
+<p>如果我们现在取一A的切片，结果是A的基本数组的一个视图：</p>
+<div class="codehilite"><pre><span></span><span class="err">V = A[::2,::2]</span>
+</pre></div>
+
+
+<p>这样的视图是由shape，dtype 和<strong>strides</strong>指定的，因为仅凭dtype和shape不能推断出strides:</p>
+<p>如果我们现在取一A的切片，结果是A的基本数组的一个视图：</p>
+<div class="codehilite"><pre><span></span><span class="err">V = A[::2,::2]</span>
+</pre></div>
+
+
+<p>这样的视图是由shape，dtype 和<strong>strides</strong>指定的，因为仅凭dtype和shape不能推断出strides:</p>
+<p><strong>Item layout</strong></p>
+<div class="codehilite"><pre><span></span>               <span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+                 <span class="p">(</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+            <span class="err">┌───────────┐</span>
+
+         <span class="err">┌</span>  <span class="err">┌───┬───┬───┐</span>  <span class="err">┐</span>
+         <span class="err">│</span>  <span class="err">│</span> <span class="mi">0</span> <span class="err">│</span>   <span class="err">│</span> <span class="mi">2</span> <span class="err">│</span>  <span class="err">│</span>           <span class="err">┌───┬───┐</span>
+         <span class="err">│</span>  <span class="err">├───┼───┼───┤</span>  <span class="err">│</span>           <span class="o">|</span> <span class="mi">0</span> <span class="err">│</span> <span class="mi">2</span> <span class="err">│</span>
+<span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="err">│</span>  <span class="err">│</span>   <span class="err">│</span>   <span class="err">│</span>   <span class="err">│</span>  <span class="err">│</span> <span class="n">len</span><span class="p">(</span><span class="n">A</span><span class="p">)</span> <span class="err">→</span>  <span class="err">├───┼───┤</span>
+ <span class="p">(</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>    <span class="err">│</span>  <span class="err">├───┼───┼───┤</span>  <span class="err">│</span>  <span class="p">(</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>     <span class="o">|</span> <span class="mi">6</span> <span class="err">│</span> <span class="mi">8</span> <span class="err">│</span>
+         <span class="err">│</span>  <span class="err">│</span> <span class="mi">6</span> <span class="err">│</span>   <span class="err">│</span> <span class="mi">8</span> <span class="err">│</span>  <span class="err">│</span>           <span class="err">└───┴───┘</span>
+         <span class="err">└</span>  <span class="err">└───┴───┴───┘</span>  <span class="err">┘</span>
+</pre></div>
+
+
+<p><strong>展开的item layout</strong></p>
+<div class="codehilite"><pre><span></span><span class="err">┌───┬───┬───┬───┬───┬───┬───┬───┬───┐   ┌───┬───┬───┬───┐</span>
+<span class="err">│ 0 │ 1 │ 2 │ 3 │ 4 │ 5 │ 6 │ 7 │ 8 │ → │ 0 │ 2 │ 6 │ 8 │</span>
+<span class="err">└───┴───┴───┴───┴───┴───┴───┴───┴───┘   └───┴───┴───┴───┘</span>
+<span class="err">└─┬─┘   └─┬─┘           └─┬─┘   └─┬─┘</span>
+<span class="err">  └───┬───┘               └───┬───┘</span>
+<span class="err">      └───────────┬───────────┘</span>
+<span class="err">               A.size</span>
+<span class="err">                (=4)</span>
+</pre></div>
+
+
+<p><strong>内存布局(C顺序，大端序)</strong></p>
+<div class="codehilite"><pre><span></span>              <span class="err">┌</span>        <span class="err">┌──────────┬──────────┐</span> <span class="err">┐</span>             <span class="err">┐</span>
+            <span class="err">┌─┤</span>  <span class="n">p</span><span class="o">+</span><span class="mi">00</span><span class="p">:</span> <span class="err">│</span> <span class="mi">00000000</span> <span class="err">│</span> <span class="mi">00000000</span> <span class="err">│</span> <span class="err">│</span>             <span class="err">│</span>
+            <span class="err">│</span> <span class="err">└</span>        <span class="err">├──────────┼──────────┤</span> <span class="err">│</span> <span class="n">strides</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>  <span class="err">│</span>
+          <span class="err">┌─┤</span>    <span class="n">p</span><span class="o">+</span><span class="mi">02</span><span class="p">:</span> <span class="err">│</span>          <span class="err">│</span>          <span class="err">│</span> <span class="err">│</span>   <span class="p">(</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>      <span class="err">│</span>
+          <span class="err">│</span> <span class="err">│</span> <span class="err">┌</span>        <span class="err">├──────────┼──────────┤</span> <span class="err">┘</span>             <span class="err">│</span>
+          <span class="err">│</span> <span class="err">└─┤</span>  <span class="n">p</span><span class="o">+</span><span class="mi">04</span>  <span class="err">│</span> <span class="mi">00000000</span> <span class="err">│</span> <span class="mi">00000010</span> <span class="err">│</span>               <span class="err">│</span>
+          <span class="err">│</span>   <span class="err">└</span>        <span class="err">├──────────┼──────────┤</span>               <span class="err">│</span> <span class="n">strides</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+          <span class="err">│</span>      <span class="n">p</span><span class="o">+</span><span class="mi">06</span><span class="p">:</span> <span class="err">│</span>          <span class="err">│</span>          <span class="err">│</span>               <span class="err">│</span>   <span class="p">(</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+          <span class="err">│</span>            <span class="err">├──────────┼──────────┤</span>               <span class="err">│</span>
+<span class="n">A</span><span class="p">.</span><span class="n">nbytes</span> <span class="err">─┤</span>      <span class="n">p</span><span class="o">+</span><span class="mi">08</span><span class="p">:</span> <span class="err">│</span>          <span class="err">│</span>          <span class="err">│</span>               <span class="err">│</span>
+  <span class="p">(</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>    <span class="err">│</span>            <span class="err">├──────────┼──────────┤</span>               <span class="err">│</span>
+          <span class="err">│</span>      <span class="n">p</span><span class="o">+</span><span class="mi">10</span><span class="p">:</span> <span class="err">│</span>          <span class="err">│</span>          <span class="err">│</span>               <span class="err">│</span>
+          <span class="err">│</span>   <span class="err">┌</span>        <span class="err">├──────────┼──────────┤</span>               <span class="err">┘</span>
+          <span class="err">│</span> <span class="err">┌─┤</span>  <span class="n">p</span><span class="o">+</span><span class="mi">12</span><span class="p">:</span> <span class="err">│</span> <span class="mi">00000000</span> <span class="err">│</span> <span class="mi">00000110</span> <span class="err">│</span>
+          <span class="err">│</span> <span class="err">│</span> <span class="err">└</span>        <span class="err">├──────────┼──────────┤</span>
+          <span class="err">└─┤</span>    <span class="n">p</span><span class="o">+</span><span class="mi">14</span><span class="p">:</span> <span class="err">│</span>          <span class="err">│</span>          <span class="err">│</span>
+            <span class="err">│</span> <span class="err">┌</span>        <span class="err">├──────────┼──────────┤</span>
+            <span class="err">└─┤</span>  <span class="n">p</span><span class="o">+</span><span class="mi">16</span><span class="p">:</span> <span class="err">│</span> <span class="mi">00000000</span> <span class="err">│</span> <span class="mi">00001000</span> <span class="err">│</span>
+              <span class="err">└</span>        <span class="err">└──────────┴──────────┘</span>
+
+                       <span class="err">└─────────────────────┘</span>
+                             <span class="n">A</span><span class="p">.</span><span class="n">itemsize</span>
+                          <span class="n">A</span><span class="p">.</span><span class="n">dtype</span><span class="p">.</span><span class="n">itemsize</span>
+                                <span class="p">(</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+
+
+<p><img alt="" src="../figures/strides.png" /></p>
+<p>可以直接修改<code>ndarray</code>对象的<code>strides</code>属性，改变<code>ndarray</code>的内存布局，但此时会修改原数组。</p>
+<div class="codehilite"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int16</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">A</span><span class="o">.</span><span class="n">strides</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">array([[0, 2, 4],</span>
+<span class="err">       [1, 3, 5],</span>
+<span class="err">       [2, 4, 6]], dtype=int16)</span>
+</pre></div>
+
+
+<h2 id="_2">视图和副本</h2>
+<p>视图和副本是优化数值计算的重要概念。</p>
+<p>在numpy中，可以用切片和<a href="https://docs.scipy.org/doc/numpy/reference/arrays.indexing.html#advanced-indexing">花式索引</a>（整数数组索引）来索引数据。切片将始终返回视图，而整数数组索引将返回一个副本。这种差异很重要，因为在切片情况下，修改视图会修改原数组，而在整数数组索引情况下则不是这样：</p>
+<div class="codehilite"><pre><span></span><span class="n">Z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
+<span class="n">Z_view</span> <span class="o">=</span> <span class="n">Z</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span>
+<span class="n">Z_view</span><span class="p">[</span><span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Z</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">[1. 1. 1. 0. 0. 0. 0. 0. 0.]</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="n">Z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
+<span class="n">Z_copy</span> <span class="o">=</span> <span class="n">Z</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]]</span>
+<span class="n">Z_copy</span><span class="p">[</span><span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Z</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">[0. 0. 0. 0. 0. 0. 0. 0. 0.]</span>
+</pre></div>
+
+
+<p>因此，如果你需要反复用到某个花式索引，最好保留它的副本（特别是如果计算它很复杂）。如果您不确定索引的结果是视图还是副本，则可以检查base的结果。如果是None，那么结果就是副本：</p>
+<div class="codehilite"><pre><span></span><span class="n">Z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">Z1</span> <span class="o">=</span> <span class="n">Z</span><span class="p">[:</span><span class="mi">3</span><span class="p">,:]</span>
+<span class="n">Z2</span> <span class="o">=</span> <span class="n">Z</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="p">:]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">Z1</span><span class="p">,</span><span class="n">Z2</span><span class="p">))</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">True</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">Z1</span><span class="o">.</span><span class="n">base</span> <span class="ow">is</span> <span class="n">Z</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">True</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">Z2</span><span class="o">.</span><span class="n">base</span> <span class="ow">is</span> <span class="n">Z</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">False</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">Z2</span><span class="o">.</span><span class="n">base</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">True</span>
+</pre></div>
+
+
+<p>请注意，一些numpy函数在可能的情况下返回视图(例如，<a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ravel.html">ravel</a>)，而另一些函数总是返回副本(例如，<a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.flatten.html#numpy.ndarray.flatten">flatten</a>):</p>
+<div class="codehilite"><pre><span></span><span class="n">Z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">Z</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span><span class="o">.</span><span class="n">base</span> <span class="ow">is</span> <span class="n">Z</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">True</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">Z</span><span class="p">[::</span><span class="mi">2</span><span class="p">,::</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span><span class="o">.</span><span class="n">base</span> <span class="ow">is</span> <span class="n">Z</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">False</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">Z</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span><span class="o">.</span><span class="n">base</span> <span class="ow">is</span> <span class="n">Z</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">False</span>
+</pre></div>
+
+
+<p>可以通过<code>ndarray.view()</code>方法，从同一块内存区（储存着numpy数组的内存区）创建不同的dtype数组。
+即用不同的数值类型查看同一段内存中的二进制数据。<mark>它们使用的是同一块内存。</mark> 实际上，<code>ndarray.view()</code>方法是创建了一个视图。</p>
+<div class="codehilite"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">],[</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">]])</span>
+<span class="n">A_view</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span> <span class="c1"># A_view 是视图</span>
+<span class="n">A_view</span><span class="o">.</span><span class="n">flags</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">  C_CONTIGUOUS : True</span>
+<span class="err">  F_CONTIGUOUS : False</span>
+<span class="err">  OWNDATA : False</span>
+<span class="err">  WRITEABLE : True</span>
+<span class="err">  ALIGNED : True</span>
+<span class="err">  WRITEBACKIFCOPY : False</span>
+<span class="err">  UPDATEIFCOPY : False</span>
+</pre></div>
+
+
+<p>如果我们直接修改原始数组的<code>dtype</code>，会达到同样的效果，<mark>但此时直接修改原始数组。</mark></p>
+<div class="codehilite"><pre><span></span><span class="n">A</span><span class="o">.</span><span class="n">dtype</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span>
+</pre></div>
+
+
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>通常应避免改变由切片、transposes、fortran排序等定义的数组的<code>dtype</code> 的大小，如下：</p>
+</div>
+<div class="codehilite"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int16</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">A_view</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">---------------------------------------------------------------------------ValueError</span>
+<span class="err">Traceback (most recent call last)&lt;ipython-input-1-7b8b7375e3ff&gt; in</span>
+<span class="err">&lt;module&gt;</span>
+<span class="err">      1 A = copy.deepcopy(np.arange(9, dtype=np.int16).reshape(3,3))</span>
+<span class="err">----&gt; 2 A_view = A.view(np.int32)</span>
+<span class="c">ValueError: When changing to a larger dtype, its size must be a</span>
+<span class="err">divisor of the total size in bytes of the last axis of the array.</span>
+</pre></div>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="6.2.索引.html" title="6.2.索引" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  上一页
+                </span>
+                6.2.索引
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="6.4.广播.html" title="6.4.广播" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  下一页
+                </span>
+                6.4.广播
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application.245445c6.js"></script>
+      
+        
+        
+          
+          <script src="../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
+      
+        <script src="../javascript/extra.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+    
+  </body>
+</html>

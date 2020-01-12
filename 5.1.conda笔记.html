@@ -1,0 +1,1344 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="zh">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.0">
+    
+    
+      
+        <title>5.1.conda笔记 - Python笔记</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application.0284f74d.css">
+      
+      
+    
+    
+      <script src="../assets/javascripts/modernizr.74668098.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#conda" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href=".." title="Python笔记" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Python笔记
+            </span>
+            <span class="md-header-nav__topic">
+              
+                5.1.conda笔记
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/example/repository/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href=".." title="Python笔记" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    Python笔记
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/example/repository/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1">
+    
+    <label class="md-nav__link" for="nav-1">
+      计算机基础
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        计算机基础
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../计算机基础/1.1.计算机与程序结构.html" title="1.1.计算机与程序结构" class="md-nav__link">
+      1.1.计算机与程序结构
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../计算机基础/1.2.基本概念.html" title="1.2.基本概念" class="md-nav__link">
+      1.2.基本概念
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../计算机基础/1.3.编译型语言和解释型语言的优缺点对比.html" title="1.3.编译型语言和解释型语言的优缺点对比" class="md-nav__link">
+      1.3.编译型语言和解释型语言的优缺点对比
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../计算机基础/1.4.命名空间与作用域.html" title="1.4.命名空间与作用域" class="md-nav__link">
+      1.4.命名空间与作用域
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../计算机基础/1.5.字符编码.html" title="1.5.字符编码" class="md-nav__link">
+      1.5.字符编码
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Python 基础
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Python 基础
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python基础/2.1.python基本语法.html" title="2.1.python基本语法" class="md-nav__link">
+      2.1.python基本语法
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python基础/2.2.语句.html" title="2.2.语句" class="md-nav__link">
+      2.2.语句
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python基础/2.3.List.html" title="2.3.List" class="md-nav__link">
+      2.3.List
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python基础/2.4.String.html" title="2.4.String" class="md-nav__link">
+      2.4.String
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python基础/2.5.Tuple.html" title="2.5.Tuple" class="md-nav__link">
+      2.5.Tuple
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python基础/2.6.Dict.html" title="2.6.Dict" class="md-nav__link">
+      2.6.Dict
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python基础/3.1.异常.html" title="3.1.异常" class="md-nav__link">
+      3.1.异常
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python基础/3.2.浅拷贝和深拷贝.html" title="3.2.浅拷贝和深拷贝" class="md-nav__link">
+      3.2.浅拷贝和深拷贝
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python基础/3.3.位置参数、默认参数、关键字参数、可变参数区别.html" title="3.3.位置参数、默认参数、关键字参数、可变参数区别" class="md-nav__link">
+      3.3.位置参数、默认参数、关键字参数、可变参数区别
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python基础/3.4.列表生成式.html" title="3.4.列表生成式" class="md-nav__link">
+      3.4.列表生成式
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python基础/3.5.装饰器.html" title="3.5.装饰器" class="md-nav__link">
+      3.5.装饰器
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python基础/4.1.类.html" title="4.1.类" class="md-nav__link">
+      4.1.类
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python基础/4.2.模块.html" title="4.2.模块" class="md-nav__link">
+      4.2.模块
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      开发环境管理
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        开发环境管理
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        5.1.conda笔记
+      </label>
+    
+    <a href="5.1.conda笔记.html" title="5.1.conda笔记" class="md-nav__link md-nav__link--active">
+      5.1.conda笔记
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#conda_1" title="conda命令" class="md-nav__link">
+    conda命令
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#conda-info" title="conda info" class="md-nav__link">
+    conda info
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conda-create" title="conda create" class="md-nav__link">
+    conda create
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conda_2" title="conda常用命令" class="md-nav__link">
+    conda常用命令
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" title="查看信息" class="md-nav__link">
+    查看信息
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" title="环境管理" class="md-nav__link">
+    环境管理
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" title="从指定路径安装环境" class="md-nav__link">
+    从指定路径安装环境
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" title="包管理" class="md-nav__link">
+    包管理
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#anaconda" title="为 anaconda 指定国内镜像源" class="md-nav__link">
+    为 anaconda 指定国内镜像源
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="5.3.pip对比conda.html" title="5.3.pip对比conda" class="md-nav__link">
+      5.3.pip对比conda
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="5.4.anaconda.html" title="5.4.anaconda" class="md-nav__link">
+      5.4.anaconda
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="5.5.jupyter使用笔记.html" title="5.5.jupyter使用笔记" class="md-nav__link">
+      5.5.jupyter使用笔记
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Numpy笔记
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Numpy笔记
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy笔记/6.1.创建数组.html" title="6.1.创建数组" class="md-nav__link">
+      6.1.创建数组
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy笔记/6.2.索引.html" title="6.2.索引" class="md-nav__link">
+      6.2.索引
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy笔记/6.3.内存布局.html" title="6.3.内存布局" class="md-nav__link">
+      6.3.内存布局
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy笔记/6.4.广播.html" title="6.4.广播" class="md-nav__link">
+      6.4.广播
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy笔记/6.5.常量.html" title="6.5.常量" class="md-nav__link">
+      6.5.常量
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy笔记/6.6.打印数组.html" title="6.6.打印数组" class="md-nav__link">
+      6.6.打印数组
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy笔记/6.7.添加和删除.html" title="6.7.添加和删除" class="md-nav__link">
+      6.7.添加和删除
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy笔记/6.8.形状操纵.html" title="6.8.形状操纵" class="md-nav__link">
+      6.8.形状操纵
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy笔记/6.9.ufunc函数.html" title="6.9.ufunc函数" class="md-nav__link">
+      6.9.ufunc函数
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy笔记/6.10.函数库.html" title="6.10.函数库" class="md-nav__link">
+      6.10.函数库
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy笔记/6.12.结构化数组.html" title="6.12.结构化数组" class="md-nav__link">
+      6.12.结构化数组
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      pandas笔记
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        pandas笔记
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../pandas笔记/7.1.Series.html" title="7.1.Series" class="md-nav__link">
+      7.1.Series
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../pandas笔记/7.2.DataFrame.html" title="7.2.DataFrame" class="md-nav__link">
+      7.2.DataFrame
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#conda_1" title="conda命令" class="md-nav__link">
+    conda命令
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#conda-info" title="conda info" class="md-nav__link">
+    conda info
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#conda-create" title="conda create" class="md-nav__link">
+    conda create
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conda_2" title="conda常用命令" class="md-nav__link">
+    conda常用命令
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" title="查看信息" class="md-nav__link">
+    查看信息
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" title="环境管理" class="md-nav__link">
+    环境管理
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" title="从指定路径安装环境" class="md-nav__link">
+    从指定路径安装环境
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" title="包管理" class="md-nav__link">
+    包管理
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#anaconda" title="为 anaconda 指定国内镜像源" class="md-nav__link">
+    为 anaconda 指定国内镜像源
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/example/repository/edit/master/docs/开发环境管理/5.1.conda笔记.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="conda">conda</h1>
+<div class="codehilite"><pre><span></span><span class="n">usage</span><span class="p">:</span> <span class="n">conda</span><span class="o">-</span><span class="n">script</span><span class="o">.</span><span class="n">py</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">V</span><span class="p">]</span> <span class="n">command</span> <span class="o">...</span>
+
+<span class="n">conda</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">tool</span> <span class="k">for</span> <span class="n">managing</span> <span class="ow">and</span> <span class="n">deploying</span> <span class="n">applications</span><span class="p">,</span> <span class="n">environments</span> <span class="ow">and</span> <span class="n">packages</span><span class="o">.</span>
+
+<span class="n">Options</span><span class="p">:</span>
+
+<span class="n">positional</span> <span class="n">arguments</span><span class="p">:</span>
+  <span class="n">command</span>
+    <span class="n">clean</span>        <span class="n">删除未使用的包和缓存</span><span class="err">。</span>
+    <span class="n">config</span>       <span class="n">修改</span><span class="o">.</span><span class="n">condarc中的配置值</span><span class="err">。</span>
+    <span class="n">create</span>       <span class="n">Create</span> <span class="n">a</span> <span class="n">new</span> <span class="n">conda</span> <span class="n">environment</span> <span class="kn">from</span> <span class="nn">a</span> <span class="nb">list</span> <span class="n">of</span> <span class="n">specified</span>
+                 <span class="n">packages</span><span class="o">.</span>
+    <span class="n">help</span>         <span class="n">Displays</span> <span class="n">a</span> <span class="nb">list</span> <span class="n">of</span> <span class="n">available</span> <span class="n">conda</span> <span class="n">commands</span> <span class="ow">and</span> <span class="n">their</span> <span class="n">help</span>
+                 <span class="n">strings</span><span class="o">.</span>
+    <span class="n">info</span>         <span class="n">显示有关当前安装的conda的信息</span><span class="err">。</span>
+    <span class="n">init</span>         <span class="n">Initialize</span> <span class="n">conda</span> <span class="k">for</span> <span class="n">shell</span> <span class="n">interaction</span><span class="o">.</span> <span class="p">[</span><span class="n">Experimental</span><span class="p">]</span>
+    <span class="n">install</span>      <span class="n">把一个列表中包含的包安装到指定的conda环境</span><span class="err">。</span>
+    <span class="nb">list</span>         <span class="n">列出链接到某个conda环境的所有包名</span><span class="err">。</span>
+    <span class="n">remove</span>       <span class="n">从指定的conda环境移除列表中包含的包</span><span class="err">。</span>
+    <span class="n">uninstall</span>    <span class="n">conda</span> <span class="n">remove的别名</span><span class="err">。</span>
+    <span class="n">run</span>          <span class="n">在</span> <span class="n">conda</span> <span class="n">环境中运行可执行文件</span><span class="err">。</span><span class="p">[</span><span class="n">实验</span><span class="p">]</span>
+    <span class="n">search</span>       <span class="n">Search</span> <span class="k">for</span> <span class="n">packages</span> <span class="ow">and</span> <span class="n">display</span> <span class="n">associated</span> <span class="n">information</span><span class="o">.</span> <span class="n">The</span>
+                 <span class="nb">input</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">MatchSpec</span><span class="p">,</span> <span class="n">a</span> <span class="n">query</span> <span class="n">language</span> <span class="k">for</span> <span class="n">conda</span> <span class="n">packages</span><span class="o">.</span>
+                 <span class="n">See</span> <span class="n">examples</span> <span class="n">below</span><span class="o">.</span>
+    <span class="n">update</span>       <span class="n">将</span> <span class="n">conda</span> <span class="n">包更新为最新的兼容版本</span><span class="err">。</span>
+    <span class="n">upgrade</span>      <span class="n">conda</span> <span class="n">update的别名</span>
+
+<span class="n">optional</span> <span class="n">arguments</span><span class="p">:</span>
+  <span class="o">-</span><span class="n">h</span><span class="p">,</span> <span class="o">--</span><span class="n">help</span>     <span class="n">Show</span> <span class="n">this</span> <span class="n">help</span> <span class="n">message</span> <span class="ow">and</span> <span class="n">exit</span><span class="o">.</span>
+  <span class="o">-</span><span class="n">V</span><span class="p">,</span> <span class="o">--</span><span class="n">version</span>  <span class="n">Show</span> <span class="n">the</span> <span class="n">conda</span> <span class="n">version</span> <span class="n">number</span> <span class="ow">and</span> <span class="n">exit</span><span class="o">.</span>
+</pre></div>
+
+
+<h2 id="conda_1">conda命令</h2>
+<h3 id="conda-info"><code>conda info</code></h3>
+<p>该命令可以查看当前安装的 conda 的详细信息，包括 conda 版本、python 版本、软件包仓库地址、新建环境的存放路径等。</p>
+<div class="codehilite"><pre><span></span>usage: conda-script.py info <span class="o">[</span>-h<span class="o">]</span> <span class="o">[</span>--json<span class="o">]</span> <span class="o">[</span>-v<span class="o">]</span> <span class="o">[</span>-q<span class="o">]</span> <span class="o">[</span>-a<span class="o">]</span> <span class="o">[</span>--base<span class="o">]</span> <span class="o">[</span>-e<span class="o">]</span> <span class="o">[</span>-s<span class="o">]</span>
+                            <span class="o">[</span>--unsafe-channels<span class="o">]</span>
+
+Display information about current conda install.
+
+Options:
+
+optional arguments:
+  -h, --help         Show this <span class="nb">help</span> message and exit.
+  -a, --all          显示所有信息。
+  --base             基本显示 base 环境路径。
+  -e, --envs         列出所有已知的Conda环境。
+  -s, --system       列出环境变量。
+  --unsafe-channels  Display list of channels with tokens exposed.
+
+Output, Prompt, and Flow Control Options:
+  --json             Report all output as json. Suitable <span class="k">for</span> using conda
+                     programmatically.
+  -v, --verbose      Use once <span class="k">for</span> info, twice <span class="k">for</span> debug, three <span class="nb">times</span> <span class="k">for</span>
+                     trace.
+  -q, --quiet        Do not display progress bar.
+</pre></div>
+
+
+<h3 id="conda-create"><code>conda create</code></h3>
+<div class="codehilite"><pre><span></span>usage: conda-script.py create <span class="o">[</span>-h<span class="o">]</span> <span class="o">[</span>--clone ENV<span class="o">]</span> <span class="o">[</span>-n ENVIRONMENT <span class="p">|</span> -p PATH<span class="o">]</span>
+                              <span class="o">[</span>-c CHANNEL<span class="o">]</span> <span class="o">[</span>--use-local<span class="o">]</span> <span class="o">[</span>--override-channels<span class="o">]</span>
+                              <span class="o">[</span>--repodata-fn REPODATA_FNS<span class="o">]</span>
+                              <span class="o">[</span>--strict-channel-priority<span class="o">]</span>
+                              <span class="o">[</span>--no-channel-priority<span class="o">]</span>
+                              <span class="o">[</span>--no-deps <span class="p">|</span> --only-deps<span class="o">]</span> <span class="o">[</span>--no-pin<span class="o">]</span> <span class="o">[</span>--copy<span class="o">]</span>
+                              <span class="o">[</span>--no-shortcuts<span class="o">]</span> <span class="o">[</span>-C<span class="o">]</span> <span class="o">[</span>-k<span class="o">]</span> <span class="o">[</span>--offline<span class="o">]</span> <span class="o">[</span>-d<span class="o">]</span>
+                              <span class="o">[</span>--json<span class="o">]</span> <span class="o">[</span>-q<span class="o">]</span> <span class="o">[</span>-v<span class="o">]</span> <span class="o">[</span>-y<span class="o">]</span> <span class="o">[</span>--download-only<span class="o">]</span>
+                              <span class="o">[</span>--show-channel-urls<span class="o">]</span> <span class="o">[</span>--file FILE<span class="o">]</span>
+                              <span class="o">[</span>--no-default-packages<span class="o">]</span> <span class="o">[</span>--dev<span class="o">]</span>
+                              <span class="o">[</span>package_spec <span class="o">[</span>package_spec ...<span class="o">]]</span>
+
+Create a new conda environment from a list of specified packages. To use the created environment, use <span class="s1">&#39;source activate envname&#39;</span> look in that directory first.  This <span class="nb">command</span> requires either the -n NAME or -p PREFIX option.
+
+Options:
+
+positional arguments:
+  package_spec          Packages to install or update in the conda
+                        environment.
+
+optional arguments:
+  -h, --help            Show this <span class="nb">help</span> message and exit.
+  --clone ENV           通过克隆其他环境来创建一个新环境，<span class="s1">&#39;ENV&#39;</span>可以是现有本地环境的路径（或名                           称）。
+  --file FILE           从文件创建环境<span class="o">(</span>从给定的文件读入指定版本的包<span class="o">)</span>。可以传递重复的文件规范（例                        如--file<span class="o">=</span>file1 --file<span class="o">=</span>file2）。
+  --dev                 Use <span class="sb">`</span>sys.executable -m conda<span class="sb">`</span> in wrapper scripts
+                        instead of CONDA_EXE This is mainly <span class="k">for</span> use during
+                        tests where we <span class="nb">test</span> new conda <span class="nb">source</span> against old
+                        Python versions.
+
+Target Environment Specification:
+  -n ENVIRONMENT, --name ENVIRONMENT
+                        Name of environment.
+  -p PATH, --prefix PATH
+                        Full path to environment location <span class="o">(</span>i.e. prefix<span class="o">)</span>.
+
+Channel Customization:
+  -c CHANNEL, --channel CHANNEL
+                        用于搜索包的其他通道。这些 URL 按给定顺序搜索<span class="o">(</span>包括本地目录file://<span class="o">)</span>。然                         后,搜索 .condarc 中的默认值或通道<span class="o">(</span>除非提供 --override-channels<span class="o">)</span>。                         您可以使用<span class="s2">&quot;defaults&quot;</span>获取 conda 的默认包。您还可以使用任何名称,                               .condarc的channel_alias值将预置。默认的channel_alias是                                   http://conda.anaconda.org/。
+
+  --use-local           使用本地构建的包。等同于<span class="s2">&quot;-c local&quot;</span>。
+  --override-channels   不在 default 或者 .condarc channels 中搜索. Requires
+                        --channel.
+  --repodata-fn REPODATA_FNS
+                        Specify name of repodata on remote server. Conda will
+                        try whatever you specify, but will ultimately fall
+                        back to repodata.json <span class="k">if</span> your specs are not
+                        satisfiable with what you specify here. This is used
+                        to employ repodata that is reduced in <span class="nb">time</span> scope. You
+                        may pass this flagmore than once. Leftmost entries are
+                        tried first, and the fallback torepodata.json is added
+                        <span class="k">for</span> you automatically.
+
+Solver Mode Modifiers:
+  --strict-channel-priority
+                        Packages in lower priority channels are not considered
+                        <span class="k">if</span> a package with the same name appears in a higher
+                        priority channel.
+  --no-channel-priority
+                        Package version takes precedence over channel
+                        priority. Overrides the value given by <span class="sb">`</span>conda config
+                        --show channel_priority<span class="sb">`</span>.
+  --no-deps             Do not install, update, remove, or change
+                        dependencies. This WILL lead to broken environments
+                        and inconsistent behavior. Use at your own risk.
+  --only-deps           Only install dependencies.
+  --no-pin              Ignore pinned file.
+  --no-default-packages
+                        Ignore create_default_packages in the .condarc file.
+
+Package Linking and Install-time Options:
+  --copy                Install all packages using copies instead of hard- or
+                        soft-linking.
+  --no-shortcuts        Don<span class="s1">&#39;t install start menu shortcuts</span>
+
+<span class="s1">Networking Options:</span>
+<span class="s1">  -C, --use-index-cache</span>
+<span class="s1">                        Use cache of channel index files, even if it has</span>
+<span class="s1">                        expired.</span>
+<span class="s1">  -k, --insecure        Allow conda to perform &quot;insecure&quot; SSL connections and</span>
+<span class="s1">                        transfers. Equivalent to setting &#39;</span>ssl_verify<span class="s1">&#39; to</span>
+<span class="s1">                        &#39;</span>false<span class="s1">&#39;.</span>
+<span class="s1">  --offline             Offline mode. Don&#39;</span>t connect to the Internet.
+
+Output, Prompt, and Flow Control Options:
+  -d, --dry-run         Only display what would have been <span class="k">done</span>.
+  --json                Report all output as json. Suitable <span class="k">for</span> using conda
+                        programmatically.
+  -q, --quiet           Do not display progress bar.
+  -v, --verbose         Can be used multiple times. Once <span class="k">for</span> INFO, twice <span class="k">for</span>
+                        DEBUG, three <span class="nb">times</span> <span class="k">for</span> TRACE.
+  -y, --yes             Do not ask <span class="k">for</span> confirmation.
+  --download-only       Solve an environment and ensure package caches are
+                        populated, but <span class="nb">exit</span> prior to unlinking and linking
+                        packages into the prefix.
+  --show-channel-urls   Show channel urls. Overrides the value given by <span class="sb">`</span>conda
+                        config --show show_channel_urls<span class="sb">`</span>.
+</pre></div>
+
+
+<h2 id="conda_2">conda常用命令</h2>
+<h3 id="_1">查看信息</h3>
+<div class="codehilite"><pre><span></span><span class="c1"># 查看conda的信息</span>
+<span class="c1">## 该命令可以查看当前安装的 conda 的详细信息，包括 conda 版本、python 版本、软件包仓库地址、新建环境的存放路径等。</span>
+conda info
+
+<span class="c1"># 查看conda版本信息</span>
+conda -V
+conda --version 
+</pre></div>
+
+
+<h3 id="_2">环境管理</h3>
+<div class="codehilite"><pre><span></span><span class="c1"># 查看环境信息</span>
+
+<span class="c1">## 查看系统中安装的所有环境：</span>
+<span class="c1">### 这两个命令都可以查看当前 conda 中已经创建的环境列表，处于激活状态的环境旁边会有一个*的字样。</span>
+conda env list
+conda info –-envs
+conda info -e
+
+<span class="c1">## 查看 Conda 环境系统信息：</span>
+conda info –-system
+conda info –s
+
+<span class="c1">## 查看环境系统更加详细的信息：</span>
+conda info –-all
+conda info –a
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="c1"># 进入指定环境</span>
+conda activate &lt;env&gt;
+
+<span class="c1"># 推出环境</span>
+conda deactivate
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="c1"># 导出环境</span>
+
+<span class="c1">## 导出环境之前首先要进入该环境</span>
+conda list -e &gt; package-list.txt
+conda list -e &gt; package-list.yml
+<span class="c1">## 或者这样</span>
+<span class="c1">### 这会将当前环境中由 conda 管理的包和由 pip 安装的包同时导出到文件中，所以当根据文件创建环境时，无需重新安装 pip 的包。</span>
+conda env <span class="nb">export</span> –-name base –-file base_bunnies.yml
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="c1"># 创建环境</span>
+
+<span class="c1">## 新建一个名为 newenv 的环境，并指定新环境中的 python 版本为 3.6 创建出来的环境中只带有最基本的包</span>
+conda create --name newenv <span class="nv">python</span><span class="o">=</span><span class="m">3</span>.6
+<span class="c1">## 也可以在创建环境时候，包含某些程序或者包 </span>
+conda create --name newenv <span class="nv">python</span><span class="o">=</span><span class="m">3</span>.6 biopython ipython 
+<span class="c1">## 通过克隆创建一个新环境</span>
+conda create –-name newenv –clone base
+
+<span class="c1">## 从文件创建环境</span>
+<span class="c1">### 如果是用 conda env export --name 导出的文件，则可用下列命令创建：</span>
+conda env create -f package-list.yml
+<span class="c1">### 如果是用 conda list -e 导出的文件，则用如下方式创建：</span>
+conda create –-name &lt;env&gt; –-file &lt;deps file&gt;
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="c1"># 更新环境</span>
+conda env update –-name &lt;env&gt; –file<span class="o">=</span>&lt;deps file&gt;
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="c1"># 删除环境</span>
+
+<span class="c1">## 删除环境中指定的包：</span>
+conda remove –-name &lt;env&gt; ipython biopython
+
+<span class="c1">## 彻底删除环境：</span>
+conda env remove –name &lt;env&gt;
+</pre></div>
+
+
+<h4 id="_3">从指定路径安装环境</h4>
+<p>conda 创建出来的环境默认放在<code>/User/&lt;yourname&gt;/anaconda/env</code>目录下，你可以将其中的某个环境文件夹整体拷贝走，复制到另一台机器上，然后基于此文件夹创建环境。</p>
+<h3 id="_4">包管理</h3>
+<div class="codehilite"><pre><span></span>conda list <span class="c1"># 查看已经安装的包</span>
+conda update conda <span class="c1"># 升级conda自身</span>
+conda search requests <span class="c1"># 查询某个包</span>
+conda install requests <span class="c1"># 安装新包</span>
+conda install -n base requests <span class="c1"># 将包安装到指定环境</span>
+conda update --all <span class="c1"># 更新所有包</span>
+conda update requests <span class="c1"># 升级包</span>
+conda remove requests <span class="c1"># 移除包</span>
+conda remove -n base requests <span class="c1"># 从指定环境中移除包</span>
+</pre></div>
+
+
+<p>conda 不提供检查可更新的包的命令，update 所有包时会有提示，列出所有可更新的包，并让用户确认是否全部更新。</p>
+<h3 id="anaconda">为 anaconda 指定国内镜像源</h3>
+<div class="codehilite"><pre><span></span>conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/
+conda config --set show_channel_urls yes
+</pre></div>
+
+
+<p>使用<code>conda config --show channels</code>命令可以查看当前的源仓库地址。</p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../Python基础/4.2.模块.html" title="4.2.模块" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  上一页
+                </span>
+                4.2.模块
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="5.3.pip对比conda.html" title="5.3.pip对比conda" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  下一页
+                </span>
+                5.3.pip对比conda
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application.245445c6.js"></script>
+      
+        
+        
+          
+          <script src="../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
+      
+        <script src="../javascript/extra.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+    
+  </body>
+</html>
