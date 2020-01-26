@@ -145,7 +145,7 @@
 
   
 
-<a href="https://github.com/example/repository/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+<a href="https://github.com/siwing/siwing.github.io/" title="前往 Github 仓库" class="md-source" data-md-source="github">
   
     <div class="md-source__icon">
       <svg viewBox="0 0 24 24" width="24" height="24">
@@ -192,7 +192,7 @@
 
   
 
-<a href="https://github.com/example/repository/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+<a href="https://github.com/siwing/siwing.github.io/" title="前往 Github 仓库" class="md-source" data-md-source="github">
   
     <div class="md-source__icon">
       <svg viewBox="0 0 24 24" width="24" height="24">
@@ -342,8 +342,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" title="简介" class="md-nav__link">
-    简介
+  <a href="#_1" title="交互模式" class="md-nav__link">
+    交互模式
   </a>
   
 </li>
@@ -605,6 +605,42 @@
 
 
   <li class="md-nav__item">
+    <a href="2.7.推导式.html" title="2.7.推导式" class="md-nav__link">
+      2.7.推导式
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="2.8.赋值、immutable、深拷贝.html" title="2.8.赋值、immutable、深拷贝" class="md-nav__link">
+      2.8.赋值、immutable、深拷贝
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="2.9.函数.html" title="2.9.函数" class="md-nav__link">
+      2.9.函数
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="3.1.异常.html" title="3.1.异常" class="md-nav__link">
       3.1.异常
     </a>
@@ -617,8 +653,8 @@
 
 
   <li class="md-nav__item">
-    <a href="3.2.浅拷贝和深拷贝.html" title="3.2.浅拷贝和深拷贝" class="md-nav__link">
-      3.2.浅拷贝和深拷贝
+    <a href="3.2.命名空间和作用域.html" title="3.2.命名空间和作用域" class="md-nav__link">
+      3.2.命名空间和作用域
     </a>
   </li>
 
@@ -629,8 +665,8 @@
 
 
   <li class="md-nav__item">
-    <a href="3.3.位置参数、默认参数、关键字参数、可变参数区别.html" title="3.3.位置参数、默认参数、关键字参数、可变参数区别" class="md-nav__link">
-      3.3.位置参数、默认参数、关键字参数、可变参数区别
+    <a href="3.3.闭包.html" title="3.3.闭包" class="md-nav__link">
+      3.3.闭包
     </a>
   </li>
 
@@ -641,20 +677,8 @@
 
 
   <li class="md-nav__item">
-    <a href="3.4.列表生成式.html" title="3.4.列表生成式" class="md-nav__link">
-      3.4.列表生成式
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="3.5.装饰器.html" title="3.5.装饰器" class="md-nav__link">
-      3.5.装饰器
+    <a href="3.4.装饰器.html" title="3.4.装饰器" class="md-nav__link">
+      3.4.装饰器
     </a>
   </li>
 
@@ -983,8 +1007,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" title="简介" class="md-nav__link">
-    简介
+  <a href="#_1" title="交互模式" class="md-nav__link">
+    交互模式
   </a>
   
 </li>
@@ -1185,32 +1209,36 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/example/repository/edit/master/docs/Python基础/2.1.python基本语法.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/siwing/siwing.github.io/edit/master/docs/Python基础/2.1.python基本语法.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
                   <h1>2.1.python基本语法</h1>
                 
-                <h2 id="_1">简介</h2>
-<p>Python是一种解释型语言，Python解释器通过一次执行一条语句的方式运行程序。标准的交互式python解释器(CPython)可以在cmd窗口通过<code>python</code>命令启动。标准的交互式python解释器的提示符是<code>&gt;&gt;&gt;</code>。</p>
-<p>而加强的交互式解释器(IPython)的提示符是一种编号的风格，如<code>In[2]</code>，而不是标准的<code>&gt;&gt;&gt;</code>。</p>
+                <h2 id="_1">交互模式</h2>
+<p>Python是一种解释型语言，Python解释器通过一次执行一条语句的方式运行程序。从 tty 读取命令时, 我们称解释器工作于交互模式 (interactive mode)。可以在cmd窗口通过<code>python</code>命令启动CPython解释器的交互模式，交互模式下CPython通过主提示符 (primary prompt) 提示下一条命令, 主提示符为<code>&gt;&gt;&gt;</code>，而从提示符<code>···</code>提示一条命令的续行。</p>
+<p>加强的交互式解释器(IPython)的提示符是一种编号的风格，如<code>In[2]</code>，而不是标准的<code>&gt;&gt;&gt;</code>。</p>
 <h2 id="python">python保留字</h2>
-<p>保留字即关键字，我们不能把它们用作任何标识符名称。Python的标准库提供了一个keyword模块，可以输出当前版本的所有关键字：</p>
+<p>保留字（又称为关键字），<strong>不能把它们用作任何标识符名称</strong>。Python的标准库提供了一个keyword模块，可以输出当前版本的所有关键字：</p>
 <div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">keyword</span>
 <span class="n">keyword</span><span class="o">.</span><span class="n">kwlist</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">keyword</span><span class="o">.</span><span class="n">kwlist</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">[&#39;False&#39;, &#39;None&#39;, &#39;True&#39;, &#39;and&#39;, &#39;as&#39;, &#39;assert&#39;, &#39;async&#39;, &#39;await&#39;, &#39;break&#39;, &#39;class&#39;, &#39;continue&#39;, &#39;def&#39;, &#39;del&#39;, &#39;elif&#39;, &#39;else&#39;, &#39;except&#39;, &#39;finally&#39;, &#39;for&#39;, &#39;from&#39;, &#39;global&#39;, &#39;if&#39;, &#39;import&#39;, &#39;in&#39;, &#39;is&#39;, &#39;lambda&#39;, &#39;nonlocal&#39;, &#39;not&#39;, &#39;or&#39;, &#39;pass&#39;, &#39;raise&#39;, &#39;return&#39;, &#39;try&#39;, &#39;while&#39;, &#39;with&#39;, &#39;yield&#39;]</span>
+<div class="codehilite"><pre><span></span><span class="err">[&#39;False&#39;, &#39;None&#39;, &#39;True&#39;, &#39;and&#39;, &#39;as&#39;, &#39;assert&#39;, &#39;async&#39;, &#39;await&#39;,</span>
+<span class="err">&#39;break&#39;, &#39;class&#39;, &#39;continue&#39;, &#39;def&#39;, &#39;del&#39;, &#39;elif&#39;, &#39;else&#39;, &#39;except&#39;,</span>
+<span class="err">&#39;finally&#39;, &#39;for&#39;, &#39;from&#39;, &#39;global&#39;, &#39;if&#39;, &#39;import&#39;, &#39;in&#39;, &#39;is&#39;,</span>
+<span class="err">&#39;lambda&#39;, &#39;nonlocal&#39;, &#39;not&#39;, &#39;or&#39;, &#39;pass&#39;, &#39;raise&#39;, &#39;return&#39;, &#39;try&#39;,</span>
+<span class="err">&#39;while&#39;, &#39;with&#39;, &#39;yield&#39;]</span>
 </pre></div>
 
 
 <h2 id="_2">注释</h2>
 <p>Python中单行注释以<code>#</code>开头。多行注释则使用：<code>'''</code>或者<code>"""</code>。实际上python只有单行注释。多行注释的本质是字符串对象。</p>
-<div class="codehilite"><pre><span></span><span class="c1"># 这里是单行注释</span>
+<div class="codehilite"><pre><span></span><span class="c1"># 这是单行注释</span>
 <span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">这里是多行注释</span>
-<span class="sd">这里是多行注释</span>
+<span class="sd">这是多行注释</span>
+<span class="sd">这是多行注释</span>
 <span class="sd">&#39;&#39;&#39;</span>
 </pre></div>
 
@@ -1241,7 +1269,7 @@
 </pre></div>
 
 
-<p>在<code>[]</code>,<code>{}</code>, 或<code>()</code>中的多行语句，不需要使用反斜杠<code>\</code>，例如：</p>
+<p>在<code>[]</code>,<code>{}</code>, 或<code>()</code>中的多行语句<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>，不需要使用反斜杠<code>\</code>，例如：</p>
 <div class="codehilite"><pre><span></span><span class="n">total</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;item_one&#39;</span><span class="p">,</span> <span class="s1">&#39;item_two&#39;</span><span class="p">,</span> <span class="s1">&#39;item_three&#39;</span><span class="p">,</span>
         <span class="s1">&#39;item_four&#39;</span><span class="p">,</span> <span class="s1">&#39;item_five&#39;</span><span class="p">]</span>
 <span class="n">total</span>
@@ -1253,34 +1281,32 @@
 
 
 <h2 id="_5">同一行书写多条语句</h2>
-<p>Python可以在同一行中使用多条语句，语句之间使用分号<code>;</code>分割。但这样的做法一般不推荐，因为会使代码的可读性变差。</p>
+<p>Python可以在同一行中使用多条语句，语句之间使用半角分号<code>;</code>分隔。但这样的做法一般不推荐，因为会使代码的可读性变差。</p>
 <h2 id="_6">空行</h2>
-<p>函数之间或类的方法之间用空行分隔，表示一段新的代码的开始。类和函数入口之间也用一行空行分隔，以突出函数入口的开始。空行与代码缩进不同，<strong>空行并不是Python语法的一部分。</strong>书写时不插入空行，Python解释器运行也不会出错。但是空行的作用在于分隔两段不同功能或含义的代码，便于日后代码的维护或重构。空行也是程序代码的一部分。</p>
+<p>函数、类方法之间用空行分隔，表示一段新的代码的开始。类和函数入口之间也用一行空行分隔，以突出函数入口的开始。空行与代码缩进不同，<strong>空行并不是Python语法的一部分。</strong>书写时不插入空行，Python解释器运行也不会出错。但是空行的作用在于分隔两段不同功能或含义的代码，便于日后代码的维护或重构。空行也是程序代码的一部分。</p>
 <h2 id="print">Print 输出</h2>
-<p>print 默认输出是换行的，如果要实现不换行需要在变量末尾加上 end=""：</p>
-<div class="codehilite"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;a&quot;</span>
-<span class="n">y</span><span class="o">=</span><span class="s2">&quot;b&quot;</span>
-<span class="c1"># 换行输出</span>
-<span class="nb">print</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span> <span class="n">y</span> <span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;---------&#39;</span><span class="p">)</span>
+<p>print函数默认输出是换行的，如果要实现不换行打印，需要更改print函数的<code>end</code>参数：</p>
+<div class="codehilite"><pre><span></span><span class="c1"># 换行输出</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;b&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="o">*</span><span class="mi">10</span><span class="p">)</span>
 <span class="c1"># 不换行输出</span>
-<span class="nb">print</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot; &quot;</span> <span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span> <span class="n">y</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot; &quot;</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">()</span>
 </pre></div>
 
 
 <div class="codehilite"><pre><span></span><span class="err">a</span>
 <span class="err">b</span>
-<span class="err">---------</span>
+<span class="err">----------</span>
 <span class="err">a b</span>
 </pre></div>
 
 
 <h2 id="import-fromimport">import 与 from...import</h2>
 <p>在 python 用 <code>import</code> 或者 <code>from...import</code> 来导入相应的模块。</p>
-<div class="codehilite"><pre><span></span><span class="err">将整个模块</span><span class="p">(</span><span class="n">module</span><span class="p">)</span><span class="err">导入：</span>     <span class="kn">import</span> <span class="nn">somemodule</span>
+<div class="codehilite"><pre><span></span><span class="err">将整个模块</span><span class="p">(</span><span class="n">module</span><span class="p">)</span><span class="err">导入：</span>    <span class="kn">import</span> <span class="nn">somemodule</span>
 <span class="err">从某个模块中导入某个函数：</span>   <span class="kn">from</span> <span class="nn">somemodule</span> <span class="kn">import</span> <span class="n">somefunction</span>
 <span class="err">从某个模块中导入多个函数：</span>   <span class="kn">from</span> <span class="nn">somemodule</span> <span class="kn">import</span> <span class="n">firstfunc</span><span class="p">,</span> <span class="n">secondfunc</span><span class="p">,</span> <span class="n">thirdfunc</span>
 <span class="err">将某个模块中的全部函数导入：</span> <span class="kn">from</span> <span class="nn">somemodule</span> <span class="kn">import</span> <span class="o">*</span>
@@ -1288,7 +1314,7 @@
 
 
 <h2 id="_7">转义符<code>\</code></h2>
-<p>如果要在字符串中输入一些特殊的字符（这些特殊的字符特殊之处在于不能直接输出），这就需要“转义符”。所谓转义，就是不采用符号原先的含义，而采用另外一含义。在Pyhton中，<code>\</code>代表转义符。</p>
+<p>如果要在字符串中输入一些特殊的字符（这些字符特殊之处在于不能直接输出），这就需要“转义符”。所谓转义，就是不采用符号原先的含义，而采用另外一含义。在Pyhton中，<code>\</code>代表转义符。</p>
 <p>下面表格中列出常用的转义符：</p>
 <table>
 <thead>
@@ -1299,116 +1325,118 @@
 </thead>
 <tbody>
 <tr>
-<td align="center">\</td>
-<td align="left">(在行尾时) 续行符</td>
+<td align="center"><code>\</code></td>
+<td align="left">在字符串行尾的续行符</td>
 </tr>
 <tr>
-<td align="center">\</td>
+<td align="center"><code>\\</code></td>
 <td align="left">反斜杠符号</td>
 </tr>
 <tr>
-<td align="center">\'</td>
+<td align="center"><code>\'</code></td>
 <td align="left">单引号</td>
 </tr>
 <tr>
-<td align="center">\"</td>
+<td align="center"><code>\"</code></td>
 <td align="left">双引号</td>
 </tr>
 <tr>
-<td align="center">\a</td>
-<td align="left">响铃</td>
+<td align="center"><code>\a</code></td>
+<td align="left">蜂鸣器响铃（不是喇叭发声），现在的计算机很多都不带蜂鸣器了，所以响铃不一定有效</td>
 </tr>
 <tr>
-<td align="center">\b</td>
-<td align="left">退格(Backspace)</td>
+<td align="center"><code>\b</code></td>
+<td align="left">退格（Backspace），将光标位置移到前一列</td>
 </tr>
 <tr>
-<td align="center">\e</td>
+<td align="center"><code>\e</code></td>
 <td align="left">转义</td>
 </tr>
 <tr>
-<td align="center">\000</td>
+<td align="center"><code>\000</code></td>
 <td align="left">空</td>
 </tr>
 <tr>
-<td align="center">\n</td>
-<td align="left">换行</td>
+<td align="center"><code>\n</code></td>
+<td align="left">换行符</td>
 </tr>
 <tr>
-<td align="center">\v</td>
+<td align="center"><code>\v</code></td>
 <td align="left">纵向制表符</td>
 </tr>
 <tr>
-<td align="center">\t</td>
-<td align="left">横向制表符</td>
+<td align="center"><code>\t</code></td>
+<td align="left">横向制表符，即 Tab 键，一般相当于四个空格</td>
 </tr>
 <tr>
-<td align="center">\r</td>
-<td align="left">回车</td>
+<td align="center"><code>\r</code></td>
+<td align="left">回车符</td>
 </tr>
 <tr>
-<td align="center">\f</td>
+<td align="center"><code>\f</code></td>
 <td align="left">换页</td>
 </tr>
 <tr>
-<td align="center">\oyy</td>
-<td align="left">八进制数，yy代表的字符，例如：\o12代表换行</td>
+<td align="center"><code>\oyy</code></td>
+<td align="left">八进制数，yy代表字符，例如：<code>\o12</code>代表换行</td>
 </tr>
 <tr>
-<td align="center">\xyy</td>
-<td align="left">十六进制数，yy代表的字符，例如：\x0a代表换行</td>
+<td align="center"><code>\xyy</code></td>
+<td align="left">十六进制数，yy代表字符，例如：<code>\x0a</code>代表换行</td>
 </tr>
 <tr>
-<td align="center">\other</td>
+<td align="center"><code>\other</code></td>
 <td align="left">其它的字符以普通格式输出</td>
 </tr>
 </tbody>
 </table>
-<p>有时候，字符串包含了很多转义符<code>\</code>，但实际上我们想输出的是反斜杠符号<code>\</code>，而不是把<code>\</code>看作转义符（例如输入文件路径）。此时，自然可以在反斜杠前加上转义符<code>\</code>，但是这样未免太麻烦。Python提供了一个简化的操作，Pyhon允许用<code>r'字符串内容'</code>表示<code>'字符串内容'</code>内部的字符串默认不转义：</p>
+<p>有时候，字符串包含了很多<code>\</code>，Python默认将'\'作为转义符处理，但实际上我们想输出的是反斜杠符号<code>\</code>，（例如输入文件路径）。此时，自然可以在反斜杠前加上转义符<code>\</code>，但是这样未免太麻烦。Python提供了一个简化的操作，Pyhon允许用<code>r'字符串内容'</code>表示<code>'字符串内容'</code>内部的字符串默认不转义：</p>
 <div class="codehilite"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\\\t\\</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;---------&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="o">*</span><span class="mi">10</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">\t</span><span class="se">\\</span><span class="s1">&#39;</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="gh">\       \</span>
-<span class="gh">---------</span>
-\\\t\\
+<div class="codehilite"><pre><span></span><span class="err">\       \</span>
+<span class="err">----------</span>
+<span class="err">\\\t\\</span>
 </pre></div>
 
 
 <h2 id="nameobject">name与object</h2>
-<p>实际上，Python中没有类似c\c++中的变量这个概念，python中只有name和object。因此在python中，变量（name）无法被声明。同时也正是因为没有变量这个概念，在Python中也没有所谓的初始化、赋值的行为。</p>
+<p>提到编程语言，常常会提起变量这个概念，但在Python中，变量一词更准确的说法应该是name（名字）。有观点认为Python不存在变量这个概念，也有观点认为Python存在变量的概念（即name），只不过Python的变量的行为和其他编程语言有所区别。但在这里不深入探究，在本系列的文章中，<strong>变量</strong>和<strong>名字（name）</strong>具有等同的内涵；<strong>变量值（变量的值）</strong>和<strong>对象（object）</strong>具有等同的内涵。</p>
+<p>Python是动态类型的语言，变量不需要声明、定义和初始化，变量会在赋值时被创建。</p>
 <h3 id="objects">Objects</h3>
-<p>All Python objects have this:</p>
+<p>所有Python对象都有:</p>
 <ul>
 <li>
-<p>a unique identity (an integer, returned by id(x))（notice：identity not identifier）</p>
+<p>一个惟一的<a href="" title="内存地址">identity</a>（由id(x)返回的一个整数，注意：identity 不是 identifier）</p>
 </li>
 <li>
-<p>a type (returned by type(x))</p>
+<p>一个类型（由type(x)返回）</p>
 </li>
 <li>
-<p>some content（值）</p>
+<p>一些值</p>
 </li>
 </ul>
-<p>You cannot change the identity.</p>
-<p>You cannot change the type.</p>
+<p>无法改变对象的identity，也不能改变对象的类型。</p>
 <blockquote>
 <p>改变位于某一地址的对象的引用与类型是不可能的，只能把对象销毁，然后重新创建。</p>
 </blockquote>
-<p>Some objects allow you to change their content (without changing the identity or the type, that is).</p>
-<p>Some objects don’t allow you to change their content .</p>
-<p>The type is represented by a type object, which knows more about objects of this type(how many bytes of memory they usually occupy, what methods they have, etc).</p>
-<p>(Update: In CPython 2.2 and later, you can change the type under some rather limited circumstances.)</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>在CPython2.2及更新的版本中，你可以在相当有限的情况下更改对象的类型。</p>
+</div>
+<p>一些对象允许你改变它们的值（在不改变它们的identity和type的情况下），这种对象被称为<strong>mutable object</strong>；而一些对象并不允许你改变它们的值，它们被称为<strong>immutable object</strong>。</p>
+<p>类型由<a href="" title="type object">类对象</a>表示（类对象往往知道类的对象要占多少内存，有什么方法等等）。</p>
 <p>一个对象可以有：</p>
-<p>zero or more methods (provided by the type object)zero or more names</p>
-<p>Some objects have methods that allow you to change the contents of the object (modify it in place, that is).</p>
-<p>Some objects only have methods that allow you to access the contents, not change it.</p>
-<p>Some objects don’t have any methods at all.</p>
-<p><strong>Even if they have methods, you can never change the type, nor the identity.</strong></p>
+<ul>
+<li>零个或多个方法（由类对象提供）</li>
+<li>零个或多个<a href="" title="name">名字</a></li>
+</ul>
+<p>某些对象具有允许你更改对象内容（即对其进行修改）的方法。某些对象仅具有允许您访问内容而不更改内容的方法。一些对象没有任何方法。即使对象具有方法，你也不能改变它们的类型或者identity。</p>
 <h3 id="names">Names</h3>
-<p>The names are a bit different — <strong>they’re not really properties of the object,and the object itself doesn’t know what it’s called.</strong></p>
+<p>name不是object的属性，object并不知道它们的name（名字）。</p>
 <ul>
 <li>
 <p>所有name在创建时必须关联（bind）到一个object，否则在需要引用该name时会报错。</p>
@@ -1423,24 +1451,36 @@
 <p>一个对象可以关联（bind）多个名字，也可以没有名字。</p>
 </li>
 <li>
-<p>Names live in namespaces (such as a module namespace, an instance namespace, a function’s local namespace).</p>
+<p>Name存在于namespace（命名空间），例如模块命名空间、实例命名空间、函数的局部命名空间等等。</p>
 </li>
 </ul>
 <h3 id="assignment">assignment</h3>
-<p>python也有assignment这个英文概念，但与之对应的中文却不应该成为赋值，而是分配，或者说命名。</p>
-<p>Assignment statements modify namespaces, not objects.换而言之，如果在python中有一个assignment statement如下：</p>
+<p>Python也有assignment这个英文概念，它的中文或许译为<strong>分配</strong>或者<strong>命名</strong>更为恰当，因为在Python中，assignment语句会改动namespace，而不是改动了object。</p>
+<p>换而言之，如果在python中有一个assignment statement如下：</p>
 <div class="codehilite"><pre><span></span><span class="n">a</span><span class="o">=</span><span class="mi">10</span>
 </pre></div>
 
 
-<p>这个assignment语句使得相应的namespace的a键所对应的value为10。另外assignment语句还有这样的作用：</p>
-<div class="codehilite"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">name</span><span class="o">.</span><span class="n">append</span><span class="err">（</span><span class="mi">1</span><span class="err">）</span>
+<p>这个assignment语句表示将名称a添加到namespace，并且namespace的a键<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>所对应的value为10。</p>
+<p>如果名称已经存在，assignment语句将替换原始名称：</p>
+<div class="codehilite"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mi">20</span>
 </pre></div>
 
 
-<p>第一条语句将<code>name</code>关联到一个空列表对象，第二条语句修改了该列表的内容，这并不会触及namespace。</p>
-<p>综上所述，assignment statement在python中有两个作用：1. 用于（重新）将名称绑定到对象2. 修改可变对象的属性（内容）</p>
+<p>这意味着首先要将名称a添加到namespace，并使其指向包含值10的整数对象。然后再使a其指向包含值20的整数对象。原来的整数对象10不受此操作的影响。</p>
+<p>如果这样做：</p>
+<div class="codehilite"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">a</span><span class="o">.</span><span class="n">append</span><span class="err">（</span><span class="mi">1</span><span class="err">）</span>
+</pre></div>
+
+
+<p>第一条语句将<code>a</code>关联到一个空列表对象，这会修改命名空间，第二条语句修改了该列表的内容，这并不会触及namespace。</p>
+<p>综上所述，assignment statement在python中有两个作用：</p>
+<ol>
+<li>用于（重新）将名称绑定到对象</li>
+<li>修改可变对象的属性（内容）</li>
+</ol>
 <h2 id="_8">单引号与双引号</h2>
 <p>在Python中单引号和双引号都可以用来表示一个字符串，比如：</p>
 <div class="codehilite"><pre><span></span><span class="n">str1</span> <span class="o">=</span> <span class="s1">&#39;python&#39;</span>
@@ -1471,7 +1511,7 @@
 
 <p>这就是Python易用性和人性化的一个极致体现，当你用单引号' '定义字符串的时候，它就会认为你字符串里面的双引号" "是普通字符，从而不需要转义。反之当你用双引号定义字符串的时候，就会认为你字符串里面的单引号是普通字符无需转义。</p>
 <h2 id="lambdas">Lambdas</h2>
-<p>正常创建函数（使用def）会自动将其赋值给变量，这与创建其他对象（例如字符串和整数）不同，后者可以动态创建，而无需将它们分配给变量。但只要使用lambda语法创建函数，函数也可以这样做，以这种方式创建的函数称为匿名（anonymous）函数。将简单函数作为参数传递给另一个函数时，最常使用此方法。语法如下：</p>
+<p>正常创建函数（使用<code>def</code>）会自动将其赋值给变量，这与创建其他对象（例如字符串和整数）不同，后者可以动态创建，而无需将它们分配给变量。但只要使用lambda语法创建函数，函数也可以这样做，以这种方式创建的函数称为匿名（anonymous）函数。将简单函数作为参数传递给另一个函数时，最常使用此方法。语法如下：</p>
 <div class="codehilite"><pre><span></span><span class="c1"># my_func是正常创建的函数（named function）</span>
 <span class="k">def</span> <span class="nf">my_func</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">arg</span><span class="p">):</span>
   <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span>
@@ -1484,7 +1524,7 @@
 </pre></div>
 
 
-<p>在上面的代码中，我们动态创建了一个匿名函数，并使用参数调用它。Lambda函数没有命名函数（named function）那么强大。Lambda函数只能包含一个表达式，通常相当于一行代码。实际上，Lambda函数可以分配给变量，并像普通函数一样使用。但是，很少有充分的理由这样做。通常使用def来定义函数通常更好。</p>
+<p>在上面的代码中，我们动态创建了一个匿名函数，并使用参数调用它。Lambda函数没有命名函数（named function）那么强大。Lambda函数只能包含一个表达式，通常相当于一行代码。实际上，Lambda函数可以分配给变量，并像普通函数一样使用。但是，很少有充分的理由这样做。通常使用<code>def</code>来定义函数通常更好。</p>
 <div class="codehilite"><pre><span></span><span class="n">double</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">2</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">double</span><span class="p">(</span><span class="mi">7</span><span class="p">))</span>
 </pre></div>
@@ -1552,19 +1592,19 @@
 <td>不等于</td>
 </tr>
 <tr>
-<td>></td>
+<td>&gt;</td>
 <td>大于</td>
 </tr>
 <tr>
-<td>\&lt;</td>
+<td>&lt;</td>
 <td>小于</td>
 </tr>
 <tr>
-<td>>=</td>
+<td>&gt;=</td>
 <td>大于等于</td>
 </tr>
 <tr>
-<td>\&lt;=</td>
+<td>&lt;=</td>
 <td>小于等于</td>
 </tr>
 </tbody>
@@ -1623,30 +1663,54 @@
 <tbody>
 <tr>
 <td>&amp;</td>
-<td>按位与运算符：参与运算的两个值,如果两个相应位都为1，则该位的结果为1，否则为0</td>
+<td>按位与运算符：参与运算的两个值，如果两个相应位都为1，则该位的结果为1，否则为0</td>
 </tr>
 <tr>
 <td>|</td>
 <td>按位或运算符：只要对应的二个二进位有一个为1时，结果位就为1</td>
 </tr>
 <tr>
-<td>\^</td>
+<td>^</td>
 <td>按位异或运算符：当两对应的二进位相异时，结果为1</td>
 </tr>
 <tr>
-<td>\~</td>
-<td>按位取反运算符：对数据的每个二进制位取反，即把1变为0，把0变为1。\~x 类似于 -x-1</td>
+<td>~</td>
+<td>按位取反运算符：对数据的每个二进制位取反，即把1变为0，把0变为1。<code>~x</code> 类似于 <code>-x-1</code></td>
 </tr>
 <tr>
-<td>\&lt;\&lt;</td>
-<td>左移动运算符：运算数的各二进位全部左移若干位，由”\&lt;\&lt;“右边的数指定移动的位数，高位丢弃，低位补0</td>
+<td>&lt;&lt;</td>
+<td>左移动运算符：运算数的各二进位全部左移若干位，由<code>&lt;&lt;</code>右边的数指定移动的位数，高位丢弃，低位补0</td>
 </tr>
 <tr>
-<td>>></td>
-<td>右移动运算符：把”>>“左边的运算数的各二进位全部右移若干位，”>>“右边的数指定移动的位数</td>
+<td>&gt;&gt;</td>
+<td>右移动运算符：把<code>&gt;</code>左边的运算数的各二进位全部右移若干位，<code>&gt;&gt;</code>右边的数指定移动的位数</td>
 </tr>
 </tbody>
 </table>
+<div class="codehilite"><pre><span></span><span class="mi">111</span> <span class="o">&amp;</span> <span class="mi">100</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">100</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="mi">111</span> <span class="o">|</span> <span class="mi">100</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">111</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="mi">111</span> <span class="o">^</span> <span class="mi">100</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">11</span>
+</pre></div>
+
+
 <h3 id="_14">逻辑运算符</h3>
 <table>
 <thead>
@@ -1660,17 +1724,17 @@
 <tr>
 <td>and</td>
 <td>x and y</td>
-<td>布尔”与” - 如果 x 为 False，x and y 返回 False，否则它返回 y 的计算值</td>
+<td>x、y同时为真，则结果为真，否则为假</td>
 </tr>
 <tr>
 <td>or</td>
 <td>x or y</td>
-<td>布尔”或” - 如果 x 是 True，它返回 x 的值，否则它返回 y 的计算值</td>
+<td>x、y两者有一个为真，则结果为真，否则为假</td>
 </tr>
 <tr>
 <td>not</td>
 <td>not x</td>
-<td>布尔”非” - 如果 x 为 True，返回 False 。如果 x 为 False，它返回 True</td>
+<td>x为真，结果为假；x为假，结果为真</td>
 </tr>
 </tbody>
 </table>
@@ -1706,12 +1770,12 @@
 <tr>
 <td>is</td>
 <td>is 是判断两个标识符是不是引用自一个对象</td>
-<td>x is y, 类似 id(x) == id(y) , 如果引用的是同一个对象则返回 True，否则返回 False</td>
+<td>x is y, 类似 <code>id(x) == id(y)</code> , 如果引用的是同一个对象则返回 True，否则返回 False</td>
 </tr>
 <tr>
 <td>is not</td>
 <td>is not 是判断两个标识符是不是引用自不同对象</td>
-<td>x is not y ， 类似 id(a) != id(b)。如果引用的不是同一个对象则返回结果 True，否则返回 False</td>
+<td>x is not y ， 类似 <code>id(a) != id(b)</code>。如果引用的不是同一个对象则返回结果 True，否则返回 False</td>
 </tr>
 </tbody>
 </table>
@@ -1795,6 +1859,17 @@
 </tbody>
 </table>
 <p>具有相同优先级的运算符将从左至右的方式依次进行。用小括号<code>()</code>可以改变运算顺序。</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>包括函数、类的定义。&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>目前Python的命名空间使用字典实现，但日后可能会改变。&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
                 
                   
                 

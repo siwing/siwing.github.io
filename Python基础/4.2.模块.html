@@ -145,7 +145,7 @@
 
   
 
-<a href="https://github.com/example/repository/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+<a href="https://github.com/siwing/siwing.github.io/" title="前往 Github 仓库" class="md-source" data-md-source="github">
   
     <div class="md-source__icon">
       <svg viewBox="0 0 24 24" width="24" height="24">
@@ -192,7 +192,7 @@
 
   
 
-<a href="https://github.com/example/repository/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+<a href="https://github.com/siwing/siwing.github.io/" title="前往 Github 仓库" class="md-source" data-md-source="github">
   
     <div class="md-source__icon">
       <svg viewBox="0 0 24 24" width="24" height="24">
@@ -391,6 +391,42 @@
 
 
   <li class="md-nav__item">
+    <a href="2.7.推导式.html" title="2.7.推导式" class="md-nav__link">
+      2.7.推导式
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="2.8.赋值、immutable、深拷贝.html" title="2.8.赋值、immutable、深拷贝" class="md-nav__link">
+      2.8.赋值、immutable、深拷贝
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="2.9.函数.html" title="2.9.函数" class="md-nav__link">
+      2.9.函数
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="3.1.异常.html" title="3.1.异常" class="md-nav__link">
       3.1.异常
     </a>
@@ -403,8 +439,8 @@
 
 
   <li class="md-nav__item">
-    <a href="3.2.浅拷贝和深拷贝.html" title="3.2.浅拷贝和深拷贝" class="md-nav__link">
-      3.2.浅拷贝和深拷贝
+    <a href="3.2.命名空间和作用域.html" title="3.2.命名空间和作用域" class="md-nav__link">
+      3.2.命名空间和作用域
     </a>
   </li>
 
@@ -415,8 +451,8 @@
 
 
   <li class="md-nav__item">
-    <a href="3.3.位置参数、默认参数、关键字参数、可变参数区别.html" title="3.3.位置参数、默认参数、关键字参数、可变参数区别" class="md-nav__link">
-      3.3.位置参数、默认参数、关键字参数、可变参数区别
+    <a href="3.3.闭包.html" title="3.3.闭包" class="md-nav__link">
+      3.3.闭包
     </a>
   </li>
 
@@ -427,20 +463,8 @@
 
 
   <li class="md-nav__item">
-    <a href="3.4.列表生成式.html" title="3.4.列表生成式" class="md-nav__link">
-      3.4.列表生成式
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="3.5.装饰器.html" title="3.5.装饰器" class="md-nav__link">
-      3.5.装饰器
+    <a href="3.4.装饰器.html" title="3.4.装饰器" class="md-nav__link">
+      3.4.装饰器
     </a>
   </li>
 
@@ -541,8 +565,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" title="注意" class="md-nav__link">
-    注意
+  <a href="#_6" title="模块重载" class="md-nav__link">
+    模块重载
   </a>
   
 </li>
@@ -941,8 +965,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" title="注意" class="md-nav__link">
-    注意
+  <a href="#_6" title="模块重载" class="md-nav__link">
+    模块重载
   </a>
   
 </li>
@@ -991,7 +1015,7 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/example/repository/edit/master/docs/Python基础/4.2.模块.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/siwing/siwing.github.io/edit/master/docs/Python基础/4.2.模块.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
                   <h1>4.2.模块</h1>
@@ -1025,7 +1049,7 @@
 <p>在python中引入<code>sys</code>，<code>sys</code>中的<code>path</code>是一个列表类型的对象，内容就是路径的列表，我们将sys引入后查看就可以清楚的知道了：</p>
 <div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="p">))</span>
-<span class="n">sys</span><span class="o">.</span><span class="n">path</span>
+<span class="p">[</span><span class="n">path</span> <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">path</span> <span class="k">if</span> <span class="s2">&quot;Wiki&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">path</span><span class="p">]</span>
 </pre></div>
 
 
@@ -1033,8 +1057,7 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">[&#39;G:\\1.User\\Desktop 2\\Wiki\\04.Python&#39;,</span>
-<span class="err"> &#39;C:\\Users\\Android\\Desktop&#39;,</span>
+<div class="codehilite"><pre><span></span><span class="err">[&#39;C:\\Users\\Android\\Desktop&#39;,</span>
 <span class="err"> &#39;G:\\Installed\\Anaconda3\\python37.zip&#39;,</span>
 <span class="err"> &#39;G:\\Installed\\Anaconda3\\DLLs&#39;,</span>
 <span class="err"> &#39;G:\\Installed\\Anaconda3\\lib&#39;,</span>
@@ -1042,14 +1065,31 @@
 <span class="err"> &#39;C:\\Users\\Android\\AppData\\Roaming\\Python\\Python37\\site-</span>
 <span class="err">packages&#39;,</span>
 <span class="err"> &#39;G:\\Installed\\Anaconda3\\lib\\site-packages&#39;,</span>
+<span class="err"> &#39;G:\\Installed\\Anaconda3\\lib\\site-</span>
+<span class="err">packages\\xgboost-1.0.0_snapshot-py3.7.egg&#39;,</span>
 <span class="err"> &#39;G:\\Installed\\Anaconda3\\lib\\site-packages\\win32&#39;,</span>
 <span class="err"> &#39;G:\\Installed\\Anaconda3\\lib\\site-packages\\win32\\lib&#39;,</span>
 <span class="err"> &#39;G:\\Installed\\Anaconda3\\lib\\site-packages\\Pythonwin&#39;,</span>
-<span class="err"> &#39;G:\\Installed\\Anaconda3\\lib\\site-packages\\IPython\\extensions&#39;]</span>
+<span class="err"> &#39;G:\\Installed\\Anaconda3\\lib\\site-packages\\IPython\\extensions&#39;,</span>
+<span class="err"> &#39;C:\\Users\\Android\\Desktop&#39;,</span>
+<span class="err"> &#39;C:\\Users\\Android\\Desktop&#39;,</span>
+<span class="err"> &#39;C:\\Users\\Android\\Desktop&#39;,</span>
+<span class="err"> &#39;C:\\Users\\Android\\Desktop&#39;,</span>
+<span class="err"> &#39;C:\\Users\\Android\\Desktop&#39;,</span>
+<span class="err"> &#39;C:\\Users\\Android\\Desktop&#39;,</span>
+<span class="err"> &#39;C:\\Users\\Android\\Desktop&#39;,</span>
+<span class="err"> &#39;C:\\Users\\Android\\Desktop&#39;,</span>
+<span class="err"> &#39;C:\\Users\\Android\\Desktop&#39;,</span>
+<span class="err"> &#39;C:\\Users\\Android\\Desktop&#39;,</span>
+<span class="err"> &#39;C:\\Users\\Android\\Desktop&#39;,</span>
+<span class="err"> &#39;C:\\Users\\Android\\Desktop&#39;,</span>
+<span class="err"> &#39;C:\\Users\\Android\\Desktop&#39;,</span>
+<span class="err"> &#39;C:\\Users\\Android\\Desktop&#39;,</span>
+<span class="err"> &#39;C:\\Users\\Android\\Desktop&#39;]</span>
 </pre></div>
 
 
-<p>既然是list对象，那么使用append可以向列表添加新的元素，假设我们要添加的路径是r"C:\Users\Android\Desktop"：</p>
+<p>既然是list对象，那么使用append可以向列表添加新的元素，假设我们要添加的路径是<code>"C:\Users\Android\Desktop"</code>：</p>
 <div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
 <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;C:\Users\Android\Desktop&quot;</span><span class="p">)</span>
 </pre></div>
@@ -1120,26 +1160,57 @@
 
 
 <p>一般而言，除了实验、排查，不推荐导入模块内的所有公开符号（没有前缀 _ 的那些）。因为导入模块会修改namespace，而通常你不知道模块定义了哪些符号、是否与当前的namespace有重名的符号。一旦有重名，那么，就会覆盖掉当前namespace的值。从而造成难以排查的错误</p>
-<h2 id="_6">注意</h2>
-<p>出于性能考虑，每个模块在每个解释器会话中只导入一遍。因此，如果修改了的模块，需要重启解释器；
-或者，如果你就是想交互式的测试这么一个模块，可以用 imp.reload() 重新加载，例如</p>
-<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">imp</span>
-<span class="n">imp</span><span class="o">.</span><span class="n">reload</span><span class="p">(</span><span class="n">modulename</span><span class="p">)</span><span class="err">。</span>
+<h2 id="_6">模块重载</h2>
+<p>出于性能考虑，<mark>每个模块在每个解释器会话中只导入一遍。</mark> 因此，如果修改了的模块，需要重启解释器；如果想交互式地测试一个模块，则需要使用以下方法重新导入模块：</p>
+<div class="admonition warning">
+<p class="admonition-title">注意</p>
+<p>只能重载模块，不能单独重载模块中的某个函数、类、变量。</p>
+</div>
+<ul>
+<li>Python 2.x：</li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="n">reload</span><span class="p">(</span><span class="n">modulename</span><span class="p">)</span>
 </pre></div>
 
 
+<ul>
+<li>Python 2.x 至 Python3.3：</li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">imp</span>
+<span class="n">imp</span><span class="o">.</span><span class="n">reload</span><span class="p">(</span><span class="n">modulename</span><span class="p">)</span>
+</pre></div>
+
+
+<ul>
+<li>Python3.4+：</li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">importlib</span>
+<span class="n">importlib</span><span class="o">.</span><span class="n">reload</span><span class="p">(</span><span class="n">modulename</span><span class="p">)</span>
+</pre></div>
+
+
+<p>另外，spyder 的UMR(user module reloader)提供了自动重载模块的功能。</p>
 <h2 id="_7">模块的识别</h2>
-<p>和 Python 中的其它对象一样，Python 也为模块定义了一些形如 <code>__foo__</code> 的变量。对于模块来说，最重要的就是它的名字 <code>__name__</code> 了。每当 Python 执行脚本，它就会为该脚本赋予一个名字。对于「主程序」来说，这一脚本的 <code>__name__</code> 被定义为 <code>"__main__"</code>；对于被 <code>import</code> 进主程序的模块来说，这一脚本的 <code>__name__</code> 被定义为脚本的文件名（base filename）。因此，我们可以用 <code>if __name__ == "__main__":</code> 在模块代码中定义一些测试代码。</p>
-<p>例如：当我们在命令行运行<code>hello</code>模块文件时，Python解释器把一个特殊变量<code>__name__</code>置为<code>__main__</code>，而如果在其他地方导入该<code>hello</code>模块时，<code>if</code>判断将失败。因此，这种<code>if</code>测试可以让一个模块通过命令行运行时执行一些额外的代码，最常见的就是运行测试，例如下面的示例脚本。</p>
+<p>和 Python 中的其它对象一样，Python 也为模块定义了一些形如 <code>__foo__</code> 的变量。对于模块来说，最重要的就是它的名字 <code>__name__</code> 了。每当 Python 执行脚本，它就会为该脚本赋予一个名字：</p>
+<ul>
+<li>对于「主程序」来说，这一脚本的 <code>__name__</code> 被定义为 <code>"__main__"</code></li>
+<li>对于被 <code>import</code> 进主程序的模块来说，这一脚本的 <code>__name__</code> 被定义为脚本的文件名（base filename）</li>
+</ul>
+<p>因此，我们可以用如下的形式，在模块代码中定义一些测试代码：</p>
+<div class="codehilite"><pre><span></span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="err">···</span>
+</pre></div>
+
+
+<p>当脚本被直接运行时，测试代码就会被运行；当脚本作为模块被导入，测试代码不会被运行。</p>
+<p>以下是一个完整的代码示例：</p>
 <blockquote>
 <p>参考：(Python 中的黑暗角落（三）：模块与包)[https://liam0205.me/2017/07/23/modules-and-packages-of-python/]</p>
 </blockquote>
 <div class="codehilite"><pre><span></span><span class="ch">#!/usr/bin/env python3</span>
-</pre></div>
+<span class="c1"># -*- coding: utf-8 -*-</span>
 
-
-<p>-<em>- coding: utf-8 -</em>-</p>
-<div class="codehilite"><pre><span></span><span class="s1">&#39; a test module &#39;</span>
+<span class="s1">&#39; a test module &#39;</span>
 
 <span class="n">__author__</span> <span class="o">=</span> <span class="s1">&#39;Michael Liao&#39;</span>
 
@@ -1223,14 +1294,17 @@
 <p>部分高级技巧:</p>
 <ul>
 <li>
-<p>为了减少一个编译模块的大小，你可以在 Python 命令行中使用 <a href="https://docs.python.org/3/using/cmdline.html#cmdoption-O">-O</a>或者 <a href="https://docs.python.org/3/using/cmdline.html#cmdoption-OO">-OO</a>。<a href="https://docs.python.org/3/using/cmdline.html#cmdoption-O">-O</a>参数删除了断言语句，<a href="https://docs.python.org/3/using/cmdline.html#cmdoption-OO">-OO</a> 参数删除了断言语句和 <strong>doc</strong> 字符串。</p>
+<p>为了减少一个编译模块的大小，你可以在 Python 命令行中使用 <a href="https://docs.python.org/3/using/cmdline.html#cmdoption-O">-O</a>
+或者 <a href="https://docs.python.org/3/using/cmdline.html#cmdoption-OO">-OO</a>。<a href="https://docs.python.org/3/using/cmdline.html#cmdoption-O">-O</a>参数删除了断言语句，<a href="https://docs.python.org/3/using/cmdline.html#cmdoption-OO">-OO</a> 参数删除了断言语句和 <strong>doc</strong> 字符串。</p>
 <p>因为某些程序依赖于这些变量的可用性，你应该只在确定无误的场合使用这一选项。“优化的” 模块有一个 <code>.pyo</code> 后缀而不是 <code>.pyc</code> 后缀。未来的版本可能会改变优化的效果。</p>
 </li>
 <li>
-<p>来自 <code>.pyc</code> 文件或 <code>.pyo</code> 文件中的程序不会比来自 <code>.py</code> 文件的运行更快；<code>.pyc</code> 或 <code>.pyo</code> 文件只是在它们加载的时候更快一些。</p>
+<p>来自 <code>.pyc</code> 文件或 <code>.pyo</code> 文件中的程序不会比来自 <code>.py</code> 文件的运行更快；
+<code>.pyc</code> 或 <code>.pyo</code> 文件只是在它们加载的时候更快一些。</p>
 </li>
 <li>
-<p><a href="https://docs.python.org/3/library/compileall.html#module-compileall">compileall</a>模块可以为指定目录中的所有模块创建 <code>.pyc</code> 文件（或者使用 <a href="https://docs.python.org/3/using/cmdline.html#cmdoption-O">-O</a> 参数创建 <code>.pyo</code> 文件）。</p>
+<p><a href="https://docs.python.org/3/library/compileall.html#module-compileall">compileall</a>
+模块可以为指定目录中的所有模块创建 <code>.pyc</code> 文件（或者使用 <a href="https://docs.python.org/3/using/cmdline.html#cmdoption-O">-O</a> 参数创建 <code>.pyo</code> 文件）。</p>
 </li>
 <li>
 <p>在 PEP 3147 中有很多关这一部分内容的细节，并且包含了一个决策流程。</p>

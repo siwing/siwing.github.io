@@ -36,7 +36,7 @@
     
     
       
-        <title>3.5.装饰器 - Python笔记</title>
+        <title>3.4.装饰器 - Python笔记</title>
       
     
     
@@ -103,7 +103,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                3.5.装饰器
+                3.4.装饰器
               
             </span>
           
@@ -145,7 +145,7 @@
 
   
 
-<a href="https://github.com/example/repository/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+<a href="https://github.com/siwing/siwing.github.io/" title="前往 Github 仓库" class="md-source" data-md-source="github">
   
     <div class="md-source__icon">
       <svg viewBox="0 0 24 24" width="24" height="24">
@@ -192,7 +192,7 @@
 
   
 
-<a href="https://github.com/example/repository/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+<a href="https://github.com/siwing/siwing.github.io/" title="前往 Github 仓库" class="md-source" data-md-source="github">
   
     <div class="md-source__icon">
       <svg viewBox="0 0 24 24" width="24" height="24">
@@ -391,6 +391,42 @@
 
 
   <li class="md-nav__item">
+    <a href="2.7.推导式.html" title="2.7.推导式" class="md-nav__link">
+      2.7.推导式
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="2.8.赋值、immutable、深拷贝.html" title="2.8.赋值、immutable、深拷贝" class="md-nav__link">
+      2.8.赋值、immutable、深拷贝
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="2.9.函数.html" title="2.9.函数" class="md-nav__link">
+      2.9.函数
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="3.1.异常.html" title="3.1.异常" class="md-nav__link">
       3.1.异常
     </a>
@@ -403,8 +439,8 @@
 
 
   <li class="md-nav__item">
-    <a href="3.2.浅拷贝和深拷贝.html" title="3.2.浅拷贝和深拷贝" class="md-nav__link">
-      3.2.浅拷贝和深拷贝
+    <a href="3.2.命名空间和作用域.html" title="3.2.命名空间和作用域" class="md-nav__link">
+      3.2.命名空间和作用域
     </a>
   </li>
 
@@ -415,20 +451,8 @@
 
 
   <li class="md-nav__item">
-    <a href="3.3.位置参数、默认参数、关键字参数、可变参数区别.html" title="3.3.位置参数、默认参数、关键字参数、可变参数区别" class="md-nav__link">
-      3.3.位置参数、默认参数、关键字参数、可变参数区别
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="3.4.列表生成式.html" title="3.4.列表生成式" class="md-nav__link">
-      3.4.列表生成式
+    <a href="3.3.闭包.html" title="3.3.闭包" class="md-nav__link">
+      3.3.闭包
     </a>
   </li>
 
@@ -446,11 +470,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        3.5.装饰器
+        3.4.装饰器
       </label>
     
-    <a href="3.5.装饰器.html" title="3.5.装饰器" class="md-nav__link md-nav__link--active">
-      3.5.装饰器
+    <a href="3.4.装饰器.html" title="3.4.装饰器" class="md-nav__link md-nav__link--active">
+      3.4.装饰器
     </a>
     
       
@@ -909,10 +933,10 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/example/repository/edit/master/docs/Python基础/3.5.装饰器.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/siwing/siwing.github.io/edit/master/docs/Python基础/3.4.装饰器.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                  <h1>3.5.装饰器</h1>
+                  <h1>3.4.装饰器</h1>
                 
                 <h2 id="_1">装饰器简述</h2>
 <p>有时候，我们需要给一个函数添加新功能。那么有一种做法就是修改原函数的代码，直接添加新功能。但这总做法有时未免太繁琐。在python中，直接给原函数套上装饰就可以实现这个需求。</p>
@@ -946,7 +970,7 @@
 </pre></div>
 
 
-<p>将hello函数作为参数传入makeitalic函数，makeitalic函数返回wrapped函数，名字hello与wrapped函数绑定。此时名字hello代表了一个函数，也就是wrapped函数有了新的名字——hello。</p>
+<p>将<code>hello</code>函数作为参数传入<code>makeitalic</code>函数，<code>makeitalic</code>函数返回wrapped函数，名字<code>hello</code>与<code>wrapped</code>函数绑定。此时名字<code>hello</code>代表了一个函数，也就是<code>wrapped</code>函数有了新的名字——<code>hello</code>。</p>
 <div class="codehilite"><pre><span></span><span class="c1"># 可以看出hello函数的名字变了</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;hello函数的名字：&quot;</span><span class="p">,</span> <span class="n">hello</span><span class="o">.</span><span class="vm">__name__</span><span class="p">)</span>
 </pre></div>
@@ -956,9 +980,9 @@
 </pre></div>
 
 
-<p>总结一下：为了增强原函数 hello 的功能，我们定义了一个函数，它接收原函数作为参数，并返回一个新的函数。</p>
-<p>事实上，makeitalic 就是一个装饰器（decorator），它『装饰』了函数 hello，并返回一个函数，将其赋给 hello。</p>
-<p>像上面的情况，可以动态修改函数（或类）功能的函数就是装饰器。本质上，它是一个高阶函数，以被装饰的函数（比如上面的 hello）为参数，并返回一个包装后的函数（比如上面的 wrapped）给被装饰函数（hello）。</p>
+<p>总结一下：为了增强原函数 <code>hello</code> 的功能，我们定义了一个函数，它接收原函数作为参数，并返回一个新的函数。</p>
+<p>事实上，<code>makeitalic</code> 就是一个装饰器（decorator），它『装饰』了函数 <code>hello</code>，并返回一个函数，将其赋给 <code>hello</code>。</p>
+<p>像上面的情况，可以动态修改函数（或类）功能的函数就是装饰器。本质上，它是一个高阶函数，以被装饰的函数（比如上面的 <code>hello</code>）为参数，并返回一个包装后的函数（比如上面的 <code>wrapped</code>）给被装饰函数（<code>hello</code>）。</p>
 <h2 id="_2">装饰器的一般使用形式</h2>
 <p><strong>在python中，装饰器一般这样用：</strong></p>
 <div class="codehilite"><pre><span></span><span class="nd">@decorator</span>
@@ -1242,7 +1266,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="3.4.列表生成式.html" title="3.4.列表生成式" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="3.3.闭包.html" title="3.3.闭包" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1251,7 +1275,7 @@
                 <span class="md-footer-nav__direction">
                   上一页
                 </span>
-                3.4.列表生成式
+                3.3.闭包
               </span>
             </div>
           </a>

@@ -36,7 +36,7 @@
     
     
       
-        <title>3.4.列表生成式 - Python笔记</title>
+        <title>2.9.函数 - Python笔记</title>
       
     
     
@@ -103,7 +103,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                3.4.列表生成式
+                2.9.函数
               
             </span>
           
@@ -145,7 +145,7 @@
 
   
 
-<a href="https://github.com/example/repository/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+<a href="https://github.com/siwing/siwing.github.io/" title="前往 Github 仓库" class="md-source" data-md-source="github">
   
     <div class="md-source__icon">
       <svg viewBox="0 0 24 24" width="24" height="24">
@@ -192,7 +192,7 @@
 
   
 
-<a href="https://github.com/example/repository/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+<a href="https://github.com/siwing/siwing.github.io/" title="前往 Github 仓库" class="md-source" data-md-source="github">
   
     <div class="md-source__icon">
       <svg viewBox="0 0 24 24" width="24" height="24">
@@ -391,8 +391,8 @@
 
 
   <li class="md-nav__item">
-    <a href="3.1.异常.html" title="3.1.异常" class="md-nav__link">
-      3.1.异常
+    <a href="2.7.推导式.html" title="2.7.推导式" class="md-nav__link">
+      2.7.推导式
     </a>
   </li>
 
@@ -403,20 +403,8 @@
 
 
   <li class="md-nav__item">
-    <a href="3.2.浅拷贝和深拷贝.html" title="3.2.浅拷贝和深拷贝" class="md-nav__link">
-      3.2.浅拷贝和深拷贝
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="3.3.位置参数、默认参数、关键字参数、可变参数区别.html" title="3.3.位置参数、默认参数、关键字参数、可变参数区别" class="md-nav__link">
-      3.3.位置参数、默认参数、关键字参数、可变参数区别
+    <a href="2.8.赋值、immutable、深拷贝.html" title="2.8.赋值、immutable、深拷贝" class="md-nav__link">
+      2.8.赋值、immutable、深拷贝
     </a>
   </li>
 
@@ -434,11 +422,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        3.4.列表生成式
+        2.9.函数
       </label>
     
-    <a href="3.4.列表生成式.html" title="3.4.列表生成式" class="md-nav__link md-nav__link--active">
-      3.4.列表生成式
+    <a href="2.9.函数.html" title="2.9.函数" class="md-nav__link md-nav__link--active">
+      2.9.函数
     </a>
     
       
@@ -450,9 +438,91 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" title="列表生成式" class="md-nav__link">
-    列表生成式
+  <a href="#_1" title="函数" class="md-nav__link">
+    函数
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="函数传参" class="md-nav__link">
+    函数传参
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="参数" class="md-nav__link">
+    参数
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" title="位置参数" class="md-nav__link">
+    位置参数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" title="关键字参数" class="md-nav__link">
+    关键字参数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" title="默认参数" class="md-nav__link">
+    默认参数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" title="可变参数" class="md-nav__link">
+    可变参数
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" title="包裹位置传递" class="md-nav__link">
+    包裹位置传递
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" title="包裹关键字传递" class="md-nav__link">
+    包裹关键字传递
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" title="解包裹参数" class="md-nav__link">
+    解包裹参数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" title="位置参数、默认参数、可变参数的混合使用" class="md-nav__link">
+    位置参数、默认参数、可变参数的混合使用
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -473,8 +543,44 @@
 
 
   <li class="md-nav__item">
-    <a href="3.5.装饰器.html" title="3.5.装饰器" class="md-nav__link">
-      3.5.装饰器
+    <a href="3.1.异常.html" title="3.1.异常" class="md-nav__link">
+      3.1.异常
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="3.2.命名空间和作用域.html" title="3.2.命名空间和作用域" class="md-nav__link">
+      3.2.命名空间和作用域
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="3.3.闭包.html" title="3.3.闭包" class="md-nav__link">
+      3.3.闭包
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="3.4.装饰器.html" title="3.4.装饰器" class="md-nav__link">
+      3.4.装饰器
     </a>
   </li>
 
@@ -803,9 +909,91 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" title="列表生成式" class="md-nav__link">
-    列表生成式
+  <a href="#_1" title="函数" class="md-nav__link">
+    函数
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="函数传参" class="md-nav__link">
+    函数传参
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="参数" class="md-nav__link">
+    参数
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" title="位置参数" class="md-nav__link">
+    位置参数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" title="关键字参数" class="md-nav__link">
+    关键字参数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" title="默认参数" class="md-nav__link">
+    默认参数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" title="可变参数" class="md-nav__link">
+    可变参数
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" title="包裹位置传递" class="md-nav__link">
+    包裹位置传递
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" title="包裹关键字传递" class="md-nav__link">
+    包裹关键字传递
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" title="解包裹参数" class="md-nav__link">
+    解包裹参数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" title="位置参数、默认参数、可变参数的混合使用" class="md-nav__link">
+    位置参数、默认参数、可变参数的混合使用
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -825,105 +1013,141 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/example/repository/edit/master/docs/Python基础/3.4.列表生成式.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/siwing/siwing.github.io/edit/master/docs/Python基础/2.9.函数.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                  <h1>3.4.列表生成式</h1>
+                  <h1>2.9.函数</h1>
                 
-                <div class="codehilite"><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">Created on Sun Jan 12 17:04:58 2020</span>
-
-<span class="sd">@author: Android</span>
-<span class="sd">&quot;&quot;&quot;</span>
-
-<span class="kn">import</span> <span class="nn">pprint</span>
+                <h2 id="_1">函数</h2>
+<p>关键字 def 引入了一个函数定义。后面必须跟上函数名和在圆括号里的参数序列。函数体从第一行开始，并且一定要缩进。</p>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">func</span><span class="p">():</span>
+    <span class="k">pass</span>
 </pre></div>
 
 
-<h2 id="_1">列表生成式</h2>
-<p>列表生成式即List Comprehensions，是Python内置的非常简单却强大的可以用来创建list的生成式。</p>
-<p>运用列表生成式，<strong>可以写出非常简洁的代码</strong>。</p>
-<p>举个例子，要生成list <code>[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</code>可以用<code>list(range(1, 11))</code>：</p>
-<div class="codehilite"><pre><span></span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">))</span>
+<p>函式体的第一个语句可以是字串。这个字串就是函式的文档字符串，或称为 docstring。有很多能将文档字串自动转换为在线或可打印文档的工具，或让用户在代码中交互地浏览它的工具。</p>
+<p>执行函数会引入局部命名空间。所有在函数中被赋值的变量和值都将存储在局部命名空间中。</p>
+<p>变量引用会首先在函数的局部命名空间里寻找，然后才是闭包函数的局部命名空间，再然后是全局命名空间，最后是内置命名空间。在函数中可以引用全局变量，但是不可直接赋值 (除非用 global 语句进行声明)。</p>
+<p>具体细节参考 命名空间和作用域。</p>
+<p>根据其它语言的经验，你可能会指出<code>fib</code>不是一个函数，而是一个程序，因为它不返回值。事实上，即使没有写 return 语句的函数也会返回一个值——<code>None</code>。如果要唯一输出的值是 None，那么解释器会正当的抑制这次返回。如你实在想看看这个值，可以使用 <code>print()</code> 函数。</p>
+<p>return 语句从函式中返回一个值。没有表达式参数的 return 语句返回 None。直到函式结束也没有 return 语句也返回 。</p>
+<h2 id="_2">函数传参</h2>
+<p>刚学Python的人可能会疑惑，Python函数传参，到底是传值，还是传引用？<mark>答案很直接，Python函数传参永远都是传引用。</mark> 实际上，Python函数传参就是赋值，所以传参的行为和赋值的行为是一样的。在对可变对象的参数进行操作前，最好先深拷贝参数的值，否则可能会影响全局变量。</p>
+<h2 id="_3">参数</h2>
+<p>函数有四种参数概念：位置参数、默认参数、关键字参数、可变参数。</p>
+<p>函数有三种合法调用形式：</p>
+<ol>
+<li>仅给出强制参数</li>
+<li>给出所有强制参数和部分可选参数</li>
+<li>给出所有参数</li>
+</ol>
+<h3 id="_4">位置参数</h3>
+<p>调用函数时可以省略形参名字，根据函数定义的参数位置来传递参数。传入的参数顺序必须和定义参数的顺序一致，且少一个参数都不可以。</p>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">print_hello</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">sex</span><span class="p">):</span>
+    <span class="n">sex_dict</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;先生&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;女士&#39;</span><span class="p">}</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;hello </span><span class="si">%s</span><span class="s1"> </span><span class="si">%s</span><span class="s1">, welcome to python world!&#39;</span> <span class="o">%</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">sex_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">sex</span><span class="p">,</span> <span class="sa">u</span><span class="s1">&#39;先生&#39;</span><span class="p">)))</span>
+
+<span class="n">print_hello</span><span class="p">(</span><span class="s1">&#39;Jack&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</span>
+<div class="codehilite"><pre><span></span><span class="err">hello Jack 先生, welcome to python world!</span>
 </pre></div>
 
 
-<p>但如果要生成<code>[1x1, 2x2, 3x3, ..., 10x10]</code>怎么做？方法一是循环：</p>
-<div class="codehilite"><pre><span></span><span class="n">L</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">):</span>
-    <span class="n">L</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="n">x</span><span class="p">)</span>
-<span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">L</span><span class="p">)</span>
+<h3 id="_5">关键字参数</h3>
+<p>函数调用时，可以通过“键=值”形式指定。这可以让函数更加清晰、容易使用，同时关键字参数不需要按顺序指定。</p>
+<div class="codehilite"><pre><span></span><span class="c1"># 以下是用关键字参数正确调用函数的实例</span>
+<span class="n">print_hello</span><span class="p">(</span><span class="s1">&#39;tanggu&#39;</span><span class="p">,</span> <span class="n">sex</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">print_hello</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;tanggu&#39;</span><span class="p">,</span> <span class="n">sex</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">print_hello</span><span class="p">(</span><span class="n">sex</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;tanggu&#39;</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">[1, 4, 9, 16, 25, 36, 49, 64, 81, 100]</span>
+<div class="codehilite"><pre><span></span><span class="err">hello tanggu 先生, welcome to python world!</span>
+<span class="err">hello tanggu 先生, welcome to python world!</span>
+<span class="err">hello tanggu 先生, welcome to python world!</span>
 </pre></div>
 
 
-<p>但是循环太繁琐，而列表生成式则可以用一行语句代替循环生成上面的list：</p>
-<div class="codehilite"><pre><span></span><span class="p">[</span><span class="n">x</span> <span class="o">*</span> <span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">)]</span>
+<div class="codehilite"><pre><span></span><span class="c1"># 以下是错误的调用方式</span>
+<span class="n">print_hello</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;tanggu&#39;</span><span class="p">)</span>
+<span class="n">print_hello</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;tanggu&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">print_hello</span><span class="p">(</span><span class="n">sex</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;tanggu&#39;</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">[1, 4, 9, 16, 25, 36, 49, 64, 81, 100]</span>
+<p>通过上面的代码可以发现：<strong>有位置参数时，位置参数必须在关键字参数的前面，但关键字参数之间不存在先后顺序的</strong>。</p>
+<h3 id="_6">默认参数</h3>
+<p>用于定义函数，为参数提供默认值，调用函数时可传可不传该默认参数的值。<mark>注意：所有位置参数必须出现在默认参数前，包括函数定义和调用。</mark></p>
+<div class="codehilite"><pre><span></span>    <span class="c1"># 正确的默认参数定义方式--&gt; 位置参数在前，默认参数在后</span>
+    <span class="k">def</span> <span class="nf">print_hello</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">sex</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+        <span class="o">....</span>
+
+    <span class="c1"># 错误的定义方式</span>
+    <span class="k">def</span> <span class="nf">print_hello</span><span class="p">(</span><span class="n">sex</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+        <span class="o">....</span>
+
+    <span class="c1"># 调用时不传sex的值，则使用默认值1</span>
+    <span class="c1"># print_hello(&#39;tanggu&#39;)</span>
+
+    <span class="c1"># 调用时传入sex的值，并指定为2</span>
+    <span class="c1"># print_hello(&#39;tanggu&#39;, 2)</span>
 </pre></div>
 
 
-<p>写列表生成式时，把<strong>要生成的元素</strong><code>x * x</code><strong>放到前面</strong>，后面跟<code>for</code>循环，就可以把list创建出来，十分有用，多写几次，很快就可以熟悉这种语法。</p>
-<p>for循环后面还可以加上if判断，这样我们就可以筛选出仅偶数的平方：</p>
-<div class="codehilite"><pre><span></span><span class="p">[</span><span class="n">x</span> <span class="o">*</span> <span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span>
+<h3 id="_7">可变参数</h3>
+<p>定义函数时，有时候我们不确定调用的时候会传递多少个参数（不传参也可以）。此时，可用包裹（packing）位置参数，或者包裹关键字参数，来进行参数传递，会显得非常方便。</p>
+<h4 id="_8">包裹位置传递</h4>
+<div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+        <span class="o">....</span>
+         <span class="err">↓</span>
+    <span class="c1"># func()</span>
+    <span class="c1"># func(a)</span>
+    <span class="c1"># func(a, b, c)</span>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">[4, 16, 36, 64, 100]</span>
+<p>我们传进的所有参数都会被<code>args</code>变量收集，它会根据传进参数的位置合并为一个元组(tuple)，<code>args</code>是元组类型，这就是包裹位置传递。</p>
+<h4 id="_9">包裹关键字传递</h4>
+<div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="o">**</span><span class="n">kargs</span><span class="p">):</span>
+        <span class="o">....</span>
+         <span class="err">↓</span>
+    <span class="c1"># func(a=1)</span>
+    <span class="c1"># func(a=1, b=2, c=3)</span>
 </pre></div>
 
 
-<p>还可以使用两层循环，可以生成全排列：</p>
-<div class="codehilite"><pre><span></span><span class="p">[</span><span class="n">m</span> <span class="o">+</span> <span class="n">n</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="s1">&#39;ABC&#39;</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="s1">&#39;XYZ&#39;</span><span class="p">]</span>
+<p>kargs是一个字典(dict)，收集所有关键字参数</p>
+<h3 id="_10">解包裹参数</h3>
+<p><code>*</code>和<code>**</code>，也可以在函数调用的时候使用，称之为解包裹(unpacking)</p>
+<p>在传递元组时，让元组的每一个元素对应一个位置参数</p>
+<div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">print_hello</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">sex</span><span class="p">):</span>
+        <span class="nb">print</span> <span class="n">name</span><span class="p">,</span> <span class="n">sex</span>
+
+    <span class="c1"># args = (&#39;tanggu&#39;, &#39;男&#39;)</span>
+    <span class="c1"># print_hello(*args)</span>
+    <span class="c1"># tanggu 男</span>
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">[&#39;AX&#39;, &#39;AY&#39;, &#39;AZ&#39;, &#39;BX&#39;, &#39;BY&#39;, &#39;BZ&#39;, &#39;CX&#39;, &#39;CY&#39;, &#39;CZ&#39;]</span>
+<p>在传递字典时，让字典的每个键值对作为一个关键字参数传递给函数</p>
+<div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">print_hello</span><span class="p">(</span><span class="n">kargs</span><span class="p">):</span>
+        <span class="nb">print</span> <span class="n">kargs</span>
+
+    <span class="c1"># kargs = {&#39;name&#39;: &#39;tanggu&#39;, &#39;sex&#39;, u&#39;男&#39;}</span>
+    <span class="c1"># print_hello(**kargs)</span>
+    <span class="c1"># {&#39;name&#39;: &#39;tanggu&#39;, &#39;sex&#39;, u&#39;男&#39;}</span>
 </pre></div>
 
 
-<p>三层和三层以上的循环就很少用到了。</p>
-<p><code>for</code>循环其实可以同时使用两个甚至多个变量，比如<code>dict</code>的<code>items()</code>可以同时迭代key和value：</p>
-<div class="codehilite"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">:</span> <span class="s1">&#39;C&#39;</span> <span class="p">}</span>
-<span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">d</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="s1">&#39;=&#39;</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
-</pre></div>
+<h3 id="_11">位置参数、默认参数、可变参数的混合使用</h3>
+<p>顺序是：位置参数、默认参数、包裹位置、包裹关键字，定义和调用都应遵循这个顺序。</p>
+<div class="codehilite"><pre><span></span>    <span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">sex</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kargs</span><span class="p">):</span>
+        <span class="nb">print</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">sex</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">kargs</span>
 
-
-<div class="codehilite"><pre><span></span><span class="err">x = A</span>
-<span class="err">y = B</span>
-<span class="err">z = C</span>
-</pre></div>
-
-
-<p>因此，列表生成式也可以使用两个变量来生成list：</p>
-<div class="codehilite"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">:</span> <span class="s1">&#39;C&#39;</span> <span class="p">}</span>
-<span class="p">[</span><span class="n">k</span> <span class="o">+</span> <span class="s1">&#39;=&#39;</span> <span class="o">+</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">d</span><span class="o">.</span><span class="n">items</span><span class="p">()]</span>
-</pre></div>
-
-
-<div class="codehilite"><pre><span></span><span class="err">[&#39;x=A&#39;, &#39;y=B&#39;, &#39;z=C&#39;]</span>
-</pre></div>
-
-
-<p>最后把一个list中所有的字符串变成小写：</p>
-<div class="codehilite"><pre><span></span><span class="n">L</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Hello&#39;</span><span class="p">,</span> <span class="s1">&#39;World&#39;</span><span class="p">,</span> <span class="s1">&#39;IBM&#39;</span><span class="p">,</span> <span class="s1">&#39;Apple&#39;</span><span class="p">]</span>
-<span class="p">[</span><span class="n">s</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">L</span><span class="p">]</span>
-</pre></div>
-
-
-<div class="codehilite"><pre><span></span><span class="err">[&#39;hello&#39;, &#39;world&#39;, &#39;ibm&#39;, &#39;apple&#39;]</span>
+    <span class="c1"># func(&#39;tanggu&#39;, 25, 2, &#39;music&#39;, &#39;sport&#39;, class=2)</span>
+    <span class="c1"># tanggu 25 1 (&#39;music&#39;, &#39;sport&#39;) {&#39;class&#39;=2}    </span>
 </pre></div>
                 
                   
@@ -945,7 +1169,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="3.3.位置参数、默认参数、关键字参数、可变参数区别.html" title="3.3.位置参数、默认参数、关键字参数、可变参数区别" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="2.8.赋值、immutable、深拷贝.html" title="2.8.赋值、immutable、深拷贝" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -954,19 +1178,19 @@
                 <span class="md-footer-nav__direction">
                   上一页
                 </span>
-                3.3.位置参数、默认参数、关键字参数、可变参数区别
+                2.8.赋值、immutable、深拷贝
               </span>
             </div>
           </a>
         
         
-          <a href="3.5.装饰器.html" title="3.5.装饰器" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="3.1.异常.html" title="3.1.异常" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   下一页
                 </span>
-                3.5.装饰器
+                3.1.异常
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

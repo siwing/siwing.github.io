@@ -145,7 +145,7 @@
 
   
 
-<a href="https://github.com/example/repository/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+<a href="https://github.com/siwing/siwing.github.io/" title="前往 Github 仓库" class="md-source" data-md-source="github">
   
     <div class="md-source__icon">
       <svg viewBox="0 0 24 24" width="24" height="24">
@@ -192,7 +192,7 @@
 
   
 
-<a href="https://github.com/example/repository/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+<a href="https://github.com/siwing/siwing.github.io/" title="前往 Github 仓库" class="md-source" data-md-source="github">
   
     <div class="md-source__icon">
       <svg viewBox="0 0 24 24" width="24" height="24">
@@ -384,8 +384,6 @@
     
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
-      
-    
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
         2.6.Dict
@@ -399,11 +397,16 @@
 <nav class="md-nav md-nav--secondary">
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">目录</label>
     <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#dict" title="创建dict" class="md-nav__link">
+    创建dict
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#dict_1" title="Dict的方法" class="md-nav__link">
@@ -505,6 +508,42 @@
 
 
   <li class="md-nav__item">
+    <a href="2.7.推导式.html" title="2.7.推导式" class="md-nav__link">
+      2.7.推导式
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="2.8.赋值、immutable、深拷贝.html" title="2.8.赋值、immutable、深拷贝" class="md-nav__link">
+      2.8.赋值、immutable、深拷贝
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="2.9.函数.html" title="2.9.函数" class="md-nav__link">
+      2.9.函数
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="3.1.异常.html" title="3.1.异常" class="md-nav__link">
       3.1.异常
     </a>
@@ -517,8 +556,8 @@
 
 
   <li class="md-nav__item">
-    <a href="3.2.浅拷贝和深拷贝.html" title="3.2.浅拷贝和深拷贝" class="md-nav__link">
-      3.2.浅拷贝和深拷贝
+    <a href="3.2.命名空间和作用域.html" title="3.2.命名空间和作用域" class="md-nav__link">
+      3.2.命名空间和作用域
     </a>
   </li>
 
@@ -529,8 +568,8 @@
 
 
   <li class="md-nav__item">
-    <a href="3.3.位置参数、默认参数、关键字参数、可变参数区别.html" title="3.3.位置参数、默认参数、关键字参数、可变参数区别" class="md-nav__link">
-      3.3.位置参数、默认参数、关键字参数、可变参数区别
+    <a href="3.3.闭包.html" title="3.3.闭包" class="md-nav__link">
+      3.3.闭包
     </a>
   </li>
 
@@ -541,20 +580,8 @@
 
 
   <li class="md-nav__item">
-    <a href="3.4.列表生成式.html" title="3.4.列表生成式" class="md-nav__link">
-      3.4.列表生成式
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="3.5.装饰器.html" title="3.5.装饰器" class="md-nav__link">
-      3.5.装饰器
+    <a href="3.4.装饰器.html" title="3.4.装饰器" class="md-nav__link">
+      3.4.装饰器
     </a>
   </li>
 
@@ -878,11 +905,16 @@
 <nav class="md-nav md-nav--secondary">
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">目录</label>
     <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#dict" title="创建dict" class="md-nav__link">
+    创建dict
+  </a>
+  
+</li>
       
         <li class="md-nav__item">
   <a href="#dict_1" title="Dict的方法" class="md-nav__link">
@@ -983,17 +1015,51 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/example/repository/edit/master/docs/Python基础/2.6.Dict.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/siwing/siwing.github.io/edit/master/docs/Python基础/2.6.Dict.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <div class="codehilite"><pre><span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+                  <h1>2.6.Dict</h1>
+                
+                <p>映射（mapping）是通过名称来访问其各个值的数据结构。字典是Python中唯一的内置映射类型，其中的值不按顺序排列，而是存储在键下。键可能是数、字符串或元组。 </p>
+<h2 id="dict">创建dict</h2>
+<p>字典以类似于下面的方式表示： </p>
+<div class="codehilite"><pre><span></span><span class="n">phonebook</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Alice&#39;</span><span class="p">:</span> <span class="s1">&#39;2341&#39;</span><span class="p">,</span> <span class="s1">&#39;Beth&#39;</span><span class="p">:</span> <span class="s1">&#39;9102&#39;</span><span class="p">,</span> <span class="s1">&#39;Cecil&#39;</span><span class="p">:</span> <span class="s1">&#39;3258&#39;</span><span class="p">}</span>
 </pre></div>
 
 
-<p>Dict
-siwing
-2019.08.10</p>
-<h1 id="dict">Dict</h1>
+<p>字典由键及其相应的值组成，这种键--值对称为项（item）。每个键与其值之间都用冒号<code>:</code>分隔，item之间用逗号分隔，而整个字典放在花括号内。空字典（没有任何项）用两个花括号<code>{}</code>表示。 </p>
+<div class="admonition note">
+<p class="admonition-title">注意</p>
+<p>在字典（以及其他映射类型）中，键必须是独一无二的，而字典中的值无需如此。 </p>
+</div>
+<p>可使用dict类从其他映射（如其他字典）或键–值对序列创建字典。 </p>
+<div class="codehilite"><pre><span></span><span class="n">items</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;Gumby&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="mi">42</span><span class="p">)]</span> 
+<span class="nb">dict</span><span class="p">(</span><span class="n">items</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">{&#39;name&#39;: &#39;Gumby&#39;, &#39;age&#39;: 42}</span>
+</pre></div>
+
+
+<p>还可使用关键参数，如下所示： </p>
+<div class="codehilite"><pre><span></span><span class="nb">dict</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Gumby&#39;</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">{&#39;name&#39;: &#39;Gumby&#39;, &#39;age&#39;: 42}</span>
+</pre></div>
+
+
+<h2 id="dict_1">Dict的方法</h2>
+<p>字典的基本行为在很多方面都类似于序列。 </p>
+<ul>
+<li>len(d)返回字典d包含的项（键--值对）数。</li>
+<li>d[k]返回与键k相关联的值。</li>
+<li>d[k] = v将值v关联到键k。</li>
+<li>del d[k]删除键为k的项。</li>
+<li>k in d检查字典d是否包含键为k的项。</li>
+</ul>
 <p>虽然字典和列表有多个相同之处，但也有一些重要的不同之处。</p>
 <ul>
 <li>
@@ -1003,7 +1069,6 @@ siwing
 <p><strong>成员资格。</strong>表达式k in d (其中d是一个字典）査找的是键而不是值；而表达式v in 1 (其中1是一个列表）查找的是值而不是索引。这看似不太一致，但你习惯后就会觉得相当自然。毕竟如果字典包含指定的键，检查相应的值就很容易。</p>
 </li>
 </ul>
-<h2 id="dict_1">Dict的方法</h2>
 <h3 id="clear"><code>clear</code>删除所有的字典项</h3>
 <p>要注意的是，clear是清除了一个字典对象，而不是解除了名称与字典对象的绑定。</p>
 <div class="codehilite"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span><span class="s2">&quot;c&quot;</span><span class="p">:</span><span class="mi">3</span><span class="p">}</span>
@@ -1035,11 +1100,11 @@ siwing
 
 
 <h3 id="fromkeys"><code>fromkeys</code></h3>
-<p>方法<code>fromkeys</code>创建一个新字典，其中包含指定的键，且每个键对应的值都是None，也可以指定值，</p>
-<div class="codehilite"><pre><span></span><span class="nb">dict</span><span class="o">.</span><span class="n">fromkeys</span><span class="p">(</span><span class="n">key</span><span class="p">,</span><span class="n">value</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><span class="nb">dict</span><span class="o">.</span><span class="n">fromkeys</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
 </pre></div>
 
 
+<p>方法<code>fromkeys</code>创建一个新字典，其中包含指定的键，且每个键对应的值都是None，也可以指定值，</p>
 <div class="codehilite"><pre><span></span><span class="nb">dict</span><span class="o">.</span><span class="n">fromkeys</span><span class="p">([</span><span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">])</span>
 </pre></div>
 
@@ -1107,21 +1172,30 @@ siwing
 <div class="codehilite"><pre><span></span><span class="c1"># 迭代</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">a</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-<span class="c1"># 迭代</span>
-<span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">j</span> <span class="ow">in</span> <span class="n">a</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="n">end</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
-<span class="c1"># 检查成员资格</span>
-<span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="ow">in</span> <span class="n">a</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
 </pre></div>
 
 
 <div class="codehilite"><pre><span></span><span class="err">(&#39;a&#39;, 1)</span>
 <span class="err">(&#39;b&#39;, 2)</span>
 <span class="err">(&#39;c&#39;, 3)</span>
-<span class="err">a 1</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="c1"># 迭代</span>
+<span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">a</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">a 1</span>
 <span class="err">b 2</span>
 <span class="err">c 3</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="c1"># 检查成员资格</span>
+<span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="ow">in</span> <span class="n">a</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
 </pre></div>
 
 
@@ -1253,13 +1327,13 @@ siwing
           </a>
         
         
-          <a href="3.1.异常.html" title="3.1.异常" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="2.7.推导式.html" title="2.7.推导式" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   下一页
                 </span>
-                3.1.异常
+                2.7.推导式
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
