@@ -304,14 +304,14 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#python" title="基础概念（python）" class="md-nav__link">
-    基础概念（python）
+  <a href="#_5" title="基本术语解释" class="md-nav__link">
+    基本术语解释
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" title="类的概念" class="md-nav__link">
+  <a href="#_6" title="类的概念" class="md-nav__link">
     类的概念
   </a>
   
@@ -320,20 +320,6 @@
         <li class="md-nav__item">
   <a href="#vs" title="对象  vs  变量" class="md-nav__link">
     对象  vs  变量
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#mutable-vs-immutable" title="可更改(mutable)  vs  不可更改(immutable)" class="md-nav__link">
-    可更改(mutable)  vs  不可更改(immutable)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#python_1" title="Python的函数参数传递：传值？引用？" class="md-nav__link">
-    Python的函数参数传递：传值？引用？
   </a>
   
 </li>
@@ -367,20 +353,8 @@
 
 
   <li class="md-nav__item">
-    <a href="1.4.命名空间与作用域.html" title="1.4.命名空间与作用域" class="md-nav__link">
-      1.4.命名空间与作用域
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="1.5.字符编码.html" title="1.5.字符编码" class="md-nav__link">
-      1.5.字符编码
+    <a href="1.4.字符编码.html" title="1.4.字符编码" class="md-nav__link">
+      1.4.字符编码
     </a>
   </li>
 
@@ -585,6 +559,18 @@
   <li class="md-nav__item">
     <a href="../Python基础/4.2.模块.html" title="4.2.模块" class="md-nav__link">
       4.2.模块
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python基础/4.3.魔术方法.html" title="4.3.魔术方法" class="md-nav__link">
+      4.3.魔术方法
     </a>
   </li>
 
@@ -923,14 +909,14 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#python" title="基础概念（python）" class="md-nav__link">
-    基础概念（python）
+  <a href="#_5" title="基本术语解释" class="md-nav__link">
+    基本术语解释
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" title="类的概念" class="md-nav__link">
+  <a href="#_6" title="类的概念" class="md-nav__link">
     类的概念
   </a>
   
@@ -939,20 +925,6 @@
         <li class="md-nav__item">
   <a href="#vs" title="对象  vs  变量" class="md-nav__link">
     对象  vs  变量
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#mutable-vs-immutable" title="可更改(mutable)  vs  不可更改(immutable)" class="md-nav__link">
-    可更改(mutable)  vs  不可更改(immutable)
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#python_1" title="Python的函数参数传递：传值？引用？" class="md-nav__link">
-    Python的函数参数传递：传值？引用？
   </a>
   
 </li>
@@ -1006,7 +978,7 @@
 <p>高级编程语言使用语句编写程序。</p>
 </blockquote>
 <p><img alt="" src="https://upload.cc/i1/2018/08/06/yHRcYZ.png" /></p>
-<p>计算机只能对数字做运算，符号、声音、图像在计算机内部都要用数字表示，指令也不例外，上表中的机器语言完全由十六进制数字组成。最早的程序员都是直接用机器语言编程，但是很麻烦，需要查大量的表格来确定每个数字表示什么意思，编写出来的程序很不直观，而且容易出错，于是有了==汇编语言，把机器语言中一组一组的数字用助记符（Mnemonic）表示，直接用这些助记符写出汇编程序，然后让汇编器（Assembler）去查表把助记符替换成数字，也就把汇编语言翻译成了机器语言。== 从上面的例子可以看出，<mark>汇编语言和机器语言的指令是一一对应的，汇编语言有三条指令，机器语言也有三条指令，汇编器就是做一个简单的替换工作</mark>，例如在第一条指令中，把<code>movl ?,%eax</code>这种格式的指令替换成机器码<code>a1 ?</code>，?表示一个地址，在汇编指令中是<code>0x804a01c</code>，转换成机器码之后是<code>1c a0 04 08</code>（这是指令中的十六进制数的小端表示，小端表示将在<a href="https://akaedu.github.io/book/ch18s05.html#asm.relocatable">第 5.1 节 “目标文件”</a>介绍）。</p>
+<p>计算机只能对数字做运算，符号、声音、图像在计算机内部都要用数字表示，指令也不例外，上表中的机器语言完全由十六进制数字组成。最早的程序员都是直接用机器语言编程，但是很麻烦，需要查大量的表格来确定每个数字表示什么意思，编写出来的程序很不直观，而且容易出错，于是有了==汇编语言，把机器语言中一组一组的数字用助记符（Mnemonic）表示，直接用这些助记符写出汇编程序，然后让汇编器（Assembler）去查表把助记符替换成数字，也就把汇编语言翻译成了机器语言。<mark>从上面的例子可以看出，==汇编语言和机器语言的指令是一一对应的，汇编语言有三条指令，机器语言也有三条指令，汇编器就是做一个简单的替换工作</mark>，例如在第一条指令中，把<code>movl ?,%eax</code>这种格式的指令替换成机器码<code>a1 ?</code>，?表示一个地址，在汇编指令中是<code>0x804a01c</code>，转换成机器码之后是<code>1c a0 04 08</code>（这是指令中的十六进制数的小端表示，小端表示将在<a href="https://akaedu.github.io/book/ch18s05.html#asm.relocatable">第 5.1 节 “目标文件”</a>介绍）。</p>
 <p>从上面的例子还可以看出，==高级语言的语句和低级语言的指令之间不是简单的一一对应关系，==一条<code>a=b+1;</code>语句要翻译成三条汇编或机器指令，这个过程称为<strong>编译（Compile）</strong>，由编译器（Compiler）来完成，显然编译器的功能比汇编器要复杂得多。用高级语言编写的程序必须经过编译转成机器指令才能被计算机执行，编译需要花一些时间，这是用高级语言编程的一个缺点，然而更多的是优点。首先，用高级语言编程更容易，写出来的代码更紧凑，可读性更强，出了错也更容易改正。其次，高级语言是可移植的（Portable）或者称为平台无关的（Platform Independent）。</p>
 <p><strong>平台</strong>这个词有很多种解释，可以指计算机体系结构（Architecture），也可以指操作系统（Operating System），也可以指开发平台（编译器、链接器等）。不同的计算机体系结构有不同的指令集（Instruction Set），可以识别的机器指令格式是不同的，直接用某种体系结构的汇编或机器指令写出来的程序只能在这种体系结构的计算机上运行，然而各种体系结构的计算机都有各自的C编译器，可以把C程序编译成各种不同体系结构的机器指令，这意味着用C语言写的程序只需稍加修改甚至不用修改就可以在各种不同的计算机上编译运行。各种高级语言都具有C语言的这些优点，所以绝大部分程序是用高级语言编写的，只有和硬件关系密切的少数程序（例如驱动程序）才会用到低级语言。还要注意一点，即使在相同的体系结构和操作系统下，用不同的C编译器（或者同一个C编译器的不同版本）编译同一个程序得到的结果也有可能不同，C语言有些语法特性在C标准中并没有明确规定，各编译器有不同的实现，编译出来的指令的行为特性也会不同，应该尽量避免使用不可移植的语法特性。 </p>
 <p>总结一下编译执行的过程，首先你用文本编辑器写一个C程序，然后保存成一个文件，例如<code>program.c</code>（通常C程序的文件名后缀是<code>.c</code>），这称为源代码（Source Code）或源文件，然后运行编译器对它进行编译，编译的过程并不执行程序，而是把源代码全部翻译成机器指令，再加上一些描述信息，生成一个新的文件，例如<code>a.out</code>，这称为可执行文件，可执行文件可以被操作系统加载运行，计算机执行该文件中由编译器生成的指令，如下图所示： </p>
@@ -1052,7 +1024,7 @@
 <li>逻辑错误和语义错误</li>
 </ul>
 <p>第三类错误是逻辑错误和语义错误。如果程序里有逻辑错误，编译和运行都会很顺利，看上去也不产生任何错误信息，但是程序没有干它该干的事情，而是干了别的事情。当然不管怎么样，计算机只会按你写的程序去做，问题在于你写的程序不是你真正想要的，这意味着程序的意思（即语义）是错的。找到逻辑错误在哪需要十分清醒的头脑，要通过观察程序的输出回过头来判断它到底在做什么。</p>
-<p>通过本书你将掌握的最重要的技巧之一就是调试。调试的过程可能会让你感到一些沮丧，但调试也是编程中最需要动脑的、最有挑战和乐趣的部分。从某种角度看调试就像侦探工作，根据掌握的线索来推断是什么原因和过程导致了你所看到的结果。调试也像是一门实验科学，每次想到哪里可能有错，就修改程序然后再试一次。如果假设是对的，就能得到预期的正确结果，就可以接着调试下一个Bug，一步一步逼近正确的程序；如果假设错误，只好另外再找思路再做假设。“当你把不可能的全部剔除，剩下的——即使看起来再怎么不可能——就一定是事实。”（即使你没看过福尔摩斯也该看过柯南吧）。</p>
+<p>调试的过程可能会让你感到一些沮丧，但调试也是编程中最需要动脑的、最有挑战和乐趣的部分。从某种角度看调试就像侦探工作，根据掌握的线索来推断是什么原因和过程导致了你所看到的结果。调试也像是一门实验科学，每次想到哪里可能有错，就修改程序然后再试一次。如果假设是对的，就能得到预期的正确结果，就可以接着调试下一个Bug，一步一步逼近正确的程序；如果假设错误，只好另外再找思路再做假设。“当你把不可能的全部剔除，剩下的——即使看起来再怎么不可能——就一定是事实。”（即使你没看过福尔摩斯也该看过柯南吧）。</p>
 <p>也有一种观点认为，编程和调试是一回事，编程的过程就是逐步调试直到获得期望的结果为止。你应该总是从一个能正确运行的小规模程序开始，每做一步小的改动就立刻进行调试，这样的好处是总有一个正确的程序做参考：如果正确就继续编程，如果不正确，那么一定是刚才的小改动出了问题。例如，Linux操作系统包含了成千上万行代码，但它也不是一开始就规划好了内存管理、设备管理、文件系统、网络等等大的模块，一开始它仅仅是Linus Torvalds用来琢磨Intel 80386芯片而写的小程序。据Larry Greenfield 说，“Linus的早期工程之一是编写一个交替打印AAAA和BBBB的程序，这玩意儿后来进化成了Linux。”（引自The Linux User's Guide Beta1版）在后面的章节中会给出更多关于调试和编程实践的建议。</p>
 <h2 id="_4">变量及其行为</h2>
 <p>变量（Variable）是编程语言最重要的概念之一。</p>
@@ -1079,7 +1051,7 @@
 </blockquote>
 <p><strong>赋值</strong>：赋值是变量值得刷新操作。赋值是从旧到新的过程。</p>
 <p><img alt="" src="https://upload.cc/i1/2018/08/07/pArwZe.png" /></p>
-<h2 id="python">基础概念（python）</h2>
+<h2 id="_5">基本术语解释</h2>
 <p><strong>assignment</strong>：Assignments do not copy data — they just <strong>bind</strong> names to objects.</p>
 <p>assignment操作不会拷贝，只是把名字和对象做一个绑定。也就是assignment语句是起一个绑定或重绑定的作用（bind or rebind）。函数调用的参数传递是传引用，不是拷贝。</p>
 <p><strong>引用（reference ）</strong>：一个可以让程式间接存取于电脑记忆体或其他储存装置中一特定资料的值。一般而言，引用会是资料储存于记忆体或储存装置中的实体位址 。因此，引用亦常被称为==该资料==的<strong>指标</strong>或<strong>位址</strong>。</p>
@@ -1110,7 +1082,7 @@
 </blockquote>
 <p><strong>面向对象编程</strong>：基于对象概念来分析问题和设计解法，这就是面向对象编程（object-orientation programming，简称OOP）。通过OOP所得到的程序是一个由很多对象组成的系统，可以向对象发送消息来实现对数据的处理，全体对象通过相互协作来完成程序的数据处理功能。</p>
 <p><strong>面向过程编程</strong>：得到的程序是一组对数据进行操作的过程，通过按顺序执行这些过程来实现程序功能。   </p>
-<h2 id="_5">类的概念</h2>
+<h2 id="_6">类的概念</h2>
 <p><mark>类是类型概念的发展。</mark></p>
 <p>对象可以视为广义的数据，因此和普通数据一样属于某种数据类型。</p>
 <p>用计算机解决问题时，首先需要明确问题中涉及哪些数据，并在程序中将这些数据用编程语言提供的数据类型表示出来，然后再去考虑需要对这些数据执行何种操作。<mark>为了表示数据，编程语言一般提供若干<strong>基本数据类型</strong>（如Python的int、float、str和list等类型）</mark>，并为这些基本类型提供相应的基本操作（如Python中对int、float、str和list都提供了+运算，尽管含义不同）。</p>
@@ -1125,103 +1097,11 @@
 <p>假设我们要为“学生“数据定义一个新的数据类型S，那么S应该是由若干更简单的数据项构成的（如学号、姓名等），我们称这些构成S的成员数据为S的属性。除了定义S类型数据的属性，还需要定义能对S数据执行什么操作（如修改姓名或年龄、读取地址等）。可以利用编程语言提供的基本类型和新类型定义机制来实现S，例如用str类型表示姓名和学号，用int类型表示年龄之类，用函数实现对S数据的操作。定义了S，就好像为编程语言添加了一个新的数据类型，应用程序就可以像使用整数、字符串等基本类型一样去使用S。</p>
 <p>由此，我们从传统的数据类型概念发展出了“类”的概念。类（class）是广义的数据类型，能够定义复杂数据的特性，包括静态特性（即数据）和动态特性（即对数据的操作方法）。<mark>类的值就是“对象”，也称为类的实例。</mark></p>
 <h2 id="vs">对象  vs  变量</h2>
-<p>python的入门者可能很容易把变量和对象混为一谈，实际上，可以说python中不存在变量这样的概念，所谓的变量实质上是对象的名字。<mark>在python中，对象属于某一个类型，而变量是没有类型的。所有的变量都是内存中一个对象的“引用”，也就是说变量的值实际上是对象的地址，而不是对象本身的值。</mark></p>
+<p>python的入门者可能很容易把变量和对象混为一谈。在Python中，变量的准确说法应该name（名字）。<mark>在python中，对象属于某一个类型，而名字是没有类型的。所有的名字都是内存中一个对象的“引用”，也就是说名字对应着对象的地址，而不是储存了对象本身。</mark></p>
 <p>例如：</p>
 <div class="codehilite"><pre><span></span><span class="n">nfoo</span> <span class="o">=</span> <span class="mi">1</span>   <span class="c1">#一个指向int数据类型的nfoo（再次提醒，nfoo没有类型），在这里，具有类型的是1</span>
 <span class="n">lstFoo</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>   <span class="c1">#一个指向list类型的lstFoo，这个list中包含一个整数1</span>
 </pre></div>
-
-
-<h2 id="mutable-vs-immutable">可更改(mutable)  vs  不可更改(immutable)</h2>
-<p>在python中，strings、tuples、numbers是不可更改(immutable)的对象，而list、dict等则是可以修改(mutable)的对象。那么，这些所谓的可改变和不可改的本质是什么呢？</p>
-<p>mutable、immutable只是python语言的一个规定。从硬件角度说，硬件提供给用户的接口是按照规定设定好的。比如说，操作内存的方式是固定的，不存在可变和不可变。实现python的可变、不可变就是调用了不同的底层api，或者是不同底层api相互组合来实现的。python将这些规定以python语法的形式提供给用户使用，最后还是编译成0、1去让计算机执行。对于用户来说，可变和不可变对象是语言提供的一个特性，可以完成一些功能，但是对于计算机其实是没区别的。</p>
-<p>而在python中，不可变就是对象本身无法被修改，比如对象的值无法被修改。修改不可变对象只能创建新对象，旧对象若没有引用，则会被内存回收机制销毁。而可变对象的值是可以修改的。</p>
-<p>接下来看一个例子：</p>
-<div class="codehilite"><pre><span></span><span class="n">nfoo</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="n">nfoo</span> <span class="o">=</span> <span class="mi">2</span>
-
-<span class="n">lstFoo</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-<span class="n">lstFoo</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
-</pre></div>
-
-
-<p>代码第2行中，内存中原始的1对象因为不能改变，于是被“抛弃”，另nfoo指向一个新的int对象，其值为2。</p>
-<p>代码第5行中，更改list中第一个元素的值，因为list是可改变的，所以，第一个元素变更为2。其实应该说，lstFoo指向一个<strong>列表对象</strong>。赋值所发生的事情，lstFoo所指向的列表对象的第一个元素被替换为新的值，但是对于lstFoo本身来说，它的值（列表的地址）没有变换，只是列表对象的内容发生变化了。</p>
-<p>如下图所示：</p>
-<p><img alt="mutable-immutable-object.jpg" src="https://upload.cc/i1/2018/09/22/l2bpu1.png" /></p>
-<p>但有时候，即使对象被复制了，修改原对象，两个变量指向的对象都改变了，怎么回事？</p>
-<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">fun2</span><span class="p">():</span>
-    <span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]]</span>
-    <span class="n">b</span><span class="o">=</span><span class="n">a</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-    <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span> <span class="mi">10</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
-
-<span class="k">def</span> <span class="nf">fun2_2</span><span class="p">():</span>
-    <span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]]</span>
-    <span class="n">b</span><span class="o">=</span><span class="n">a</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-    <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
-</pre></div>
-
-
-<p>上面定义了两个函数，两个函数输出的结果会一样吗？让我们看看：</p>
-<div class="codehilite"><pre><span></span><span class="n">fun2</span>
-<span class="o">-------------------</span>
-<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">]]</span> 
- <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">]]</span>
-
-<span class="n">fun2_2</span>
-<span class="o">-------------------</span>
-<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span> 
- <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]]</span>
-</pre></div>
-
-
-<p>为什么<code>fun2</code>中b的第2个元素的值不变，而第四个元素的值却被改变了，而在<code>fun2_2</code>中b的值都没变？<mark>因为list储存的不是值，而是对象的引用。</mark></p>
-<h2 id="python_1">Python的函数参数传递：传值？引用？</h2>
-<p>python函数参数传递可以理解为就是变量传值操作，入门者可能会发现，不可变对象作为参数，看似是传引用；而可变对象作为参数，看似是传值。举一个例子：</p>
-<div class="codehilite"><pre><span></span><span class="n">不可变对象参数调用</span>
-<span class="k">def</span> <span class="nf">ChangeInt</span><span class="p">(</span> <span class="n">a</span> <span class="p">):</span>
-    <span class="n">a</span> <span class="o">=</span> <span class="mi">10</span>
-<span class="n">nfoo</span> <span class="o">=</span> <span class="mi">2</span> 
-<span class="n">ChangeInt</span><span class="p">(</span><span class="n">nfoo</span><span class="p">)</span>
-<span class="nb">print</span> <span class="n">nfoo</span> <span class="c1">#结果是2</span>
-</pre></div>
-
-
-<p>这时发生了什么？让我们看一下<code>nfoo</code>和<code>a</code>实际的值的变化：</p>
-<div class="codehilite"><pre><span></span><span class="n">nfoo</span> <span class="o">=</span> <span class="mi">2</span> <span class="c1"># nfoo：对象2的地址</span>
-<span class="c1"># 进行传参：</span>
-<span class="n">a</span><span class="o">=</span><span class="n">nfoo</span> <span class="c1"># 函数参数a：对象2的地址</span>
-<span class="c1"># 对a进行赋值</span>
-<span class="n">a</span><span class="o">=</span><span class="mi">10</span> <span class="c1"># 函数参数a：对象10的地址；此时，nfoo的值：对象2的地址</span>
-</pre></div>
-
-
-<p>也就是说，当<code>nfoo</code>传参给<code>ChangeInt()</code>的时候，是传递了<code>nfoo</code>的值，是<strong>值传递</strong>。如下图：</p>
-<p>因为对象是不可变的，所以对b重新赋值的时候，只能创建一个新的对象10，将对象10放进新的地址，而不是将储存于1的地址的值删除，再把10放进1的地址。</p>
-<p><img alt="python 不可变对象赋值" src="figures/python 不可变对象赋值.png" /></p>
-<p>但可变对象不同于不可变对象：</p>
-<div class="codehilite"><pre><span></span><span class="n">可变对象参数调用</span>
-<span class="k">def</span> <span class="nf">ChangeList</span><span class="p">(</span> <span class="n">a</span> <span class="p">):</span>
-    <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span>
-<span class="n">lstFoo</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">]</span>
-<span class="n">ChangeList</span><span class="p">(</span><span class="n">lstFoo</span> <span class="p">)</span>
-<span class="nb">print</span> <span class="n">lstFoo</span> <span class="c1">#结果是[10]</span>
-</pre></div>
-
-
-<p>这时发生了什么？让我们看一下<code>nfoo</code>和<code>a</code>实际的值的变化：</p>
-<div class="codehilite"><pre><span></span><span class="n">lstFoo</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="c1"># nfoo：对象[2]的地址</span>
-<span class="c1"># 进行传参：</span>
-<span class="n">a</span><span class="o">=</span><span class="n">lstFoo</span> <span class="c1"># 函数参数a：对象[2]的地址</span>
-<span class="c1"># 对a进行赋值</span>
-<span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span> <span class="c1"># 函数参数a：对象[2]的地址；此时，nfoo的值：对象[2]的地址</span>
-</pre></div>
-
-
-<p>当<code>lstFoo</code>传参给<code>ChangeList()</code>的时候，<mark>变量仍旧是“传值”</mark>，a复制了变量<code>lstFoo</code> 的值，于是<code>a</code>和<code>lstFoo</code>指向同一个对象，但是，list是可以改变的对象，对<code>a[0]</code>进行赋值，就是更改原对象的值，而<code>lstFoo</code>也指向原对象。于是，这时的<code>a[0] = 10</code>，就是更改了<code>lstFoo</code> 指向的对象的第一个元素。所以，再次输出<code>lstFoo</code> 时，显示<code>[10]</code>，因此，看起来是<code>lstFoo</code>的值改变了。但实际上<code>lstFoo</code>的值还是原对象的地址，<code>lstFoo</code>的值并没有改变，改变的是对象。</p>
-<p><mark>综上所以，python的传参，传进去的是name（变量）的值，而name的值是object的引用。也就是说，传参传的是name的值（object的引用）。传参无法把对象的值传进去。</mark></p>
                 
                   
                 

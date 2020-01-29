@@ -36,7 +36,7 @@
     
     
       
-        <title>1.5.字符编码 - Python笔记</title>
+        <title>1.4.字符编码 - Python笔记</title>
       
     
     
@@ -103,7 +103,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                1.5.字符编码
+                1.4.字符编码
               
             </span>
           
@@ -269,18 +269,6 @@
           
           
 
-
-  <li class="md-nav__item">
-    <a href="1.4.命名空间与作用域.html" title="1.4.命名空间与作用域" class="md-nav__link">
-      1.4.命名空间与作用域
-    </a>
-  </li>
-
-        
-          
-          
-          
-
   
 
 
@@ -290,11 +278,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        1.5.字符编码
+        1.4.字符编码
       </label>
     
-    <a href="1.5.字符编码.html" title="1.5.字符编码" class="md-nav__link md-nav__link--active">
-      1.5.字符编码
+    <a href="1.4.字符编码.html" title="1.4.字符编码" class="md-nav__link md-nav__link--active">
+      1.4.字符编码
     </a>
     
       
@@ -571,6 +559,18 @@
   <li class="md-nav__item">
     <a href="../Python基础/4.2.模块.html" title="4.2.模块" class="md-nav__link">
       4.2.模块
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python基础/4.3.魔术方法.html" title="4.3.魔术方法" class="md-nav__link">
+      4.3.魔术方法
     </a>
   </li>
 
@@ -945,10 +945,10 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/siwing/siwing.github.io/edit/master/docs/计算机基础/1.5.字符编码.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/siwing/siwing.github.io/edit/master/docs/计算机基础/1.4.字符编码.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                  <h1>1.5.字符编码</h1>
+                  <h1>1.4.字符编码</h1>
                 
                 <p>相对于数字，字符串比较特殊的是还有一个编码问题。</p>
 <p>一般，计算机的系统结构是基于数字信号来搭建的，计算机中的计算基于数字电路。在计算机内部，所有信息最终都是一个二进制值。计算机只能处理数字，如果要处理文本，就必须先把文本转换为数字才能处理。</p>
@@ -986,31 +986,25 @@
 <blockquote>
 <p>在计算机内存中，统一使用Unicode编码，当需要保存到硬盘或者需要传输的时候，就转换为UTF-8编码。</p>
 <ul>
-<li>
-<p>用记事本编辑的时候，从文件读取的UTF-8字符被转换为Unicode字符到内存里，编辑完成后，保存的时候再把Unicode转换为UTF-8保存到文件。</p>
-</li>
-<li>
-<p>浏览网页的时候，服务器会把动态生成的Unicode内容转换为UTF-8再传输到浏览器。</p>
-</li>
+<li>用记事本编辑的时候，从文件读取的UTF-8字符被转换为Unicode字符到内存里，编辑完成后，保存的时候再把Unicode转换为UTF-8保存到文件。</li>
+<li>浏览网页的时候，服务器会把动态生成的Unicode内容转换为UTF-8再传输到浏览器。很多网页的源码上会有类似<code>&lt;meta charset="UTF-8" /&gt;</code>的信息，表示该网页正是用的UTF-8编码。</li>
 </ul>
-<blockquote>
-<p>所以你看到很多网页的源码上会有类似<code>&lt;meta charset="UTF-8" /&gt;</code>的信息，表示该网页正是用的UTF-8编码。</p>
-</blockquote>
 </blockquote>
 <p>UTF-8 最大的一个特点，就是它是一种变长的编码方式。它可以使用1~4个字节表示一个符号，根据不同的符号而变化字节长度。</p>
 <p>UTF-8 的编码规则很简单，只有二条：</p>
 <p>1）对于单字节的符号，字节的第一位设为<code>0</code>，后面7位为这个符号的 Unicode 码。因此对于英语字母，UTF-8 编码和 ASCII 码是相同的。</p>
 <p>2）对于<code>n</code>字节的符号（<code>n &gt; 1</code>），第一个字节的前<code>n</code>位都设为<code>1</code>，第<code>n + 1</code>位设为<code>0</code>，后面字节的前两位一律设为<code>10</code>。剩下的没有提及的二进制位，全部为这个符号的 Unicode 码。</p>
 <p>下表总结了编码规则，字母<code>x</code>表示可用编码的位。</p>
-<blockquote>
-<p><code>Unicode符号范围     |        UTF-8编码方式
-(十六进制)        |              （二进制）
-----------------------+---------------------------------------------
-0000 0000-0000 007F | 0xxxxxxx
-0000 0080-0000 07FF | 110xxxxx 10xxxxxx
-0000 0800-0000 FFFF | 1110xxxx 10xxxxxx 10xxxxxx
-0001 0000-0010 FFFF | 11110xxx 10xxxxxx 10xxxxxx 10xxxxxx</code></p>
-</blockquote>
+<div class="codehilite"><pre><span></span><span class="err">Unicode符号范围      |     UTF-8编码方式</span>
+<span class="err">  (十六进制)         |       （二进制）</span>
+<span class="err">--------------------+---------------------------------------------</span>
+<span class="err">0000 0000-0000 007F | 0xxxxxxx</span>
+<span class="err">0000 0080-0000 07FF | 110xxxxx 10xxxxxx</span>
+<span class="err">0000 0800-0000 FFFF | 1110xxxx 10xxxxxx 10xxxxxx</span>
+<span class="err">0001 0000-0010 FFFF | 11110xxx 10xxxxxx 10xxxxxx 10xxxxxx</span>
+</pre></div>
+
+
 <p>跟据上表，解读 UTF-8 编码非常简单。如果一个字节的第一位是<code>0</code>，则这个字节单独就是一个字符；如果第一位是<code>1</code>，则连续有多少个<code>1</code>，就表示当前字符占用多少个字节。</p>
 <p>下面，还是以汉字<code>严</code>为例，演示如何实现 UTF-8 编码。</p>
 <p><code>严</code>的 Unicode 是<code>4E25</code>（<code>100111000100101</code>），根据上表，可以发现<code>4E25</code>处在第三行的范围内（<code>0000 0800 - 0000 FFFF</code>），因此<code>严</code>的 UTF-8 编码需要三个字节，即格式是<code>1110xxxx 10xxxxxx 10xxxxxx</code>。然后，从<code>严</code>的最后一个二进制位开始，依次从后向前填入格式中的<code>x</code>，多出的位补<code>0</code>。这样就得到了，<code>严</code>的 UTF-8 编码是<code>11100100 10111000 10100101</code>，转换成十六进制就是<code>E4B8A5</code>。</p>
@@ -1039,7 +1033,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="1.4.命名空间与作用域.html" title="1.4.命名空间与作用域" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="1.3.编译型语言和解释型语言的优缺点对比.html" title="1.3.编译型语言和解释型语言的优缺点对比" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1048,7 +1042,7 @@
                 <span class="md-footer-nav__direction">
                   上一页
                 </span>
-                1.4.命名空间与作用域
+                1.3.编译型语言和解释型语言的优缺点对比
               </span>
             </div>
           </a>

@@ -1,0 +1,1701 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="zh">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.0">
+    
+    
+      
+        <title>4.3.魔术方法 - Python笔记</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application.0284f74d.css">
+      
+      
+    
+    
+      <script src="../assets/javascripts/modernizr.74668098.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#_1" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href=".." title="Python笔记" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Python笔记
+            </span>
+            <span class="md-header-nav__topic">
+              
+                4.3.魔术方法
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/siwing/siwing.github.io/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href=".." title="Python笔记" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    Python笔记
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/siwing/siwing.github.io/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1">
+    
+    <label class="md-nav__link" for="nav-1">
+      计算机基础
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        计算机基础
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../计算机基础/1.1.计算机与程序结构.html" title="1.1.计算机与程序结构" class="md-nav__link">
+      1.1.计算机与程序结构
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../计算机基础/1.2.基本概念.html" title="1.2.基本概念" class="md-nav__link">
+      1.2.基本概念
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../计算机基础/1.3.编译型语言和解释型语言的优缺点对比.html" title="1.3.编译型语言和解释型语言的优缺点对比" class="md-nav__link">
+      1.3.编译型语言和解释型语言的优缺点对比
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../计算机基础/1.4.字符编码.html" title="1.4.字符编码" class="md-nav__link">
+      1.4.字符编码
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      Python 基础
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Python 基础
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="2.1.python基本语法.html" title="2.1.python基本语法" class="md-nav__link">
+      2.1.python基本语法
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="2.2.语句.html" title="2.2.语句" class="md-nav__link">
+      2.2.语句
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="2.3.List.html" title="2.3.List" class="md-nav__link">
+      2.3.List
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="2.4.String.html" title="2.4.String" class="md-nav__link">
+      2.4.String
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="2.5.Tuple.html" title="2.5.Tuple" class="md-nav__link">
+      2.5.Tuple
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="2.6.Dict.html" title="2.6.Dict" class="md-nav__link">
+      2.6.Dict
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="2.7.推导式.html" title="2.7.推导式" class="md-nav__link">
+      2.7.推导式
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="2.8.赋值、immutable、深拷贝.html" title="2.8.赋值、immutable、深拷贝" class="md-nav__link">
+      2.8.赋值、immutable、深拷贝
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="2.9.函数.html" title="2.9.函数" class="md-nav__link">
+      2.9.函数
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="3.1.异常.html" title="3.1.异常" class="md-nav__link">
+      3.1.异常
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="3.2.命名空间和作用域.html" title="3.2.命名空间和作用域" class="md-nav__link">
+      3.2.命名空间和作用域
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="3.3.闭包.html" title="3.3.闭包" class="md-nav__link">
+      3.3.闭包
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="3.4.装饰器.html" title="3.4.装饰器" class="md-nav__link">
+      3.4.装饰器
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="4.1.类.html" title="4.1.类" class="md-nav__link">
+      4.1.类
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="4.2.模块.html" title="4.2.模块" class="md-nav__link">
+      4.2.模块
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        4.3.魔术方法
+      </label>
+    
+    <a href="4.3.魔术方法.html" title="4.3.魔术方法" class="md-nav__link md-nav__link--active">
+      4.3.魔术方法
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="构造和初始化" class="md-nav__link">
+    构造和初始化
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="用于比较的魔术方法" class="md-nav__link">
+    用于比较的魔术方法
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="数值处理的魔术方法" class="md-nav__link">
+    数值处理的魔术方法
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" title="一元运算符和内置函数" class="md-nav__link">
+    一元运算符和内置函数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" title="算术运算符" class="md-nav__link">
+    算术运算符
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" title="反运算" class="md-nav__link">
+    反运算
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" title="增强赋值" class="md-nav__link">
+    增强赋值
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" title="表现你的类" class="md-nav__link">
+    表现你的类
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" title="创建定制的序列" class="md-nav__link">
+    创建定制的序列
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" title="容器的魔法" class="md-nav__link">
+    容器的魔法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" title="可以调用的对象" class="md-nav__link">
+    可以调用的对象
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" title="会话管理" class="md-nav__link">
+    会话管理
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" title="参考" class="md-nav__link">
+    参考
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      开发环境管理
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        开发环境管理
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../开发环境管理/5.1.conda笔记.html" title="5.1.conda笔记" class="md-nav__link">
+      5.1.conda笔记
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../开发环境管理/5.3.pip对比conda.html" title="5.3.pip对比conda" class="md-nav__link">
+      5.3.pip对比conda
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../开发环境管理/5.4.anaconda.html" title="5.4.anaconda" class="md-nav__link">
+      5.4.anaconda
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../开发环境管理/5.5.jupyter使用笔记.html" title="5.5.jupyter使用笔记" class="md-nav__link">
+      5.5.jupyter使用笔记
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Numpy笔记
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Numpy笔记
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy笔记/6.1.创建数组.html" title="6.1.创建数组" class="md-nav__link">
+      6.1.创建数组
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy笔记/6.2.索引.html" title="6.2.索引" class="md-nav__link">
+      6.2.索引
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy笔记/6.3.内存布局.html" title="6.3.内存布局" class="md-nav__link">
+      6.3.内存布局
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy笔记/6.4.广播.html" title="6.4.广播" class="md-nav__link">
+      6.4.广播
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy笔记/6.5.常量.html" title="6.5.常量" class="md-nav__link">
+      6.5.常量
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy笔记/6.6.打印数组.html" title="6.6.打印数组" class="md-nav__link">
+      6.6.打印数组
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy笔记/6.7.添加和删除.html" title="6.7.添加和删除" class="md-nav__link">
+      6.7.添加和删除
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy笔记/6.8.形状操纵.html" title="6.8.形状操纵" class="md-nav__link">
+      6.8.形状操纵
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy笔记/6.9.ufunc函数.html" title="6.9.ufunc函数" class="md-nav__link">
+      6.9.ufunc函数
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy笔记/6.10.函数库.html" title="6.10.函数库" class="md-nav__link">
+      6.10.函数库
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy笔记/6.12.结构化数组.html" title="6.12.结构化数组" class="md-nav__link">
+      6.12.结构化数组
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      pandas笔记
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        pandas笔记
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../pandas笔记/7.1.Series.html" title="7.1.Series" class="md-nav__link">
+      7.1.Series
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../pandas笔记/7.2.DataFrame.html" title="7.2.DataFrame" class="md-nav__link">
+      7.2.DataFrame
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="构造和初始化" class="md-nav__link">
+    构造和初始化
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="用于比较的魔术方法" class="md-nav__link">
+    用于比较的魔术方法
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="数值处理的魔术方法" class="md-nav__link">
+    数值处理的魔术方法
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" title="一元运算符和内置函数" class="md-nav__link">
+    一元运算符和内置函数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" title="算术运算符" class="md-nav__link">
+    算术运算符
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" title="反运算" class="md-nav__link">
+    反运算
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" title="增强赋值" class="md-nav__link">
+    增强赋值
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" title="表现你的类" class="md-nav__link">
+    表现你的类
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" title="创建定制的序列" class="md-nav__link">
+    创建定制的序列
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" title="容器的魔法" class="md-nav__link">
+    容器的魔法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" title="可以调用的对象" class="md-nav__link">
+    可以调用的对象
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" title="会话管理" class="md-nav__link">
+    会话管理
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" title="参考" class="md-nav__link">
+    参考
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/siwing/siwing.github.io/edit/master/docs/Python基础/4.3.魔术方法.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                  <h1>4.3.魔术方法</h1>
+                
+                <h2 id="_1">构造和初始化</h2>
+<p>每个人都知道一个最基本的魔术方法， <code>__init__</code> 。通过此方法我们可以定义一个对象的初始操作。但很多博客和个别书籍中都把<code>__init__</code>当作类似于C++的构造方法，其实是错误的。<code>__init__</code>并不是第一个被调用的方法。实际上，还有一个叫做 <code>__new__</code> 的方法，来构造这个实例。然后给在开始创建时候的初始化函数来传递参数。在对象生命周期的另一端，也有一个 <code>__del__</code> 方法。</p>
+<p><code>__new__(cls, [...)</code> <code>__new__</code> 是在一个对象实例化的时候所调用的第一个方法。它的第一个参数是这个类，其他的参数是用来直接传递给 <code>__init__</code> 方法。 <code>__new__</code> 方法相当不常用，也不是很有用处，但是它有自己的特性，特别是当继承一个不可变的类型（比如一个tuple或者string）：</p>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">inch</span><span class="p">(</span><span class="nb">float</span><span class="p">):</span>
+    <span class="s2">&quot;Convert from inch to meter&quot;</span>
+    <span class="k">def</span> <span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">arg</span><span class="o">=</span><span class="mf">0.0</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">float</span><span class="o">.</span><span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">arg</span><span class="o">*</span><span class="mf">0.0254</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">inch</span><span class="p">(</span><span class="mi">12</span><span class="p">))</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">0.30479999999999996</span>
+</pre></div>
+
+
+<p>这个类可能不是很有用，但是它显示了如何扩展不可变类型的构造函数。如果我们尝试替代<code>__init__</code>而不是<code>__new__</code>，那么它将不起作用：</p>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">inch</span><span class="p">(</span><span class="nb">float</span><span class="p">):</span>
+    <span class="s2">&quot;THIS DOESN&#39;T WORK!!!&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arg</span><span class="o">=</span><span class="mf">0.0</span><span class="p">):</span>
+        <span class="nb">float</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arg</span><span class="o">*</span><span class="mf">0.0254</span><span class="p">)</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">inch</span><span class="p">(</span><span class="mi">12</span><span class="p">))</span>
+<span class="k">except</span> <span class="ne">TypeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">object.__init__() takes exactly one argument (the instance to</span>
+<span class="err">initialize)</span>
+</pre></div>
+
+
+<p>重写初始值的版本不起作用，因为浮点类型的初始值是一个不可变对象。另一个<code>__new__</code>的例子是单例模式。</p>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">A</span><span class="p">:</span>
+    <span class="k">pass</span>
+
+<span class="n">new1</span> <span class="o">=</span> <span class="n">A</span><span class="p">()</span>
+<span class="n">new2</span> <span class="o">=</span> <span class="n">A</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">new1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">new2</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">&lt;__main__.A object at 0x0000021AA9651AC8&gt;</span>
+<span class="err">&lt;__main__.A object at 0x0000021AA9651B00&gt;</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">A</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="n">_singleton</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">def</span> <span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_singleton</span><span class="p">:</span>
+            <span class="bp">cls</span><span class="o">.</span><span class="n">_singleton</span> <span class="o">=</span> <span class="nb">object</span><span class="o">.</span><span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_singleton</span>
+
+
+<span class="n">new1</span> <span class="o">=</span> <span class="n">A</span><span class="p">()</span>
+<span class="n">new2</span> <span class="o">=</span> <span class="n">A</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">new1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">new2</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">&lt;__main__.A object at 0x0000021AA86752E8&gt;</span>
+<span class="err">&lt;__main__.A object at 0x0000021AA86752E8&gt;</span>
+</pre></div>
+
+
+<p>关于<code>__new__</code>的一些规则：</p>
+<ul>
+<li><code>__new__</code>是一个静态方法，但在重定义<code>__new__</code>时，不需要加上<code>@staticmethod</code>，因为它的名字已经暗示了这一点。</li>
+<li><code>__new__</code>的第一个参数必须是一个类；其余参数是构造函数调用所看到的参数。</li>
+<li><code>__new__</code>方法必须返回一个实例，如果返回None，则不会调用<code>__init__</code>方法。</li>
+</ul>
+<p><code>__init__(self, […)</code> 此方法为类的初始化方法。当构造函数被调用的时候的任何参数都将会传给它。(比如如果我们调用 <code>x = SomeClass(10, 'foo')</code>)，那么 <code>__init__</code> 将会得到两个参数10和foo。 <code>__init__</code> 在Python的类定义中被广泛用到。</p>
+<p><code>__del__(self)</code> 如果 <code>__new__</code> 和 <code>__init__</code> 是对象的构造器的话，那么 <code>__del__</code> 就是析构器。它不实现语句 <code>del x</code> (以上代码将不会翻译为 <code>x.__del__()</code> )。它定义的是当一个对象进行垃圾回收时候的行为。当一个对象在删除的时需要更多的清洁工作的时候此方法会很有用，比如套接字对象或者是文件对象。注意，如果解释器退出的时候对象还存存在，就不能保证 <code>__del__</code> 能够被执行。</p>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">A</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;我被删除了&quot;</span><span class="p">)</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="n">A</span><span class="p">()</span>
+<span class="k">del</span> <span class="n">a</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">我被删除了</span>
+</pre></div>
+
+
+<h2 id="_2">用于比较的魔术方法</h2>
+<table>
+<thead>
+<tr>
+<th>魔术方法</th>
+<th>调用方式</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>__eq__(self, other)</code></td>
+<td>self == other</td>
+<td></td>
+</tr>
+<tr>
+<td><code>__nq__(self, other)</code></td>
+<td>self != other</td>
+<td></td>
+</tr>
+<tr>
+<td><code>__le__(self, other)</code></td>
+<td>self &lt;= other</td>
+<td></td>
+</tr>
+<tr>
+<td><code>__ge__(self, other)</code></td>
+<td>self &gt;= other</td>
+<td></td>
+</tr>
+<tr>
+<td><code>__lt__(self, other)</code></td>
+<td>self &lt; other</td>
+<td></td>
+</tr>
+<tr>
+<td><code>__gt__(self, other)</code></td>
+<td>self &gt; other</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">A</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num</span> <span class="o">=</span> <span class="n">num</span>
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">num</span> <span class="o">==</span> <span class="n">other</span>
+    <span class="k">def</span> <span class="fm">__ne__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">num</span> <span class="o">!=</span> <span class="n">other</span>
+    <span class="k">def</span> <span class="fm">__le__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">num</span> <span class="o">&lt;=</span> <span class="n">other</span>
+    <span class="k">def</span> <span class="fm">__ge__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">num</span> <span class="o">&gt;=</span> <span class="n">other</span>
+    <span class="k">def</span> <span class="fm">__lt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">num</span> <span class="o">&lt;</span> <span class="n">other</span>
+    <span class="k">def</span> <span class="fm">__gt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">num</span> <span class="o">&gt;</span> <span class="n">other</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="n">A</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">==</span> <span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">!=</span> <span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">&gt;</span> <span class="mi">4</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">&lt;</span> <span class="mi">6</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">&gt;=</span> <span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">&lt;=</span> <span class="mi">6</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">True</span>
+<span class="err">False</span>
+<span class="err">True</span>
+<span class="err">True</span>
+<span class="err">True</span>
+<span class="err">True</span>
+</pre></div>
+
+
+<h2 id="_3">数值处理的魔术方法</h2>
+<h3 id="_4">一元运算符和内置函数</h3>
+<table>
+<thead>
+<tr>
+<th>魔术方法</th>
+<th>调用方式</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>__pos__(self)</code></td>
+<td>+self</td>
+<td></td>
+</tr>
+<tr>
+<td><code>__neg__(self)</code></td>
+<td>-self</td>
+<td></td>
+</tr>
+<tr>
+<td><code>__abs__(self)</code></td>
+<td>abs(self)</td>
+<td></td>
+</tr>
+<tr>
+<td><code>__invert__(self)</code></td>
+<td>~self</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">A</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num</span> <span class="o">=</span> <span class="n">num</span>
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__pos__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">new_num</span> <span class="o">=</span> <span class="mi">0</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">num</span>
+        <span class="k">return</span> <span class="n">A</span><span class="p">(</span><span class="n">new_num</span><span class="p">)</span>
+    <span class="k">def</span> <span class="fm">__neg__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">new_num</span> <span class="o">=</span> <span class="mi">0</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">num</span>
+        <span class="k">return</span> <span class="n">A</span><span class="p">(</span><span class="n">new_num</span><span class="p">)</span>
+    <span class="k">def</span> <span class="fm">__abs__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">new_num</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">A</span><span class="p">(</span><span class="n">new_num</span><span class="p">)</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="n">A</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="o">+</span><span class="n">a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="o">-</span><span class="n">a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">-5</span>
+<span class="err">5</span>
+<span class="err">5</span>
+</pre></div>
+
+
+<h3 id="_5">算术运算符</h3>
+<table>
+<thead>
+<tr>
+<th>魔术方法</th>
+<th>调用方式</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>__add__(self, other)</code></td>
+<td>self  + other</td>
+<td></td>
+</tr>
+<tr>
+<td><code>__sub_(self, other)</code></td>
+<td>self  - other</td>
+<td></td>
+</tr>
+<tr>
+<td><code>__mul__(self, other)</code></td>
+<td>self * other</td>
+<td></td>
+</tr>
+<tr>
+<td><code>__truediv__(self, other)</code></td>
+<td>self / other</td>
+<td></td>
+</tr>
+<tr>
+<td><code>__pow__(self, other)</code></td>
+<td>self ** other</td>
+<td></td>
+</tr>
+<tr>
+<td><code>__floordiv__(self, other)</code></td>
+<td>self // other</td>
+<td></td>
+</tr>
+<tr>
+<td><code>__mod__(self, other)</code></td>
+<td>self % other</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">A</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num</span> <span class="o">=</span> <span class="n">num</span>
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="fm">__add__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="n">new_num</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">num</span> <span class="o">+</span> <span class="n">other</span>
+        <span class="k">return</span> <span class="n">A</span><span class="p">(</span><span class="n">new_num</span><span class="p">)</span>
+    <span class="k">def</span> <span class="fm">__sub__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="n">new_num</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">num</span> <span class="o">-</span> <span class="n">other</span>
+        <span class="k">return</span> <span class="n">A</span><span class="p">(</span><span class="n">new_num</span><span class="p">)</span>        
+    <span class="k">def</span> <span class="fm">__mul__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="n">new_num</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">num</span> <span class="o">*</span> <span class="n">other</span>
+        <span class="k">return</span> <span class="n">A</span><span class="p">(</span><span class="n">new_num</span><span class="p">)</span>
+    <span class="k">def</span> <span class="fm">__truediv__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="n">new_num</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">num</span> <span class="o">/</span> <span class="n">other</span>
+        <span class="k">return</span> <span class="n">A</span><span class="p">(</span><span class="n">new_num</span><span class="p">)</span>
+    <span class="k">def</span> <span class="fm">__pow__</span> <span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="n">new_num</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">num</span> <span class="o">**</span> <span class="n">other</span>
+        <span class="k">return</span> <span class="n">A</span><span class="p">(</span><span class="n">new_num</span><span class="p">)</span>        
+    <span class="k">def</span> <span class="fm">__floordiv__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="n">new_num</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">num</span> <span class="o">//</span> <span class="n">other</span>
+        <span class="k">return</span> <span class="n">A</span><span class="p">(</span><span class="n">new_num</span><span class="p">)</span>
+    <span class="k">def</span> <span class="fm">__mod__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+        <span class="n">new_num</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">num</span> <span class="o">%</span> <span class="n">other</span>
+        <span class="k">return</span> <span class="n">A</span><span class="p">(</span><span class="n">new_num</span><span class="p">)</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="n">A</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a + 2 =&quot;</span><span class="p">,</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a - 2 =&quot;</span><span class="p">,</span> <span class="n">a</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a * 2 =&quot;</span><span class="p">,</span> <span class="n">a</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a / 2 =&quot;</span><span class="p">,</span> <span class="n">a</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a ** 2 =&quot;</span><span class="p">,</span> <span class="n">a</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a // 2 =&quot;</span><span class="p">,</span> <span class="n">a</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a % 2 =&quot;</span><span class="p">,</span> <span class="n">a</span> <span class="o">%</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">a + 2 = 7</span>
+<span class="err">a - 2 = 3</span>
+<span class="err">a * 2 = 10</span>
+<span class="err">a / 2 = 2.5</span>
+<span class="err">a ** 2 = 25</span>
+<span class="err">a // 2 = 2</span>
+<span class="err">a % 2 = 1</span>
+</pre></div>
+
+
+<h3 id="_6">反运算</h3>
+<p>以下是一个普通的加法运算的例子:</p>
+<div class="codehilite"><pre><span></span><span class="err"># __add__</span>
+<span class="err">some_object + other</span>
+</pre></div>
+
+
+<p>反运算是相同的，只是把操作数调换了位置:</p>
+<div class="codehilite"><pre><span></span><span class="err"># __radd__</span>
+<span class="err">other + some_object</span>
+</pre></div>
+
+
+<p>所以，除了当与其他对象操作的时候自己会成为第二个操作数之外，所有的这些魔术方法都与普通的操作是相同的。大多数情况下，反运算的结果是与普通运算相同的。所以你可以你可以将 <code>__radd__</code> 与 <code>__add__</code> 等价。</p>
+<table>
+<thead>
+<tr>
+<th>魔术方法</th>
+<th>调用方式</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>__radd__(self, other)</code></td>
+<td>other + self</td>
+<td></td>
+</tr>
+<tr>
+<td><code>__rsub_(self, other)</code></td>
+<td>other - self</td>
+<td></td>
+</tr>
+<tr>
+<td><code>__rmul__(self, other)</code></td>
+<td>other * self</td>
+<td></td>
+</tr>
+<tr>
+<td><code>__rtruediv__(self, other)</code></td>
+<td>other / self</td>
+<td></td>
+</tr>
+<tr>
+<td><code>__rpow__(self, other)</code></td>
+<td>other ** self</td>
+<td></td>
+</tr>
+<tr>
+<td><code>__rfloordiv__(self, other)</code></td>
+<td>other // self</td>
+<td></td>
+</tr>
+<tr>
+<td><code>__rmod__(self, other)</code></td>
+<td>other % self</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="_7">增强赋值</h3>
+<table>
+<thead>
+<tr>
+<th>魔术方法</th>
+<th>调用方式</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>__iadd__(self, other)</code></td>
+<td>self  += other</td>
+<td></td>
+</tr>
+<tr>
+<td><code>__isub_(self, other)</code></td>
+<td>self  -= other</td>
+<td></td>
+</tr>
+<tr>
+<td><code>__imul__(self, other)</code></td>
+<td>self *= other</td>
+<td></td>
+</tr>
+<tr>
+<td><code>__itruediv__(self, other)</code></td>
+<td>self /= other</td>
+<td></td>
+</tr>
+<tr>
+<td><code>__ipow__(self, other)</code></td>
+<td>self **= other</td>
+<td></td>
+</tr>
+<tr>
+<td><code>__ifloordiv__(self, other)</code></td>
+<td>self //= other</td>
+<td></td>
+</tr>
+<tr>
+<td><code>__imod__(self, other)</code></td>
+<td>self %= other</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="_8">表现你的类</h2>
+<p>如果有一个字符串来表示一个类将会非常有用，例如：</p>
+<div class="codehilite"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">a</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">[1, 2, 3]</span>
+</pre></div>
+
+
+<p>在Python中，有很多方法可以实现类定义内置的一些函数的返回值。</p>
+<p><code>__str__(self)</code> 定义当 <code>str()</code> 调用的时候的返回值。<code>__repr__(self)</code> 定义 <code>repr()</code> 被调用的时候的返回值。 <code>str()</code> 和 <code>repr()</code> 的主要区别在于 <code>repr()</code> 返回的是机器可读的输出，而 <code>str()</code> 返回的是人类可读的。 </p>
+<p><code>__unicode__(self)</code> 定义当 <code>unicode()</code> 调用的时候的返回值。 <code>unicode()</code> 和 <code>str()</code> 很相似，但是返回的是unicode字符串。注意，如果对你的类调用 <code>str()</code> 然而你只定义了 <code>__unicode__()</code> ，那么将不会工作。你应该定义 <code>__str__()</code> 来确保调用时能返回正确的值。</p>
+<p><code>__hash__(self)</code> 定义当 <code>hash()</code> 调用的时候的返回值，它返回一个整数值，用来在字典中进行快速比较 <code>__nonzero__(self)</code> 定义当 <code>bool()</code> 调用的时候的返回值。本方法应该返回True或者False，取决于你想让它返回的值。</p>
+<h2 id="_9">创建定制的序列</h2>
+<p>有很多方法让你的Python类行为可以像内置的序列(dict, tuple,list, string等等)。</p>
+<p>现在我们开始讲如何在Python中创建定制的序列，这个时候该讲一讲协议。协议(Protocols)与其他语言中的接口很相似。它给你很多你必须定义的方法。然而在Python中的协议是很不正式的，不需要明确声明实现。事实上，他们更像一种指南。</p>
+<p>我们为什么现在讨论协议？因为如果要定制容器类型的话需要用到这些协议：</p>
+<ol>
+<li>实现不变容器的话有一个协议：实现不可变容器，你只能定义 <code>__len__</code> 和 <code>__getitem__</code> (一会会讲更多)。</li>
+<li>可变容器协议则需要所有不可变容器的所有另外还需要 <code>__setitem__</code> 和 <code>__delitem__</code> 。</li>
+</ol>
+<p>最终，如果你希望你的对象是可迭代的话，你需要定义 <code>__iter__</code> 会返回一个迭代器。迭代器必须遵循迭代器协议，需要有 <code>__iter__</code> (返回它本身) 和 <code>next</code> 。</p>
+<h3 id="_10">容器的魔法</h3>
+<table>
+<thead>
+<tr>
+<th>魔法方法</th>
+<th>调用方法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>__len__(self)</code></td>
+<td>len(self)</td>
+<td></td>
+</tr>
+<tr>
+<td><code>__index__(self)</code></td>
+<td>x[self]</td>
+<td>对象被作为索引使用的时候</td>
+</tr>
+<tr>
+<td><code>__getitem__(self, key)</code></td>
+<td>self[key]</td>
+<td>使用索引访问元素时</td>
+</tr>
+<tr>
+<td><code>__setitem__(self, key, val)</code></td>
+<td>self[key] = val</td>
+<td>对某个索引值赋值时</td>
+</tr>
+<tr>
+<td><code>__delitem__(self, key)</code></td>
+<td>del self[key]</td>
+<td>删除某个索引值时</td>
+</tr>
+<tr>
+<td><code>__iter__(self)</code></td>
+<td>for x in self</td>
+<td>迭代时</td>
+</tr>
+<tr>
+<td><code>__contains__(self, value)</code></td>
+<td>value in self, value not in self</td>
+<td>使用 in 操作测试关系时</td>
+</tr>
+<tr>
+<td><code>__concat__(self, value)</code></td>
+<td>self + other</td>
+<td>连接两个对象时</td>
+</tr>
+<tr>
+<td><code>__reversed__(self)</code></td>
+<td>reversed(self)</td>
+<td>实现当 <code>reversed()</code> 被调用时的行为</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_11">可以调用的对象</h2>
+<p>在Python中，方法也是一种高等的对象。这意味着他们也可以被传递到方法中就像其他对象一样。这是一个非常惊人的特性。 在Python中，一个特殊的魔术方法可以让类的实例的行为表现的像函数一样，你可以调用他们，将一个函数当做一个参数传到另外一个函数中等等。这是一个非常强大的特性让Python编程更加舒适甜美。 <code>__call__(self, [args...])</code></p>
+<p>允许一个类的实例像函数一样被调用。实质上说，这意味着 <code>x()</code> 与 <code>x.__call__()</code> 是相同的。注意 <code>__call__</code> 参数可变。这意味着你可以定义 <code>__call__</code> 为其他你想要的函数，无论有多少个参数。</p>
+<p><code>__call__</code> 在那些类的实例经常改变状态的时候会非常有效。调用这个实例是一种改变这个对象状态的直接和优雅的做法。用一个实例来表达最好不过了。</p>
+<h2 id="_12">会话管理</h2>
+<p>在Python 2.5中，为了代码利用定义了一个新的关键词 <code>with</code> 语句。会话控制在Python中不罕见(之前是作为库的一部分被实现)，直到 <a href="http://www.python.org/dev/peps/pep-0343/">PEP343</a> 被添加后。它被成为一级语言结构。你也许之前看到这样的语句:</p>
+<div class="codehilite"><pre><span></span><span class="err">with open(&#39;foo.txt&#39;) as bar:</span>
+<span class="err"># perform some action with bar</span>
+</pre></div>
+
+
+<p>回话控制器通过包装一个 <code>with</code> 语句来设置和清理行为。回话控制器的行为通过两个魔术方法来定义: </p>
+<p><code>__enter__(self)</code> 定义当使用 <code>with</code> 语句的时候会话管理器应该初始块被创建的时候的行为。注意 <code>__enter__</code> 的返回值被 <code>with</code> 语句的目标或者 <code>as</code> 后的名字绑定。 </p>
+<p><code>__exit__(self, exception_type,exception_value, traceback)</code> 定义当一个代码块被执行或者终止后会话管理器应该做什么。它可以被用来处理异常，清除工作或者做一些代码块执行完毕之后的日常工作。如果代码块执行成功， <code>exception_type</code> , <code>exception_value</code> , 和 <code>traceback</code> 将会是 <code>None</code> 。否则的话你可以选择处理这个异常或者是直接交给用户处理。如果你想处理这个异常的话，确认 <code>__exit__</code> 在所有结束之后会返回 <code>True</code> 。如果你想让异常被会话管理器处理的话，那么就这样处理。</p>
+<p><code>__enter</code> 和 <code>__exit__</code> 对于明确有定义好的和日常行为的设置和清洁工作的类很有帮助。你也可以使用这些方法来创建一般的可以包装其他对象的会话管理器。以下是一个例子：</p>
+<div class="codehilite"><pre><span></span><span class="k">class</span> <span class="nc">Closer</span><span class="p">:</span>
+    <span class="sd">&#39;&#39;&#39;通过with语句和一个close方法来关闭一个对象的会话管理器&#39;&#39;&#39;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">obj</span> <span class="o">=</span> <span class="n">obj</span>
+
+    <span class="k">def</span> <span class="fm">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">obj</span> <span class="c1"># bound to target</span>
+
+    <span class="k">def</span> <span class="fm">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exception_type</span><span class="p">,</span> <span class="n">exception_val</span><span class="p">,</span> <span class="n">trace</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">obj</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span> <span class="c1"># obj isn&#39;t closable</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Not closable.&#39;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="kc">True</span> <span class="c1"># exception handled successfully</span>
+
+<span class="k">with</span> <span class="n">Closer</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span> <span class="k">as</span> <span class="n">i</span><span class="p">:</span>
+    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">Not closable.</span>
+</pre></div>
+
+
+<h2 id="_13">参考</h2>
+<ol>
+<li><a href="https://zhuanlan.zhihu.com/p/79381718">文章</a></li>
+</ol>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="4.2.模块.html" title="4.2.模块" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  上一页
+                </span>
+                4.2.模块
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../开发环境管理/5.1.conda笔记.html" title="5.1.conda笔记" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  下一页
+                </span>
+                5.1.conda笔记
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application.245445c6.js"></script>
+      
+        
+        
+          
+          <script src="../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
+      
+        <script src="../javascript/extra.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+    
+  </body>
+</html>
