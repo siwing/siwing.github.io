@@ -1,0 +1,2612 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="ja">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.0">
+    
+    
+      
+        <title>7.6.拼接 - Python笔记</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application.0284f74d.css">
+      
+      
+    
+    
+      <script src="../assets/javascripts/modernizr.74668098.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#concat" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href=".." title="Python笔记" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Python笔记
+            </span>
+            <span class="md-header-nav__topic">
+              
+                7.6.拼接
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/siwing/siwing.github.io/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href=".." title="Python笔记" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    Python笔记
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/siwing/siwing.github.io/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1">
+    
+    <label class="md-nav__link" for="nav-1">
+      计算机基础
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        计算机基础
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../计算机基础/1.1.计算机与程序结构.html" title="1.1.计算机与程序结构" class="md-nav__link">
+      1.1.计算机与程序结构
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../计算机基础/1.2.基本概念.html" title="1.2.基本概念" class="md-nav__link">
+      1.2.基本概念
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../计算机基础/1.3.编译型语言和解释型语言的优缺点对比.html" title="1.3.编译型语言和解释型语言的优缺点对比" class="md-nav__link">
+      1.3.编译型语言和解释型语言的优缺点对比
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../计算机基础/1.4.字符编码.html" title="1.4.字符编码" class="md-nav__link">
+      1.4.字符编码
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Python 基础
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Python 基础
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python基础/2.1.python基本语法.html" title="2.1.python基本语法" class="md-nav__link">
+      2.1.python基本语法
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python基础/2.2.语句.html" title="2.2.语句" class="md-nav__link">
+      2.2.语句
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python基础/2.3.List.html" title="2.3.List" class="md-nav__link">
+      2.3.List
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python基础/2.4.String.html" title="2.4.String" class="md-nav__link">
+      2.4.String
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python基础/2.5.Tuple.html" title="2.5.Tuple" class="md-nav__link">
+      2.5.Tuple
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python基础/2.6.Dict.html" title="2.6.Dict" class="md-nav__link">
+      2.6.Dict
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python基础/2.7.推导式.html" title="2.7.推导式" class="md-nav__link">
+      2.7.推导式
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python基础/2.8.赋值、immutable、深拷贝.html" title="2.8.赋值、immutable、深拷贝" class="md-nav__link">
+      2.8.赋值、immutable、深拷贝
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python基础/2.9.函数.html" title="2.9.函数" class="md-nav__link">
+      2.9.函数
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python基础/3.1.异常.html" title="3.1.异常" class="md-nav__link">
+      3.1.异常
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python基础/3.2.命名空间和作用域.html" title="3.2.命名空间和作用域" class="md-nav__link">
+      3.2.命名空间和作用域
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python基础/3.3.闭包.html" title="3.3.闭包" class="md-nav__link">
+      3.3.闭包
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python基础/3.4.装饰器.html" title="3.4.装饰器" class="md-nav__link">
+      3.4.装饰器
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python基础/4.1.类.html" title="4.1.类" class="md-nav__link">
+      4.1.类
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python基础/4.2.模块.html" title="4.2.模块" class="md-nav__link">
+      4.2.模块
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python基础/4.3.魔术方法.html" title="4.3.魔术方法" class="md-nav__link">
+      4.3.魔术方法
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      开发环境管理
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        开发环境管理
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../开发环境管理/5.1.conda笔记.html" title="5.1.conda笔记" class="md-nav__link">
+      5.1.conda笔记
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../开发环境管理/5.3.pip对比conda.html" title="5.3.pip对比conda" class="md-nav__link">
+      5.3.pip对比conda
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../开发环境管理/5.4.anaconda.html" title="5.4.anaconda" class="md-nav__link">
+      5.4.anaconda
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../开发环境管理/5.5.jupyter使用笔记.html" title="5.5.jupyter使用笔记" class="md-nav__link">
+      5.5.jupyter使用笔记
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Numpy笔记
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Numpy笔记
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy笔记/6.1.创建数组.html" title="6.1.创建数组" class="md-nav__link">
+      6.1.创建数组
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy笔记/6.2.索引.html" title="6.2.索引" class="md-nav__link">
+      6.2.索引
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy笔记/6.3.内存布局.html" title="6.3.内存布局" class="md-nav__link">
+      6.3.内存布局
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy笔记/6.4.广播.html" title="6.4.广播" class="md-nav__link">
+      6.4.广播
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy笔记/6.5.常量.html" title="6.5.常量" class="md-nav__link">
+      6.5.常量
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy笔记/6.6.打印数组.html" title="6.6.打印数组" class="md-nav__link">
+      6.6.打印数组
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy笔记/6.7.添加和删除.html" title="6.7.添加和删除" class="md-nav__link">
+      6.7.添加和删除
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy笔记/6.8.形状操纵.html" title="6.8.形状操纵" class="md-nav__link">
+      6.8.形状操纵
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy笔记/6.9.ufunc函数.html" title="6.9.ufunc函数" class="md-nav__link">
+      6.9.ufunc函数
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy笔记/6.10.函数库.html" title="6.10.函数库" class="md-nav__link">
+      6.10.函数库
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy笔记/6.12.结构化数组.html" title="6.12.结构化数组" class="md-nav__link">
+      6.12.结构化数组
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
+    
+    <label class="md-nav__link" for="nav-5">
+      pandas笔记
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        pandas笔记
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="7.1.Series.html" title="7.1.Series" class="md-nav__link">
+      7.1.Series
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="7.2.DataFrame.html" title="7.2.DataFrame" class="md-nav__link">
+      7.2.DataFrame
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="7.3.索引.html" title="7.3.索引" class="md-nav__link">
+      7.3.索引
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="7.4.索引对象.html" title="7.4.索引对象" class="md-nav__link">
+      7.4.索引对象
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="7.5.索引的基本操作.html" title="7.5.索引的基本操作" class="md-nav__link">
+      7.5.索引的基本操作
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        7.6.拼接
+      </label>
+    
+    <a href="7.6.拼接.html" title="7.6.拼接" class="md-nav__link md-nav__link--active">
+      7.6.拼接
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#concat" title="concat函数" class="md-nav__link">
+    concat函数
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#join" title="处理其他轴的逻辑：join参数" class="md-nav__link">
+    处理其他轴的逻辑：join参数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#append" title="使用append拼接" class="md-nav__link">
+    使用append拼接
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ignore_index" title="忽略串联轴上的索引：ignore_index" class="md-nav__link">
+    忽略串联轴上的索引：ignore_index
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#seriesdataframe" title="混合串联Series和DataFrame" class="md-nav__link">
+    混合串联Series和DataFrame
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key" title="key参数" class="md-nav__link">
+    key参数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dataframe" title="行追加到 DataFrame" class="md-nav__link">
+    行追加到 DataFrame
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="数据库形式的拼接" class="md-nav__link">
+    数据库形式的拼接
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" title="合并方法简介（关系代数）" class="md-nav__link">
+    合并方法简介（关系代数）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validate" title="检查重复键：validate" class="md-nav__link">
+    检查重复键：validate
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#indicator" title="指示符：indicator" class="md-nav__link">
+    指示符：indicator
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" title="合并时数据类型的转换" class="md-nav__link">
+    合并时数据类型的转换
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dataframejoin" title="DataFrame.join()" class="md-nav__link">
+    DataFrame.join()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#join_1" title="按组合键列和索引拼接：join" class="md-nav__link">
+    按组合键列和索引拼接：join
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#join_2" title="按单层索引和多层索引拼接：join" class="md-nav__link">
+    按单层索引和多层索引拼接：join
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multiindexesjoin" title="按MultiIndexes拼接：join" class="md-nav__link">
+    按MultiIndexes拼接：join
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" title="按照列和索引合并" class="md-nav__link">
+    按照列和索引合并
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" title="值列重叠" class="md-nav__link">
+    值列重叠
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dataframes" title="拼接多个DataFrames" class="md-nav__link">
+    拼接多个DataFrames
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" title="按索引填补缺失值" class="md-nav__link">
+    按索引填补缺失值
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" title="合并时间序列" class="md-nav__link">
+    合并时间序列
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" title="合并有序数据" class="md-nav__link">
+    合并有序数据
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#asof" title="合并ASOF" class="md-nav__link">
+    合并ASOF
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="7.7.变换索引.html" title="7.7.变换索引" class="md-nav__link">
+      7.7.变换索引
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      标准库
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        标准库
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../标准库/8.1.string.html" title="8.1.string" class="md-nav__link">
+      8.1.string
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../标准库/8.2.textwrap.html" title="8.2.textwrap" class="md-nav__link">
+      8.2.textwrap
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../标准库/8.3.time.html" title="8.3.time" class="md-nav__link">
+      8.3.time
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../标准库/8.4.datetime.html" title="8.4.datetime" class="md-nav__link">
+      8.4.datetime
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#concat" title="concat函数" class="md-nav__link">
+    concat函数
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#join" title="处理其他轴的逻辑：join参数" class="md-nav__link">
+    处理其他轴的逻辑：join参数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#append" title="使用append拼接" class="md-nav__link">
+    使用append拼接
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ignore_index" title="忽略串联轴上的索引：ignore_index" class="md-nav__link">
+    忽略串联轴上的索引：ignore_index
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#seriesdataframe" title="混合串联Series和DataFrame" class="md-nav__link">
+    混合串联Series和DataFrame
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key" title="key参数" class="md-nav__link">
+    key参数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dataframe" title="行追加到 DataFrame" class="md-nav__link">
+    行追加到 DataFrame
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="数据库形式的拼接" class="md-nav__link">
+    数据库形式的拼接
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" title="合并方法简介（关系代数）" class="md-nav__link">
+    合并方法简介（关系代数）
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#validate" title="检查重复键：validate" class="md-nav__link">
+    检查重复键：validate
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#indicator" title="指示符：indicator" class="md-nav__link">
+    指示符：indicator
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" title="合并时数据类型的转换" class="md-nav__link">
+    合并时数据类型的转换
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dataframejoin" title="DataFrame.join()" class="md-nav__link">
+    DataFrame.join()
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#join_1" title="按组合键列和索引拼接：join" class="md-nav__link">
+    按组合键列和索引拼接：join
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#join_2" title="按单层索引和多层索引拼接：join" class="md-nav__link">
+    按单层索引和多层索引拼接：join
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multiindexesjoin" title="按MultiIndexes拼接：join" class="md-nav__link">
+    按MultiIndexes拼接：join
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" title="按照列和索引合并" class="md-nav__link">
+    按照列和索引合并
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" title="值列重叠" class="md-nav__link">
+    值列重叠
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dataframes" title="拼接多个DataFrames" class="md-nav__link">
+    拼接多个DataFrames
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" title="按索引填补缺失值" class="md-nav__link">
+    按索引填补缺失值
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" title="合并时间序列" class="md-nav__link">
+    合并时间序列
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_8" title="合并有序数据" class="md-nav__link">
+    合并有序数据
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#asof" title="合并ASOF" class="md-nav__link">
+    合并ASOF
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/siwing/siwing.github.io/edit/master/docs/pandas笔记/7.6.拼接.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                  <h1>7.6.拼接</h1>
+                
+                <div class="codehilite"><pre><span></span><span class="err">Windows 10</span>
+<span class="err">Python 3.7.3 @ MSC v.1915 64 bit (AMD64)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">tools</span> <span class="kn">import</span> <span class="n">Help</span> <span class="k">as</span> <span class="n">H</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+
+
+<h2 id="concat"><code>concat</code>函数</h2>
+<p>在深入研究<code>concat</code>函数的细节及其作用之前，这里有一个简单的示例：</p>
+<div class="codehilite"><pre><span></span><span class="n">df1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;A0&#39;</span><span class="p">,</span> <span class="s1">&#39;A1&#39;</span><span class="p">,</span> <span class="s1">&#39;A2&#39;</span><span class="p">,</span> <span class="s1">&#39;A3&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;B&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;B0&#39;</span><span class="p">,</span> <span class="s1">&#39;B1&#39;</span><span class="p">,</span> <span class="s1">&#39;B2&#39;</span><span class="p">,</span> <span class="s1">&#39;B3&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;C0&#39;</span><span class="p">,</span> <span class="s1">&#39;C1&#39;</span><span class="p">,</span> <span class="s1">&#39;C2&#39;</span><span class="p">,</span> <span class="s1">&#39;C3&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;D&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;D0&#39;</span><span class="p">,</span> <span class="s1">&#39;D1&#39;</span><span class="p">,</span> <span class="s1">&#39;D2&#39;</span><span class="p">,</span> <span class="s1">&#39;D3&#39;</span><span class="p">]},</span>
+                    <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+
+<span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;A4&#39;</span><span class="p">,</span> <span class="s1">&#39;A5&#39;</span><span class="p">,</span> <span class="s1">&#39;A6&#39;</span><span class="p">,</span> <span class="s1">&#39;A7&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;B&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;B4&#39;</span><span class="p">,</span> <span class="s1">&#39;B5&#39;</span><span class="p">,</span> <span class="s1">&#39;B6&#39;</span><span class="p">,</span> <span class="s1">&#39;B7&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;C4&#39;</span><span class="p">,</span> <span class="s1">&#39;C5&#39;</span><span class="p">,</span> <span class="s1">&#39;C6&#39;</span><span class="p">,</span> <span class="s1">&#39;C7&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;D&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;D4&#39;</span><span class="p">,</span> <span class="s1">&#39;D5&#39;</span><span class="p">,</span> <span class="s1">&#39;D6&#39;</span><span class="p">,</span> <span class="s1">&#39;D7&#39;</span><span class="p">]},</span>
+                    <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">])</span>
+
+<span class="n">df3</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;A8&#39;</span><span class="p">,</span> <span class="s1">&#39;A9&#39;</span><span class="p">,</span> <span class="s1">&#39;A10&#39;</span><span class="p">,</span> <span class="s1">&#39;A11&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;B&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;B8&#39;</span><span class="p">,</span> <span class="s1">&#39;B9&#39;</span><span class="p">,</span> <span class="s1">&#39;B10&#39;</span><span class="p">,</span> <span class="s1">&#39;B11&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;C8&#39;</span><span class="p">,</span> <span class="s1">&#39;C9&#39;</span><span class="p">,</span> <span class="s1">&#39;C10&#39;</span><span class="p">,</span> <span class="s1">&#39;C11&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;D&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;D8&#39;</span><span class="p">,</span> <span class="s1">&#39;D9&#39;</span><span class="p">,</span> <span class="s1">&#39;D10&#39;</span><span class="p">,</span> <span class="s1">&#39;D11&#39;</span><span class="p">]},</span>
+                    <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">])</span>
+
+<span class="n">frames</span> <span class="o">=</span> <span class="p">[</span><span class="n">df1</span><span class="p">,</span> <span class="n">df2</span><span class="p">,</span> <span class="n">df3</span><span class="p">]</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">frames</span><span class="p">)</span>
+</pre></div>
+
+
+<p><img alt="../_images/merging_concat_basic.png" src="https://pandas.pydata.org/docs/_images/merging_concat_basic.png" /></p>
+<p>与其在ndarrays上的同级函数一样<code>numpy.concatenate</code>，，<code>pandas.concat</code> 获取同类类型对象的列表或字典，并将它们与“对其他轴的操作”的一些可配置处理进行连接：</p>
+<div class="codehilite"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">objs</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">join</span><span class="o">=</span><span class="s1">&#39;outer&#39;</span><span class="p">,</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">keys</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+          <span class="n">levels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verify_integrity</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+
+
+<ul>
+<li><code>objs</code>：Series或DataFrame对象的序列或映射。如果传递了dict ，则除非传递了排序的键，否则将使用排序后的键作为keys参数，在这种情况下，将选择值（请参见下文）。除非它们都为None，否则所有None对象都将被静默删除，在这种情况下将引发ValueError。</li>
+<li><code>axis</code> ：{0，1，…}，默认值为0。沿着该轴进行拼接。</li>
+<li><code>join</code>：{'inner'，'outer'}，默认为<code>'outer'</code>。如何处理其他轴上的索引。<code>'outer'</code>为并集，<code>'inner'</code>为交集。</li>
+<li><code>ignore_index</code>：布尔值，默认为False。如果为True，则用0, …, n-1代替串联轴的原索引。注意，拼接时仍会考虑其他轴上的索引值。</li>
+<li><code>keys</code>：序列，默认为无。使用传递的键作为最外层级别来构造层次结构索引。如果通过了多个级别，则应包含元组。</li>
+<li><code>levels</code>：序列列表，默认为无。用于构造MultiIndex的特定级别（唯一值）。否则，将从按键推断出它们。</li>
+<li><code>names</code>：列表，默认为None。生成层次结构索引中的级别的名称。</li>
+<li><code>verify_integrity</code>：布尔值，默认为False。检查新的串联轴是否包含重复项。相对于实际数据串联而言，这可能非常昂贵。</li>
+<li><code>copy</code>：布尔值，默认为True。如果为False，在非必要的情况下不会复制数据。</li>
+</ul>
+<p>没有一点上下文，这些论点中的许多就没有多大意义。让我们回顾一下上面的例子。假设我们想将特定的键与切碎的DataFrame的每个片段相关联。我们可以使用<code>keys</code>参数来做到这一点 ：</p>
+<div class="codehilite"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">frames</span><span class="p">,</span> <span class="n">keys</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">])</span>
+</pre></div>
+
+
+<p><img alt="../_images/merging_concat_keys.png" src="https://pandas.pydata.org/docs/_images/merging_concat_keys.png" /></p>
+<p>如您所见（如果您已经阅读了文档的其余部分），结果对象的索引具有<a href="https://pandas.pydata.org/docs/user_guide/advanced.html#advanced-hierarchical">层次结构索引</a>。这意味着我们现在可以通过键选择每个块：</p>
+<div class="codehilite"><pre><span></span><span class="n">result</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">    A   B   C   D</span>
+<span class="err">4  A4  B4  C4  D4</span>
+<span class="err">5  A5  B5  C5  D5</span>
+<span class="err">6  A6  B6  C6  D6</span>
+<span class="err">7  A7  B7  C7  D7</span>
+</pre></div>
+
+
+<p>看到这如何非常有用并不是一件容易的事。有关此功能的详细信息，请参见下文。</p>
+<p>注意</p>
+<p>值得注意的是<a href="https://pandas.pydata.org/docs/reference/api/pandas.concat.html#pandas.concat"><code>concat()</code></a>（并因此 <code>append()</code>）制作了数据的完整副本，并且不断重复使用此功能可能会严重影响性能。如果需要对多个数据集使用该操作，请使用列表推导。</p>
+<div class="codehilite"><pre><span></span><span class="n">frames</span> <span class="o">=</span> <span class="p">[</span> <span class="n">process_your_file</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">files</span> <span class="p">]</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">frames</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">---------------------------------------------------------------------------NameError</span>
+<span class="err">Traceback (most recent call last)&lt;ipython-input-1-442ff6d9e7b9&gt; in</span>
+<span class="err">&lt;module&gt;</span>
+<span class="err">----&gt; 1 frames = [ process_your_file(f) for f in files ]</span>
+<span class="err">      2 result = pd.concat(frames)</span>
+<span class="c">NameError: name &#39;files&#39; is not defined</span>
+</pre></div>
+
+
+<h3 id="join">处理其他轴的逻辑：join参数</h3>
+<p>将多个DataFrame粘合在一起时，可以选择如何处理其他轴（而不是串联的轴）。这可以通过以下两种方式完成：</p>
+<ol>
+<li>把它们全部结合起来<code>join='outer'</code>。这是默认选项，这不会丢失信息。</li>
+<li>只保留交集<code>join='inner'</code>。</li>
+</ol>
+<p>默认<code>join='outer'</code>：</p>
+<div class="codehilite"><pre><span></span><span class="n">df4</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;B&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;B2&#39;</span><span class="p">,</span> <span class="s1">&#39;B3&#39;</span><span class="p">,</span> <span class="s1">&#39;B6&#39;</span><span class="p">,</span> <span class="s1">&#39;B7&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;D&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;D2&#39;</span><span class="p">,</span> <span class="s1">&#39;D3&#39;</span><span class="p">,</span> <span class="s1">&#39;D6&#39;</span><span class="p">,</span> <span class="s1">&#39;D7&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;F&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;F2&#39;</span><span class="p">,</span> <span class="s1">&#39;F3&#39;</span><span class="p">,</span> <span class="s1">&#39;F6&#39;</span><span class="p">,</span> <span class="s1">&#39;F7&#39;</span><span class="p">]},</span>
+                    <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df1</span><span class="p">,</span> <span class="n">df4</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">join</span><span class="o">=</span><span class="s2">&quot;outer&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+<p><img alt="../_images/merging_concat_axis1.png" src="https://pandas.pydata.org/docs/_images/merging_concat_axis1.png" /></p>
+<p>只保留交集<code>join='inner'</code>：</p>
+<div class="codehilite"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df1</span><span class="p">,</span> <span class="n">df4</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">join</span><span class="o">=</span><span class="s1">&#39;inner&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<p><img alt="../_images/merging_concat_axis1_inner.png" src="https://pandas.pydata.org/docs/_images/merging_concat_axis1_inner.png" /></p>
+<p>如果只想用其中一个DataFrame的索引：</p>
+<div class="codehilite"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df1</span><span class="p">,</span> <span class="n">df4</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">df1</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+</pre></div>
+
+
+<p>也可以在连接之前建立索引：</p>
+<div class="codehilite"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df1</span><span class="p">,</span> <span class="n">df4</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">df1</span><span class="o">.</span><span class="n">index</span><span class="p">)],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">    A   B   C   D    B    D    F</span>
+<span class="err">0  A0  B0  C0  D0  NaN  NaN  NaN</span>
+<span class="err">1  A1  B1  C1  D1  NaN  NaN  NaN</span>
+<span class="err">2  A2  B2  C2  D2   B2   D2   F2</span>
+<span class="err">3  A3  B3  C3  D3   B3   D3   F3</span>
+</pre></div>
+
+
+<p><img alt="../_images/merging_concat_axis1_join_axes.png" src="https://pandas.pydata.org/docs/_images/merging_concat_axis1_join_axes.png" /></p>
+<h3 id="append">使用<code>append</code>拼接</h3>
+<p><a href="https://pandas.pydata.org/docs/reference/api/pandas.concat.html#pandas.concat"><code>concat()</code></a>的一个快捷方式是<a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.append.html#pandas.DataFrame.append"><code>append()</code></a> ，这是Series和DataFrame的<code>append()</code><strong>实例方法</strong>。这些方法实际上早于 <code>concat</code>。<code>append()</code>方法让Series和DataFrame沿着行（<code>axis=0</code>）拼接在一起：</p>
+<div class="codehilite"><pre><span></span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">,</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>            
+       <span class="n">verify_integrity</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</pre></div>
+
+
+<p><img alt="../_images/merging_append1.png" src="https://pandas.pydata.org/docs/_images/merging_append1.png" /></p>
+<p>实际上，不要求两个DataFrame的行索引交集为空，列索引也是这样：</p>
+<div class="codehilite"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">df1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df4</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+
+
+<p><img alt="../_images/merging_append2.png" src="https://pandas.pydata.org/docs/_images/merging_append2.png" /></p>
+<p><code>append</code> 可以拼接多个对象：</p>
+<div class="codehilite"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">df1</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">df2</span><span class="p">,</span> <span class="n">df3</span><span class="p">])</span>
+</pre></div>
+
+
+<p><img alt="../_images/merging_append3.png" src="https://pandas.pydata.org/docs/_images/merging_append3.png" /></p>
+<p>与list对象的<code>append()</code>方法不同，DataFrame对象的<code>append()</code>方法会返回副本，<strong>不会修改</strong> <code>df1</code>。</p>
+<h3 id="ignore_index">忽略串联轴上的索引：ignore_index</h3>
+<p>如果<code>DataFrame</code>的索引没有意义，可以使用<code>ignore_index</code>参数：</p>
+<div class="codehilite"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df1</span><span class="p">,</span> <span class="n">df4</span><span class="p">],</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+
+
+<p><img alt="../_images/merging_concat_ignore_index.png" src="https://pandas.pydata.org/docs/_images/merging_concat_ignore_index.png" /></p>
+<p><a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.append.html#pandas.DataFrame.append"><code>DataFrame.append()</code></a>方法也有这个参数：</p>
+<div class="codehilite"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">df1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df4</span><span class="p">,</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+
+
+<p><img alt="../_images/merging_append_ignore_index.png" src="https://pandas.pydata.org/docs/_images/merging_append_ignore_index.png" /></p>
+<h3 id="seriesdataframe">混合串联<code>Series</code>和<code>DataFrame</code></h3>
+<p>可以拼接<code>Series</code>和<code>DataFrame</code>。该 <code>Series</code>会转化为<code>DataFrame</code>的一列，列名是<code>Series</code>的<code>name</code>。</p>
+<div class="codehilite"><pre><span></span><span class="n">s1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s1">&#39;X0&#39;</span><span class="p">,</span> <span class="s1">&#39;X1&#39;</span><span class="p">,</span> <span class="s1">&#39;X2&#39;</span><span class="p">,</span> <span class="s1">&#39;X3&#39;</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;X&#39;</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df1</span><span class="p">,</span> <span class="n">s1</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+
+<p><img alt="../_images/merging_concat_mixed_ndim.png" src="https://pandas.pydata.org/docs/_images/merging_concat_mixed_ndim.png" /></p>
+<p>如果<code>Series</code>未命名，则将连续编号。</p>
+<div class="codehilite"><pre><span></span><span class="n">s2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s1">&#39;_0&#39;</span><span class="p">,</span> <span class="s1">&#39;_1&#39;</span><span class="p">,</span> <span class="s1">&#39;_2&#39;</span><span class="p">,</span> <span class="s1">&#39;_3&#39;</span><span class="p">])</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df1</span><span class="p">,</span> <span class="n">s2</span><span class="p">,</span> <span class="n">s2</span><span class="p">,</span> <span class="n">s2</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+
+<p><img alt="../_images/merging_concat_unnamed_series.png" src="https://pandas.pydata.org/docs/_images/merging_concat_unnamed_series.png" /></p>
+<p>通过<code>ignore_index=True</code>删除原有索引标签。</p>
+<div class="codehilite"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df1</span><span class="p">,</span> <span class="n">s1</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+
+
+<p><img alt="../_images/merging_concat_series_ignore_index.png" src="https://pandas.pydata.org/docs/_images/merging_concat_series_ignore_index.png" /></p>
+<h3 id="key"><code>key</code>参数</h3>
+<p><code>keys</code>参数的一个相当普遍的用法是重新指定原DataFrame或Series的名字，可以作为拼接后的DataFrame的列索引：</p>
+<div class="codehilite"><pre><span></span><span class="n">s3</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;foo&#39;</span><span class="p">)</span>
+<span class="n">s4</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="n">s5</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+
+<span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">s3</span><span class="p">,</span> <span class="n">s4</span><span class="p">,</span> <span class="n">s5</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">   foo  0  1</span>
+<span class="err">0    0  0  0</span>
+<span class="err">1    1  1  1</span>
+<span class="err">2    2  2  4</span>
+<span class="err">3    3  3  5</span>
+</pre></div>
+
+
+<p>通过<code>keys</code>参数，可以覆盖现有的列名。</p>
+<div class="codehilite"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">s3</span><span class="p">,</span> <span class="n">s4</span><span class="p">,</span> <span class="n">s5</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">keys</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="s1">&#39;yellow&#39;</span><span class="p">])</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">   red  blue  yellow</span>
+<span class="err">0    0     0       0</span>
+<span class="err">1    1     1       1</span>
+<span class="err">2    2     2       4</span>
+<span class="err">3    3     3       5</span>
+</pre></div>
+
+
+<p>让我们考虑第一个示例的变体：</p>
+<div class="codehilite"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">frames</span><span class="p">,</span> <span class="n">keys</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">])</span>
+</pre></div>
+
+
+<p><img alt="../_images/merging_concat_group_keys2.png" src="https://pandas.pydata.org/docs/_images/merging_concat_group_keys2.png" /></p>
+<p>还可以将需要拼接的DataFrame以dict形式传递给<code>concat</code>函数，在这种情况下，dict键将用作<code>keys</code>参数（除非指定了其他键）：</p>
+<div class="codehilite"><pre><span></span><span class="n">pieces</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="n">df1</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="n">df2</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">:</span> <span class="n">df3</span><span class="p">}</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">pieces</span><span class="p">)</span>
+</pre></div>
+
+
+<p><img alt="../_images/merging_concat_dict.png" src="https://pandas.pydata.org/docs/_images/merging_concat_dict.png" /></p>
+<div class="codehilite"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">pieces</span><span class="p">,</span> <span class="n">keys</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">])</span>
+</pre></div>
+
+
+<p><img alt="../_images/merging_concat_dict_keys.png" src="https://pandas.pydata.org/docs/_images/merging_concat_dict_keys.png" /></p>
+<p>创建的MultiIndex具有根据传递的键和<code>DataFrame</code>片段索引构造的级别：</p>
+<div class="codehilite"><pre><span></span><span class="n">result</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">levels</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">FrozenList([[&#39;z&#39;, &#39;y&#39;], [4, 5, 6, 7, 8, 9, 10, 11]])</span>
+</pre></div>
+
+
+<p>如果想指定其他级别（偶尔会这样），则可以使用以下<code>levels</code>参数：</p>
+<div class="codehilite"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">(</span><span class="n">pieces</span><span class="p">,</span> <span class="n">keys</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">],</span>
+                   <span class="n">levels</span><span class="o">=</span><span class="p">[[</span><span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">]],</span>
+                   <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;group_key&#39;</span><span class="p">])</span>
+</pre></div>
+
+
+<p><img alt="../_images/merging_concat_dict_keys_names.png" src="https://pandas.pydata.org/docs/_images/merging_concat_dict_keys_names.png" /></p>
+<div class="codehilite"><pre><span></span><span class="n">result</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">levels</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">FrozenList([[&#39;z&#39;, &#39;y&#39;, &#39;x&#39;, &#39;w&#39;], [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10,</span>
+<span class="err">11]])</span>
+</pre></div>
+
+
+<h3 id="dataframe">行追加到 DataFrame</h3>
+<p>尽管效率不是很高（因为必须创建一个新的对象），但是可以向<code>append</code>传递一个<code>Series</code>或dict来将一行附加到<code>DataFrame</code>：</p>
+<div class="codehilite"><pre><span></span><span class="n">s2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s1">&#39;X0&#39;</span><span class="p">,</span> <span class="s1">&#39;X1&#39;</span><span class="p">,</span> <span class="s1">&#39;X2&#39;</span><span class="p">,</span> <span class="s1">&#39;X3&#39;</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;D&#39;</span><span class="p">])</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">df1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">s2</span><span class="p">,</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+
+
+<p><img alt="../_images/merging_append_series_as_row.png" src="https://pandas.pydata.org/docs/_images/merging_append_series_as_row.png" /></p>
+<p>还可以传递字典或系列的列表：</p>
+<div class="codehilite"><pre><span></span><span class="n">dicts</span> <span class="o">=</span> <span class="p">[{</span><span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;X&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">},</span>
+         <span class="p">{</span><span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">:</span> <span class="mi">6</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span> <span class="s1">&#39;Y&#39;</span><span class="p">:</span> <span class="mi">8</span><span class="p">}]</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">df1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dicts</span><span class="p">,</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+
+
+<p><img alt="../_images/merging_append_dits.png" src="https://pandas.pydata.org/docs/_images/merging_append_dits.png" /></p>
+<h2 id="_1">数据库形式的拼接</h2>
+<p>pandas具有全功能、高性能的内存连接操作，与SQL等关系数据库非常相似。这些方法的性能比其他开源实现（如R中的base：：merge.data.frame）要好得多（在某些情况下甚至超过一个数量级）。原因是仔细的算法设计和DataFrame的数据的内部布局。</p>
+<p>pandas提供函数<code>merge()</code>，作为DataFrame或Series对象之间所有标准数据库拼接操作的入口点：</p>
+<div class="codehilite"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;inner&#39;</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">right_on</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+         <span class="n">left_index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">right_index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+         <span class="n">suffixes</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;_x&#39;</span><span class="p">,</span> <span class="s1">&#39;_y&#39;</span><span class="p">),</span> <span class="n">copy</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">indicator</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+         <span class="n">validate</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</pre></div>
+
+
+<ul>
+<li>
+<p><code>left</code>：一个DataFrame或Series的对象。</p>
+</li>
+<li>
+<p><code>right</code>：另一个DataFrame或Series的对象。</p>
+</li>
+<li>
+<p><code>on</code>：一个<code>label</code>或者<code>label list</code>。它指定用作连接键的列的<code>label</code>。并且必须在两个<code>DataFrame</code>中这些<code>label</code>都存在。如果它为<code>None</code>，则默认使用两个<code>DataFrame</code>的列<code>label</code>的交集。你可以通过<code>left_on/right_on</code>分别指定两侧<code>DataFrame</code>对齐的连接键。</p>
+</li>
+<li>
+<p><code>left_on</code>：一个<code>label</code>或者<code>label list</code>。指定左边<code>DataFrame</code>用作连接键的列，参考<code>on</code>。</p>
+</li>
+<li>
+<p><code>right_on</code>：一个<code>label</code>或者<code>label list</code>。指定右边<code>DataFrame</code>用作连接键的列，参考<code>on</code>。</p>
+</li>
+<li>
+<p><code>left_index</code>：一个布尔值。如果为<code>True</code>，则使用左边的<code>DataFrame</code>的行的<code>index value</code>来作为连接键来合并。</p>
+</li>
+<li>
+<p><code>right_index</code>：一个布尔值。如果为<code>True</code>，则使用右边的<code>DataFrame</code>的行的<code>index value</code>来作为连接键来合并。</p>
+</li>
+<li>
+<p><code>how</code>：其一<code>'left'</code>，<code>'right'</code>，<code>'outer'</code>，<code>'inner'</code>。默认为<code>inner</code>。有关每种方法的详细说明，请参见下文。</p>
+</li>
+<li>
+<p><code>sort</code>：一个布尔值。如果为<code>True</code>，则在结果中，对合并采用的连接键进行排序。</p>
+</li>
+<li>
+<p><code>suffixes</code>：一个二元序列。对于结果中同名的列，它会添加前缀来指示它们来自哪个<code>DataFrame</code>。</p>
+</li>
+<li>
+<p><code>copy</code>：一个布尔值。如果为<code>True</code>，则拷贝基础数据。否则不拷贝数据。</p>
+</li>
+<li>
+<p><code>indicator</code>：一个字符串或者布尔值。</p>
+<ul>
+<li>
+<p>如果为<code>True</code>，则结果中多了一列称作<code>_merge</code>，该列给出了每一行来自于那个<code>DataFrame</code>。</p>
+</li>
+<li>
+<p>如果为字符串，则结果中多了一列（该列名字由<code>indicator</code>字符串给出），该列给出了每一行来自于那个<code>DataFrame</code>。</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>validate</code>：字符串，默认为无。如果指定，则检查合并是否为指定的类型。</p>
+</li>
+</ul>
+<blockquote>
+<ul>
+<li>
+<p>'one_to_one'或'1:1'：检查合并键在左右数据集中是否唯一。</p>
+</li>
+<li>
+<p>'one_to_many'或'1:m'：检查合并键在左数据集中是否唯一。</p>
+</li>
+<li>
+<p>'many_to_one'或'm:1'：检查合并键在正确的数据集中是否唯一。</p>
+</li>
+<li>
+<p>'many_to_many'或'm:m'：允许，但不进行检查。</p>
+</li>
+</ul>
+</blockquote>
+<p>新功能：</p>
+<blockquote>
+<p>0.23.0版本中添加了指定索引级别的<code>on</code>、<code>left_on</code>、<code>right_on</code>参数的支持。在0.24.0版中添加了合并命名的Series的支持。</p>
+</blockquote>
+<p><code>merge</code>是pandas命名空间中的一个函数，它也可以作为DataFrame实例方法<a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.merge.html#pandas.DataFrame.merge"><code>merge()</code></a>使用，调用 <code>DataFrame.merge</code>时，<code>DataFrame</code>被视为拼接中的左侧对象。</p>
+<p>相关<a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.join.html#pandas.DataFrame.join"><code>join()</code></a>方法在<code>merge</code>内部用于索引索引连接（默认情况下）和索引列连接。如果仅加入索引，则可能希望使用<code>DataFrame.join</code>来节省一些输入。</p>
+<h3 id="_2">合并方法简介（关系代数）</h3>
+<p>有经验的关系数据库（如SQL）用户将熟悉用于描述两个SQL类表结构（DataFrame对象）之间的连接操作的术语。有几个案例需要考虑，这些案例非常重要：</p>
+<ul>
+<li><strong>one-to-one</strong>联接：两个DataFrame对象的组合键都是唯一值。</li>
+<li><strong>many-to-one</strong>联接：其中一个DataFrame对象的组合键是唯一值，另一个有重复值。</li>
+<li><strong>many-to-many</strong>联接：两个DataFrame对象的组合键都有重复值。</li>
+</ul>
+<p>注意</p>
+<p>在列上连接列时（可能是多对多连接），传递的<code>DataFrame</code>对象上的所有索引<strong>都将被丢弃</strong>。</p>
+<p>值得花些时间了解多对多连接案例的结果。<mark>在SQL/标准关系代数中，如果键组合在两个表中出现不止一次，则生成的表将具有关联数据的笛卡尔积。</mark> </p>
+<p>下面是一个非常基本的例子，使用一个组合键，并且组合键的值都是唯一的：</p>
+<div class="codehilite"><pre><span></span><span class="n">left</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;key&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;K0&#39;</span><span class="p">,</span> <span class="s1">&#39;K1&#39;</span><span class="p">,</span> <span class="s1">&#39;K2&#39;</span><span class="p">,</span> <span class="s1">&#39;K3&#39;</span><span class="p">],</span>
+                       <span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;A0&#39;</span><span class="p">,</span> <span class="s1">&#39;A1&#39;</span><span class="p">,</span> <span class="s1">&#39;A2&#39;</span><span class="p">,</span> <span class="s1">&#39;A3&#39;</span><span class="p">],</span>
+                       <span class="s1">&#39;B&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;B0&#39;</span><span class="p">,</span> <span class="s1">&#39;B1&#39;</span><span class="p">,</span> <span class="s1">&#39;B2&#39;</span><span class="p">,</span> <span class="s1">&#39;B3&#39;</span><span class="p">]})</span>
+
+<span class="n">right</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;key&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;K0&#39;</span><span class="p">,</span> <span class="s1">&#39;K1&#39;</span><span class="p">,</span> <span class="s1">&#39;K2&#39;</span><span class="p">,</span> <span class="s1">&#39;K3&#39;</span><span class="p">],</span>
+                        <span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;C0&#39;</span><span class="p">,</span> <span class="s1">&#39;C1&#39;</span><span class="p">,</span> <span class="s1">&#39;C2&#39;</span><span class="p">,</span> <span class="s1">&#39;C3&#39;</span><span class="p">],</span>
+                        <span class="s1">&#39;D&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;D0&#39;</span><span class="p">,</span> <span class="s1">&#39;D1&#39;</span><span class="p">,</span> <span class="s1">&#39;D2&#39;</span><span class="p">,</span> <span class="s1">&#39;D3&#39;</span><span class="p">]})</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;key&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<p><img alt="../_images/merging_merge_on_key.png" src="https://pandas.pydata.org/docs/_images/merging_merge_on_key.png" /></p>
+<p>多个组合键的示例（默认<code>how='inner'</code>）：</p>
+<div class="codehilite"><pre><span></span><span class="n">left</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;key1&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;K0&#39;</span><span class="p">,</span> <span class="s1">&#39;K0&#39;</span><span class="p">,</span> <span class="s1">&#39;K1&#39;</span><span class="p">,</span> <span class="s1">&#39;K2&#39;</span><span class="p">],</span>
+                     <span class="s1">&#39;key2&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;K0&#39;</span><span class="p">,</span> <span class="s1">&#39;K1&#39;</span><span class="p">,</span> <span class="s1">&#39;K0&#39;</span><span class="p">,</span> <span class="s1">&#39;K1&#39;</span><span class="p">],</span>
+                        <span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;A0&#39;</span><span class="p">,</span> <span class="s1">&#39;A1&#39;</span><span class="p">,</span> <span class="s1">&#39;A2&#39;</span><span class="p">,</span> <span class="s1">&#39;A3&#39;</span><span class="p">],</span>
+                        <span class="s1">&#39;B&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;B0&#39;</span><span class="p">,</span> <span class="s1">&#39;B1&#39;</span><span class="p">,</span> <span class="s1">&#39;B2&#39;</span><span class="p">,</span> <span class="s1">&#39;B3&#39;</span><span class="p">]})</span>
+
+<span class="n">right</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;key1&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;K0&#39;</span><span class="p">,</span> <span class="s1">&#39;K1&#39;</span><span class="p">,</span> <span class="s1">&#39;K1&#39;</span><span class="p">,</span> <span class="s1">&#39;K2&#39;</span><span class="p">],</span>
+                      <span class="s1">&#39;key2&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;K0&#39;</span><span class="p">,</span> <span class="s1">&#39;K0&#39;</span><span class="p">,</span> <span class="s1">&#39;K0&#39;</span><span class="p">,</span> <span class="s1">&#39;K0&#39;</span><span class="p">],</span>
+                      <span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;C0&#39;</span><span class="p">,</span> <span class="s1">&#39;C1&#39;</span><span class="p">,</span> <span class="s1">&#39;C2&#39;</span><span class="p">,</span> <span class="s1">&#39;C3&#39;</span><span class="p">],</span>
+                      <span class="s1">&#39;D&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;D0&#39;</span><span class="p">,</span> <span class="s1">&#39;D1&#39;</span><span class="p">,</span> <span class="s1">&#39;D2&#39;</span><span class="p">,</span> <span class="s1">&#39;D3&#39;</span><span class="p">]})</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;key1&#39;</span><span class="p">,</span> <span class="s1">&#39;key2&#39;</span><span class="p">])</span>
+</pre></div>
+
+
+<p><img alt="../_images/merging_merge_on_key_multiple.png" src="https://pandas.pydata.org/docs/_images/merging_merge_on_key_multiple.png" /></p>
+<p>当左右两边的组合键不一致时，处理行为由<code>how</code>参数指定。以下是<code>how</code>选项及其SQL等效名称的摘要：</p>
+<table>
+<thead>
+<tr>
+<th align="left">合并方式</th>
+<th align="left">SQL连接名称</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>left</code></td>
+<td align="left"><code>LEFT OUTER JOIN</code></td>
+<td align="left">仅保留left出现的组合键</td>
+</tr>
+<tr>
+<td align="left"><code>right</code></td>
+<td align="left"><code>RIGHT OUTER JOIN</code></td>
+<td align="left">仅保留right出现的组合键</td>
+</tr>
+<tr>
+<td align="left"><code>outer</code></td>
+<td align="left"><code>FULL OUTER JOIN</code></td>
+<td align="left">保留left和right组合键的并集</td>
+</tr>
+<tr>
+<td align="left"><code>inner</code></td>
+<td align="left"><code>INNER JOIN</code></td>
+<td align="left">保留left和right组合键的交集</td>
+</tr>
+</tbody>
+</table>
+<div class="codehilite"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;key1&#39;</span><span class="p">,</span> <span class="s1">&#39;key2&#39;</span><span class="p">])</span>
+</pre></div>
+
+
+<p><img alt="../_images/merging_merge_on_key_left.png" src="https://pandas.pydata.org/docs/_images/merging_merge_on_key_left.png" /></p>
+<div class="codehilite"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;key1&#39;</span><span class="p">,</span> <span class="s1">&#39;key2&#39;</span><span class="p">])</span>
+</pre></div>
+
+
+<p><img alt="../_images/merging_merge_on_key_right.png" src="https://pandas.pydata.org/docs/_images/merging_merge_on_key_right.png" /></p>
+<div class="codehilite"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;outer&#39;</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;key1&#39;</span><span class="p">,</span> <span class="s1">&#39;key2&#39;</span><span class="p">])</span>
+</pre></div>
+
+
+<p><img alt="../_images/merging_merge_on_key_outer.png" src="https://pandas.pydata.org/docs/_images/merging_merge_on_key_outer.png" /></p>
+<div class="codehilite"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;inner&#39;</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;key1&#39;</span><span class="p">,</span> <span class="s1">&#39;key2&#39;</span><span class="p">])</span>
+</pre></div>
+
+
+<p><img alt="../_images/merging_merge_on_key_inner.png" src="https://pandas.pydata.org/docs/_images/merging_merge_on_key_inner.png" /></p>
+<p>这是组合键具有重复值的示例：</p>
+<div class="codehilite"><pre><span></span><span class="n">left</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="s1">&#39;B&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]})</span>
+<span class="n">right</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="s1">&#39;B&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]})</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;outer&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<p><img alt="../_images/merging_merge_on_key_dup.png" src="https://pandas.pydata.org/docs/_images/merging_merge_on_key_dup.png" /></p>
+<p>警告</p>
+<p>在重复键上进行拼接，会导致返回的DataFrame的函数是原来两个DataFrame行数的乘积，这可能导致内存溢出。如果DataFrame很大，应该对重复键进行管理。</p>
+<h3 id="validate">检查重复键：validate</h3>
+<blockquote>
+<p>0.21.0版中的新功能。</p>
+</blockquote>
+<p>可以使用<code>validate</code>参数自动检查组合键中是否有意外的重复项。在合并操作之前检查键的唯一性，可以防止内存溢出。检查组合键的唯一性也是确保数据结构符合预期的一种好方法。</p>
+<p>在以下示例中，right中的<code>B</code>存在重复的值。由于这不是<code>validate</code>参数中指定的一对一合并，因此将引发异常。</p>
+<div class="codehilite"><pre><span></span><span class="n">left</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;A&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="s1">&#39;B&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]})</span>
+<span class="n">right</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;A&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">],</span> <span class="s1">&#39;B&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]})</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;outer&#39;</span><span class="p">,</span> <span class="n">validate</span><span class="o">=</span><span class="s2">&quot;one_to_one&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;MergeError:&quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="n">MergeError</span><span class="o">:</span> <span class="n">Merge</span> <span class="n">keys</span> <span class="n">are</span> <span class="n">not</span> <span class="n">unique</span> <span class="k">in</span> <span class="n">right</span> <span class="n">dataset</span><span class="o">;</span> <span class="n">not</span> <span class="n">a</span> <span class="n">one</span><span class="o">-</span><span class="n">to</span><span class="o">-</span>
+<span class="n">one</span> <span class="n">merge</span>
+</pre></div>
+
+
+<p>如果用户知道右边的重复项，<code>DataFrame</code>但要确保左边的DataFrame中没有重复项，则可以改用该<code>validate='one_to_many'</code>参数，这不会引发异常。</p>
+<div class="codehilite"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;outer&#39;</span><span class="p">,</span> <span class="n">validate</span><span class="o">=</span><span class="s2">&quot;one_to_many&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">   A_x  B  A_y</span>
+<span class="err">0    1  1  NaN</span>
+<span class="err">1    2  2  4.0</span>
+<span class="err">2    2  2  5.0</span>
+<span class="err">3    2  2  6.0</span>
+</pre></div>
+
+
+<h3 id="indicator">指示符：indicator</h3>
+<p><a href="https://pandas.pydata.org/docs/reference/api/pandas.merge.html#pandas.merge"><code>merge()</code></a>接受指示符参数<code>indicator</code>。如果<code>indicator=True</code>，则将一个名为<code>_merge</code>，dtype为Categorical的列添加到输出DataFrame的末尾：</p>
+<table>
+<thead>
+<tr>
+<th align="left">indicator</th>
+<th align="left"><code>_merge</code>值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">仅出现在<code>'left'</code>组合键</td>
+<td align="left"><code>left_only</code></td>
+</tr>
+<tr>
+<td align="left">仅出现在<code>'right'</code>组合键</td>
+<td align="left"><code>right_only</code></td>
+</tr>
+<tr>
+<td align="left">同时出现在<code>'left'</code>和<code>'right'</code>组合键</td>
+<td align="left"><code>both</code></td>
+</tr>
+</tbody>
+</table>
+<div class="codehilite"><pre><span></span><span class="n">df1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;col1&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;col_left&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">]})</span>
+<span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;col1&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="s1">&#39;col_right&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]})</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df1</span><span class="p">,</span> <span class="n">df2</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;col1&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;outer&#39;</span><span class="p">,</span> <span class="n">indicator</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">   col1 col_left  col_right      _merge</span>
+<span class="err">0     0        a        NaN   left_only</span>
+<span class="err">1     1        b        2.0        both</span>
+<span class="err">2     2      NaN        2.0  right_only</span>
+<span class="err">3     2      NaN        2.0  right_only</span>
+</pre></div>
+
+
+<p><code>indicator</code>参数还可以接受字符串参数，在这种情况下，指标函数将使用传递的字符串的值作为<strong>指标列</strong>的名称。</p>
+<div class="codehilite"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df1</span><span class="p">,</span> <span class="n">df2</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;col1&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;outer&#39;</span><span class="p">,</span> <span class="n">indicator</span><span class="o">=</span><span class="s1">&#39;indicator_column&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">   col1 col_left  col_right indicator_column</span>
+<span class="err">0     0        a        NaN        left_only</span>
+<span class="err">1     1        b        2.0             both</span>
+<span class="err">2     2      NaN        2.0       right_only</span>
+<span class="err">3     2      NaN        2.0       right_only</span>
+</pre></div>
+
+
+<h3 id="_3">合并时数据类型的转换</h3>
+<p>合并将保留组合键的数据类型</p>
+<div class="codehilite"><pre><span></span><span class="n">left</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;key&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;v1&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">]})</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">right</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;key&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="s1">&#39;v1&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">]})</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">right</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span>   <span class="k">key</span>  <span class="n">v1</span>
+<span class="mi">0</span>    <span class="mi">1</span>  <span class="mi">10</span>
+
+   <span class="k">key</span>  <span class="n">v1</span>
+<span class="mi">0</span>    <span class="mi">1</span>  <span class="mi">20</span>
+<span class="mi">1</span>    <span class="mi">2</span>  <span class="mi">30</span>
+</pre></div>
+
+
+<p>我们可以保留组合键：</p>
+<div class="codehilite"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;outer&#39;</span><span class="p">),</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;outer&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">dtypes</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span>   <span class="k">key</span>  <span class="n">v1</span>
+<span class="mi">0</span>    <span class="mi">1</span>  <span class="mi">10</span>
+<span class="mi">1</span>    <span class="mi">1</span>  <span class="mi">20</span>
+<span class="mi">2</span>    <span class="mi">2</span>  <span class="mi">30</span>
+
+<span class="k">key</span>    <span class="n">int64</span>
+<span class="n">v1</span>     <span class="n">int64</span>
+<span class="n">dtype</span><span class="p">:</span> <span class="k">object</span>
+</pre></div>
+
+
+<p>如果缺少引入的值，则生成的dtype将被转换：</p>
+<div class="codehilite"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;outer&#39;</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;key&#39;</span><span class="p">),</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;outer&#39;</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;key&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">dtypes</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span>   <span class="k">key</span>  <span class="n">v1_x</span>  <span class="n">v1_y</span>
+<span class="mi">0</span>    <span class="mi">1</span>  <span class="mi">10</span><span class="p">.</span><span class="mi">0</span>    <span class="mi">20</span>
+<span class="mi">1</span>    <span class="mi">2</span>   <span class="n">NaN</span>    <span class="mi">30</span>
+
+<span class="k">key</span>       <span class="n">int64</span>
+<span class="n">v1_x</span>    <span class="n">float64</span>
+<span class="n">v1_y</span>      <span class="n">int64</span>
+<span class="n">dtype</span><span class="p">:</span> <span class="k">object</span>
+</pre></div>
+
+
+<p>合并将保留mergands的category类型。另请参阅关于<a href="https://pandas.pydata.org/docs/user_guide/categorical.html#categorical-merge">categoricals</a>的部分。</p>
+<p>left：</p>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">pandas.api.types</span> <span class="kn">import</span> <span class="n">CategoricalDtype</span>
+
+<span class="n">X</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">],</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,)))</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">CategoricalDtype</span><span class="p">(</span><span class="n">categories</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">]))</span>
+
+<span class="n">left</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;X&#39;</span><span class="p">:</span> <span class="n">X</span><span class="p">,</span>
+                     <span class="s1">&#39;Y&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">([</span><span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">,</span> <span class="s1">&#39;three&#39;</span><span class="p">],</span>
+                                           <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,))})</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">left</span><span class="o">.</span><span class="n">dtypes</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span>     <span class="n">X</span>      <span class="n">Y</span>
+<span class="mi">0</span>  <span class="n">foo</span>  <span class="n">three</span>
+<span class="mi">1</span>  <span class="n">foo</span>    <span class="n">two</span>
+<span class="mi">2</span>  <span class="n">bar</span>  <span class="n">three</span>
+<span class="mi">3</span>  <span class="n">bar</span>  <span class="n">three</span>
+<span class="mi">4</span>  <span class="n">bar</span>    <span class="n">two</span>
+<span class="mi">5</span>  <span class="n">foo</span>    <span class="n">two</span>
+<span class="mi">6</span>  <span class="n">bar</span>    <span class="n">two</span>
+<span class="mi">7</span>  <span class="n">bar</span>    <span class="n">one</span>
+<span class="mi">8</span>  <span class="n">bar</span>    <span class="n">two</span>
+<span class="mi">9</span>  <span class="n">bar</span>    <span class="n">two</span>
+
+<span class="n">X</span>    <span class="n">category</span>
+<span class="n">Y</span>      <span class="k">object</span>
+<span class="n">dtype</span><span class="p">:</span> <span class="k">object</span>
+</pre></div>
+
+
+<p>right：</p>
+<div class="codehilite"><pre><span></span><span class="n">right</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;X&#39;</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">],</span>
+                                     <span class="n">dtype</span><span class="o">=</span><span class="n">CategoricalDtype</span><span class="p">([</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">])),</span>
+                     <span class="s1">&#39;Z&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]})</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">right</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">right</span><span class="o">.</span><span class="n">dtypes</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span>     <span class="n">X</span>  <span class="n">Z</span>
+<span class="mi">0</span>  <span class="n">foo</span>  <span class="mi">1</span>
+<span class="mi">1</span>  <span class="n">bar</span>  <span class="mi">2</span>
+
+<span class="n">X</span>    <span class="n">category</span>
+<span class="n">Z</span>       <span class="n">int64</span>
+<span class="n">dtype</span><span class="p">:</span> <span class="k">object</span>
+</pre></div>
+
+
+<p>合并结果：</p>
+<div class="codehilite"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;outer&#39;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">dtypes</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span>     <span class="n">X</span>      <span class="n">Y</span>  <span class="n">Z</span>
+<span class="mi">0</span>  <span class="n">foo</span>  <span class="n">three</span>  <span class="mi">1</span>
+<span class="mi">1</span>  <span class="n">foo</span>    <span class="n">two</span>  <span class="mi">1</span>
+<span class="mi">2</span>  <span class="n">foo</span>    <span class="n">two</span>  <span class="mi">1</span>
+<span class="mi">3</span>  <span class="n">bar</span>  <span class="n">three</span>  <span class="mi">2</span>
+<span class="mi">4</span>  <span class="n">bar</span>  <span class="n">three</span>  <span class="mi">2</span>
+<span class="mi">5</span>  <span class="n">bar</span>    <span class="n">two</span>  <span class="mi">2</span>
+<span class="mi">6</span>  <span class="n">bar</span>    <span class="n">two</span>  <span class="mi">2</span>
+<span class="mi">7</span>  <span class="n">bar</span>    <span class="n">one</span>  <span class="mi">2</span>
+<span class="mi">8</span>  <span class="n">bar</span>    <span class="n">two</span>  <span class="mi">2</span>
+<span class="mi">9</span>  <span class="n">bar</span>    <span class="n">two</span>  <span class="mi">2</span>
+
+<span class="n">X</span>    <span class="n">category</span>
+<span class="n">Y</span>      <span class="k">object</span>
+<span class="n">Z</span>       <span class="n">int64</span>
+<span class="n">dtype</span><span class="p">:</span> <span class="k">object</span>
+</pre></div>
+
+
+<p>注意</p>
+<p>category 类型必须<strong>完全相同</strong>，这意味着category对象有相同的类别和有序属性。否则，category类型将被转换成object类型。</p>
+<p>注意</p>
+<p>与object数据类型合并相比，在相同的category数据类型上进行合并可以获得更好的性能。</p>
+<h3 id="dataframejoin"><a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.join.html#pandas.DataFrame.join"><code>DataFrame.join()</code></a></h3>
+<p>这是一个非常基本的示例：</p>
+<div class="codehilite"><pre><span></span><span class="n">left</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;A0&#39;</span><span class="p">,</span> <span class="s1">&#39;A1&#39;</span><span class="p">,</span> <span class="s1">&#39;A2&#39;</span><span class="p">],</span>
+                     <span class="s1">&#39;B&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;B0&#39;</span><span class="p">,</span> <span class="s1">&#39;B1&#39;</span><span class="p">,</span> <span class="s1">&#39;B2&#39;</span><span class="p">]},</span>
+                    <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;K0&#39;</span><span class="p">,</span> <span class="s1">&#39;K1&#39;</span><span class="p">,</span> <span class="s1">&#39;K2&#39;</span><span class="p">])</span>
+
+<span class="n">right</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;C0&#39;</span><span class="p">,</span> <span class="s1">&#39;C2&#39;</span><span class="p">,</span> <span class="s1">&#39;C3&#39;</span><span class="p">],</span>
+                      <span class="s1">&#39;D&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;D0&#39;</span><span class="p">,</span> <span class="s1">&#39;D2&#39;</span><span class="p">,</span> <span class="s1">&#39;D3&#39;</span><span class="p">]},</span>
+                     <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;K0&#39;</span><span class="p">,</span> <span class="s1">&#39;K2&#39;</span><span class="p">,</span> <span class="s1">&#39;K3&#39;</span><span class="p">])</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">left</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">right</span><span class="p">)</span>
+</pre></div>
+
+
+<p><img alt="../_images/merging_join.png" src="https://pandas.pydata.org/docs/_images/merging_join.png" /></p>
+<div class="codehilite"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">left</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">right</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;outer&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<p><img alt="../_images/merging_join_outer.png" src="https://pandas.pydata.org/docs/_images/merging_join_outer.png" /></p>
+<p>与上述相同，但带有<code>how='inner'</code>：</p>
+<div class="codehilite"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">left</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">right</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;inner&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<p><img alt="../_images/merging_join_inner.png" src="https://pandas.pydata.org/docs/_images/merging_join_inner.png" /></p>
+<p>此处的数据对齐在索引（行标签）上。使用<code>merge</code>指示其使用索引的附加参数可以实现相同的行为：</p>
+<div class="codehilite"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">left_index</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">right_index</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;outer&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<p><img alt="../_images/merging_merge_index_outer.png" src="https://pandas.pydata.org/docs/_images/merging_merge_index_outer.png" /></p>
+<div class="codehilite"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">left_index</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">right_index</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;inner&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<p><img alt="../_images/merging_merge_index_inner.png" src="https://pandas.pydata.org/docs/_images/merging_merge_index_inner.png" /></p>
+<h3 id="join_1">按<strong>组合键列</strong>和<strong>索引</strong>拼接：join</h3>
+<p><code>join()</code>接受一个可选的<code>on</code>参数，该参数可以是一个列或多个列名，它指定传递的DataFrame将在原DataFrame中的该列上对齐。即这两个函数调用完全等价：</p>
+<div class="codehilite"><pre><span></span><span class="n">left</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">right</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="n">key_or_keys</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="n">key_or_keys</span><span class="p">,</span> <span class="n">right_index</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+      <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+
+
+<p>显然，您可以选择任何一种更方便的形式。对于many-to-one拼接（其中一个DataFrame的索引是组合键），使用<code>join</code>可能会更方便。这是一个简单的示例：</p>
+<div class="codehilite"><pre><span></span><span class="n">left</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;A0&#39;</span><span class="p">,</span> <span class="s1">&#39;A1&#39;</span><span class="p">,</span> <span class="s1">&#39;A2&#39;</span><span class="p">,</span> <span class="s1">&#39;A3&#39;</span><span class="p">],</span>
+                     <span class="s1">&#39;B&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;B0&#39;</span><span class="p">,</span> <span class="s1">&#39;B1&#39;</span><span class="p">,</span> <span class="s1">&#39;B2&#39;</span><span class="p">,</span> <span class="s1">&#39;B3&#39;</span><span class="p">],</span>
+                   <span class="s1">&#39;key&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;K0&#39;</span><span class="p">,</span> <span class="s1">&#39;K1&#39;</span><span class="p">,</span> <span class="s1">&#39;K0&#39;</span><span class="p">,</span> <span class="s1">&#39;K1&#39;</span><span class="p">]})</span>
+
+<span class="n">right</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;C0&#39;</span><span class="p">,</span> <span class="s1">&#39;C1&#39;</span><span class="p">],</span>
+                      <span class="s1">&#39;D&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;D0&#39;</span><span class="p">,</span> <span class="s1">&#39;D1&#39;</span><span class="p">]},</span>
+                      <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;K0&#39;</span><span class="p">,</span> <span class="s1">&#39;K1&#39;</span><span class="p">])</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">left</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">right</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;key&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<p><img alt="../_images/merging_join_key_columns.png" src="https://pandas.pydata.org/docs/_images/merging_join_key_columns.png" /></p>
+<div class="codehilite"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="s1">&#39;key&#39;</span><span class="p">,</span> <span class="n">right_index</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                   <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="kc">False</span><span class="p">);</span>
+</pre></div>
+
+
+<p><img alt="../_images/merging_merge_key_columns.png" src="https://pandas.pydata.org/docs/_images/merging_merge_key_columns.png" /></p>
+<p>如果组合键有多个，传递的DataFrame必须具有<code>MultiIndex</code>：</p>
+<div class="codehilite"><pre><span></span><span class="n">left</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;A0&#39;</span><span class="p">,</span> <span class="s1">&#39;A1&#39;</span><span class="p">,</span> <span class="s1">&#39;A2&#39;</span><span class="p">,</span> <span class="s1">&#39;A3&#39;</span><span class="p">],</span>
+                     <span class="s1">&#39;B&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;B0&#39;</span><span class="p">,</span> <span class="s1">&#39;B1&#39;</span><span class="p">,</span> <span class="s1">&#39;B2&#39;</span><span class="p">,</span> <span class="s1">&#39;B3&#39;</span><span class="p">],</span>
+                  <span class="s1">&#39;key1&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;K0&#39;</span><span class="p">,</span> <span class="s1">&#39;K0&#39;</span><span class="p">,</span> <span class="s1">&#39;K1&#39;</span><span class="p">,</span> <span class="s1">&#39;K2&#39;</span><span class="p">],</span>
+                  <span class="s1">&#39;key2&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;K0&#39;</span><span class="p">,</span> <span class="s1">&#39;K1&#39;</span><span class="p">,</span> <span class="s1">&#39;K0&#39;</span><span class="p">,</span> <span class="s1">&#39;K1&#39;</span><span class="p">]})</span>
+
+<span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">MultiIndex</span><span class="o">.</span><span class="n">from_tuples</span><span class="p">([(</span><span class="s1">&#39;K0&#39;</span><span class="p">,</span> <span class="s1">&#39;K0&#39;</span><span class="p">),</span> 
+                                   <span class="p">(</span><span class="s1">&#39;K1&#39;</span><span class="p">,</span> <span class="s1">&#39;K0&#39;</span><span class="p">),</span>
+                                   <span class="p">(</span><span class="s1">&#39;K2&#39;</span><span class="p">,</span> <span class="s1">&#39;K0&#39;</span><span class="p">),</span> 
+                                   <span class="p">(</span><span class="s1">&#39;K2&#39;</span><span class="p">,</span> <span class="s1">&#39;K1&#39;</span><span class="p">)])</span>
+
+<span class="n">right</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;C0&#39;</span><span class="p">,</span> <span class="s1">&#39;C1&#39;</span><span class="p">,</span> <span class="s1">&#39;C2&#39;</span><span class="p">,</span> <span class="s1">&#39;C3&#39;</span><span class="p">],</span>
+                      <span class="s1">&#39;D&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;D0&#39;</span><span class="p">,</span> <span class="s1">&#39;D1&#39;</span><span class="p">,</span> <span class="s1">&#39;D2&#39;</span><span class="p">,</span> <span class="s1">&#39;D3&#39;</span><span class="p">]},</span>
+                      <span class="n">index</span><span class="o">=</span><span class="n">index</span><span class="p">)</span>
+</pre></div>
+
+
+<p>现在，可以通过传递两个组合键来进行拼接：</p>
+<div class="codehilite"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">left</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">right</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;key1&#39;</span><span class="p">,</span> <span class="s1">&#39;key2&#39;</span><span class="p">])</span>
+</pre></div>
+
+
+<p><img alt="../_images/merging_join_multikeys.png" src="https://pandas.pydata.org/docs/_images/merging_join_multikeys.png" /></p>
+<p>默认的<code>DataFrame.join</code>是执行左联接（对于Excel用户，本质上是“ VLOOKUP”操作），该联接仅使用在调用DataFrame中找到的键。其他联接类型（例如内部联接）也可以轻松执行：</p>
+<div class="codehilite"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">left</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">right</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;key1&#39;</span><span class="p">,</span> <span class="s1">&#39;key2&#39;</span><span class="p">],</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;inner&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<p><img alt="../_images/merging_join_multikeys_inner.png" src="https://pandas.pydata.org/docs/_images/merging_join_multikeys_inner.png" /></p>
+<p>如您所见，这将删除所有不匹配的行。</p>
+<h3 id="join_2">按<strong>单层索引</strong>和<strong>多层索引</strong>拼接：join</h3>
+<p>可以将单层索引DataFrame与多层索引DataFrame的<strong>一个级别</strong>连接起来。该级别将与单索引DataFrame的索引名称和多索引DataFrame的级别名称相匹配</p>
+<div class="codehilite"><pre><span></span><span class="n">left</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;A0&#39;</span><span class="p">,</span> <span class="s1">&#39;A1&#39;</span><span class="p">,</span> <span class="s1">&#39;A2&#39;</span><span class="p">],</span>
+                     <span class="s1">&#39;B&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;B0&#39;</span><span class="p">,</span> <span class="s1">&#39;B1&#39;</span><span class="p">,</span> <span class="s1">&#39;B2&#39;</span><span class="p">]},</span>
+              <span class="n">index</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Index</span><span class="p">([</span><span class="s1">&#39;K0&#39;</span><span class="p">,</span> <span class="s1">&#39;K1&#39;</span><span class="p">,</span> <span class="s1">&#39;K2&#39;</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;key&#39;</span><span class="p">))</span>
+
+<span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">MultiIndex</span><span class="o">.</span><span class="n">from_tuples</span><span class="p">([(</span><span class="s1">&#39;K0&#39;</span><span class="p">,</span> <span class="s1">&#39;Y0&#39;</span><span class="p">),</span> 
+                                   <span class="p">(</span><span class="s1">&#39;K1&#39;</span><span class="p">,</span> <span class="s1">&#39;Y1&#39;</span><span class="p">),</span> 
+                                   <span class="p">(</span><span class="s1">&#39;K2&#39;</span><span class="p">,</span> <span class="s1">&#39;Y2&#39;</span><span class="p">),</span> 
+                                   <span class="p">(</span><span class="s1">&#39;K2&#39;</span><span class="p">,</span> <span class="s1">&#39;Y3&#39;</span><span class="p">)],</span>
+                                  <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">,</span> <span class="s1">&#39;Y&#39;</span><span class="p">])</span>
+
+<span class="n">right</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;C0&#39;</span><span class="p">,</span> <span class="s1">&#39;C1&#39;</span><span class="p">,</span> <span class="s1">&#39;C2&#39;</span><span class="p">,</span> <span class="s1">&#39;C3&#39;</span><span class="p">],</span>
+                      <span class="s1">&#39;D&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;D0&#39;</span><span class="p">,</span> <span class="s1">&#39;D1&#39;</span><span class="p">,</span> <span class="s1">&#39;D2&#39;</span><span class="p">,</span> <span class="s1">&#39;D3&#39;</span><span class="p">]},</span>
+                      <span class="n">index</span><span class="o">=</span><span class="n">index</span><span class="p">)</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">left</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">right</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;inner&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<p><img alt="../_images/merging_join_multiindex_inner.png" src="https://pandas.pydata.org/docs/_images/merging_join_multiindex_inner.png" /></p>
+<p>下面的函数和上面的方法是等效的，但<code>pd.merge</code>的信息更详细，存储效率更高/更快。</p>
+<div class="codehilite"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">left</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(),</span> <span class="n">right</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(),</span>
+       <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">],</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;inner&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s1">&#39;key&#39;</span><span class="p">,</span><span class="s1">&#39;Y&#39;</span><span class="p">])</span>
+</pre></div>
+
+
+<p><img alt="../_images/merging_merge_multiindex_alternative.png" src="https://pandas.pydata.org/docs/_images/merging_merge_multiindex_alternative.png" /></p>
+<h3 id="multiindexesjoin">按MultiIndexes拼接：join</h3>
+<p>只要在连接中完全使用了右参数的索引，并且该参数是左参数中索引的子集，就可以用有限的方式来支持它，如下例所示：</p>
+<div class="codehilite"><pre><span></span><span class="n">leftindex</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">MultiIndex</span><span class="o">.</span><span class="n">from_product</span><span class="p">([</span><span class="nb">list</span><span class="p">(</span><span class="s1">&#39;abc&#39;</span><span class="p">),</span> <span class="nb">list</span><span class="p">(</span><span class="s1">&#39;xy&#39;</span><span class="p">),</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]],</span>
+                                       <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;abc&#39;</span><span class="p">,</span> <span class="s1">&#39;xy&#39;</span><span class="p">,</span> <span class="s1">&#39;num&#39;</span><span class="p">])</span>
+
+<span class="n">left</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;v1&#39;</span><span class="p">:</span> <span class="nb">range</span><span class="p">(</span><span class="mi">12</span><span class="p">)},</span> <span class="n">index</span><span class="o">=</span><span class="n">leftindex</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">rightindex</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">MultiIndex</span><span class="o">.</span><span class="n">from_product</span><span class="p">([</span><span class="nb">list</span><span class="p">(</span><span class="s1">&#39;abc&#39;</span><span class="p">),</span> <span class="nb">list</span><span class="p">(</span><span class="s1">&#39;xy&#39;</span><span class="p">)],</span>
+                                         <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;abc&#39;</span><span class="p">,</span> <span class="s1">&#39;xy&#39;</span><span class="p">])</span>
+
+<span class="n">right</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;v2&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">100</span> <span class="o">*</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">)]},</span> <span class="n">index</span><span class="o">=</span><span class="n">rightindex</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">right</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">left</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">right</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;abc&#39;</span><span class="p">,</span> <span class="s1">&#39;xy&#39;</span><span class="p">],</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;inner&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span>            <span class="n">v1</span>
+<span class="n">abc</span> <span class="n">xy</span> <span class="n">num</span>
+<span class="n">a</span>   <span class="n">x</span>  <span class="mi">1</span>     <span class="mi">0</span>
+       <span class="mi">2</span>     <span class="mi">1</span>
+    <span class="n">y</span>  <span class="mi">1</span>     <span class="mi">2</span>
+       <span class="mi">2</span>     <span class="mi">3</span>
+<span class="n">b</span>   <span class="n">x</span>  <span class="mi">1</span>     <span class="mi">4</span>
+       <span class="mi">2</span>     <span class="mi">5</span>
+    <span class="n">y</span>  <span class="mi">1</span>     <span class="mi">6</span>
+       <span class="mi">2</span>     <span class="mi">7</span>
+<span class="k">c</span>   <span class="n">x</span>  <span class="mi">1</span>     <span class="mi">8</span>
+       <span class="mi">2</span>     <span class="mi">9</span>
+    <span class="n">y</span>  <span class="mi">1</span>    <span class="mi">10</span>
+       <span class="mi">2</span>    <span class="mi">11</span>
+
+         <span class="n">v2</span>
+<span class="n">abc</span> <span class="n">xy</span>
+<span class="n">a</span>   <span class="n">x</span>   <span class="mi">100</span>
+    <span class="n">y</span>   <span class="mi">200</span>
+<span class="n">b</span>   <span class="n">x</span>   <span class="mi">300</span>
+    <span class="n">y</span>   <span class="mi">400</span>
+<span class="k">c</span>   <span class="n">x</span>   <span class="mi">500</span>
+    <span class="n">y</span>   <span class="mi">600</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">            v1   v2</span>
+<span class="err">abc xy num</span>
+<span class="err">a   x  1     0  100</span>
+<span class="err">       2     1  100</span>
+<span class="err">    y  1     2  200</span>
+<span class="err">       2     3  200</span>
+<span class="err">b   x  1     4  300</span>
+<span class="err">       2     5  300</span>
+<span class="err">    y  1     6  400</span>
+<span class="err">       2     7  400</span>
+<span class="err">c   x  1     8  500</span>
+<span class="err">       2     9  500</span>
+<span class="err">    y  1    10  600</span>
+<span class="err">       2    11  600</span>
+</pre></div>
+
+
+<p>如果不满足该条件，则可以使用以下代码完成具有两个多索引的联接。</p>
+<div class="codehilite"><pre><span></span><span class="n">leftindex</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">MultiIndex</span><span class="o">.</span><span class="n">from_tuples</span><span class="p">([(</span><span class="s1">&#39;K0&#39;</span><span class="p">,</span> <span class="s1">&#39;X0&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;K0&#39;</span><span class="p">,</span> <span class="s1">&#39;X1&#39;</span><span class="p">),</span>
+                                       <span class="p">(</span><span class="s1">&#39;K1&#39;</span><span class="p">,</span> <span class="s1">&#39;X2&#39;</span><span class="p">)],</span>
+                                      <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">,</span> <span class="s1">&#39;X&#39;</span><span class="p">])</span>
+
+<span class="n">left</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;A0&#39;</span><span class="p">,</span> <span class="s1">&#39;A1&#39;</span><span class="p">,</span> <span class="s1">&#39;A2&#39;</span><span class="p">],</span>
+                     <span class="s1">&#39;B&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;B0&#39;</span><span class="p">,</span> <span class="s1">&#39;B1&#39;</span><span class="p">,</span> <span class="s1">&#39;B2&#39;</span><span class="p">]},</span>
+                    <span class="n">index</span><span class="o">=</span><span class="n">leftindex</span><span class="p">)</span>
+
+<span class="n">rightindex</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">MultiIndex</span><span class="o">.</span><span class="n">from_tuples</span><span class="p">([(</span><span class="s1">&#39;K0&#39;</span><span class="p">,</span> <span class="s1">&#39;Y0&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;K1&#39;</span><span class="p">,</span> <span class="s1">&#39;Y1&#39;</span><span class="p">),</span>
+                                        <span class="p">(</span><span class="s1">&#39;K2&#39;</span><span class="p">,</span> <span class="s1">&#39;Y2&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;K2&#39;</span><span class="p">,</span> <span class="s1">&#39;Y3&#39;</span><span class="p">)],</span>
+                                       <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">,</span> <span class="s1">&#39;Y&#39;</span><span class="p">])</span>
+
+<span class="n">right</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;C0&#39;</span><span class="p">,</span> <span class="s1">&#39;C1&#39;</span><span class="p">,</span> <span class="s1">&#39;C2&#39;</span><span class="p">,</span> <span class="s1">&#39;C3&#39;</span><span class="p">],</span>
+                      <span class="s1">&#39;D&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;D0&#39;</span><span class="p">,</span> <span class="s1">&#39;D1&#39;</span><span class="p">,</span> <span class="s1">&#39;D2&#39;</span><span class="p">,</span> <span class="s1">&#39;D3&#39;</span><span class="p">]},</span>
+                     <span class="n">index</span><span class="o">=</span><span class="n">rightindex</span><span class="p">)</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">left</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(),</span> <span class="n">right</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(),</span>
+                  <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">],</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;inner&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s1">&#39;key&#39;</span><span class="p">,</span> <span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="s1">&#39;Y&#39;</span><span class="p">])</span>
+</pre></div>
+
+
+<p><img alt="../_images/merging_merge_two_multiindex.png" src="https://pandas.pydata.org/docs/_images/merging_merge_two_multiindex.png" /></p>
+<h3 id="_4">按照列和索引合并</h3>
+<p><em>0.23版中的新功能。</em></p>
+<p><code>on</code>、<code>left_on</code>和<code>right_on</code>参数可以引用列名或索引级名称。这允许在索引和列的组合上合并DataFrame实例，而不必重置索引：</p>
+<div class="codehilite"><pre><span></span><span class="n">left_index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Index</span><span class="p">([</span><span class="s1">&#39;K0&#39;</span><span class="p">,</span> <span class="s1">&#39;K0&#39;</span><span class="p">,</span> <span class="s1">&#39;K1&#39;</span><span class="p">,</span> <span class="s1">&#39;K2&#39;</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;key1&#39;</span><span class="p">)</span>
+
+<span class="n">left</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;A0&#39;</span><span class="p">,</span> <span class="s1">&#39;A1&#39;</span><span class="p">,</span> <span class="s1">&#39;A2&#39;</span><span class="p">,</span> <span class="s1">&#39;A3&#39;</span><span class="p">],</span>
+                     <span class="s1">&#39;B&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;B0&#39;</span><span class="p">,</span> <span class="s1">&#39;B1&#39;</span><span class="p">,</span> <span class="s1">&#39;B2&#39;</span><span class="p">,</span> <span class="s1">&#39;B3&#39;</span><span class="p">],</span>
+                  <span class="s1">&#39;key2&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;K0&#39;</span><span class="p">,</span> <span class="s1">&#39;K1&#39;</span><span class="p">,</span> <span class="s1">&#39;K0&#39;</span><span class="p">,</span> <span class="s1">&#39;K1&#39;</span><span class="p">]},</span>
+                    <span class="n">index</span><span class="o">=</span><span class="n">left_index</span><span class="p">)</span>
+
+<span class="n">right_index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Index</span><span class="p">([</span><span class="s1">&#39;K0&#39;</span><span class="p">,</span> <span class="s1">&#39;K1&#39;</span><span class="p">,</span> <span class="s1">&#39;K2&#39;</span><span class="p">,</span> <span class="s1">&#39;K2&#39;</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;key1&#39;</span><span class="p">)</span>
+
+<span class="n">right</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;C&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;C0&#39;</span><span class="p">,</span> <span class="s1">&#39;C1&#39;</span><span class="p">,</span> <span class="s1">&#39;C2&#39;</span><span class="p">,</span> <span class="s1">&#39;C3&#39;</span><span class="p">],</span>
+                      <span class="s1">&#39;D&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;D0&#39;</span><span class="p">,</span> <span class="s1">&#39;D1&#39;</span><span class="p">,</span> <span class="s1">&#39;D2&#39;</span><span class="p">,</span> <span class="s1">&#39;D3&#39;</span><span class="p">],</span>
+                   <span class="s1">&#39;key2&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;K0&#39;</span><span class="p">,</span> <span class="s1">&#39;K0&#39;</span><span class="p">,</span> <span class="s1">&#39;K0&#39;</span><span class="p">,</span> <span class="s1">&#39;K1&#39;</span><span class="p">]},</span>
+                     <span class="n">index</span><span class="o">=</span><span class="n">right_index</span><span class="p">)</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">left</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">right</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;key1&#39;</span><span class="p">,</span> <span class="s1">&#39;key2&#39;</span><span class="p">])</span>
+</pre></div>
+
+
+<p><img alt="../_images/merge_on_index_and_column.png" src="https://pandas.pydata.org/docs/_images/merge_on_index_and_column.png" /></p>
+<h3 id="_5">值列重叠</h3>
+<p><code>merge</code>函数的<code>suffixes</code>参数接受字符串列表的元组，以附加到输入DataFrame中重叠的列名以消除结果列的歧义：</p>
+<div class="codehilite"><pre><span></span><span class="n">left</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;k&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;K0&#39;</span><span class="p">,</span> <span class="s1">&#39;K1&#39;</span><span class="p">,</span> <span class="s1">&#39;K2&#39;</span><span class="p">],</span> <span class="s1">&#39;v&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]})</span>
+<span class="n">right</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;k&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;K0&#39;</span><span class="p">,</span> <span class="s1">&#39;K0&#39;</span><span class="p">,</span> <span class="s1">&#39;K3&#39;</span><span class="p">],</span> <span class="s1">&#39;v&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]})</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<p><img alt="../_images/merging_merge_overlapped.png" src="https://pandas.pydata.org/docs/_images/merging_merge_overlapped.png" /></p>
+<div class="codehilite"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">suffixes</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;_l&#39;</span><span class="p">,</span> <span class="s1">&#39;_r&#39;</span><span class="p">])</span>
+</pre></div>
+
+
+<p><img alt="../_images/merging_merge_overlapped_suffix.png" src="https://pandas.pydata.org/docs/_images/merging_merge_overlapped_suffix.png" /></p>
+<p><a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.join.html#pandas.DataFrame.join"><code>DataFrame.join()</code></a>具有<code>lsuffix</code>和<code>rsuffix</code>行为类似的参数。</p>
+<div class="codehilite"><pre><span></span><span class="n">left</span> <span class="o">=</span> <span class="n">left</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">right</span> <span class="o">=</span> <span class="n">right</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">left</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">right</span><span class="p">,</span> <span class="n">lsuffix</span><span class="o">=</span><span class="s1">&#39;_l&#39;</span><span class="p">,</span> <span class="n">rsuffix</span><span class="o">=</span><span class="s1">&#39;_r&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<p><img alt="../_images/merging_merge_overlapped_multi_suffix.png" src="https://pandas.pydata.org/docs/_images/merging_merge_overlapped_multi_suffix.png" /></p>
+<h3 id="dataframes">拼接多个DataFrames</h3>
+<p><code>DataFrames</code>也可以传递的列表或元组以<a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.join.html#pandas.DataFrame.join"><code>join()</code></a> 将它们连接到它们的索引上。</p>
+<div class="codehilite"><pre><span></span><span class="n">right2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;v&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]},</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;K1&#39;</span><span class="p">,</span> <span class="s1">&#39;K1&#39;</span><span class="p">,</span> <span class="s1">&#39;K2&#39;</span><span class="p">])</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">left</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">right</span><span class="p">,</span> <span class="n">right2</span><span class="p">])</span>
+</pre></div>
+
+
+<p><img alt="../_images/merging_join_multi_df.png" src="https://pandas.pydata.org/docs/_images/merging_join_multi_df.png" /></p>
+<h3 id="_6">按索引填补缺失值</h3>
+<p>另一个相当常见的情况是有两个索引存在交集的对象，其中一个存在缺失值，想通过另一个对象填补缺失值。这是一个例子：</p>
+<div class="codehilite"><pre><span></span><span class="n">df1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([[</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mf">3.</span><span class="p">,</span> <span class="mf">5.</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mf">4.6</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">],</span>
+                   <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mf">7.</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">]])</span>
+
+<span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([[</span><span class="o">-</span><span class="mf">42.6</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="o">-</span><span class="mf">8.2</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mf">5.</span><span class="p">,</span> <span class="mf">1.6</span><span class="p">,</span> <span class="mi">4</span><span class="p">]],</span>
+                   <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+</pre></div>
+
+
+<p><a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.combine_first.html#pandas.DataFrame.combine_first"><code>combine_first()</code></a>方法可以达到这个效果：</p>
+<div class="codehilite"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">df1</span><span class="o">.</span><span class="n">combine_first</span><span class="p">(</span><span class="n">df2</span><span class="p">)</span>
+</pre></div>
+
+
+<p><img alt="../_images/merging_combine_first.png" src="https://pandas.pydata.org/docs/_images/merging_combine_first.png" /></p>
+<p>请注意，<code>combine_first</code>返回副本，而<a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.update.html#pandas.DataFrame.update"><code>update()</code></a>则会修改原对象：</p>
+<div class="codehilite"><pre><span></span><span class="n">df1</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">df2</span><span class="p">)</span>
+</pre></div>
+
+
+<p><img alt="../_images/merging_update.png" src="https://pandas.pydata.org/docs/_images/merging_update.png" /></p>
+<h2 id="_7">合并时间序列</h2>
+<h3 id="_8">合并有序数据</h3>
+<p><a href="https://pandas.pydata.org/docs/reference/api/pandas.merge_ordered.html#pandas.merge_ordered"><code>merge_ordered()</code></a>函数允许组合时间序列和其他有序数据。</p>
+<div class="codehilite"><pre><span></span><span class="n">merge_ordered</span><span class="p">(</span>
+    <span class="n">left</span><span class="p">,</span>
+    <span class="n">right</span><span class="p">,</span>
+    <span class="n">on</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">left_on</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">right_on</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">left_by</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">right_by</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">fill_method</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">suffixes</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;_x&quot;</span><span class="p">,</span> <span class="s2">&quot;_y&quot;</span><span class="p">),</span>
+    <span class="n">how</span><span class="o">=</span><span class="s2">&quot;outer&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+
+
+<ul>
+<li><code>left_by</code>: Group left DataFrame by group columns and merge piece by piece with right DataFrame</li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="n">left</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;k&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;K0&#39;</span><span class="p">,</span> <span class="s1">&#39;K1&#39;</span><span class="p">,</span> <span class="s1">&#39;K1&#39;</span><span class="p">,</span> <span class="s1">&#39;K2&#39;</span><span class="p">],</span>
+                    <span class="s1">&#39;lv&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
+                     <span class="s1">&#39;s&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">]})</span>
+
+<span class="n">right</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;k&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;K1&#39;</span><span class="p">,</span> <span class="s1">&#39;K2&#39;</span><span class="p">,</span> <span class="s1">&#39;K4&#39;</span><span class="p">],</span>
+                     <span class="s1">&#39;rv&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]})</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">right</span><span class="p">)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">merge_ordered</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">fill_method</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">left_by</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span>    <span class="n">k</span>  <span class="n">lv</span>  <span class="n">s</span>
+<span class="mi">0</span>  <span class="n">K0</span>   <span class="mi">1</span>  <span class="n">a</span>
+<span class="mi">1</span>  <span class="n">K1</span>   <span class="mi">2</span>  <span class="n">b</span>
+<span class="mi">2</span>  <span class="n">K1</span>   <span class="mi">3</span>  <span class="k">c</span>
+<span class="mi">3</span>  <span class="n">K2</span>   <span class="mi">4</span>  <span class="n">d</span>
+
+    <span class="n">k</span>  <span class="n">rv</span>
+<span class="mi">0</span>  <span class="n">K1</span>   <span class="mi">1</span>
+<span class="mi">1</span>  <span class="n">K2</span>   <span class="mi">2</span>
+<span class="mi">2</span>  <span class="n">K4</span>   <span class="mi">3</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">     k   lv  s   rv</span>
+<span class="err">0   K0  1.0  a  NaN</span>
+<span class="err">1   K1  NaN  a  1.0</span>
+<span class="err">2   K2  NaN  a  2.0</span>
+<span class="err">3   K4  NaN  a  3.0</span>
+<span class="err">4   K1  2.0  b  1.0</span>
+<span class="err">5   K2  NaN  b  2.0</span>
+<span class="err">6   K4  NaN  b  3.0</span>
+<span class="err">7   K1  3.0  c  1.0</span>
+<span class="err">8   K2  NaN  c  2.0</span>
+<span class="err">9   K4  NaN  c  3.0</span>
+<span class="err">10  K1  NaN  d  1.0</span>
+<span class="err">11  K2  4.0  d  2.0</span>
+<span class="err">12  K4  NaN  d  3.0</span>
+</pre></div>
+
+
+<p>它具有一个可选<code>fill_method</code>关键字来填充丢失的数据：</p>
+<div class="codehilite"><pre><span></span><span class="c1"># 前向填充：后面的缺失值用前面的数字填充</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">merge_ordered</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">fill_method</span><span class="o">=</span><span class="s2">&quot;ffill&quot;</span><span class="p">,</span> <span class="n">left_by</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">     k   lv  s   rv</span>
+<span class="err">0   K0  1.0  a  NaN</span>
+<span class="err">1   K1  1.0  a  1.0</span>
+<span class="err">2   K2  1.0  a  2.0</span>
+<span class="err">3   K4  1.0  a  3.0</span>
+<span class="err">4   K1  2.0  b  1.0</span>
+<span class="err">5   K2  2.0  b  2.0</span>
+<span class="err">6   K4  2.0  b  3.0</span>
+<span class="err">7   K1  3.0  c  1.0</span>
+<span class="err">8   K2  3.0  c  2.0</span>
+<span class="err">9   K4  3.0  c  3.0</span>
+<span class="err">10  K1  NaN  d  1.0</span>
+<span class="err">11  K2  4.0  d  2.0</span>
+<span class="err">12  K4  4.0  d  3.0</span>
+</pre></div>
+
+
+<h3 id="asof">合并ASOF</h3>
+<p><a href="https://pandas.pydata.org/docs/reference/api/pandas.merge_asof.html#pandas.merge_asof"><code>merge_asof()</code></a>类似于有序左联接，只是我们匹配最近的键而不是相等的键。对于左数据框中的每一行，我们选择右数据框中的最后一行，该行的on键小于lefs键。两个数据帧都必须按键排序。</p>
+<p>可选地，asof合并可以执行逐组合并。除了on键上最接近的匹配之外，它与by键的匹配相同</p>
+<div class="codehilite"><pre><span></span><span class="n">merge_asof</span><span class="p">(</span>
+    <span class="n">left</span><span class="p">,</span>
+    <span class="n">right</span><span class="p">,</span>
+    <span class="n">on</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">left_on</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">right_on</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">left_index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">right_index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">by</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">left_by</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">right_by</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">suffixes</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;_x&quot;</span><span class="p">,</span> <span class="s2">&quot;_y&quot;</span><span class="p">),</span>
+    <span class="n">tolerance</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">allow_exact_matches</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">direction</span><span class="o">=</span><span class="s2">&quot;backward&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+
+
+<p>例如，我们可能有<code>trades</code>和<code>quotes</code>，我们想合并它们</p>
+<div class="codehilite"><pre><span></span><span class="n">trades</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+     <span class="s1">&#39;time&#39;</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">([</span><span class="s1">&#39;20160525 13:30:00.023&#39;</span><span class="p">,</span>
+                             <span class="s1">&#39;20160525 13:30:00.038&#39;</span><span class="p">,</span>
+                             <span class="s1">&#39;20160525 13:30:00.048&#39;</span><span class="p">,</span>
+                             <span class="s1">&#39;20160525 13:30:00.048&#39;</span><span class="p">,</span>
+                             <span class="s1">&#39;20160525 13:30:00.048&#39;</span><span class="p">]),</span>
+     <span class="s1">&#39;ticker&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;MSFT&#39;</span><span class="p">,</span> <span class="s1">&#39;MSFT&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;GOOG&#39;</span><span class="p">,</span> <span class="s1">&#39;GOOG&#39;</span><span class="p">,</span> <span class="s1">&#39;AAPL&#39;</span><span class="p">],</span>
+     <span class="s1">&#39;price&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">51.95</span><span class="p">,</span> <span class="mf">51.95</span><span class="p">,</span>
+               <span class="mf">720.77</span><span class="p">,</span> <span class="mf">720.92</span><span class="p">,</span> <span class="mf">98.00</span><span class="p">],</span>
+     <span class="s1">&#39;quantity&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">75</span><span class="p">,</span> <span class="mi">155</span><span class="p">,</span>
+                  <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">]},</span>
+     <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="s1">&#39;ticker&#39;</span><span class="p">,</span> <span class="s1">&#39;price&#39;</span><span class="p">,</span> <span class="s1">&#39;quantity&#39;</span><span class="p">])</span>
+
+
+<span class="n">quotes</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+     <span class="s1">&#39;time&#39;</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">([</span><span class="s1">&#39;20160525 13:30:00.023&#39;</span><span class="p">,</span>
+                             <span class="s1">&#39;20160525 13:30:00.023&#39;</span><span class="p">,</span>
+                             <span class="s1">&#39;20160525 13:30:00.030&#39;</span><span class="p">,</span>
+                             <span class="s1">&#39;20160525 13:30:00.041&#39;</span><span class="p">,</span>
+                             <span class="s1">&#39;20160525 13:30:00.048&#39;</span><span class="p">,</span>
+                             <span class="s1">&#39;20160525 13:30:00.049&#39;</span><span class="p">,</span>
+                             <span class="s1">&#39;20160525 13:30:00.072&#39;</span><span class="p">,</span>
+                             <span class="s1">&#39;20160525 13:30:00.075&#39;</span><span class="p">]),</span>
+     <span class="s1">&#39;ticker&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;GOOG&#39;</span><span class="p">,</span> <span class="s1">&#39;MSFT&#39;</span><span class="p">,</span> <span class="s1">&#39;MSFT&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;MSFT&#39;</span><span class="p">,</span> <span class="s1">&#39;GOOG&#39;</span><span class="p">,</span> <span class="s1">&#39;AAPL&#39;</span><span class="p">,</span> <span class="s1">&#39;GOOG&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;MSFT&#39;</span><span class="p">],</span>
+     <span class="s1">&#39;bid&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">720.50</span><span class="p">,</span> <span class="mf">51.95</span><span class="p">,</span> <span class="mf">51.97</span><span class="p">,</span> <span class="mf">51.99</span><span class="p">,</span>
+             <span class="mf">720.50</span><span class="p">,</span> <span class="mf">97.99</span><span class="p">,</span> <span class="mf">720.50</span><span class="p">,</span> <span class="mf">52.01</span><span class="p">],</span>
+     <span class="s1">&#39;ask&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">720.93</span><span class="p">,</span> <span class="mf">51.96</span><span class="p">,</span> <span class="mf">51.98</span><span class="p">,</span> <span class="mf">52.00</span><span class="p">,</span>
+             <span class="mf">720.93</span><span class="p">,</span> <span class="mf">98.01</span><span class="p">,</span> <span class="mf">720.88</span><span class="p">,</span> <span class="mf">52.03</span><span class="p">]},</span>
+     <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="s1">&#39;ticker&#39;</span><span class="p">,</span> <span class="s1">&#39;bid&#39;</span><span class="p">,</span> <span class="s1">&#39;ask&#39;</span><span class="p">])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">trades</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">quotes</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span>                     <span class="n">time</span> <span class="n">ticker</span>   <span class="n">price</span>  <span class="n">quantity</span>
+<span class="mi">0</span> <span class="mi">2016</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">25</span> <span class="mi">13</span><span class="p">:</span><span class="mi">30</span><span class="p">:</span><span class="mi">00</span><span class="p">.</span><span class="mi">023</span>   <span class="n">MSFT</span>   <span class="mi">51</span><span class="p">.</span><span class="mi">95</span>        <span class="mi">75</span>
+<span class="mi">1</span> <span class="mi">2016</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">25</span> <span class="mi">13</span><span class="p">:</span><span class="mi">30</span><span class="p">:</span><span class="mi">00</span><span class="p">.</span><span class="mi">038</span>   <span class="n">MSFT</span>   <span class="mi">51</span><span class="p">.</span><span class="mi">95</span>       <span class="mi">155</span>
+<span class="mi">2</span> <span class="mi">2016</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">25</span> <span class="mi">13</span><span class="p">:</span><span class="mi">30</span><span class="p">:</span><span class="mi">00</span><span class="p">.</span><span class="mi">048</span>   <span class="n">GOOG</span>  <span class="mi">720</span><span class="p">.</span><span class="mi">77</span>       <span class="mi">100</span>
+<span class="mi">3</span> <span class="mi">2016</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">25</span> <span class="mi">13</span><span class="p">:</span><span class="mi">30</span><span class="p">:</span><span class="mi">00</span><span class="p">.</span><span class="mi">048</span>   <span class="n">GOOG</span>  <span class="mi">720</span><span class="p">.</span><span class="mi">92</span>       <span class="mi">100</span>
+<span class="mi">4</span> <span class="mi">2016</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">25</span> <span class="mi">13</span><span class="p">:</span><span class="mi">30</span><span class="p">:</span><span class="mi">00</span><span class="p">.</span><span class="mi">048</span>   <span class="n">AAPL</span>   <span class="mi">98</span><span class="p">.</span><span class="mi">00</span>       <span class="mi">100</span>
+
+                     <span class="n">time</span> <span class="n">ticker</span>     <span class="n">bid</span>     <span class="n">ask</span>
+<span class="mi">0</span> <span class="mi">2016</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">25</span> <span class="mi">13</span><span class="p">:</span><span class="mi">30</span><span class="p">:</span><span class="mi">00</span><span class="p">.</span><span class="mi">023</span>   <span class="n">GOOG</span>  <span class="mi">720</span><span class="p">.</span><span class="mi">50</span>  <span class="mi">720</span><span class="p">.</span><span class="mi">93</span>
+<span class="mi">1</span> <span class="mi">2016</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">25</span> <span class="mi">13</span><span class="p">:</span><span class="mi">30</span><span class="p">:</span><span class="mi">00</span><span class="p">.</span><span class="mi">023</span>   <span class="n">MSFT</span>   <span class="mi">51</span><span class="p">.</span><span class="mi">95</span>   <span class="mi">51</span><span class="p">.</span><span class="mi">96</span>
+<span class="mi">2</span> <span class="mi">2016</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">25</span> <span class="mi">13</span><span class="p">:</span><span class="mi">30</span><span class="p">:</span><span class="mi">00</span><span class="p">.</span><span class="mi">030</span>   <span class="n">MSFT</span>   <span class="mi">51</span><span class="p">.</span><span class="mi">97</span>   <span class="mi">51</span><span class="p">.</span><span class="mi">98</span>
+<span class="mi">3</span> <span class="mi">2016</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">25</span> <span class="mi">13</span><span class="p">:</span><span class="mi">30</span><span class="p">:</span><span class="mi">00</span><span class="p">.</span><span class="mi">041</span>   <span class="n">MSFT</span>   <span class="mi">51</span><span class="p">.</span><span class="mi">99</span>   <span class="mi">52</span><span class="p">.</span><span class="mi">00</span>
+<span class="mi">4</span> <span class="mi">2016</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">25</span> <span class="mi">13</span><span class="p">:</span><span class="mi">30</span><span class="p">:</span><span class="mi">00</span><span class="p">.</span><span class="mi">048</span>   <span class="n">GOOG</span>  <span class="mi">720</span><span class="p">.</span><span class="mi">50</span>  <span class="mi">720</span><span class="p">.</span><span class="mi">93</span>
+<span class="mi">5</span> <span class="mi">2016</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">25</span> <span class="mi">13</span><span class="p">:</span><span class="mi">30</span><span class="p">:</span><span class="mi">00</span><span class="p">.</span><span class="mi">049</span>   <span class="n">AAPL</span>   <span class="mi">97</span><span class="p">.</span><span class="mi">99</span>   <span class="mi">98</span><span class="p">.</span><span class="mi">01</span>
+<span class="mi">6</span> <span class="mi">2016</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">25</span> <span class="mi">13</span><span class="p">:</span><span class="mi">30</span><span class="p">:</span><span class="mi">00</span><span class="p">.</span><span class="mi">072</span>   <span class="n">GOOG</span>  <span class="mi">720</span><span class="p">.</span><span class="mi">50</span>  <span class="mi">720</span><span class="p">.</span><span class="mi">88</span>
+<span class="mi">7</span> <span class="mi">2016</span><span class="o">-</span><span class="mi">05</span><span class="o">-</span><span class="mi">25</span> <span class="mi">13</span><span class="p">:</span><span class="mi">30</span><span class="p">:</span><span class="mi">00</span><span class="p">.</span><span class="mi">075</span>   <span class="n">MSFT</span>   <span class="mi">52</span><span class="p">.</span><span class="mi">01</span>   <span class="mi">52</span><span class="p">.</span><span class="mi">03</span>
+</pre></div>
+
+
+<p>默认情况下，我们采用的是quotes。</p>
+<div class="codehilite"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">merge_asof</span><span class="p">(</span><span class="n">trades</span><span class="p">,</span> <span class="n">quotes</span><span class="p">,</span>
+               <span class="n">on</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">,</span>
+               <span class="n">by</span><span class="o">=</span><span class="s1">&#39;ticker&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">                     time ticker   price  quantity     bid     ask</span>
+<span class="err">0 2016-05-25 13:30:00.023   MSFT   51.95        75   51.95   51.96</span>
+<span class="err">1 2016-05-25 13:30:00.038   MSFT   51.95       155   51.97   51.98</span>
+<span class="err">2 2016-05-25 13:30:00.048   GOOG  720.77       100  720.50  720.93</span>
+<span class="err">3 2016-05-25 13:30:00.048   GOOG  720.92       100  720.50  720.93</span>
+<span class="err">4 2016-05-25 13:30:00.048   AAPL   98.00       100     NaN     NaN</span>
+</pre></div>
+
+
+<p>我们只在quote 时间和trade 时间之间的2毫秒内合并：</p>
+<div class="codehilite"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">merge_asof</span><span class="p">(</span><span class="n">trades</span><span class="p">,</span> <span class="n">quotes</span><span class="p">,</span>
+               <span class="n">on</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">,</span>
+               <span class="n">by</span><span class="o">=</span><span class="s1">&#39;ticker&#39;</span><span class="p">,</span>
+               <span class="n">tolerance</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Timedelta</span><span class="p">(</span><span class="s1">&#39;2ms&#39;</span><span class="p">))</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">                     time ticker   price  quantity     bid     ask</span>
+<span class="err">0 2016-05-25 13:30:00.023   MSFT   51.95        75   51.95   51.96</span>
+<span class="err">1 2016-05-25 13:30:00.038   MSFT   51.95       155     NaN     NaN</span>
+<span class="err">2 2016-05-25 13:30:00.048   GOOG  720.77       100  720.50  720.93</span>
+<span class="err">3 2016-05-25 13:30:00.048   GOOG  720.92       100  720.50  720.93</span>
+<span class="err">4 2016-05-25 13:30:00.048   AAPL   98.00       100     NaN     NaN</span>
+</pre></div>
+
+
+<p>我们只在quote 时间和trade 时间之间的10毫秒内合并，并且不包括精确匹配。注意，尽管我们排除了（quotes的）完全匹配项，但以前的quotes确实会传播到那个时间点。</p>
+<div class="codehilite"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">merge_asof</span><span class="p">(</span><span class="n">trades</span><span class="p">,</span> <span class="n">quotes</span><span class="p">,</span>
+               <span class="n">on</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">,</span>
+               <span class="n">by</span><span class="o">=</span><span class="s1">&#39;ticker&#39;</span><span class="p">,</span>
+               <span class="n">tolerance</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">Timedelta</span><span class="p">(</span><span class="s1">&#39;10ms&#39;</span><span class="p">),</span>
+               <span class="n">allow_exact_matches</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">                     time ticker   price  quantity    bid    ask</span>
+<span class="err">0 2016-05-25 13:30:00.023   MSFT   51.95        75    NaN    NaN</span>
+<span class="err">1 2016-05-25 13:30:00.038   MSFT   51.95       155  51.97  51.98</span>
+<span class="err">2 2016-05-25 13:30:00.048   GOOG  720.77       100    NaN    NaN</span>
+<span class="err">3 2016-05-25 13:30:00.048   GOOG  720.92       100    NaN    NaN</span>
+<span class="err">4 2016-05-25 13:30:00.048   AAPL   98.00       100    NaN    NaN</span>
+</pre></div>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="7.5.索引的基本操作.html" title="7.5.索引的基本操作" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  上一页
+                </span>
+                7.5.索引的基本操作
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="7.7.变换索引.html" title="7.7.变换索引" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  下一页
+                </span>
+                7.7.变换索引
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application.245445c6.js"></script>
+      
+        
+        
+          
+          <script src="../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+                <script src="../assets/javascripts/lunr/tinyseg.js"></script>
+              
+              
+                <script src="../assets/javascripts/lunr/lunr.ja.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
+      
+        <script src="../javascript/extra.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+    
+  </body>
+</html>

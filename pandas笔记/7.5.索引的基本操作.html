@@ -1,0 +1,1855 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="ja">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.0">
+    
+    
+      
+        <title>7.5.索引的基本操作 - Python笔记</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application.0284f74d.css">
+      
+      
+    
+    
+      <script src="../assets/javascripts/modernizr.74668098.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#_1" tabindex="1" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href=".." title="Python笔记" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Python笔记
+            </span>
+            <span class="md-header-nav__topic">
+              
+                7.5.索引的基本操作
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/siwing/siwing.github.io/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href=".." title="Python笔记" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    Python笔记
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/siwing/siwing.github.io/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1">
+    
+    <label class="md-nav__link" for="nav-1">
+      计算机基础
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        计算机基础
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../计算机基础/1.1.计算机与程序结构.html" title="1.1.计算机与程序结构" class="md-nav__link">
+      1.1.计算机与程序结构
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../计算机基础/1.2.基本概念.html" title="1.2.基本概念" class="md-nav__link">
+      1.2.基本概念
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../计算机基础/1.3.编译型语言和解释型语言的优缺点对比.html" title="1.3.编译型语言和解释型语言的优缺点对比" class="md-nav__link">
+      1.3.编译型语言和解释型语言的优缺点对比
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../计算机基础/1.4.字符编码.html" title="1.4.字符编码" class="md-nav__link">
+      1.4.字符编码
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Python 基础
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Python 基础
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python基础/2.1.python基本语法.html" title="2.1.python基本语法" class="md-nav__link">
+      2.1.python基本语法
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python基础/2.2.语句.html" title="2.2.语句" class="md-nav__link">
+      2.2.语句
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python基础/2.3.List.html" title="2.3.List" class="md-nav__link">
+      2.3.List
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python基础/2.4.String.html" title="2.4.String" class="md-nav__link">
+      2.4.String
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python基础/2.5.Tuple.html" title="2.5.Tuple" class="md-nav__link">
+      2.5.Tuple
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python基础/2.6.Dict.html" title="2.6.Dict" class="md-nav__link">
+      2.6.Dict
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python基础/2.7.推导式.html" title="2.7.推导式" class="md-nav__link">
+      2.7.推导式
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python基础/2.8.赋值、immutable、深拷贝.html" title="2.8.赋值、immutable、深拷贝" class="md-nav__link">
+      2.8.赋值、immutable、深拷贝
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python基础/2.9.函数.html" title="2.9.函数" class="md-nav__link">
+      2.9.函数
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python基础/3.1.异常.html" title="3.1.异常" class="md-nav__link">
+      3.1.异常
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python基础/3.2.命名空间和作用域.html" title="3.2.命名空间和作用域" class="md-nav__link">
+      3.2.命名空间和作用域
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python基础/3.3.闭包.html" title="3.3.闭包" class="md-nav__link">
+      3.3.闭包
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python基础/3.4.装饰器.html" title="3.4.装饰器" class="md-nav__link">
+      3.4.装饰器
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python基础/4.1.类.html" title="4.1.类" class="md-nav__link">
+      4.1.类
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python基础/4.2.模块.html" title="4.2.模块" class="md-nav__link">
+      4.2.模块
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python基础/4.3.魔术方法.html" title="4.3.魔术方法" class="md-nav__link">
+      4.3.魔术方法
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      开发环境管理
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        开发环境管理
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../开发环境管理/5.1.conda笔记.html" title="5.1.conda笔记" class="md-nav__link">
+      5.1.conda笔记
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../开发环境管理/5.3.pip对比conda.html" title="5.3.pip对比conda" class="md-nav__link">
+      5.3.pip对比conda
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../开发环境管理/5.4.anaconda.html" title="5.4.anaconda" class="md-nav__link">
+      5.4.anaconda
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../开发环境管理/5.5.jupyter使用笔记.html" title="5.5.jupyter使用笔记" class="md-nav__link">
+      5.5.jupyter使用笔记
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Numpy笔记
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Numpy笔记
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy笔记/6.1.创建数组.html" title="6.1.创建数组" class="md-nav__link">
+      6.1.创建数组
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy笔记/6.2.索引.html" title="6.2.索引" class="md-nav__link">
+      6.2.索引
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy笔记/6.3.内存布局.html" title="6.3.内存布局" class="md-nav__link">
+      6.3.内存布局
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy笔记/6.4.广播.html" title="6.4.广播" class="md-nav__link">
+      6.4.广播
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy笔记/6.5.常量.html" title="6.5.常量" class="md-nav__link">
+      6.5.常量
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy笔记/6.6.打印数组.html" title="6.6.打印数组" class="md-nav__link">
+      6.6.打印数组
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy笔记/6.7.添加和删除.html" title="6.7.添加和删除" class="md-nav__link">
+      6.7.添加和删除
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy笔记/6.8.形状操纵.html" title="6.8.形状操纵" class="md-nav__link">
+      6.8.形状操纵
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy笔记/6.9.ufunc函数.html" title="6.9.ufunc函数" class="md-nav__link">
+      6.9.ufunc函数
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy笔记/6.10.函数库.html" title="6.10.函数库" class="md-nav__link">
+      6.10.函数库
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy笔记/6.12.结构化数组.html" title="6.12.结构化数组" class="md-nav__link">
+      6.12.结构化数组
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
+    
+    <label class="md-nav__link" for="nav-5">
+      pandas笔记
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        pandas笔记
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="7.1.Series.html" title="7.1.Series" class="md-nav__link">
+      7.1.Series
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="7.2.DataFrame.html" title="7.2.DataFrame" class="md-nav__link">
+      7.2.DataFrame
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="7.3.索引.html" title="7.3.索引" class="md-nav__link">
+      7.3.索引
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="7.4.索引对象.html" title="7.4.索引对象" class="md-nav__link">
+      7.4.索引对象
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        7.5.索引的基本操作
+      </label>
+    
+    <a href="7.5.索引的基本操作.html" title="7.5.索引的基本操作" class="md-nav__link md-nav__link--active">
+      7.5.索引的基本操作
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="索引对象的方法" class="md-nav__link">
+    索引对象的方法
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="索引重赋值、索引对齐" class="md-nav__link">
+    索引重赋值、索引对齐
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reindex" title="reindex方法参数" class="md-nav__link">
+    reindex方法参数
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#swaplevel" title="交换索引层级：swaplevel方法" class="md-nav__link">
+    交换索引层级：swaplevel方法
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reorder_levels" title="交换索引层级：reorder_levels方法" class="md-nav__link">
+    交换索引层级：reorder_levels方法
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="重命名索引" class="md-nav__link">
+    重命名索引
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" title="对多索引进行排序" class="md-nav__link">
+    对多索引进行排序
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" title="将列转换为索引" class="md-nav__link">
+    将列转换为索引
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reset_index" title="将索引转换为列：reset_index" class="md-nav__link">
+    将索引转换为列：reset_index
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#label" title="按label删除行、列" class="md-nav__link">
+    按label删除行、列
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="7.6.拼接.html" title="7.6.拼接" class="md-nav__link">
+      7.6.拼接
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="7.7.变换索引.html" title="7.7.变换索引" class="md-nav__link">
+      7.7.变换索引
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      标准库
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        标准库
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../标准库/8.1.string.html" title="8.1.string" class="md-nav__link">
+      8.1.string
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../标准库/8.2.textwrap.html" title="8.2.textwrap" class="md-nav__link">
+      8.2.textwrap
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../标准库/8.3.time.html" title="8.3.time" class="md-nav__link">
+      8.3.time
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../标准库/8.4.datetime.html" title="8.4.datetime" class="md-nav__link">
+      8.4.datetime
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" title="索引对象的方法" class="md-nav__link">
+    索引对象的方法
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" title="索引重赋值、索引对齐" class="md-nav__link">
+    索引重赋值、索引对齐
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reindex" title="reindex方法参数" class="md-nav__link">
+    reindex方法参数
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#swaplevel" title="交换索引层级：swaplevel方法" class="md-nav__link">
+    交换索引层级：swaplevel方法
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reorder_levels" title="交换索引层级：reorder_levels方法" class="md-nav__link">
+    交换索引层级：reorder_levels方法
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="重命名索引" class="md-nav__link">
+    重命名索引
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" title="对多索引进行排序" class="md-nav__link">
+    对多索引进行排序
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" title="将列转换为索引" class="md-nav__link">
+    将列转换为索引
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reset_index" title="将索引转换为列：reset_index" class="md-nav__link">
+    将索引转换为列：reset_index
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#label" title="按label删除行、列" class="md-nav__link">
+    按label删除行、列
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/siwing/siwing.github.io/edit/master/docs/pandas笔记/7.5.索引的基本操作.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                  <h1>7.5.索引的基本操作</h1>
+                
+                <div class="codehilite"><pre><span></span><span class="err">Windows 10</span>
+<span class="err">Python 3.7.3 @ MSC v.1915 64 bit (AMD64)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">tools</span> <span class="kn">import</span> <span class="n">Help</span> <span class="k">as</span> <span class="n">H</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">pandas</span> <span class="kn">import</span> <span class="n">DataFrame</span><span class="p">,</span> <span class="n">Series</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">h</span> <span class="o">=</span> <span class="n">H</span><span class="p">(</span><span class="n">pd</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">h</span><span class="o">.</span><span class="n">dicts</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">module</span>
+</pre></div>
+
+
+<h3 id="_1">索引对象的方法</h3>
+<div class="codehilite"><pre><span></span><span class="n">tuples</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;one&#39;</span><span class="p">),</span>
+         <span class="p">(</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">),</span>
+         <span class="p">(</span><span class="s1">&#39;baz&#39;</span><span class="p">,</span> <span class="s1">&#39;one&#39;</span><span class="p">),</span>
+         <span class="p">(</span><span class="s1">&#39;baz&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">),</span>
+         <span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;one&#39;</span><span class="p">),</span>
+         <span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">),</span>
+         <span class="p">(</span><span class="s1">&#39;qux&#39;</span><span class="p">,</span> <span class="s1">&#39;one&#39;</span><span class="p">),</span>
+         <span class="p">(</span><span class="s1">&#39;qux&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">)]</span>
+<span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">MultiIndex</span><span class="o">.</span><span class="n">from_tuples</span><span class="p">(</span><span class="n">tuples</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;first&#39;</span><span class="p">,</span> <span class="s1">&#39;second&#39;</span><span class="p">])</span>
+
+<span class="n">index</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">MultiIndex([(&#39;bar&#39;, &#39;one&#39;),</span>
+<span class="err">            (&#39;bar&#39;, &#39;two&#39;),</span>
+<span class="err">            (&#39;baz&#39;, &#39;one&#39;),</span>
+<span class="err">            (&#39;baz&#39;, &#39;two&#39;),</span>
+<span class="err">            (&#39;foo&#39;, &#39;one&#39;),</span>
+<span class="err">            (&#39;foo&#39;, &#39;two&#39;),</span>
+<span class="err">            (&#39;qux&#39;, &#39;one&#39;),</span>
+<span class="err">            (&#39;qux&#39;, &#39;two&#39;)],</span>
+<span class="err">           names=[&#39;first&#39;, &#39;second&#39;])</span>
+</pre></div>
+
+
+<p><code>.levels</code>为<code>property</code>属性，它返回一个<code>FrozenList</code>（不可变列表），列表中存储每一级的<code>label</code>（也就是创建<code>MultiIndex</code>时传入的<code>levels</code>参数）。</p>
+<div class="codehilite"><pre><span></span><span class="n">index</span><span class="o">.</span><span class="n">levels</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">FrozenList([[&#39;bar&#39;, &#39;baz&#39;, &#39;foo&#39;, &#39;qux&#39;], [&#39;one&#39;, &#39;two&#39;]])</span>
+</pre></div>
+
+
+<p><code>.get_level_values(level)</code>：返回指定<code>level</code>的<code>Index</code>，用于<code>MultiIndex</code>。</p>
+<div class="codehilite"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">index</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">index</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">index</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="s1">&#39;second&#39;</span><span class="p">))</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="k">Index</span><span class="p">([</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;baz&#39;</span><span class="p">,</span> <span class="s1">&#39;baz&#39;</span><span class="p">,</span> <span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;qux&#39;</span><span class="p">,</span> <span class="s1">&#39;qux&#39;</span><span class="p">],</span>
+<span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;object&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;first&#39;</span><span class="p">)</span>
+
+<span class="k">Index</span><span class="p">([</span><span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">,</span> <span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">,</span> <span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">,</span> <span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">],</span>
+<span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;object&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;second&#39;</span><span class="p">)</span>
+
+<span class="k">Index</span><span class="p">([</span><span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">,</span> <span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">,</span> <span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">,</span> <span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">],</span>
+<span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;object&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;second&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="n">index</span><span class="p">[:</span><span class="mi">6</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="n">index</span><span class="p">[:</span><span class="mi">6</span><span class="p">])</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">levels</span>  <span class="c1"># original MultiIndex</span>
+
+<span class="n">df</span><span class="p">[[</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span><span class="s1">&#39;qux&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">levels</span>  <span class="c1"># sliced</span>
+<span class="n">df</span><span class="p">[[</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;qux&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+<span class="c1"># for a specific level</span>
+<span class="n">df</span><span class="p">[[</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;qux&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">Index([&#39;foo&#39;, &#39;foo&#39;], dtype=&#39;object&#39;, name=&#39;first&#39;)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="n">new_mi</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;qux&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">remove_unused_levels</span><span class="p">()</span>
+<span class="n">new_mi</span><span class="o">.</span><span class="n">levels</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">FrozenList([[&#39;foo&#39;], [&#39;one&#39;, &#39;two&#39;]])</span>
+</pre></div>
+
+
+<h2 id="_2">索引重赋值、索引对齐</h2>
+<p><code>level</code>参数已经被加入到pandas对象中的 <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.reindex.html#pandas.DataFrame.reindex"><code>reindex()</code></a> 和 <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.align.html#pandas.DataFrame.align"><code>align()</code></a> 方法中。这将有助于沿着一个层级来广播值（broadcast values）。例如：</p>
+<p>创建示例<code>df</code>：</p>
+<div class="codehilite"><pre><span></span><span class="n">midx</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">MultiIndex</span><span class="p">(</span><span class="n">levels</span><span class="o">=</span><span class="p">[[</span><span class="s1">&#39;zero&#39;</span><span class="p">,</span> <span class="s1">&#39;one&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">]],</span>
+                      <span class="n">codes</span><span class="o">=</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
+
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="n">midx</span><span class="p">)</span>
+
+<span class="n">df</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">               0         1</span>
+<span class="err">one  y  1.821732  0.913649</span>
+<span class="err">     x  0.346144  0.378045</span>
+<span class="err">zero y  1.329143 -0.694748</span>
+<span class="err">     x -1.393348  0.618127</span>
+</pre></div>
+
+
+<p>创建示例<code>df2</code>：</p>
+<div class="codehilite"><pre><span></span><span class="n">df2</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">df2</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">             0         1</span>
+<span class="err">one   1.083938  0.645847</span>
+<span class="err">zero -0.032103 -0.038310</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="n">df2</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">               0         1</span>
+<span class="err">one  y  1.083938  0.645847</span>
+<span class="err">     x  1.083938  0.645847</span>
+<span class="err">zero y -0.032103 -0.038310</span>
+<span class="err">     x -0.032103 -0.038310</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="c1"># aligning</span>
+<span class="n">df_aligned</span><span class="p">,</span> <span class="n">df2_aligned</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">align</span><span class="p">(</span><span class="n">df2</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">df_aligned</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df2_aligned</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span>               <span class="mi">0</span>         <span class="mi">1</span>
+<span class="n">one</span>  <span class="n">y</span>  <span class="mi">1</span><span class="p">.</span><span class="mi">821732</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">913649</span>
+     <span class="n">x</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">346144</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">378045</span>
+<span class="n">zero</span> <span class="n">y</span>  <span class="mi">1</span><span class="p">.</span><span class="mi">329143</span> <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">694748</span>
+     <span class="n">x</span> <span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">393348</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">618127</span>
+
+               <span class="mi">0</span>         <span class="mi">1</span>
+<span class="n">one</span>  <span class="n">y</span>  <span class="mi">1</span><span class="p">.</span><span class="mi">083938</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">645847</span>
+     <span class="n">x</span>  <span class="mi">1</span><span class="p">.</span><span class="mi">083938</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">645847</span>
+<span class="n">zero</span> <span class="n">y</span> <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">032103</span> <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">038310</span>
+     <span class="n">x</span> <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">032103</span> <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">038310</span>
+</pre></div>
+
+
+<h3 id="reindex"><code>reindex</code>方法参数</h3>
+<p>重新索引：<code>Series/DataFrame.reindex(index=None, **kwargs)</code>：</p>
+<ul>
+<li><code>index</code>：一个<code>array-like</code>对象，给出了新的<code>index</code>的<code>label</code></li>
+<li><code>columns</code>：一个<code>array-like</code>对象，给出了新的<code>columns</code>的<code>label</code></li>
+<li><code>method</code>：当新的<code>label</code>的值缺失时，如何处理。参数值可以为：</li>
+<li><code>None</code>：不做任何处理，缺失地方填充<code>NaN</code>  - <code>'backfill'/'bfill'</code>：用下一个可用的值填充该空缺（后向填充）  - <code>'pad'/'ffill'</code>：用上一个可用的值填充该空缺（前向填充）  - <code>'nearest'</code>：用最近的可用值填充该空缺- <code>copy</code>：一个布尔值，如果为<code>True</code>，则返回一个新的<code>Series</code>对象（即使传入的<code>index</code>与原来的<code>index</code>相同）</li>
+<li><code>level</code>：一个整数或者<code>name</code>，在<code>MultiIndex</code>的指定级别上匹配简单索引</li>
+<li><code>fill_value</code>：一个标量。指定缺失值的填充数据，默认为<code>NaN</code>（如果该参数与<code>method</code>同时出现，则以<code>method</code>为主）</li>
+<li><code>limit</code>：一个整数，指定前向/后向填充时：如果有连续的<code>k</code>个<code>NaN</code>，则只填充其中<code>limit</code>个。它与<code>method</code>配合</li>
+<li><code>tolerance</code>：一个整数，用于给出在不匹配时，连续采用前向/后向/最近邻匹配的跨度的最大值。它与<code>method</code>配合</li>
+</ul>
+<h2 id="swaplevel">交换索引层级：<code>swaplevel</code>方法</h2>
+<p><a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.MultiIndex.swaplevel.html#pandas.MultiIndex.swaplevel"><code>swaplevel()</code></a>函数可以用来交换两个层级</p>
+<div class="codehilite"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">swaplevel</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span>               <span class="mi">0</span>         <span class="mi">1</span>
+<span class="n">one</span>  <span class="n">y</span>  <span class="mi">1</span><span class="p">.</span><span class="mi">821732</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">913649</span>
+     <span class="n">x</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">346144</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">378045</span>
+<span class="n">zero</span> <span class="n">y</span>  <span class="mi">1</span><span class="p">.</span><span class="mi">329143</span> <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">694748</span>
+     <span class="n">x</span> <span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">393348</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">618127</span>
+
+               <span class="mi">0</span>         <span class="mi">1</span>
+<span class="n">y</span> <span class="n">one</span>   <span class="mi">1</span><span class="p">.</span><span class="mi">821732</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">913649</span>
+<span class="n">x</span> <span class="n">one</span>   <span class="mi">0</span><span class="p">.</span><span class="mi">346144</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">378045</span>
+<span class="n">y</span> <span class="n">zero</span>  <span class="mi">1</span><span class="p">.</span><span class="mi">329143</span> <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">694748</span>
+<span class="n">x</span> <span class="n">zero</span> <span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">393348</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">618127</span>
+</pre></div>
+
+
+<h2 id="reorder_levels">交换索引层级：<code>reorder_levels</code>方法</h2>
+<p><a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.MultiIndex.reorder_levels.html#pandas.MultiIndex.reorder_levels"><code>reorder_levels()</code></a>是一个更一般化的 <code>swaplevel</code>方法，允许您用简单的一步来重排列索引的层级：</p>
+<div class="codehilite"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">reorder_levels</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span>               <span class="mi">0</span>         <span class="mi">1</span>
+<span class="n">one</span>  <span class="n">y</span>  <span class="mi">1</span><span class="p">.</span><span class="mi">821732</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">913649</span>
+     <span class="n">x</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">346144</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">378045</span>
+<span class="n">zero</span> <span class="n">y</span>  <span class="mi">1</span><span class="p">.</span><span class="mi">329143</span> <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">694748</span>
+     <span class="n">x</span> <span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">393348</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">618127</span>
+
+               <span class="mi">0</span>         <span class="mi">1</span>
+<span class="n">y</span> <span class="n">one</span>   <span class="mi">1</span><span class="p">.</span><span class="mi">821732</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">913649</span>
+<span class="n">x</span> <span class="n">one</span>   <span class="mi">0</span><span class="p">.</span><span class="mi">346144</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">378045</span>
+<span class="n">y</span> <span class="n">zero</span>  <span class="mi">1</span><span class="p">.</span><span class="mi">329143</span> <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">694748</span>
+<span class="n">x</span> <span class="n">zero</span> <span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">393348</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">618127</span>
+</pre></div>
+
+
+<h2 id="_3">重命名索引</h2>
+<div class="codehilite"><pre><span></span><span class="o">-</span> <span class="err">``</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">  File &quot;&lt;ipython-input-1-2af17b23912b&gt;&quot;, line 1</span>
+<span class="err">    - ``</span>
+<span class="err">      ^</span>
+<span class="c">SyntaxError: invalid syntax</span>
+</pre></div>
+
+
+<p><a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.rename.html#pandas.DataFrame.rename"><code>rename()</code></a>方法可以用来重命名多层索引，也可以用来重命名列。<code>renames</code>的<code>columns</code>参数可以接受一个字典，从而仅仅重命名你希望更改名字的列：</p>
+<div class="codehilite"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="s2">&quot;col0&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;col1&quot;</span><span class="p">})</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">            col0      col1</span>
+<span class="err">one  y  1.821732  0.913649</span>
+<span class="err">     x  0.346144  0.378045</span>
+<span class="err">zero y  1.329143 -0.694748</span>
+<span class="err">     x -1.393348  0.618127</span>
+</pre></div>
+
+
+<p>用于重命名索引：</p>
+<div class="codehilite"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;one&quot;</span><span class="p">:</span> <span class="s2">&quot;two&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="s2">&quot;z&quot;</span><span class="p">})</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">               0         1</span>
+<span class="err">two  z  1.821732  0.913649</span>
+<span class="err">     x  0.346144  0.378045</span>
+<span class="err">zero z  1.329143 -0.694748</span>
+<span class="err">     x -1.393348  0.618127</span>
+</pre></div>
+
+
+<p><a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.rename_axis.html#pandas.DataFrame.rename_axis"><code>rename_axis()</code></a> 方法可以用于对<code>Index</code> 或者 <code>MultiIndex</code>进行重命名。尤其的，你可以明确<code>MultiIndex</code>中的不同层级的名称，这可以被用于在之后使用 <code>reset_index()</code> ，把多层级索引的值转换为一个列</p>
+<div class="codehilite"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">rename_axis</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;abc&#39;</span><span class="p">,</span> <span class="s1">&#39;def&#39;</span><span class="p">])</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">                 0         1</span>
+<span class="err">abc  def</span>
+<span class="err">one  y    1.821732  0.913649</span>
+<span class="err">     x    0.346144  0.378045</span>
+<span class="err">zero y    1.329143 -0.694748</span>
+<span class="err">     x   -1.393348  0.618127</span>
+</pre></div>
+
+
+<p>注意，<code>DataFrame</code>的列也是一个索引，因此在<code>rename_axis</code>中使用 <code>columns</code> 参数，将会改变那个索引的名称</p>
+<div class="codehilite"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">rename_axis</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="s2">&quot;Cols&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">RangeIndex(start=0, stop=2, step=1, name=&#39;Cols&#39;)</span>
+</pre></div>
+
+
+<p><code>rename</code> 和<code>rename_axis</code>都支持一个明确的字典，<code>Series</code> 或者一个映射函数，将标签，名称映射为新的值。</p>
+<div class="codehilite"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">rename_axis</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;abc&#39;</span><span class="p">,</span> <span class="s1">&#39;def&#39;</span><span class="p">],</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">                 0         1</span>
+<span class="err">abc  def</span>
+<span class="err">one  y    1.821732  0.913649</span>
+<span class="err">     x    0.346144  0.378045</span>
+<span class="err">zero y    1.329143 -0.694748</span>
+<span class="err">     x   -1.393348  0.618127</span>
+</pre></div>
+
+
+<h2 id="_4">对<code>多索引</code>进行排序</h2>
+<p>对于拥有多层级索引的对象来说，使用 <code>sort_index</code>方法来排序。</p>
+<p>创建示例<code>s</code>：</p>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">random</span>
+
+<span class="n">tuples</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;one&#39;</span><span class="p">),</span>
+            <span class="p">(</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">),</span>
+            <span class="p">(</span><span class="s1">&#39;baz&#39;</span><span class="p">,</span> <span class="s1">&#39;one&#39;</span><span class="p">),</span>
+            <span class="p">(</span><span class="s1">&#39;baz&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">),</span>
+            <span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;one&#39;</span><span class="p">),</span>
+            <span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">),</span>
+            <span class="p">(</span><span class="s1">&#39;qux&#39;</span><span class="p">,</span> <span class="s1">&#39;one&#39;</span><span class="p">),</span>
+            <span class="p">(</span><span class="s1">&#39;qux&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">)]</span>
+<span class="n">random</span><span class="o">.</span><span class="n">shuffle</span><span class="p">(</span><span class="n">tuples</span><span class="p">)</span>
+
+<span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">MultiIndex</span><span class="o">.</span><span class="n">from_tuples</span><span class="p">(</span><span class="n">tuples</span><span class="p">))</span>
+<span class="n">s</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">qux  two   -0.805656</span>
+<span class="err">     one    0.404373</span>
+<span class="err">baz  one    0.597193</span>
+<span class="err">bar  two   -0.280613</span>
+<span class="err">     one   -0.581470</span>
+<span class="err">baz  two    1.072317</span>
+<span class="err">foo  one    0.244656</span>
+<span class="err">     two   -0.071497</span>
+<span class="c">dtype: float64</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="c1"># 两者等价</span>
+<span class="n">s</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
+<span class="n">s</span><span class="o">.</span><span class="n">sort_index</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">bar  one   -0.581470</span>
+<span class="err">     two   -0.280613</span>
+<span class="err">baz  one    0.597193</span>
+<span class="err">     two    1.072317</span>
+<span class="err">foo  one    0.244656</span>
+<span class="err">     two   -0.071497</span>
+<span class="err">qux  one    0.404373</span>
+<span class="err">     two   -0.805656</span>
+<span class="c">dtype: float64</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="n">s</span><span class="o">.</span><span class="n">sort_index</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">bar  one   -0.581470</span>
+<span class="err">baz  one    0.597193</span>
+<span class="err">foo  one    0.244656</span>
+<span class="err">qux  one    0.404373</span>
+<span class="err">bar  two   -0.280613</span>
+<span class="err">baz  two    1.072317</span>
+<span class="err">foo  two   -0.071497</span>
+<span class="err">qux  two   -0.805656</span>
+<span class="c">dtype: float64</span>
+</pre></div>
+
+
+<p>如果“多层级索引”都被命名了的话，你也可以向 <code>sort_index</code> 传入一个层级名称。</p>
+<div class="codehilite"><pre><span></span><span class="n">s</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">set_names</span><span class="p">([</span><span class="s1">&#39;L1&#39;</span><span class="p">,</span> <span class="s1">&#39;L2&#39;</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">sort_index</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="s1">&#39;L1&#39;</span><span class="p">),</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">sort_index</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="s1">&#39;L2&#39;</span><span class="p">))</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="n">L1</span>   <span class="n">L2</span>
+<span class="n">bar</span>  <span class="n">one</span>   <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">581470</span>
+     <span class="n">two</span>   <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">280613</span>
+<span class="n">baz</span>  <span class="n">one</span>    <span class="mi">0</span><span class="p">.</span><span class="mi">597193</span>
+     <span class="n">two</span>    <span class="mi">1</span><span class="p">.</span><span class="mi">072317</span>
+<span class="n">foo</span>  <span class="n">one</span>    <span class="mi">0</span><span class="p">.</span><span class="mi">244656</span>
+     <span class="n">two</span>   <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">071497</span>
+<span class="n">qux</span>  <span class="n">one</span>    <span class="mi">0</span><span class="p">.</span><span class="mi">404373</span>
+     <span class="n">two</span>   <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">805656</span>
+<span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
+
+<span class="n">L1</span>   <span class="n">L2</span>
+<span class="n">bar</span>  <span class="n">one</span>   <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">581470</span>
+<span class="n">baz</span>  <span class="n">one</span>    <span class="mi">0</span><span class="p">.</span><span class="mi">597193</span>
+<span class="n">foo</span>  <span class="n">one</span>    <span class="mi">0</span><span class="p">.</span><span class="mi">244656</span>
+<span class="n">qux</span>  <span class="n">one</span>    <span class="mi">0</span><span class="p">.</span><span class="mi">404373</span>
+<span class="n">bar</span>  <span class="n">two</span>   <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">280613</span>
+<span class="n">baz</span>  <span class="n">two</span>    <span class="mi">1</span><span class="p">.</span><span class="mi">072317</span>
+<span class="n">foo</span>  <span class="n">two</span>   <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">071497</span>
+<span class="n">qux</span>  <span class="n">two</span>   <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">805656</span>
+<span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
+</pre></div>
+
+
+<p>对于多维度的对象来说，你也可以对任意的的维度来进行索引，只要他们是具有<code>多层级索引</code>的：</p>
+<div class="codehilite"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">sort_index</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">abc       one      zero       one      zero</span>
+<span class="err">def         x         x         y         y</span>
+<span class="err">0    0.346144 -1.393348  1.821732  1.329143</span>
+<span class="err">1    0.378045  0.618127  0.913649 -0.694748</span>
+</pre></div>
+
+
+<p>即便数据没有排序，你仍然可以对他们进行索引，但是索引的效率会极大降低，并且也会抛出<code>PerformanceWarning</code>警告。而且，这将返回一个数据的副本而非一个数据的视图：</p>
+<div class="codehilite"><pre><span></span><span class="n">dfm</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;jim&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+                     <span class="s1">&#39;joe&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">],</span>
+                     <span class="s1">&#39;jolie&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">4</span><span class="p">)})</span>
+
+<span class="n">dfm</span> <span class="o">=</span> <span class="n">dfm</span><span class="o">.</span><span class="n">set_index</span><span class="p">([</span><span class="s1">&#39;jim&#39;</span><span class="p">,</span> <span class="s1">&#39;joe&#39;</span><span class="p">])</span>
+
+<span class="n">dfm</span>
+
+<span class="n">dfm</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">)]</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">.\setup_m.py:9: PerformanceWarning: indexing past lexsort depth may</span>
+<span class="err">impact performance.</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">            jolie</span>
+<span class="err">jim joe</span>
+<span class="err">1   z    0.646365</span>
+</pre></div>
+
+
+<p>另外，如果你试图索引一个没有完全lexsorted的对象，你将会碰到如下的错误：</p>
+<div class="codehilite"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">dfm</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">):(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">)]</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;UnsortedIndexError: </span><span class="si">{e}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="c">UnsortedIndexError: &#39;Key length (2) was greater than MultiIndex</span>
+<span class="err">lexsort depth (1)&#39;</span>
+</pre></div>
+
+
+<p>排序之后则不会报错</p>
+<div class="codehilite"><pre><span></span><span class="n">dfm</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">):(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">)]</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">            jolie</span>
+<span class="err">jim joe</span>
+<span class="err">1   y    0.041386</span>
+<span class="err">    z    0.646365</span>
+</pre></div>
+
+
+<p>在<code>MultiIndex</code>上使用 <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.MultiIndex.is_lexsorted.html#pandas.MultiIndex.is_lexsorted"><code>is_lexsorted()</code></a> 方法，你可以查看这个索引是否已经被排序。而使用<code>lexsort_depth</code> 属性则可以返回排序的深度</p>
+<div class="codehilite"><pre><span></span><span class="n">dfm</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">is_lexsorted</span><span class="p">()</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">False</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="n">dfm</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">lexsort_depth</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">1</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="n">dfm</span> <span class="o">=</span> <span class="n">dfm</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
+<span class="n">dfm</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">            jolie</span>
+<span class="err">jim joe</span>
+<span class="err">0   x    0.785068</span>
+<span class="err">    x    0.473428</span>
+<span class="err">1   y    0.041386</span>
+<span class="err">    z    0.646365</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="n">dfm</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">is_lexsorted</span><span class="p">()</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">True</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="n">dfm</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">lexsort_depth</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">2</span>
+</pre></div>
+
+
+<p>现在，你的选择就可以正常工作了。</p>
+<div class="codehilite"><pre><span></span><span class="n">dfm</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">):(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">)]</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">            jolie</span>
+<span class="err">jim joe</span>
+<span class="err">1   y    0.041386</span>
+<span class="err">    z    0.646365</span>
+</pre></div>
+
+
+<h2 id="_5">将列转换为索引</h2>
+<p>将列数据变成行索引（只对<code>DataFrame</code>有效，因为<code>Series</code>没有列索引），其中：<code>col label</code>变成<code>index name</code>，列数据变成行<code>label</code>：</p>
+<div class="codehilite"><pre><span></span>  <span class="n">DataFrame</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="n">keys</span><span class="p">,</span> <span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">append</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> 
+  <span class="n">verify_integrity</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+
+
+<ul>
+<li><code>keys</code>： 指定了一个或者一列的<code>column label</code>。这些列将会转换为行<code>index</code></li>
+<li><code>drop</code>：一个布尔值。如果为<code>True</code>，则<code>keys</code>对应的列会被删除；否则这些列仍然被保留</li>
+<li><code>append</code>：一个布尔值。如果为<code>True</code>，则原有的行索引将保留（此时一定是个多级索引）；否则抛弃原来的行索引。</li>
+<li><code>inplace</code>：一个布尔值。如果为<code>True</code>，则原地修改并且返回<code>None</code></li>
+<li><code>verify_integrity</code>：一个布尔值。如果为<code>True</code>，则检查新的<code>index</code>是否有重复值。否则会推迟到检测过程到必须检测的时候。</li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">)))</span>
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;key&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span><span class="s2">&quot;B&quot;</span><span class="p">,</span><span class="s2">&quot;C&quot;</span><span class="p">,</span><span class="s2">&quot;D&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="n">keys</span><span class="o">=</span><span class="s2">&quot;key&quot;</span><span class="p">,</span><span class="n">append</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">   0  1  2 key</span>
+<span class="err">0  6  9  6   A</span>
+<span class="err">1  9  8  1   B</span>
+<span class="err">2  5  6  8   C</span>
+<span class="err">3  8  4  0   D</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">       0  1  2</span>
+<span class="err">  key</span>
+<span class="err">0 A    6  9  6</span>
+<span class="err">1 B    9  8  1</span>
+<span class="err">2 C    5  6  8</span>
+<span class="err">3 D    8  4  0</span>
+</pre></div>
+
+
+<h2 id="reset_index">将索引转换为列：<code>reset_index</code></h2>
+<p><code>reset_index</code>会将层次化的行<code>index</code>转移到列中，成为新的一列。同时<code>index</code> 变成一个整数型的，从0开始编号：</p>
+<div class="codehilite"><pre><span></span><span class="n">DataFrame</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">drop</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> 
+                      <span class="n">col_level</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">col_fill</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="n">Series</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">drop</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+
+
+<ul>
+<li><code>level</code>：一个整数、<code>str</code>、元组或者列表。它指定了将从层次化的<code>index</code>中移除的<code>level</code>。如果为<code>None</code>，则移除所有的<code>level</code>。</li>
+<li><code>drop</code>：<code>drop=True</code>，丢弃指定level，不加入列中。<code>drop=False</code>，则将指定的level转换为列。</li>
+<li><code>inplace</code>：一个布尔值。如果为<code>True</code>，则原地修改并且返回<code>None</code>。</li>
+<li><code>col_level</code>：索引转换为列后，指定该列的列标签位于列索引的哪个level。</li>
+<li><code>col_fill</code>：指定除<code>col_level</code>之外的列level的名字。默认为空字符串。当存在多级列索引时生效。</li>
+</ul>
+<p>对于<code>Series</code>，<code>name</code>就是插入后，对应的列<code>label</code></p>
+<div class="codehilite"><pre><span></span><span class="n">columns</span> <span class="o">=</span> <span class="p">[[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">],[</span><span class="s2">&quot;1&quot;</span><span class="p">,</span><span class="s2">&quot;2&quot;</span><span class="p">,</span><span class="s2">&quot;3&quot;</span><span class="p">]]</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">)),</span> <span class="n">columns</span><span class="o">=</span><span class="n">columns</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">col_level</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">   a     b</span>
+<span class="err">   1  2  3</span>
+<span class="err">0  6  9  9</span>
+<span class="err">1  1  1  4</span>
+<span class="err">2  4  8  3</span>
+<span class="err">3  2  8  6</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">  index  a     b</span>
+<span class="err">         1  2  3</span>
+<span class="err">0     0  6  9  9</span>
+<span class="err">1     1  1  1  4</span>
+<span class="err">2     2  4  8  3</span>
+<span class="err">3     3  2  8  6</span>
+</pre></div>
+
+
+<h2 id="label">按label删除行、列</h2>
+<p>丢弃某条轴上的一个或者多个<code>label</code>：<code>Series/DataFrame.drop(labels[, axis, level, inplace, errors])</code>:</p>
+<ul>
+<li><code>labels</code>：单个<code>label</code>或者一个<code>label</code>序列，代表要被丢弃的<code>label</code></li>
+<li><code>axis</code>：一个整数，或者轴的名字。默认为 0 轴</li>
+<li><code>level</code>：一个整数或者<code>level</code>名字，用于<code>MultiIndex</code>。因为可能在多个<code>level</code>上都有同名的<code>label</code>。</li>
+<li><code>inplace</code>：一个布尔值。如果为<code>True</code>，则原地修改并且返回<code>None</code></li>
+<li><code>errors</code>：可以为<code>'ignore'/'raise'</code></li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">col_level</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">a</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+
+<span class="n">a</span>
+
+
+<span class="n">idx</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">index</span>
+
+<span class="k">def</span> <span class="nf">fun</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">+</span><span class="mi">10</span>
+
+<span class="n">idx</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">fun</span><span class="p">)</span>
+
+
+<span class="kn">import</span> <span class="nn">gensim</span>
+<span class="kn">from</span> <span class="nn">gensim.models</span> <span class="kn">import</span> <span class="n">Word2Vec</span>
+
+    <span class="n">Word2Vec</span><span class="o">.</span><span class="n">wv</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">  File &quot;&lt;ipython-input-1-5cbf7b740fd7&gt;&quot;, line 19</span>
+<span class="err">    Word2Vec.wv</span>
+<span class="err">    ^</span>
+<span class="c">IndentationError: unexpected indent</span>
+</pre></div>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="7.4.索引对象.html" title="7.4.索引对象" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  上一页
+                </span>
+                7.4.索引对象
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="7.6.拼接.html" title="7.6.拼接" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  下一页
+                </span>
+                7.6.拼接
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application.245445c6.js"></script>
+      
+        
+        
+          
+          <script src="../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+                <script src="../assets/javascripts/lunr/tinyseg.js"></script>
+              
+              
+                <script src="../assets/javascripts/lunr/lunr.ja.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
+      
+        <script src="../javascript/extra.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+    
+  </body>
+</html>
