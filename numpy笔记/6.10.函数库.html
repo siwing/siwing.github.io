@@ -533,6 +533,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../开发环境管理/5.2.pip笔记.md" title="5.2.pip笔记" class="md-nav__link">
+      5.2.pip笔记
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../开发环境管理/5.3.pip对比conda.html" title="5.3.pip对比conda" class="md-nav__link">
       5.3.pip对比conda
     </a>
@@ -730,6 +742,19 @@
     随机数库
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" title="随机抽样" class="md-nav__link">
+    随机抽样
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
       
@@ -740,6 +765,18 @@
   
 </nav>
     
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="6.11.保存和加载.html" title="6.11.保存和加载" class="md-nav__link">
+      6.11.保存和加载
+    </a>
   </li>
 
         
@@ -940,6 +977,42 @@
   </li>
 
     
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      Tensorflow笔记
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        Tensorflow笔记
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tensorflowb笔记/12.1.keras数据集.html" title="12.1.keras数据集" class="md-nav__link">
+      12.1.keras数据集
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
   </ul>
 </nav>
                   </div>
@@ -962,6 +1035,19 @@
   <a href="#_1" title="随机数库" class="md-nav__link">
     随机数库
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" title="随机抽样" class="md-nav__link">
+    随机抽样
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -990,7 +1076,26 @@
 </pre></div>
 
 
+<div class="codehilite"><pre><span></span><span class="err">Windows 10</span>
+<span class="err">Python 3.7.3 @ MSC v.1915 64 bit (AMD64)</span>
+<span class="err">Latest build date 2020.03.22</span>
+<span class="err">numpy version:  1.18.1</span>
+</pre></div>
+
+
 <h2 id="_1">随机数库</h2>
+<h3 id="_2">随机抽样</h3>
+<ul>
+<li><strong><code>np.random.choice(a, size=None, replace=True, p=None)</code></strong>：从一维数组<code>a</code>中随机抽取样本量为<code>size</code>的样本。<code>a</code>必须是一维的。<code>replace</code>控制是否重复抽样，<code>p</code>是a的概率分 布，<code>p</code>和<code>a</code>必须有相同的size。</li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">]</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">replace</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">array([[9, 6],</span>
+<span class="err">       [5, 1]])</span>
+</pre></div>
                 
                   
                 
@@ -1026,13 +1131,13 @@
           </a>
         
         
-          <a href="6.12.结构化数组.html" title="6.12.结构化数组" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="6.11.保存和加载.html" title="6.11.保存和加载" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   下一页
                 </span>
-                6.12.结构化数组
+                6.11.保存和加载
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

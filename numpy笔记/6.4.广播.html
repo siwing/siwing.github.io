@@ -533,6 +533,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../开发环境管理/5.2.pip笔记.md" title="5.2.pip笔记" class="md-nav__link">
+      5.2.pip笔记
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../开发环境管理/5.3.pip对比conda.html" title="5.3.pip对比conda" class="md-nav__link">
       5.3.pip对比conda
     </a>
@@ -654,15 +666,22 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" title="广播" class="md-nav__link">
-    广播
+  <a href="#_1" title="广播规则" class="md-nav__link">
+    广播规则
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" title="广播示意图" class="md-nav__link">
-    广播示意图
+  <a href="#_2" title="广播规则示意图" class="md-nav__link">
+    广播规则示意图
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="与广播相关的函数" class="md-nav__link">
+    与广播相关的函数
   </a>
   
 </li>
@@ -746,6 +765,18 @@
   <li class="md-nav__item">
     <a href="6.10.函数库.html" title="6.10.函数库" class="md-nav__link">
       6.10.函数库
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="6.11.保存和加载.html" title="6.11.保存和加载" class="md-nav__link">
+      6.11.保存和加载
     </a>
   </li>
 
@@ -947,6 +978,42 @@
   </li>
 
     
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      Tensorflow笔记
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        Tensorflow笔记
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tensorflowb笔记/12.1.keras数据集.html" title="12.1.keras数据集" class="md-nav__link">
+      12.1.keras数据集
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
   </ul>
 </nav>
                   </div>
@@ -966,15 +1033,22 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" title="广播" class="md-nav__link">
-    广播
+  <a href="#_1" title="广播规则" class="md-nav__link">
+    广播规则
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" title="广播示意图" class="md-nav__link">
-    广播示意图
+  <a href="#_2" title="广播规则示意图" class="md-nav__link">
+    广播规则示意图
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" title="与广播相关的函数" class="md-nav__link">
+    与广播相关的函数
   </a>
   
 </li>
@@ -1000,11 +1074,23 @@
                 
                   <h1>6.4.广播</h1>
                 
-                <h2 id="_1">广播</h2>
+                <div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">copy</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="err">Windows 10</span>
+<span class="err">Python 3.7.3 @ MSC v.1915 64 bit (AMD64)</span>
+<span class="err">Latest build date 2020.03.22</span>
+<span class="err">numpy version:  1.18.1</span>
+</pre></div>
+
+
+<h2 id="_1">广播规则</h2>
 <p>当使用ufunc函数对两个数组进行计算时，ufunc函数会对这两个数组的对应元素进行计算。这要求这两个数组的形状相同。如果这两个数组的形状不同，就通过广播broadcasting进行处理：</p>
 <ul>
 <li>
-<p>首先让所有输入数组都向其中维度最高的数组看齐。看齐方式为：在shape属性的左侧插入数字1</p>
+<p><strong>首先让所有输入数组都向其中维度最高的数组看齐。</strong>看齐方式为：在shape属性的左侧插入数字1</p>
 <ul>
 <li>最后输出数组的shape属性是输入数组的shape属性的各轴上的最大值</li>
 </ul>
@@ -1016,26 +1102,44 @@
 <p>当输入数组的某个轴的长度为 1时，沿着此轴运算时都用此轴上的第一组值。</p>
 </li>
 </ul>
-<div class="codehilite"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">numpy.broadcast_arrays()</span>
-<span class="sd">    查看广播之后的数组 </span>
-<span class="sd">np.broadcast_to(array, shape, subok=False)</span>
-<span class="sd">    将array广播为指定的shape，如果指定的shape不满足广播要求，则报错</span>
-
-<span class="sd">ndarray.repeat(repeats, axis=None) 重复某个轴上的值.</span>
-<span class="sd">    repeats为重复次数</span>
-<span class="sd">    axis指定被重复的轴，即沿着哪一轴重复。如果未指定，则将数组展平然后重复。返回的也是一个展平的数组</span>
-<span class="sd">&quot;&quot;&quot;</span>
-</pre></div>
-
-
+<h2 id="_2">广播规则示意图</h2>
+<p>The code to produce the figures is part of the <a href="http://www.astroml.org/book_figures/appendix/fig_broadcast_visual.html">AstroML book</a></p>
+<p><img alt="" src="figures/numpy笔记_广播_figure5_1.png" /></p>
+<h2 id="_3">与广播相关的函数</h2>
+<ul>
+<li>
+<p><strong><code>ny.broadcast_arrays()</code></strong>：查看广播之后的数组 。</p>
+</li>
+<li>
+<p><strong><code>np.broadcast_to(array, shape, subok=False)</code></strong>：将array广播为指定的shape，如果指定的shape不满足广播要求，则报错。</p>
+</li>
+<li>
+<p><strong><code>ndarray.repeat(repeats, axis=None)</code></strong>：重复某个轴上的值。repeats为重复次数。axis指定被重复的轴，即沿着哪一轴重复。如果未指定，则将数组展平然后重复。返回的也是一个展平的数组</p>
+</li>
+</ul>
 <div class="codehilite"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
 <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 
 <span class="n">c</span> <span class="o">=</span> <span class="n">b</span><span class="p">[:,</span><span class="kc">None</span><span class="p">]</span>
 <span class="n">d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">5</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+</pre></div>
 
-<span class="n">np</span><span class="o">.</span><span class="n">broadcast_arrays</span><span class="p">(</span><span class="n">d</span><span class="p">,</span><span class="n">c</span><span class="p">)</span>
+
+<div class="codehilite"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span> <span class="mi">1</span><span class="p">]</span>      <span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span> <span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span><span class="p">]</span>
+     <span class="p">[</span><span class="mi">2</span> <span class="mi">3</span><span class="p">]</span>
+     <span class="p">[</span><span class="mi">4</span> <span class="mi">5</span><span class="p">]</span>
+     <span class="p">[</span><span class="mi">6</span> <span class="mi">7</span><span class="p">]</span>
+     <span class="p">[</span><span class="mi">8</span> <span class="mi">9</span><span class="p">]]</span>
+
+<span class="k">c</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">]</span>        <span class="n">d</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">.</span> <span class="mi">1</span><span class="p">.</span> <span class="mi">1</span><span class="p">.]</span>
+     <span class="p">[</span><span class="mi">1</span><span class="p">]</span>             <span class="p">[</span><span class="mi">1</span><span class="p">.</span> <span class="mi">1</span><span class="p">.</span> <span class="mi">1</span><span class="p">.]</span>
+     <span class="p">[</span><span class="mi">2</span><span class="p">]</span>             <span class="p">[</span><span class="mi">1</span><span class="p">.</span> <span class="mi">1</span><span class="p">.</span> <span class="mi">1</span><span class="p">.]</span>
+     <span class="p">[</span><span class="mi">3</span><span class="p">]</span>             <span class="p">[</span><span class="mi">1</span><span class="p">.</span> <span class="mi">1</span><span class="p">.</span> <span class="mi">1</span><span class="p">.]</span>
+     <span class="p">[</span><span class="mi">4</span><span class="p">]]</span>            <span class="p">[</span><span class="mi">1</span><span class="p">.</span> <span class="mi">1</span><span class="p">.</span> <span class="mi">1</span><span class="p">.]]</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">broadcast_arrays</span><span class="p">(</span><span class="n">d</span><span class="p">,</span><span class="n">c</span><span class="p">)</span>
 </pre></div>
 
 
@@ -1043,7 +1147,8 @@
 <span class="err">        [1., 1., 1.],</span>
 <span class="err">        [1., 1., 1.],</span>
 <span class="err">        [1., 1., 1.],</span>
-<span class="err">        [1., 1., 1.]]), array([[0, 0, 0],</span>
+<span class="err">        [1., 1., 1.]]),</span>
+<span class="err"> array([[0, 0, 0],</span>
 <span class="err">        [1, 1, 1],</span>
 <span class="err">        [2, 2, 2],</span>
 <span class="err">        [3, 3, 3],</span>
@@ -1063,7 +1168,7 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="n">a</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><span class="n">a</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 
 
@@ -1073,11 +1178,6 @@
 <span class="err">       [6, 6, 6, 7, 7, 7],</span>
 <span class="err">       [8, 8, 8, 9, 9, 9]])</span>
 </pre></div>
-
-
-<h2 id="_2">广播示意图</h2>
-<p>The code to produce the figures is part of the <a href="http://www.astroml.org/book_figures/appendix/fig_broadcast_visual.html">AstroML book</a></p>
-<p><img alt="" src="figures/numpy笔记_广播_figure5_1.png" /></p>
                 
                   
                 

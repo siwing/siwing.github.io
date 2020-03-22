@@ -533,6 +533,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../开发环境管理/5.2.pip笔记.md" title="5.2.pip笔记" class="md-nav__link">
+      5.2.pip笔记
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../开发环境管理/5.3.pip对比conda.html" title="5.3.pip对比conda" class="md-nav__link">
       5.3.pip对比conda
     </a>
@@ -705,6 +717,18 @@
   <li class="md-nav__item">
     <a href="6.10.函数库.html" title="6.10.函数库" class="md-nav__link">
       6.10.函数库
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="6.11.保存和加载.html" title="6.11.保存和加载" class="md-nav__link">
+      6.11.保存和加载
     </a>
   </li>
 
@@ -975,6 +999,42 @@
   </li>
 
     
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      Tensorflow笔记
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        Tensorflow笔记
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tensorflowb笔记/12.1.keras数据集.html" title="12.1.keras数据集" class="md-nav__link">
+      12.1.keras数据集
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
   </ul>
 </nav>
                   </div>
@@ -1056,11 +1116,20 @@
                 
                   <h1>6.12.结构化数组</h1>
                 
-                <h2 id="_1">结构化数组常用操作</h2>
-<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+                <div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pprint</span>
+</pre></div>
 
-<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([(</span><span class="s1">&#39;Rex&#39;</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mf">81.0</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;Fido&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mf">27.0</span><span class="p">)],</span>
+
+<div class="codehilite"><pre><span></span><span class="err">Windows 10</span>
+<span class="err">Python 3.7.3 @ MSC v.1915 64 bit (AMD64)</span>
+<span class="err">Latest build date 2020.03.22</span>
+<span class="err">numpy version:  1.18.1</span>
+</pre></div>
+
+
+<h2 id="_1">结构化数组常用操作</h2>
+<div class="codehilite"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([(</span><span class="s1">&#39;Rex&#39;</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mf">81.0</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;Fido&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mf">27.0</span><span class="p">)],</span>
              <span class="n">dtype</span><span class="o">=</span><span class="p">[(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;U10&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;i4&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;weight&#39;</span><span class="p">,</span> <span class="s1">&#39;f4&#39;</span><span class="p">)])</span>
 
 <span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
@@ -1165,7 +1234,7 @@
 
 
 <p>通过 dict of fieldname 创建结构化数组。不鼓励使用这种形式，因为Python字典在Python 3.6之前的Python版本中不保留顺序，但结构化dtype中字段的顺序有意义。</p>
-<p>字典的关键字是字段名称，值是指定类型和偏移量的元组：</p>
+<p>字典的关键字是字段名称，值是指定类型和偏移量的元组： </p>
 <div class="codehilite"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">dtype</span><span class="p">({</span><span class="s1">&#39;col1&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;i1&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="s1">&#39;col2&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;f4&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)})</span>
 </pre></div>
 
@@ -1242,10 +1311,10 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">当前函数：&lt;function addage_numpy at 0x000001198F1ECC80&gt;</span>
-<span class="err">用时：5.53125秒</span>
-<span class="err">当前函数：&lt;function addage_python at 0x000001198F1ECD90&gt;</span>
-<span class="err">用时：1.796875秒</span>
+<div class="codehilite"><pre><span></span><span class="err">当前函数：&lt;function addage_numpy at 0x000001D931CB8E18&gt;</span>
+<span class="err">用时：5.640625秒</span>
+<span class="err">当前函数：&lt;function addage_python at 0x000001D931CA80D0&gt;</span>
+<span class="err">用时：1.734375秒</span>
 </pre></div>
 
 
@@ -1333,7 +1402,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="6.10.函数库.html" title="6.10.函数库" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="6.11.保存和加载.html" title="6.11.保存和加载" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1342,7 +1411,7 @@
                 <span class="md-footer-nav__direction">
                   上一页
                 </span>
-                6.10.函数库
+                6.11.保存和加载
               </span>
             </div>
           </a>

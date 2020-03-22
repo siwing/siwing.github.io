@@ -533,6 +533,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../开发环境管理/5.2.pip笔记.md" title="5.2.pip笔记" class="md-nav__link">
+      5.2.pip笔记
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../开发环境管理/5.3.pip对比conda.html" title="5.3.pip对比conda" class="md-nav__link">
       5.3.pip对比conda
     </a>
@@ -770,6 +782,18 @@
 
 
   <li class="md-nav__item">
+    <a href="6.11.保存和加载.html" title="6.11.保存和加载" class="md-nav__link">
+      6.11.保存和加载
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="6.12.结构化数组.html" title="6.12.结构化数组" class="md-nav__link">
       6.12.结构化数组
     </a>
@@ -961,6 +985,42 @@
   </li>
 
     
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      Tensorflow笔记
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        Tensorflow笔记
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tensorflowb笔记/12.1.keras数据集.html" title="12.1.keras数据集" class="md-nav__link">
+      12.1.keras数据集
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
   </ul>
 </nav>
                   </div>
@@ -1032,6 +1092,13 @@
 </pre></div>
 
 
+<div class="codehilite"><pre><span></span><span class="err">Windows 10</span>
+<span class="err">Python 3.7.3 @ MSC v.1915 64 bit (AMD64)</span>
+<span class="err">Latest build date 2020.03.22</span>
+<span class="err">numpy version:  1.18.1</span>
+</pre></div>
+
+
 <h2 id="_1">共同的参数</h2>
 <p>这里有几个共同的参数：</p>
 <ul>
@@ -1042,7 +1109,10 @@
 <p><code>dtype</code>：数组的值类型，默认为<code>float</code>。你可以指定Python的标准数值类型，也可以使用<code>numpy</code>的数值类型如：<code>numpy.int32</code>或者<code>numpy.float64</code>等等。</p>
 </li>
 <li>
-<p><code>order</code>：指定存储多维数据的方式。  - <code>'C'</code>，表示按行优先存储（C风格）；  - <code>'F'</code>，表示按列优先存储（Fortran风格）。  - 对于<code>**_like()</code>函数，<code>order</code>可以为：<code>'C'</code>，<code>'F'</code>，<code>'A'</code>（表示结果的order与a相同），<code>'K'</code>（表示结果的<code>order</code>与<code>a</code>尽可能相似）</p>
+<p><code>order</code>：指定存储多维数据的方式。</p>
+</li>
+<li>
+<p><code>'C'</code>，表示按行优先存储（C风格）；  - <code>'F'</code>，表示按列优先存储（Fortran风格）。  - 对于<code>**_like()</code>函数，<code>order</code>可以为：<code>'C'</code>，<code>'F'</code>，<code>'A'</code>（表示结果的order与a相同），<code>'K'</code>（表示结果的<code>order</code>与<code>a</code>尽可能相似）</p>
 </li>
 <li>
 <p><code>subok</code>：<code>bool</code>值。如果为<code>True</code>则：如果<code>a</code>为<code>ndarray</code>的子类（如<code>matrix</code>类），则结果类型与<code>a</code>类型相同。如果为<code>False</code>则：结果类型始终为<code>ndarray</code>。默认为True。</p>
@@ -1151,7 +1221,8 @@
 <p>2 <strong><code>np.linspace(start, stop[, num, endpoint, ...])</code></strong> ：返回<code>num</code>个均匀采样的数值组成的一维<code>ndarray</code>（默认为50）。区间是闭区间<code>[start,stop]</code>。<code>endpoint</code>为布尔值，如果为真则表示<code>stop</code>是最后采样的值（默认为<code>True</code>），否则结果不包含<code>stop</code>。<code>retstep</code>如果为<code>True</code>则返回结果包含采样步长<code>step</code>，默认为<code>True</code>。</p>
 <p>3 <strong><code>np.logspace(start, stop[, num, endpoint, base, ...])</code></strong>：返回对数级别上均匀采样的数值组成的一维<code>ndarray</code>。采样点开始于<code>base^start</code>，结束于<code>base^stop</code>。<code>base</code>为对数的基，默认为 10。</p>
 <ul>
-<li>它逻辑上相当于先执行<code>arange</code>获取数组<code>array</code>，然后再执行<code>base^array[i]</code>获取采样点   - 它没有<code>retstep</code> 关键字参数</li>
+<li>它逻辑上相当于先执行<code>arange</code>获取数组<code>array</code>，然后再执行<code>base^array[i]</code>获取采样点</li>
+<li>它没有<code>retstep</code> 关键字参数</li>
 </ul>
 <h2 id="_4">以填充的方式创建</h2>
 <p>1 <strong><code>np.empty(shape[,dtype,order])</code></strong>：返回一个新的<code>ndarray</code>，指定了<code>shape</code>和<code>dtype</code>，但是没有初始化元素。因此其内容是随机的。</p>
@@ -1164,9 +1235,9 @@
 </pre></div>
 
 
-<div class="codehilite"><pre><span></span><span class="err">array([[0., 0.],</span>
-<span class="err">       [0., 0.],</span>
-<span class="err">       [0., 0.]])</span>
+<div class="codehilite"><pre><span></span><span class="err">array([[2.56734753e-289, 2.56734753e-289],</span>
+<span class="err">       [5.97757174e-299, 5.38028306e-299],</span>
+<span class="err">       [5.97757178e-299, 3.97887030e+072]])</span>
 </pre></div>
 
 
