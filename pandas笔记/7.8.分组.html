@@ -1,0 +1,1725 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="ja">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-4.6.3">
+    
+    
+      
+        <title>7.8.分组 - Python笔记</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application.adb8469c.css">
+      
+      
+    
+    
+      <script src="../assets/javascripts/modernizr.86422ebf.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#groupby" tabindex="0" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href=".." title="Python笔记" aria-label="Python笔记" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Python笔记
+            </span>
+            <span class="md-header-nav__topic">
+              
+                7.8.分组
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" aria-label="search" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/siwing/siwing.github.io/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href=".." title="Python笔记" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    Python笔记
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/siwing/siwing.github.io/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1">
+    
+    <label class="md-nav__link" for="nav-1">
+      计算机基础
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        计算机基础
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/1.1.%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%8E%E7%A8%8B%E5%BA%8F%E7%BB%93%E6%9E%84.html" title="1.1.计算机与程序结构" class="md-nav__link">
+      1.1.计算机与程序结构
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/1.2.%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5.html" title="1.2.基本概念" class="md-nav__link">
+      1.2.基本概念
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/1.3.%E7%BC%96%E8%AF%91%E5%9E%8B%E8%AF%AD%E8%A8%80%E5%92%8C%E8%A7%A3%E9%87%8A%E5%9E%8B%E8%AF%AD%E8%A8%80%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9%E5%AF%B9%E6%AF%94.html" title="1.3.编译型语言和解释型语言的优缺点对比" class="md-nav__link">
+      1.3.编译型语言和解释型语言的优缺点对比
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/1.4.%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81.html" title="1.4.字符编码" class="md-nav__link">
+      1.4.字符编码
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Python 基础
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Python 基础
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python%E5%9F%BA%E7%A1%80/2.1.python%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95.html" title="2.1.python基本语法" class="md-nav__link">
+      2.1.python基本语法
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python%E5%9F%BA%E7%A1%80/2.2.%E8%AF%AD%E5%8F%A5.html" title="2.2.语句" class="md-nav__link">
+      2.2.语句
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python%E5%9F%BA%E7%A1%80/2.3.List.html" title="2.3.List" class="md-nav__link">
+      2.3.List
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python%E5%9F%BA%E7%A1%80/2.4.String.html" title="2.4.String" class="md-nav__link">
+      2.4.String
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python%E5%9F%BA%E7%A1%80/2.5.Tuple.html" title="2.5.Tuple" class="md-nav__link">
+      2.5.Tuple
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python%E5%9F%BA%E7%A1%80/2.6.Dict.html" title="2.6.Dict" class="md-nav__link">
+      2.6.Dict
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python%E5%9F%BA%E7%A1%80/2.7.%E6%8E%A8%E5%AF%BC%E5%BC%8F.html" title="2.7.推导式" class="md-nav__link">
+      2.7.推导式
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python%E5%9F%BA%E7%A1%80/2.8.%E8%B5%8B%E5%80%BC%E3%80%81immutable%E3%80%81%E6%B7%B1%E6%8B%B7%E8%B4%9D.html" title="2.8.赋值、immutable、深拷贝" class="md-nav__link">
+      2.8.赋值、immutable、深拷贝
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python%E5%9F%BA%E7%A1%80/2.9.%E5%87%BD%E6%95%B0.html" title="2.9.函数" class="md-nav__link">
+      2.9.函数
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python%E5%9F%BA%E7%A1%80/3.1.%E5%BC%82%E5%B8%B8.html" title="3.1.异常" class="md-nav__link">
+      3.1.异常
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python%E5%9F%BA%E7%A1%80/3.2.%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4%E5%92%8C%E4%BD%9C%E7%94%A8%E5%9F%9F.html" title="3.2.命名空间和作用域" class="md-nav__link">
+      3.2.命名空间和作用域
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python%E5%9F%BA%E7%A1%80/3.3.%E9%97%AD%E5%8C%85.html" title="3.3.闭包" class="md-nav__link">
+      3.3.闭包
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python%E5%9F%BA%E7%A1%80/3.4.%E8%A3%85%E9%A5%B0%E5%99%A8.html" title="3.4.装饰器" class="md-nav__link">
+      3.4.装饰器
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python%E5%9F%BA%E7%A1%80/4.1.%E7%B1%BB.html" title="4.1.类" class="md-nav__link">
+      4.1.类
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python%E5%9F%BA%E7%A1%80/4.2.%E6%A8%A1%E5%9D%97.html" title="4.2.模块" class="md-nav__link">
+      4.2.模块
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python%E5%9F%BA%E7%A1%80/4.3.%E9%AD%94%E6%9C%AF%E6%96%B9%E6%B3%95.html" title="4.3.魔术方法" class="md-nav__link">
+      4.3.魔术方法
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      开发环境管理
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        开发环境管理
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%AE%A1%E7%90%86/5.1.conda%E7%AC%94%E8%AE%B0.html" title="5.1.conda笔记" class="md-nav__link">
+      5.1.conda笔记
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../开发环境管理/5.2.pip笔记.md" title="5.2.pip笔记" class="md-nav__link">
+      5.2.pip笔记
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%AE%A1%E7%90%86/5.3.pip%E5%AF%B9%E6%AF%94conda.html" title="5.3.pip对比conda" class="md-nav__link">
+      5.3.pip对比conda
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%AE%A1%E7%90%86/5.4.anaconda.html" title="5.4.anaconda" class="md-nav__link">
+      5.4.anaconda
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%AE%A1%E7%90%86/5.5.jupyter%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0.html" title="5.5.jupyter使用笔记" class="md-nav__link">
+      5.5.jupyter使用笔记
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Numpy笔记
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Numpy笔记
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy%E7%AC%94%E8%AE%B0/6.1.%E5%88%9B%E5%BB%BA%E6%95%B0%E7%BB%84.html" title="6.1.创建数组" class="md-nav__link">
+      6.1.创建数组
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy%E7%AC%94%E8%AE%B0/6.2.%E7%B4%A2%E5%BC%95.html" title="6.2.索引" class="md-nav__link">
+      6.2.索引
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy%E7%AC%94%E8%AE%B0/6.3.%E5%86%85%E5%AD%98%E5%B8%83%E5%B1%80.html" title="6.3.内存布局" class="md-nav__link">
+      6.3.内存布局
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy%E7%AC%94%E8%AE%B0/6.4.%E5%B9%BF%E6%92%AD.html" title="6.4.广播" class="md-nav__link">
+      6.4.广播
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy%E7%AC%94%E8%AE%B0/6.5.%E5%B8%B8%E9%87%8F.html" title="6.5.常量" class="md-nav__link">
+      6.5.常量
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy%E7%AC%94%E8%AE%B0/6.6.%E6%89%93%E5%8D%B0%E6%95%B0%E7%BB%84.html" title="6.6.打印数组" class="md-nav__link">
+      6.6.打印数组
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy%E7%AC%94%E8%AE%B0/6.7.%E6%B7%BB%E5%8A%A0%E5%92%8C%E5%88%A0%E9%99%A4.html" title="6.7.添加和删除" class="md-nav__link">
+      6.7.添加和删除
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy%E7%AC%94%E8%AE%B0/6.8.%E5%BD%A2%E7%8A%B6%E6%93%8D%E7%BA%B5.html" title="6.8.形状操纵" class="md-nav__link">
+      6.8.形状操纵
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy%E7%AC%94%E8%AE%B0/6.9.ufunc%E5%87%BD%E6%95%B0.html" title="6.9.ufunc函数" class="md-nav__link">
+      6.9.ufunc函数
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy%E7%AC%94%E8%AE%B0/6.10.%E5%87%BD%E6%95%B0%E5%BA%93.html" title="6.10.函数库" class="md-nav__link">
+      6.10.函数库
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy%E7%AC%94%E8%AE%B0/6.11.%E4%BF%9D%E5%AD%98%E5%92%8C%E5%8A%A0%E8%BD%BD.html" title="6.11.保存和加载" class="md-nav__link">
+      6.11.保存和加载
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy%E7%AC%94%E8%AE%B0/6.12.%E7%BB%93%E6%9E%84%E5%8C%96%E6%95%B0%E7%BB%84.html" title="6.12.结构化数组" class="md-nav__link">
+      6.12.结构化数组
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
+    
+    <label class="md-nav__link" for="nav-5">
+      Pandas笔记
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Pandas笔记
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="7.1.Series.html" title="7.1.Series" class="md-nav__link">
+      7.1.Series
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="7.2.DataFrame.html" title="7.2.DataFrame" class="md-nav__link">
+      7.2.DataFrame
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="7.3.%E7%B4%A2%E5%BC%95.html" title="7.3.索引" class="md-nav__link">
+      7.3.索引
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="7.4.%E7%B4%A2%E5%BC%95%E5%AF%B9%E8%B1%A1.html" title="7.4.索引对象" class="md-nav__link">
+      7.4.索引对象
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="7.5.%E7%B4%A2%E5%BC%95%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C.html" title="7.5.索引的基本操作" class="md-nav__link">
+      7.5.索引的基本操作
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="7.6.%E6%8B%BC%E6%8E%A5.html" title="7.6.拼接" class="md-nav__link">
+      7.6.拼接
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="7.7.%E5%8F%98%E6%8D%A2%E7%B4%A2%E5%BC%95.html" title="7.7.变换索引" class="md-nav__link">
+      7.7.变换索引
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        7.8.分组
+      </label>
+    
+    <a href="7.8.%E5%88%86%E7%BB%84.html" title="7.8.分组" class="md-nav__link md-nav__link--active">
+      7.8.分组
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#groupby" class="md-nav__link">
+    GroupBy机制
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#groupby_1" class="md-nav__link">
+    .groupby方法
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    遍历组
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    选择组
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    聚合
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    常用聚合函数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    自定义聚合函数
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    分组级运算
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../pandas笔记/7.9.绘图.md" title="7.9.绘图" class="md-nav__link">
+      7.9.绘图
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      标准库
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        标准库
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%A0%87%E5%87%86%E5%BA%93/8.1.string.html" title="8.1.string" class="md-nav__link">
+      8.1.string
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%A0%87%E5%87%86%E5%BA%93/8.2.textwrap.html" title="8.2.textwrap" class="md-nav__link">
+      8.2.textwrap
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%A0%87%E5%87%86%E5%BA%93/8.3.time.html" title="8.3.time" class="md-nav__link">
+      8.3.time
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%A0%87%E5%87%86%E5%BA%93/8.4.datetime.html" title="8.4.datetime" class="md-nav__link">
+      8.4.datetime
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      scikit-learn
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        scikit-learn
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../scikit-learn/11.1.%E6%95%B0%E6%8D%AE%E9%9B%86.html" title="11.1.数据集" class="md-nav__link">
+      11.1.数据集
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+    
+    <label class="md-nav__link" for="nav-8">
+      Tensorflow
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        Tensorflow
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tensorflowb%E7%AC%94%E8%AE%B0/12.1.keras%E6%95%B0%E6%8D%AE%E9%9B%86.html" title="12.1.keras数据集" class="md-nav__link">
+      12.1.keras数据集
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#groupby" class="md-nav__link">
+    GroupBy机制
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#groupby_1" class="md-nav__link">
+    .groupby方法
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    遍历组
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    选择组
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    聚合
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    常用聚合函数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    自定义聚合函数
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    分组级运算
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/siwing/siwing.github.io/edit/master/docs/pandas笔记/7.8.分组.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                  <h1>7.8.分组</h1>
+                
+                <div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">tools</span> <span class="kn">import</span> <span class="n">Help</span> <span class="k">as</span> <span class="n">H</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</code></pre></div>
+
+
+<div class="codehilite"><pre><span></span><code><span class="err">Windows 10</span>
+<span class="err">Python 3.7.3 @ MSC v.1915 64 bit (AMD64)</span>
+<span class="err">Latest build date 2020.03.29</span>
+<span class="err">pandas version:  1.0.1</span>
+<span class="err">numpy version:  1.18.1</span>
+</code></pre></div>
+
+
+<p>对数据集进行分组并对各组应用一个函数（无论是聚合还是转换），通常是数据分析工作中的重要环节。在将数据集加载、融合、准备好之后，通常就是计算分组统计或生成透视表。pandas提供了一个灵活高效的<code>gruopby</code>功能，它能以一种自然的方式对数据集进行切片、切块、摘要等操作。</p>
+<p>关系型数据库和SQL（Structured Query Language，结构化查询语言）能够如此流行的原因之一就是其能够方便地对数据进行连接、过滤、转换和聚合。但是，像SQL这样的查询语言所能执行的分组运算的种类很有限。pandas可以执行复杂得多的分组运算（利用任何可以接受pandas对象或NumPy数组的函数）。</p>
+<h2 id="groupby"><code>GroupBy</code>机制</h2>
+<p>Hadley Wickham（许多热门R语言包的作者）创造了一个用于表示分组运算的术语"split-apply-combine"（拆分－应用－合并）。</p>
+<ol>
+<li>第一个阶段，pandas对象（无论是Series、DataFrame还是其他的）中的数据会根据你所提供的一个或多个键被拆分（split）为多组。拆分操作是在对象的特定轴上执行的。例如，DataFrame可以在其行（axis=0）或列（axis=1）上进行分组。</li>
+<li>然后，将一个函数应用（apply）到各个分组并产生一个新值。</li>
+<li>最后，所有这些函数的执行结果会被合并（combine）到最终的结果对象中。结果对象的形式一般取决于数据上所执行的操作。</li>
+</ol>
+<p>下图大致说明了一个简单的分组聚合过程：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/7178691-e5c671e09ecf94be.png?imageMogr2/auto-orient/strip|imageView2/2/w/1240" alt="img" style="zoom: 40%;" /></p>
+<p>分组键可以有多种形式，且类型不必相同：</p>
+<ul>
+<li>列表或数组，其长度与待分组的轴一样。</li>
+<li>表示DataFrame某个列名的值。</li>
+<li>字典或Series，给出待分组轴上的值与分组名之间的对应关系。</li>
+<li>函数，用于处理轴索引或索引中的各个标签。</li>
+</ul>
+<p>注意，后三种都只是快捷方式而已，其最终目的仍然是产生一组用于拆分对象的值。</p>
+<h2 id="groupby_1"><code>.groupby</code>方法</h2>
+<p><code>.groupby()</code>方法是分组方法：</p>
+<div class="codehilite"><pre><span></span><code><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
+        <span class="n">as_index</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> 
+        <span class="n">sort</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> 
+        <span class="n">group_keys</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> 
+        <span class="n">squeeze</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> 
+        <span class="n">observed</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> 
+</code></pre></div>
+
+
+<ul>
+<li>
+<p><code>by</code>：<code>mapping function</code>、<code>list of function</code>、字典、序列、元组、<code>list of column name</code>。它指定了分组数据（分组键）。</p>
+<ol>
+<li>
+<p>传入函数，则在每个<code>index value</code>上调用函数来产生分组数据，<code>axis</code>指定是哪个轴的<code>index value</code></p>
+</li>
+<li>
+<p>传入<code>Series</code>或者字典，则根据每个<code>index value</code>在字典/<code>Series</code>中的值来产生分组数据</p>
+</li>
+<li>
+<p>传入<code>column label</code>，则使用该<code>label</code>抽取出来的一列数据产生分组数据</p>
+</li>
+<li>
+<p>传入<code>column label</code>的<code>list</code>，则使用一组<code>column label</code>抽取出来的多列数据作为分组数据。</p>
+</li>
+<li>
+<p>传入序列，则它直接指定了分组数据。</p>
+</li>
+<li>
+<p>传入序列的序列，则使用这些序列拼接成一个<code>MulitiIndex</code>，然后根据这个<code>MultiIndex</code>替换掉<code>index</code>后，根据<code>label value</code>来分组。（事实上并没有替换，只是用于说明这个过程）</p>
+</li>
+</ol>
+</li>
+<li>
+<p><code>axis</code>：指定沿着哪个轴分组</p>
+</li>
+<li>
+<p><code>level</code>：一个整数、<code>level name</code>或者其序列。如果<code>axis</code>是个<code>MultiIndex</code>，则在指定级别上的索引来分组</p>
+</li>
+<li>
+<p><code>as_index</code>：一个布尔值。如果为<code>True</code>，则将<code>group label</code>作为输出的<code>index</code>。如果为<code>False</code>，则输出是<code>SQL</code>风格的分组（此时分组的<code>key</code>作为一列，而不是作为<code>index</code>）。<code>Series</code>中，该参数必须为<code>True</code>。</p>
+</li>
+<li>
+<p><code>sort</code>：一个布尔值。如果为<code>True</code>，则对分组的键进行排序。</p>
+</li>
+<li>
+<p><code>group_keys</code>：一个布尔值。如果为<code>True</code>，且调用了函数来决定分组，则添加分组键来区分不同的数据</p>
+</li>
+<li>
+<p><code>squeeze</code>：一个布尔值。如果为<code>True</code>，则尽可能的缩减结果的类型。</p>
+</li>
+</ul>
+<p>该函数返回一个<code>GroupBy</code>对象。</p>
+<p>创建示例数据:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;key1&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">],</span>
+                   <span class="s1">&#39;key2&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">,</span> <span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">,</span> <span class="s1">&#39;one&#39;</span><span class="p">],</span>
+                   <span class="s1">&#39;data1&#39;</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span>
+                   <span class="s1">&#39;data2&#39;</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">5</span><span class="p">)})</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;index&quot;</span>
+<span class="n">df</span>
+</code></pre></div>
+
+
+<div class="codehilite"><pre><span></span><code><span class="err">      key1 key2     data1     data2</span>
+<span class="err">index</span>
+<span class="err">0        a  one -0.272027  0.254998</span>
+<span class="err">1        a  two  0.169579 -0.131559</span>
+<span class="err">2        b  one -0.779902  0.820435</span>
+<span class="err">3        b  two  0.394076  0.132648</span>
+<span class="err">4        a  one  0.816129 -0.088336</span>
+</code></pre></div>
+
+
+<p>分组：</p>
+<p>序列</p>
+<div class="codehilite"><pre><span></span><code><span class="n">grouped</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;data1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;key1&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">grouped</span><span class="p">),</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">grouped</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;data1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;key1&#39;</span><span class="p">],</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;key2&quot;</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">grouped</span><span class="p">))</span>
+</code></pre></div>
+
+
+<div class="codehilite"><pre><span></span><code><span class="p">[(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="k">index</span>
+<span class="mi">0</span>   <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">272027</span>
+<span class="mi">1</span>    <span class="mi">0</span><span class="p">.</span><span class="mi">169579</span>
+<span class="mi">4</span>    <span class="mi">0</span><span class="p">.</span><span class="mi">816129</span>
+<span class="n">Name</span><span class="p">:</span> <span class="n">data1</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="k">index</span>
+<span class="mi">2</span>   <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">779902</span>
+<span class="mi">3</span>    <span class="mi">0</span><span class="p">.</span><span class="mi">394076</span>
+<span class="n">Name</span><span class="p">:</span> <span class="n">data1</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span><span class="p">)]</span> 
+
+<span class="p">[((</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;one&#39;</span><span class="p">),</span> <span class="k">index</span>
+<span class="mi">0</span>   <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">272027</span>
+<span class="mi">4</span>    <span class="mi">0</span><span class="p">.</span><span class="mi">816129</span>
+<span class="n">Name</span><span class="p">:</span> <span class="n">data1</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span><span class="p">),</span> <span class="p">((</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">),</span> <span class="k">index</span>
+<span class="mi">1</span>    <span class="mi">0</span><span class="p">.</span><span class="mi">169579</span>
+<span class="n">Name</span><span class="p">:</span> <span class="n">data1</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span><span class="p">),</span> <span class="p">((</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;one&#39;</span><span class="p">),</span> <span class="k">index</span>
+<span class="mi">2</span>   <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">779902</span>
+<span class="n">Name</span><span class="p">:</span> <span class="n">data1</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span><span class="p">),</span> <span class="p">((</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">),</span> <span class="k">index</span>
+<span class="mi">3</span>    <span class="mi">0</span><span class="p">.</span><span class="mi">394076</span>
+<span class="n">Name</span><span class="p">:</span> <span class="n">data1</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span><span class="p">)]</span>
+</code></pre></div>
+
+
+<p>column label</p>
+<div class="codehilite"><pre><span></span><code><span class="n">grouped</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;key1&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">grouped</span><span class="p">),</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+
+<div class="codehilite"><pre><span></span><code><span class="err">[(&#39;a&#39;,       key1 key2     data1     data2</span>
+<span class="err">index                              </span>
+<span class="err">0        a  one -0.272027  0.254998</span>
+<span class="err">1        a  two  0.169579 -0.131559</span>
+<span class="err">4        a  one  0.816129 -0.088336), (&#39;b&#39;,       key1 key2     data1     data2</span>
+<span class="err">index                              </span>
+<span class="err">2        b  one -0.779902  0.820435</span>
+<span class="err">3        b  two  0.394076  0.132648)]</span>
+</code></pre></div>
+
+
+<p>list of column label</p>
+<div class="codehilite"><pre><span></span><code><span class="n">grouped</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;key1&#39;</span><span class="p">,</span><span class="s1">&#39;key2&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">grouped</span><span class="p">),</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+
+<div class="codehilite"><pre><span></span><code><span class="err">[]</span>
+</code></pre></div>
+
+
+<p>通过<code>axis</code>参数，也可以指定行的index：</p>
+<div class="codehilite"><pre><span></span><code><span class="n">grouped</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;index&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">grouped</span><span class="p">))</span>
+</code></pre></div>
+
+
+<div class="codehilite"><pre><span></span><code><span class="err">[(0,       key1 key2     data1     data2</span>
+<span class="err">index                              </span>
+<span class="err">0        a  one -0.272027  0.254998), (1,       key1 key2     data1     data2</span>
+<span class="err">index                              </span>
+<span class="err">1        a  two  0.169579 -0.131559), (2,       key1 key2     data1     data2</span>
+<span class="err">index                              </span>
+<span class="err">2        b  one -0.779902  0.820435), (3,       key1 key2     data1     data2</span>
+<span class="err">index                              </span>
+<span class="err">3        b  two  0.394076  0.132648), (4,       key1 key2     data1     data2</span>
+<span class="err">index                              </span>
+<span class="err">4        a  one  0.816129 -0.088336)]</span>
+</code></pre></div>
+
+
+<p>函数：</p>
+<div class="codehilite"><pre><span></span><code><span class="c1"># 定义函数</span>
+<span class="k">def</span> <span class="nf">fun_1</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">key</span>
+<span class="k">def</span> <span class="nf">fun_2</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
+    <span class="k">return</span> <span class="s2">&quot;a&quot;</span>
+
+<span class="c1"># function</span>
+<span class="n">grouped</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;data1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">fun_1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">grouped</span><span class="p">),</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># list of function</span>
+<span class="n">grouped</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="n">fun_1</span><span class="p">,</span> <span class="n">fun_2</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">grouped</span><span class="p">))</span>
+</code></pre></div>
+
+
+<div class="codehilite"><pre><span></span><code><span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="k">index</span>
+<span class="mi">0</span>   <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">272027</span>
+<span class="n">Name</span><span class="p">:</span> <span class="n">data1</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="k">index</span>
+<span class="mi">1</span>    <span class="mi">0</span><span class="p">.</span><span class="mi">169579</span>
+<span class="n">Name</span><span class="p">:</span> <span class="n">data1</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="k">index</span>
+<span class="mi">2</span>   <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">779902</span>
+<span class="n">Name</span><span class="p">:</span> <span class="n">data1</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="k">index</span>
+<span class="mi">3</span>    <span class="mi">0</span><span class="p">.</span><span class="mi">394076</span>
+<span class="n">Name</span><span class="p">:</span> <span class="n">data1</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="k">index</span>
+<span class="mi">4</span>    <span class="mi">0</span><span class="p">.</span><span class="mi">816129</span>
+<span class="n">Name</span><span class="p">:</span> <span class="n">data1</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span><span class="p">)]</span>
+
+<span class="p">[((</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">),</span>       <span class="n">key1</span> <span class="n">key2</span>     <span class="n">data1</span>     <span class="n">data2</span>
+<span class="k">index</span>
+<span class="mi">0</span>        <span class="n">a</span>  <span class="n">one</span> <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">272027</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">254998</span><span class="p">),</span> <span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">),</span>       <span class="n">key1</span> <span class="n">key2</span>
+<span class="n">data1</span>     <span class="n">data2</span>
+<span class="k">index</span>
+<span class="mi">1</span>        <span class="n">a</span>  <span class="n">two</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">169579</span> <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">131559</span><span class="p">),</span> <span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">),</span>       <span class="n">key1</span> <span class="n">key2</span>
+<span class="n">data1</span>     <span class="n">data2</span>
+<span class="k">index</span>
+<span class="mi">2</span>        <span class="n">b</span>  <span class="n">one</span> <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">779902</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">820435</span><span class="p">),</span> <span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">),</span>       <span class="n">key1</span> <span class="n">key2</span>
+<span class="n">data1</span>     <span class="n">data2</span>
+<span class="k">index</span>
+<span class="mi">3</span>        <span class="n">b</span>  <span class="n">two</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">394076</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">132648</span><span class="p">),</span> <span class="p">((</span><span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">),</span>       <span class="n">key1</span> <span class="n">key2</span>
+<span class="n">data1</span>     <span class="n">data2</span>
+<span class="k">index</span>
+<span class="mi">4</span>        <span class="n">a</span>  <span class="n">one</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">816129</span> <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">088336</span><span class="p">)]</span>
+</code></pre></div>
+
+
+<p>Series或字典</p>
+<div class="codehilite"><pre><span></span><code><span class="n">grouped</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;data1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;key1&#39;</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">grouped</span><span class="p">))</span>
+</code></pre></div>
+
+
+<div class="codehilite"><pre><span></span><code><span class="err">[(&#39;a&#39;, index</span>
+<span class="err">0   -0.272027</span>
+<span class="err">1    0.169579</span>
+<span class="err">4    0.816129</span>
+<span class="c">Name: data1, dtype: float64), (&#39;b&#39;, index</span>
+<span class="err">2   -0.779902</span>
+<span class="err">3    0.394076</span>
+<span class="c">Name: data1, dtype: float64)]</span>
+</code></pre></div>
+
+
+<h2 id="_1">遍历组</h2>
+<div class="codehilite"><pre><span></span><code><span class="n">grouped</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;key1&#39;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">grouped</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">group</span><span class="p">)</span>
+</code></pre></div>
+
+
+<div class="codehilite"><pre><span></span><code><span class="err">a</span>
+<span class="err">      key1 key2     data1     data2</span>
+<span class="err">index</span>
+<span class="err">0        a  one -0.272027  0.254998</span>
+<span class="err">1        a  two  0.169579 -0.131559</span>
+<span class="err">4        a  one  0.816129 -0.088336</span>
+<span class="err">b</span>
+<span class="err">      key1 key2     data1     data2</span>
+<span class="err">index</span>
+<span class="err">2        b  one -0.779902  0.820435</span>
+<span class="err">3        b  two  0.394076  0.132648</span>
+</code></pre></div>
+
+
+<h2 id="_2">选择组</h2>
+<div class="codehilite"><pre><span></span><code><span class="n">grouped</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;key1&#39;</span><span class="p">)</span> 
+<span class="n">grouped</span><span class="o">.</span><span class="n">get_group</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+
+<div class="codehilite"><pre><span></span><code><span class="err">      key1 key2     data1     data2</span>
+<span class="err">index</span>
+<span class="err">0        a  one -0.272027  0.254998</span>
+<span class="err">1        a  two  0.169579 -0.131559</span>
+<span class="err">4        a  one  0.816129 -0.088336</span>
+</code></pre></div>
+
+
+<h2 id="_3">聚合</h2>
+<h3 id="_4">常用聚合函数</h3>
+<p>聚合函数可以减小返回对象的尺寸。下面列出了一些常用的汇总功能： </p>
+<table>
+<thead>
+<tr>
+<th>功能</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>mean()</code></td>
+<td>计算组的平均值</td>
+</tr>
+<tr>
+<td><code>sum()</code></td>
+<td>计算组值之和</td>
+</tr>
+<tr>
+<td><code>size()</code></td>
+<td>计算组大小</td>
+</tr>
+<tr>
+<td><code>count()</code></td>
+<td>计算组数</td>
+</tr>
+<tr>
+<td><code>std()</code></td>
+<td>组的标准偏差</td>
+</tr>
+<tr>
+<td><code>var()</code></td>
+<td>计算组的方差</td>
+</tr>
+<tr>
+<td><code>sem()</code></td>
+<td>均值的标准误</td>
+</tr>
+<tr>
+<td><code>describe()</code></td>
+<td>生成描述性统计</td>
+</tr>
+<tr>
+<td><code>first()</code></td>
+<td>首先计算组值</td>
+</tr>
+<tr>
+<td><code>last()</code></td>
+<td>计算组值的最后一个</td>
+</tr>
+<tr>
+<td><code>nth()</code></td>
+<td>取第n个值，如果n是一个列表，则取一个子集</td>
+</tr>
+<tr>
+<td><code>min()</code></td>
+<td>计算组值的最小值</td>
+</tr>
+<tr>
+<td><code>max()</code></td>
+<td>计算组值的最大值</td>
+</tr>
+</tbody>
+</table>
+<p><mark>上面的汇总函数将排除<code>NA</code>值。</mark> 将Series减少为标量值的任何函数都是聚合函数，并且可以正常工作，一个简单的例子是。</p>
+<h3 id="_5">自定义聚合函数</h3>
+<p>如果希望使用自己的聚合函数，只需要将其传入<code>.aggregate(func, *args, **kwargs)</code>或者<code>.agg()</code>方法即可。其中<code>func</code>接受一维数组，返回一个标量值。</p>
+<ul>
+<li>注意：自定义聚合函数会慢得多。这是因为在构造中间分组数据块时存在非常大的开销（函数调用、数据重排等）</li>
+<li>你可以将前面介绍的<code>GroupBy</code>的统计函数名以字符串的形式传入。</li>
+<li>如果你传入了一组函数或者函数名，则得到的结果中，相应的列就用对应的函数名命名。如果你希望提供一个自己的名字，则使用<code>(name,function)</code>元组的序列。其中<code>name</code>用作结果列的列名。</li>
+<li>如果你希望对不同的列采用不同的聚合函数，则向<code>agg()</code>传入一个字典。字典的键就是列名，值就是你希望对该列采用的函数。</li>
+</ul>
+<div class="codehilite"><pre><span></span><code><span class="n">grouped</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;key1&#39;</span><span class="p">)</span>
+<span class="n">grouped</span><span class="o">.</span><span class="n">aggregate</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">)</span>
+</code></pre></div>
+
+
+<div class="codehilite"><pre><span></span><code><span class="err">         data1     data2</span>
+<span class="err">key1</span>
+<span class="err">a     0.713680  0.035103</span>
+<span class="err">b    -0.385826  0.953084</span>
+</code></pre></div>
+
+
+<h2 id="_6">分组级运算</h2>
+<ul>
+<li>
+<p><code>agg/aggregate</code>只是分组级运算其中的一种。它接受一维数组，返回一个标量值。</p>
+</li>
+<li>
+<p><code>transform</code>是另一个分组级运算。它也接受一维数组。只能返回两种结果：要么是一个标量值（该标量值将被广播），或者一个相同大小的结果数组。</p>
+<ul>
+<li>无法通过字典来对不同的列进行不同的<code>transform</code></li>
+</ul>
+</li>
+</ul>
+<div class="codehilite"><pre><span></span><code><span class="n">GroupBy</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+</code></pre></div>
+
+
+<ul>
+<li><code>apply</code>是另一个分组级运算。它是最一般化的分组级运算。它将待处理的对象拆分成多个片段，然后对各个片段调用传入的函数，最后尝试将各个片段组合到一起。</li>
+</ul>
+<div class="codehilite"><pre><span></span><code> <span class="n">GroupBy</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> 
+</code></pre></div>
+
+
+<ul>
+<li>
+<p><code>func</code>：运算函数。其第一个位置参数为待处理对象。其返回值是一个标量值或者<code>pandas</code>对象。</p>
+</li>
+<li>
+<p><code>args/kwargs</code>是传递给<code>func</code>的额外的位置参数与关键字参数。</p>
+</li>
+</ul>
+<p>对于<code>DataFrame</code>的<code>.groupby</code>时，传递给<code>func</code>的第一个参数是<code>DataFrame</code>；对于<code>Series</code>的<code>.groupby</code>，传递给<code>func</code>的第一个参数是<code>Series</code>。</p>
+<ul>
+<li><code>pd.cut()/qcut()</code>函数返回的是<code>Categorical</code>对象。我们可以用它作为<code>.groupby()</code>的<code>by</code>参数的值。这样可以实现桶分析。 </li>
+</ul>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="7.7.%E5%8F%98%E6%8D%A2%E7%B4%A2%E5%BC%95.html" title="7.7.变换索引" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  上一页
+                </span>
+                7.7.变换索引
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../%E6%A0%87%E5%87%86%E5%BA%93/8.1.string.html" title="8.1.string" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  下一页
+                </span>
+                8.1.string
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org" target="_blank" rel="noopener">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application.c33a9706.js"></script>
+      
+        
+        
+          
+          <script src="../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+                <script src="../assets/javascripts/lunr/tinyseg.js"></script>
+              
+              
+                <script src="../assets/javascripts/lunr/lunr.ja.js"></script>
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.1",url:{base:".."}})</script>
+      
+        <script src="../javascript/extra.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+    
+  </body>
+</html>
