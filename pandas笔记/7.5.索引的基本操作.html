@@ -269,8 +269,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/1.3.%E7%BC%96%E8%AF%91%E5%9E%8B%E8%AF%AD%E8%A8%80%E5%92%8C%E8%A7%A3%E9%87%8A%E5%9E%8B%E8%AF%AD%E8%A8%80%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9%E5%AF%B9%E6%AF%94.html" title="1.3.编译型语言和解释型语言的优缺点对比" class="md-nav__link">
-      1.3.编译型语言和解释型语言的优缺点对比
+    <a href="../%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/1.3.%E7%BC%96%E8%AF%91%E5%9E%8B%E8%AF%AD%E8%A8%80%E5%92%8C%E8%A7%A3%E9%87%8A%E5%9E%8B%E8%AF%AD%E8%A8%80%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9%E5%AF%B9%E6%AF%94.html" title="1.3.编译型语言 vs 解释型语言" class="md-nav__link">
+      1.3.编译型语言 vs 解释型语言
     </a>
   </li>
 
@@ -755,6 +755,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy%E7%AC%94%E8%AE%B0/6.13.%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86.html" title="6.13.数据处理" class="md-nav__link">
+      6.13.数据处理
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -974,8 +986,8 @@
 
 
   <li class="md-nav__item">
-    <a href="7.8.%E5%88%86%E7%BB%84.html" title="7.8.分组" class="md-nav__link">
-      7.8.分组
+    <a href="7.8.%E5%88%86%E7%BB%84%E4%B8%8E%E8%81%9A%E5%90%88.html" title="7.8.分组与聚合" class="md-nav__link">
+      7.8.分组与聚合
     </a>
   </li>
 
@@ -986,8 +998,20 @@
 
 
   <li class="md-nav__item">
-    <a href="../pandas笔记/7.9.绘图.md" title="7.9.绘图" class="md-nav__link">
+    <a href="7.9.%E7%BB%98%E5%9B%BE.html" title="7.9.绘图" class="md-nav__link">
       7.9.绘图
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="7.11.%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86.html" title="7.11.数据处理" class="md-nav__link">
+      7.11.数据处理
     </a>
   </li>
 
@@ -1340,7 +1364,7 @@
                 
                   <h1>7.5.索引的基本操作</h1>
                 
-                <div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">tools</span> <span class="kn">import</span> <span class="n">Help</span> <span class="k">as</span> <span class="n">H</span>
+                <div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">Toolkit.Help</span> <span class="kn">import</span> <span class="n">Help</span> <span class="k">as</span> <span class="n">H</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">from</span> <span class="nn">pandas</span> <span class="kn">import</span> <span class="n">DataFrame</span><span class="p">,</span> <span class="n">Series</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -1349,7 +1373,7 @@
 
 <div class="codehilite"><pre><span></span><code><span class="err">Windows 10</span>
 <span class="err">Python 3.7.3 @ MSC v.1915 64 bit (AMD64)</span>
-<span class="err">Latest build date 2020.03.26</span>
+<span class="err">Latest build date 2020.04.11</span>
 <span class="err">pandas version:  1.0.1</span>
 <span class="err">numpy version:  1.18.1</span>
 </code></pre></div>
@@ -1447,10 +1471,10 @@
 
 
 <div class="codehilite"><pre><span></span><code><span class="err">               0         1</span>
-<span class="err">one  y  0.487912 -1.534170</span>
-<span class="err">     x  0.574006 -0.670232</span>
-<span class="err">zero y -1.127378  0.159962</span>
-<span class="err">     x -0.050146  0.317847</span>
+<span class="err">one  y  0.525254  1.268302</span>
+<span class="err">     x  0.796250 -0.278151</span>
+<span class="err">zero y -1.861484  0.216773</span>
+<span class="err">     x -0.369220 -0.408655</span>
 </code></pre></div>
 
 
@@ -1461,8 +1485,8 @@
 
 
 <div class="codehilite"><pre><span></span><code><span class="err">             0         1</span>
-<span class="err">one   0.530959 -1.102201</span>
-<span class="err">zero -0.588762  0.238905</span>
+<span class="err">one   0.660752  0.495076</span>
+<span class="err">zero -1.115352 -0.095941</span>
 </code></pre></div>
 
 
@@ -1471,10 +1495,10 @@
 
 
 <div class="codehilite"><pre><span></span><code><span class="err">               0         1</span>
-<span class="err">one  y  0.530959 -1.102201</span>
-<span class="err">     x  0.530959 -1.102201</span>
-<span class="err">zero y -0.588762  0.238905</span>
-<span class="err">     x -0.588762  0.238905</span>
+<span class="err">one  y  0.660752  0.495076</span>
+<span class="err">     x  0.660752  0.495076</span>
+<span class="err">zero y -1.115352 -0.095941</span>
+<span class="err">     x -1.115352 -0.095941</span>
 </code></pre></div>
 
 
@@ -1487,16 +1511,16 @@
 
 
 <div class="codehilite"><pre><span></span><code>               <span class="mi">0</span>         <span class="mi">1</span>
-<span class="n">one</span>  <span class="n">y</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">487912</span> <span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">534170</span>
-     <span class="n">x</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">574006</span> <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">670232</span>
-<span class="n">zero</span> <span class="n">y</span> <span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">127378</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">159962</span>
-     <span class="n">x</span> <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">050146</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">317847</span>
+<span class="n">one</span>  <span class="n">y</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">525254</span>  <span class="mi">1</span><span class="p">.</span><span class="mi">268302</span>
+     <span class="n">x</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">796250</span> <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">278151</span>
+<span class="n">zero</span> <span class="n">y</span> <span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">861484</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">216773</span>
+     <span class="n">x</span> <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">369220</span> <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">408655</span>
 
                <span class="mi">0</span>         <span class="mi">1</span>
-<span class="n">one</span>  <span class="n">y</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">530959</span> <span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">102201</span>
-     <span class="n">x</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">530959</span> <span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">102201</span>
-<span class="n">zero</span> <span class="n">y</span> <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">588762</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">238905</span>
-     <span class="n">x</span> <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">588762</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">238905</span>
+<span class="n">one</span>  <span class="n">y</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">660752</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">495076</span>
+     <span class="n">x</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">660752</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">495076</span>
+<span class="n">zero</span> <span class="n">y</span> <span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">115352</span> <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">095941</span>
+     <span class="n">x</span> <span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">115352</span> <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">095941</span>
 </code></pre></div>
 
 
@@ -1520,16 +1544,16 @@
 
 
 <div class="codehilite"><pre><span></span><code>               <span class="mi">0</span>         <span class="mi">1</span>
-<span class="n">one</span>  <span class="n">y</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">487912</span> <span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">534170</span>
-     <span class="n">x</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">574006</span> <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">670232</span>
-<span class="n">zero</span> <span class="n">y</span> <span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">127378</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">159962</span>
-     <span class="n">x</span> <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">050146</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">317847</span>
+<span class="n">one</span>  <span class="n">y</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">525254</span>  <span class="mi">1</span><span class="p">.</span><span class="mi">268302</span>
+     <span class="n">x</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">796250</span> <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">278151</span>
+<span class="n">zero</span> <span class="n">y</span> <span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">861484</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">216773</span>
+     <span class="n">x</span> <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">369220</span> <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">408655</span>
 
                <span class="mi">0</span>         <span class="mi">1</span>
-<span class="n">y</span> <span class="n">one</span>   <span class="mi">0</span><span class="p">.</span><span class="mi">487912</span> <span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">534170</span>
-<span class="n">x</span> <span class="n">one</span>   <span class="mi">0</span><span class="p">.</span><span class="mi">574006</span> <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">670232</span>
-<span class="n">y</span> <span class="n">zero</span> <span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">127378</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">159962</span>
-<span class="n">x</span> <span class="n">zero</span> <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">050146</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">317847</span>
+<span class="n">y</span> <span class="n">one</span>   <span class="mi">0</span><span class="p">.</span><span class="mi">525254</span>  <span class="mi">1</span><span class="p">.</span><span class="mi">268302</span>
+<span class="n">x</span> <span class="n">one</span>   <span class="mi">0</span><span class="p">.</span><span class="mi">796250</span> <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">278151</span>
+<span class="n">y</span> <span class="n">zero</span> <span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">861484</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">216773</span>
+<span class="n">x</span> <span class="n">zero</span> <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">369220</span> <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">408655</span>
 </code></pre></div>
 
 
@@ -1541,16 +1565,16 @@
 
 
 <div class="codehilite"><pre><span></span><code>               <span class="mi">0</span>         <span class="mi">1</span>
-<span class="n">one</span>  <span class="n">y</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">487912</span> <span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">534170</span>
-     <span class="n">x</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">574006</span> <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">670232</span>
-<span class="n">zero</span> <span class="n">y</span> <span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">127378</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">159962</span>
-     <span class="n">x</span> <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">050146</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">317847</span>
+<span class="n">one</span>  <span class="n">y</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">525254</span>  <span class="mi">1</span><span class="p">.</span><span class="mi">268302</span>
+     <span class="n">x</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">796250</span> <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">278151</span>
+<span class="n">zero</span> <span class="n">y</span> <span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">861484</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">216773</span>
+     <span class="n">x</span> <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">369220</span> <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">408655</span>
 
                <span class="mi">0</span>         <span class="mi">1</span>
-<span class="n">y</span> <span class="n">one</span>   <span class="mi">0</span><span class="p">.</span><span class="mi">487912</span> <span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">534170</span>
-<span class="n">x</span> <span class="n">one</span>   <span class="mi">0</span><span class="p">.</span><span class="mi">574006</span> <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">670232</span>
-<span class="n">y</span> <span class="n">zero</span> <span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">127378</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">159962</span>
-<span class="n">x</span> <span class="n">zero</span> <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">050146</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">317847</span>
+<span class="n">y</span> <span class="n">one</span>   <span class="mi">0</span><span class="p">.</span><span class="mi">525254</span>  <span class="mi">1</span><span class="p">.</span><span class="mi">268302</span>
+<span class="n">x</span> <span class="n">one</span>   <span class="mi">0</span><span class="p">.</span><span class="mi">796250</span> <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">278151</span>
+<span class="n">y</span> <span class="n">zero</span> <span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">861484</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">216773</span>
+<span class="n">x</span> <span class="n">zero</span> <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">369220</span> <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">408655</span>
 </code></pre></div>
 
 
@@ -1561,10 +1585,10 @@
 
 
 <div class="codehilite"><pre><span></span><code><span class="err">            col0      col1</span>
-<span class="err">one  y  0.487912 -1.534170</span>
-<span class="err">     x  0.574006 -0.670232</span>
-<span class="err">zero y -1.127378  0.159962</span>
-<span class="err">     x -0.050146  0.317847</span>
+<span class="err">one  y  0.525254  1.268302</span>
+<span class="err">     x  0.796250 -0.278151</span>
+<span class="err">zero y -1.861484  0.216773</span>
+<span class="err">     x -0.369220 -0.408655</span>
 </code></pre></div>
 
 
@@ -1574,10 +1598,10 @@
 
 
 <div class="codehilite"><pre><span></span><code><span class="err">               0         1</span>
-<span class="err">two  z  0.487912 -1.534170</span>
-<span class="err">     x  0.574006 -0.670232</span>
-<span class="err">zero z -1.127378  0.159962</span>
-<span class="err">     x -0.050146  0.317847</span>
+<span class="err">two  z  0.525254  1.268302</span>
+<span class="err">     x  0.796250 -0.278151</span>
+<span class="err">zero z -1.861484  0.216773</span>
+<span class="err">     x -0.369220 -0.408655</span>
 </code></pre></div>
 
 
@@ -1588,10 +1612,10 @@
 
 <div class="codehilite"><pre><span></span><code><span class="err">                 0         1</span>
 <span class="err">abc  def</span>
-<span class="err">one  y    0.487912 -1.534170</span>
-<span class="err">     x    0.574006 -0.670232</span>
-<span class="err">zero y   -1.127378  0.159962</span>
-<span class="err">     x   -0.050146  0.317847</span>
+<span class="err">one  y    0.525254  1.268302</span>
+<span class="err">     x    0.796250 -0.278151</span>
+<span class="err">zero y   -1.861484  0.216773</span>
+<span class="err">     x   -0.369220 -0.408655</span>
 </code></pre></div>
 
 
@@ -1612,10 +1636,10 @@
 
 <div class="codehilite"><pre><span></span><code><span class="err">                 0         1</span>
 <span class="err">abc  def</span>
-<span class="err">one  y    0.487912 -1.534170</span>
-<span class="err">     x    0.574006 -0.670232</span>
-<span class="err">zero y   -1.127378  0.159962</span>
-<span class="err">     x   -0.050146  0.317847</span>
+<span class="err">one  y    0.525254  1.268302</span>
+<span class="err">     x    0.796250 -0.278151</span>
+<span class="err">zero y   -1.861484  0.216773</span>
+<span class="err">     x   -0.369220 -0.408655</span>
 </code></pre></div>
 
 
@@ -1639,14 +1663,14 @@
 </code></pre></div>
 
 
-<div class="codehilite"><pre><span></span><code><span class="err">baz  one    0.334347</span>
-<span class="err">     two   -0.423115</span>
-<span class="err">foo  one    0.914515</span>
-<span class="err">bar  one   -0.121476</span>
-<span class="err">     two    0.129982</span>
-<span class="err">qux  one    0.123323</span>
-<span class="err">foo  two   -0.225988</span>
-<span class="err">qux  two   -0.687570</span>
+<div class="codehilite"><pre><span></span><code><span class="err">baz  one   -0.030676</span>
+<span class="err">qux  one   -1.202456</span>
+<span class="err">bar  two   -0.427874</span>
+<span class="err">qux  two    0.143079</span>
+<span class="err">foo  two   -1.195304</span>
+<span class="err">baz  two   -0.420060</span>
+<span class="err">bar  one    0.777924</span>
+<span class="err">foo  one   -1.037374</span>
 <span class="c">dtype: float64</span>
 </code></pre></div>
 
@@ -1657,14 +1681,14 @@
 </code></pre></div>
 
 
-<div class="codehilite"><pre><span></span><code><span class="err">bar  one   -0.121476</span>
-<span class="err">     two    0.129982</span>
-<span class="err">baz  one    0.334347</span>
-<span class="err">     two   -0.423115</span>
-<span class="err">foo  one    0.914515</span>
-<span class="err">     two   -0.225988</span>
-<span class="err">qux  one    0.123323</span>
-<span class="err">     two   -0.687570</span>
+<div class="codehilite"><pre><span></span><code><span class="err">bar  one    0.777924</span>
+<span class="err">     two   -0.427874</span>
+<span class="err">baz  one   -0.030676</span>
+<span class="err">     two   -0.420060</span>
+<span class="err">foo  one   -1.037374</span>
+<span class="err">     two   -1.195304</span>
+<span class="err">qux  one   -1.202456</span>
+<span class="err">     two    0.143079</span>
 <span class="c">dtype: float64</span>
 </code></pre></div>
 
@@ -1673,14 +1697,14 @@
 </code></pre></div>
 
 
-<div class="codehilite"><pre><span></span><code><span class="err">bar  one   -0.121476</span>
-<span class="err">baz  one    0.334347</span>
-<span class="err">foo  one    0.914515</span>
-<span class="err">qux  one    0.123323</span>
-<span class="err">bar  two    0.129982</span>
-<span class="err">baz  two   -0.423115</span>
-<span class="err">foo  two   -0.225988</span>
-<span class="err">qux  two   -0.687570</span>
+<div class="codehilite"><pre><span></span><code><span class="err">bar  one    0.777924</span>
+<span class="err">baz  one   -0.030676</span>
+<span class="err">foo  one   -1.037374</span>
+<span class="err">qux  one   -1.202456</span>
+<span class="err">bar  two   -0.427874</span>
+<span class="err">baz  two   -0.420060</span>
+<span class="err">foo  two   -1.195304</span>
+<span class="err">qux  two    0.143079</span>
 <span class="c">dtype: float64</span>
 </code></pre></div>
 
@@ -1694,25 +1718,25 @@
 
 
 <div class="codehilite"><pre><span></span><code><span class="n">L1</span>   <span class="n">L2</span>
-<span class="n">bar</span>  <span class="n">one</span>   <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">121476</span>
-     <span class="n">two</span>    <span class="mi">0</span><span class="p">.</span><span class="mi">129982</span>
-<span class="n">baz</span>  <span class="n">one</span>    <span class="mi">0</span><span class="p">.</span><span class="mi">334347</span>
-     <span class="n">two</span>   <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">423115</span>
-<span class="n">foo</span>  <span class="n">one</span>    <span class="mi">0</span><span class="p">.</span><span class="mi">914515</span>
-     <span class="n">two</span>   <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">225988</span>
-<span class="n">qux</span>  <span class="n">one</span>    <span class="mi">0</span><span class="p">.</span><span class="mi">123323</span>
-     <span class="n">two</span>   <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">687570</span>
+<span class="n">bar</span>  <span class="n">one</span>    <span class="mi">0</span><span class="p">.</span><span class="mi">777924</span>
+     <span class="n">two</span>   <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">427874</span>
+<span class="n">baz</span>  <span class="n">one</span>   <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">030676</span>
+     <span class="n">two</span>   <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">420060</span>
+<span class="n">foo</span>  <span class="n">one</span>   <span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">037374</span>
+     <span class="n">two</span>   <span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">195304</span>
+<span class="n">qux</span>  <span class="n">one</span>   <span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">202456</span>
+     <span class="n">two</span>    <span class="mi">0</span><span class="p">.</span><span class="mi">143079</span>
 <span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
 
 <span class="n">L1</span>   <span class="n">L2</span>
-<span class="n">bar</span>  <span class="n">one</span>   <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">121476</span>
-<span class="n">baz</span>  <span class="n">one</span>    <span class="mi">0</span><span class="p">.</span><span class="mi">334347</span>
-<span class="n">foo</span>  <span class="n">one</span>    <span class="mi">0</span><span class="p">.</span><span class="mi">914515</span>
-<span class="n">qux</span>  <span class="n">one</span>    <span class="mi">0</span><span class="p">.</span><span class="mi">123323</span>
-<span class="n">bar</span>  <span class="n">two</span>    <span class="mi">0</span><span class="p">.</span><span class="mi">129982</span>
-<span class="n">baz</span>  <span class="n">two</span>   <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">423115</span>
-<span class="n">foo</span>  <span class="n">two</span>   <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">225988</span>
-<span class="n">qux</span>  <span class="n">two</span>   <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">687570</span>
+<span class="n">bar</span>  <span class="n">one</span>    <span class="mi">0</span><span class="p">.</span><span class="mi">777924</span>
+<span class="n">baz</span>  <span class="n">one</span>   <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">030676</span>
+<span class="n">foo</span>  <span class="n">one</span>   <span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">037374</span>
+<span class="n">qux</span>  <span class="n">one</span>   <span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">202456</span>
+<span class="n">bar</span>  <span class="n">two</span>   <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">427874</span>
+<span class="n">baz</span>  <span class="n">two</span>   <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">420060</span>
+<span class="n">foo</span>  <span class="n">two</span>   <span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">195304</span>
+<span class="n">qux</span>  <span class="n">two</span>    <span class="mi">0</span><span class="p">.</span><span class="mi">143079</span>
 <span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
 </code></pre></div>
 
@@ -1724,8 +1748,8 @@
 
 <div class="codehilite"><pre><span></span><code><span class="err">abc       one      zero       one      zero</span>
 <span class="err">def         x         x         y         y</span>
-<span class="err">0    0.574006 -0.050146  0.487912 -1.127378</span>
-<span class="err">1   -0.670232  0.317847 -1.534170  0.159962</span>
+<span class="err">0    0.796250 -0.369220  0.525254 -1.861484</span>
+<span class="err">1   -0.278151 -0.408655  1.268302  0.216773</span>
 </code></pre></div>
 
 
@@ -1749,7 +1773,7 @@
 
 <div class="codehilite"><pre><span></span><code><span class="err">            jolie</span>
 <span class="err">jim joe</span>
-<span class="err">1   z    0.467762</span>
+<span class="err">1   z    0.411054</span>
 </code></pre></div>
 
 
@@ -1773,8 +1797,8 @@
 
 <div class="codehilite"><pre><span></span><code><span class="err">            jolie</span>
 <span class="err">jim joe</span>
-<span class="err">1   y    0.990948</span>
-<span class="err">    z    0.467762</span>
+<span class="err">1   y    0.599272</span>
+<span class="err">    z    0.411054</span>
 </code></pre></div>
 
 
@@ -1802,10 +1826,10 @@
 
 <div class="codehilite"><pre><span></span><code><span class="err">            jolie</span>
 <span class="err">jim joe</span>
-<span class="err">0   x    0.626338</span>
-<span class="err">    x    0.690821</span>
-<span class="err">1   y    0.990948</span>
-<span class="err">    z    0.467762</span>
+<span class="err">0   x    0.180559</span>
+<span class="err">    x    0.757809</span>
+<span class="err">1   y    0.599272</span>
+<span class="err">    z    0.411054</span>
 </code></pre></div>
 
 
@@ -1832,8 +1856,8 @@
 
 <div class="codehilite"><pre><span></span><code><span class="err">            jolie</span>
 <span class="err">jim joe</span>
-<span class="err">1   y    0.990948</span>
-<span class="err">    z    0.467762</span>
+<span class="err">1   y    0.599272</span>
+<span class="err">    z    0.411054</span>
 </code></pre></div>
 
 
@@ -1860,19 +1884,19 @@
 
 
 <div class="codehilite"><pre><span></span><code><span class="err">   0  1  2 key</span>
-<span class="err">0  9  7  2   A</span>
-<span class="err">1  7  1  1   B</span>
-<span class="err">2  0  5  4   C</span>
-<span class="err">3  8  6  3   D</span>
+<span class="err">0  2  9  3   A</span>
+<span class="err">1  2  4  9   B</span>
+<span class="err">2  0  6  4   C</span>
+<span class="err">3  4  3  2   D</span>
 </code></pre></div>
 
 
 <div class="codehilite"><pre><span></span><code><span class="err">       0  1  2</span>
 <span class="err">  key</span>
-<span class="err">0 A    9  7  2</span>
-<span class="err">1 B    7  1  1</span>
-<span class="err">2 C    0  5  4</span>
-<span class="err">3 D    8  6  3</span>
+<span class="err">0 A    2  9  3</span>
+<span class="err">1 B    2  4  9</span>
+<span class="err">2 C    0  6  4</span>
+<span class="err">3 D    4  3  2</span>
 </code></pre></div>
 
 
@@ -1905,19 +1929,19 @@
 
 <div class="codehilite"><pre><span></span><code><span class="err">   a     b</span>
 <span class="err">   1  2  3</span>
-<span class="err">0  0  2  0</span>
-<span class="err">1  7  3  3</span>
-<span class="err">2  1  0  4</span>
-<span class="err">3  6  1  0</span>
+<span class="err">0  9  6  3</span>
+<span class="err">1  8  1  3</span>
+<span class="err">2  5  0  9</span>
+<span class="err">3  6  0  5</span>
 </code></pre></div>
 
 
 <div class="codehilite"><pre><span></span><code><span class="err">  index  a     b</span>
 <span class="err">         1  2  3</span>
-<span class="err">0     0  0  2  0</span>
-<span class="err">1     1  7  3  3</span>
-<span class="err">2     2  1  0  4</span>
-<span class="err">3     3  6  1  0</span>
+<span class="err">0     0  9  6  3</span>
+<span class="err">1     1  8  1  3</span>
+<span class="err">2     2  5  0  9</span>
+<span class="err">3     3  6  0  5</span>
 </code></pre></div>
 
 

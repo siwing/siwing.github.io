@@ -36,7 +36,7 @@
     
     
       
-        <title>7.8.分组 - Python笔记</title>
+        <title>7.8.分组与聚合 - Python笔记</title>
       
     
     
@@ -103,7 +103,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                7.8.分组
+                7.8.分组与聚合
               
             </span>
           
@@ -776,10 +776,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" checked>
     
     <label class="md-nav__link" for="nav-6">
       Pandas笔记
@@ -879,11 +881,169 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="7.8.%E5%88%86%E7%BB%84%E4%B8%8E%E8%81%9A%E5%90%88.html" title="7.8.分组与聚合" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        7.8.分组与聚合
+      </label>
+    
+    <a href="7.8.%E5%88%86%E7%BB%84%E4%B8%8E%E8%81%9A%E5%90%88.html" title="7.8.分组与聚合" class="md-nav__link md-nav__link--active">
       7.8.分组与聚合
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#groupby" class="md-nav__link">
+    GroupBy机制
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#groupby_1" class="md-nav__link">
+    groupby方法
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    拆分组
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#series" class="md-nav__link">
+    Series或字典
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#column-label" class="md-nav__link">
+    column label
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list-of-column-label" class="md-nav__link">
+    list of column label
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    序列
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    函数
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    遍历组
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    选择组
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cut" class="md-nav__link">
+    cut 函数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#qcut" class="md-nav__link">
+    qcut 函数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    聚合
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    常用聚合函数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    自定义聚合函数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#apply" class="md-nav__link">
+    apply 方法
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    分组级运算
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -1309,10 +1469,10 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/siwing/siwing.github.io/edit/master/docs/pandas笔记/7.8.分组.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/siwing/siwing.github.io/edit/master/docs/pandas笔记/7.8.分组与聚合.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                  <h1>7.8.分组</h1>
+                  <h1>7.8.分组与聚合</h1>
                 
                 <div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">Toolkit.Help</span> <span class="kn">import</span> <span class="n">Help</span> <span class="k">as</span> <span class="n">H</span>
 <span class="kn">import</span> <span class="nn">pprint</span>
@@ -1666,8 +1826,20 @@
 
 <ul>
 <li><code>x</code>：一维的数组。</li>
-<li><code>bins</code>：一个整数、一个序列。</li>
-<li>整数：它指定了划分区间的数量。每个区间是等长的，且最左侧的区间的左侧比<code>x</code>最小值小<code>0.1%</code>；最右侧的区间的右侧比<code>x</code>最大值大<code>0.1%</code>。  - 一个序列：它给出了<code>bins</code>的每个划分点。- <code>right</code>：一个布尔值。如果为<code>True</code>，则区间是左开右闭；否则区间是左闭右开的区间。</li>
+<li>
+<p><code>bins</code>：一个整数、一个序列。</p>
+<ul>
+<li>
+<p>整数：它指定了划分区间的数量。每个区间是等长的，且最左侧的区间的左侧比<code>x</code>最小值小<code>0.1%</code>；最右侧的区间的右侧比<code>x</code>最大值大<code>0.1%</code>。</p>
+</li>
+<li>
+<p>一个序列：它给出了<code>bins</code>的每个划分点。</p>
+</li>
+</ul>
+</li>
+<li>
+<p><code>right</code>：一个布尔值。如果为<code>True</code>，则区间是左开右闭；否则区间是左闭右开的区间。</p>
+</li>
 <li><code>labels</code>：一个<code>array</code>或者<code>None</code>。如果为一个<code>array</code>，则它指定了结果<code>bins</code>的<code>label</code>（要求长度与<code>bins</code>数量相同）。如果为<code>None</code>，则使用区间来表示。</li>
 <li><code>retbins</code>：一个布尔值。如果为<code>True</code>，则返回<code>bins</code></li>
 <li><code>precision</code>：一个整数，给出存储和显示<code>bin label</code>的精度</li>
@@ -1680,8 +1852,20 @@
 
 
 <ul>
-<li><code>q</code>：一个整数或者序列。</li>
-<li>整数：它指定了划分区间的数量。  - 一个序列：它给出了百分比划分点。比如<code>[0,0.25,0.5,0.75,0.1]</code>。<code>0.25</code>代表<code>25%</code>划分点。如果数据不在任何区间内，则标记为<code>NaN</code>。- 其他参数与<code>cut</code>相同。(<code>qcut</code>没有<code>bins</code>参数）</li>
+<li>
+<p><code>q</code>：一个整数或者序列。</p>
+<ul>
+<li>
+<p>整数：它指定了划分区间的数量。</p>
+</li>
+<li>
+<p>一个序列：它给出了百分比划分点。比如<code>[0,0.25,0.5,0.75,0.1]</code>。<code>0.25</code>代表<code>25%</code>划分点。如果数据不在任何区间内，则标记为<code>NaN</code>。</p>
+</li>
+</ul>
+</li>
+<li>
+<p>其他参数与<code>cut</code>相同。(<code>qcut</code>没有<code>bins</code>参数）</p>
+</li>
 </ul>
 <h2 id="_6">聚合</h2>
 <h3 id="_7">常用聚合函数</h3>
@@ -1834,6 +2018,41 @@
       
         
 <footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="7.7.%E5%8F%98%E6%8D%A2%E7%B4%A2%E5%BC%95.html" title="7.7.变换索引" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  上一页
+                </span>
+                7.7.变换索引
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="7.9.%E7%BB%98%E5%9B%BE.html" title="7.9.绘图" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  下一页
+                </span>
+                7.9.绘图
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">

@@ -269,8 +269,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/1.3.%E7%BC%96%E8%AF%91%E5%9E%8B%E8%AF%AD%E8%A8%80%E5%92%8C%E8%A7%A3%E9%87%8A%E5%9E%8B%E8%AF%AD%E8%A8%80%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9%E5%AF%B9%E6%AF%94.html" title="1.3.编译型语言和解释型语言的优缺点对比" class="md-nav__link">
-      1.3.编译型语言和解释型语言的优缺点对比
+    <a href="../%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/1.3.%E7%BC%96%E8%AF%91%E5%9E%8B%E8%AF%AD%E8%A8%80%E5%92%8C%E8%A7%A3%E9%87%8A%E5%9E%8B%E8%AF%AD%E8%A8%80%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9%E5%AF%B9%E6%AF%94.html" title="1.3.编译型语言 vs 解释型语言" class="md-nav__link">
+      1.3.编译型语言 vs 解释型语言
     </a>
   </li>
 
@@ -755,6 +755,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy%E7%AC%94%E8%AE%B0/6.13.%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86.html" title="6.13.数据处理" class="md-nav__link">
+      6.13.数据处理
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -1110,8 +1122,8 @@
 
 
   <li class="md-nav__item">
-    <a href="7.8.%E5%88%86%E7%BB%84.html" title="7.8.分组" class="md-nav__link">
-      7.8.分组
+    <a href="7.8.%E5%88%86%E7%BB%84%E4%B8%8E%E8%81%9A%E5%90%88.html" title="7.8.分组与聚合" class="md-nav__link">
+      7.8.分组与聚合
     </a>
   </li>
 
@@ -1122,8 +1134,20 @@
 
 
   <li class="md-nav__item">
-    <a href="../pandas笔记/7.9.绘图.md" title="7.9.绘图" class="md-nav__link">
+    <a href="7.9.%E7%BB%98%E5%9B%BE.html" title="7.9.绘图" class="md-nav__link">
       7.9.绘图
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="7.11.%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86.html" title="7.11.数据处理" class="md-nav__link">
+      7.11.数据处理
     </a>
   </li>
 
@@ -1612,7 +1636,7 @@
                 
                   <h1>7.4.索引对象</h1>
                 
-                <div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">tools</span> <span class="kn">import</span> <span class="n">Help</span> <span class="k">as</span> <span class="n">H</span>
+                <div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">Toolkit.Help</span> <span class="kn">import</span> <span class="n">Help</span> <span class="k">as</span> <span class="n">H</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">pprint</span>
@@ -1621,7 +1645,7 @@
 
 <div class="codehilite"><pre><span></span><code><span class="err">Windows 10</span>
 <span class="err">Python 3.7.3 @ MSC v.1915 64 bit (AMD64)</span>
-<span class="err">Latest build date 2020.03.27</span>
+<span class="err">Latest build date 2020.04.11</span>
 <span class="err">pandas version:  1.0.1</span>
 <span class="err">numpy version:  1.18.1</span>
 </code></pre></div>
@@ -1903,14 +1927,14 @@
 
 
 <div class="codehilite"><pre><span></span><code><span class="err">                0         1         2         3</span>
-<span class="err">bar one -0.149869  0.388837  1.232751 -0.377608</span>
-<span class="err">    two  1.247101  0.970024 -0.057422 -0.109555</span>
-<span class="err">baz one -1.304707 -0.110795 -3.126990 -0.401541</span>
-<span class="err">    two -0.474412 -0.817668  1.851743 -0.785395</span>
-<span class="err">foo one -1.054283 -0.441666 -0.422756  0.631781</span>
-<span class="err">    two  1.048264 -1.730914 -0.059572 -1.432131</span>
-<span class="err">qux one  0.093809 -0.961643  0.036820  0.479635</span>
-<span class="err">    two -0.974386  1.764372 -0.642714 -0.869416</span>
+<span class="err">bar one  1.272859  1.590902  1.533832  0.896089</span>
+<span class="err">    two -1.338722 -0.930629  0.228179  1.229562</span>
+<span class="err">baz one -3.015706 -1.701900  1.237405 -2.174275</span>
+<span class="err">    two -0.826832 -1.058854 -0.367501  0.974535</span>
+<span class="err">foo one -0.617897 -1.102916 -0.049820  1.055834</span>
+<span class="err">    two -0.361094 -1.281896  0.596017 -0.763006</span>
+<span class="err">qux one  0.162307 -0.839610 -1.930223  0.178659</span>
+<span class="err">    two -1.095679  0.109408  0.342514  0.676979</span>
 </code></pre></div>
 
 
@@ -1939,9 +1963,9 @@
 
 <div class="codehilite"><pre><span></span><code><span class="err">first        bar                 baz                 foo                 qux          </span>
 <span class="err">second       one       two       one       two       one       two       one       two</span>
-<span class="err">A      -1.669382  0.946825 -1.107429  1.484906 -0.324246 -0.871379  3.640298  3.101377</span>
-<span class="err">B       1.816396 -0.622796  0.084553 -0.135553 -0.241566 -0.692833  0.811078  0.966405</span>
-<span class="err">C       1.869549 -0.857438 -1.502957  0.285411  0.617999 -0.548691 -1.146360 -0.281126</span>
+<span class="err">A      -0.943993  0.713135 -1.476287  0.148504 -0.745637  0.213429  0.292039  0.576053</span>
+<span class="err">B      -1.526875 -0.661510  0.233744 -2.124779  2.527988 -0.649525 -1.197415 -1.194035</span>
+<span class="err">C      -0.948963 -1.212174 -0.172934 -1.164432  0.017524 -0.044831  0.744810 -1.540683</span>
 </code></pre></div>
 
 
@@ -1951,9 +1975,9 @@
 
 
 <div class="codehilite"><pre><span></span><code><span class="err">second       one       two</span>
-<span class="err">A      -1.669382  0.946825</span>
-<span class="err">B       1.816396 -0.622796</span>
-<span class="err">C       1.869549 -0.857438</span>
+<span class="err">A      -0.943993  0.713135</span>
+<span class="err">B      -1.526875 -0.661510</span>
+<span class="err">C      -0.948963 -1.212174</span>
 </code></pre></div>
 
 
@@ -1963,9 +1987,9 @@
 </code></pre></div>
 
 
-<div class="codehilite"><pre><span></span><code><span class="err">A   -1.669382</span>
-<span class="err">B    1.816396</span>
-<span class="err">C    1.869549</span>
+<div class="codehilite"><pre><span></span><code><span class="err">A   -0.943993</span>
+<span class="err">B   -1.526875</span>
+<span class="err">C   -0.948963</span>
 <span class="c">Name: (bar, one), dtype: float64</span>
 </code></pre></div>
 
@@ -1977,9 +2001,9 @@
 
 <div class="codehilite"><pre><span></span><code><span class="err">first        bar                 baz                 foo</span>
 <span class="err">second       one       two       one       two       one       two</span>
-<span class="err">A      -1.669382  0.946825 -1.107429  1.484906 -0.324246 -0.871379</span>
-<span class="err">B       1.816396 -0.622796  0.084553 -0.135553 -0.241566 -0.692833</span>
-<span class="err">C       1.869549 -0.857438 -1.502957  0.285411  0.617999 -0.548691</span>
+<span class="err">A      -0.943993  0.713135 -1.476287  0.148504 -0.745637  0.213429</span>
+<span class="err">B      -1.526875 -0.661510  0.233744 -2.124779  2.527988 -0.649525</span>
+<span class="err">C      -0.948963 -1.212174 -0.172934 -1.164432  0.017524 -0.044831</span>
 </code></pre></div>
 
 
@@ -1990,9 +2014,9 @@
 
 <div class="codehilite"><pre><span></span><code><span class="err">first        bar       baz</span>
 <span class="err">second       one       one</span>
-<span class="err">A      -1.669382 -1.107429</span>
-<span class="err">B       1.816396  0.084553</span>
-<span class="err">C       1.869549 -1.502957</span>
+<span class="err">A      -0.943993 -1.476287</span>
+<span class="err">B      -1.526875  0.233744</span>
+<span class="err">C      -0.948963 -0.172934</span>
 </code></pre></div>
 
 
@@ -2010,27 +2034,27 @@
 
 
 <div class="codehilite"><pre><span></span><code><span class="k">second</span>
-<span class="n">one</span>   <span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">669382</span>
-<span class="n">two</span>    <span class="mi">0</span><span class="p">.</span><span class="mi">946825</span>
+<span class="n">one</span>   <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">943993</span>
+<span class="n">two</span>    <span class="mi">0</span><span class="p">.</span><span class="mi">713135</span>
 <span class="n">Name</span><span class="p">:</span> <span class="n">A</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
 
-<span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">6693815279816542</span>
+<span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">943993274158185</span>
 
 <span class="k">first</span>  <span class="k">second</span>
-<span class="n">bar</span>    <span class="n">one</span>      <span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">669382</span>
-<span class="n">Name</span><span class="p">:</span> <span class="n">A</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
-
-<span class="k">first</span>  <span class="k">second</span>
-<span class="n">bar</span>    <span class="n">one</span>      <span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">669382</span>
+<span class="n">bar</span>    <span class="n">one</span>      <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">943993</span>
 <span class="n">Name</span><span class="p">:</span> <span class="n">A</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
 
 <span class="k">first</span>  <span class="k">second</span>
-<span class="n">bar</span>    <span class="n">one</span>      <span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">669382</span>
+<span class="n">bar</span>    <span class="n">one</span>      <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">943993</span>
 <span class="n">Name</span><span class="p">:</span> <span class="n">A</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
 
 <span class="k">first</span>  <span class="k">second</span>
-<span class="n">bar</span>    <span class="n">one</span>      <span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">669382</span>
-       <span class="n">two</span>       <span class="mi">0</span><span class="p">.</span><span class="mi">946825</span>
+<span class="n">bar</span>    <span class="n">one</span>      <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">943993</span>
+<span class="n">Name</span><span class="p">:</span> <span class="n">A</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
+
+<span class="k">first</span>  <span class="k">second</span>
+<span class="n">bar</span>    <span class="n">one</span>      <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">943993</span>
+       <span class="n">two</span>       <span class="mi">0</span><span class="p">.</span><span class="mi">713135</span>
 <span class="n">Name</span><span class="p">:</span> <span class="n">A</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
 </code></pre></div>
 
@@ -2043,15 +2067,15 @@
 
 
 <div class="codehilite"><pre><span></span><code><span class="k">first</span>  <span class="k">second</span>
-<span class="n">bar</span>    <span class="n">one</span>      <span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">669382</span>
-       <span class="n">two</span>       <span class="mi">0</span><span class="p">.</span><span class="mi">946825</span>
-<span class="n">foo</span>    <span class="n">one</span>      <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">324246</span>
-       <span class="n">two</span>      <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">871379</span>
+<span class="n">bar</span>    <span class="n">one</span>      <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">943993</span>
+       <span class="n">two</span>       <span class="mi">0</span><span class="p">.</span><span class="mi">713135</span>
+<span class="n">foo</span>    <span class="n">one</span>      <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">745637</span>
+       <span class="n">two</span>       <span class="mi">0</span><span class="p">.</span><span class="mi">213429</span>
 <span class="n">Name</span><span class="p">:</span> <span class="n">A</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
 
 <span class="k">first</span>  <span class="k">second</span>
-<span class="n">bar</span>    <span class="n">one</span>      <span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">669382</span>
-<span class="n">foo</span>    <span class="n">two</span>      <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">871379</span>
+<span class="n">bar</span>    <span class="n">one</span>      <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">943993</span>
+<span class="n">foo</span>    <span class="n">two</span>       <span class="mi">0</span><span class="p">.</span><span class="mi">213429</span>
 <span class="n">Name</span><span class="p">:</span> <span class="n">A</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
 </code></pre></div>
 
@@ -2063,14 +2087,14 @@
 
 
 <div class="codehilite"><pre><span></span><code><span class="err">                0         1         2         3</span>
-<span class="err">bar one  0.129125  0.373034  0.524895  2.538669</span>
-<span class="err">    two  0.086022  1.072901 -0.473816  0.606829</span>
-<span class="err">baz one -2.881425 -0.085144 -0.396334  0.249914</span>
-<span class="err">    two  0.795174  1.180261  2.796746  0.111470</span>
-<span class="err">foo one -0.954158 -0.324644  0.995051 -0.953694</span>
-<span class="err">    two  0.491467  0.643638  1.239580 -1.429887</span>
-<span class="err">qux one  0.770863  0.220602  0.082429 -0.415412</span>
-<span class="err">    two -1.110249  1.616009  0.782181  0.349139</span>
+<span class="err">bar one -0.059500  1.192862  1.134994 -1.745307</span>
+<span class="err">    two  0.561741  1.629883  1.580909  0.052081</span>
+<span class="err">baz one -0.044704 -0.500037  0.104440 -0.226358</span>
+<span class="err">    two  0.393521 -0.188607  0.632692  0.983372</span>
+<span class="err">foo one  0.767599  1.202836 -0.720521 -0.407423</span>
+<span class="err">    two -0.624066  0.647863  0.250755  0.114761</span>
+<span class="err">qux one -0.671501  1.231328 -0.307714  0.155759</span>
+<span class="err">    two  1.349382 -0.866358  0.527276  0.587707</span>
 </code></pre></div>
 
 
@@ -2079,8 +2103,8 @@
 
 
 <div class="codehilite"><pre><span></span><code><span class="err">            0         1</span>
-<span class="err">one  0.129125  0.373034</span>
-<span class="err">two  0.086022  1.072901</span>
+<span class="err">one -0.059500  1.192862</span>
+<span class="err">two  0.561741  1.629883</span>
 </code></pre></div>
 
 
@@ -2089,8 +2113,8 @@
 </code></pre></div>
 
 
-<div class="codehilite"><pre><span></span><code><span class="err">                0         1</span>
-<span class="err">bar one  0.129125  0.373034</span>
+<div class="codehilite"><pre><span></span><code><span class="err">              0         1</span>
+<span class="err">bar one -0.0595  1.192862</span>
 </code></pre></div>
 
 
@@ -2412,9 +2436,9 @@
 
 <div class="codehilite"><pre><span></span><code><span class="err">first        bar                 baz                 foo</span>
 <span class="err">second       one       two       one       two       one       two</span>
-<span class="err">0       0.352281  1.125628 -1.001453  0.873532  2.023471  0.457108</span>
-<span class="err">1       2.136812  0.774828 -0.886251  0.379632  1.623714 -0.288044</span>
-<span class="err">2       1.346659  0.658233 -1.113323  1.496663  0.561223  0.213008</span>
+<span class="err">0      -1.103671 -0.169328 -1.575613 -1.972754 -0.774569 -0.791508</span>
+<span class="err">1      -0.902346  1.154518  2.185713 -0.473948 -0.312497 -0.267216</span>
+<span class="err">2      -0.020286  1.012314 -1.039006  0.277789 -0.674508  0.707265</span>
 </code></pre></div>
 
 
@@ -2425,9 +2449,9 @@
 
 
 <div class="codehilite"><pre><span></span><code><span class="err">first       bar       baz       foo</span>
-<span class="err">0      0.352281 -1.001453  2.023471</span>
-<span class="err">1      2.136812 -0.886251  1.623714</span>
-<span class="err">2      1.346659 -1.113323  0.561223</span>
+<span class="err">0     -1.103671 -1.575613 -0.774569</span>
+<span class="err">1     -0.902346  2.185713 -0.312497</span>
+<span class="err">2     -0.020286 -1.039006 -0.674508</span>
 </code></pre></div>
 
 
@@ -2437,9 +2461,9 @@
 
 <div class="codehilite"><pre><span></span><code><span class="err">first        bar</span>
 <span class="err">second       one</span>
-<span class="err">0       0.352281</span>
-<span class="err">1       2.136812</span>
-<span class="err">2       1.346659</span>
+<span class="err">0      -1.103671</span>
+<span class="err">1      -0.902346</span>
+<span class="err">2      -0.020286</span>
 </code></pre></div>
 
 
@@ -2450,9 +2474,9 @@
 
 <div class="codehilite"><pre><span></span><code><span class="err">first        bar       baz       foo</span>
 <span class="err">second       one       one       one</span>
-<span class="err">0       0.352281 -1.001453  2.023471</span>
-<span class="err">1       2.136812 -0.886251  1.623714</span>
-<span class="err">2       1.346659 -1.113323  0.561223</span>
+<span class="err">0      -1.103671 -1.575613 -0.774569</span>
+<span class="err">1      -0.902346  2.185713 -0.312497</span>
+<span class="err">2      -0.020286 -1.039006 -0.674508</span>
 </code></pre></div>
 
 
@@ -2461,9 +2485,9 @@
 
 
 <div class="codehilite"><pre><span></span><code><span class="err">first       bar       baz       foo</span>
-<span class="err">0      0.352281 -1.001453  2.023471</span>
-<span class="err">1      2.136812 -0.886251  1.623714</span>
-<span class="err">2      1.346659 -1.113323  0.561223</span>
+<span class="err">0     -1.103671 -1.575613 -0.774569</span>
+<span class="err">1     -0.902346  2.185713 -0.312497</span>
+<span class="err">2     -0.020286 -1.039006 -0.674508</span>
 </code></pre></div>
 
 
@@ -2479,10 +2503,10 @@
 </code></pre></div>
 
 
-<div class="codehilite"><pre><span></span><code><span class="err">Int64Index([852, 991, 470, 413, 884, 711, 204, 767, 938, 649],</span>
+<div class="codehilite"><pre><span></span><code><span class="err">Int64Index([886, 20, 973, 555, 482, 741, 14, 455, 473, 483],</span>
 <span class="err">dtype=&#39;int64&#39;)</span>
-<span class="err">Int64Index([852, 649, 413], dtype=&#39;int64&#39;)</span>
-<span class="err">Int64Index([852, 649, 413], dtype=&#39;int64&#39;)</span>
+<span class="err">Int64Index([886, 483, 555], dtype=&#39;int64&#39;)</span>
+<span class="err">Int64Index([886, 483, 555], dtype=&#39;int64&#39;)</span>
 </code></pre></div>
 
 
@@ -2492,13 +2516,13 @@
 </code></pre></div>
 
 
-<div class="codehilite"><pre><span></span><code><span class="err">0    1.222175</span>
-<span class="err">9    0.036996</span>
-<span class="err">3   -0.168676</span>
+<div class="codehilite"><pre><span></span><code><span class="err">0    1.554295</span>
+<span class="err">9    2.223200</span>
+<span class="err">3    0.471164</span>
 <span class="c">dtype: float64</span>
-<span class="err">0    1.222175</span>
-<span class="err">9    0.036996</span>
-<span class="err">3   -0.168676</span>
+<span class="err">0    1.554295</span>
+<span class="err">9    2.223200</span>
+<span class="err">3    0.471164</span>
 <span class="c">dtype: float64</span>
 </code></pre></div>
 
@@ -2513,21 +2537,21 @@
 
 
 <div class="codehilite"><pre><span></span><code><span class="err">          0         1         2</span>
-<span class="err">0 -0.351339  0.694583  0.803114</span>
-<span class="err">1  0.032479  0.051670  0.480661</span>
-<span class="err">2  1.362063  1.354556  0.719177</span>
-<span class="err">3  0.148961 -1.372279  0.661314</span>
-<span class="err">4  1.579377 -0.436246  0.916378</span>
+<span class="err">0 -0.847795 -1.868665 -0.309621</span>
+<span class="err">1  0.320975  0.344141 -0.947815</span>
+<span class="err">2 -0.960208  1.004652 -1.203950</span>
+<span class="err">3  0.756643  0.825118 -0.842164</span>
+<span class="err">4  0.834936 -1.210857  1.975266</span>
 <span class="err">          0         1         2</span>
-<span class="err">1  0.032479  0.051670  0.480661</span>
-<span class="err">4  1.579377 -0.436246  0.916378</span>
-<span class="err">3  0.148961 -1.372279  0.661314</span>
+<span class="err">1  0.320975  0.344141 -0.947815</span>
+<span class="err">4  0.834936 -1.210857  1.975266</span>
+<span class="err">3  0.756643  0.825118 -0.842164</span>
 <span class="err">          0         2</span>
-<span class="err">0 -0.351339  0.803114</span>
-<span class="err">1  0.032479  0.480661</span>
-<span class="err">2  1.362063  0.719177</span>
-<span class="err">3  0.148961  0.661314</span>
-<span class="err">4  1.579377  0.916378</span>
+<span class="err">0 -0.847795 -0.309621</span>
+<span class="err">1  0.320975 -0.947815</span>
+<span class="err">2 -0.960208 -1.203950</span>
+<span class="err">3  0.756643 -0.842164</span>
+<span class="err">4  0.834936  1.975266</span>
 </code></pre></div>
 
 
@@ -2539,11 +2563,11 @@
 </code></pre></div>
 
 
-<div class="codehilite"><pre><span></span><code><span class="err">[-1.00857426 -0.89843998 -2.61689293 -0.76565326  0.91610994</span>
-<span class="err">0.79557349</span>
-<span class="err"> -1.00068487 -1.82313466  0.04134414 -0.07051269]</span>
-<span class="err">[-1.00857426 -1.00857426 -0.89843998 -0.89843998]</span>
-<span class="err">[-1.00857426 -0.89843998]</span>
+<div class="codehilite"><pre><span></span><code><span class="err">[-0.88574368  0.48475226  0.30228338  1.40681914 -0.93639036</span>
+<span class="err">0.05250617</span>
+<span class="err"> -0.17633065  0.04839581  0.52009008  0.79065631]</span>
+<span class="err">[-0.88574368 -0.88574368  0.48475226  0.48475226]</span>
+<span class="err">[-0.88574368  0.48475226]</span>
 </code></pre></div>
 
 
@@ -2554,24 +2578,24 @@
 </code></pre></div>
 
 
-<div class="codehilite"><pre><span></span><code><span class="err">0    0.005834</span>
-<span class="err">1    0.016499</span>
-<span class="err">2   -4.595919</span>
-<span class="err">3   -0.052563</span>
-<span class="err">4    2.013742</span>
-<span class="err">5   -0.420653</span>
-<span class="err">6   -0.624137</span>
-<span class="err">7    0.255486</span>
-<span class="err">8   -1.083276</span>
-<span class="err">9    0.228724</span>
+<div class="codehilite"><pre><span></span><code><span class="err">0    0.783778</span>
+<span class="err">1    0.804286</span>
+<span class="err">2    1.054039</span>
+<span class="err">3   -0.673453</span>
+<span class="err">4   -0.162131</span>
+<span class="err">5   -0.516954</span>
+<span class="err">6    0.474947</span>
+<span class="err">7    0.595180</span>
+<span class="err">8    0.961538</span>
+<span class="err">9    0.512165</span>
 <span class="c">dtype: float64</span>
-<span class="err">0    0.005834</span>
-<span class="err">0    0.005834</span>
-<span class="err">1    0.016499</span>
-<span class="err">1    0.016499</span>
+<span class="err">0    0.783778</span>
+<span class="err">0    0.783778</span>
+<span class="err">1    0.804286</span>
+<span class="err">1    0.804286</span>
 <span class="c">dtype: float64</span>
-<span class="err">0    0.005834</span>
-<span class="err">1    0.016499</span>
+<span class="err">0    0.783778</span>
+<span class="err">1    0.804286</span>
 <span class="c">dtype: float64</span>
 </code></pre></div>
 
@@ -2586,8 +2610,9 @@
 </code></pre></div>
 
 
-<div class="codehilite"><pre><span></span><code><span class="err">347 µs ± 69.5 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)</span>
-<span class="err">96.8 µs ± 4.2 µs per loop (mean ± std. dev. of 7 runs, 10000 loops each)</span>
+<div class="codehilite"><pre><span></span><code><span class="err">The slowest run took 4.86 times longer than the fastest. This could mean that an intermediate result is being cached.</span>
+<span class="err">1.2 ms ± 688 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)</span>
+<span class="err">291 µs ± 60.4 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)</span>
 </code></pre></div>
 
 
@@ -2597,8 +2622,9 @@
 </code></pre></div>
 
 
-<div class="codehilite"><pre><span></span><code><span class="err">236 µs ± 52.6 µs per loop (mean ± std. dev. of 7 runs, 10000 loops each)</span>
-<span class="err">189 µs ± 7.67 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)</span>
+<div class="codehilite"><pre><span></span><code><span class="err">The slowest run took 5.55 times longer than the fastest. This could mean that an intermediate result is being cached.</span>
+<span class="err">1.44 ms ± 1.03 ms per loop (mean ± std. dev. of 7 runs, 1000 loops each)</span>
+<span class="err">1.12 ms ± 504 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)</span>
 </code></pre></div>
 
 
