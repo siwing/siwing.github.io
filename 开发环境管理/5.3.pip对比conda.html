@@ -17,7 +17,7 @@
       
         <meta name="lang:clipboard.copied" content="已复制">
       
-        <meta name="lang:search.language" content="ja">
+        <meta name="lang:search.language" content="zh">
       
         <meta name="lang:search.pipeline.stopwords" content="True">
       
@@ -547,7 +547,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../开发环境管理/5.2.pip笔记.md" title="5.2.pip笔记" class="md-nav__link">
+    <a href="5.2.pip%E7%AC%94%E8%AE%B0.html" title="5.2.pip笔记" class="md-nav__link">
       5.2.pip笔记
     </a>
   </li>
@@ -1062,6 +1062,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%A0%87%E5%87%86%E5%BA%93/8.10.os_path.html" title="8.10.os.path" class="md-nav__link">
+      8.10.os.path
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -1094,6 +1106,18 @@
   <li class="md-nav__item">
     <a href="../scikit-learn/11.1.%E6%95%B0%E6%8D%AE%E9%9B%86.html" title="11.1.数据集" class="md-nav__link">
       11.1.数据集
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../scikit-learn/11.2.%E8%AF%84%E4%BB%B7%E6%8C%87%E6%A0%87.html" title="11.2.评价指标" class="md-nav__link">
+      11.2.评价指标
     </a>
   </li>
 
@@ -1242,7 +1266,14 @@
                 
                 <p><img alt="Pythonç¯å¢" src="https://imgs.xkcd.com/comics/python_environment.png" /></p>
 <h2 id="conda-and-pip">了解conda and pip的异同</h2>
-<p>本文翻译自<a href="https://www.anaconda.com/understanding-conda-and-pip/">Understanding Conda and Pip</a> ( Jonathan Helmus )。</p>
+<div align="right">
+    —— 本文翻译自：<a href="https://www.anaconda.com/understanding-conda-and-pip/">Understanding Conda and Pip</a>
+</div>
+
+<div align="right">
+    原文作者：Jonathan Helmus &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</div>
+
 <p>Conda和pip这两个工具有一些重叠的功能，因此它们常常被认为是没什么区别的，但实际上它们被设计用于不同的目的。<a href="https://pip.pypa.io/en/stable/">pip</a> 是Python Packaging Authority 推荐的从 <a href="https://pypi.org/">Python Package Index</a> (PyPI)安装包的工具。 pip可以安装打包为wheels格式的包，或者直接从源代码编译安装。从源代码文件安装可能需要系统安装兼容的编译器和相应的库<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>。</p>
 <p><a href="https://conda.io/docs/">Conda</a> 是跨平台的包和环境管理器，可以安装和管理来自 <a href="https://repo.anaconda.com/">Anaconda repository</a> 和 <a href="https://anaconda.org/">Anaconda Cloud </a>的conda包。Conda包是二进制文件，不需要使用编译器来安装。另外，conda包不限于Python包，还可以包含C或C++ 库、R包或任何其他软件。</p>
 <p>这是conda和pip的关键区别。pip只能安装Python包，而conda安装的包可以是用任何语言编写的。例如，在使用pip之前，必须通过”系统程序管理器“或”下载并运行安装程序“来安装Python解释器，而Conda可以直接安装Python包和Python解释器。</p>
@@ -1294,7 +1325,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="5.1.conda%E7%AC%94%E8%AE%B0.html" title="5.1.conda笔记" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="5.2.pip%E7%AC%94%E8%AE%B0.html" title="5.2.pip笔记" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1303,7 +1334,7 @@
                 <span class="md-footer-nav__direction">
                   上一页
                 </span>
-                5.1.conda笔记
+                5.2.pip笔记
               </span>
             </div>
           </a>
@@ -1352,10 +1383,6 @@
           
             
               
-                <script src="../assets/javascripts/lunr/tinyseg.js"></script>
-              
-              
-                <script src="../assets/javascripts/lunr/lunr.ja.js"></script>
               
             
           

@@ -17,7 +17,7 @@
       
         <meta name="lang:clipboard.copied" content="已复制">
       
-        <meta name="lang:search.language" content="ja">
+        <meta name="lang:search.language" content="zh">
       
         <meta name="lang:search.pipeline.stopwords" content="True">
       
@@ -705,7 +705,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../开发环境管理/5.2.pip笔记.md" title="5.2.pip笔记" class="md-nav__link">
+    <a href="../%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%AE%A1%E7%90%86/5.2.pip%E7%AC%94%E8%AE%B0.html" title="5.2.pip笔记" class="md-nav__link">
       5.2.pip笔记
     </a>
   </li>
@@ -1179,6 +1179,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%A0%87%E5%87%86%E5%BA%93/8.10.os_path.html" title="8.10.os.path" class="md-nav__link">
+      8.10.os.path
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -1211,6 +1223,18 @@
   <li class="md-nav__item">
     <a href="../scikit-learn/11.1.%E6%95%B0%E6%8D%AE%E9%9B%86.html" title="11.1.数据集" class="md-nav__link">
       11.1.数据集
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../scikit-learn/11.2.%E8%AF%84%E4%BB%B7%E6%8C%87%E6%A0%87.html" title="11.2.评价指标" class="md-nav__link">
+      11.2.评价指标
     </a>
   </li>
 
@@ -1475,8 +1499,8 @@
                   <h1>2.4.String</h1>
                 
                 <div class="codehilite"><pre><span></span><code><span class="err">Windows 10</span>
-<span class="err">Python 3.7.3 @ MSC v.1915 64 bit (AMD64)</span>
-<span class="err">Latest build date 2020.03.24</span>
+<span class="err">Python 3.6.9 @ MSC v.1915 64 bit (AMD64)</span>
+<span class="err">Latest build date 2020.04.26</span>
 </code></pre></div>
 
 
@@ -1540,9 +1564,9 @@ b前缀代表的就是bytes。Python2里, <strong>b前缀没什么具体意义�
 <p>Python有两种不同的字符串，一种存储文本，一种存储字节。对于文本，Python内部采用Unicode存储，而字节字符串显示原始字节序列或者ASCII。在Python3当中，文本字符串类型（使用Unicode数据存储）被命名为<code>str</code>, 字节字符串类型被命名为<code>bytes</code>。但在python2中，文本字符串类型叫做<code>unicode</code>，字节字符串类型叫做<code>str</code>。也就是说：</p>
 <p>$$
 \begin{array}{}
-Python\ 3\ \mathbf{str} &amp;\Longleftrightarrow Python\ 2\ \mathbf{unicode}
+\text{Python 3}\ \mathbf{str} &amp;\Longleftrightarrow \text{Python 2}\ \mathbf{unicode}
 \\
-Python\ 3\ \mathbf{bytes} &amp;\Longleftrightarrow Python\ 2\ \mathbf{str}
+\text{Python 3}\ \mathbf{bytes} &amp;\Longleftrightarrow \text{Python 2}\ \mathbf{str}
 \end{array}
 $$</p>
 <p>所以，如果想将以unicode形式储存的字符串转换为二进制类型的字符串，需要将unicode字符串编码，反之，则需要解码。</p>
@@ -1869,6 +1893,8 @@ $$</p>
 
 <p>没有指定顺序，按出现的顺序依次替换</p>
 <div class="codehilite"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">:</span><span class="si">{}</span><span class="s2">:</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span> <span class="s2">&quot;3&quot;</span><span class="p">))</span>
+<span class="c1"># 等价于</span>
+<span class="c1"># &quot;{1}:{2}:{3}&quot;.format(&quot;1&quot;, &quot;2&quot;, &quot;3&quot;)</span>
 </code></pre></div>
 
 
@@ -1876,7 +1902,7 @@ $$</p>
 </code></pre></div>
 
 
-<p>format()方法中<code>&lt;模板字符串&gt;</code>的槽除了包括参数序号，还可以包括格式控制信息。此时，槽的内部样式如下：</p>
+<p>format()方法中<code>&lt;模板字符串&gt;</code>的槽除了包括参数序号，还可以包括格式控制信息。槽内部的完整样式如下：</p>
 <div class="codehilite"><pre><span></span><code><span class="n">替换字段</span><span class="w">       </span><span class="o">-</span><span class="w"> </span><span class="n">replacement_field</span><span class="w"> </span><span class="o">::=</span><span class="w">  </span><span class="ss">&quot;{&quot;</span><span class="w"> </span><span class="o">[</span><span class="n">field_name</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">&quot;!&quot; conversion</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">&quot;:&quot; format_spec</span><span class="o">]</span><span class="w"> </span><span class="ss">&quot;}&quot;</span><span class="w"></span>
 <span class="n">字段名</span><span class="w">         </span><span class="o">-</span><span class="w"> </span><span class="n">field_name</span><span class="w">        </span><span class="o">::=</span><span class="w">  </span><span class="n">arg_name</span><span class="w"> </span><span class="p">(</span><span class="ss">&quot;.&quot;</span><span class="w"> </span><span class="n">attribute_name</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="ss">&quot;[&quot;</span><span class="w"> </span><span class="n">element_index</span><span class="w"> </span><span class="ss">&quot;]&quot;</span><span class="p">)</span><span class="o">*</span><span class="w"></span>
 <span class="n">参数名</span><span class="w">         </span><span class="o">-</span><span class="w"> </span><span class="n">arg_name</span><span class="w">          </span><span class="o">::=</span><span class="w">  </span><span class="o">[</span><span class="n">identifier | integer</span><span class="o">]</span><span class="w"></span>
@@ -1884,27 +1910,61 @@ $$</p>
 <span class="n">元素索引</span><span class="w">       </span><span class="o">-</span><span class="w"> </span><span class="n">element_index</span><span class="w">     </span><span class="o">::=</span><span class="w">  </span><span class="k">integer</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">index_string</span><span class="w"></span>
 <span class="n">索引字符串</span><span class="w">     </span><span class="o">-</span><span class="w"> </span><span class="n">index_string</span><span class="w">      </span><span class="o">::=</span><span class="w">  </span><span class="o">&lt;</span><span class="ow">any</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="k">character</span><span class="w"> </span><span class="ow">except</span><span class="w"> </span><span class="ss">&quot;]&quot;</span><span class="o">&gt;</span><span class="w"> </span><span class="o">+</span><span class="w"></span>
 <span class="n">转换字段</span><span class="w">       </span><span class="o">-</span><span class="w"> </span><span class="n">conversion</span><span class="w">        </span><span class="o">::=</span><span class="w">  </span><span class="ss">&quot;r&quot;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="ss">&quot;s&quot;</span><span class="w"></span>
-<span class="n">格式规范说明符</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">format_spec</span><span class="w">       </span><span class="o">::=</span><span class="w">  </span><span class="o">&lt;</span><span class="n">described</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">next</span><span class="w"> </span><span class="k">section</span><span class="o">&gt;</span><span class="w"></span>
+<span class="n">格式规范说明符</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">format_spec</span><span class="w">        </span><span class="o">::=</span><span class="w">  </span><span class="o">&lt;</span><span class="n">described</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">next</span><span class="w"> </span><span class="k">section</span><span class="o">&gt;</span><span class="w"></span>
 </code></pre></div>
 
 
-<p>注意事项：</p>
-<ul>
+<p>一个槽<code>{}</code>由三部分组成：</p>
+<ol>
 <li>
-<p><strong>参数名</strong>可以为<strong>整数</strong>或<strong>关键字</strong>。整数为位置参数， 关键字为命名关键字参数。</p>
+<p><strong>field_name</strong>: 字段名可以是 arg_name、attribute_name、element_index之中的一个。</p>
 <blockquote>
-<p>如果整数类似于 {0}{1}{2}, 则可以省略， 即： {}{}{} 等价于 {0}{1}{2}。</p>
-<p>如果参数存在属性， 可以通过 arg_name.attribute_name 的形式获取属性值。</p>
-<p>如果参数为可迭代对象， 可以通过 arg_name[integer|index_string] 的形式获取索引位置的元素。</p>
+<ol>
+<li>
+<p>arg_name 可以是<strong>整数</strong>或<strong>关键字</strong>。整数为<code>.format()</code>的位置参数， 关键字为<code>.format()</code>的关键字参数。</p>
+</li>
+<li>
+<p>如果<code>.format()</code>的参数存在属性， 可以通过 arg_name.attribute_name 的形式获取属性值。</p>
+</li>
+<li>
+<p>如果<code>.format()</code>参数为可迭代对象， 可以通过 arg_name[integer|index_string] 的形式获取索引位置的元素。</p>
+</li>
+</ol>
 </blockquote>
 </li>
 <li>
-<p><strong>转换字段</strong>由 ! 开始， r 代表调用 repr(), s 代表调用 str().</p>
+<p><strong>conversion</strong>: 转换字段由 <code>!</code> 开始， <code>r</code> 代表调用 <code>repr()</code>, <code>s</code> 代表调用 <code>str()</code>。</p>
 </li>
-<li>
-<p><strong>格式规范说明符</strong>由 <code>:</code> 开始。</p>
-</li>
-</ul>
+<li><strong>format_spec</strong>: 格式规范说明符由 <code>:</code> 开始。</li>
+</ol>
+<div class="codehilite"><pre><span></span><code><span class="c1"># field_name 是 关键字</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{name!r}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;小明&quot;</span><span class="p">))</span>
+<span class="c1"># field_name 是 整数</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{0!s}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;小明&quot;</span><span class="p">))</span>
+<span class="c1"># field_name 是 属性名</span>
+<span class="k">class</span> <span class="nc">Person</span><span class="p">:</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;小明&quot;</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;{.name!s}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">Person</span><span class="p">))</span>
+<span class="c1"># field_name 是 整数索引</span>
+<span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;小红&quot;</span><span class="p">,</span> <span class="s2">&quot;小明&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;{[1]!s}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">names</span><span class="p">))</span>
+<span class="c1"># field_name 是 字符串索引</span>
+<span class="kn">from</span> <span class="nn">pandas</span> <span class="kn">import</span> <span class="n">Series</span>
+
+<span class="n">names</span> <span class="o">=</span> <span class="n">Series</span><span class="p">({</span><span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;小明&quot;</span><span class="p">})</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;{[name]!s}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">names</span><span class="p">))</span>
+</code></pre></div>
+
+
+<div class="codehilite"><pre><span></span><code><span class="err">&#39;小明&#39;</span>
+<span class="err">小明</span>
+<span class="err">小明</span>
+<span class="err">小明</span>
+<span class="err">小明</span>
+</code></pre></div>
+
+
 <p>其中，<code>&lt;格式控制标记&gt;</code>用来控制参数显示时的格式，可以使用的参数如下：</p>
 <div class="codehilite"><pre><span></span><code><span class="n">format_spec</span><span class="w">     </span><span class="o">::=</span><span class="w">  </span><span class="o">[</span><span class="n">[fill</span><span class="o">]</span><span class="n">align</span><span class="err">]</span><span class="o">[</span><span class="n">sign</span><span class="o">][</span><span class="n">#</span><span class="o">][</span><span class="n">0</span><span class="o">][</span><span class="n">width</span><span class="o">][</span><span class="n">grouping_option</span><span class="o">][</span><span class="n">.precision</span><span class="o">][</span><span class="n">type</span><span class="o">]</span><span class="w"></span>
 <span class="n">fill</span><span class="w">            </span><span class="o">::=</span><span class="w">  </span><span class="o">&lt;</span><span class="ow">any</span><span class="w"> </span><span class="k">character</span><span class="o">&gt;</span><span class="w"></span>
@@ -2558,10 +2618,6 @@ $$</p>
           
             
               
-                <script src="../assets/javascripts/lunr/tinyseg.js"></script>
-              
-              
-                <script src="../assets/javascripts/lunr/lunr.ja.js"></script>
               
             
           

@@ -17,7 +17,7 @@
       
         <meta name="lang:clipboard.copied" content="已复制">
       
-        <meta name="lang:search.language" content="ja">
+        <meta name="lang:search.language" content="zh">
       
         <meta name="lang:search.pipeline.stopwords" content="True">
       
@@ -545,7 +545,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../开发环境管理/5.2.pip笔记.md" title="5.2.pip笔记" class="md-nav__link">
+    <a href="../%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%AE%A1%E7%90%86/5.2.pip%E7%AC%94%E8%AE%B0.html" title="5.2.pip笔记" class="md-nav__link">
       5.2.pip笔记
     </a>
   </li>
@@ -1227,6 +1227,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%A0%87%E5%87%86%E5%BA%93/8.10.os_path.html" title="8.10.os.path" class="md-nav__link">
+      8.10.os.path
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -1259,6 +1271,18 @@
   <li class="md-nav__item">
     <a href="../scikit-learn/11.1.%E6%95%B0%E6%8D%AE%E9%9B%86.html" title="11.1.数据集" class="md-nav__link">
       11.1.数据集
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../scikit-learn/11.2.%E8%AF%84%E4%BB%B7%E6%8C%87%E6%A0%87.html" title="11.2.评价指标" class="md-nav__link">
+      11.2.评价指标
     </a>
   </li>
 
@@ -1578,7 +1602,7 @@
 
 <div class="codehilite"><pre><span></span><code><span class="err">Windows 10</span>
 <span class="err">Python 3.7.3 @ MSC v.1915 64 bit (AMD64)</span>
-<span class="err">Latest build date 2020.04.11</span>
+<span class="err">Latest build date 2020.04.13</span>
 <span class="err">pandas version:  1.0.1</span>
 <span class="err">numpy version:  1.18.1</span>
 </code></pre></div>
@@ -1700,14 +1724,14 @@
 
 <p><img alt="../_images/merging_concat_axis1_join_axes.png" src="https://pandas.pydata.org/docs/_images/merging_concat_axis1_join_axes.png" /></p>
 <h3 id="append">使用<code>append</code>拼接</h3>
-<p><a href="https://pandas.pydata.org/docs/reference/api/pandas.concat.html#pandas.concat"><code>concat()</code></a>的一个快捷方式是<a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.append.html#pandas.DataFrame.append"><code>append()</code></a> ，这是Series和DataFrame的<code>append()</code><strong>实例方法</strong>。这些方法出现的时间实际上比<code>concat</code>早。<code>append()</code>方法让Series和DataFrame沿着行（<code>axis=0</code>）拼接在一起：</p>
+<p><a href="https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.append.html#pandas.DataFrame.append"><code>append()</code></a>是Series和DataFrame的<strong>实例方法</strong>，它是<a href="https://pandas.pydata.org/docs/reference/api/pandas.concat.html#pandas.concat"><code>concat()</code></a>的一个快捷方式，但实际上，<code>append</code>比<code>concat</code>更早出现。<code>append</code>方法让Series和DataFrame沿着行（<code>axis=0</code>）拼接在一起：</p>
 <div class="codehilite"><pre><span></span><code><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">,</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>            
        <span class="n">verify_integrity</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 </code></pre></div>
 
 
 <p><img alt="../_images/merging_append1.png" src="https://pandas.pydata.org/docs/_images/merging_append1.png" /></p>
-<p>实际上，不要求两个DataFrame的行索引交集为空，列索引也是这样：</p>
+<p><code>append</code>不要求两个DataFrame的行索引或列索引交集为空：</p>
 <div class="codehilite"><pre><span></span><code><span class="n">result</span> <span class="o">=</span> <span class="n">df1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df4</span><span class="p">,</span> <span class="n">sort</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
 
@@ -1803,7 +1827,7 @@
 
 
 <p><img alt="../_images/merging_concat_dict_keys.png" src="https://pandas.pydata.org/docs/_images/merging_concat_dict_keys.png" /></p>
-<p>创建的MultiIndex具有根据传递的键和<code>DataFrame</code>片段索引构造的级别：</p>
+<p>创建的MultiIndex由传递的键和<code>DataFrame</code>行索引构造：</p>
 <div class="codehilite"><pre><span></span><code><span class="n">result</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">levels</span>
 </code></pre></div>
 
@@ -2187,16 +2211,16 @@
 
 
 <div class="codehilite"><pre><span></span><code>     <span class="n">X</span>      <span class="n">Y</span>
-<span class="mi">0</span>  <span class="n">bar</span>  <span class="n">three</span>
-<span class="mi">1</span>  <span class="n">bar</span>  <span class="n">three</span>
-<span class="mi">2</span>  <span class="n">bar</span>    <span class="n">one</span>
-<span class="mi">3</span>  <span class="n">bar</span>  <span class="n">three</span>
-<span class="mi">4</span>  <span class="n">bar</span>  <span class="n">three</span>
-<span class="mi">5</span>  <span class="n">bar</span>    <span class="n">one</span>
+<span class="mi">0</span>  <span class="n">bar</span>    <span class="n">one</span>
+<span class="mi">1</span>  <span class="n">foo</span>  <span class="n">three</span>
+<span class="mi">2</span>  <span class="n">bar</span>  <span class="n">three</span>
+<span class="mi">3</span>  <span class="n">foo</span>    <span class="n">one</span>
+<span class="mi">4</span>  <span class="n">bar</span>    <span class="n">one</span>
+<span class="mi">5</span>  <span class="n">bar</span>  <span class="n">three</span>
 <span class="mi">6</span>  <span class="n">bar</span>    <span class="n">one</span>
-<span class="mi">7</span>  <span class="n">bar</span>  <span class="n">three</span>
-<span class="mi">8</span>  <span class="n">bar</span>    <span class="n">one</span>
-<span class="mi">9</span>  <span class="n">bar</span>    <span class="n">one</span>
+<span class="mi">7</span>  <span class="n">foo</span>  <span class="n">three</span>
+<span class="mi">8</span>  <span class="n">bar</span>    <span class="n">two</span>
+<span class="mi">9</span>  <span class="n">foo</span>  <span class="n">three</span>
 
 <span class="n">X</span>    <span class="n">category</span>
 <span class="n">Y</span>      <span class="k">object</span>
@@ -2232,18 +2256,17 @@
 </code></pre></div>
 
 
-<div class="codehilite"><pre><span></span><code>      <span class="n">X</span>      <span class="n">Y</span>  <span class="n">Z</span>
-<span class="mi">0</span>   <span class="n">bar</span>  <span class="n">three</span>  <span class="mi">2</span>
-<span class="mi">1</span>   <span class="n">bar</span>  <span class="n">three</span>  <span class="mi">2</span>
-<span class="mi">2</span>   <span class="n">bar</span>    <span class="n">one</span>  <span class="mi">2</span>
-<span class="mi">3</span>   <span class="n">bar</span>  <span class="n">three</span>  <span class="mi">2</span>
-<span class="mi">4</span>   <span class="n">bar</span>  <span class="n">three</span>  <span class="mi">2</span>
-<span class="mi">5</span>   <span class="n">bar</span>    <span class="n">one</span>  <span class="mi">2</span>
-<span class="mi">6</span>   <span class="n">bar</span>    <span class="n">one</span>  <span class="mi">2</span>
-<span class="mi">7</span>   <span class="n">bar</span>  <span class="n">three</span>  <span class="mi">2</span>
-<span class="mi">8</span>   <span class="n">bar</span>    <span class="n">one</span>  <span class="mi">2</span>
-<span class="mi">9</span>   <span class="n">bar</span>    <span class="n">one</span>  <span class="mi">2</span>
-<span class="mi">10</span>  <span class="n">foo</span>    <span class="n">NaN</span>  <span class="mi">1</span>
+<div class="codehilite"><pre><span></span><code>     <span class="n">X</span>      <span class="n">Y</span>  <span class="n">Z</span>
+<span class="mi">0</span>  <span class="n">bar</span>    <span class="n">one</span>  <span class="mi">2</span>
+<span class="mi">1</span>  <span class="n">bar</span>  <span class="n">three</span>  <span class="mi">2</span>
+<span class="mi">2</span>  <span class="n">bar</span>    <span class="n">one</span>  <span class="mi">2</span>
+<span class="mi">3</span>  <span class="n">bar</span>  <span class="n">three</span>  <span class="mi">2</span>
+<span class="mi">4</span>  <span class="n">bar</span>    <span class="n">one</span>  <span class="mi">2</span>
+<span class="mi">5</span>  <span class="n">bar</span>    <span class="n">two</span>  <span class="mi">2</span>
+<span class="mi">6</span>  <span class="n">foo</span>  <span class="n">three</span>  <span class="mi">1</span>
+<span class="mi">7</span>  <span class="n">foo</span>    <span class="n">one</span>  <span class="mi">1</span>
+<span class="mi">8</span>  <span class="n">foo</span>  <span class="n">three</span>  <span class="mi">1</span>
+<span class="mi">9</span>  <span class="n">foo</span>  <span class="n">three</span>  <span class="mi">1</span>
 
 <span class="n">X</span>    <span class="n">category</span>
 <span class="n">Y</span>      <span class="k">object</span>
@@ -2840,10 +2863,6 @@
           
             
               
-                <script src="../assets/javascripts/lunr/tinyseg.js"></script>
-              
-              
-                <script src="../assets/javascripts/lunr/lunr.ja.js"></script>
               
             
           

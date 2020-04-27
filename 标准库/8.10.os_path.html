@@ -36,7 +36,7 @@
     
     
       
-        <title>8.2.textwrap - Python笔记</title>
+        <title>8.10.os.path - Python笔记</title>
       
     
     
@@ -103,7 +103,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                8.2.textwrap
+                8.10.os.path
               
             </span>
           
@@ -953,80 +953,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        8.2.textwrap
-      </label>
-    
-    <a href="8.2.textwrap.html" title="8.2.textwrap" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="8.2.textwrap.html" title="8.2.textwrap" class="md-nav__link">
       8.2.textwrap
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-  
-    <label class="md-nav__title" for="__toc">目录</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    删除前导空格和后缀空格
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    移除所有空格
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    添加前缀
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    悬挂缩进
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    减短长文本
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    强制换行
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -1094,11 +1025,73 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="8.10.os_path.html" title="8.10.os.path" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        8.10.os.path
+      </label>
+    
+    <a href="8.10.os_path.html" title="8.10.os.path" class="md-nav__link md-nav__link--active">
       8.10.os.path
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    拆分路径
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    构建路径
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    规范路径
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    公共路径
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    检查路径
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -1259,42 +1252,35 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    删除前导空格和后缀空格
+    拆分路径
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    移除所有空格
+    构建路径
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    添加前缀
+    规范路径
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
-    悬挂缩进
+    公共路径
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
-    减短长文本
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    强制换行
+    检查路径
   </a>
   
 </li>
@@ -1315,212 +1301,329 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/siwing/siwing.github.io/edit/master/docs/标准库/8.2.textwrap.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/siwing/siwing.github.io/edit/master/docs/标准库/8.10.os_path.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                  <h1>8.2.textwrap</h1>
+                  <h1>8.10.os.path</h1>
                 
-                <div class="codehilite"><pre><span></span><code><span class="err">Windows 10</span>
+                <div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">Toolkit</span> <span class="kn">import</span> <span class="n">H</span>
+</code></pre></div>
+
+
+<div class="codehilite"><pre><span></span><code><span class="err">Windows 10</span>
 <span class="err">Python 3.7.3 @ MSC v.1915 64 bit (AMD64)</span>
+<span class="err">Latest build date 2020.04.27</span>
 </code></pre></div>
 
 
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">textwrap</span>
-<span class="kn">from</span> <span class="nn">Toolkit.Help</span> <span class="kn">import</span> <span class="n">Help</span> <span class="k">as</span> <span class="n">H</span>
+<p>os标准模块只有一个子模块——os.path模块。os.path 模块提供了跨平台处理文件路径的函数。实际上，在windows系统上，os.path模块是ntpath模块。这些处理路径的函数并不依赖于真实存在的路径，本质上它们只是操作字符串对象。</p>
+<p>os.path模块定义了一些变量，os.path对路径字符串的操作依赖于这些变量。</p>
+<table>
+<thead>
+<tr>
+<th>explanation</th>
+<th>code</th>
+<th>output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>路径各部分的分隔符</td>
+<td>os.path.sep</td>
+<td>\</td>
+</tr>
+<tr>
+<td>路径各部分的可选分隔符</td>
+<td>os.path.altsep</td>
+<td>/</td>
+</tr>
+<tr>
+<td>系统变量中PATH变量的分隔符</td>
+<td>os.path.pathsep</td>
+<td>;</td>
+</tr>
+<tr>
+<td>文件名和扩展名之间的分隔符</td>
+<td>os.path.extsep</td>
+<td>.</td>
+</tr>
+<tr>
+<td>表示当前目录的路径组件</td>
+<td>os.path.curdir</td>
+<td>.</td>
+</tr>
+<tr>
+<td>表示上级目录的路径组件</td>
+<td>os.path.pardir</td>
+<td>..</td>
+</tr>
+<tr>
+<td>系统默认搜索路径</td>
+<td>os.path.defpath</td>
+<td>.;C:\bin</td>
+</tr>
+<tr>
+<td>NULL设备路径</td>
+<td>os.path.devnull</td>
+<td>nul</td>
+</tr>
+<tr>
+<td>是否支持任意Unicode字符用作文件名</td>
+<td>os.path.supports_unicode_filenames</td>
+<td>TRUE</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_1">拆分路径</h2>
+<p><code>.basename()</code>返回路径的最后一层</p>
+<div class="codehilite"><pre><span></span><code><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;C:\one\two\three&quot;</span><span class="p">)</span>
+<span class="c1"># 等价于</span>
+<span class="c1"># r&quot;C:\one\two\three&quot;.rsplit(&quot;\\&quot;, maxsplit=1)[1]</span>
 </code></pre></div>
 
 
-<h2 id="_1">删除前导空格和后缀空格</h2>
-<p>删除第一行的前导空格和最后一行的后缀空格，<code>width</code>参数控制每一行的宽度：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">sample_text</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">    The textwrap module can be used to format text for output in</span>
-<span class="s1">    situations where pretty-printing is desired.  It offers</span>
-<span class="s1">    programmatic functionality similar to the paragraph wrapping</span>
-<span class="s1">    or filling features found in many text editors.</span>
-<span class="s1">    &#39;&#39;&#39;</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">sample_text</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">textwrap</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="n">sample_text</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">))</span>
+<div class="codehilite"><pre><span></span><code><span class="err">&#39;three&#39;</span>
 </code></pre></div>
 
 
-<div class="codehilite"><pre><span></span><code>    <span class="n">The</span> <span class="n">textwrap</span> <span class="n">module</span> <span class="n">can</span> <span class="n">be</span> <span class="n">used</span> <span class="k">to</span> <span class="n">format</span> <span class="nb">text</span> <span class="k">for</span> <span class="k">output</span> <span class="k">in</span>
-    <span class="n">situations</span> <span class="k">where</span> <span class="n">pretty</span><span class="o">-</span><span class="n">printing</span> <span class="k">is</span> <span class="n">desired</span><span class="p">.</span>  <span class="n">It</span> <span class="n">offers</span>
-    <span class="n">programmatic</span> <span class="n">functionality</span> <span class="k">similar</span> <span class="k">to</span> <span class="n">the</span> <span class="n">paragraph</span> <span class="n">wrapping</span>
-    <span class="k">or</span> <span class="n">filling</span> <span class="n">features</span> <span class="k">found</span> <span class="k">in</span> <span class="n">many</span> <span class="nb">text</span> <span class="n">editors</span><span class="p">.</span>
-
-     <span class="n">The</span> <span class="n">textwrap</span> <span class="n">module</span> <span class="n">can</span> <span class="n">be</span> <span class="n">used</span> <span class="k">to</span> <span class="n">format</span>
-<span class="nb">text</span> <span class="k">for</span> <span class="k">output</span> <span class="k">in</span>     <span class="n">situations</span> <span class="k">where</span> <span class="n">pretty</span><span class="o">-</span>
-<span class="n">printing</span> <span class="k">is</span> <span class="n">desired</span><span class="p">.</span>  <span class="n">It</span> <span class="n">offers</span>     <span class="n">programmatic</span>
-<span class="n">functionality</span> <span class="k">similar</span> <span class="k">to</span> <span class="n">the</span> <span class="n">paragraph</span> <span class="n">wrapping</span>
-<span class="k">or</span> <span class="n">filling</span> <span class="n">features</span> <span class="k">found</span> <span class="k">in</span> <span class="n">many</span> <span class="nb">text</span> <span class="n">editors</span><span class="p">.</span>
+<p>如果路径是以目录分隔符<code>os.sep</code>结尾，那么这个路径的基础部分将被认为是空的:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;C:/one/two/three/&quot;</span><span class="p">)</span>
 </code></pre></div>
 
 
-<p>结果并不尽如人意。文本现在是左对齐的，只有第一行保留了缩进，但是原来的每一行的末尾和下一行的开头之间仍有空格。</p>
-<h2 id="_2">移除所有空格</h2>
-<p>使用 <code>dedent()</code> 函数可以移去所有行中的空格前缀和后缀：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">dedented_text</span> <span class="o">=</span> <span class="n">textwrap</span><span class="o">.</span><span class="n">dedent</span><span class="p">(</span><span class="n">sample_text</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">dedented_text</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><code><span class="err">&#39;&#39;</span>
 </code></pre></div>
 
 
-<div class="codehilite"><pre><span></span><code><span class="err">The textwrap module can be used to format text for output in</span>
-<span class="err">situations where pretty-printing is desired.  It offers</span>
-<span class="err">programmatic functionality similar to the paragraph wrapping</span>
-<span class="err">or filling features found in many text editors.</span>
+<p><code>.dirname()</code>返回路径的第一层到倒数第二层：</p>
+<div class="codehilite"><pre><span></span><code><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;C:\one\two\three&quot;</span><span class="p">)</span>
+<span class="c1"># 等价于</span>
+<span class="c1"># &quot;C:/one/two/three/&quot;.rsplit(&quot;/&quot;, maxsplit=1)[0]</span>
 </code></pre></div>
 
 
-<p>因为 <code>dedent</code> 是 <code>indent</code> 的反义词， 所以输出结果是一段删除了每一行中都存在的缩进空白的文字。如果某一行比其他行缩进的更多，多出的部分将不会被移除。</p>
-<div class="codehilite"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">textwrap</span><span class="o">.</span><span class="n">dedent</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
-<span class="s2"> Line one.</span>
-<span class="s2">  Line two.</span>
-<span class="s2">   Line three.</span>
-<span class="s2">&quot;&quot;&quot;</span><span class="p">))</span>
+<div class="codehilite"><pre><span></span><code><span class="err">&#39;C:\\one\\two&#39;</span>
 </code></pre></div>
 
 
-<div class="codehilite"><pre><span></span><code><span class="err">Line one.</span>
-<span class="err"> Line two.</span>
-<span class="err">  Line three.</span>
+<p>将 <code>basename()</code> 和 <code>dirname()</code> 的结果组合起来，就会得到原始的路径。</p>
+<p>使用<code>.split</code>可以同时得到<code>basename()</code> 和 <code>dirname()</code>的结果：</p>
+<div class="codehilite"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;C:\one\two\three&quot;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;C:\one\two\three.txt&quot;</span><span class="p">))</span>
 </code></pre></div>
 
 
-<h2 id="_3">添加前缀</h2>
-<p>用 <code>indent()</code> 函数在字符串每一行开头加入前缀文本。这个例子非常类似电子邮件回复中被引用的部分，使用 <code>&gt;</code> 符号来做每行文字的前缀。</p>
-<div class="codehilite"><pre><span></span><code><span class="n">dedented_text</span> <span class="o">=</span> <span class="n">textwrap</span><span class="o">.</span><span class="n">dedent</span><span class="p">(</span><span class="n">sample_text</span><span class="p">)</span>
-<span class="n">wrapped</span> <span class="o">=</span> <span class="n">textwrap</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="n">dedented_text</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
-<span class="n">wrapped</span> <span class="o">+=</span> <span class="s1">&#39;</span><span class="se">\n\n</span><span class="s1">Second paragraph after a blank line.&#39;</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">wrapped</span><span class="p">)</span>
-<span class="n">final</span> <span class="o">=</span> <span class="n">textwrap</span><span class="o">.</span><span class="n">indent</span><span class="p">(</span><span class="n">wrapped</span><span class="p">,</span> <span class="s1">&#39;&gt; &#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Quoted block:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">final</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><code><span class="err">(&#39;C:\\one\\two&#39;, &#39;three&#39;)</span>
+<span class="err">(&#39;C:\\one\\two&#39;, &#39;three.txt&#39;)</span>
 </code></pre></div>
 
 
-<div class="codehilite"><pre><span></span><code> <span class="n">The</span> <span class="n">textwrap</span> <span class="n">module</span> <span class="n">can</span> <span class="n">be</span> <span class="n">used</span> <span class="k">to</span> <span class="n">format</span> <span class="nb">text</span>
-<span class="k">for</span> <span class="k">output</span> <span class="k">in</span> <span class="n">situations</span> <span class="k">where</span> <span class="n">pretty</span><span class="o">-</span><span class="n">printing</span> <span class="k">is</span>
-<span class="n">desired</span><span class="p">.</span>  <span class="n">It</span> <span class="n">offers</span> <span class="n">programmatic</span> <span class="n">functionality</span>
-<span class="k">similar</span> <span class="k">to</span> <span class="n">the</span> <span class="n">paragraph</span> <span class="n">wrapping</span> <span class="k">or</span> <span class="n">filling</span>
-<span class="n">features</span> <span class="k">found</span> <span class="k">in</span> <span class="n">many</span> <span class="nb">text</span> <span class="n">editors</span><span class="p">.</span>
-
-<span class="k">Second</span> <span class="n">paragraph</span> <span class="k">after</span> <span class="n">a</span> <span class="n">blank</span> <span class="n">line</span><span class="p">.</span>
-<span class="n">Quoted</span> <span class="n">block</span><span class="p">:</span>
-
-<span class="o">&gt;</span>  <span class="n">The</span> <span class="n">textwrap</span> <span class="n">module</span> <span class="n">can</span> <span class="n">be</span> <span class="n">used</span> <span class="k">to</span> <span class="n">format</span> <span class="nb">text</span>
-<span class="o">&gt;</span> <span class="k">for</span> <span class="k">output</span> <span class="k">in</span> <span class="n">situations</span> <span class="k">where</span> <span class="n">pretty</span><span class="o">-</span><span class="n">printing</span> <span class="k">is</span>
-<span class="o">&gt;</span> <span class="n">desired</span><span class="p">.</span>  <span class="n">It</span> <span class="n">offers</span> <span class="n">programmatic</span> <span class="n">functionality</span>
-<span class="o">&gt;</span> <span class="k">similar</span> <span class="k">to</span> <span class="n">the</span> <span class="n">paragraph</span> <span class="n">wrapping</span> <span class="k">or</span> <span class="n">filling</span>
-<span class="o">&gt;</span> <span class="n">features</span> <span class="k">found</span> <span class="k">in</span> <span class="n">many</span> <span class="nb">text</span> <span class="n">editors</span><span class="p">.</span>
-
-<span class="o">&gt;</span> <span class="k">Second</span> <span class="n">paragraph</span> <span class="k">after</span> <span class="n">a</span> <span class="n">blank</span> <span class="n">line</span><span class="p">.</span>
+<p><code>.splitext()</code>根据<code>os.extsep</code>分割路径字符串：</p>
+<div class="codehilite"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;C:/one/two/three.txt&quot;</span><span class="p">))</span>
+<span class="c1"># 等价于</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;C:/one/two/three.txt&quot;</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="n">maxsplit</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
 </code></pre></div>
 
 
-<p>一段文字被分成了几行，每一行文字前都加了前缀，然后每行文字重新组成整个文字段落并返回。</p>
-<p>要控制特定的一行接受新前缀，给 <code>indent()</code> 的 <code>predicate</code> 参数赋值。该操作会轮流遍历每行的文本，当值为真时将在该行加上前缀。</p>
-<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">should_indent</span><span class="p">(</span><span class="n">line</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Indent </span><span class="si">{!r}</span><span class="s1">?&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">line</span><span class="p">))</span>
-    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span>
-
-<span class="n">dedented_text</span> <span class="o">=</span> <span class="n">textwrap</span><span class="o">.</span><span class="n">dedent</span><span class="p">(</span><span class="n">sample_text</span><span class="p">)</span>
-<span class="n">wrapped</span> <span class="o">=</span> <span class="n">textwrap</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="n">dedented_text</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
-<span class="n">final</span> <span class="o">=</span> <span class="n">textwrap</span><span class="o">.</span><span class="n">indent</span><span class="p">(</span><span class="n">wrapped</span><span class="p">,</span> <span class="s1">&#39;EVEN &#39;</span><span class="p">,</span>
-                        <span class="n">predicate</span><span class="o">=</span><span class="n">should_indent</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Quoted block:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">final</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><code><span class="err">(&#39;C:/one/two/three&#39;, &#39;.txt&#39;)</span>
+<span class="err">[&#39;C:/one/two/three&#39;, &#39;txt&#39;]</span>
 </code></pre></div>
 
 
-<div class="codehilite"><pre><span></span><code><span class="n">Indent</span> <span class="s1">&#39; The textwrap module can be used to format text\n&#39;</span><span class="o">?</span>
-<span class="n">Indent</span> <span class="s1">&#39;for output in situations where pretty-printing is\n&#39;</span><span class="o">?</span>
-<span class="n">Indent</span> <span class="s1">&#39;desired.  It offers programmatic functionality\n&#39;</span><span class="o">?</span>
-<span class="n">Indent</span> <span class="s1">&#39;similar to the paragraph wrapping or filling\n&#39;</span><span class="o">?</span>
-<span class="n">Indent</span> <span class="s1">&#39;features found in many text editors.&#39;</span><span class="o">?</span>
-
-<span class="n">Quoted</span> <span class="n">block</span><span class="p">:</span>
-
-<span class="n">EVEN</span>  <span class="n">The</span> <span class="n">textwrap</span> <span class="n">module</span> <span class="n">can</span> <span class="n">be</span> <span class="n">used</span> <span class="k">to</span> <span class="n">format</span> <span class="nb">text</span>
-<span class="k">for</span> <span class="k">output</span> <span class="k">in</span> <span class="n">situations</span> <span class="k">where</span> <span class="n">pretty</span><span class="o">-</span><span class="n">printing</span> <span class="k">is</span>
-<span class="n">EVEN</span> <span class="n">desired</span><span class="p">.</span>  <span class="n">It</span> <span class="n">offers</span> <span class="n">programmatic</span> <span class="n">functionality</span>
-<span class="n">EVEN</span> <span class="k">similar</span> <span class="k">to</span> <span class="n">the</span> <span class="n">paragraph</span> <span class="n">wrapping</span> <span class="k">or</span> <span class="n">filling</span>
-<span class="n">EVEN</span> <span class="n">features</span> <span class="k">found</span> <span class="k">in</span> <span class="n">many</span> <span class="nb">text</span> <span class="n">editors</span><span class="p">.</span>
+<p>查找文件扩展名的时，只使用最后一次出现的<code>os.extsep</code>：</p>
+<div class="codehilite"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;C:/one/two/three.txt.md&quot;</span><span class="p">))</span>
 </code></pre></div>
 
 
-<h2 id="_4">悬挂缩进</h2>
-<p>同时也可以设置输出段落的宽度，可以单独控制首行的缩进。</p>
-<div class="codehilite"><pre><span></span><code><span class="n">dedented_text</span> <span class="o">=</span> <span class="n">textwrap</span><span class="o">.</span><span class="n">dedent</span><span class="p">(</span><span class="n">sample_text</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">textwrap</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="n">dedented_text</span><span class="p">,</span>
-                    <span class="n">initial_indent</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
-                    <span class="n">subsequent_indent</span><span class="o">=</span><span class="s1">&#39; &#39;</span> <span class="o">*</span> <span class="mi">4</span><span class="p">,</span>
-                    <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
-                    <span class="p">))</span>
+<div class="codehilite"><pre><span></span><code><span class="err">(&#39;C:/one/two/three.txt&#39;, &#39;.md&#39;)</span>
 </code></pre></div>
 
 
-<div class="codehilite"><pre><span></span><code><span class="err">The textwrap module can be used to format text for</span>
-<span class="err">    output in situations where pretty-printing is</span>
-<span class="err">    desired.  It offers programmatic functionality</span>
-<span class="err">    similar to the paragraph wrapping or filling</span>
-<span class="err">    features found in many text editors.</span>
+<p><code>.splitdrive()</code>将路径的盘符和其余部分分开：</p>
+<div class="codehilite"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitdrive</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;C:/one/two/three.txt&quot;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitdrive</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;/one/two/three.txt&quot;</span><span class="p">))</span>
 </code></pre></div>
 
 
-<h2 id="_5">减短长文本</h2>
-<p>为了查看长文本的摘要或预览，可以使用 <code>shorten()</code> 。所有的空格，比如制表符、换行符以及一系列的空格都将标准化为单个空格。然后此文本将减短为要求的长度来显示，在字词边界之间，将不包括不完整的词。</p>
-<div class="codehilite"><pre><span></span><code><span class="n">dedented_text</span> <span class="o">=</span> <span class="n">textwrap</span><span class="o">.</span><span class="n">dedent</span><span class="p">(</span><span class="n">sample_text</span><span class="p">)</span>
-<span class="n">original</span> <span class="o">=</span> <span class="n">textwrap</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="n">dedented_text</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Original:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">original</span><span class="p">)</span>
-
-<span class="n">shortened</span> <span class="o">=</span> <span class="n">textwrap</span><span class="o">.</span><span class="n">shorten</span><span class="p">(</span><span class="n">original</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
-<span class="n">shortened_wrapped</span> <span class="o">=</span> <span class="n">textwrap</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="n">shortened</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Shortened:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">shortened_wrapped</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><code><span class="err">(&#39;C:&#39;, &#39;/one/two/three.txt&#39;)</span>
+<span class="err">(&#39;&#39;, &#39;/one/two/three.txt&#39;)</span>
 </code></pre></div>
 
 
-<div class="codehilite"><pre><span></span><code><span class="n">Original</span><span class="o">:</span>
+<h2 id="_2">构建路径</h2>
+<p><code>os.path.join</code>可以将多个字符串拼接为一个路径。如果某个参数是以 <code>os.sep</code> 开头，那么它之前的所有参数都将被丢弃，并且返回值将以它作为新的开始。</p>
+<div class="codehilite"><pre><span></span><code><span class="n">PATHS</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">,</span> <span class="s1">&#39;three&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">,</span> <span class="s1">&#39;three&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;/one&#39;</span><span class="p">,</span> <span class="s1">&#39;/two&#39;</span><span class="p">,</span> <span class="s1">&#39;/three&#39;</span><span class="p">),</span>
+<span class="p">]</span>
 
- <span class="n">The</span> <span class="n">textwrap</span> <span class="n">module</span> <span class="n">can</span> <span class="n">be</span> <span class="n">used</span> <span class="n">to</span> <span class="n">format</span> <span class="n">text</span>
-<span class="k">for</span> <span class="n">output</span> <span class="k">in</span> <span class="n">situations</span> <span class="n">where</span> <span class="n">pretty</span><span class="o">-</span><span class="n">printing</span> <span class="k">is</span>
-<span class="n">desired</span><span class="o">.</span>  <span class="n">It</span> <span class="n">offers</span> <span class="n">programmatic</span> <span class="n">functionality</span>
-<span class="n">similar</span> <span class="n">to</span> <span class="n">the</span> <span class="n">paragraph</span> <span class="n">wrapping</span> <span class="n">or</span> <span class="n">filling</span>
-<span class="n">features</span> <span class="n">found</span> <span class="k">in</span> <span class="n">many</span> <span class="n">text</span> <span class="n">editors</span><span class="o">.</span>
-
-<span class="n">Shortened</span><span class="o">:</span>
-
-<span class="n">The</span> <span class="n">textwrap</span> <span class="n">module</span> <span class="n">can</span> <span class="n">be</span> <span class="n">used</span> <span class="n">to</span> <span class="n">format</span> <span class="n">text</span> <span class="k">for</span>
-<span class="n">output</span> <span class="k">in</span> <span class="n">situations</span> <span class="n">where</span> <span class="n">pretty</span><span class="o">-</span><span class="n">printing</span> <span class="o">[...]</span>
+<span class="k">for</span> <span class="n">parts</span> <span class="ow">in</span> <span class="n">PATHS</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{0:&lt;30}</span><span class="s1"> : </span><span class="si">{1!r}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">parts</span><span class="p">),</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="o">*</span><span class="n">parts</span><span class="p">)))</span>
 </code></pre></div>
 
 
-<p>如果非空字元在原文本中被当作减短的部分被移除，他将替换为占位符。默认值 <code>[...]</code> 可以被替换，在 <code>shorten()</code> 中加入 <code>placeholder</code> 参数。</p>
-<h2 id="_6">强制换行</h2>
-<p>每一行超过20个字符就强制换行（可能会导致单词被拆分）：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">textwrap</span><span class="o">.</span><span class="n">wrap</span><span class="p">(</span><span class="n">sample_text</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><code><span class="err">(&#39;one&#39;, &#39;two&#39;, &#39;three&#39;)        : &#39;one\\two\\three&#39;</span>
+<span class="err">(&#39;/&#39;, &#39;one&#39;, &#39;two&#39;, &#39;three&#39;)   : &#39;/one\\two\\three&#39;</span>
+<span class="err">(&#39;/one&#39;, &#39;/two&#39;, &#39;/three&#39;)     : &#39;/three&#39;</span>
 </code></pre></div>
 
 
-<div class="codehilite"><pre><span></span><code><span class="err">[&#39;     The textwrap&#39;,</span>
-<span class="err"> &#39;module can be used&#39;,</span>
-<span class="err"> &#39;to format text for&#39;,</span>
-<span class="err"> &#39;output in&#39;,</span>
-<span class="err"> &#39;situations where&#39;,</span>
-<span class="err"> &#39;pretty-printing is&#39;,</span>
-<span class="err"> &#39;desired.  It offers&#39;,</span>
-<span class="err"> &#39;programmatic&#39;,</span>
-<span class="err"> &#39;functionality&#39;,</span>
-<span class="err"> &#39;similar to the&#39;,</span>
-<span class="err"> &#39;paragraph wrapping&#39;,</span>
-<span class="err"> &#39;or filling features&#39;,</span>
-<span class="err"> &#39;found in many text&#39;,</span>
-<span class="err"> &#39;editors.&#39;]</span>
+<p><code>.expanduser()</code> 将会转化波浪号~为用户主目录的名称。如果没有找到用户的主目录，那么这个字符串将被原样返回。</p>
+<div class="codehilite"><pre><span></span><code><span class="k">for</span> <span class="n">user</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;dhellmann&#39;</span><span class="p">,</span> <span class="s1">&#39;nosuchuser&#39;</span><span class="p">]:</span>
+    <span class="n">lookup</span> <span class="o">=</span> <span class="s1">&#39;~&#39;</span> <span class="o">+</span> <span class="n">user</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{!r:&gt;15}</span><span class="s1"> : </span><span class="si">{!r}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+        <span class="n">lookup</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="n">lookup</span><span class="p">)))</span>
+</code></pre></div>
+
+
+<div class="codehilite"><pre><span></span><code><span class="err">            &#39;~&#39; : &#39;C:\\Users\\Android&#39;</span>
+<span class="err">   &#39;~dhellmann&#39; : &#39;C:\\Users\\dhellmann&#39;</span>
+<span class="err">  &#39;~nosuchuser&#39; : &#39;C:\\Users\\nosuchuser&#39;</span>
+</code></pre></div>
+
+
+<p><code>.expandvars()</code> 更一般化，它将会解析路径中所有 shell 环境变量。</p>
+<div class="codehilite"><pre><span></span><code><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;MYVAR&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;VALUE&#39;</span>
+<span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expandvars</span><span class="p">(</span><span class="s1">&#39;/path/to/$MYVAR&#39;</span><span class="p">)</span>
+</code></pre></div>
+
+
+<div class="codehilite"><pre><span></span><code><span class="err">&#39;/path/to/VALUE&#39;</span>
+</code></pre></div>
+
+
+<h2 id="_3">规范路径</h2>
+<p>使用 <code>.join()</code> 或者嵌入变量的独立字符串组合的路径结尾可能有额外的路径分隔符或者相对路径组件。使用 <code>.normpath()</code> 来清理他们：</p>
+<div class="codehilite"><pre><span></span><code><span class="n">PATHS</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;one//two//three&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;one/./two/./three&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;one/../alt/two/three&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">PATHS</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{!r:&gt;22}</span><span class="s1"> : </span><span class="si">{!r}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">normpath</span><span class="p">(</span><span class="n">path</span><span class="p">)))</span>
+</code></pre></div>
+
+
+<div class="codehilite"><pre><span></span><code><span class="err">     &#39;one//two//three&#39; : &#39;one\\two\\three&#39;</span>
+<span class="err">   &#39;one/./two/./three&#39; : &#39;one\\two\\three&#39;</span>
+<span class="err">&#39;one/../alt/two/three&#39; : &#39;alt\\two\\three&#39;</span>
+</code></pre></div>
+
+
+<p>由  os.curdir 和 os.pardir 组成的路径片段将被解析并展开。</p>
+<p>使用 <code>abspath()</code> 可以将相对路径转化为绝对路径。实际上，就是将当前工作目录拼接到相对路径之前。</p>
+<div class="codehilite"><pre><span></span><code><span class="err">absolute path = os.getcwd() + relative path</span>
+</code></pre></div>
+
+
+<h2 id="_4">公共路径</h2>
+<p><code>.commonprefix()</code> 函数会接受一个路径列表作为参数而返回一个字符串表示所有路径中的公共前缀。</p>
+<div class="codehilite"><pre><span></span><code><span class="c1">#` 这个字符串可能表示一个实际不存在的路径，因为路径分隔符并没有被考虑在内，</span>
+<span class="c1">#` 所以这个公共前缀可能并没有落在分隔符边界上。</span>
+
+<span class="n">paths</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;/one/two/three/four&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;/one/two/threefold&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;/one/two/three/&#39;</span><span class="p">,</span>
+         <span class="p">]</span>
+
+<span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">paths</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;PATH:&#39;</span><span class="p">,</span> <span class="n">path</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;PREFIX:&#39;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">commonprefix</span><span class="p">(</span><span class="n">paths</span><span class="p">))</span>
+</code></pre></div>
+
+
+<div class="codehilite"><pre><span></span><code><span class="n">PATH</span><span class="p">:</span> <span class="o">/</span><span class="n">one</span><span class="o">/</span><span class="n">two</span><span class="o">/</span><span class="n">three</span><span class="o">/</span><span class="n">four</span>
+<span class="n">PATH</span><span class="p">:</span> <span class="o">/</span><span class="n">one</span><span class="o">/</span><span class="n">two</span><span class="o">/</span><span class="n">threefold</span>
+<span class="n">PATH</span><span class="p">:</span> <span class="o">/</span><span class="n">one</span><span class="o">/</span><span class="n">two</span><span class="o">/</span><span class="n">three</span><span class="o">/</span>
+
+<span class="k">PREFIX</span><span class="p">:</span> <span class="o">/</span><span class="n">one</span><span class="o">/</span><span class="n">two</span><span class="o">/</span><span class="n">three</span>
+</code></pre></div>
+
+
+<p><code>.commonpath()</code> 充分考虑路径分隔符，会返回路径序列中各个部分的最长公共有效子路径。</p>
+<div class="codehilite"><pre><span></span><code><span class="n">paths</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;/one/two/three/four&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;/one/two/threefold&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;/one/two/three/&#39;</span><span class="p">,</span>
+         <span class="p">]</span>
+<span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">paths</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;PATH:&#39;</span><span class="p">,</span> <span class="n">path</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;PREFIX:&#39;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">commonpath</span><span class="p">(</span><span class="n">paths</span><span class="p">))</span>
+</code></pre></div>
+
+
+<div class="codehilite"><pre><span></span><code><span class="n">PATH</span><span class="p">:</span> <span class="o">/</span><span class="n">one</span><span class="o">/</span><span class="n">two</span><span class="o">/</span><span class="n">three</span><span class="o">/</span><span class="n">four</span>
+<span class="n">PATH</span><span class="p">:</span> <span class="o">/</span><span class="n">one</span><span class="o">/</span><span class="n">two</span><span class="o">/</span><span class="n">threefold</span>
+<span class="n">PATH</span><span class="p">:</span> <span class="o">/</span><span class="n">one</span><span class="o">/</span><span class="n">two</span><span class="o">/</span><span class="n">three</span><span class="o">/</span>
+
+<span class="k">PREFIX</span><span class="p">:</span> <span class="err">\</span><span class="n">one</span><span class="err">\</span><span class="n">two</span>
+</code></pre></div>
+
+
+<h2 id="_5">检查路径</h2>
+<p><code>.islink(path)</code>: Test whether a path is a symbolic link. This will always return false for Windows prior to 6.0.</p>
+<p><code>.ismount(path)</code>: Test whether a path is a mount point (a drive root, the root of a share, or a mounted volume)</p>
+<div class="codehilite"><pre><span></span><code><span class="n">FILENAMES</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="vm">__file__</span><span class="p">,</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">),</span>
+    <span class="s1">&#39;/&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;./broken_link&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">FILENAMES</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;File        : </span><span class="si">{!r}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">file</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Absolute    :&#39;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isabs</span><span class="p">(</span><span class="n">file</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Is File?    :&#39;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">file</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Is Dir?     :&#39;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">file</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Is Link?    :&#39;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">islink</span><span class="p">(</span><span class="n">file</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Mountpoint? :&#39;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">ismount</span><span class="p">(</span><span class="n">file</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Exists?     :&#39;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">file</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Link Exists?:&#39;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">lexists</span><span class="p">(</span><span class="n">file</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">()</span>
+</code></pre></div>
+
+
+<div class="codehilite"><pre><span></span><code><span class="n">File</span>        <span class="o">:</span> <span class="n">os</span><span class="o">.</span><span class="na">getcwd</span><span class="o">()</span> <span class="o">+</span> <span class="s1">&#39;8.10.标准库_os_path.py&#39;</span>
+<span class="n">Absolute</span>    <span class="o">:</span> <span class="n">True</span>
+<span class="n">Is</span> <span class="n">File</span><span class="o">?</span>    <span class="o">:</span> <span class="n">True</span>
+<span class="n">Is</span> <span class="n">Dir</span><span class="o">?</span>     <span class="o">:</span> <span class="n">False</span>
+<span class="n">Is</span> <span class="n">Link</span><span class="o">?</span>    <span class="o">:</span> <span class="n">False</span>
+<span class="n">Mountpoint</span><span class="o">?</span> <span class="o">:</span> <span class="n">False</span>
+<span class="n">Exists</span><span class="o">?</span>     <span class="o">:</span> <span class="n">True</span>
+<span class="n">Link</span> <span class="n">Exists</span><span class="o">?:</span> <span class="n">True</span>
+
+<span class="n">File</span>        <span class="o">:</span> <span class="n">os</span><span class="o">.</span><span class="na">getcwd</span><span class="o">()</span>
+<span class="n">Absolute</span>    <span class="o">:</span> <span class="n">True</span>
+<span class="n">Is</span> <span class="n">File</span><span class="o">?</span>    <span class="o">:</span> <span class="n">False</span>
+<span class="n">Is</span> <span class="n">Dir</span><span class="o">?</span>     <span class="o">:</span> <span class="n">True</span>
+<span class="n">Is</span> <span class="n">Link</span><span class="o">?</span>    <span class="o">:</span> <span class="n">False</span>
+<span class="n">Mountpoint</span><span class="o">?</span> <span class="o">:</span> <span class="n">False</span>
+<span class="n">Exists</span><span class="o">?</span>     <span class="o">:</span> <span class="n">True</span>
+<span class="n">Link</span> <span class="n">Exists</span><span class="o">?:</span> <span class="n">True</span>
+
+<span class="n">File</span>        <span class="o">:</span> <span class="s1">&#39;/&#39;</span>
+<span class="n">Absolute</span>    <span class="o">:</span> <span class="n">True</span>
+<span class="n">Is</span> <span class="n">File</span><span class="o">?</span>    <span class="o">:</span> <span class="n">False</span>
+<span class="n">Is</span> <span class="n">Dir</span><span class="o">?</span>     <span class="o">:</span> <span class="n">True</span>
+<span class="n">Is</span> <span class="n">Link</span><span class="o">?</span>    <span class="o">:</span> <span class="n">False</span>
+<span class="n">Mountpoint</span><span class="o">?</span> <span class="o">:</span> <span class="n">True</span>
+<span class="n">Exists</span><span class="o">?</span>     <span class="o">:</span> <span class="n">True</span>
+<span class="n">Link</span> <span class="n">Exists</span><span class="o">?:</span> <span class="n">True</span>
+
+<span class="n">File</span>        <span class="o">:</span> <span class="s1">&#39;./broken_link&#39;</span>
+<span class="n">Absolute</span>    <span class="o">:</span> <span class="n">False</span>
+<span class="n">Is</span> <span class="n">File</span><span class="o">?</span>    <span class="o">:</span> <span class="n">False</span>
+<span class="n">Is</span> <span class="n">Dir</span><span class="o">?</span>     <span class="o">:</span> <span class="n">False</span>
+<span class="n">Is</span> <span class="n">Link</span><span class="o">?</span>    <span class="o">:</span> <span class="n">False</span>
+<span class="n">Mountpoint</span><span class="o">?</span> <span class="o">:</span> <span class="n">False</span>
+<span class="n">Exists</span><span class="o">?</span>     <span class="o">:</span> <span class="n">False</span>
+<span class="n">Link</span> <span class="n">Exists</span><span class="o">?:</span> <span class="n">False</span>
 </code></pre></div>
                 
                   
@@ -1543,7 +1646,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="8.1.string.html" title="8.1.string" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="8.9.re.html" title="8.9.re" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1552,19 +1655,19 @@
                 <span class="md-footer-nav__direction">
                   上一页
                 </span>
-                8.1.string
+                8.9.re
               </span>
             </div>
           </a>
         
         
-          <a href="8.3.time.html" title="8.3.time" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../scikit-learn/11.1.%E6%95%B0%E6%8D%AE%E9%9B%86.html" title="11.1.数据集" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   下一页
                 </span>
-                8.3.time
+                11.1.数据集
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

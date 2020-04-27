@@ -17,7 +17,7 @@
       
         <meta name="lang:clipboard.copied" content="已复制">
       
-        <meta name="lang:search.language" content="ja">
+        <meta name="lang:search.language" content="zh">
       
         <meta name="lang:search.pipeline.stopwords" content="True">
       
@@ -613,6 +613,41 @@
         
           <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
+    查看环境信息
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    导出环境
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    创建环境
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    更新环境
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    删除环境
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
     从指定路径安装环境
   </a>
   
@@ -624,15 +659,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     包管理
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#anaconda" class="md-nav__link">
-    为 anaconda 指定国内镜像源
+  <a href="#conda_3" class="md-nav__link">
+    为 conda 指定国内镜像源
   </a>
   
 </li>
@@ -659,7 +694,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../开发环境管理/5.2.pip笔记.md" title="5.2.pip笔记" class="md-nav__link">
+    <a href="5.2.pip%E7%AC%94%E8%AE%B0.html" title="5.2.pip笔记" class="md-nav__link">
       5.2.pip笔记
     </a>
   </li>
@@ -1133,6 +1168,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%A0%87%E5%87%86%E5%BA%93/8.10.os_path.html" title="8.10.os.path" class="md-nav__link">
+      8.10.os.path
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -1165,6 +1212,18 @@
   <li class="md-nav__item">
     <a href="../scikit-learn/11.1.%E6%95%B0%E6%8D%AE%E9%9B%86.html" title="11.1.数据集" class="md-nav__link">
       11.1.数据集
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../scikit-learn/11.2.%E8%AF%84%E4%BB%B7%E6%8C%87%E6%A0%87.html" title="11.2.评价指标" class="md-nav__link">
+      11.2.评价指标
     </a>
   </li>
 
@@ -1330,6 +1389,41 @@
         
           <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
+    查看环境信息
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    导出环境
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    创建环境
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    更新环境
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    删除环境
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
     从指定路径安装环境
   </a>
   
@@ -1341,15 +1435,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     包管理
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#anaconda" class="md-nav__link">
-    为 anaconda 指定国内镜像源
+  <a href="#conda_3" class="md-nav__link">
+    为 conda 指定国内镜像源
   </a>
   
 </li>
@@ -1379,36 +1473,33 @@
                 
                 
                 <h1 id="conda">conda</h1>
-<div class="codehilite"><pre><span></span><code><span class="n">usage</span><span class="p">:</span> <span class="n">conda</span><span class="o">-</span><span class="n">script</span><span class="o">.</span><span class="n">py</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">V</span><span class="p">]</span> <span class="n">command</span> <span class="o">...</span>
+<p>conda 的可用命令如下：</p>
+<div class="codehilite"><pre><span></span><code>usage: conda-script.py [-h] [-V] command ...
 
-<span class="n">conda</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">tool</span> <span class="k">for</span> <span class="n">managing</span> <span class="ow">and</span> <span class="n">deploying</span> <span class="n">applications</span><span class="p">,</span> <span class="n">environments</span> <span class="ow">and</span> <span class="n">packages</span><span class="o">.</span>
+conda is a tool for managing and deploying applications, environments and packages.
 
-<span class="n">Options</span><span class="p">:</span>
+Options:
 
-<span class="n">positional</span> <span class="n">arguments</span><span class="p">:</span>
-  <span class="n">command</span>
-    <span class="n">clean</span>        <span class="n">删除未使用的包和缓存</span><span class="err">。</span>
-    <span class="n">config</span>       <span class="n">修改</span><span class="o">.</span><span class="n">condarc中的配置值</span><span class="err">。</span>
-    <span class="n">create</span>       <span class="n">Create</span> <span class="n">a</span> <span class="n">new</span> <span class="n">conda</span> <span class="n">environment</span> <span class="kn">from</span> <span class="nn">a</span> <span class="nb">list</span> <span class="n">of</span> <span class="n">specified</span>
-                 <span class="n">packages</span><span class="o">.</span>
-    <span class="n">help</span>         <span class="n">Displays</span> <span class="n">a</span> <span class="nb">list</span> <span class="n">of</span> <span class="n">available</span> <span class="n">conda</span> <span class="n">commands</span> <span class="ow">and</span> <span class="n">their</span> <span class="n">help</span>
-                 <span class="n">strings</span><span class="o">.</span>
-    <span class="n">info</span>         <span class="n">显示有关当前安装的conda的信息</span><span class="err">。</span>
-    <span class="n">init</span>         <span class="n">Initialize</span> <span class="n">conda</span> <span class="k">for</span> <span class="n">shell</span> <span class="n">interaction</span><span class="o">.</span> <span class="p">[</span><span class="n">Experimental</span><span class="p">]</span>
-    <span class="n">install</span>      <span class="n">把一个列表中包含的包安装到指定的conda环境</span><span class="err">。</span>
-    <span class="nb">list</span>         <span class="n">列出链接到某个conda环境的所有包名</span><span class="err">。</span>
-    <span class="n">remove</span>       <span class="n">从指定的conda环境移除列表中包含的包</span><span class="err">。</span>
-    <span class="n">uninstall</span>    <span class="n">conda</span> <span class="n">remove的别名</span><span class="err">。</span>
-    <span class="n">run</span>          <span class="n">在</span> <span class="n">conda</span> <span class="n">环境中运行可执行文件</span><span class="err">。</span><span class="p">[</span><span class="n">实验</span><span class="p">]</span>
-    <span class="n">search</span>       <span class="n">Search</span> <span class="k">for</span> <span class="n">packages</span> <span class="ow">and</span> <span class="n">display</span> <span class="n">associated</span> <span class="n">information</span><span class="o">.</span> <span class="n">The</span>
-                 <span class="nb">input</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">MatchSpec</span><span class="p">,</span> <span class="n">a</span> <span class="n">query</span> <span class="n">language</span> <span class="k">for</span> <span class="n">conda</span> <span class="n">packages</span><span class="o">.</span>
-                 <span class="n">See</span> <span class="n">examples</span> <span class="n">below</span><span class="o">.</span>
-    <span class="n">update</span>       <span class="n">将</span> <span class="n">conda</span> <span class="n">包更新为最新的兼容版本</span><span class="err">。</span>
-    <span class="n">upgrade</span>      <span class="n">conda</span> <span class="n">update的别名</span>
+positional arguments:
+  command
+    clean        删除未使用的包和缓存
+    config       修改.condarc文件中的配置值
+    create       从指定的package列表中创建一个新的conda环境
+    help         显示可用的conda命令及其帮助字符串的列表
+    info         显示有关当前安装的conda的信息
+    init         初始化conda以进行shell交互  [实验性功能]
+    install      把一个列表中包含的包安装到指定的conda环境
+    list         列出链接到某个conda环境的所有包名
+    remove       从指定的conda环境移除列表中包含的包
+    uninstall    conda remove的别名。
+    run          在 conda 环境中运行可执行文件 [实验性功能]
+    search       搜索package并显示相关信息。输入是一个MatchSpec语句（conda软件包的查询语言）
+    update       将 conda 包更新为最新的兼容版本。
+    upgrade      conda update的别名
 
-<span class="n">optional</span> <span class="n">arguments</span><span class="p">:</span>
-  <span class="o">-</span><span class="n">h</span><span class="p">,</span> <span class="o">--</span><span class="n">help</span>     <span class="n">Show</span> <span class="n">this</span> <span class="n">help</span> <span class="n">message</span> <span class="ow">and</span> <span class="n">exit</span><span class="o">.</span>
-  <span class="o">-</span><span class="n">V</span><span class="p">,</span> <span class="o">--</span><span class="n">version</span>  <span class="n">Show</span> <span class="n">the</span> <span class="n">conda</span> <span class="n">version</span> <span class="n">number</span> <span class="ow">and</span> <span class="n">exit</span><span class="o">.</span>
+optional arguments:
+  -h, --help     Show this help message and exit.
+  -V, --version  Show the conda version number and exit.
 </code></pre></div>
 
 
@@ -1552,6 +1643,7 @@ conda --version
 
 
 <h3 id="_2">环境管理</h3>
+<h4 id="_3">查看环境信息</h4>
 <div class="codehilite"><pre><span></span><code><span class="c1"># 查看环境信息</span>
 
 <span class="c1">## 查看系统中安装的所有环境：</span>
@@ -1573,11 +1665,12 @@ conda info –a
 <div class="codehilite"><pre><span></span><code><span class="c1"># 进入指定环境</span>
 conda activate &lt;env&gt;
 
-<span class="c1"># 推出环境</span>
+<span class="c1"># 退出环境</span>
 conda deactivate
 </code></pre></div>
 
 
+<h4 id="_4">导出环境</h4>
 <div class="codehilite"><pre><span></span><code><span class="c1"># 导出环境</span>
 
 <span class="c1">## 导出环境之前首先要进入该环境</span>
@@ -1589,6 +1682,7 @@ conda env <span class="nb">export</span> –-name base –-file base_bunnies.yml
 </code></pre></div>
 
 
+<h4 id="_5">创建环境</h4>
 <div class="codehilite"><pre><span></span><code><span class="c1"># 创建环境</span>
 
 <span class="c1">## 新建一个名为 newenv 的环境，并指定新环境中的 python 版本为 3.6 创建出来的环境中只带有最基本的包</span>
@@ -1606,11 +1700,13 @@ conda create –-name &lt;env&gt; –-file &lt;deps file&gt;
 </code></pre></div>
 
 
+<h4 id="_6">更新环境</h4>
 <div class="codehilite"><pre><span></span><code><span class="c1"># 更新环境</span>
 conda env update –-name &lt;env&gt; –file<span class="o">=</span>&lt;deps file&gt;
 </code></pre></div>
 
 
+<h4 id="_7">删除环境</h4>
 <div class="codehilite"><pre><span></span><code><span class="c1"># 删除环境</span>
 
 <span class="c1">## 删除环境中指定的包：</span>
@@ -1621,9 +1717,9 @@ conda env remove –name &lt;env&gt;
 </code></pre></div>
 
 
-<h4 id="_3">从指定路径安装环境</h4>
+<h4 id="_8">从指定路径安装环境</h4>
 <p>conda 创建出来的环境默认放在<code>/User/&lt;yourname&gt;/anaconda/env</code>目录下，你可以将其中的某个环境文件夹整体拷贝走，复制到另一台机器上，然后基于此文件夹创建环境。</p>
-<h3 id="_4">包管理</h3>
+<h3 id="_9">包管理</h3>
 <div class="codehilite"><pre><span></span><code>conda list <span class="c1"># 查看已经安装的包</span>
 conda update conda <span class="c1"># 升级conda自身</span>
 conda search requests <span class="c1"># 查询某个包</span>
@@ -1637,7 +1733,7 @@ conda remove -n base requests <span class="c1"># 从指定环境中移除包</sp
 
 
 <p>conda 不提供检查可更新的包的命令，update 所有包时会有提示，列出所有可更新的包，并让用户确认是否全部更新。</p>
-<h3 id="anaconda">为 anaconda 指定国内镜像源</h3>
+<h3 id="conda_3">为 conda 指定国内镜像源</h3>
 <div class="codehilite"><pre><span></span><code>conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
 conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/
 conda config --set show_channel_urls yes
@@ -1681,13 +1777,13 @@ conda config --set show_channel_urls yes
           </a>
         
         
-          <a href="5.3.pip%E5%AF%B9%E6%AF%94conda.html" title="5.3.pip对比conda" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="5.2.pip%E7%AC%94%E8%AE%B0.html" title="5.2.pip笔记" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   下一页
                 </span>
-                5.3.pip对比conda
+                5.2.pip笔记
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
@@ -1724,10 +1820,6 @@ conda config --set show_channel_urls yes
           
             
               
-                <script src="../assets/javascripts/lunr/tinyseg.js"></script>
-              
-              
-                <script src="../assets/javascripts/lunr/lunr.ja.js"></script>
               
             
           
