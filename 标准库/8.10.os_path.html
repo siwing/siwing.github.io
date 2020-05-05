@@ -1079,6 +1079,13 @@
       
         <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
+    文件信息
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
     检查路径
   </a>
   
@@ -1137,8 +1144,68 @@
 
 
   <li class="md-nav__item">
-    <a href="../scikit-learn/11.2.%E8%AF%84%E4%BB%B7%E6%8C%87%E6%A0%87.html" title="11.2.评价指标" class="md-nav__link">
-      11.2.评价指标
+    <a href="../scikit-learn/11.2.%E8%AF%84%E4%BB%B7%E6%8C%87%E6%A0%87.html" title="11.2.评价指标-分类" class="md-nav__link">
+      11.2.评价指标-分类
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../scikit-learn/11.3.评价指标.md" title="11.3.评价指标-回归" class="md-nav__link">
+      11.3.评价指标-回归
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../scikit-learn/11.4.评价指标.md" title="11.4.评价指标-聚类" class="md-nav__link">
+      11.4.评价指标-聚类
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../scikit-learn/11.5.%E6%8B%86%E5%88%86%E6%95%B0%E6%8D%AE.html" title="11.5.拆分数据" class="md-nav__link">
+      11.5.拆分数据
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../scikit-learn/11.6.%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81.html" title="11.6.交叉验证" class="md-nav__link">
+      11.6.交叉验证
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../scikit-learn/11.7.%E8%B6%85%E5%8F%82%E6%95%B0%E5%AF%BB%E4%BC%98.html" title="11.7.超参数寻优" class="md-nav__link">
+      11.7.超参数寻优
     </a>
   </li>
 
@@ -1280,6 +1347,13 @@
       
         <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
+    文件信息
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
     检查路径
   </a>
   
@@ -1307,13 +1381,12 @@
                   <h1>8.10.os.path</h1>
                 
                 <div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">from</span> <span class="nn">Toolkit</span> <span class="kn">import</span> <span class="n">H</span>
 </code></pre></div>
 
 
 <div class="codehilite"><pre><span></span><code><span class="err">Windows 10</span>
 <span class="err">Python 3.7.3 @ MSC v.1915 64 bit (AMD64)</span>
-<span class="err">Latest build date 2020.04.27</span>
+<span class="err">Latest build date 2020.04.28</span>
 </code></pre></div>
 
 
@@ -1331,51 +1404,82 @@
 <tr>
 <td>路径各部分的分隔符</td>
 <td>os.path.sep</td>
-<td>\</td>
+<td><code>\</code></td>
 </tr>
 <tr>
 <td>路径各部分的可选分隔符</td>
 <td>os.path.altsep</td>
-<td>/</td>
+<td><code>/</code></td>
 </tr>
 <tr>
 <td>系统变量中PATH变量的分隔符</td>
 <td>os.path.pathsep</td>
-<td>;</td>
+<td><code>;</code></td>
 </tr>
 <tr>
 <td>文件名和扩展名之间的分隔符</td>
 <td>os.path.extsep</td>
-<td>.</td>
+<td><code>.</code></td>
 </tr>
 <tr>
 <td>表示当前目录的路径组件</td>
 <td>os.path.curdir</td>
-<td>.</td>
+<td><code>.</code></td>
 </tr>
 <tr>
 <td>表示上级目录的路径组件</td>
 <td>os.path.pardir</td>
-<td>..</td>
+<td><code>..</code></td>
 </tr>
 <tr>
 <td>系统默认搜索路径</td>
 <td>os.path.defpath</td>
-<td>.;C:\bin</td>
+<td><code>.;C:\bin</code></td>
 </tr>
 <tr>
 <td>NULL设备路径</td>
 <td>os.path.devnull</td>
-<td>nul</td>
+<td><code>nul</code></td>
 </tr>
 <tr>
 <td>是否支持任意Unicode字符用作文件名</td>
 <td>os.path.supports_unicode_filenames</td>
-<td>TRUE</td>
+<td><code>TRUE</code></td>
 </tr>
 </tbody>
 </table>
 <h2 id="_1">拆分路径</h2>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>示例</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>.basename()</code></strong></td>
+<td><code>C:\one\two\three</code>  →  <code>three</code></td>
+<td>返回路径的最后一层</td>
+</tr>
+<tr>
+<td><strong><code>.dirname()</code></strong></td>
+<td><code>C:\one\two\three</code>  →  <code>C:\one\two</code></td>
+<td>返回路径的第一层至倒数第二层</td>
+</tr>
+<tr>
+<td><strong><code>.splitext()</code></strong></td>
+<td><code>one.txt</code>  →  <code>one</code> 、<code>txt</code></td>
+<td>根据<code>os.extsep</code>分割路径字符串</td>
+</tr>
+<tr>
+<td><strong><code>.splitdrive()</code></strong></td>
+<td><code>C:/one</code>  →  <code>C:</code> 、<code>/one</code></td>
+<td>分割路径的盘符和其余部分</td>
+</tr>
+</tbody>
+</table>
 <p><code>.basename()</code>返回路径的最后一层</p>
 <div class="codehilite"><pre><span></span><code><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;C:\one\two\three&quot;</span><span class="p">)</span>
 <span class="c1"># 等价于</span>
@@ -1452,6 +1556,32 @@
 
 
 <h2 id="_2">构建路径</h2>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>示例</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>.join()</code></strong></td>
+<td><code>one</code>、<code>two</code>→  <code>'one\\two</code></td>
+<td>拼接路径</td>
+</tr>
+<tr>
+<td><strong><code>.expanduser()</code></strong></td>
+<td><code>~</code>  →  <code>C:\\Users\\Username</code></td>
+<td>将<code>~</code>替换为用户目录</td>
+</tr>
+<tr>
+<td><strong><code>.expandvars()</code></strong></td>
+<td><code>$Env_var</code>  →  <code>Env_var</code></td>
+<td>将<code>$Env_var</code>替换为环境变量的值</td>
+</tr>
+</tbody>
+</table>
 <p><code>os.path.join</code>可以将多个字符串拼接为一个路径。如果某个参数是以 <code>os.sep</code> 开头，那么它之前的所有参数都将被丢弃，并且返回值将以它作为新的开始。</p>
 <div class="codehilite"><pre><span></span><code><span class="n">PATHS</span> <span class="o">=</span> <span class="p">[</span>
     <span class="p">(</span><span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">,</span> <span class="s1">&#39;three&#39;</span><span class="p">),</span>
@@ -1513,18 +1643,29 @@
 </code></pre></div>
 
 
-<p>由  os.curdir 和 os.pardir 组成的路径片段将被解析并展开。</p>
+<p>可以发现，os.curdir 和 os.pardir 组成的路径片段将被清除。</p>
 <p>使用 <code>abspath()</code> 可以将相对路径转化为绝对路径。实际上，就是将当前工作目录拼接到相对路径之前。</p>
 <div class="codehilite"><pre><span></span><code><span class="err">absolute path = os.getcwd() + relative path</span>
 </code></pre></div>
 
 
-<h2 id="_4">公共路径</h2>
-<p><code>.commonprefix()</code> 函数会接受一个路径列表作为参数而返回一个字符串表示所有路径中的公共前缀。</p>
-<div class="codehilite"><pre><span></span><code><span class="c1">#` 这个字符串可能表示一个实际不存在的路径，因为路径分隔符并没有被考虑在内，</span>
-<span class="c1">#` 所以这个公共前缀可能并没有落在分隔符边界上。</span>
+<p>使用 <code>relpath()</code> 可以将绝对路径转化为相对路径，也就是将路径字符串中的当前工作目录剔除。</p>
+<div class="codehilite"><pre><span></span><code><span class="err">relative path = absolute path.replace(os.getcwd(), &quot;&quot;)</span>
+</code></pre></div>
 
-<span class="n">paths</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;/one/two/three/four&#39;</span><span class="p">,</span>
+
+<p>使用 <code>normcase()</code> 可以将路径字符串所有字符转为小写，同时将斜杠统一转换为os.sep。</p>
+<div class="codehilite"><pre><span></span><code><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">normcase</span><span class="p">(</span><span class="s1">&#39;User</span><span class="se">\\</span><span class="s1">Desktop/One&#39;</span><span class="p">)</span>
+</code></pre></div>
+
+
+<div class="codehilite"><pre><span></span><code><span class="err">&#39;user\\desktop\\one&#39;</span>
+</code></pre></div>
+
+
+<h2 id="_4">公共路径</h2>
+<p><code>.commonprefix()</code> 函数会接受一个路径列表作为参数而返回一个字符串表示所有路径中的公共前缀。这个字符串可能表示一个实际不存在的路径，因为路径分隔符并没有被考虑在内，所以这个公共前缀可能并没有落在分隔符边界上。</p>
+<div class="codehilite"><pre><span></span><code><span class="n">paths</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;/one/two/three/four&#39;</span><span class="p">,</span>
          <span class="s1">&#39;/one/two/threefold&#39;</span><span class="p">,</span>
          <span class="s1">&#39;/one/two/three/&#39;</span><span class="p">,</span>
          <span class="p">]</span>
@@ -1566,9 +1707,84 @@
 </code></pre></div>
 
 
-<h2 id="_5">检查路径</h2>
-<p><code>.islink(path)</code>: Test whether a path is a symbolic link. This will always return false for Windows prior to 6.0.</p>
-<p><code>.ismount(path)</code>: Test whether a path is a mount point (a drive root, the root of a share, or a mounted volume)</p>
+<h2 id="_5">文件信息</h2>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>.getctime()</code></strong></td>
+<td>返回文件或文件夹的创建时间</td>
+</tr>
+<tr>
+<td><strong><code>.getmtime()</code></strong></td>
+<td>返回文件或文件夹的修改时间</td>
+</tr>
+<tr>
+<td><strong><code>.getatime()</code></strong></td>
+<td>返回文件或文件夹的访问时间</td>
+</tr>
+<tr>
+<td><strong><code>.getsize()</code></strong></td>
+<td>返回文件或文件夹的大小（以字节为单位）</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_6">检查路径</h2>
+<table>
+<thead>
+<tr>
+<th align="left">函数</th>
+<th align="left">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><strong><code>.samefile(path1, path2)</code></strong></td>
+<td align="left">判断目录或文件是否相同（不是真实的路径，会报错）</td>
+</tr>
+<tr>
+<td align="left"><strong><code>.sameopenfile(fp1, fp2)</code></strong></td>
+<td align="left">判断fp1和fp2是否指向同一文件</td>
+</tr>
+<tr>
+<td align="left"><strong><code>.samestat(stat1, stat2)</code></strong></td>
+<td align="left">判断stat tuple stat1和stat2是否指向同一个文件</td>
+</tr>
+<tr>
+<td align="left"><strong><code>.exists(path)</code></strong></td>
+<td align="left">检查路径是否存在</td>
+</tr>
+<tr>
+<td align="left"><strong><code>.lexists(path)</code></strong></td>
+<td align="left">检查路径是否存在，对于broken symbolic links也返回True</td>
+</tr>
+<tr>
+<td align="left"><strong><code>.isabs(path)</code></strong></td>
+<td align="left">判断是否为绝对路径</td>
+</tr>
+<tr>
+<td align="left"><strong><code>.isfile(path)</code></strong></td>
+<td align="left">判断路径是否为文件</td>
+</tr>
+<tr>
+<td align="left"><strong><code>.isdir(path)</code></strong></td>
+<td align="left">判断路径是否为目录</td>
+</tr>
+<tr>
+<td align="left"><strong><code>.islink(path)</code></strong></td>
+<td align="left">判断路径是否为symbolic link，Windows系统下总是返回False</td>
+</tr>
+<tr>
+<td align="left"><strong><code>.ismount(path)</code></strong></td>
+<td align="left">判断路径是否为挂载点</td>
+</tr>
+</tbody>
+</table>
 <div class="codehilite"><pre><span></span><code><span class="n">FILENAMES</span> <span class="o">=</span> <span class="p">[</span>
     <span class="vm">__file__</span><span class="p">,</span>
     <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">),</span>
