@@ -1102,6 +1102,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    应用场景
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#accuracy" class="md-nav__link">
     accuracy
   </a>
@@ -1111,6 +1118,34 @@
         <li class="md-nav__item">
   <a href="#balanced-accuracy" class="md-nav__link">
     balanced accuracy
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#confusion-matrix" class="md-nav__link">
+    confusion matrix
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multilabel-confusion-matrix" class="md-nav__link">
+    multilabel confusion matrix
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#confusion-matrix_1" class="md-nav__link">
+    confusion matrix可视化
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    从二分类到多分类、多标签
   </a>
   
 </li>
@@ -1130,7 +1165,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     显示主要的分类指标
   </a>
   
@@ -1298,6 +1333,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="11.8.%E4%BF%9D%E5%AD%98%E6%A8%A1%E5%9E%8B.html" title="11.8.保存模型" class="md-nav__link">
+      11.8.保存模型
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -1408,6 +1455,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    应用场景
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#accuracy" class="md-nav__link">
     accuracy
   </a>
@@ -1417,6 +1471,34 @@
         <li class="md-nav__item">
   <a href="#balanced-accuracy" class="md-nav__link">
     balanced accuracy
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#confusion-matrix" class="md-nav__link">
+    confusion matrix
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multilabel-confusion-matrix" class="md-nav__link">
+    multilabel confusion matrix
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#confusion-matrix_1" class="md-nav__link">
+    confusion matrix可视化
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    从二分类到多分类、多标签
   </a>
   
 </li>
@@ -1436,7 +1518,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     显示主要的分类指标
   </a>
   
@@ -1554,7 +1636,7 @@
                 
                 <div class="codehilite"><pre><span></span><code><span class="err">Windows 10</span>
 <span class="err">Python 3.7.3 @ MSC v.1915 64 bit (AMD64)</span>
-<span class="err">Latest build date 2020.05.04</span>
+<span class="err">Latest build date 2020.05.10</span>
 <span class="err">sklearn version:  0.22.1</span>
 </code></pre></div>
 
@@ -1671,6 +1753,7 @@
 </tr>
 </tbody>
 </table>
+<h2 id="_2">应用场景</h2>
 <p><strong>只能用于二分类：</strong></p>
 <ol>
 <li>precision_recall_curve</li>
@@ -1682,6 +1765,8 @@
 <li>confusion_matrix</li>
 <li>balanced_accuracy_score</li>
 <li>hinge_loss</li>
+<li>cohen_kappa_score</li>
+<li>matthews_corrcoef</li>
 </ol>
 <p><strong>多分类和多标签：</strong></p>
 <ol>
@@ -1692,7 +1777,6 @@
 <li>fbeta_score</li>
 <li>classification_report</li>
 <li>precision_recall_fscore_support</li>
-<li>roc_auc_score</li>
 <li>hamming_loss</li>
 <li>jaccard_similarity_score</li>
 <li>log_loss</li>
@@ -1701,6 +1785,12 @@
 <p><strong>二分类和多标签：</strong></p>
 <ol>
 <li>average_precision_score</li>
+<li>roc_auc_score</li>
+</ol>
+<p><strong>ranking：</strong></p>
+<ol>
+<li>dcg_score</li>
+<li>ndcg_score</li>
 </ol>
 <h2 id="accuracy">accuracy</h2>
 <p>$$
@@ -1762,6 +1852,148 @@ $$</p>
 </code></pre></div>
 
 
+<h2 id="confusion-matrix">confusion matrix</h2>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">Toolkit</span> <span class="kn">import</span> <span class="n">H</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">confusion_matrix</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">multilabel_confusion_matrix</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">plot_confusion_matrix</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">ConfusionMatrixDisplay</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</code></pre></div>
+
+
+<div class="codehilite"><pre><span></span><code><span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">sample_weight</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">normalize</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</code></pre></div>
+
+
+<div class="codehilite"><pre><span></span><code><span class="n">y_true</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+
+<span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+</code></pre></div>
+
+
+<div class="codehilite"><pre><span></span><code><span class="err">array([[2, 1, 0],</span>
+<span class="err">       [1, 3, 0],</span>
+<span class="err">       [0, 1, 2]], dtype=int64)</span>
+</code></pre></div>
+
+
+<h2 id="multilabel-confusion-matrix"><code>multilabel confusion matrix</code></h2>
+<div class="codehilite"><pre><span></span><code><span class="n">multilabel_confusion_matrix</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">sample_weight</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                                <span class="n">labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">samplewise</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</code></pre></div>
+
+
+<div class="codehilite"><pre><span></span><code><span class="n">y_true</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;cat&quot;</span><span class="p">,</span> <span class="s2">&quot;ant&quot;</span><span class="p">,</span> <span class="s2">&quot;cat&quot;</span><span class="p">,</span> <span class="s2">&quot;cat&quot;</span><span class="p">,</span> <span class="s2">&quot;ant&quot;</span><span class="p">,</span> <span class="s2">&quot;bird&quot;</span><span class="p">]</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;ant&quot;</span><span class="p">,</span> <span class="s2">&quot;ant&quot;</span><span class="p">,</span> <span class="s2">&quot;cat&quot;</span><span class="p">,</span> <span class="s2">&quot;cat&quot;</span><span class="p">,</span> <span class="s2">&quot;ant&quot;</span><span class="p">,</span> <span class="s2">&quot;cat&quot;</span><span class="p">]</span>
+<span class="n">multilabel_confusion_matrix</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span>
+                            <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;ant&quot;</span><span class="p">,</span> <span class="s2">&quot;bird&quot;</span><span class="p">,</span> <span class="s2">&quot;cat&quot;</span><span class="p">])</span>
+
+
+<span class="n">y_true</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+                   <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
+
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+                   <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
+<span class="n">multilabel_confusion_matrix</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">samplewise</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
+
+
+<div class="codehilite"><pre><span></span><code><span class="nb">array</span><span class="p">([[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]],</span>
+
+       <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">int64</span><span class="p">)</span>
+</code></pre></div>
+
+
+<h2 id="confusion-matrix_1">confusion matrix可视化</h2>
+<p><code>confusion_matrix</code>函数和<code>multilabel_confusion_matrix</code>函数可以通过<code>labels</code>参数设置label的排列顺序。但它们的输出是<code>ndarray</code>对象，并没有指明真实值、预测值与行、列的对应关系。使用<code>plot_confusion_matrix</code>函数可以把混淆矩阵输出为图表，得到更直观的效果：</p>
+<div class="codehilite"><pre><span></span><code><span class="n">plot_confusion_matrix</span><span class="p">(</span><span class="n">estimator</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y_true</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">sample_weight</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>    
+                      <span class="n">normalize</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">display_labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">include_values</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+                      <span class="n">xticks_rotation</span><span class="o">=</span><span class="s1">&#39;horizontal&#39;</span><span class="p">,</span> <span class="n">values_format</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
+                      <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</code></pre></div>
+
+
+<p>要注意的是，需要把<code>estimator</code>传入<code>plot_confusion_matrix</code>函数。</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">svm</span><span class="p">,</span> <span class="n">datasets</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+
+
+<span class="c1"># import some data to play with</span>
+<span class="n">iris</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">load_iris</span><span class="p">()</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">data</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">target</span>
+<span class="n">class_names</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">target_names</span>
+
+<span class="c1"># Split the data into a training set and a test set</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># Run classifier, using a model that is too regularized (C too low) to see</span>
+<span class="c1"># the impact on the results</span>
+<span class="n">classifier</span> <span class="o">=</span> <span class="n">svm</span><span class="o">.</span><span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="n">np</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># Plot non-normalized confusion matrix</span>
+<span class="n">disp</span> <span class="o">=</span> <span class="n">plot_confusion_matrix</span><span class="p">(</span><span class="n">classifier</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span>
+                             <span class="n">display_labels</span><span class="o">=</span><span class="n">class_names</span><span class="p">,</span>
+                             <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Blues</span><span class="p">,</span>
+                             <span class="n">include_values</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                             <span class="n">normalize</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+
+<span class="n">disp</span><span class="o">.</span><span class="n">ax_</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Confusion matrix&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">disp</span><span class="o">.</span><span class="n">confusion_matrix</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+
+
+<div class="codehilite"><pre><span></span><code><span class="k">[[13  0  0]</span>
+ <span class="k">[ 0 10  6]</span>
+ <span class="k">[ 0  0  9]]</span>
+</code></pre></div>
+
+
+<p><img alt="confusion_matrix" src="figures/confusion_matrix.svg" /></p>
+<p>通过 <code>plot_confusion_matrix</code> 函数返回的<code>ConfusionMatrixDisplay</code>对象的<code>ax_</code>属性可以访问<code>Axes</code>对象。</p>
+<p>如果已有混淆矩阵，也可以直接通过<code>ConfusionMatrixDisplay</code>类输出混淆矩阵图。</p>
+<div class="codehilite"><pre><span></span><code><span class="n">ConfusionMatrixDisplay</span><span class="p">(</span><span class="n">confusion_matrix</span><span class="p">,</span> <span class="n">display_labels</span><span class="p">)</span>
+
+<span class="n">ConfusionMatrixDisplay</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">include_values</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">,</span> 
+                            <span class="n">xticks_rotation</span><span class="o">=</span><span class="s1">&#39;horizontal&#39;</span><span class="p">,</span> 
+                            <span class="n">values_format</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</code></pre></div>
+
+
+<div class="codehilite"><pre><span></span><code><span class="n">disp_2</span> <span class="o">=</span> <span class="n">ConfusionMatrixDisplay</span><span class="p">(</span><span class="n">disp</span><span class="o">.</span><span class="n">confusion_matrix</span><span class="p">,</span> 
+                                <span class="n">display_labels</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="c1"># disp_2.figure_.savefig()</span>
+<span class="n">disp_2</span><span class="o">.</span><span class="n">figure_</span>
+</code></pre></div>
+
+
+<p><img alt="confusion_matrix" src="figures/confusion_matrix_2.svg" /></p>
+<h2 id="_3">从二分类到多分类、多标签</h2>
+<p>一些评价指标基本上是为二分类任务定义的（例如 f1_score、roc_auc_score）。在这些情况下，默认情况下仅评估 positive label。</p>
+<p><mark>将 binary metric 拓展到 multiclass 或 multilabel 问题时，数据将被视为二分类问题的集合，每个类都有一个metric。</mark> 例如，以下两种情况都被拆分为3个二分类任务：</p>
+<div class="codehilite"><pre><span></span><code><span class="err">multiclass task: [1, 2, 3]</span>
+<span class="err">multilabel task: [1, 0, 1]</span>
+</code></pre></div>
+
+
+<p><mark>然后各个类的metric将以某种方式作均值运算，得到的均值将作为 multiclass 或 multilabel 问题的评价指标。</mark> 均值运算的方式通过 <code>average</code> 参数指定。</p>
+<ul>
+<li><code>macro</code> ：各个 binary metrics 作简单的算术平均，每个类别具有相同的权重。<strong>binary metrics 由各类的混淆矩阵得到</strong>（每个类有一个混淆矩阵）。在那些具有不频繁类别，但不频繁类仍然重要的问题上，macro-averaging是突出其性能的一种手段。但另一方面，所有类别同样重要的假设通常是不真实的，因此 macro-averaging 将过度强调不频繁类的低性能。</li>
+<li><code>weighted</code>：每个样本赋予一个权重，各个类的权重取决于它们样本的权重。所以实际上，<code>weighted</code>平均是加权的<code>macro</code>平均。</li>
+<li><code>micro</code>： 各个类的混淆矩阵求和，再根据样本数求平均值（各个样本有同样的权重），得到平均混淆矩阵，最后根据平均混淆矩阵求出metric。在 multilabel 任务和需要忽略频繁类的 multiclass任务中，Micro-averaging 可能是优先选择的。</li>
+<li><code>samples</code>：<mark>仅适用于 multilabel problems。</mark> 各个 binary metrics 作的算术平均，<strong>binary metrics 由各样本的混淆矩阵得到</strong>（每个样本有一个混淆矩阵）。并返回 (<code>sample_weight</code>-weighted) 加权平均。</li>
+<li><code>None</code>：返回每个类的 score 。</li>
+</ul>
 <h2 id="precisionrecallf1">precision、recall、F1</h2>
 <p><strong>二分类</strong></p>
 <p>一般情况下，二分类混淆矩阵的precision、recall、F1计算公式如下：</p>
@@ -1844,7 +2076,6 @@ $$</p>
 <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">recall_score</span>
 <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">f1_score</span>
 <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">confusion_matrix</span>
-<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">plot_confusion_matrix</span>
 </code></pre></div>
 
 
@@ -1901,7 +2132,7 @@ $$</p>
 </code></pre></div>
 
 
-<div class="codehilite"><pre><span></span><code><span class="err">array([0.75      , 0.33333333, 0.66666667])</span>
+<div class="codehilite"><pre><span></span><code><span class="err">array([0.75, 0.33, 0.67])</span>
 </code></pre></div>
 
 
@@ -1909,7 +2140,7 @@ $$</p>
 </code></pre></div>
 
 
-<div class="codehilite"><pre><span></span><code><span class="err">array([0.75      , 0.4       , 0.57142857])</span>
+<div class="codehilite"><pre><span></span><code><span class="err">array([0.75, 0.4 , 0.57])</span>
 </code></pre></div>
 
 
@@ -1982,7 +2213,7 @@ $$</p>
 </code></pre></div>
 
 
-<h2 id="_2">显示主要的分类指标</h2>
+<h2 id="_4">显示主要的分类指标</h2>
 <p><code>classification_report</code>函数和<code>precision_recall_fscore_support</code>函数都可以显示主要的分类指标。<code>classification_report</code>函数更齐全和方便一些。</p>
 <p><strong><code>classification_report</code></strong></p>
 <div class="codehilite"><pre><span></span><code><span class="n">classification_report</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">target_names</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
@@ -2053,7 +2284,8 @@ $$</p>
 <span class="n">y_scores</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.35</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">])</span>
 
 <span class="n">precision</span><span class="p">,</span> <span class="n">recall</span><span class="p">,</span> <span class="n">thresholds</span> <span class="o">=</span> <span class="n">precision_recall_curve</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_scores</span><span class="p">)</span>
-<span class="c1"># precision, recall, thresholds = precision_recall_curve(y_true, y_scores, pos_label=0)</span>
+<span class="c1"># precision, recall, thresholds = precision_recall_curve(y_true, y_scores, </span>
+<span class="c1">#                                                        pos_label=0)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">thresholds</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">precision</span><span class="p">)</span>
@@ -2062,11 +2294,56 @@ $$</p>
 
 
 <div class="codehilite"><pre><span></span><code><span class="k">[0.35 0.4  0.8 ]</span>
-<span class="k">[0.66666667 0.5        1.         1.        ]</span>
+<span class="k">[0.67 0.5  1.   1.  ]</span>
 <span class="k">[1.  0.5 0.5 0. ]</span>
 </code></pre></div>
 
 
+<p>有了各个阈值所对应的<code>precision</code>和<code>recall</code>数据，可以快速第绘制一个简单的P-R曲线图：</p>
+<p><img alt="simple_pr_curve" src="figures/simple_pr_curve.svg" /></p>
+<p><code>sklearn</code>提供了<code>plot_precision_recall_curve</code>函数，可以快速地绘制P-R曲线图：</p>
+<div class="codehilite"><pre><span></span><code><span class="n">plot_precision_recall_curve</span><span class="p">(</span><span class="n">estimator</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">sample_weight</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
+                            <span class="n">response_method</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span>
+</code></pre></div>
+
+
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">plot_precision_recall_curve</span>
+
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">svm</span><span class="p">,</span> <span class="n">datasets</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">plot_precision_recall_curve</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">iris</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">load_iris</span><span class="p">()</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">data</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">target</span>
+
+<span class="c1"># Add noisy features</span>
+<span class="n">random_state</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">RandomState</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">n_samples</span><span class="p">,</span> <span class="n">n_features</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">X</span><span class="p">,</span> <span class="n">random_state</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">n_samples</span><span class="p">,</span> <span class="mi">200</span> <span class="o">*</span> <span class="n">n_features</span><span class="p">)]</span>
+
+<span class="c1"># Limit to the two first classes, and split into training and test</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">y</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="n">y</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">],</span>
+                                                    <span class="n">test_size</span><span class="o">=.</span><span class="mi">5</span><span class="p">,</span>
+                                                    <span class="n">random_state</span><span class="o">=</span><span class="n">random_state</span><span class="p">)</span>
+
+<span class="c1"># Create a simple classifier</span>
+<span class="n">classifier</span> <span class="o">=</span> <span class="n">svm</span><span class="o">.</span><span class="n">LinearSVC</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="n">random_state</span><span class="p">)</span>
+<span class="n">classifier</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">y_score</span> <span class="o">=</span> <span class="n">classifier</span><span class="o">.</span><span class="n">decision_function</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="n">disp</span> <span class="o">=</span> <span class="n">plot_precision_recall_curve</span><span class="p">(</span><span class="n">classifier</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+<span class="n">disp</span><span class="o">.</span><span class="n">ax_</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;2-class Precision-Recall curve&#39;</span><span class="p">)</span>
+</code></pre></div>
+
+
+<div class="codehilite"><pre><span></span><code><span class="err">Text(0.5, 1.0, &#39;2-class Precision-Recall curve&#39;)</span>
+</code></pre></div>
+
+
+<p><img alt="simple_pr_curve" src="figures/pr_curve.svg" /></p>
 <h2 id="roc">ROC曲线</h2>
 <div class="codehilite"><pre><span></span><code><span class="n">roc_curve</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_score</span><span class="p">,</span> <span class="n">pos_label</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">sample_weight</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
           <span class="n">drop_intermediate</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -2226,7 +2503,7 @@ $$</p>
 </code></pre></div>
 
 
-<p>https://www.statisticshowto.com/</p>
+<p>数学定义参考于<a href="https://www.statisticshowto.com/jaccard-index/">statisticshowto-accardindex</a>。</p>
 <p><code>jaccard_similarity_score</code>函数会计算两对label集之间的Jaccard相似度系数的平均值（默认情况下）或总和。它也被称为Jaccard index。</p>
 <p>第$i$个样本的Jaccard相似度系数（Jaccard similarity coefficient），定义如下：</p>
 <p>$$
@@ -2265,14 +2542,12 @@ $$</p>
 <span class="c1"># (a+b)/2 = 0.5833333333333333</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">jaccard_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="s1">&#39;macro&#39;</span><span class="p">))</span> <span class="c1"># 0.6666666666666666</span>
-<span class="c1"># 第一个样本 0和1 一共匹配2个</span>
-<span class="c1"># 第二个样本 0和1 一共匹配2个</span>
-<span class="c1"># (2/3 + 2/3)/2 = 0.6666666666666666</span>
+<span class="c1"># label问题转换为3个二分类</span>
+<span class="c1"># (1/2 + 1/2 + 1/1)/3 = 0.6666666666666666</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">jaccard_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="s1">&#39;micro&#39;</span><span class="p">))</span> <span class="c1"># 0.6</span>
-<span class="c1"># 第一个样本 1 匹配 2个 基数为3</span>
-<span class="c1"># 第二个样本 1 匹配 1个 基数为2</span>
-<span class="c1"># (2+1)/(3+2) = 0.6</span>
+<span class="c1"># label问题转换为3个二分类</span>
+<span class="c1"># (1 + 1 + 1) / (2 + 2 + 1) = 0.6</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">jaccard_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="kc">None</span><span class="p">))</span>
 </code></pre></div>
@@ -2289,7 +2564,7 @@ $$</p>
 <div class="codehilite"><pre><span></span><code><span class="n">y_pred</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
 <span class="n">y_true</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
 
-<span class="c1"># 多分类 average参数不能使用 ‘samples’ </span>
+<span class="c1"># 多分类 average 参数不能使用 ‘samples’ </span>
 <span class="nb">print</span><span class="p">(</span><span class="n">jaccard_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="kc">None</span><span class="p">))</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">jaccard_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="s2">&quot;macro&quot;</span><span class="p">))</span> <span class="c1"># 0.4444444444444444</span>
@@ -2297,13 +2572,13 @@ $$</p>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">jaccard_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="s2">&quot;micro&quot;</span><span class="p">))</span> <span class="c1"># 0.3333333333333333</span>
 <span class="c1"># 第一个分类 0 匹配 1个 基数为1</span>
-<span class="c1"># 第二个样本 1 匹配 0个 基数为2</span>
-<span class="c1"># 第二个样本 1 匹配 1个 基数为3</span>
+<span class="c1"># 第二个分类 1 匹配 0个 基数为2</span>
+<span class="c1"># 第二个分类 3 匹配 1个 基数为3</span>
 <span class="c1"># (1+0+1)/(1+2+3) = 0.3333333333333333</span>
 </code></pre></div>
 
 
-<div class="codehilite"><pre><span></span><code><span class="k">[1.         0.         0.33333333]</span>
+<div class="codehilite"><pre><span></span><code><span class="k">[1.   0.   0.33]</span>
 <span class="na">0.4444444444444444</span>
 <span class="na">0.3333333333333333</span>
 </code></pre></div>
