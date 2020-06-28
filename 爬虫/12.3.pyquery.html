@@ -1,0 +1,2861 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="zh">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-4.6.3">
+    
+    
+      
+        <title>12.3.pyquery - Python笔记</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application.adb8469c.css">
+      
+      
+    
+    
+      <script src="../assets/javascripts/modernizr.86422ebf.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#_1" tabindex="0" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href=".." title="Python笔记" aria-label="Python笔记" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Python笔记
+            </span>
+            <span class="md-header-nav__topic">
+              
+                12.3.pyquery
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" aria-label="search" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/siwing/siwing.github.io/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href=".." title="Python笔记" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    Python笔记
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/siwing/siwing.github.io/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../index.html" title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      计算机基础
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        计算机基础
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/1.1.%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%8E%E7%A8%8B%E5%BA%8F%E7%BB%93%E6%9E%84.html" title="1.1.计算机与程序结构" class="md-nav__link">
+      1.1.计算机与程序结构
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/1.2.%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5.html" title="1.2.基本概念" class="md-nav__link">
+      1.2.基本概念
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/1.3.%E7%BC%96%E8%AF%91%E5%9E%8B%E8%AF%AD%E8%A8%80%E5%92%8C%E8%A7%A3%E9%87%8A%E5%9E%8B%E8%AF%AD%E8%A8%80%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9%E5%AF%B9%E6%AF%94.html" title="1.3.编译型语言 vs 解释型语言" class="md-nav__link">
+      1.3.编译型语言 vs 解释型语言
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/1.4.%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81.html" title="1.4.字符编码" class="md-nav__link">
+      1.4.字符编码
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Python基础
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Python基础
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python%E5%9F%BA%E7%A1%80/2.1.python%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95.html" title="2.1.python基本语法" class="md-nav__link">
+      2.1.python基本语法
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python%E5%9F%BA%E7%A1%80/2.2.%E8%AF%AD%E5%8F%A5.html" title="2.2.语句" class="md-nav__link">
+      2.2.语句
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python%E5%9F%BA%E7%A1%80/2.3.List.html" title="2.3.List" class="md-nav__link">
+      2.3.List
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python%E5%9F%BA%E7%A1%80/2.4.String.html" title="2.4.String" class="md-nav__link">
+      2.4.String
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python%E5%9F%BA%E7%A1%80/2.5.Tuple.html" title="2.5.Tuple" class="md-nav__link">
+      2.5.Tuple
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python%E5%9F%BA%E7%A1%80/2.6.Dict.html" title="2.6.Dict" class="md-nav__link">
+      2.6.Dict
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python%E5%9F%BA%E7%A1%80/2.7.%E7%AE%80%E6%B4%81%E7%9A%84Python.html" title="2.7.简洁的Python" class="md-nav__link">
+      2.7.简洁的Python
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python%E5%9F%BA%E7%A1%80/2.8.%E8%B5%8B%E5%80%BC%E3%80%81immutable%E3%80%81%E6%B7%B1%E6%8B%B7%E8%B4%9D.html" title="2.8.赋值、immutable、深拷贝" class="md-nav__link">
+      2.8.赋值、immutable、深拷贝
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python%E5%9F%BA%E7%A1%80/2.9.%E5%87%BD%E6%95%B0.html" title="2.9.函数" class="md-nav__link">
+      2.9.函数
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python%E5%9F%BA%E7%A1%80/2.10.%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0.html" title="2.10.内置函数" class="md-nav__link">
+      2.10.内置函数
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python%E5%9F%BA%E7%A1%80/2.11.%E7%AE%80%E6%B4%81%E7%9A%84Python.html" title="2.11.简洁的Python" class="md-nav__link">
+      2.11.简洁的Python
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python%E5%9F%BA%E7%A1%80/3.1.%E5%BC%82%E5%B8%B8.html" title="3.1.异常" class="md-nav__link">
+      3.1.异常
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python%E5%9F%BA%E7%A1%80/3.2.%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4%E5%92%8C%E4%BD%9C%E7%94%A8%E5%9F%9F.html" title="3.2.命名空间和作用域" class="md-nav__link">
+      3.2.命名空间和作用域
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python%E5%9F%BA%E7%A1%80/3.3.%E9%97%AD%E5%8C%85.html" title="3.3.闭包" class="md-nav__link">
+      3.3.闭包
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python%E5%9F%BA%E7%A1%80/3.4.%E8%A3%85%E9%A5%B0%E5%99%A8.html" title="3.4.装饰器" class="md-nav__link">
+      3.4.装饰器
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python%E5%9F%BA%E7%A1%80/4.1.%E7%B1%BB.html" title="4.1.类" class="md-nav__link">
+      4.1.类
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python%E5%9F%BA%E7%A1%80/4.2.%E5%A4%9A%E9%87%8D%E7%BB%A7%E6%89%BF%E5%92%8CMRO.html" title="4.2.多重继承和MRO" class="md-nav__link">
+      4.2.多重继承和MRO
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python%E5%9F%BA%E7%A1%80/4.3.%E6%A8%A1%E5%9D%97.html" title="4.3.模块" class="md-nav__link">
+      4.3.模块
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python%E5%9F%BA%E7%A1%80/4.4.%E9%AD%94%E6%9C%AF%E6%96%B9%E6%B3%95.html" title="4.4.魔术方法" class="md-nav__link">
+      4.4.魔术方法
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      开发环境管理
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        开发环境管理
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%AE%A1%E7%90%86/5.1.conda%E7%AC%94%E8%AE%B0.html" title="5.1.conda笔记" class="md-nav__link">
+      5.1.conda笔记
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%AE%A1%E7%90%86/5.2.pip%E7%AC%94%E8%AE%B0.html" title="5.2.pip笔记" class="md-nav__link">
+      5.2.pip笔记
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%AE%A1%E7%90%86/5.3.pip%E5%AF%B9%E6%AF%94conda.html" title="5.3.pip对比conda" class="md-nav__link">
+      5.3.pip对比conda
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%AE%A1%E7%90%86/5.4.anaconda.html" title="5.4.anaconda" class="md-nav__link">
+      5.4.anaconda
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%AE%A1%E7%90%86/5.5.jupyter%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0.html" title="5.5.jupyter使用笔记" class="md-nav__link">
+      5.5.jupyter使用笔记
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      标准库
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        标准库
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.1.string.html" title="6.1.string" class="md-nav__link">
+      6.1.string
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.2.textwrap.html" title="6.2.textwrap" class="md-nav__link">
+      6.2.textwrap
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.3.time.html" title="6.3.time" class="md-nav__link">
+      6.3.time
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.4.datetime.html" title="6.4.datetime" class="md-nav__link">
+      6.4.datetime
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.5.calendar.html" title="6.5.calendar" class="md-nav__link">
+      6.5.calendar
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.7.urllib.html" title="6.7.urllib" class="md-nav__link">
+      6.7.urllib
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.8.requests.html" title="6.8.requests" class="md-nav__link">
+      6.8.requests
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.9.re.html" title="6.9.re" class="md-nav__link">
+      6.9.re
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.10.os_path.html" title="6.10.os.path" class="md-nav__link">
+      6.10.os.path
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      设计模式
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        设计模式
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/7.1.%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%9F%BA%E7%A1%80.html" title="7.1.面向对象程序设计基础" class="md-nav__link">
+      7.1.面向对象程序设计基础
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      numpy笔记
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        numpy笔记
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy%E7%AC%94%E8%AE%B0/8.1.%E5%88%9B%E5%BB%BA%E6%95%B0%E7%BB%84.html" title="8.1.创建数组" class="md-nav__link">
+      8.1.创建数组
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy%E7%AC%94%E8%AE%B0/8.2.%E7%B4%A2%E5%BC%95.html" title="8.2.索引" class="md-nav__link">
+      8.2.索引
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy%E7%AC%94%E8%AE%B0/8.3.%E5%86%85%E5%AD%98%E5%B8%83%E5%B1%80.html" title="8.3.内存布局" class="md-nav__link">
+      8.3.内存布局
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy%E7%AC%94%E8%AE%B0/8.4.%E5%B9%BF%E6%92%AD.html" title="8.4.广播" class="md-nav__link">
+      8.4.广播
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy%E7%AC%94%E8%AE%B0/8.5.%E5%B8%B8%E9%87%8F.html" title="8.5.常量" class="md-nav__link">
+      8.5.常量
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy%E7%AC%94%E8%AE%B0/8.6.%E6%89%93%E5%8D%B0%E6%95%B0%E7%BB%84.html" title="8.6.打印数组" class="md-nav__link">
+      8.6.打印数组
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy%E7%AC%94%E8%AE%B0/8.7.%E6%B7%BB%E5%8A%A0%E5%92%8C%E5%88%A0%E9%99%A4.html" title="8.7.添加和删除" class="md-nav__link">
+      8.7.添加和删除
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy%E7%AC%94%E8%AE%B0/8.8.%E5%BD%A2%E7%8A%B6%E6%93%8D%E7%BA%B5.html" title="8.8.形状操纵" class="md-nav__link">
+      8.8.形状操纵
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy%E7%AC%94%E8%AE%B0/8.9.ufunc%E5%87%BD%E6%95%B0.html" title="8.9.ufunc函数" class="md-nav__link">
+      8.9.ufunc函数
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy%E7%AC%94%E8%AE%B0/8.10.%E5%87%BD%E6%95%B0%E5%BA%93.html" title="8.10.函数库" class="md-nav__link">
+      8.10.函数库
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy%E7%AC%94%E8%AE%B0/8.11.%E4%BF%9D%E5%AD%98%E5%92%8C%E5%8A%A0%E8%BD%BD.html" title="8.11.保存和加载" class="md-nav__link">
+      8.11.保存和加载
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy%E7%AC%94%E8%AE%B0/8.12.%E7%BB%93%E6%9E%84%E5%8C%96%E6%95%B0%E7%BB%84.html" title="8.12.结构化数组" class="md-nav__link">
+      8.12.结构化数组
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy%E7%AC%94%E8%AE%B0/8.13.%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86.html" title="8.13.数据处理" class="md-nav__link">
+      8.13.数据处理
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+    
+    <label class="md-nav__link" for="nav-8">
+      pandas笔记
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        pandas笔记
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../pandas%E7%AC%94%E8%AE%B0/9.1.Series.html" title="9.1.Series" class="md-nav__link">
+      9.1.Series
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../pandas%E7%AC%94%E8%AE%B0/9.2.DataFrame.html" title="9.2.DataFrame" class="md-nav__link">
+      9.2.DataFrame
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../pandas%E7%AC%94%E8%AE%B0/9.3.%E7%B4%A2%E5%BC%95.html" title="9.3.索引" class="md-nav__link">
+      9.3.索引
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../pandas%E7%AC%94%E8%AE%B0/9.4.%E7%B4%A2%E5%BC%95%E5%AF%B9%E8%B1%A1.html" title="9.4.索引对象" class="md-nav__link">
+      9.4.索引对象
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../pandas%E7%AC%94%E8%AE%B0/9.5.%E7%B4%A2%E5%BC%95%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C.html" title="9.5.索引的基本操作" class="md-nav__link">
+      9.5.索引的基本操作
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../pandas%E7%AC%94%E8%AE%B0/9.6.%E6%8B%BC%E6%8E%A5.html" title="9.6.拼接" class="md-nav__link">
+      9.6.拼接
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../pandas%E7%AC%94%E8%AE%B0/9.7.%E5%8F%98%E6%8D%A2%E7%B4%A2%E5%BC%95.html" title="9.7.变换索引" class="md-nav__link">
+      9.7.变换索引
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../pandas%E7%AC%94%E8%AE%B0/9.8.%E5%88%86%E7%BB%84%E4%B8%8E%E8%81%9A%E5%90%88.html" title="9.8.分组与聚合" class="md-nav__link">
+      9.8.分组与聚合
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../pandas%E7%AC%94%E8%AE%B0/9.9.%E7%BB%98%E5%9B%BE.html" title="9.9.绘图" class="md-nav__link">
+      9.9.绘图
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../pandas%E7%AC%94%E8%AE%B0/9.11.%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86.html" title="9.11.数据处理" class="md-nav__link">
+      9.11.数据处理
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
+    
+    <label class="md-nav__link" for="nav-9">
+      scikit-learn
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-9">
+        scikit-learn
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../scikit-learn/10.1.%E6%95%B0%E6%8D%AE%E9%9B%86.html" title="10.1.数据集" class="md-nav__link">
+      10.1.数据集
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../scikit-learn/10.2.%E8%AF%84%E4%BB%B7%E6%8C%87%E6%A0%87.html" title="10.2.评价指标-分类" class="md-nav__link">
+      10.2.评价指标-分类
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../scikit-learn/10.5.%E6%8B%86%E5%88%86%E6%95%B0%E6%8D%AE.html" title="10.5.拆分数据" class="md-nav__link">
+      10.5.拆分数据
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../scikit-learn/10.6.%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81.html" title="10.6.交叉验证" class="md-nav__link">
+      10.6.交叉验证
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../scikit-learn/10.7.%E8%B6%85%E5%8F%82%E6%95%B0%E5%AF%BB%E4%BC%98.html" title="10.7.超参数寻优" class="md-nav__link">
+      10.7.超参数寻优
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../scikit-learn/10.8.%E4%BF%9D%E5%AD%98%E6%A8%A1%E5%9E%8B.html" title="10.8.保存模型" class="md-nav__link">
+      10.8.保存模型
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../scikit-learn/10.9.%E7%89%B9%E5%BE%81%E5%A4%84%E7%90%86.html" title="10.9.特征处理" class="md-nav__link">
+      10.9.特征处理
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../scikit-learn/10.10.%E8%BD%AC%E6%8D%A2%E9%A2%84%E6%B5%8B%E7%9B%AE%E6%A0%87y.html" title="10.10.转换预测目标y" class="md-nav__link">
+      10.10.转换预测目标y
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../scikit-learn/10.11.%E7%89%B9%E5%BE%81%E9%80%89%E6%8B%A9.html" title="10.11.特征选择" class="md-nav__link">
+      10.11.特征选择
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../scikit-learn/10.12.%E7%89%B9%E5%BE%81%E6%8F%90%E5%8F%96.html" title="10.12.特征提取" class="md-nav__link">
+      10.12.特征提取
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10">
+    
+    <label class="md-nav__link" for="nav-10">
+      tensorflowb笔记
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-10">
+        tensorflowb笔记
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tensorflowb%E7%AC%94%E8%AE%B0/11.1.keras%E6%95%B0%E6%8D%AE%E9%9B%86.html" title="11.1.keras数据集" class="md-nav__link">
+      11.1.keras数据集
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tensorflowb%E7%AC%94%E8%AE%B0/11.2.%E5%88%9B%E5%BB%BA%E5%BC%A0%E9%87%8F.html" title="11.2.创建张量" class="md-nav__link">
+      11.2.创建张量
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tensorflowb%E7%AC%94%E8%AE%B0/11.3.%E5%BC%A0%E9%87%8F%E8%BF%9B%E9%98%B6%E6%93%8D%E4%BD%9C.html" title="11.3.张量进阶操作" class="md-nav__link">
+      11.3.张量进阶操作
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tensorflowb%E7%AC%94%E8%AE%B0/11.4.%E6%B1%82%E5%AF%BC.html" title="11.4.求导" class="md-nav__link">
+      11.4.求导
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-11" type="checkbox" id="nav-11" checked>
+    
+    <label class="md-nav__link" for="nav-11">
+      爬虫
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-11">
+        爬虫
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="12.1.lxml.html" title="12.1.lxml" class="md-nav__link">
+      12.1.lxml
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        12.3.pyquery
+      </label>
+    
+    <a href="12.3.pyquery.html" title="12.3.pyquery" class="md-nav__link md-nav__link--active">
+      12.3.pyquery
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    初始化
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    字符串初始化
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#url" class="md-nav__link">
+    URL 初始化
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    文件初始化
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#css" class="md-nav__link">
+    基本 CSS 选择器
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    查找子节点
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    查找父节点
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    查找兄弟节点
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    遍历
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    获取信息
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    获取属性
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    获取文本
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    节点操作
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#addclass-removeclass" class="md-nav__link">
+    addClass 和 removeClass
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#attrtexthtml" class="md-nav__link">
+    attr、text、html
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#remove" class="md-nav__link">
+    remove
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    伪类选择器
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-12" type="checkbox" id="nav-12">
+    
+    <label class="md-nav__link" for="nav-12">
+      gensim
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-12">
+        gensim
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../gensim/13.1.word2vec%20model.html" title="13.1.word2vec model" class="md-nav__link">
+      13.1.word2vec model
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../gensim/13.2.word2vec%E5%8F%82%E6%95%B0.html" title="13.2.word2vec参数" class="md-nav__link">
+      13.2.word2vec参数
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-13" type="checkbox" id="nav-13">
+    
+    <label class="md-nav__link" for="nav-13">
+      数据库
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-13">
+        数据库
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%95%B0%E6%8D%AE%E5%BA%93/14.1.PostgreSQL.html" title="14.1.PostgreSQL" class="md-nav__link">
+      14.1.PostgreSQL
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../数据库/14.2.SQLAlchemy.md" title="14.2.SQLAlchemy" class="md-nav__link">
+      14.2.SQLAlchemy
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    初始化
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    字符串初始化
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#url" class="md-nav__link">
+    URL 初始化
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    文件初始化
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#css" class="md-nav__link">
+    基本 CSS 选择器
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    查找子节点
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    查找父节点
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    查找兄弟节点
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    遍历
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    获取信息
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    获取属性
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    获取文本
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    节点操作
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#addclass-removeclass" class="md-nav__link">
+    addClass 和 removeClass
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#attrtexthtml" class="md-nav__link">
+    attr、text、html
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#remove" class="md-nav__link">
+    remove
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    伪类选择器
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/siwing/siwing.github.io/edit/master/docs/爬虫/12.3.pyquery.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                  <h1>12.3.pyquery</h1>
+                
+                <div class="codehilite"><pre><span></span><code><span class="err">Windows 10</span>
+<span class="err">Python 3.7.3 @ MSC v.1915 64 bit (AMD64)</span>
+<span class="err">Latest build date 2020.04.11</span>
+</code></pre></div>
+
+
+<h2 id="_1">初始化</h2>
+<p>像 Beautiful Soup 一样，初始化 pyquery 的时候，也需要传入 HTML 文本来初始化一个 PyQuery 对象。它的初始化方式有多种，比如直接传入字符串，传入 URL，传入文件名，等等。</p>
+<h3 id="_2">字符串初始化</h3>
+<div class="codehilite"><pre><span></span><code><span class="n">html</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">&lt;div&gt;</span>
+<span class="s1">    &lt;ul&gt;</span>
+<span class="s1">         &lt;li class=&quot;item-0&quot;&gt;first item&lt;/li&gt;</span>
+<span class="s1">         &lt;li class=&quot;item-1&quot;&gt;&lt;a href=&quot;link2.html&quot;&gt;second item&lt;/a&gt;&lt;/li&gt;</span>
+<span class="s1">         &lt;li class=&quot;item-0 active&quot;&gt;&lt;a href=&quot;link3.html&quot;&gt;&lt;span class=&quot;bold&quot;&gt;third item&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;</span>
+<span class="s1">         &lt;li class=&quot;item-1 active&quot;&gt;&lt;a href=&quot;link4.html&quot;&gt;fourth item&lt;/a&gt;&lt;/li&gt;</span>
+<span class="s1">         &lt;li class=&quot;item-0&quot;&gt;&lt;a href=&quot;link5.html&quot;&gt;fifth item&lt;/a&gt;&lt;/li&gt;</span>
+<span class="s1">     &lt;/ul&gt;</span>
+<span class="s1"> &lt;/div&gt;</span>
+<span class="s1">&#39;&#39;&#39;</span>
+
+<span class="kn">from</span> <span class="nn">pyquery</span> <span class="kn">import</span> <span class="n">PyQuery</span> <span class="k">as</span> <span class="n">pq</span>
+<span class="n">doc</span> <span class="o">=</span> <span class="n">pq</span><span class="p">(</span><span class="n">html</span><span class="p">)</span>
+<span class="n">doc</span><span class="p">(</span><span class="s1">&#39;li&#39;</span><span class="p">)</span>
+</code></pre></div>
+
+
+<div class="codehilite"><pre><span></span><code><span class="o">---------------------------------------------------------------------------</span><span class="ne">ImportError</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span><span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="mi">31</span><span class="n">a1d150b3e9</span><span class="o">&gt;</span> <span class="ow">in</span>
+<span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+     <span class="mi">11</span> <span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">     12</span>
+<span class="s1">---&gt; 13 from pyquery import PyQuery as pq</span>
+<span class="s1">     14 doc = pq(html)</span>
+<span class="s1">     15 doc(&#39;li&#39;)</span>
+<span class="s1">G:\Installed\Anaconda3\lib\site-packages\pyquery\__init__.py in</span>
+<span class="s1">&lt;module&gt;</span>
+<span class="s1">      5 # Distributed under the BSD license, see LICENSE.txt</span>
+<span class="s1">      6</span>
+<span class="s1">----&gt; 7 from .pyquery import PyQuery  # NOQA</span>
+<span class="s1">G:\Installed\Anaconda3\lib\site-packages\pyquery\pyquery.py in</span>
+<span class="s1">&lt;module&gt;</span>
+<span class="s1">      9 from .text import extract_text</span>
+<span class="s1">     10 from copy import deepcopy</span>
+<span class="s1">---&gt; 11 from lxml import etree</span>
+<span class="s1">     12 import lxml.html</span>
+<span class="s1">     13 import inspect</span>
+<span class="s1">ImportError: DLL load failed: 找不到指定的程序。</span>
+</code></pre></div>
+
+
+<h3 id="url">URL 初始化</h3>
+<p>初始化的参数不仅可以以字符串的形式传递，还可以传入网页的 URL，此时只需要指定参数为 url 即可：</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">pyquery</span> <span class="kn">import</span> <span class="n">PyQuery</span> <span class="k">as</span> <span class="n">pq</span>
+<span class="n">doc</span> <span class="o">=</span> <span class="n">pq</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s1">&#39;http://cuiqingcai.com&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">doc</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">))</span>
+</code></pre></div>
+
+
+<div class="codehilite"><pre><span></span><code><span class="o">---------------------------------------------------------------------------</span><span class="ne">ImportError</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span><span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">e5e6fbbbbd1b</span><span class="o">&gt;</span> <span class="ow">in</span>
+<span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">----&gt;</span> <span class="mi">1</span> <span class="kn">from</span> <span class="nn">pyquery</span> <span class="kn">import</span> <span class="n">PyQuery</span> <span class="k">as</span> <span class="n">pq</span>
+      <span class="mi">2</span> <span class="n">doc</span> <span class="o">=</span> <span class="n">pq</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s1">&#39;http://cuiqingcai.com&#39;</span><span class="p">)</span>
+      <span class="mi">3</span> <span class="k">print</span><span class="p">(</span><span class="n">doc</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">))</span>
+<span class="n">G</span><span class="p">:</span>\<span class="n">Installed</span>\<span class="n">Anaconda3</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">pyquery</span>\<span class="fm">__init__</span><span class="o">.</span><span class="n">py</span> <span class="ow">in</span>
+<span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+      <span class="mi">5</span> <span class="c1"># Distributed under the BSD license, see LICENSE.txt</span>
+      <span class="mi">6</span>
+<span class="o">----&gt;</span> <span class="mi">7</span> <span class="kn">from</span> <span class="nn">.pyquery</span> <span class="kn">import</span> <span class="n">PyQuery</span>  <span class="c1"># NOQA</span>
+<span class="n">G</span><span class="p">:</span>\<span class="n">Installed</span>\<span class="n">Anaconda3</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">pyquery</span>\<span class="n">pyquery</span><span class="o">.</span><span class="n">py</span> <span class="ow">in</span>
+<span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+      <span class="mi">9</span> <span class="kn">from</span> <span class="nn">.text</span> <span class="kn">import</span> <span class="n">extract_text</span>
+     <span class="mi">10</span> <span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
+<span class="o">---&gt;</span> <span class="mi">11</span> <span class="kn">from</span> <span class="nn">lxml</span> <span class="kn">import</span> <span class="n">etree</span>
+     <span class="mi">12</span> <span class="kn">import</span> <span class="nn">lxml.html</span>
+     <span class="mi">13</span> <span class="kn">import</span> <span class="nn">inspect</span>
+<span class="ne">ImportError</span><span class="p">:</span> <span class="n">DLL</span> <span class="n">load</span> <span class="n">failed</span><span class="p">:</span> <span class="err">找不到指定的程序。</span>
+</code></pre></div>
+
+
+<p>PyQuery 对象会首先请求这个 URL，然后用得到的 HTML 内容完成初始化，这其实就相当于用网页的源代码以字符串的形式传递给 PyQuery 类来初始化。</p>
+<p>它与下面的功能是相同的：</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">pyquery</span> <span class="kn">import</span> <span class="n">PyQuery</span> <span class="k">as</span> <span class="n">pq</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="n">doc</span> <span class="o">=</span> <span class="n">pq</span><span class="p">(</span><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;http://cuiqingcai.com&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">doc</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">))</span>
+</code></pre></div>
+
+
+<div class="codehilite"><pre><span></span><code><span class="o">---------------------------------------------------------------------------</span><span class="ne">ImportError</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span><span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">f4629f0af834</span><span class="o">&gt;</span> <span class="ow">in</span>
+<span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">----&gt;</span> <span class="mi">1</span> <span class="kn">from</span> <span class="nn">pyquery</span> <span class="kn">import</span> <span class="n">PyQuery</span> <span class="k">as</span> <span class="n">pq</span>
+      <span class="mi">2</span> <span class="kn">import</span> <span class="nn">requests</span>
+      <span class="mi">3</span> <span class="n">doc</span> <span class="o">=</span> <span class="n">pq</span><span class="p">(</span><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;http://cuiqingcai.com&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+      <span class="mi">4</span> <span class="k">print</span><span class="p">(</span><span class="n">doc</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">))</span>
+<span class="n">G</span><span class="p">:</span>\<span class="n">Installed</span>\<span class="n">Anaconda3</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">pyquery</span>\<span class="fm">__init__</span><span class="o">.</span><span class="n">py</span> <span class="ow">in</span>
+<span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+      <span class="mi">5</span> <span class="c1"># Distributed under the BSD license, see LICENSE.txt</span>
+      <span class="mi">6</span>
+<span class="o">----&gt;</span> <span class="mi">7</span> <span class="kn">from</span> <span class="nn">.pyquery</span> <span class="kn">import</span> <span class="n">PyQuery</span>  <span class="c1"># NOQA</span>
+<span class="n">G</span><span class="p">:</span>\<span class="n">Installed</span>\<span class="n">Anaconda3</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">pyquery</span>\<span class="n">pyquery</span><span class="o">.</span><span class="n">py</span> <span class="ow">in</span>
+<span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+      <span class="mi">9</span> <span class="kn">from</span> <span class="nn">.text</span> <span class="kn">import</span> <span class="n">extract_text</span>
+     <span class="mi">10</span> <span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
+<span class="o">---&gt;</span> <span class="mi">11</span> <span class="kn">from</span> <span class="nn">lxml</span> <span class="kn">import</span> <span class="n">etree</span>
+     <span class="mi">12</span> <span class="kn">import</span> <span class="nn">lxml.html</span>
+     <span class="mi">13</span> <span class="kn">import</span> <span class="nn">inspect</span>
+<span class="ne">ImportError</span><span class="p">:</span> <span class="n">DLL</span> <span class="n">load</span> <span class="n">failed</span><span class="p">:</span> <span class="err">找不到指定的程序。</span>
+</code></pre></div>
+
+
+<h3 id="_3">文件初始化</h3>
+<p>当然除了传递一个 URL，还可以传递本地的文件名，参数指定为 filename 即可：</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">pyquery</span> <span class="kn">import</span> <span class="n">PyQuery</span> <span class="k">as</span> <span class="n">pq</span>
+<span class="n">doc</span> <span class="o">=</span> <span class="n">pq</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;test.html&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">doc</span><span class="p">(</span><span class="s1">&#39;li&#39;</span><span class="p">))</span>
+</code></pre></div>
+
+
+<div class="codehilite"><pre><span></span><code><span class="o">---------------------------------------------------------------------------</span><span class="ne">ImportError</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span><span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="mi">8</span><span class="n">edfaa3f99e5</span><span class="o">&gt;</span> <span class="ow">in</span>
+<span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">----&gt;</span> <span class="mi">1</span> <span class="kn">from</span> <span class="nn">pyquery</span> <span class="kn">import</span> <span class="n">PyQuery</span> <span class="k">as</span> <span class="n">pq</span>
+      <span class="mi">2</span> <span class="n">doc</span> <span class="o">=</span> <span class="n">pq</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;test.html&#39;</span><span class="p">)</span>
+      <span class="mi">3</span> <span class="k">print</span><span class="p">(</span><span class="n">doc</span><span class="p">(</span><span class="s1">&#39;li&#39;</span><span class="p">))</span>
+<span class="n">G</span><span class="p">:</span>\<span class="n">Installed</span>\<span class="n">Anaconda3</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">pyquery</span>\<span class="fm">__init__</span><span class="o">.</span><span class="n">py</span> <span class="ow">in</span>
+<span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+      <span class="mi">5</span> <span class="c1"># Distributed under the BSD license, see LICENSE.txt</span>
+      <span class="mi">6</span>
+<span class="o">----&gt;</span> <span class="mi">7</span> <span class="kn">from</span> <span class="nn">.pyquery</span> <span class="kn">import</span> <span class="n">PyQuery</span>  <span class="c1"># NOQA</span>
+<span class="n">G</span><span class="p">:</span>\<span class="n">Installed</span>\<span class="n">Anaconda3</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">pyquery</span>\<span class="n">pyquery</span><span class="o">.</span><span class="n">py</span> <span class="ow">in</span>
+<span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+      <span class="mi">9</span> <span class="kn">from</span> <span class="nn">.text</span> <span class="kn">import</span> <span class="n">extract_text</span>
+     <span class="mi">10</span> <span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
+<span class="o">---&gt;</span> <span class="mi">11</span> <span class="kn">from</span> <span class="nn">lxml</span> <span class="kn">import</span> <span class="n">etree</span>
+     <span class="mi">12</span> <span class="kn">import</span> <span class="nn">lxml.html</span>
+     <span class="mi">13</span> <span class="kn">import</span> <span class="nn">inspect</span>
+<span class="ne">ImportError</span><span class="p">:</span> <span class="n">DLL</span> <span class="n">load</span> <span class="n">failed</span><span class="p">:</span> <span class="err">找不到指定的程序。</span>
+</code></pre></div>
+
+
+<p>首先读取本地的文件内容，然后用文件内容以字符串的形式传递给 PyQuery 类来初始化。</p>
+<p>以上 3 种初始化方式均可，最常用的初始化方式是以字符串形式传递。</p>
+<h2 id="css">基本 CSS 选择器</h2>
+<p>我们首先用一个实例来感受一下 pyquery 的 CSS 选择器的用法：</p>
+<div class="codehilite"><pre><span></span><code><span class="n">html</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">&lt;div id=&quot;container&quot;&gt;</span>
+<span class="s1">    &lt;ul class=&quot;list&quot;&gt;</span>
+<span class="s1">         &lt;li class=&quot;item-0&quot;&gt;first item&lt;/li&gt;</span>
+<span class="s1">         &lt;li class=&quot;item-1&quot;&gt;&lt;a href=&quot;link2.html&quot;&gt;second item&lt;/a&gt;&lt;/li&gt;</span>
+<span class="s1">         &lt;li class=&quot;item-0 active&quot;&gt;&lt;a href=&quot;link3.html&quot;&gt;&lt;span class=&quot;bold&quot;&gt;third item&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;</span>
+<span class="s1">         &lt;li class=&quot;item-1 active&quot;&gt;&lt;a href=&quot;link4.html&quot;&gt;fourth item&lt;/a&gt;&lt;/li&gt;</span>
+<span class="s1">         &lt;li class=&quot;item-0&quot;&gt;&lt;a href=&quot;link5.html&quot;&gt;fifth item&lt;/a&gt;&lt;/li&gt;</span>
+<span class="s1">     &lt;/ul&gt;</span>
+<span class="s1"> &lt;/div&gt;</span>
+<span class="s1">&#39;&#39;&#39;</span>
+
+<span class="kn">from</span> <span class="nn">pyquery</span> <span class="kn">import</span> <span class="n">PyQuery</span> <span class="k">as</span> <span class="n">pq</span>
+<span class="n">doc</span> <span class="o">=</span> <span class="n">pq</span><span class="p">(</span><span class="n">html</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">doc</span><span class="p">(</span><span class="s1">&#39;#container .list li&#39;</span><span class="p">),</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">doc</span><span class="p">(</span><span class="s1">&#39;#container .list li&#39;</span><span class="p">)))</span>
+</code></pre></div>
+
+
+<div class="codehilite"><pre><span></span><code><span class="o">---------------------------------------------------------------------------</span><span class="ne">ImportError</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span><span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="mo">07455</span><span class="mi">81</span><span class="n">c5274</span><span class="o">&gt;</span> <span class="ow">in</span>
+<span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+     <span class="mi">11</span> <span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">     12</span>
+<span class="s1">---&gt; 13 from pyquery import PyQuery as pq</span>
+<span class="s1">     14 doc = pq(html)</span>
+<span class="s1">     15 print(doc(&#39;#container .list li&#39;), &quot;</span><span class="se">\n</span><span class="s1">&quot;)</span>
+<span class="s1">G:\Installed\Anaconda3\lib\site-packages\pyquery\__init__.py in</span>
+<span class="s1">&lt;module&gt;</span>
+<span class="s1">      5 # Distributed under the BSD license, see LICENSE.txt</span>
+<span class="s1">      6</span>
+<span class="s1">----&gt; 7 from .pyquery import PyQuery  # NOQA</span>
+<span class="s1">G:\Installed\Anaconda3\lib\site-packages\pyquery\pyquery.py in</span>
+<span class="s1">&lt;module&gt;</span>
+<span class="s1">      9 from .text import extract_text</span>
+<span class="s1">     10 from copy import deepcopy</span>
+<span class="s1">---&gt; 11 from lxml import etree</span>
+<span class="s1">     12 import lxml.html</span>
+<span class="s1">     13 import inspect</span>
+<span class="s1">ImportError: DLL load failed: 找不到指定的程序。</span>
+</code></pre></div>
+
+
+<p>这里我们初始化 PyQuery 对象之后，传入了一个 CSS 选择器<code>#container .list li</code>，它的意思是先选取 id 为 container 的节点，然后再选取其内部的 class 为 list 的节点内部的所有 li 节点。然后，打印输出。可以看到，我们成功获取到了符合条件的节点。</p>
+<p>下面我们介绍一些常用的查询方法，这些函数和 jQuery 中的方法用法也完全相同。</p>
+<h3 id="_4">查找子节点</h3>
+<p>查找子节点需要用到 find 方法，传入的参数是 CSS 选择器，我们还是以上面的 HTML 为例：</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">pyquery</span> <span class="kn">import</span> <span class="n">PyQuery</span> <span class="k">as</span> <span class="n">pq</span>
+<span class="n">doc</span> <span class="o">=</span> <span class="n">pq</span><span class="p">(</span><span class="n">html</span><span class="p">)</span>
+<span class="n">items</span> <span class="o">=</span> <span class="n">doc</span><span class="p">(</span><span class="s1">&#39;.list&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">items</span><span class="p">),</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">items</span><span class="p">)</span>
+<span class="n">lis</span> <span class="o">=</span> <span class="n">items</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;li&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">lis</span><span class="p">),</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lis</span><span class="p">)</span>
+</code></pre></div>
+
+
+<div class="codehilite"><pre><span></span><code><span class="o">---------------------------------------------------------------------------</span><span class="ne">ImportError</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span><span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="mi">3799</span><span class="n">d669e7b0</span><span class="o">&gt;</span> <span class="ow">in</span>
+<span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">----&gt;</span> <span class="mi">1</span> <span class="kn">from</span> <span class="nn">pyquery</span> <span class="kn">import</span> <span class="n">PyQuery</span> <span class="k">as</span> <span class="n">pq</span>
+      <span class="mi">2</span> <span class="n">doc</span> <span class="o">=</span> <span class="n">pq</span><span class="p">(</span><span class="n">html</span><span class="p">)</span>
+      <span class="mi">3</span> <span class="n">items</span> <span class="o">=</span> <span class="n">doc</span><span class="p">(</span><span class="s1">&#39;.list&#39;</span><span class="p">)</span>
+      <span class="mi">4</span> <span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">items</span><span class="p">),</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+      <span class="mi">5</span> <span class="k">print</span><span class="p">(</span><span class="n">items</span><span class="p">)</span>
+<span class="n">G</span><span class="p">:</span>\<span class="n">Installed</span>\<span class="n">Anaconda3</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">pyquery</span>\<span class="fm">__init__</span><span class="o">.</span><span class="n">py</span> <span class="ow">in</span>
+<span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+      <span class="mi">5</span> <span class="c1"># Distributed under the BSD license, see LICENSE.txt</span>
+      <span class="mi">6</span>
+<span class="o">----&gt;</span> <span class="mi">7</span> <span class="kn">from</span> <span class="nn">.pyquery</span> <span class="kn">import</span> <span class="n">PyQuery</span>  <span class="c1"># NOQA</span>
+<span class="n">G</span><span class="p">:</span>\<span class="n">Installed</span>\<span class="n">Anaconda3</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">pyquery</span>\<span class="n">pyquery</span><span class="o">.</span><span class="n">py</span> <span class="ow">in</span>
+<span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+      <span class="mi">9</span> <span class="kn">from</span> <span class="nn">.text</span> <span class="kn">import</span> <span class="n">extract_text</span>
+     <span class="mi">10</span> <span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
+<span class="o">---&gt;</span> <span class="mi">11</span> <span class="kn">from</span> <span class="nn">lxml</span> <span class="kn">import</span> <span class="n">etree</span>
+     <span class="mi">12</span> <span class="kn">import</span> <span class="nn">lxml.html</span>
+     <span class="mi">13</span> <span class="kn">import</span> <span class="nn">inspect</span>
+<span class="ne">ImportError</span><span class="p">:</span> <span class="n">DLL</span> <span class="n">load</span> <span class="n">failed</span><span class="p">:</span> <span class="err">找不到指定的程序。</span>
+</code></pre></div>
+
+
+<p>首先，我们选取 class 为 list 的节点，然后调用了 find() 方法，传入 CSS 选择器，选取其内部的 li 节点，最后打印输出。可以发现，find() 方法会将符合条件的所有节点选择出来，结果的类型是 PyQuery 类型。</p>
+<p>其实 find 的查找范围是节点的所有子孙节点，而如果我们只想查找子节点，那可以用 children 方法：</p>
+<div class="codehilite"><pre><span></span><code><span class="n">lis</span> <span class="o">=</span> <span class="n">items</span><span class="o">.</span><span class="n">children</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">lis</span><span class="p">),</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lis</span><span class="p">)</span>
+</code></pre></div>
+
+
+<div class="codehilite"><pre><span></span><code><span class="err">---------------------------------------------------------------------------NameError</span>
+<span class="err">Traceback (most recent call last)&lt;ipython-input-1-452bf360e751&gt; in</span>
+<span class="err">&lt;module&gt;</span>
+<span class="err">----&gt; 1 lis = items.children()</span>
+<span class="err">      2 print(type(lis), &quot;\n&quot;)</span>
+<span class="err">      3 print(lis)</span>
+<span class="c">NameError: name &#39;items&#39; is not defined</span>
+</code></pre></div>
+
+
+<p>如果要筛选所有子节点中符合条件的节点，比如想筛选出子节点中 class 为 active 的节点，可以向 children() 方法传入 CSS 选择器.active：</p>
+<div class="codehilite"><pre><span></span><code><span class="n">lis</span> <span class="o">=</span> <span class="n">items</span><span class="o">.</span><span class="n">children</span><span class="p">(</span><span class="s1">&#39;.active&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lis</span><span class="p">)</span>
+</code></pre></div>
+
+
+<div class="codehilite"><pre><span></span><code><span class="err">---------------------------------------------------------------------------NameError</span>
+<span class="err">Traceback (most recent call last)&lt;ipython-input-1-1d1023d72c55&gt; in</span>
+<span class="err">&lt;module&gt;</span>
+<span class="err">----&gt; 1 lis = items.children(&#39;.active&#39;)</span>
+<span class="err">      2 print(lis)</span>
+<span class="c">NameError: name &#39;items&#39; is not defined</span>
+</code></pre></div>
+
+
+<p>可以看到输出的结果已经做了筛选，留下了 class 为 active 的节点。</p>
+<h3 id="_5">查找父节点</h3>
+<p>我们可以用 parent 方法来获取某个节点的父节点，我们用一个实例来感受一下：</p>
+<div class="codehilite"><pre><span></span><code><span class="n">html</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">&lt;div class=&quot;wrap&quot;&gt;</span>
+<span class="s1">    &lt;div id=&quot;container&quot;&gt;</span>
+<span class="s1">        &lt;ul class=&quot;list&quot;&gt;</span>
+<span class="s1">             &lt;li class=&quot;item-0&quot;&gt;first item&lt;/li&gt;</span>
+<span class="s1">             &lt;li class=&quot;item-1&quot;&gt;&lt;a href=&quot;link2.html&quot;&gt;second item&lt;/a&gt;&lt;/li&gt;</span>
+<span class="s1">             &lt;li class=&quot;item-0 active&quot;&gt;&lt;a href=&quot;link3.html&quot;&gt;&lt;span class=&quot;bold&quot;&gt;third item&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;</span>
+<span class="s1">             &lt;li class=&quot;item-1 active&quot;&gt;&lt;a href=&quot;link4.html&quot;&gt;fourth item&lt;/a&gt;&lt;/li&gt;</span>
+<span class="s1">             &lt;li class=&quot;item-0&quot;&gt;&lt;a href=&quot;link5.html&quot;&gt;fifth item&lt;/a&gt;&lt;/li&gt;</span>
+<span class="s1">         &lt;/ul&gt;</span>
+<span class="s1">     &lt;/div&gt;</span>
+<span class="s1"> &lt;/div&gt;</span>
+<span class="s1">&#39;&#39;&#39;</span>
+<span class="kn">from</span> <span class="nn">pyquery</span> <span class="kn">import</span> <span class="n">PyQuery</span> <span class="k">as</span> <span class="n">pq</span>
+<span class="n">doc</span> <span class="o">=</span> <span class="n">pq</span><span class="p">(</span><span class="n">html</span><span class="p">)</span>
+<span class="n">items</span> <span class="o">=</span> <span class="n">doc</span><span class="p">(</span><span class="s1">&#39;.list&#39;</span><span class="p">)</span>
+<span class="n">container</span> <span class="o">=</span> <span class="n">items</span><span class="o">.</span><span class="n">parent</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">container</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">container</span><span class="p">)</span>
+</code></pre></div>
+
+
+<div class="codehilite"><pre><span></span><code><span class="o">---------------------------------------------------------------------------</span><span class="ne">ImportError</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span><span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">ad976eaebf5c</span><span class="o">&gt;</span> <span class="ow">in</span>
+<span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+     <span class="mi">12</span>  <span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+     <span class="mi">13</span> <span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">---&gt; 14 from pyquery import PyQuery as pq</span>
+<span class="s1">     15 doc = pq(html)</span>
+<span class="s1">     16 items = doc(&#39;.list&#39;)</span>
+<span class="s1">G:\Installed\Anaconda3\lib\site-packages\pyquery\__init__.py in</span>
+<span class="s1">&lt;module&gt;</span>
+<span class="s1">      5 # Distributed under the BSD license, see LICENSE.txt</span>
+<span class="s1">      6</span>
+<span class="s1">----&gt; 7 from .pyquery import PyQuery  # NOQA</span>
+<span class="s1">G:\Installed\Anaconda3\lib\site-packages\pyquery\pyquery.py in</span>
+<span class="s1">&lt;module&gt;</span>
+<span class="s1">      9 from .text import extract_text</span>
+<span class="s1">     10 from copy import deepcopy</span>
+<span class="s1">---&gt; 11 from lxml import etree</span>
+<span class="s1">     12 import lxml.html</span>
+<span class="s1">     13 import inspect</span>
+<span class="s1">ImportError: DLL load failed: 找不到指定的程序。</span>
+</code></pre></div>
+
+
+<p>这里我们首先用.list 选取 class 为 list 的节点，然后调用 parent 方法得到其父节点，其类型依然是 PyQuery 类型。</p>
+<p>这里的父节点是该节点的直接父节点，也就是说，它不会再去查找父节点的父节点，即祖先节点。</p>
+<p>但是如果想获取某个祖先节点，该怎么办呢？这时可以用 parents 方法：</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">pyquery</span> <span class="kn">import</span> <span class="n">PyQuery</span> <span class="k">as</span> <span class="n">pq</span>
+<span class="n">doc</span> <span class="o">=</span> <span class="n">pq</span><span class="p">(</span><span class="n">html</span><span class="p">)</span>
+<span class="n">items</span> <span class="o">=</span> <span class="n">doc</span><span class="p">(</span><span class="s1">&#39;.list&#39;</span><span class="p">)</span>
+<span class="n">parents</span> <span class="o">=</span> <span class="n">items</span><span class="o">.</span><span class="n">parents</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">parents</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">parents</span><span class="p">)</span>
+</code></pre></div>
+
+
+<div class="codehilite"><pre><span></span><code><span class="o">---------------------------------------------------------------------------</span><span class="ne">ImportError</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span><span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">bde020348b13</span><span class="o">&gt;</span> <span class="ow">in</span>
+<span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">----&gt;</span> <span class="mi">1</span> <span class="kn">from</span> <span class="nn">pyquery</span> <span class="kn">import</span> <span class="n">PyQuery</span> <span class="k">as</span> <span class="n">pq</span>
+      <span class="mi">2</span> <span class="n">doc</span> <span class="o">=</span> <span class="n">pq</span><span class="p">(</span><span class="n">html</span><span class="p">)</span>
+      <span class="mi">3</span> <span class="n">items</span> <span class="o">=</span> <span class="n">doc</span><span class="p">(</span><span class="s1">&#39;.list&#39;</span><span class="p">)</span>
+      <span class="mi">4</span> <span class="n">parents</span> <span class="o">=</span> <span class="n">items</span><span class="o">.</span><span class="n">parents</span><span class="p">()</span>
+      <span class="mi">5</span> <span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">parents</span><span class="p">))</span>
+<span class="n">G</span><span class="p">:</span>\<span class="n">Installed</span>\<span class="n">Anaconda3</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">pyquery</span>\<span class="fm">__init__</span><span class="o">.</span><span class="n">py</span> <span class="ow">in</span>
+<span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+      <span class="mi">5</span> <span class="c1"># Distributed under the BSD license, see LICENSE.txt</span>
+      <span class="mi">6</span>
+<span class="o">----&gt;</span> <span class="mi">7</span> <span class="kn">from</span> <span class="nn">.pyquery</span> <span class="kn">import</span> <span class="n">PyQuery</span>  <span class="c1"># NOQA</span>
+<span class="n">G</span><span class="p">:</span>\<span class="n">Installed</span>\<span class="n">Anaconda3</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">pyquery</span>\<span class="n">pyquery</span><span class="o">.</span><span class="n">py</span> <span class="ow">in</span>
+<span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+      <span class="mi">9</span> <span class="kn">from</span> <span class="nn">.text</span> <span class="kn">import</span> <span class="n">extract_text</span>
+     <span class="mi">10</span> <span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
+<span class="o">---&gt;</span> <span class="mi">11</span> <span class="kn">from</span> <span class="nn">lxml</span> <span class="kn">import</span> <span class="n">etree</span>
+     <span class="mi">12</span> <span class="kn">import</span> <span class="nn">lxml.html</span>
+     <span class="mi">13</span> <span class="kn">import</span> <span class="nn">inspect</span>
+<span class="ne">ImportError</span><span class="p">:</span> <span class="n">DLL</span> <span class="n">load</span> <span class="n">failed</span><span class="p">:</span> <span class="err">找不到指定的程序。</span>
+</code></pre></div>
+
+
+<p>可以看到，输出结果有两个：一个是 class 为 wrap 的节点，一个是 id 为 container 的节点。也就是说，parents() 方法会返回所有的祖先节点。</p>
+<p>如果想要筛选某个祖先节点的话，可以向 parents 方法传入 CSS 选择器，这样就会返回祖先节点中符合 CSS 选择器的节点：</p>
+<div class="codehilite"><pre><span></span><code><span class="n">parent</span> <span class="o">=</span> <span class="n">items</span><span class="o">.</span><span class="n">parents</span><span class="p">(</span><span class="s1">&#39;.wrap&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">parent</span><span class="p">)</span>
+</code></pre></div>
+
+
+<div class="codehilite"><pre><span></span><code><span class="err">---------------------------------------------------------------------------NameError</span>
+<span class="err">Traceback (most recent call last)&lt;ipython-input-1-de1acd099015&gt; in</span>
+<span class="err">&lt;module&gt;</span>
+<span class="err">----&gt; 1 parent = items.parents(&#39;.wrap&#39;)</span>
+<span class="err">      2 print(parent)</span>
+<span class="c">NameError: name &#39;items&#39; is not defined</span>
+</code></pre></div>
+
+
+<p>可以看到，输出结果少了一个节点，只保留了 class 为 wrap 的节点。</p>
+<h3 id="_6">查找兄弟节点</h3>
+<p>前面我们说明了子节点和父节点的用法，还有一种节点，那就是兄弟节点。如果要获取兄弟节点，可以使用 siblings() 方法。这里还是以上面的 HTML 代码为例：</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">pyquery</span> <span class="kn">import</span> <span class="n">PyQuery</span> <span class="k">as</span> <span class="n">pq</span>
+<span class="n">doc</span> <span class="o">=</span> <span class="n">pq</span><span class="p">(</span><span class="n">html</span><span class="p">)</span>
+<span class="n">li</span> <span class="o">=</span> <span class="n">doc</span><span class="p">(</span><span class="s1">&#39;.list .item-0.active&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">li</span><span class="o">.</span><span class="n">siblings</span><span class="p">())</span>
+</code></pre></div>
+
+
+<div class="codehilite"><pre><span></span><code><span class="o">---------------------------------------------------------------------------</span><span class="ne">ImportError</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span><span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">bb7c74ce6549</span><span class="o">&gt;</span> <span class="ow">in</span>
+<span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">----&gt;</span> <span class="mi">1</span> <span class="kn">from</span> <span class="nn">pyquery</span> <span class="kn">import</span> <span class="n">PyQuery</span> <span class="k">as</span> <span class="n">pq</span>
+      <span class="mi">2</span> <span class="n">doc</span> <span class="o">=</span> <span class="n">pq</span><span class="p">(</span><span class="n">html</span><span class="p">)</span>
+      <span class="mi">3</span> <span class="n">li</span> <span class="o">=</span> <span class="n">doc</span><span class="p">(</span><span class="s1">&#39;.list .item-0.active&#39;</span><span class="p">)</span>
+      <span class="mi">4</span> <span class="k">print</span><span class="p">(</span><span class="n">li</span><span class="o">.</span><span class="n">siblings</span><span class="p">())</span>
+<span class="n">G</span><span class="p">:</span>\<span class="n">Installed</span>\<span class="n">Anaconda3</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">pyquery</span>\<span class="fm">__init__</span><span class="o">.</span><span class="n">py</span> <span class="ow">in</span>
+<span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+      <span class="mi">5</span> <span class="c1"># Distributed under the BSD license, see LICENSE.txt</span>
+      <span class="mi">6</span>
+<span class="o">----&gt;</span> <span class="mi">7</span> <span class="kn">from</span> <span class="nn">.pyquery</span> <span class="kn">import</span> <span class="n">PyQuery</span>  <span class="c1"># NOQA</span>
+<span class="n">G</span><span class="p">:</span>\<span class="n">Installed</span>\<span class="n">Anaconda3</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">pyquery</span>\<span class="n">pyquery</span><span class="o">.</span><span class="n">py</span> <span class="ow">in</span>
+<span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+      <span class="mi">9</span> <span class="kn">from</span> <span class="nn">.text</span> <span class="kn">import</span> <span class="n">extract_text</span>
+     <span class="mi">10</span> <span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
+<span class="o">---&gt;</span> <span class="mi">11</span> <span class="kn">from</span> <span class="nn">lxml</span> <span class="kn">import</span> <span class="n">etree</span>
+     <span class="mi">12</span> <span class="kn">import</span> <span class="nn">lxml.html</span>
+     <span class="mi">13</span> <span class="kn">import</span> <span class="nn">inspect</span>
+<span class="ne">ImportError</span><span class="p">:</span> <span class="n">DLL</span> <span class="n">load</span> <span class="n">failed</span><span class="p">:</span> <span class="err">找不到指定的程序。</span>
+</code></pre></div>
+
+
+<p>这里首先选择 class 为 list 的节点内部 class 为 item-0 和 active 的节点，也就是第三个 li 节点。那么，很明显，它的兄弟节点有 4 个，那就是第一、二、四、五个 li 节点。</p>
+<p>如果要筛选某个兄弟节点，我们依然可以向 siblings 方法传入 CSS 选择器，这样就会从所有兄弟节点中挑选出符合条件的节点了：</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">pyquery</span> <span class="kn">import</span> <span class="n">PyQuery</span> <span class="k">as</span> <span class="n">pq</span>
+<span class="n">doc</span> <span class="o">=</span> <span class="n">pq</span><span class="p">(</span><span class="n">html</span><span class="p">)</span>
+<span class="n">li</span> <span class="o">=</span> <span class="n">doc</span><span class="p">(</span><span class="s1">&#39;.list .item-0.active&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">li</span><span class="o">.</span><span class="n">siblings</span><span class="p">(</span><span class="s1">&#39;.active&#39;</span><span class="p">))</span>
+</code></pre></div>
+
+
+<div class="codehilite"><pre><span></span><code><span class="o">---------------------------------------------------------------------------</span><span class="ne">ImportError</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span><span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="mi">84</span><span class="n">d9472365b0</span><span class="o">&gt;</span> <span class="ow">in</span>
+<span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">----&gt;</span> <span class="mi">1</span> <span class="kn">from</span> <span class="nn">pyquery</span> <span class="kn">import</span> <span class="n">PyQuery</span> <span class="k">as</span> <span class="n">pq</span>
+      <span class="mi">2</span> <span class="n">doc</span> <span class="o">=</span> <span class="n">pq</span><span class="p">(</span><span class="n">html</span><span class="p">)</span>
+      <span class="mi">3</span> <span class="n">li</span> <span class="o">=</span> <span class="n">doc</span><span class="p">(</span><span class="s1">&#39;.list .item-0.active&#39;</span><span class="p">)</span>
+      <span class="mi">4</span> <span class="k">print</span><span class="p">(</span><span class="n">li</span><span class="o">.</span><span class="n">siblings</span><span class="p">(</span><span class="s1">&#39;.active&#39;</span><span class="p">))</span>
+<span class="n">G</span><span class="p">:</span>\<span class="n">Installed</span>\<span class="n">Anaconda3</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">pyquery</span>\<span class="fm">__init__</span><span class="o">.</span><span class="n">py</span> <span class="ow">in</span>
+<span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+      <span class="mi">5</span> <span class="c1"># Distributed under the BSD license, see LICENSE.txt</span>
+      <span class="mi">6</span>
+<span class="o">----&gt;</span> <span class="mi">7</span> <span class="kn">from</span> <span class="nn">.pyquery</span> <span class="kn">import</span> <span class="n">PyQuery</span>  <span class="c1"># NOQA</span>
+<span class="n">G</span><span class="p">:</span>\<span class="n">Installed</span>\<span class="n">Anaconda3</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">pyquery</span>\<span class="n">pyquery</span><span class="o">.</span><span class="n">py</span> <span class="ow">in</span>
+<span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+      <span class="mi">9</span> <span class="kn">from</span> <span class="nn">.text</span> <span class="kn">import</span> <span class="n">extract_text</span>
+     <span class="mi">10</span> <span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
+<span class="o">---&gt;</span> <span class="mi">11</span> <span class="kn">from</span> <span class="nn">lxml</span> <span class="kn">import</span> <span class="n">etree</span>
+     <span class="mi">12</span> <span class="kn">import</span> <span class="nn">lxml.html</span>
+     <span class="mi">13</span> <span class="kn">import</span> <span class="nn">inspect</span>
+<span class="ne">ImportError</span><span class="p">:</span> <span class="n">DLL</span> <span class="n">load</span> <span class="n">failed</span><span class="p">:</span> <span class="err">找不到指定的程序。</span>
+</code></pre></div>
+
+
+<p>这里我们筛选了 class 为 active 的节点，通过刚才的结果可以观察到，class 为 active 的兄弟节点只有第四个 li 节点，所以结果应该是一个。</p>
+<h3 id="_7">遍历</h3>
+<p>刚才可以观察到，pyquery 的选择结果可能是多个节点，也可能是单个节点，类型都是 PyQuery 类型，并没有返回像 Beautiful Soup 那样的列表。</p>
+<p>对于单个节点来说，可以直接打印输出，也可以直接转成字符串：</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">pyquery</span> <span class="kn">import</span> <span class="n">PyQuery</span> <span class="k">as</span> <span class="n">pq</span>
+<span class="n">doc</span> <span class="o">=</span> <span class="n">pq</span><span class="p">(</span><span class="n">html</span><span class="p">)</span>
+<span class="n">li</span> <span class="o">=</span> <span class="n">doc</span><span class="p">(</span><span class="s1">&#39;.item-0.active&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">li</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">li</span><span class="p">))</span>
+</code></pre></div>
+
+
+<div class="codehilite"><pre><span></span><code><span class="o">---------------------------------------------------------------------------</span><span class="ne">ImportError</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span><span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="mi">473195</span><span class="n">efb0c7</span><span class="o">&gt;</span> <span class="ow">in</span>
+<span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">----&gt;</span> <span class="mi">1</span> <span class="kn">from</span> <span class="nn">pyquery</span> <span class="kn">import</span> <span class="n">PyQuery</span> <span class="k">as</span> <span class="n">pq</span>
+      <span class="mi">2</span> <span class="n">doc</span> <span class="o">=</span> <span class="n">pq</span><span class="p">(</span><span class="n">html</span><span class="p">)</span>
+      <span class="mi">3</span> <span class="n">li</span> <span class="o">=</span> <span class="n">doc</span><span class="p">(</span><span class="s1">&#39;.item-0.active&#39;</span><span class="p">)</span>
+      <span class="mi">4</span> <span class="k">print</span><span class="p">(</span><span class="n">li</span><span class="p">)</span>
+      <span class="mi">5</span> <span class="k">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">li</span><span class="p">))</span>
+<span class="n">G</span><span class="p">:</span>\<span class="n">Installed</span>\<span class="n">Anaconda3</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">pyquery</span>\<span class="fm">__init__</span><span class="o">.</span><span class="n">py</span> <span class="ow">in</span>
+<span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+      <span class="mi">5</span> <span class="c1"># Distributed under the BSD license, see LICENSE.txt</span>
+      <span class="mi">6</span>
+<span class="o">----&gt;</span> <span class="mi">7</span> <span class="kn">from</span> <span class="nn">.pyquery</span> <span class="kn">import</span> <span class="n">PyQuery</span>  <span class="c1"># NOQA</span>
+<span class="n">G</span><span class="p">:</span>\<span class="n">Installed</span>\<span class="n">Anaconda3</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">pyquery</span>\<span class="n">pyquery</span><span class="o">.</span><span class="n">py</span> <span class="ow">in</span>
+<span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+      <span class="mi">9</span> <span class="kn">from</span> <span class="nn">.text</span> <span class="kn">import</span> <span class="n">extract_text</span>
+     <span class="mi">10</span> <span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
+<span class="o">---&gt;</span> <span class="mi">11</span> <span class="kn">from</span> <span class="nn">lxml</span> <span class="kn">import</span> <span class="n">etree</span>
+     <span class="mi">12</span> <span class="kn">import</span> <span class="nn">lxml.html</span>
+     <span class="mi">13</span> <span class="kn">import</span> <span class="nn">inspect</span>
+<span class="ne">ImportError</span><span class="p">:</span> <span class="n">DLL</span> <span class="n">load</span> <span class="n">failed</span><span class="p">:</span> <span class="err">找不到指定的程序。</span>
+</code></pre></div>
+
+
+<p>对于多个节点的结果，我们就需要遍历来获取了。例如，这里把每一个 li 节点进行遍历，需要调用 items 方法：</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">pyquery</span> <span class="kn">import</span> <span class="n">PyQuery</span> <span class="k">as</span> <span class="n">pq</span>
+<span class="n">doc</span> <span class="o">=</span> <span class="n">pq</span><span class="p">(</span><span class="n">html</span><span class="p">)</span>
+<span class="n">lis</span> <span class="o">=</span> <span class="n">doc</span><span class="p">(</span><span class="s1">&#39;li&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">lis</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">li</span> <span class="ow">in</span> <span class="n">lis</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">li</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">li</span><span class="p">))</span>
+</code></pre></div>
+
+
+<div class="codehilite"><pre><span></span><code><span class="o">---------------------------------------------------------------------------</span><span class="ne">ImportError</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span><span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">f239bfd53560</span><span class="o">&gt;</span> <span class="ow">in</span>
+<span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">----&gt;</span> <span class="mi">1</span> <span class="kn">from</span> <span class="nn">pyquery</span> <span class="kn">import</span> <span class="n">PyQuery</span> <span class="k">as</span> <span class="n">pq</span>
+      <span class="mi">2</span> <span class="n">doc</span> <span class="o">=</span> <span class="n">pq</span><span class="p">(</span><span class="n">html</span><span class="p">)</span>
+      <span class="mi">3</span> <span class="n">lis</span> <span class="o">=</span> <span class="n">doc</span><span class="p">(</span><span class="s1">&#39;li&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+      <span class="mi">4</span> <span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">lis</span><span class="p">))</span>
+      <span class="mi">5</span> <span class="k">for</span> <span class="n">li</span> <span class="ow">in</span> <span class="n">lis</span><span class="p">:</span>
+<span class="n">G</span><span class="p">:</span>\<span class="n">Installed</span>\<span class="n">Anaconda3</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">pyquery</span>\<span class="fm">__init__</span><span class="o">.</span><span class="n">py</span> <span class="ow">in</span>
+<span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+      <span class="mi">5</span> <span class="c1"># Distributed under the BSD license, see LICENSE.txt</span>
+      <span class="mi">6</span>
+<span class="o">----&gt;</span> <span class="mi">7</span> <span class="kn">from</span> <span class="nn">.pyquery</span> <span class="kn">import</span> <span class="n">PyQuery</span>  <span class="c1"># NOQA</span>
+<span class="n">G</span><span class="p">:</span>\<span class="n">Installed</span>\<span class="n">Anaconda3</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">pyquery</span>\<span class="n">pyquery</span><span class="o">.</span><span class="n">py</span> <span class="ow">in</span>
+<span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+      <span class="mi">9</span> <span class="kn">from</span> <span class="nn">.text</span> <span class="kn">import</span> <span class="n">extract_text</span>
+     <span class="mi">10</span> <span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
+<span class="o">---&gt;</span> <span class="mi">11</span> <span class="kn">from</span> <span class="nn">lxml</span> <span class="kn">import</span> <span class="n">etree</span>
+     <span class="mi">12</span> <span class="kn">import</span> <span class="nn">lxml.html</span>
+     <span class="mi">13</span> <span class="kn">import</span> <span class="nn">inspect</span>
+<span class="ne">ImportError</span><span class="p">:</span> <span class="n">DLL</span> <span class="n">load</span> <span class="n">failed</span><span class="p">:</span> <span class="err">找不到指定的程序。</span>
+</code></pre></div>
+
+
+<p>可以发现，调用 items() 方法后，会得到一个生成器，遍历一下，就可以逐个得到 li 节点对象了，它的类型也是 PyQuery 类型。每个 li 节点还可以调用前面所说的方法进行选择，比如继续查询子节点，寻找某个祖先节点等，非常灵活。</p>
+<h3 id="_8">获取信息</h3>
+<p>提取到节点之后，我们的最终目的当然是提取节点所包含的信息了。比较重要的信息有两类，一是获取属性，二是获取文本，下面分别进行说明。</p>
+<h4 id="_9">获取属性</h4>
+<p>提取到某个 PyQuery 类型的节点后，就可以调用 attr() 方法来获取属性：</p>
+<div class="codehilite"><pre><span></span><code><span class="n">html</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">&lt;div class=&quot;wrap&quot;&gt;</span>
+<span class="s1">    &lt;div id=&quot;container&quot;&gt;</span>
+<span class="s1">        &lt;ul class=&quot;list&quot;&gt;</span>
+<span class="s1">             &lt;li class=&quot;item-0&quot;&gt;first item&lt;/li&gt;</span>
+<span class="s1">             &lt;li class=&quot;item-1&quot;&gt;&lt;a href=&quot;link2.html&quot;&gt;second item&lt;/a&gt;&lt;/li&gt;</span>
+<span class="s1">             &lt;li class=&quot;item-0 active&quot;&gt;&lt;a href=&quot;link3.html&quot;&gt;&lt;span class=&quot;bold&quot;&gt;third item&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;</span>
+<span class="s1">             &lt;li class=&quot;item-1 active&quot;&gt;&lt;a href=&quot;link4.html&quot;&gt;fourth item&lt;/a&gt;&lt;/li&gt;</span>
+<span class="s1">             &lt;li class=&quot;item-0&quot;&gt;&lt;a href=&quot;link5.html&quot;&gt;fifth item&lt;/a&gt;&lt;/li&gt;</span>
+<span class="s1">         &lt;/ul&gt;</span>
+<span class="s1">     &lt;/div&gt;</span>
+<span class="s1"> &lt;/div&gt;</span>
+<span class="s1">&#39;&#39;&#39;</span>
+<span class="kn">from</span> <span class="nn">pyquery</span> <span class="kn">import</span> <span class="n">PyQuery</span> <span class="k">as</span> <span class="n">pq</span>
+<span class="n">doc</span> <span class="o">=</span> <span class="n">pq</span><span class="p">(</span><span class="n">html</span><span class="p">)</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">doc</span><span class="p">(</span><span class="s1">&#39;.item-0.active a&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">attr</span><span class="p">(</span><span class="s1">&#39;href&#39;</span><span class="p">))</span>
+</code></pre></div>
+
+
+<div class="codehilite"><pre><span></span><code><span class="o">---------------------------------------------------------------------------</span><span class="ne">ImportError</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span><span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">b164646adfc4</span><span class="o">&gt;</span> <span class="ow">in</span>
+<span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+     <span class="mi">12</span>  <span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+     <span class="mi">13</span> <span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">---&gt; 14 from pyquery import PyQuery as pq</span>
+<span class="s1">     15 doc = pq(html)</span>
+<span class="s1">     16 a = doc(&#39;.item-0.active a&#39;)</span>
+<span class="s1">G:\Installed\Anaconda3\lib\site-packages\pyquery\__init__.py in</span>
+<span class="s1">&lt;module&gt;</span>
+<span class="s1">      5 # Distributed under the BSD license, see LICENSE.txt</span>
+<span class="s1">      6</span>
+<span class="s1">----&gt; 7 from .pyquery import PyQuery  # NOQA</span>
+<span class="s1">G:\Installed\Anaconda3\lib\site-packages\pyquery\pyquery.py in</span>
+<span class="s1">&lt;module&gt;</span>
+<span class="s1">      9 from .text import extract_text</span>
+<span class="s1">     10 from copy import deepcopy</span>
+<span class="s1">---&gt; 11 from lxml import etree</span>
+<span class="s1">     12 import lxml.html</span>
+<span class="s1">     13 import inspect</span>
+<span class="s1">ImportError: DLL load failed: 找不到指定的程序。</span>
+</code></pre></div>
+
+
+<p>这里首先选中 class 为 item-0 和 active 的 li 节点内的 a 节点，它的类型是 PyQuery 类型。</p>
+<p>然后调用 attr 方法。在这个方法中传入属性的名称，就可以得到这个属性值了。</p>
+<p>此外，也可以通过调用 attr 属性来获取属性，用法如下：</p>
+<div class="codehilite"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">attr</span><span class="o">.</span><span class="n">href</span><span class="p">)</span>
+</code></pre></div>
+
+
+<div class="codehilite"><pre><span></span><code><span class="c1">---------------------------------------------------------------------------AttributeError</span>
+<span class="n">Traceback</span><span class="w"> </span><span class="p">(</span><span class="n">most</span><span class="w"> </span><span class="n">recent</span><span class="w"> </span><span class="k">call</span><span class="w"> </span><span class="k">last</span><span class="p">)</span><span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="k">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="mi">4</span><span class="n">ae3016252d4</span><span class="o">&gt;</span><span class="w"> </span><span class="ow">in</span><span class="w"></span>
+<span class="o">&lt;</span><span class="k">module</span><span class="o">&gt;</span><span class="w"></span>
+<span class="c1">----&gt; 1 print(a.attr.href)</span>
+<span class="nl">G</span><span class="p">:</span><span class="err">\</span><span class="n">Installed</span><span class="err">\</span><span class="n">Anaconda3</span><span class="err">\</span><span class="n">lib</span><span class="err">\</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="err">\</span><span class="n">pandas</span><span class="err">\</span><span class="n">core</span><span class="err">\</span><span class="n">generic</span><span class="p">.</span><span class="n">py</span><span class="w"> </span><span class="ow">in</span><span class="w"></span>
+<span class="n">__getattr__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="mi">5272</span><span class="w">             </span><span class="k">if</span><span class="w"></span>
+<span class="n">self</span><span class="p">.</span><span class="n">_info_axis</span><span class="p">.</span><span class="n">_can_hold_identifiers_and_holds_name</span><span class="p">(</span><span class="n">name</span><span class="p">)</span><span class="err">:</span><span class="w"></span>
+<span class="w">   </span><span class="mi">5273</span><span class="w">                 </span><span class="k">return</span><span class="w"> </span><span class="n">self</span><span class="o">[</span><span class="n">name</span><span class="o">]</span><span class="w"></span>
+<span class="o">-&gt;</span><span class="w"> </span><span class="mi">5274</span><span class="w">             </span><span class="k">return</span><span class="w"> </span><span class="k">object</span><span class="p">.</span><span class="n">__getattribute__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">)</span><span class="w"></span>
+<span class="w">   </span><span class="mi">5275</span><span class="w"></span>
+<span class="w">   </span><span class="mi">5276</span><span class="w">     </span><span class="n">def</span><span class="w"> </span><span class="n">__setattr__</span><span class="p">(</span><span class="n">self</span><span class="p">,</span><span class="w"> </span><span class="nl">name</span><span class="p">:</span><span class="w"> </span><span class="nf">str</span><span class="p">,</span><span class="w"> </span><span class="k">value</span><span class="p">)</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="k">None</span><span class="err">:</span><span class="w"></span>
+<span class="nl">AttributeError</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;DataFrame&#39;</span><span class="w"> </span><span class="k">object</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="k">no</span><span class="w"> </span><span class="n">attribute</span><span class="w"> </span><span class="s1">&#39;attr&#39;</span><span class="w"></span>
+</code></pre></div>
+
+
+<p>这两种方法的结果完全一样。</p>
+<p>如果选中的是多个元素，然后调用 attr 方法，会出现怎样的结果呢？我们用实例来测试一下：</p>
+<div class="codehilite"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">doc</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">attr</span><span class="p">(</span><span class="s1">&#39;href&#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">attr</span><span class="o">.</span><span class="n">href</span><span class="p">)</span>
+</code></pre></div>
+
+
+<div class="codehilite"><pre><span></span><code><span class="err">---------------------------------------------------------------------------NameError</span>
+<span class="err">Traceback (most recent call last)&lt;ipython-input-1-70e6043e550d&gt; in</span>
+<span class="err">&lt;module&gt;</span>
+<span class="err">----&gt; 1 a = doc(&#39;a&#39;)</span>
+<span class="err">      2 print(a, type(a))</span>
+<span class="err">      3 print(a.attr(&#39;href&#39;))</span>
+<span class="err">      4 print(a.attr.href)</span>
+<span class="c">NameError: name &#39;doc&#39; is not defined</span>
+</code></pre></div>
+
+
+<p>照理来说，我们选中的 a 节点应该有 4 个，而且打印结果也应该是 4 个，但是当我们调用 attr 方法时，返回结果却只是第一个。这是因为，当返回结果包含多个节点时，调用 attr 方法，只会得到第一个节点的属性。</p>
+<p>那么，遇到这种情况时，如果想获取所有的 a 节点的属性，就要用到前面所说的遍历了：</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">pyquery</span> <span class="kn">import</span> <span class="n">PyQuery</span> <span class="k">as</span> <span class="n">pq</span>
+<span class="n">doc</span> <span class="o">=</span> <span class="n">pq</span><span class="p">(</span><span class="n">html</span><span class="p">)</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">doc</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">a</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="o">.</span><span class="n">attr</span><span class="p">(</span><span class="s1">&#39;href&#39;</span><span class="p">))</span>
+</code></pre></div>
+
+
+<div class="codehilite"><pre><span></span><code><span class="o">---------------------------------------------------------------------------</span><span class="ne">ImportError</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span><span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">b915e71352d2</span><span class="o">&gt;</span> <span class="ow">in</span>
+<span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">----&gt;</span> <span class="mi">1</span> <span class="kn">from</span> <span class="nn">pyquery</span> <span class="kn">import</span> <span class="n">PyQuery</span> <span class="k">as</span> <span class="n">pq</span>
+      <span class="mi">2</span> <span class="n">doc</span> <span class="o">=</span> <span class="n">pq</span><span class="p">(</span><span class="n">html</span><span class="p">)</span>
+      <span class="mi">3</span> <span class="n">a</span> <span class="o">=</span> <span class="n">doc</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
+      <span class="mi">4</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">a</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+      <span class="mi">5</span>     <span class="k">print</span><span class="p">(</span><span class="n">item</span><span class="o">.</span><span class="n">attr</span><span class="p">(</span><span class="s1">&#39;href&#39;</span><span class="p">))</span>
+<span class="n">G</span><span class="p">:</span>\<span class="n">Installed</span>\<span class="n">Anaconda3</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">pyquery</span>\<span class="fm">__init__</span><span class="o">.</span><span class="n">py</span> <span class="ow">in</span>
+<span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+      <span class="mi">5</span> <span class="c1"># Distributed under the BSD license, see LICENSE.txt</span>
+      <span class="mi">6</span>
+<span class="o">----&gt;</span> <span class="mi">7</span> <span class="kn">from</span> <span class="nn">.pyquery</span> <span class="kn">import</span> <span class="n">PyQuery</span>  <span class="c1"># NOQA</span>
+<span class="n">G</span><span class="p">:</span>\<span class="n">Installed</span>\<span class="n">Anaconda3</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span><span class="n">packages</span>\<span class="n">pyquery</span>\<span class="n">pyquery</span><span class="o">.</span><span class="n">py</span> <span class="ow">in</span>
+<span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+      <span class="mi">9</span> <span class="kn">from</span> <span class="nn">.text</span> <span class="kn">import</span> <span class="n">extract_text</span>
+     <span class="mi">10</span> <span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
+<span class="o">---&gt;</span> <span class="mi">11</span> <span class="kn">from</span> <span class="nn">lxml</span> <span class="kn">import</span> <span class="n">etree</span>
+     <span class="mi">12</span> <span class="kn">import</span> <span class="nn">lxml.html</span>
+     <span class="mi">13</span> <span class="kn">import</span> <span class="nn">inspect</span>
+<span class="ne">ImportError</span><span class="p">:</span> <span class="n">DLL</span> <span class="n">load</span> <span class="n">failed</span><span class="p">:</span> <span class="err">找不到指定的程序。</span>
+</code></pre></div>
+
+
+<p>因此，在进行属性获取时，可以观察返回节点是一个还是多个，如果是多个，则需要遍历才能依次获取每个节点的属性。</p>
+<h4 id="_10">获取文本</h4>
+<p>获取节点之后的另一个主要操作就是获取其内部的文本了，此时可以调用 text 方法来实现：</p>
+<div class="codehilite"><pre><span></span><code><span class="n">html</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">&lt;div class=&quot;wrap&quot;&gt;</span>
+<span class="s1">    &lt;div id=&quot;container&quot;&gt;</span>
+<span class="s1">        &lt;ul class=&quot;list&quot;&gt;</span>
+<span class="s1">             &lt;li class=&quot;item-0&quot;&gt;first item&lt;/li&gt;</span>
+<span class="s1">             &lt;li class=&quot;item-1&quot;&gt;&lt;a href=&quot;link2.html&quot;&gt;second item&lt;/a&gt;&lt;/li&gt;</span>
+<span class="s1">             &lt;li class=&quot;item-0 active&quot;&gt;&lt;a href=&quot;link3.html&quot;&gt;&lt;span class=&quot;bold&quot;&gt;third item&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;</span>
+<span class="s1">             &lt;li class=&quot;item-1 active&quot;&gt;&lt;a href=&quot;link4.html&quot;&gt;fourth item&lt;/a&gt;&lt;/li&gt;</span>
+<span class="s1">             &lt;li class=&quot;item-0&quot;&gt;&lt;a href=&quot;link5.html&quot;&gt;fifth item&lt;/a&gt;&lt;/li&gt;</span>
+<span class="s1">         &lt;/ul&gt;</span>
+<span class="s1">     &lt;/div&gt;</span>
+<span class="s1"> &lt;/div&gt;</span>
+<span class="s1">&#39;&#39;&#39;</span>
+<span class="kn">from</span> <span class="nn">pyquery</span> <span class="kn">import</span> <span class="n">PyQuery</span> <span class="k">as</span> <span class="n">pq</span>
+<span class="n">doc</span> <span class="o">=</span> <span class="n">pq</span><span class="p">(</span><span class="n">html</span><span class="p">)</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">doc</span><span class="p">(</span><span class="s1">&#39;.item-0.active a&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">text</span><span class="p">())</span>
+</code></pre></div>
+
+
+<div class="codehilite"><pre><span></span><code><span class="o">---------------------------------------------------------------------------</span><span class="ne">ImportError</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span><span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="mi">93</span><span class="n">b4cb226c5f</span><span class="o">&gt;</span> <span class="ow">in</span>
+<span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+     <span class="mi">12</span>  <span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+     <span class="mi">13</span> <span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">---&gt; 14 from pyquery import PyQuery as pq</span>
+<span class="s1">     15 doc = pq(html)</span>
+<span class="s1">     16 a = doc(&#39;.item-0.active a&#39;)</span>
+<span class="s1">G:\Installed\Anaconda3\lib\site-packages\pyquery\__init__.py in</span>
+<span class="s1">&lt;module&gt;</span>
+<span class="s1">      5 # Distributed under the BSD license, see LICENSE.txt</span>
+<span class="s1">      6</span>
+<span class="s1">----&gt; 7 from .pyquery import PyQuery  # NOQA</span>
+<span class="s1">G:\Installed\Anaconda3\lib\site-packages\pyquery\pyquery.py in</span>
+<span class="s1">&lt;module&gt;</span>
+<span class="s1">      9 from .text import extract_text</span>
+<span class="s1">     10 from copy import deepcopy</span>
+<span class="s1">---&gt; 11 from lxml import etree</span>
+<span class="s1">     12 import lxml.html</span>
+<span class="s1">     13 import inspect</span>
+<span class="s1">ImportError: DLL load failed: 找不到指定的程序。</span>
+</code></pre></div>
+
+
+<p>这里首先选中一个 a 节点，然后调用 text 方法，就可以获取其内部的文本信息。此时它会忽略掉节点内部包含的所有 HTML，只返回纯文字内容。</p>
+<p>但如果想要获取这个节点内部的 HTML 文本，就要用 html 方法了：</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">pyquery</span> <span class="kn">import</span> <span class="n">PyQuery</span> <span class="k">as</span> <span class="n">pq</span>
+<span class="n">doc</span> <span class="o">=</span> <span class="n">pq</span><span class="p">(</span><span class="n">html</span><span class="p">)</span>
+<span class="n">li</span> <span class="o">=</span> <span class="n">doc</span><span class="p">(</span><span class="s1">&#39;.item-0.active&#39;</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">li</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">li</span><span class="o">.</span><span class="n">html</span><span class="p">())</span>
+</code></pre></div>
+
+
+<p>这里我们选中了第三个 li 节点，然后调用了 html() 方法，它返回的结果应该是 li 节点内的所有 HTML 文本。</p>
+<p>这里同样有一个问题，如果我们选中的结果是多个节点，text() 或 html() 会返回什么内容？我们用实例来看一下：</p>
+<div class="codehilite"><pre><span></span><code><span class="n">html</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">&lt;div class=&quot;wrap&quot;&gt;</span>
+<span class="s1">    &lt;div id=&quot;container&quot;&gt;</span>
+<span class="s1">        &lt;ul class=&quot;list&quot;&gt;</span>
+<span class="s1">             &lt;li class=&quot;item-1&quot;&gt;&lt;a href=&quot;link2.html&quot;&gt;second item&lt;/a&gt;&lt;/li&gt;</span>
+<span class="s1">             &lt;li class=&quot;item-0 active&quot;&gt;&lt;a href=&quot;link3.html&quot;&gt;&lt;span class=&quot;bold&quot;&gt;third item&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;</span>
+<span class="s1">             &lt;li class=&quot;item-1 active&quot;&gt;&lt;a href=&quot;link4.html&quot;&gt;fourth item&lt;/a&gt;&lt;/li&gt;</span>
+<span class="s1">             &lt;li class=&quot;item-0&quot;&gt;&lt;a href=&quot;link5.html&quot;&gt;fifth item&lt;/a&gt;&lt;/li&gt;</span>
+<span class="s1">         &lt;/ul&gt;</span>
+<span class="s1">     &lt;/div&gt;</span>
+<span class="s1"> &lt;/div&gt;</span>
+<span class="s1">&#39;&#39;&#39;</span>
+<span class="kn">from</span> <span class="nn">pyquery</span> <span class="kn">import</span> <span class="n">PyQuery</span> <span class="k">as</span> <span class="n">pq</span>
+<span class="n">doc</span> <span class="o">=</span> <span class="n">pq</span><span class="p">(</span><span class="n">html</span><span class="p">)</span>
+<span class="n">li</span> <span class="o">=</span> <span class="n">doc</span><span class="p">(</span><span class="s1">&#39;li&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">li</span><span class="o">.</span><span class="n">html</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">li</span><span class="o">.</span><span class="n">text</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">li</span><span class="o">.</span><span class="n">text</span><span class="p">())</span>
+</code></pre></div>
+
+
+<div class="codehilite"><pre><span></span><code><span class="err">  File &quot;&lt;ipython-input-1-dde919c3f270&gt;&quot;, line 18</span>
+<span class="err">    print(type(li.text())</span>
+<span class="err">                         ^</span>
+<span class="c">SyntaxError: unexpected EOF while parsing</span>
+</code></pre></div>
+
+
+<p>结果可能比较出乎意料，html 方法返回的是第一个 li 节点的内部 HTML 文本，而 text 则返回了所有的 li 节点内部的纯文本，中间用一个空格分割开，即返回结果是一个字符串。</p>
+<p>所以这个地方值得注意，如果得到的结果是多个节点，并且想要获取每个节点的内部 HTML 文本，则需要遍历每个节点。而 text() 方法不需要遍历就可以获取，它将所有节点取文本之后合并成一个字符串。</p>
+<h2 id="_11">节点操作</h2>
+<p>pyquery 提供了一系列方法来对节点进行动态修改，比如为某个节点添加一个 class，移除某个节点等，这些操作有时候会为提取信息带来极大的便利。</p>
+<p>由于节点操作的方法太多，下面举几个典型的例子来说明它的用法。</p>
+<h3 id="addclass-removeclass">addClass 和 removeClass</h3>
+<p>我们先用一个实例来感受一下：</p>
+<div class="codehilite"><pre><span></span><code><span class="n">html</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">&lt;div class=&quot;wrap&quot;&gt;</span>
+<span class="s1">    &lt;div id=&quot;container&quot;&gt;</span>
+<span class="s1">        &lt;ul class=&quot;list&quot;&gt;</span>
+<span class="s1">             &lt;li class=&quot;item-0&quot;&gt;first item&lt;/li&gt;</span>
+<span class="s1">             &lt;li class=&quot;item-1&quot;&gt;&lt;a href=&quot;link2.html&quot;&gt;second item&lt;/a&gt;&lt;/li&gt;</span>
+<span class="s1">             &lt;li class=&quot;item-0 active&quot;&gt;&lt;a href=&quot;link3.html&quot;&gt;&lt;span class=&quot;bold&quot;&gt;third item&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;</span>
+<span class="s1">             &lt;li class=&quot;item-1 active&quot;&gt;&lt;a href=&quot;link4.html&quot;&gt;fourth item&lt;/a&gt;&lt;/li&gt;</span>
+<span class="s1">             &lt;li class=&quot;item-0&quot;&gt;&lt;a href=&quot;link5.html&quot;&gt;fifth item&lt;/a&gt;&lt;/li&gt;</span>
+<span class="s1">         &lt;/ul&gt;</span>
+<span class="s1">     &lt;/div&gt;</span>
+<span class="s1"> &lt;/div&gt;</span>
+<span class="s1">&#39;&#39;&#39;</span>
+<span class="kn">from</span> <span class="nn">pyquery</span> <span class="kn">import</span> <span class="n">PyQuery</span> <span class="k">as</span> <span class="n">pq</span>
+<span class="n">doc</span> <span class="o">=</span> <span class="n">pq</span><span class="p">(</span><span class="n">html</span><span class="p">)</span>
+<span class="n">li</span> <span class="o">=</span> <span class="n">doc</span><span class="p">(</span><span class="s1">&#39;.item-0.active&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">li</span><span class="p">)</span>
+<span class="n">li</span><span class="o">.</span><span class="n">removeClass</span><span class="p">(</span><span class="s1">&#39;active&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">li</span><span class="p">)</span>
+<span class="n">li</span><span class="o">.</span><span class="n">addClass</span><span class="p">(</span><span class="s1">&#39;active&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">li</span><span class="p">)</span>
+</code></pre></div>
+
+
+<div class="codehilite"><pre><span></span><code><span class="o">---------------------------------------------------------------------------</span><span class="ne">ImportError</span>                               <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span><span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">ee3763a29e9c</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+     <span class="mi">12</span>  <span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+     <span class="mi">13</span> <span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">---&gt; 14 from pyquery import PyQuery as pq</span>
+<span class="s1">     15 doc = pq(html)</span>
+<span class="s1">     16 li = doc(&#39;.item-0.active&#39;)</span>
+<span class="s1">G:\Installed\Anaconda3\lib\site-packages\pyquery\__init__.py in &lt;module&gt;</span>
+<span class="s1">      5 # Distributed under the BSD license, see LICENSE.txt</span>
+<span class="s1">      6 </span>
+<span class="s1">----&gt; 7 from .pyquery import PyQuery  # NOQA</span>
+<span class="s1">G:\Installed\Anaconda3\lib\site-packages\pyquery\pyquery.py in &lt;module&gt;</span>
+<span class="s1">      9 from .text import extract_text</span>
+<span class="s1">     10 from copy import deepcopy</span>
+<span class="s1">---&gt; 11 from lxml import etree</span>
+<span class="s1">     12 import lxml.html</span>
+<span class="s1">     13 import inspect</span>
+<span class="s1">ImportError: DLL load failed: 找不到指定的程序。</span>
+</code></pre></div>
+
+
+<p>首先选中了第三个 li 节点，然后调用 removeClass() 方法，将 li 节点的 active 这个 class 移除，后来又调用 addClass() 方法，将 class 添加回来。每执行一次操作，就打印输出当前 li 节点的内容。</p>
+<p>可以看到，一共输出了 3 次。第二次输出时，li 节点的 active 这个 class 被移除了，第三次 class 又添加回来了。</p>
+<p>所以说，addClass 和 removeClass 方法可以动态改变节点的 class 属性。</p>
+<h3 id="attrtexthtml">attr、text、html</h3>
+<p>当然，除了操作 class 这个属性外，也可以用 attr 方法对属性进行操作。此外，还可以用 text 和 html 方法来改变节点内部的内容。示例如下：</p>
+<div class="codehilite"><pre><span></span><code><span class="n">html</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">&lt;ul class=&quot;list&quot;&gt;</span>
+<span class="s1">     &lt;li class=&quot;item-0 active&quot;&gt;&lt;a href=&quot;link3.html&quot;&gt;&lt;span class=&quot;bold&quot;&gt;third item&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;</span>
+<span class="s1">&lt;/ul&gt;</span>
+<span class="s1">&#39;&#39;&#39;</span>
+<span class="kn">from</span> <span class="nn">pyquery</span> <span class="kn">import</span> <span class="n">PyQuery</span> <span class="k">as</span> <span class="n">pq</span>
+<span class="n">doc</span> <span class="o">=</span> <span class="n">pq</span><span class="p">(</span><span class="n">html</span><span class="p">)</span>
+<span class="n">li</span> <span class="o">=</span> <span class="n">doc</span><span class="p">(</span><span class="s1">&#39;.item-0.active&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">li</span><span class="p">)</span>
+<span class="n">li</span><span class="o">.</span><span class="n">attr</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;link&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">li</span><span class="p">)</span>
+<span class="n">li</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="s1">&#39;changed item&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">li</span><span class="p">)</span>
+<span class="n">li</span><span class="o">.</span><span class="n">html</span><span class="p">(</span><span class="s1">&#39;&lt;span&gt;changed item&lt;/span&gt;&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">li</span><span class="p">)</span>
+</code></pre></div>
+
+
+<div class="codehilite"><pre><span></span><code><span class="o">---------------------------------------------------------------------------</span><span class="ne">ImportError</span>                               <span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span><span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">f56d8beede07</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+      <span class="mi">4</span> <span class="o">&lt;/</span><span class="n">ul</span><span class="o">&gt;</span>
+      <span class="mi">5</span> <span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">----&gt; 6 from pyquery import PyQuery as pq</span>
+<span class="s1">      7 doc = pq(html)</span>
+<span class="s1">      8 li = doc(&#39;.item-0.active&#39;)</span>
+<span class="s1">G:\Installed\Anaconda3\lib\site-packages\pyquery\__init__.py in &lt;module&gt;</span>
+<span class="s1">      5 # Distributed under the BSD license, see LICENSE.txt</span>
+<span class="s1">      6 </span>
+<span class="s1">----&gt; 7 from .pyquery import PyQuery  # NOQA</span>
+<span class="s1">G:\Installed\Anaconda3\lib\site-packages\pyquery\pyquery.py in &lt;module&gt;</span>
+<span class="s1">      9 from .text import extract_text</span>
+<span class="s1">     10 from copy import deepcopy</span>
+<span class="s1">---&gt; 11 from lxml import etree</span>
+<span class="s1">     12 import lxml.html</span>
+<span class="s1">     13 import inspect</span>
+<span class="s1">ImportError: DLL load failed: 找不到指定的程序。</span>
+</code></pre></div>
+
+
+<p>这里我们首先选中 li 节点，然后调用 attr 方法来修改属性，其中该方法的第一个参数为属性名，第二个参数为属性值。接着，调用 text 和 html 方法来改变节点内部的内容。三次操作后，分别打印输出当前的 li 节点。</p>
+<p>可以发现，调用 attr 方法后，li 节点多了一个原本不存在的属性 name，其值为 link。接着调用 text 方法，传入文本之后，li 节点内部的文本全被改为传入的字符串文本了。最后，调用 html 方法传入 HTML 文本后，li 节点内部又变为传入的 HTML 文本了。</p>
+<p>所以说，如果 attr 方法只传入第一个参数的属性名，则是获取这个属性值；如果传入第二个参数，可以用来修改属性值。text 和 html 方法如果不传参数，则是获取节点内纯文本和 HTML 文本；如果传入参数，则进行赋值。</p>
+<h3 id="remove">remove</h3>
+<p>顾名思义，remove 方法就是移除，它有时会为信息的提取带来非常大的便利。下面有一段 HTML 文本：</p>
+<div class="codehilite"><pre><span></span><code><span class="n">html</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">&lt;div class=&quot;wrap&quot;&gt;</span>
+<span class="s1">    Hello, World</span>
+<span class="s1">    &lt;p&gt;This is a paragraph.&lt;/p&gt;</span>
+<span class="s1"> &lt;/div&gt;</span>
+<span class="s1">&#39;&#39;&#39;</span>
+<span class="kn">from</span> <span class="nn">pyquery</span> <span class="kn">import</span> <span class="n">PyQuery</span> <span class="k">as</span> <span class="n">pq</span>
+<span class="n">doc</span> <span class="o">=</span> <span class="n">pq</span><span class="p">(</span><span class="n">html</span><span class="p">)</span>
+<span class="n">wrap</span> <span class="o">=</span> <span class="n">doc</span><span class="p">(</span><span class="s1">&#39;.wrap&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">wrap</span><span class="o">.</span><span class="n">text</span><span class="p">())</span>
+</code></pre></div>
+
+
+<div class="codehilite"><pre><span></span><code><span class="o">---------------------------------------------------------------------------</span><span class="ne">ImportError</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span><span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">e5ba1f107800</span><span class="o">&gt;</span> <span class="ow">in</span>
+<span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+      <span class="mi">5</span>  <span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+      <span class="mi">6</span> <span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">----&gt; 7 from pyquery import PyQuery as pq</span>
+<span class="s1">      8 doc = pq(html)</span>
+<span class="s1">      9 wrap = doc(&#39;.wrap&#39;)</span>
+<span class="s1">G:\Installed\Anaconda3\lib\site-packages\pyquery\__init__.py in</span>
+<span class="s1">&lt;module&gt;</span>
+<span class="s1">      5 # Distributed under the BSD license, see LICENSE.txt</span>
+<span class="s1">      6</span>
+<span class="s1">----&gt; 7 from .pyquery import PyQuery  # NOQA</span>
+<span class="s1">G:\Installed\Anaconda3\lib\site-packages\pyquery\pyquery.py in</span>
+<span class="s1">&lt;module&gt;</span>
+<span class="s1">      9 from .text import extract_text</span>
+<span class="s1">     10 from copy import deepcopy</span>
+<span class="s1">---&gt; 11 from lxml import etree</span>
+<span class="s1">     12 import lxml.html</span>
+<span class="s1">     13 import inspect</span>
+<span class="s1">ImportError: DLL load failed: 找不到指定的程序。</span>
+</code></pre></div>
+
+
+<p>现在想提取 Hello, World 这个字符串，而不要 p 节点内部的字符串，需要怎样操作呢？</p>
+<p>这里直接先尝试提取 class 为 wrap 的节点的内容，看看是不是我们想要的。运行结果如下：</p>
+<div class="codehilite"><pre><span></span><code><span class="err">Hello, World This is a paragraph.</span>
+</code></pre></div>
+
+
+<p>这个结果还包含了内部的 p 节点的内容，也就是说 text 把所有的纯文本全提取出来了。如果我们想去掉 p 节点内部的文本，可以选择再把 p 节点内的文本提取一遍，然后从整个结果中移除这个子串，但这个做法明显比较烦琐。</p>
+<p>这时 remove 方法就可以派上用场了，我们可以接着这么做:</p>
+<div class="codehilite"><pre><span></span><code><span class="n">wrap</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">remove</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">wrap</span><span class="o">.</span><span class="n">text</span><span class="p">())</span>
+</code></pre></div>
+
+
+<div class="codehilite"><pre><span></span><code><span class="err">---------------------------------------------------------------------------NameError</span>
+<span class="err">Traceback (most recent call last)&lt;ipython-input-1-30d933010338&gt; in</span>
+<span class="err">&lt;module&gt;</span>
+<span class="err">----&gt; 1 wrap.find(&#39;p&#39;).remove()</span>
+<span class="err">      2 print(wrap.text())</span>
+<span class="c">NameError: name &#39;wrap&#39; is not defined</span>
+</code></pre></div>
+
+
+<p>首先选中 p 节点，然后调用了 remove() 方法将其移除，然后这时 wrap 内部就只剩下 Hello, World 这句话了，然后再利用 text() 方法提取即可。</p>
+<p>另外，其实还有很多节点操作的方法，比如 append()、empty() 和 prepend() 等方法，它们和 jQuery 的用法完全一致，详细的用法可以参考官方文档：<a href="http://pyquery.readthedocs.io/en/latest/api.html">http://pyquery.readthedocs.io/en/latest/api.html</a></p>
+<h2 id="_12">伪类选择器</h2>
+<p>CSS 选择器之所以强大，还有一个很重要的原因，那就是它支持多种多样的伪类选择器，例如选择第一个节点、最后一个节点、奇偶数节点、包含某一文本的节点等。示例如下：</p>
+<div class="codehilite"><pre><span></span><code><span class="n">html</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">&lt;div class=&quot;wrap&quot;&gt;</span>
+<span class="s1">    &lt;div id=&quot;container&quot;&gt;</span>
+<span class="s1">        &lt;ul class=&quot;list&quot;&gt;</span>
+<span class="s1">             &lt;li class=&quot;item-0&quot;&gt;first item&lt;/li&gt;</span>
+<span class="s1">             &lt;li class=&quot;item-1&quot;&gt;&lt;a href=&quot;link2.html&quot;&gt;second item&lt;/a&gt;&lt;/li&gt;</span>
+<span class="s1">             &lt;li class=&quot;item-0 active&quot;&gt;&lt;a href=&quot;link3.html&quot;&gt;&lt;span class=&quot;bold&quot;&gt;third item&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;</span>
+<span class="s1">             &lt;li class=&quot;item-1 active&quot;&gt;&lt;a href=&quot;link4.html&quot;&gt;fourth item&lt;/a&gt;&lt;/li&gt;</span>
+<span class="s1">             &lt;li class=&quot;item-0&quot;&gt;&lt;a href=&quot;link5.html&quot;&gt;fifth item&lt;/a&gt;&lt;/li&gt;</span>
+<span class="s1">         &lt;/ul&gt;</span>
+<span class="s1">     &lt;/div&gt;</span>
+<span class="s1"> &lt;/div&gt;</span>
+<span class="s1">&#39;&#39;&#39;</span>
+<span class="kn">from</span> <span class="nn">pyquery</span> <span class="kn">import</span> <span class="n">PyQuery</span> <span class="k">as</span> <span class="n">pq</span>
+<span class="n">doc</span> <span class="o">=</span> <span class="n">pq</span><span class="p">(</span><span class="n">html</span><span class="p">)</span>
+<span class="n">li</span> <span class="o">=</span> <span class="n">doc</span><span class="p">(</span><span class="s1">&#39;li:first-child&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">li</span><span class="p">)</span>
+<span class="n">li</span> <span class="o">=</span> <span class="n">doc</span><span class="p">(</span><span class="s1">&#39;li:last-child&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">li</span><span class="p">)</span>
+<span class="n">li</span> <span class="o">=</span> <span class="n">doc</span><span class="p">(</span><span class="s1">&#39;li:nth-child(2)&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">li</span><span class="p">)</span>
+<span class="n">li</span> <span class="o">=</span> <span class="n">doc</span><span class="p">(</span><span class="s1">&#39;li:gt(2)&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">li</span><span class="p">)</span>
+<span class="n">li</span> <span class="o">=</span> <span class="n">doc</span><span class="p">(</span><span class="s1">&#39;li:nth-child(2n)&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">li</span><span class="p">)</span>
+<span class="n">li</span> <span class="o">=</span> <span class="n">doc</span><span class="p">(</span><span class="s1">&#39;li:contains(second)&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">li</span><span class="p">)</span>
+</code></pre></div>
+
+
+<div class="codehilite"><pre><span></span><code><span class="o">---------------------------------------------------------------------------</span><span class="ne">ImportError</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span><span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">fc296508a0f6</span><span class="o">&gt;</span> <span class="ow">in</span>
+<span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+     <span class="mi">12</span>  <span class="o">&lt;/</span><span class="n">div</span><span class="o">&gt;</span>
+     <span class="mi">13</span> <span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">---&gt; 14 from pyquery import PyQuery as pq</span>
+<span class="s1">     15 doc = pq(html)</span>
+<span class="s1">     16 li = doc(&#39;li:first-child&#39;)</span>
+<span class="s1">G:\Installed\Anaconda3\lib\site-packages\pyquery\__init__.py in</span>
+<span class="s1">&lt;module&gt;</span>
+<span class="s1">      5 # Distributed under the BSD license, see LICENSE.txt</span>
+<span class="s1">      6</span>
+<span class="s1">----&gt; 7 from .pyquery import PyQuery  # NOQA</span>
+<span class="s1">G:\Installed\Anaconda3\lib\site-packages\pyquery\pyquery.py in</span>
+<span class="s1">&lt;module&gt;</span>
+<span class="s1">      9 from .text import extract_text</span>
+<span class="s1">     10 from copy import deepcopy</span>
+<span class="s1">---&gt; 11 from lxml import etree</span>
+<span class="s1">     12 import lxml.html</span>
+<span class="s1">     13 import inspect</span>
+<span class="s1">ImportError: DLL load failed: 找不到指定的程序。</span>
+</code></pre></div>
+
+
+<p>这里我们使用了 CSS3 的伪类选择器，依次选择了第一个 li 节点、最后一个 li 节点、第二个 li 节点、第三个 li 之后的 li 节点、偶数位置的 li 节点、包含 second 文本的 li 节点。</p>
+<p>关于 CSS 选择器的更多用法，可以参考 <a href="http://www.w3school.com.cn/css/index.asp">http://www.w3school.com.cn/css/index.asp</a>。</p>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="12.1.lxml.html" title="12.1.lxml" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  上一页
+                </span>
+                12.1.lxml
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../gensim/13.1.word2vec%20model.html" title="13.1.word2vec model" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  下一页
+                </span>
+                13.1.word2vec model
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org" target="_blank" rel="noopener">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application.c33a9706.js"></script>
+      
+        
+        
+          
+          <script src="../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.1",url:{base:".."}})</script>
+      
+        <script src="../javascript/extra.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+    
+  </body>
+</html>
