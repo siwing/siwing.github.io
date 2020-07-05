@@ -1428,11 +1428,11 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10">
     
     <label class="md-nav__link" for="nav-10">
-      tensorflowb笔记
+      tensorflow笔记
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
       <label class="md-nav__title" for="nav-10">
-        tensorflowb笔记
+        tensorflow笔记
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -1443,7 +1443,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../tensorflowb%E7%AC%94%E8%AE%B0/11.1.keras%E6%95%B0%E6%8D%AE%E9%9B%86.html" title="11.1.keras数据集" class="md-nav__link">
+    <a href="../tensorflow%E7%AC%94%E8%AE%B0/11.1.keras%E6%95%B0%E6%8D%AE%E9%9B%86.html" title="11.1.keras数据集" class="md-nav__link">
       11.1.keras数据集
     </a>
   </li>
@@ -1455,7 +1455,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../tensorflowb%E7%AC%94%E8%AE%B0/11.2.%E5%88%9B%E5%BB%BA%E5%BC%A0%E9%87%8F.html" title="11.2.创建张量" class="md-nav__link">
+    <a href="../tensorflow%E7%AC%94%E8%AE%B0/11.2.%E5%88%9B%E5%BB%BA%E5%BC%A0%E9%87%8F.html" title="11.2.创建张量" class="md-nav__link">
       11.2.创建张量
     </a>
   </li>
@@ -1467,7 +1467,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../tensorflowb%E7%AC%94%E8%AE%B0/11.3.%E5%BC%A0%E9%87%8F%E8%BF%9B%E9%98%B6%E6%93%8D%E4%BD%9C.html" title="11.3.张量进阶操作" class="md-nav__link">
+    <a href="../tensorflow%E7%AC%94%E8%AE%B0/11.3.%E5%BC%A0%E9%87%8F%E8%BF%9B%E9%98%B6%E6%93%8D%E4%BD%9C.html" title="11.3.张量进阶操作" class="md-nav__link">
       11.3.张量进阶操作
     </a>
   </li>
@@ -1479,8 +1479,20 @@
 
 
   <li class="md-nav__item">
-    <a href="../tensorflowb%E7%AC%94%E8%AE%B0/11.4.%E6%B1%82%E5%AF%BC.html" title="11.4.求导" class="md-nav__link">
+    <a href="../tensorflow%E7%AC%94%E8%AE%B0/11.4.%E6%B1%82%E5%AF%BC.html" title="11.4.求导" class="md-nav__link">
       11.4.求导
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tensorflow%E7%AC%94%E8%AE%B0/11.5.Perceptron.html" title="11.5.Perceptron" class="md-nav__link">
+      11.5.Perceptron
     </a>
   </li>
 
@@ -1831,11 +1843,9 @@
 <p>你的电子商务程序中包含一个计算运输费用的订单Order类， 该类中所有运输方法都以硬编码的方式实现。 如果你需要添加一个新的运输方式， 那就必须承担对订单类造成破坏的可能风险来对其进行修改。</p>
 <p><img src="figures/ocp-before-zh.png" alt="ocp-before-zh" style="zoom: 67%;" /></p>
 <p>你可以通过应用策略模式来解决这个问题。 首先将运输方法抽取到拥有同样接口的不同类中。</p>
-<blockquote>
 <p>在Python中，<code>&lt;&lt;interface&gt;&gt;</code>一般通过抽象类实现，派生类继承抽象类，并实现接口的具体功能。此时，通过继承抽象类，并实现接口，这称为“开放”；依赖于抽象类接口的类不需要作修改，这称为“封闭”。</p>
-</blockquote>
 <p><img src="figures/ocp-after-zh.png" alt="ocp-after-zh" style="zoom:67%;" /></p>
-<p>现在， 当需要实现一个新的运输方式时， 你可以通过扩展 运输方式Ship­ping接口来新建一个类， 无需修改任何订单类的代码。 当用户在 UI 中选择这种运输方式时，订单类客户端代码会将订单链接到新类的运输方式对象。</p>
+<p>现在， 当需要实现一个新的运输方式时， 你可以通过扩展 运输方式Shipping接口来新建一个类， 无需修改任何订单类的代码。 当用户在 UI 中选择这种运输方式时，订单类客户端代码会将订单链接到新类的运输方式对象。</p>
 <p>此外，根据单一职责原则，这个解决方案能够让你将运输时间的计算代码移动到与其相关度更高的类中。</p>
 <h3 id="_9">里氏替换原则</h3>
 <blockquote>
