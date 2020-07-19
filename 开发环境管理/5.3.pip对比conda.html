@@ -1674,12 +1674,21 @@
 <p>pip 安装包路径在虚拟环境下是 <code>\Anaconda3\envs\Lib\site-packages</code></p>
 </li>
 <li>pip可能会生成存在冲突的环境，而conda不会</li>
-<li>pip与conda不会重复安装已经安装的依赖</li>
+<li>conda不会重复安装已经安装的依赖，默认情况下，pip也如此</li>
 <li>pip安装的包不会显示在anaconda navigation的环境中</li>
 <li>conda 为多个环境安装包时，对于同一个包只安装一次，由conda集中管理</li>
 <li>pip 为多个环境安装包时，因为每个环境安装包使用的pip在不同的路径下，因此会重复安装</li>
 </ul>
 <p>关于Python包管理工具的发展历史可以参考<a href="http://andrewsforge.com/article/python-new-package-landscape/">Python's New Package Landscape</a> (andrew)，其中文翻译版本<a href="http://www.dalbll.com/Group/Topic/Python/5516">在这</a>。插图来自https://www.xkcd.com/1987/。</p>
+<p><strong>建议使用conda创建和删除Python环境，单独使用pip安装Python Package。</strong>原因有如下三点：</p>
+<blockquote>
+<p>随着conda的更新，以下情况有可能改变。</p>
+</blockquote>
+<ol>
+<li>混用conda和pip安装package有可能产生冲突。</li>
+<li>虽然使用conda一般不会产生依赖冲突，但是依然有可能破环Python环境，例如使用conda安装package时，如果不注意，某些依赖项会被自动更新，但这可能会导致项目代码 break down。</li>
+<li>因为conda不会为不同的环境重复安装相同的package，所以不同环境之间有可能产生冲突（不确定）。</li>
+</ol>
 <div class="footnote">
 <hr />
 <ol>

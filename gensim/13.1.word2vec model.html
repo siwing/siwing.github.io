@@ -2016,7 +2016,7 @@
 <p>如果你本地已经下载好了<code>GoogleNews-vectors-negative300.bin</code>模型，那么可以这样导入模型：</p>
 <div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">gensim</span>
 <span class="n">model_path</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;C:\Users\two\Desktop\GoogleNews-vectors-negative300.bin&quot;</span>
-<span class="n">wv</span><span class="o">=</span><span class="n">gensim</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">KeyedVectors</span><span class="o">.</span><span class="n">load_word2vec_format</span><span class="p">(</span><span class="n">model_path</span><span class="p">,</span> <span class="n">binary</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">wv</span> <span class="o">=</span> <span class="n">gensim</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">KeyedVectors</span><span class="o">.</span><span class="n">load_word2vec_format</span><span class="p">(</span><span class="n">model_path</span><span class="p">,</span> <span class="n">binary</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
 
 
@@ -2799,19 +2799,27 @@
 
 <span class="k">with</span> <span class="n">tempfile</span><span class="o">.</span><span class="n">NamedTemporaryFile</span><span class="p">(</span><span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;gensim-model-&#39;</span><span class="p">,</span> <span class="n">delete</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="k">as</span> <span class="n">tmp</span><span class="p">:</span>
     <span class="n">temporary_filepath</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">.</span><span class="n">name</span>
-    <span class="n">model</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">temporary_filepath</span><span class="p">)</span>
-    <span class="c1">#</span>
+<span class="hll">    <span class="n">model</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">temporary_filepath</span><span class="p">)</span>
+</span>    <span class="c1">#</span>
     <span class="c1"># The model is now safely stored in the filepath.</span>
     <span class="c1"># You can copy it to other machines, share it with others, etc.</span>
     <span class="c1">#</span>
     <span class="c1"># To load a saved model:</span>
     <span class="c1">#</span>
-    <span class="n">new_model</span> <span class="o">=</span> <span class="n">gensim</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">Word2Vec</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">temporary_filepath</span><span class="p">)</span>
+<span class="hll">    <span class="n">new_model</span> <span class="o">=</span> <span class="n">gensim</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">Word2Vec</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">temporary_filepath</span><span class="p">)</span>
+</span></code></pre></div>
+
+
+<p>这种做法将保存模型的全部信息，它在内部使用pickle，可以选择将模型的内部大型NumPy矩阵直接从磁盘文件转换到虚拟内存中，以实现进程间内存共享。</p>
+<p>此外，还可以只保存模型的词嵌入层权重：</p>
+<blockquote>
+<p>译者注：这种保存格式应该与原始C工具的保存格式相同</p>
+</blockquote>
+<div class="codehilite"><pre><span></span><code><span class="n">model</span><span class="o">.</span><span class="n">wv</span><span class="o">.</span><span class="n">save_word2vec_format</span><span class="p">()</span>
 </code></pre></div>
 
 
-<p>它在内部使用pickle，可以选择将模型的内部大型NumPy矩阵直接从磁盘文件转换到虚拟内存中，以实现进程间内存共享。</p>
-<p>此外，您还可以使用文本或二进制格式加载由原始C工具创建的模型：</p>
+<p>您可以使用文本或二进制格式加载由原始C工具创建的模型：</p>
 <div class="codehilite"><pre><span></span><code><span class="n">model</span> <span class="o">=</span> <span class="n">gensim</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">KeyedVectors</span><span class="o">.</span><span class="n">load_word2vec_format</span><span class="p">(</span><span class="s1">&#39;/tmp/vectors.txt&#39;</span><span class="p">,</span> 
                                                         <span class="n">binary</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </code></pre></div>
@@ -3167,8 +3175,8 @@ dimensionality of the words to 2 dimensions using tSNE.</p>
 <p>在本教程中，我们学习了如何在自定义数据上训练word2vec模型以及如何对其进行评估。希望您也能在机器学习任务使用这个受欢迎的工具！</p>
 <h2 id="links">Links</h2>
 <ul>
-<li>API docs: :py:mod:<code>gensim.models.word2vec</code></li>
-<li><code>Original C toolkit and word2vec papers by Google &lt;https://code.google.com/archive/p/word2vec/&gt;</code>_.</li>
+<li>API docs: <a href="https://radimrehurek.com/gensim/models/word2vec.html#module-gensim.models.word2vec"><code>gensim.models.word2vec</code></a></li>
+<li><a href="https://code.google.com/archive/p/word2vec/">Original C toolkit and word2vec papers by Google</a>.</li>
 </ul>
                 
                   

@@ -632,6 +632,55 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#package" class="md-nav__link">
+    安装package
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#package-index" class="md-nav__link">
+    关于 Package Index 的设置
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#package_1" class="md-nav__link">
+    下载package
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    检查依赖是否满足
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#package_2" class="md-nav__link">
+    显示已安装的package的信息
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pypipackage" class="md-nav__link">
+    在PyPi搜索package
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#package_3" class="md-nav__link">
+    输出安装的package列表
+  </a>
+  
+</li>
+      
       
       
       
@@ -1653,6 +1702,55 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#package" class="md-nav__link">
+    安装package
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#package-index" class="md-nav__link">
+    关于 Package Index 的设置
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#package_1" class="md-nav__link">
+    下载package
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    检查依赖是否满足
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#package_2" class="md-nav__link">
+    显示已安装的package的信息
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pypipackage" class="md-nav__link">
+    在PyPi搜索package
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#package_3" class="md-nav__link">
+    输出安装的package列表
+  </a>
+  
+</li>
+      
       
       
       
@@ -1691,6 +1789,78 @@ pip config <span class="nb">set</span> global.index-url https://pypi.tuna.tsingh
 
 <p>临时使用清华镜像站来升级 pip：</p>
 <div class="codehilite"><pre><span></span><code>pip install -i https://pypi.tuna.tsinghua.edu.cn/simple pip -U
+</code></pre></div>
+
+
+<h2 id="package">安装package</h2>
+<div class="codehilite"><pre><span></span><code><span class="c1"># 从指定的requirements文件安装需要的package</span>
+pip install -r
+pip install --requirement
+
+<span class="c1"># 更新package</span>
+pip install -U
+pip install --upgrade
+
+<span class="c1"># 更新package时指定处理依赖的策略</span>
+<span class="c1">## 所有依赖会被更新</span>
+pip install --upgrade-strategy eager
+<span class="c1">## 如果依赖依然满足要求 则不会更新依赖</span>
+pip install --upgrade-strategy only-if-needed
+
+<span class="c1"># 强制重装package</span>
+pip install --force-reinstall
+
+<span class="c1"># 从指定的Python Package Index 安装package</span>
+pip install -i https://pypi.tuna.tsinghua.edu.cn/simple
+
+<span class="c1"># 从本地目录安装package</span>
+pip install -r &lt;file&gt; --no-index --find-links &lt;<span class="nb">local</span> path&gt;
+</code></pre></div>
+
+
+<h2 id="package-index">关于 Package Index 的设置</h2>
+<div class="codehilite"><pre><span></span><code>-i, --index-url &lt;url&gt;      指定 Package Index Url
+--extra-index-url &lt;url&gt;    除了使用 --index-url 指定的 URL，还是用 --extra-index-url 指定的 URL
+--no-index                 忽略package index（仅在 --find-links 指定的URL中查找package）
+-f, --find-links &lt;url&gt;     可以是一个网址，或者储存了package的本地目录
+</code></pre></div>
+
+
+<h2 id="package_1">下载package</h2>
+<div class="codehilite"><pre><span></span><code><span class="c1"># 从清华镜像下载requirements文件指定的package到当前目录</span>
+pip download -r &lt;file&gt; -d . -i https://pypi.tuna.tsinghua.edu.cn/simple
+</code></pre></div>
+
+
+<h2 id="_3">检查依赖是否满足</h2>
+<div class="codehilite"><pre><span></span><code><span class="c1"># 检查numpy的依赖是否满足</span>
+pip check numpy
+</code></pre></div>
+
+
+<h2 id="package_2">显示已安装的package的信息</h2>
+<div class="codehilite"><pre><span></span><code><span class="c1"># 可以显示 版本信息、安装位置、依赖该package的packages 等等</span>
+pip show numpy
+</code></pre></div>
+
+
+<h2 id="pypipackage">在PyPi搜索package</h2>
+<div class="codehilite"><pre><span></span><code>pip search numpy
+</code></pre></div>
+
+
+<h2 id="package_3">输出安装的package列表</h2>
+<div class="codehilite"><pre><span></span><code><span class="c1"># 默认为 columns 格式</span>
+pip list
+<span class="c1"># 以freeze格式输出</span>
+pip list --format freeze
+<span class="c1"># 以json格式输出</span>
+pip list --format json
+
+<span class="c1"># 以 freeze 格式输出</span>
+pip freeze
+<span class="c1"># 输出到文件</span>
+pip freeze &gt; &lt;file&gt;
 </code></pre></div>
                 
                   
