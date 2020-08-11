@@ -36,7 +36,7 @@
     
     
       
-        <title>14.1.PostgreSQL - Python笔记</title>
+        <title>14.1.DBAPI - Python笔记</title>
       
     
     
@@ -77,6 +77,10 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
+      <a href="#_1" tabindex="0" class="md-skip">
+        跳转至
+      </a>
+    
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
@@ -99,7 +103,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                14.1.PostgreSQL
+                14.1.DBAPI
               
             </span>
           
@@ -751,6 +755,42 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.11.traceback.html" title="6.11.traceback" class="md-nav__link">
+      6.11.traceback
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.12.enum.html" title="6.12.enum" class="md-nav__link">
+      6.12.enum
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.13.difflib%E2%80%94%E2%80%94%E5%AD%97%E7%AC%A6%E6%AF%94%E8%BE%83.html" title="6.13.difflib——字符比较" class="md-nav__link">
+      6.13.difflib——字符比较
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -795,6 +835,30 @@
   <li class="md-nav__item">
     <a href="../%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/7.2.%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99.html" title="7.2.面向对象软件设计原则" class="md-nav__link">
       7.2.面向对象软件设计原则
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../设计模式/7.3.创建型模式.md" title="7.3.创建型模式" class="md-nav__link">
+      7.3.创建型模式
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../设计模式/7.4.结构型模式.md" title="7.4.结构型模式" class="md-nav__link">
+      7.4.结构型模式
     </a>
   </li>
 
@@ -1533,9 +1597,57 @@
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
     
-    <a href="14.1.PostgreSQL.html" title="14.1.PostgreSQL" class="md-nav__link md-nav__link--active">
-      14.1.PostgreSQL
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        14.1.DBAPI
+      </label>
+    
+    <a href="14.1.DBAPI.html" title="14.1.DBAPI" class="md-nav__link md-nav__link--active">
+      14.1.DBAPI
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    全局变量
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    异常
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    连接和游标
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    类型
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -1546,8 +1658,32 @@
 
 
   <li class="md-nav__item">
-    <a href="../数据库/14.2.SQLAlchemy.md" title="14.2.SQLAlchemy" class="md-nav__link">
-      14.2.SQLAlchemy
+    <a href="14.2.PostgreSQL.html" title="14.2.PostgreSQL" class="md-nav__link">
+      14.2.PostgreSQL
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="14.3.MSSQL.html" title="14.3.MSSQL" class="md-nav__link">
+      14.3.MSSQL
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="14.4.SQLAlchemy.html" title="14.4.SQLAlchemy" class="md-nav__link">
+      14.4.SQLAlchemy
     </a>
   </li>
 
@@ -1564,94 +1700,224 @@
               </div>
             
             
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    全局变量
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    异常
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    连接和游标
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    类型
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/siwing/siwing.github.io/edit/master/docs/数据库/14.1.PostgreSQL.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/siwing/siwing.github.io/edit/master/docs/数据库/14.1.DBAPI.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                  <h1>14.1.PostgreSQL</h1>
+                  <h1>14.1.DBAPI</h1>
                 
-                <div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">toolkit</span> <span class="kn">import</span> <span class="n">H</span>
-<span class="kn">import</span> <span class="nn">psycopg2</span>
-</code></pre></div>
-
-
-<p>create a connection</p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Connect to an existing database</span>
-<span class="c1"># key parameter format</span>
-<span class="n">conn</span> <span class="o">=</span> <span class="n">psycopg2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s2">&quot;localhost&quot;</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="s2">&quot;5433&quot;</span><span class="p">,</span>
-                        <span class="n">user</span><span class="o">=</span><span class="s2">&quot;postgres&quot;</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="n">password</span><span class="p">,</span>
-                        <span class="n">database</span><span class="o">=</span><span class="s2">&quot;study&quot;</span><span class="p">)</span>
-</code></pre></div>
-
-
-<div class="codehilite"><pre><span></span><code><span class="c1"># DATABASE_URL format</span>
-<span class="n">db_url</span> <span class="o">=</span> <span class="s2">&quot;postgresql://username:password@host:port/database_name&quot;</span>
-<span class="n">conn</span> <span class="o">=</span> <span class="n">psycopg2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">db_url</span><span class="p">)</span>
-
-<span class="c1"># another string format</span>
-<span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;dbname=postgres user=postgres password=9464275 port=5433&quot;</span>
-<span class="n">conn</span> <span class="o">=</span> <span class="n">psycopg2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
-</code></pre></div>
-
-
-<p>open a cursor to execute SQL</p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Open a cursor to perform database operations</span>
-<span class="n">cur</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
-
-<span class="c1"># Execute a command</span>
-<span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;SELECT version();&quot;</span><span class="p">)</span>
-<span class="c1"># cur.executemany()</span>
-
-<span class="n">cur</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
-<span class="c1"># fetchone</span>
-<span class="c1"># fetchmany</span>
-</code></pre></div>
-
-
-<div class="codehilite"><pre><span></span><code><span class="err">[(&#39;PostgreSQL 12.0, compiled by Visual C++ build 1914, 64-bit&#39;,)]</span>
-</code></pre></div>
-
-
-<div class="codehilite"><pre><span></span><code><span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;SELECT current_user;&quot;</span><span class="p">)</span>
-<span class="n">cur</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
-</code></pre></div>
-
-
-<div class="codehilite"><pre><span></span><code><span class="err">[(&#39;postgres&#39;,)]</span>
-</code></pre></div>
-
-
-<div class="codehilite"><pre><span></span><code><span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM product;&quot;</span><span class="p">)</span>
-<span class="n">cur</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
-</code></pre></div>
-
-
-<div class="codehilite"><pre><span></span><code><span class="err">[(&#39;0001&#39;, &#39;T恤&#39;, &#39;衣服&#39;, 1000, 500, datetime.date(2009, 9, 20)),</span>
-<span class="err"> (&#39;0002&#39;, &#39;打孔器&#39;, &#39;办公用品&#39;, 500, 320, datetime.date(2009, 9, 11)),</span>
-<span class="err"> (&#39;0003&#39;, &#39;运动T恤&#39;, &#39;衣服&#39;, 4000, 2800, None),</span>
-<span class="err"> (&#39;0004&#39;, &#39;菜刀&#39;, &#39;厨房用具&#39;, 3000, 2800, datetime.date(2009, 9, 20)),</span>
-<span class="err"> (&#39;0005&#39;, &#39;高压锅&#39;, &#39;厨房用具&#39;, 6800, 5000, datetime.date(2009, 1, 15)),</span>
-<span class="err"> (&#39;0006&#39;, &#39;叉子&#39;, &#39;厨房用具&#39;, 500, None, datetime.date(2009, 9, 20)),</span>
-<span class="err"> (&#39;0007&#39;, &#39;擦菜板&#39;, &#39;厨房用具&#39;, 880, 790, datetime.date(2008, 4, 28)),</span>
-<span class="err"> (&#39;0008&#39;, &#39;圆珠笔&#39;, &#39;办公用品&#39;, 100, None, datetime.date(2009, 11, 11)),</span>
-<span class="err"> (&#39;0009&#39;, &#39;平板电脑&#39;, &#39;办公用品&#39;, 4000, 2500, datetime.date(2009, 11, 12)),</span>
-<span class="err"> (&#39;0010&#39;, &#39;kindle&#39;, &#39;办公用品&#39;, 500, 400, datetime.date(2009, 11, 15)),</span>
-<span class="err"> (&#39;0011&#39;, &#39;ipad&#39;, &#39;办公用品&#39;, 6500, 4000, datetime.date(2009, 12, 5))]</span>
-</code></pre></div>
-
-
-<p>commit and close connection</p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Make the changes to the database persistent</span>
-<span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
-
-<span class="c1"># Close communication with the database</span>
-<span class="n">cur</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-<span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-</code></pre></div>
+                <p>为了解决Python数据库模块接口不统一的问题，人们一致同意开发一个标准数据库API（DB API）。这个API的最新版本（2.0）是在PEP 249（Python Database API Specification v2.0）中定义的，网址为<a href="http://python.org/peps/pep-0249.html">http://python.org/peps/pep-0249.html</a>。</p>
+<h2 id="_1">全局变量</h2>
+<p><strong>所有与DB API2.0兼容的数据库模块都必须包含三个全局变量，它们描述了模块的特征。</strong>这样做的原因是，这个API设计得很灵活，无需进行太多包装就能配合多种不同的底层机制使用。如果要让程序能够使用多种不同的数据库，可能会比较麻烦，因为需要考虑众多不同的可能性。在很多情况下，一种更现实的做法是检查这些变量，看看给定的模块是否是程序能够接受的。如果不是，就显示合适的错误消息并退出或者引发异常。下表总结了这些全局变量。</p>
+<table>
+<thead>
+<tr>
+<th>变 量 名</th>
+<th>描 述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>apilevel</td>
+<td>使用的Python DB API版本</td>
+</tr>
+<tr>
+<td>threadsafety</td>
+<td>模块的线程安全程度如何</td>
+</tr>
+<tr>
+<td>paramstyle</td>
+<td>在SQL查询中使用哪种参数风格</td>
+</tr>
+</tbody>
+</table>
+<p>API级别（ apilevel ）是一个字符串常量，指出了使用的API版本。DB API 2.0指出，这个变量的值为 <code>'1.0'</code> 或 <code>'2.0'</code> 。如果没有这个变量，就说明模块不与DB API 2.0兼容，此时应假定模块使用的是DB API 1.0。编写代码时，允许这个变量为其他值也没有害处，因为说不定什么时候DB API 3.0就出来了。</p>
+<p>线程安全程度（ threadsafety ）是一个0~3（含）的整数。如果你不使用多线程，就根本不用关心这个变量。</p>
+<ul>
+<li>0表示线程不能共享模块</li>
+<li>1表示线程可共享模块本身，但不能共享连接</li>
+<li>2表示线程可共享模块和连接，但不能共享游标</li>
+<li>3表示模块是绝对线程安全的</li>
+</ul>
+<p>参数风格（ paramstyle ）表示当你执行多个类似的数据库查询时，如何在SQL查询中插入参数。</p>
+<ul>
+<li>
+<p><code>'format'</code>表示标准字符串格式设置方式（使用基本的格式编码），如在要插入参数的地方插入 <code>%s</code></p>
+</li>
+<li>
+<p><code>'pyformat'</code>表示扩展的格式编码，即旧式字典插入使用的格式编码，如<code>%(foo)s</code></p>
+</li>
+<li>
+<p><code>'qmark'</code> 表示使用问号</p>
+</li>
+<li>
+<p><code>'numeric'</code> 表示使用 <code>:1</code>和 <code>:2</code> 这样的形式表示字段（其中的数字是参数的编号）</p>
+</li>
+<li>
+<p><code>'named'</code> 表示使用 <code>:foobar</code> 这样的形式表示字段（其中 foobar 为参数名）</p>
+</li>
+</ul>
+<p>其中，<code>'format'</code>、<code>'pyformat'</code>属于Python风格。如果你觉得参数样式令人迷惑，也不用担心。编写简单程序时，不会用到它们。如果需要明白特定的数据库是如何处理参数的，可参阅相关的文档。</p>
+<h2 id="_2">异常</h2>
+<p>DB API定义了多种异常，让你能够细致地处理错误。然而，这些异常构成了一个层次结构，因此使用一个 except 块就可捕获多种异常。当然，如果你觉得一切都正常运行，且不介意出现不太可能出现的错误时关闭程序，可以根本不考虑这些异常。表1说明了这个异常层次结构。异常应该在整个数据库模块中都可用。有关这些异常的深入描述，请参阅DB API规范（前面提到的PEP）。
+$$
+\begin{array}{lll}
+&amp; \text { 表1   Python DB API 指定的异常 } &amp; \\
+\hline
+\text { 异    常} &amp; \text { 超    类} &amp; \text { 描    述 } \\
+\hline
+\text { StandardError } &amp; &amp; \text { 所有异常的超类 } \\
+\text { Warning } &amp; \text { StandardError } &amp; \text { 发生非致命问題时引发 } \\
+\text { Error } &amp; \text { StandardError } &amp; \text { 所有错误条件的超类 } \\
+\text { InterfaceError } &amp; \text { Error } &amp; \text { 与接口 ( 而不是数据库 }) \text { 相关的错误 } \\
+\text { DatabaseError } &amp; \text { Error } &amp; \text { 与数据库相关的错误的超类 } \\
+\text { Datafrror } &amp; \text { DatabaseError } &amp; \text { 与数据相关的问题, 如值不在合法的范围内 } \\
+\text { OperationalError } &amp; \text { Databasefror } &amp; \text { 数据库操作内部的错误 } \\\
+\text { IntegrityError } &amp; \text { Databasefror } &amp; \text { 关系完整性還到破坏, 如键术通过检查 } \\
+\text { InternalError } &amp; \text { Databasefror } &amp; \text { 数据库内部的错误, 如游标无效 } \\
+\text { ProgrammingError } &amp; \text { Databasefror } &amp; \text { 用户编程错误, 如未找到数据库表 } \\
+\text { NotsupportedError } &amp; \text { Databasefror } &amp; \text { 请求不支持的功能，如回滚 } \\
+\hline
+\end{array}
+$$</p>
+<h2 id="_3">连接和游标</h2>
+<p>要使用底层的数据库系统，必须先连接到它，为此可使用名称贴切的函数 <strong><code>connect</code></strong> 。这个函数接受多个参数，具体是哪些取决于要使用的数据库。作为指南，DB API 定义了表3所示的参数。推荐将这些参数定义为关键字参数，并按下表所示的顺序排列。这些参数都应该是字符串。
+$$
+\begin{array}{clcc}
+&amp; \text { 表2   函数 connect 的常用参数 }  &amp; \\
+\hline
+\text { 参  数  名} &amp;  \text { 描  述} &amp; \text { 是否可选 } &amp; \\
+\hline
+\text { dsn } &amp; \text { 数据源名称, 具体含义随数据库而异 } &amp; \text { 否 } \\
+\text { user } &amp; \text { 用户名 } &amp; \text { 是 }  \\
+\text { password } &amp; \text { 用户密码 } &amp; \text { 是 } \\
+\text { host } &amp; \text { 主机名 }  &amp; \text { 是 } \\
+\text { database } &amp; \text { 数据库名称 } &amp; \text { 是 } \\
+\hline
+\end{array}
+$$
+函数 <code>connect</code> 返回一个连接对象，表示当前到数据库的会话。连接对象支持下表所示的方法。
+$$
+\begin{array}{ll}
+&amp;  \text {表3   连接对象的方法 } &amp; \\
+\hline
+\text { 方 法 名} &amp; \text {描  述 } \\
+\hline
+\text { close() } &amp; \text{关闭连接对象。之后，连接对象及其游标将不可用} \\
+\text { commit() } &amp; \text{提交未提交的事务——如果支持的话；否则什么都不做} \\
+\text { rollback() } &amp; \text {回滚未提交的事务（可能不可用）} \\
+\text { cursor() } &amp; \text {返回连接的游标对象} \\
+\hline\end{array}
+$$
+方法 <code>rollback</code> 可能不可用，因为并非所有的数据库都支持事务（事务其实就是一系列操作）。可用时，这个方法撤销所有未提交的事务。</p>
+<p>方法 <code>commit</code> 总是可用的，但如果数据库不支持事务，这个方法就什么都不做。关闭连接时，如果还有未提交的事务，将隐式地回滚它们——但仅当数据库支持回滚时才如此！如果你不想依赖于这一点，应在关闭连接前提交。只要提交了所有的事务，就无需操心关闭连接的事情，因为作为垃圾被收集时，连接会自动关闭。然而，为安全起见，还是调用 <code>close</code> 吧，因为这样做不需要长时间敲击键盘。</p>
+<p>说到方法 <code>cursor</code>，就必须说说另一个主题：<strong>游标对象</strong>。<mark>你使用游标来执行SQL查询和查看结果。</mark> 游标支持的方法比连接多，在程序中的地位也可能重要得多。表4概述了游标的方法，而表5概述了游标的属性。
+$$
+\begin{array}{ll}
+&amp; \text { 表4  游标对象的方法 } \\
+\hline \text {名  称} &amp; \text {描  述} \\
+\hline
+\text { callproc(name[, params]) } &amp; \text { 使用指定的参数调用指定的数据库过程 }(\text { 可选 }) \\
+\text { close() } &amp; \text { 关闭游标。关闭后游标不可用 } \\
+\text { execute(oper[, params]) } &amp; \text { 执行一个SQL操作一一可能指定参数 } \\
+\text { executemany(oper, pseq) } &amp; \text { 执行指定的SQL操作多次, 每次都序列中的一组参数 } \\
+\text { fetchone() } &amp; \text { 以序列的方式取回查询结果中的下一行 } ; \text { 如果没有更多的行, 就返回None } \\
+\text { fetchmany([size]) } &amp; \text { 取回查询结果中的多行, 其中参数size的值默认为arraysize } \\
+\text { fetchall() } &amp; \text { 以序列的序列的方式取回余下的所有行 } \\
+\text { nextset() } &amp; \text { 跳到下一个结果集，这个方法是可选的 } \\
+\text { setinputsizes(sizes) } &amp; \text { 用于为参数顶定义内存区域 } \\
+\text { setoutputsize(size[, col]) } &amp; \text { 为取回大量数据而设置缓冲区长度 } \\
+\hline
+\end{array}
+$$</p>
+<p>$$
+\begin{array}{cc}
+&amp;\hspace{-7em} \text{表5  游标对象的属性 }\\
+\hline
+\text { 名  称 } &amp; \text { 描  述 } \\
+\hline
+\text { description } &amp; \text { 由结果列描述组成的序列 (只读 }) &amp; \\
+\text { rowcount } &amp; \text { 结果包含的行数 ( } \text { 只读 }) &amp; \\
+\text { arraysize } &amp; \text { fetchmany返回的行数, 默认为1 } &amp; \\
+\hline
+\end{array}
+$$</p>
+<h2 id="_4">类型</h2>
+<p>对于插入到某些类型的列中的值，底层SQL数据库可能要求它们满足一定的条件。为了能够与底层SQL数据库正确地互操作，DB API定义了一些构造函数和常量（单例），用于提供特殊的类型和值。例如，要在数据库中添加日期，应使用相应数据库连接模块中的构造函数 Date 来创建它，这让连接模块能够在幕后执行必要的转换。每个模块都必须实现表6所示的构造函数和特殊值。有些模块可能没有完全遵守这一点。例如，sqlite3 就没有导出表6中特殊值（从 STRING 到 ROWID）。</p>
+<p>$$
+\begin{array}{ll}
+&amp; \hspace{-5em} \text{ 表6  DB API构造函数和特殊值 } \\
+\hline
+\text { 名  称 } &amp; \text { 描 述} \\
+\hline \text { Date( year, month, day }) \\
+\text { Time( hour, minute, second) } &amp; \text { 创建包含日期值的对象 } \\
+\text { Timestamp( y, mon, d, h, min, s} ) &amp; \text { 创建含时间值的对象 } \\
+\text { DateFromTicks( ticks ) } &amp; \text { 根据从新纪元开始过去的秒数创建包含日期值的对象 } \\
+\text { TimeFromTicks( ticks ) } &amp; \text { 根据从新纪元开始过去的秒数创建包含时间值的对象 } \\
+\text { imestampFromTicks( ticks ) } &amp; \text { 根据从新纪元开始过去的秒数创建包含时间戳的对象 } \\
+\text { Binary( string ) } &amp; \text { 创建包含二进制字符串值的对象 } &amp; \\
+\text { STRING } &amp; \text { 描述基于字符串的列 }(\text { 如CHAR }) &amp; \\
+\text { BINARY } &amp; \text { 描述二进制列 }(\text { 如LONG或RAW }) &amp; \\
+\text { NUMBER } &amp; \text { 描述数字列 } \\
+\text { DATETIME } &amp; \text { 描述日期/时间列 } \\
+\text { ROWID } &amp; \text { 描述行ID列 } \\
+\hline
+\end{array}
+$$</p>
                 
                   
                 
@@ -1687,6 +1953,20 @@
             </div>
           </a>
         
+        
+          <a href="14.2.PostgreSQL.html" title="14.2.PostgreSQL" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  下一页
+                </span>
+                14.2.PostgreSQL
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
         
       </nav>
     </div>
