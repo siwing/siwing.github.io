@@ -2106,10 +2106,11 @@
                 
                 <div class="codehilite"><pre><span></span><code><span class="err">Windows 10</span>
 <span class="err">Python 3.7.3 @ MSC v.1915 64 bit (AMD64)</span>
-<span class="err">Latest build date 2020.06.21</span>
+<span class="err">Latest build date 2020.08.23</span>
 </code></pre></div>
 
 
+<p>由于数据科学的兴起，Python变得更加流行，可能您刚听说Python这种语言，但实际上Python并不是一个年轻的语言，它诞生于1991年。</p>
 <h2 id="_1">交互模式</h2>
 <p>Python是一种解释型语言，Python解释器通过一次执行一条语句的方式运行程序。从 tty（终端） 读取命令时, 我们称解释器工作于交互模式 (interactive mode)。所谓的交互模式可以这样理解：在终端输入的Python语句会立即被执行，执行完之后，终端显示提示符。等待下一次命令的输入。可以在cmd窗口通过<code>python</code>命令启动CPython解释器的交互模式，交互模式下CPython通过主提示符 (primary prompt) <code>&gt;&gt;&gt;</code>提示下一条命令，而从提示符<code>···</code>提示一条命令的续行。</p>
 <p>加强的交互式解释器(IPython)的提示符是一种带编号的风格，如<code>In[2]</code>，而不是标准的<code>&gt;&gt;&gt;</code>。</p>
@@ -2299,7 +2300,7 @@
 
 
 <h2 id="nameobject">name与object</h2>
-<p>提到编程语言，常常会提起变量这个概念，但在Python中，变量一词更准确的说法应该是name（名字），因为这是Python官方的说法。有观点认为Python不存在变量这个概念，也有观点认为Python存在变量的概念（即name），只不过Python的变量的行为和其他编程语言有所区别。在这里对此不作深入探究，在本系列的文章中，<strong>变量</strong>和<strong>名字（name）</strong>具有等同的内涵；<strong>变量值（变量的值）</strong>和<strong>对象（object）</strong>具有等同的内涵。</p>
+<p>提到编程语言，常常会提起变量这个概念，但在Python中，变量一词更准确的说法应该是name（名字），因为这是Python官方的说法。有观点认为Python不存在变量这个概念，也有观点认为Python存在变量的概念（即name），只不过Python的变量的行为和其他编程语言有所区别。对于此问题的具体讨论可以参考《<a href="../%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/1.2.%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5.html">1.2.基本概念</a>》的<a href="../%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/1.2.%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5.html#_4">第3节</a>。在这里对此不作深入探究，在本系列的文章中，<strong>变量</strong>和<strong>名字（name）</strong>具有等同的内涵；<strong>变量值（变量的值）</strong>和<strong>对象（object）</strong>具有等同的内涵。</p>
 <p>Python是动态类型的语言，变量不需要声明、定义和初始化，变量会在赋值时被创建。</p>
 <h3 id="objects">Objects</h3>
 <p>所有Python对象都有:</p>
@@ -2351,6 +2352,9 @@
 </ul>
 <h3 id="assignment">assignment</h3>
 <p>Python也有assignment这个概念，它的中文或许译为<strong>分配</strong>或者<strong>命名</strong>更为恰当，因为在Python中，assignment语句会改动namespace，而不是改动了object。</p>
+<details class="question"><summary>Question</summary><p>这个观点或许不完全正确，因为assignment可以改变Python中可变对象的值。</p>
+</details>
+<p><strong>assignment</strong>: assignments do not copy data — they just bind names to objects.</p>
 <p>换而言之，如果在python中有一个assignment statement如下：</p>
 <div class="codehilite"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="mi">10</span>
 </code></pre></div>

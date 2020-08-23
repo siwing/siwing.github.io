@@ -1281,13 +1281,20 @@
         
           <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    分类
+    多类别分类
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
+    多标签分类
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
     回归
   </a>
   
@@ -1766,13 +1773,20 @@
         
           <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    分类
+    多类别分类
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
+    多标签分类
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
     回归
   </a>
   
@@ -1802,14 +1816,15 @@
                   <a href="https://github.com/siwing/siwing.github.io/edit/master/docs/scikit-learn/10.1.数据集.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span>
+                <div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">toolkit</span> <span class="kn">import</span> <span class="n">H</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span>
 </code></pre></div>
 
 
 <div class="codehilite"><pre><span></span><code><span class="err">Windows 10</span>
 <span class="err">Python 3.7.3 @ MSC v.1915 64 bit (AMD64)</span>
-<span class="err">Latest build date 2020.03.29</span>
-<span class="err">sklearn version:  0.21.3</span>
+<span class="err">Latest build date 2020.08.13</span>
+<span class="err">sklearn version:  0.23.1</span>
 </code></pre></div>
 
 
@@ -1949,14 +1964,15 @@
 </li>
 </ol>
 <h2 id="samples-generators">Samples generators:样本生成器</h2>
-<h3 id="_2">分类</h3>
+<h3 id="_2">多类别分类</h3>
 <p><strong><code>make_classification</code>：生成随机的$n$分类数据。</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># 生成用于分类的数据集</span>
-<span class="n">datasets</span><span class="o">.</span><span class="n">make_classification</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">n_features</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">n_informative</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> 
-                            <span class="n">n_redundant</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">n_repeated</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">n_classes</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> 
-                            <span class="n">n_clusters_per_class</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">flip_y</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> 
-                            <span class="n">class_sep</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">hypercube</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">shift</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> 
-                            <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><code><span class="err">datasets.make_classification(n_samples=100, n_features=20,</span>
+<span class="err">                             n_informative=2, n_redundant=2,</span>
+<span class="err">                             n_repeated=0, n_classes=2,</span>
+<span class="err">                             n_clusters_per_class=2, weights=None,</span>
+<span class="err">                             flip_y=0.01, class_sep=1.0,</span>
+<span class="err">                             hypercube=True, shift=0.0, scale=1.0,</span>
+<span class="err">                             shuffle=True, random_state=None)</span>
 </code></pre></div>
 
 
@@ -1970,7 +1986,19 @@
 <p><code>lip_y</code>: 随机分配类别的样本比例。较大的值会在标签中引入噪音，并使分类任务更加困难。 <code>class_sep</code>: 超立方体大小乘以的因子。较大的值分散了群集/类，使分类任务更加容易。</p>
 <p><code>random_state</code>: <code>int</code>，<code>RandomState</code>实例或无，可选（默认=无）如果<code>int</code>，<code>random_state</code>是随机数生成器使用的种子如果<code>RandomState</code>的实例，<code>random_state</code>是随机数生成器如果没有，随机数生成器所使用的<code>RandomState</code>实例<code>np.random</code>。</p>
 <p><code>return</code>: <code>X</code>特征数据集；<code>y</code>目标分类值。</p>
-<h3 id="_3">回归</h3>
+<h3 id="_3">多标签分类</h3>
+<div class="codehilite"><pre><span></span><code><span class="err">datasets.make_multilabel_classification(n_samples=100, n_features=20,</span>
+<span class="err">                                        n_classes=5, n_labels=2,</span>
+<span class="err">                                        length=50,</span>
+<span class="err">                                        allow_unlabeled=True,</span>
+<span class="err">                                        sparse=False,</span>
+<span class="err">                                        return_indicator=&#39;dense&#39;,</span>
+<span class="err">                                        return_distributions=False,</span>
+<span class="err">                                        random_state=None)</span>
+</code></pre></div>
+
+
+<h3 id="_4">回归</h3>
 <p><strong><code>make_regression</code>：生成回归数据。</strong></p>
 <div class="codehilite"><pre><span></span><code><span class="c1"># 生成用于回归的数据集</span>
 <span class="n">datasets</span><span class="o">.</span><span class="n">make_regression</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">n_features</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">n_informative</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> 

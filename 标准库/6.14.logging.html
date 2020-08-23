@@ -936,6 +936,47 @@
     FileConfig
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ini" class="md-nav__link">
+    ini 文件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#yaml" class="md-nav__link">
+    YAML 文件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json" class="md-nav__link">
+    JSON 文件
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dictconfig" class="md-nav__link">
+    dictConfig
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python" class="md-nav__link">
+    在python代码中配置
+  </a>
+  
 </li>
         
       </ul>
@@ -1939,6 +1980,47 @@
     FileConfig
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ini" class="md-nav__link">
+    ini 文件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#yaml" class="md-nav__link">
+    YAML 文件
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json" class="md-nav__link">
+    JSON 文件
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dictconfig" class="md-nav__link">
+    dictConfig
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python" class="md-nav__link">
+    在python代码中配置
+  </a>
+  
 </li>
         
       </ul>
@@ -1980,8 +2062,8 @@
 
 
 <div class="codehilite"><pre><span></span><code><span class="err">Windows 10</span>
-<span class="err">Python 3.7.3 @ MSC v.1915 64 bit (AMD64)</span>
-<span class="err">Latest build date 2020.08.12</span>
+<span class="err">Python 3.7.7 @ MSC v.1916 64 bit (AMD64)</span>
+<span class="err">Latest build date 2020.08.14</span>
 <span class="err">logging version:  0.5.1.2</span>
 </code></pre></div>
 
@@ -2171,7 +2253,7 @@
     <span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s1">&#39;Python warning&#39;</span><span class="p">)</span>
     <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;Python Error&#39;</span><span class="p">)</span>
     <span class="n">logging</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="s1">&#39;Python critical&#39;</span><span class="p">)</span>
-    <span class="n">logging</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;test&#39;</span><span class="p">)</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;test&#39;</span><span class="p">)</span>
 <span class="n">test</span><span class="p">()</span>
 </code></pre></div>
 
@@ -2332,12 +2414,24 @@
 <li>一个 Handler 对象可以新增多个格式化器或多个过滤器，而且日志级别将会继承。</li>
 </ul>
 <h2 id="logging_1">配置 logging</h2>
-<p>虽然我们可以直接调用 Logger，Handler 等对象中的方法在代码中来显式配置logging，但这种硬编码的方式不是好的编程规范。logging 模块支持三种配置方式：</p>
-<p><code>dictConfig</code>：通过一个字典进行配置 Logger，Handler，Filter，Formatter</p>
+<p>虽然我们可以直接调用 Logger、Handler、Filter、Formatter 对象中的方法在代码中来显式配置logging，但这种硬编码的方式不是好的编程规范。在 Python2.7 之后，可以从一个字典加载 logging 配置，这意味着可以从 JSON 或 YAML 文件中加载 logging 配置。虽然也可以通过 old.ini 方式加载 logging 配置，但是这对于可读性和可编辑来说是困难的。从最佳实践的角度来说，logging 模块支持三种配置方式：</p>
+<blockquote>
+<p><code>logging.config</code>模块负责配置logging。</p>
+</blockquote>
+<ol>
+<li>
+<p><code>dictConfig</code>：通过一个字典进行配置</p>
+</li>
+<li>
 <p><code>fileConfig</code>：通过一个文件进行配置</p>
+</li>
+<li>
 <p><code>listen</code>：监听一个网络端口，通过接收网络数据来进行配置。</p>
+</li>
+</ol>
 <h3 id="fileconfig">FileConfig</h3>
 <p><code>logging.config</code>模块提供了<code>logging.config.fileConfig()</code>方法可以从配置文件中进行日志配置。</p>
+<h4 id="ini">ini 文件</h4>
 <p>先创建一个配置文件 <code>logconfig.ini</code>，配置文件的格式具有如下的形式：</p>
 <div class="codehilite"><pre><span></span><code><span class="k">[loggers]</span>
 <span class="na">keys</span><span class="o">=</span><span class="s">root</span>
@@ -2375,8 +2469,8 @@
 <span class="kn">import</span> <span class="nn">logging.config</span>
 
 <span class="c1"># 文件的后缀名似乎不必须为.ini</span>
-<span class="n">logging</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">fileConfig</span><span class="p">(</span><span class="s1">&#39;logconfig.ini&#39;</span><span class="p">)</span>
-
+<span class="hll"><span class="n">logging</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">fileConfig</span><span class="p">(</span><span class="s1">&#39;logconfig.ini&#39;</span><span class="p">)</span>
+</span>
 <span class="c1"># create logger</span>
 <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s1">&#39;simpleExample&#39;</span><span class="p">)</span>
 
@@ -2389,6 +2483,165 @@
 </code></pre></div>
 
 
+<h4 id="yaml">YAML 文件</h4>
+<div class="codehilite"><pre><span></span><code><span class="nt">version</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="nt">disable_existing_loggers</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">False</span>
+<span class="nt">formatters</span><span class="p">:</span>
+    <span class="nt">simple</span><span class="p">:</span>
+        <span class="nt">format</span><span class="p">:</span> <span class="s">&quot;%(asctime)s</span><span class="nv"> </span><span class="s">-</span><span class="nv"> </span><span class="s">%(name)s</span><span class="nv"> </span><span class="s">-</span><span class="nv"> </span><span class="s">%(levelname)s</span><span class="nv"> </span><span class="s">-</span><span class="nv"> </span><span class="s">%(message)s&quot;</span>
+
+<span class="nt">handlers</span><span class="p">:</span>
+    <span class="nt">console</span><span class="p">:</span>
+        <span class="nt">class</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">logging.StreamHandler</span>
+        <span class="nt">level</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">DEBUG</span>
+        <span class="nt">formatter</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">simple</span>
+        <span class="nt">stream</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ext://sys.stdout</span>
+
+    <span class="nt">info_file_handler</span><span class="p">:</span>
+        <span class="nt">class</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">logging.handlers.RotatingFileHandler</span>
+        <span class="nt">level</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">INFO</span>
+        <span class="nt">formatter</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">simple</span>
+        <span class="nt">filename</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">info.log</span>
+        <span class="nt">maxBytes</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10485760</span> <span class="c1"># 10MB</span>
+        <span class="nt">backupCount</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">20</span>
+        <span class="nt">encoding</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">utf8</span>
+
+    <span class="nt">error_file_handler</span><span class="p">:</span>
+        <span class="nt">class</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">logging.handlers.RotatingFileHandler</span>
+        <span class="nt">level</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ERROR</span>
+        <span class="nt">formatter</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">simple</span>
+        <span class="nt">filename</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">errors.log</span>
+        <span class="nt">maxBytes</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">10485760</span> <span class="c1"># 10MB</span>
+        <span class="nt">backupCount</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">20</span>
+        <span class="nt">encoding</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">utf8</span>
+
+<span class="nt">loggers</span><span class="p">:</span>
+    <span class="nt">my_module</span><span class="p">:</span>
+        <span class="nt">level</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ERROR</span>
+        <span class="nt">handlers</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">console</span><span class="p p-Indicator">]</span>
+        <span class="nt">propagate</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">no</span>
+
+<span class="nt">root</span><span class="p">:</span>
+    <span class="nt">level</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">INFO</span>
+    <span class="nt">handlers</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">console</span><span class="p p-Indicator">,</span> <span class="nv">info_file_handler</span><span class="p p-Indicator">,</span> <span class="nv">error_file_handler</span><span class="p p-Indicator">]</span>
+</code></pre></div>
+
+
+<h4 id="json">JSON 文件</h4>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&quot;disable_existing_loggers&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+    <span class="nt">&quot;formatters&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;simple&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;format&quot;</span><span class="p">:</span> <span class="s2">&quot;%(asctime)s - %(name)s - %(levelname)s - %(message)s&quot;</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+
+    <span class="nt">&quot;handlers&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;console&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;logging.StreamHandler&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;level&quot;</span><span class="p">:</span> <span class="s2">&quot;DEBUG&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;formatter&quot;</span><span class="p">:</span> <span class="s2">&quot;simple&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;stream&quot;</span><span class="p">:</span> <span class="s2">&quot;ext://sys.stdout&quot;</span>
+        <span class="p">},</span>
+
+        <span class="nt">&quot;info_file_handler&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;logging.handlers.RotatingFileHandler&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;level&quot;</span><span class="p">:</span> <span class="s2">&quot;INFO&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;formatter&quot;</span><span class="p">:</span> <span class="s2">&quot;simple&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;filename&quot;</span><span class="p">:</span> <span class="s2">&quot;info.log&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;maxBytes&quot;</span><span class="p">:</span> <span class="mi">10485760</span><span class="p">,</span>
+            <span class="nt">&quot;backupCount&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+            <span class="nt">&quot;encoding&quot;</span><span class="p">:</span> <span class="s2">&quot;utf8&quot;</span>
+        <span class="p">},</span>
+
+        <span class="nt">&quot;error_file_handler&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;class&quot;</span><span class="p">:</span> <span class="s2">&quot;logging.handlers.RotatingFileHandler&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;level&quot;</span><span class="p">:</span> <span class="s2">&quot;ERROR&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;formatter&quot;</span><span class="p">:</span> <span class="s2">&quot;simple&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;filename&quot;</span><span class="p">:</span> <span class="s2">&quot;errors.log&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;maxBytes&quot;</span><span class="p">:</span> <span class="mi">10485760</span><span class="p">,</span>
+            <span class="nt">&quot;backupCount&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+            <span class="nt">&quot;encoding&quot;</span><span class="p">:</span> <span class="s2">&quot;utf8&quot;</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+
+    <span class="nt">&quot;loggers&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;my_module&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;level&quot;</span><span class="p">:</span> <span class="s2">&quot;ERROR&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;handlers&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;console&quot;</span><span class="p">],</span>
+            <span class="nt">&quot;propagate&quot;</span><span class="p">:</span> <span class="s2">&quot;no&quot;</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+
+    <span class="nt">&quot;root&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;level&quot;</span><span class="p">:</span> <span class="s2">&quot;INFO&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;handlers&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;console&quot;</span><span class="p">,</span> <span class="s2">&quot;info_file_handler&quot;</span><span class="p">,</span> <span class="s2">&quot;error_file_handler&quot;</span><span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+<h3 id="dictconfig">dictConfig</h3>
+<p>同时向控制台和文件输出日志。</p>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">from</span> <span class="nn">logging.config</span> <span class="kn">import</span> <span class="n">dictConfig</span>
+
+<span class="n">level</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span>
+<span class="n">logging_config</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;version&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s1">&#39;formatters&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;default&#39;</span><span class="p">:</span>
+            <span class="p">{</span><span class="s1">&#39;format&#39;</span><span class="p">:</span> <span class="s1">&#39;</span><span class="si">%(asctime)s</span><span class="s1"> [</span><span class="si">%(process)d</span><span class="s1">] [</span><span class="si">%(levelname)s</span><span class="s1">] </span><span class="si">%(message)s</span><span class="s1">&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;datefmt&#39;</span><span class="p">:</span> <span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1"> %H:%M:%S&#39;</span><span class="p">}</span>
+    <span class="p">},</span>
+    <span class="s1">&#39;handlers&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;console&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;level&#39;</span><span class="p">:</span> <span class="n">level</span><span class="p">,</span>
+            <span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="s1">&#39;logging.StreamHandler&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;formatter&#39;</span><span class="p">:</span> <span class="s1">&#39;default&#39;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="s1">&#39;file&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;level&#39;</span><span class="p">:</span> <span class="n">level</span><span class="p">,</span>
+            <span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="s1">&#39;logging.handlers.RotatingFileHandler&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;formatter&#39;</span><span class="p">:</span> <span class="s1">&#39;default&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;filename&#39;</span><span class="p">:</span> <span class="s1">&#39;./log/mtwoai.log&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;maxBytes&#39;</span><span class="p">:</span> <span class="mi">1024</span> <span class="o">*</span> <span class="mi">1024</span> <span class="o">*</span> <span class="mi">10</span><span class="p">,</span>
+            <span class="s1">&#39;backupCount&#39;</span><span class="p">:</span> <span class="mi">1</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="s1">&#39;loggers&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;test&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;level&#39;</span><span class="p">:</span> <span class="n">level</span><span class="p">,</span>
+            <span class="s1">&#39;handlers&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;console&#39;</span><span class="p">,</span> <span class="s1">&#39;file&#39;</span><span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="s1">&#39;root&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;level&#39;</span><span class="p">:</span> <span class="n">level</span><span class="p">,</span>
+        <span class="s1">&#39;handlers&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;console&#39;</span><span class="p">,</span> <span class="s1">&#39;file&#39;</span><span class="p">]</span>
+    <span class="p">},</span>
+    <span class="s1">&#39;disable_existing_loggers&#39;</span><span class="p">:</span> <span class="kc">False</span>
+<span class="p">}</span>
+
+<span class="n">dictConfig</span><span class="p">(</span><span class="n">logging_config</span><span class="p">)</span>
+</code></pre></div>
+
+
+<h3 id="python">在python代码中配置</h3>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">()</span>
+<span class="n">handler</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">StreamHandler</span><span class="p">()</span>
+<span class="n">formatter</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">Formatter</span><span class="p">(</span>
+        <span class="s1">&#39;</span><span class="si">%(asctime)s</span><span class="s1"> </span><span class="si">%(name)-12s</span><span class="s1"> </span><span class="si">%(levelname)-8s</span><span class="s1"> </span><span class="si">%(message)s</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">handler</span><span class="o">.</span><span class="n">setFormatter</span><span class="p">(</span><span class="n">formatter</span><span class="p">)</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">handler</span><span class="p">)</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
+
+<span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;often makes a very good meal of </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;visiting tourists&#39;</span><span class="p">)</span>
+</code></pre></div>
+
+
 <h2 id="_7">参考</h2>
 <ol>
 <li><a href="http://www.ityouknow.com/python/2019/10/13/python-logging-032.html">第32天：Python logging 模块详解</a></li>
@@ -2398,6 +2651,8 @@
 <li><a href="https://blog.csdn.net/ls13552912394/article/details/82933395">Python + logging 输出到屏幕，将log日志写入文件</a></li>
 <li><a href="https://www.docs4dev.com/docs/zh/python/3.7.2rc1/all/library-logging.html#logging-python-的-logging-工具">logging - Python 的 Logging 工具</a></li>
 <li><a href="https://www.cnblogs.com/xybaby/p/9197032.html">python logging详解及自动添加上下文信息</a></li>
+<li><a href="https://zdyxry.github.io/2018/07/22/%E8%AF%91-python-logging-%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/">Python logging 最佳实践-译</a></li>
+<li><a href="https://mlln.cn/2019/07/21/python3%E7%9A%84logging%E6%A8%A1%E5%9D%97%E7%9A%84%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/">python3的logging模块的最佳实践</a></li>
 </ol>
                 
                   

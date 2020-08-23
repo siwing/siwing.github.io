@@ -643,13 +643,20 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    让代码窗口输出全部结果
+    安装
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
+    让代码窗口输出全部结果
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
     快捷键使用指南
   </a>
   
@@ -658,14 +665,14 @@
         
           <li class="md-nav__item">
   <a href="#esc" class="md-nav__link">
-    命令模式快捷键（按 Esc 键开启）:
+    命令模式快捷键（按 Esc 键开启）
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#enter" class="md-nav__link">
-    编辑模式快捷键（ 按 Enter 键启动）:
+    编辑模式快捷键（ 按 Enter 键启动）
   </a>
   
 </li>
@@ -683,14 +690,14 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     自定义主题
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     安装扩展
   </a>
   
@@ -704,9 +711,29 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     版本控制
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python" class="md-nav__link">
+    使用非Python内核
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cf" class="md-nav__link">
+    C#、F#内核
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1766,13 +1793,20 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    让代码窗口输出全部结果
+    安装
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
+    让代码窗口输出全部结果
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
     快捷键使用指南
   </a>
   
@@ -1781,14 +1815,14 @@
         
           <li class="md-nav__item">
   <a href="#esc" class="md-nav__link">
-    命令模式快捷键（按 Esc 键开启）:
+    命令模式快捷键（按 Esc 键开启）
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#enter" class="md-nav__link">
-    编辑模式快捷键（ 按 Enter 键启动）:
+    编辑模式快捷键（ 按 Enter 键启动）
   </a>
   
 </li>
@@ -1806,14 +1840,14 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     自定义主题
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     安装扩展
   </a>
   
@@ -1827,9 +1861,29 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     版本控制
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#python" class="md-nav__link">
+    使用非Python内核
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cf" class="md-nav__link">
+    C#、F#内核
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1854,18 +1908,20 @@
                 
                   <h1>5.5.jupyter使用笔记</h1>
                 
-                <h2 id="_1">让代码窗口输出全部结果</h2>
-<ol>
+                <h2 id="_1">安装</h2>
+<p>anaconda 集成了 jupyter notebook，直接安装 anaconda 是使用 jupyter 的最简单方法。如果觉得 anaconda 太重了，直接使用 conda 或者 pip 安装jupyter也是没问题的。具体的安装过程参考 jupyter 的官网的教程：<a href="https://jupyter.org/install">Installing the Jupyter Software</a>。</p>
+<h2 id="_2">让代码窗口输出全部结果</h2>
+<ul>
 <li>将此代码放置在jupyter单元中：</li>
-</ol>
+</ul>
 <div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">IPython.core.interactiveshell</span> <span class="kn">import</span> <span class="n">InteractiveShell</span> 
 <span class="n">InteractiveShell</span><span class="o">.</span><span class="n">ast_node_interactivity</span> <span class="o">=</span> <span class="s2">&quot;all&quot;</span> 
 </code></pre></div>
 
 
-<ol>
+<ul>
 <li>修改全局设置</li>
-</ol>
+</ul>
 <p>在Windows中，以下步骤会使更改永久生效。应该适用于其他操作系统。您可能必须更改路径。</p>
 <p><code>C:\Users\your_profile\\.ipython\profile_default</code></p>
 <p>做一个ipython_config.py文件与下面的代码profile_defaults：</p>
@@ -1874,14 +1930,14 @@
 </code></pre></div>
 
 
-<ol>
+<ul>
 <li>使用<code>print</code>函数</li>
-</ol>
-<h2 id="_2">快捷键使用指南</h2>
+</ul>
+<h2 id="_3">快捷键使用指南</h2>
 <p>Jupyter Notebook 有两种键盘输入模式。即命令模式和编辑模式，这与 <a href="http://www.vim.org/">Vim</a> 有些类似。在编辑模式下，可以往cell中键入代码或文本，此时命令模式下的快捷键不生效。在命令模式下，可以用快捷键命令运行单元格，移动单元格，切换单元格编辑状态等等，此时编辑模式下的快捷键不生效。</p>
 <p>从命令模式进入编辑模式需按 <code>Enter</code> 键，从编辑模式切换到命令模式需按 <code>Esc</code> 键。</p>
 <p>以下两表分别是对命令和编辑两种模式下快捷键的简单说明：</p>
-<h3 id="esc">命令模式快捷键（按 Esc 键开启）:</h3>
+<h3 id="esc">命令模式快捷键（按 Esc 键开启）</h3>
 <table>
 <thead>
 <tr>
@@ -2098,7 +2154,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="enter">编辑模式快捷键（ 按 Enter 键启动）:</h3>
+<h3 id="enter">编辑模式快捷键（ 按 Enter 键启动）</h3>
 <table>
 <thead>
 <tr>
@@ -2253,7 +2309,7 @@
 <p><strong>注：</strong> 如果快捷键被系统中的其它应用占用，则可能会失效</p>
 <h2 id="notebook">在任意目录下打开notebook</h2>
 <p>在该目录下：shift + 右键 👉 打开powershell，输入jupter notebook</p>
-<h2 id="_3">自定义主题</h2>
+<h2 id="_4">自定义主题</h2>
 <p>通过<code>pip</code>安装<code>jupyterthemes</code>package：</p>
 <div class="codehilite"><pre><span></span><code><span class="err"># 安装</span>
 <span class="err">pip install jupyterthemes</span>
@@ -2271,7 +2327,7 @@
 
 
 <p>具体使用方法参见：<a href="https://github.com/dunovank/jupyter-themes">jupyterthemes官方说明</a></p>
-<h2 id="_4">安装扩展</h2>
+<h2 id="_5">安装扩展</h2>
 <p>安装<code>jupyter_contrib_nbextensions</code>包。该插件并不是jupyter notebook官方的插件。具体参考<a href="https://jupyter-contrib-nbextensions.readthedocs.io/en/latest/index.html">Unofficial Jupyter Notebook Extensions</a>和<a href="https://zodiac911.github.io/blog/jupyter-nbextensions-configurator.html#安装-jupyter_contrib_nbextensions">为Jupyter Notebook安装扩展并启用Configurator</a>。</p>
 <div class="codehilite"><pre><span></span><code><span class="err"># 安装</span>
 <span class="err">pip install jupyter_contrib_nbextensions</span>
@@ -2301,7 +2357,7 @@
 </code></pre></div>
 
 
-<p>或者，依然使用PdfLatex引擎，但引入xeCJK宏包：</p>
+<p>或者，依然使用 PdfLatex引擎，但引入 xeCJK 宏包：</p>
 <div class="codehilite"><pre><span></span><code><span class="k">\documentclass</span><span class="na">[11pt]</span><span class="nb">{</span>article<span class="nb">}</span>
 <span class="k">\usepackage</span><span class="nb">{</span>xeCJK<span class="nb">}</span>
 <span class="c">% 如果设置mainfont，必须设置为已安装的中文字体，例如微软雅黑。</span>
@@ -2354,8 +2410,12 @@
 
 
 <p>详细内容参考这里<a href="https://github.com/jupyter/jupyter_core/issues/144">Problem in Converting Jupyter notebook to pdf #144</a>。</p>
-<h2 id="_5">版本控制</h2>
+<h2 id="_6">版本控制</h2>
 <p>Save and CheckPoint 和 Revert to CheckPoint。</p>
+<h2 id="python">使用非Python内核</h2>
+<p>jupyter 不仅仅可以使用 Python 内核，也可以使用其他语言作为后端。</p>
+<h3 id="cf">C#、F#内核</h3>
+<p>如何为jupyter安装C#、F#的内核可以参考微软的教程：<a href="https://devblogs.microsoft.com/dotnet/net-core-with-juypter-notebooks-is-here-preview-1/">.NET Core with Jupyter Notebooks – Available today | Preview 1</a></p>
                 
                   
                 
