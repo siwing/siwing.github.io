@@ -36,7 +36,7 @@
     
     
       
-        <title>1.4.字符编码 - Python笔记</title>
+        <title>1.4.编译型语言 vs 解释型语言 - Python笔记</title>
       
     
     
@@ -103,7 +103,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                1.4.字符编码
+                1.4.编译型语言 vs 解释型语言
               
             </span>
           
@@ -247,8 +247,8 @@
 
 
   <li class="md-nav__item">
-    <a href="1.1.%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%8E%E7%A8%8B%E5%BA%8F%E7%BB%93%E6%9E%84.html" title="1.1.计算机与程序结构" class="md-nav__link">
-      1.1.计算机与程序结构
+    <a href="1.1.CPU.html" title="1.1.CPU" class="md-nav__link">
+      1.1.CPU
     </a>
   </li>
 
@@ -259,8 +259,8 @@
 
 
   <li class="md-nav__item">
-    <a href="1.2.%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5.html" title="1.2.基本概念" class="md-nav__link">
-      1.2.基本概念
+    <a href="1.2.Memory.html" title="1.2.Memory" class="md-nav__link">
+      1.2.Memory
     </a>
   </li>
 
@@ -271,8 +271,8 @@
 
 
   <li class="md-nav__item">
-    <a href="1.3.%E7%BC%96%E8%AF%91%E5%9E%8B%E8%AF%AD%E8%A8%80%E5%92%8C%E8%A7%A3%E9%87%8A%E5%9E%8B%E8%AF%AD%E8%A8%80%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9%E5%AF%B9%E6%AF%94.html" title="1.3.编译型语言 vs 解释型语言" class="md-nav__link">
-      1.3.编译型语言 vs 解释型语言
+    <a href="1.3.%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5.html" title="1.3.基本概念" class="md-nav__link">
+      1.3.基本概念
     </a>
   </li>
 
@@ -290,11 +290,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        1.4.字符编码
+        1.4.编译型语言 vs 解释型语言
       </label>
     
-    <a href="1.4.%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81.html" title="1.4.字符编码" class="md-nav__link md-nav__link--active">
-      1.4.字符编码
+    <a href="1.4.%E7%BC%96%E8%AF%91%E5%9E%8B%E8%AF%AD%E8%A8%80%E5%92%8C%E8%A7%A3%E9%87%8A%E5%9E%8B%E8%AF%AD%E8%A8%80%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9%E5%AF%B9%E6%AF%94.html" title="1.4.编译型语言 vs 解释型语言" class="md-nav__link md-nav__link--active">
+      1.4.编译型语言 vs 解释型语言
     </a>
     
       
@@ -307,70 +307,35 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    背景知识补充
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ascii" class="md-nav__link">
-    ASCII码
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ascii_1" class="md-nav__link">
-    非ASCII码
+    编译型语言和解释型语言的优缺点对比
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#gb2312" class="md-nav__link">
-    GB2312 字符集
+  <a href="#_2" class="md-nav__link">
+    编译型语言：
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    解释型语言：
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pros-and-cons-of-compiled-and-interpreted-languages" class="md-nav__link">
+    Pros and cons of compiled and interpreted languages
   </a>
   
 </li>
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#unicode" class="md-nav__link">
-    Unicode
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#unicode_1" class="md-nav__link">
-    Unicode 的问题
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#utf-8" class="md-nav__link">
-    UTF-8
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#python" class="md-nav__link">
-    Python默认字符集
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    参考
-  </a>
   
 </li>
       
@@ -382,6 +347,18 @@
   
 </nav>
     
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="1.5.%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81.html" title="1.5.字符编码" class="md-nav__link">
+      1.5.字符编码
+    </a>
   </li>
 
         
@@ -1766,70 +1743,35 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    背景知识补充
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ascii" class="md-nav__link">
-    ASCII码
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ascii_1" class="md-nav__link">
-    非ASCII码
+    编译型语言和解释型语言的优缺点对比
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#gb2312" class="md-nav__link">
-    GB2312 字符集
+  <a href="#_2" class="md-nav__link">
+    编译型语言：
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    解释型语言：
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pros-and-cons-of-compiled-and-interpreted-languages" class="md-nav__link">
+    Pros and cons of compiled and interpreted languages
   </a>
   
 </li>
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#unicode" class="md-nav__link">
-    Unicode
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#unicode_1" class="md-nav__link">
-    Unicode 的问题
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#utf-8" class="md-nav__link">
-    UTF-8
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#python" class="md-nav__link">
-    Python默认字符集
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    参考
-  </a>
   
 </li>
       
@@ -1849,91 +1791,64 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/siwing/siwing.github.io/edit/master/docs/计算机基础/1.4.字符编码.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/siwing/siwing.github.io/edit/master/docs/计算机基础/1.4.编译型语言和解释型语言的优缺点对比.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                  <h1>1.4.字符编码</h1>
+                  <h1>1.4.编译型语言 vs 解释型语言</h1>
                 
-                <p>相对于数字，字符串比较特殊的是还有一个编码问题。</p>
-<p>一般，计算机的系统结构是基于数字信号来搭建的，计算机中的计算基于数字电路。<strong>在计算机内部，所有信息最终都是一个二进制值。</strong>计算机只能处理数字，如果要处理文本，就必须先把文本转换为数字才能处理。</p>
-<p>计算机要将一个显示在屏幕的字符转换成内存中的二进制数值，或者将内存中的二进制数值转换为可读的字符，需要三个关键元素：</p>
+                <h2 id="_1">编译型语言和解释型语言的优缺点对比</h2>
+<p>编程语言可以分为：完全的编译型，纯粹的解释型或者两者相互混合的编程语言。实际上，大部分现有的编程语言都同时拥有其编译型和解释型版本。
+编译型语言和解释型语言分别有其各自的优势和不足。下面从编译型语言开始介绍。</p>
+<h3 id="_2">编译型语言：</h3>
 <ol>
-<li>字库表（character repertoire）：相当于所有可读或者可显示字符的数据库，字库表决定了整个字符集能够展现表示的所有字符的范围。</li>
-<li>编码字符集（coded character set）：用一个编码值<code>code point</code>来表示一个字符在字库中的位置。</li>
-<li>字符编码（character encoding form）：编码字符集和实际存储数值之间的转换关系。字符编码是字符实际储存在硬盘中的格式。</li>
+<li>编译型语言最大的优势之一就是其执行速度。用C/C++编写的程序运行速度要比用Java编写的相同程序快30%-70%。</li>
+<li>编译型程序比解释型程序消耗的内存更少。</li>
+<li>不利的一面——编译器比解释器要难写得多。</li>
+<li>编译器在调试程序时提供不了多少帮助——有多少次在你的C语言代码中遇到一个“空指针异常”时，需要花费好几个小时来明确错误到底在代码中的什么位置。</li>
+<li>可执行的编译型代码要比相同的解释型代码大许多。例如，C/C++的.exe文件要比同样功能的Java的.class文件大很多。</li>
+<li>编译型程序是面向特定平台的因而是平台依赖的。</li>
+<li>编译型程序不支持代码中实现安全性——例如，一个编译型的程序可以访问内存的任何区域，并且可以对你的PC做它想做的任何事情（大部分病毒是使用编译型语言编写的）</li>
+<li>由于松散的安全性和平台依赖性，编译型语言不太适合开发因特网或者基于Web的应用。</li>
 </ol>
-<p>一般来说，<strong>直接将<code>code point</code>的值作为编码后的值直接存储。</strong>例如在ASCII中<code>A</code>在表中排第65位，而编码后<code>A</code>的数值是<code>0100 0001</code>也即十进制的65的二进制转换结果。 这样看来，只有“字库表”和“编码字符集”是必不可少的，既然字库表中的每一个字符都有一个自己的序号，直接把序号作为存储内容就好了。为什么还要多此一举通过“字符编码”把序号转换成另外一种存储格式呢？原因在<a href="# Unicode 的问题">下文</a>会提到。</p>
-<h2 id="_1">背景知识补充</h2>
-<p>每一个二进制位（bit）有<code>0</code>和<code>1</code>两种状态，最早的计算机在设计时采用8个比特（bit）作为一个字节（byte），因此一个字节可以表示256种状态（$2^8=256$），每一个状态对应一个符号，就是256个符号，从<code>00000000</code>到<code>11111111</code>。一个字节能表示的最大的整数就是255（二进制11111111=十进制255），如果要表示更大的整数，就必须用更多的字节。比如两个字节可以表示的最大整数是<code>65535</code>，4个字节可以表示的最大整数是<code>4294967295</code>。</p>
-<h2 id="ascii">ASCII码</h2>
-<p>因为计算机是美国人发明的，所以在上个世纪60年代，美国制定了一套<strong>字符编码</strong>，对英语字符与二进制位之间的关系，做了统一规定。这被称为 ASCII 码，一直沿用至今。ASCII 码一共规定了128个字符的编码，比如空格<code>SPACE</code>是32（二进制<code>00100000</code>），大写的字母<code>A</code>是65（二进制<code>01000001</code>）。这128个符号（包括32个不能打印出来的控制符号），只占用了一个字节的后面7位，最前面的一位统一规定为<code>0</code>。<strong>储存ASCII编码的字符只需要1个字节就够了。</strong></p>
-<h2 id="ascii_1">非ASCII码</h2>
-<p>英语用128个符号编码就够了，但是用来表示其他语言，128个符号是不够的。比如，在法语中，字母上方有注音符号，它就无法用 ASCII 码表示。于是，一些欧洲国家就决定，利用字节中闲置的最高位编入新的符号。比如，法语中的<code>é</code>的编码为130（二进制<code>10000010</code>）。这样一来，这些欧洲国家使用的编码体系，可以表示最多256个符号。</p>
-<p>但是，这里又出现了新的问题。不同的国家有不同的字母，因此，哪怕它们都使用256个符号的编码方式，代表的字母却不一样。比如，130在法语编码中代表了<code>é</code>，在希伯来语编码中却代表了字母<code>Gimel</code> (<code>ג</code>)，在俄语编码中又会代表另一个符号。但是不管怎样，所有这些编码方式中，0--127表示的符号是一样的（为了兼容ASCII码），不一样的只是128--255的这一段。</p>
-<h3 id="gb2312">GB2312 字符集</h3>
-<p>汉字多达10万左右，要处理中文显然一个字节是不够的，至少需要两个字节，而且还不能和ASCII编码冲突，所以，中国制定了<code>GB2312</code>编码，使用两个字节表示一个汉字，所以理论上最多可以表示 256 x 256 = 65536 个符号。</p>
-<blockquote>
-<p>虽然都是用多个字节表示一个符号，但是GB类的汉字编码与后文的 Unicode 和 UTF-8 是毫无关系的。</p>
-</blockquote>
-<p>可以想得到的是，全世界有上百种语言，日本把日文编到<code>Shift_JIS</code>里，韩国把韩文编到<code>Euc-kr</code>里，各国有各国的标准，就会不可避免地出现冲突，结果就是，在多语言混合的文本中，显示出来会有乱码。</p>
-<h2 id="unicode">Unicode</h2>
-<p>正如上一节所说，世界上存在着多种编码方式，同一个二进制数字可以被解释成不同的符号。因此，要想打开一个文本文件，就必须知道它的编码方式，否则用错误的编码方式解读，就会出现乱码。为什么电子邮件常常出现乱码？就是因为发信人和收信人使用的编码方式不一样。</p>
-<p>因此，Unicode应运而生。Unicode把所有语言都统一到一套编码里，这样就不会再有乱码问题了。 Unicode就像它的名字都表示的，这是一种所有符号的编码。</p>
-<blockquote>
-<p>Unicode标准也在不断发展，但最常用的是用两个字节表示一个字符（如果要用到非常偏僻的字符，就需要4个字节）。现代操作系统和大多数编程语言都直接支持Unicode。</p>
-</blockquote>
-<p>Unicode 是一个很大的集合，现在的规模可以容纳100多万个符号。每个符号的编码都不一样，可以查询<a href="http://www.unicode.org/">unicode.org</a>，或者专门的<a href="http://www.chi2ko.com/tool/CJK.htm">汉字对应表</a>。</p>
-<h2 id="unicode_1">Unicode 的问题</h2>
-<p>需要注意的是，<strong>Unicode 只是字符集</strong>，它只规定了字符的二进制数值，却没有规定这个二进制代码应该如何存储。（<mark>这里说的储存是储存在<strong>ROM</strong>中，比如说硬盘。</mark>）</p>
-<p>比如，汉字<code>严</code>的 Unicode 是十六进制数 <code>4E25</code>，转换成二进制数是<code>100111000100101</code>，足足有15位，也就是说，直接储存这个符号的表示至少需要2个字节。而排序在更后面的符号，可能需要3个字节或者4个字节，甚至更多。</p>
-<p>当然可以直接储存Unicode的二进制形式，但这就有两个严重 的问题，第一个问题是，如何才能区别 Unicode 和 ASCII ？计算机怎么知道三个字节表示一个符号，而不是分别表示三个符号呢？第二个问题是，我们已经知道，英文字母只用一个字节表示就够了，如果 Unicode 统一规定，每个符号用三个或四个字节表示，那么每个英文字母前都必然有二到三个字节是<code>0</code>，这对于存储来说是极大的浪费，文本文件的大小会因此大出二三倍，这是无法接受的。<mark>因此用Unicode码直接储存文件不是一个好的选择，而这就是需要“字符编码的原因”。</mark></p>
-<p>它们造成的结果是：</p>
+<h3 id="_3">解释型语言：</h3>
 <ol>
-<li>出现了 Unicode 的多种存储方式，也就是说有许多种不同的二进制格式，可以用来表示 Unicode。</li>
-<li>Unicode 在很长一段时间内无法推广，直到互联网的出现。</li>
+<li>解释型语言提供了极佳的调试支持。一名Java程序员只需要几分钟就可以定位并修复一个“空指针异常”，因为Java运行环境不仅指明了异常的性质，而且给出了异常发生位置具体的行号和函数调用顺序（著名的堆栈跟踪信息）。这样的便利是编译型语言所无法提供的。</li>
+<li>另一个优势是解释器比编译器容易实现</li>
+<li>解释型语言最大的优势之一是其平台独立性</li>
+<li>解释型语言也可以保证高度的安全性——这是互联网应用迫切需要的</li>
+<li>中间语言代码的大小比编译型可执行代码小很多</li>
+<li>平台独立性，以及严密的安全性是使解释型语言成为适合互联网和Web应用的理想语言的2个最重要的因素。</li>
+<li>解释型语言存在一些严重的缺点。解释型应用占用更多的内存和CPU资源。这是由于，为了运行解释型语言编写的程序，相关的解释器必须首先运行。解释器是复杂的，智能的，大量消耗资源的程序并且它们会占用很多CPU周期和内存。</li>
+<li>由于解释型应用的decode-fetch-execute（解码-抓取-执行）的周期，它们比编译型程序慢很多。</li>
+<li>解释器也会做很多代码优化，运行时安全性检查；这些额外的步骤占用了更多的资源并进一步降低了应用的运行速度。</li>
 </ol>
-<h2 id="utf-8">UTF-8</h2>
-<p>互联网的普及，强烈要求出现一种统一的编码方式。UTF-8 就是在互联网上使用最广的一种 Unicode 的实现方式。其他实现方式还包括 UTF-16（字符用两个字节或四个字节表示）和 UTF-32（字符用四个字节表示），不过在互联网上基本不用。</p>
-<p>==强调一下Unicode和UTF-8的区别：UTF-8是Unicode的一种储存形式，但计算机只能读取二进制的内容，因此计算机读取UTF-8编码的文件，需要将文件转码为Unicode（Unicode是完全二进制的形式）。也就是说，文件以UTF-8的形式储存在硬盘上，以Unicode的形式储存在内存（Ram）中。==例如：</p>
-<blockquote>
-<p>在计算机内存中，统一使用Unicode编码，当需要保存到硬盘或者需要传输的时候，就转换为UTF-8编码。</p>
-<ul>
-<li>用记事本编辑的时候，从文件读取的UTF-8字符被转换为Unicode字符到内存里，编辑完成后，保存的时候再把Unicode转换为UTF-8保存到文件。</li>
-<li>浏览网页的时候，服务器会把动态生成的Unicode内容转换为UTF-8再传输到浏览器。很多网页的源码上会有类似<code>&lt;meta charset="UTF-8" /&gt;</code>的信息，表示该网页正是用的UTF-8编码。</li>
-</ul>
-</blockquote>
-<p>UTF-8 最大的一个特点，就是它是一种变长的编码方式。它可以使用1~4个字节表示一个符号，根据不同的符号而变化字节长度。</p>
-<p>UTF-8 的编码规则很简单，只有二条：</p>
-<p>1）对于单字节的符号，字节的第一位设为<code>0</code>，后面7位为这个符号的 Unicode 码。因此对于英语字母，UTF-8 编码和 ASCII 码是相同的。</p>
-<p>2）对于<code>n</code>字节的符号（<code>n &gt; 1</code>），第一个字节的前<code>n</code>位都设为<code>1</code>，第<code>n + 1</code>位设为<code>0</code>，后面字节的前两位一律设为<code>10</code>。剩下的没有提及的二进制位，全部为这个符号的 Unicode 码。</p>
-<p>下表总结了编码规则，字母<code>x</code>表示可用编码的位。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">Unicode符号范围      |     UTF-8编码方式</span>
-<span class="err">  (十六进制)         |       （二进制）</span>
-<span class="err">--------------------+---------------------------------------------</span>
-<span class="err">0000 0000-0000 007F | 0xxxxxxx</span>
-<span class="err">0000 0080-0000 07FF | 110xxxxx 10xxxxxx</span>
-<span class="err">0000 0800-0000 FFFF | 1110xxxx 10xxxxxx 10xxxxxx</span>
-<span class="err">0001 0000-0010 FFFF | 11110xxx 10xxxxxx 10xxxxxx 10xxxxxx</span>
-</code></pre></div>
-
-
-<p>跟据上表，解读 UTF-8 编码非常简单。如果一个字节的第一位是<code>0</code>，则这个字节单独就是一个字符；如果第一位是<code>1</code>，则连续有多少个<code>1</code>，就表示当前字符占用多少个字节。</p>
-<p>下面，还是以汉字<code>严</code>为例，演示如何实现 UTF-8 编码。</p>
-<p><code>严</code>的 Unicode 是<code>4E25</code>（<code>100111000100101</code>），根据上表，可以发现<code>4E25</code>处在第三行的范围内（<code>0000 0800 - 0000 FFFF</code>），因此<code>严</code>的 UTF-8 编码需要三个字节，即格式是<code>1110xxxx 10xxxxxx 10xxxxxx</code>。然后，从<code>严</code>的最后一个二进制位开始，依次从后向前填入格式中的<code>x</code>，多出的位补<code>0</code>。这样就得到了，<code>严</code>的 UTF-8 编码是<code>11100100 10111000 10100101</code>，转换成十六进制就是<code>E4B8A5</code>。</p>
-<p>UTF-8编码有一个额外的好处，就是ASCII编码实际上可以被看成是UTF-8编码的一部分，所以，大量只支持ASCII编码的历史遗留软件可以在UTF-8编码下继续工作。</p>
-<h2 id="python">Python默认字符集</h2>
-<p>Python的默认字符集在几个大版本中有过改变，以下是各个版本的默认字符集列举：</p>
-<ul>
-<li>Python2.1及以前： latin1</li>
-<li>Python2.3及之后，Python2.5以前：latin1 （但是会对非ASCII字符集字符提出WARNING）</li>
-<li>Python2.5及以后：ASCII</li>
-<li>Python3：Unicode（UTF-8）</li>
-</ul>
-<h2 id="_2">参考</h2>
+<p>原文链接：<a href="http://www.codeproject.com/Articles/1825/The-Common-Language-Runtime-CLR-and-Java-Runtime-E">http://www.codeproject.com/Articles/1825/The-Common-Language-Runtime-CLR-and-Java-Runtime-E</a></p>
+<hr />
+<h3 id="pros-and-cons-of-compiled-and-interpreted-languages">Pros and cons of compiled and interpreted languages</h3>
+<p>Languages can be developed either as fully-compiled, pure-interpreted, or hybrid compiled-interpreted. As a matter of fact, most of the current programming languages have both a compiled and interpreted versions available.</p>
+<p>Both compiled and interpreted approaches have their advantages and disadvantages. I will start with the compiled languages.</p>
+<p><em>Compiled languages</em></p>
 <ol>
-<li><a href="http://www.ruanyifeng.com/blog/2007/10/ascii_unicode_and_utf-8.html">字符编码笔记：ASCII，Unicode 和 UTF-8</a></li>
-<li><a href="http://cenalulu.github.io/linux/character-encoding/">十分钟搞清字符集和字符编码</a></li>
-<li><a href="http://cenalulu.github.io/python/python-encoding/">关于Python的默认字符集</a></li>
+<li>One of the biggest advantages of Compiled languages is their execution speed. A program written in C/C++ runs 30-70 % faster then an equivalent program written in Java.</li>
+<li>Compiled code also takes less memory as compared to an interpreted program.</li>
+<li>On the down side - a compiler is much more difficult to write than an interpreter.</li>
+<li>A compiler does not provide much help in debugging a program - how many times have you received a "Null pointer exception" in your C code and have spent hours trying to figure out where in your source code did the exception occurred.</li>
+<li>The executable Compiled code is much bigger in size than an equivalent interpreted code e.g. a C/C++ .exe file is much bigger than an equivalent Java .class file</li>
+<li>Compiled programs are targeted towards a particular platform and hence are platform dependent.</li>
+<li>Compiled programs do not allow security to be implemented with in the code - e.g. a compiled program can access any area of the memory, and can do whatever it wants with your PC (most of the viruses are made in compiled languages).</li>
+<li>Due to loose security and platform dependence - a compiled language is not particularly suited to be used to develop Internet or web-based applications.</li>
+</ol>
+<p><em>Interpreted languages</em></p>
+<ol>
+<li>Interpreted language provides excellent debugging support. A Java programmer only spends a few minutes fixing a "Null pointer exception", because Java runtime not only specifies the nature of exception but also gives the exact line number and function call sequence (the famous stack trace information) where the exception occurred. This facility is something that a compiled language can never provide.</li>
+<li>Another advantage is that Interpreters are much easier to build then a compiler.</li>
+<li>One of the biggest advantages of Interpreters is that they make platform-independence possible.</li>
+<li>Interpreted language also allow high degree of security - something badly needed for an Internet application.</li>
+<li>An intermediate language code size is much smaller than a compiled executable code.</li>
+<li>Platform independence, and tight security are the two most important factors that make an interpreted language ideally suited for Internet and web-based applications.</li>
+<li>Interpreted languages have some serious drawbacks. The interpreted applications take up more memory and CPU resources. This is because in order to run a program written in interpreted language; the corresponding interpreter must be run first. Interpreters are sophisticated, intelligent and resource hungry programs and they take up lot of CPU cycles and RAM.</li>
+<li>Due to interpreted application's decode-fetch-execute cycle; they are much slower than compiled programs.</li>
+<li>Interpreters also do lot of code-optimization, security violation checking at run-time; these extra steps take up even more resources and further slows the application down.</li>
 </ol>
                 
                   
@@ -1956,7 +1871,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="1.3.%E7%BC%96%E8%AF%91%E5%9E%8B%E8%AF%AD%E8%A8%80%E5%92%8C%E8%A7%A3%E9%87%8A%E5%9E%8B%E8%AF%AD%E8%A8%80%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9%E5%AF%B9%E6%AF%94.html" title="1.3.编译型语言 vs 解释型语言" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="1.3.%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5.html" title="1.3.基本概念" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1965,19 +1880,19 @@
                 <span class="md-footer-nav__direction">
                   上一页
                 </span>
-                1.3.编译型语言 vs 解释型语言
+                1.3.基本概念
               </span>
             </div>
           </a>
         
         
-          <a href="../Python%E5%9F%BA%E7%A1%80/2.1.python%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95.html" title="2.1.python基本语法" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="1.5.%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81.html" title="1.5.字符编码" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   下一页
                 </span>
-                2.1.python基本语法
+                1.5.字符编码
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

@@ -36,7 +36,7 @@
     
     
       
-        <title>1.1.计算机与程序结构 - Python笔记</title>
+        <title>1.1.CPU - Python笔记</title>
       
     
     
@@ -77,7 +77,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#cpu" tabindex="0" class="md-skip">
+      <a href="#_1" tabindex="0" class="md-skip">
         跳转至
       </a>
     
@@ -103,7 +103,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                1.1.计算机与程序结构
+                1.1.CPU
               
             </span>
           
@@ -254,11 +254,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        1.1.计算机与程序结构
+        1.1.CPU
       </label>
     
-    <a href="1.1.%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%8E%E7%A8%8B%E5%BA%8F%E7%BB%93%E6%9E%84.html" title="1.1.计算机与程序结构" class="md-nav__link md-nav__link--active">
-      1.1.计算机与程序结构
+    <a href="1.1.CPU.html" title="1.1.CPU" class="md-nav__link md-nav__link--active">
+      1.1.CPU
     </a>
     
       
@@ -270,16 +270,44 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    简介
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cpu" class="md-nav__link">
-    CPU
+    CPU工作过程
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cpu_1" class="md-nav__link">
+    CPU部件
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    寄存器的主要种类和功能
+  <a href="#_2" class="md-nav__link">
+    寄存器
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    运算器
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    控制器
   </a>
   
 </li>
@@ -290,22 +318,16 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#main-memory" class="md-nav__link">
-    main memory
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    如何通过内存索引数据？
+  <a href="#_5" class="md-nav__link">
+    流水线技术
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    参考
+  </a>
   
 </li>
       
@@ -326,8 +348,8 @@
 
 
   <li class="md-nav__item">
-    <a href="1.2.%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5.html" title="1.2.基本概念" class="md-nav__link">
-      1.2.基本概念
+    <a href="1.2.Memory.html" title="1.2.Memory" class="md-nav__link">
+      1.2.Memory
     </a>
   </li>
 
@@ -338,8 +360,8 @@
 
 
   <li class="md-nav__item">
-    <a href="1.3.%E7%BC%96%E8%AF%91%E5%9E%8B%E8%AF%AD%E8%A8%80%E5%92%8C%E8%A7%A3%E9%87%8A%E5%9E%8B%E8%AF%AD%E8%A8%80%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9%E5%AF%B9%E6%AF%94.html" title="1.3.编译型语言 vs 解释型语言" class="md-nav__link">
-      1.3.编译型语言 vs 解释型语言
+    <a href="1.3.%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5.html" title="1.3.基本概念" class="md-nav__link">
+      1.3.基本概念
     </a>
   </li>
 
@@ -350,8 +372,20 @@
 
 
   <li class="md-nav__item">
-    <a href="1.4.%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81.html" title="1.4.字符编码" class="md-nav__link">
-      1.4.字符编码
+    <a href="1.4.%E7%BC%96%E8%AF%91%E5%9E%8B%E8%AF%AD%E8%A8%80%E5%92%8C%E8%A7%A3%E9%87%8A%E5%9E%8B%E8%AF%AD%E8%A8%80%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9%E5%AF%B9%E6%AF%94.html" title="1.4.编译型语言 vs 解释型语言" class="md-nav__link">
+      1.4.编译型语言 vs 解释型语言
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="1.5.%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81.html" title="1.5.字符编码" class="md-nav__link">
+      1.5.字符编码
     </a>
   </li>
 
@@ -1736,16 +1770,44 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    简介
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#cpu" class="md-nav__link">
-    CPU
+    CPU工作过程
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cpu_1" class="md-nav__link">
+    CPU部件
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    寄存器的主要种类和功能
+  <a href="#_2" class="md-nav__link">
+    寄存器
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    运算器
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    控制器
   </a>
   
 </li>
@@ -1756,22 +1818,16 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#main-memory" class="md-nav__link">
-    main memory
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    如何通过内存索引数据？
+  <a href="#_5" class="md-nav__link">
+    流水线技术
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    参考
+  </a>
   
 </li>
       
@@ -1791,37 +1847,91 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/siwing/siwing.github.io/edit/master/docs/计算机基础/1.1.计算机与程序结构.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/siwing/siwing.github.io/edit/master/docs/计算机基础/1.1.CPU.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                  <h1>1.1.计算机与程序结构</h1>
+                  <h1>1.1.CPU</h1>
                 
-                <h2 id="cpu">CPU</h2>
+                <h2 id="_1">简介</h2>
 <p>计算机的工作过程就是计算机执行程序的过程。程序是一个指令序列，这个序列明确告诉计算机应该执行什么操作，在什么地方能够找到用来操作的数据。</p>
-<p>一旦把程序装入主存储器，计算机就可以自动执行取出指令和执行指令的任务。<strong>专门用来完成此项工作的计算机部件称为中央处理器（Central Processing Unit，CPU）</strong>，做成单片集成电路的CPU通常又称为微处理器（Microprocessor），在一个集成电路中集成了两个 CPU 芯片，称之为双核（dual core）微处理器。现代的个人计算机一般都是使用微处理器作为CPU。</p>
+<p>一旦把程序装入主存储器，计算机就可以自动执行取出指令和执行指令的任务。<strong>专门用来完成此项工作的计算机部件称为中央处理器（Central Processing Unit, CPU）</strong>，做成单片集成电路的CPU通常又称为微处理器（Microprocessor），在一个集成电路中集成了两个 CPU 芯片，称之为双核（dual core）微处理器。现代的个人计算机一般都是使用微处理器作为CPU。</p>
 <blockquote>
-<p>注意：CPU不是指一个特定的某一类东西，而是具有某种功能的部件的总称。所以，不管是何种形态、设计、原理的部件，只要它能具有取出指令、执行指令的功能，它就是CPU。 简而言之，<mark>CPU 是用来表示计算机内部元件功能的术语。</mark></p>
+<p>注意：<mark>CPU不是指一个特定的某一类东西，而是具有某种功能的部件的总称。</mark> 所以，不管是何种形态、设计、原理的部件，只要它能具有取出指令、执行指令的功能，它就是CPU。 简而言之，<mark>CPU 是用来表示计算机内部元件功能的术语。</mark></p>
 </blockquote>
-<p>下图为陶瓷PGA封装的Intel 80486 DX2 CPU：</p>
-<p><img alt="" src="https://upload.cc/i1/2018/09/30/hPXsTp.png" /></p>
-<p>计算机工业从1960年代早期开始使用CPU这个术语。迄今为止，CPU从形态、设计到实现都已发生了巨大的变化，但是其基本工作原理却一直没有大的变化。</p>
-<p>早期的CPU通常是为大型、特定的应用而定制的。目前，这种为特定应用而设计定制CPU的昂贵方法，在很大程度上已经让位于可大规模生产的通用处理器。这种标准化趋势，诞生于分立晶体管大型计算机（Mainframe）和小型计算机（Minicomputer）年代，并且随着集成电路（IC）的普及而大大加速。</p>
-<p>现代的CPU使用集成电路制作，集成电路可以把日益复杂的CPU设计制造在很小的空间里。CPU的小型化和标准化，大大增加了这些数字器件在现代生活中的应用范围，远远超出了专用运算机器这一有限的应用。现代微处理器已经随处可见，从汽车到手机，甚至儿童玩具。</p>
-<div align="right">
-    —— 以上参考于英特尔文档：
-    <a href="https://software.intel.com/zh-cn/articles/book-Processor-Architecture_CPU_function_and_composition">CPU的功能和组成</a>    
+<div align=center><img src="https://upload.cc/i1/2018/09/30/hPXsTp.png">
+<center><font size=3> 陶瓷PGA封装的Intel 80486 DX2 CPU</font> </center>
 </div>
 
-<p>CPU和内存由数字集成电路（数字芯片）构成，集成电路通常称为IC（Integrated Circuit），它由晶体管组成，每一个晶体管具有ON/OFF两个状态。</p>
-<p>从功能方面来看 ，CPU的内部由寄存器、控制器、运算器和时钟四个部分构成，各部分之间由电流信号相互连通。</p>
 <blockquote>
-<p>寄存器可用来暂存指令、数据等处理对象，可以将其看作是内存的一种。根据种类的不同，一个 CPU 内部会有20～100 个寄存器。</p>
-<p>控制器负责把内存上的指令、数据等读入寄存器，并根据指令的执行结果来控制整个计算机。</p>
-<p>运算器负责运算从内存读入寄存器的数据。</p>
-<p>时钟负责发出 CPU 开始计时的时钟信号。不过，也有些计算机的时钟位于 CPU 的外部。</p>
+<p>顶视图是CPU的顶盖，用来保护CPU Die。底视图是CPU引脚，引脚用于输入或输出电信号，CPU通过引脚控制整个计算机。</p>
 </blockquote>
-<h3 id="_1">寄存器的主要种类和功能</h3>
-<p>根据功能的不同，我们可以将寄存器大致划分为八类。可以看出，==寄存器中存储的内容既可以是指令也可以是数据。其中，数据分为“用于运算的数值”和“表示内存地址的数值”两种。==数据种类不同，存储该数值的寄存器也不同。CPU 中每个寄存器的功能都是不同的。</p>
+<p>计算机工业从1960W年代早期开始使用CPU这个术语。迄今为止，CPU从形态、设计到实现都已发生了巨大的变化，但是其基本工作原理却一直没有大的变化。</p>
+<p>早期的CPU通常是为大型、特定的应用而定制的。目前，这种为特定应用而设计定制CPU的昂贵方法，在很大程度上已经让位于可大规模生产的通用处理器。这种标准化趋势，诞生于分立晶体管大型计算机（Mainframe）和小型计算机（Minicomputer）年代，并且随着集成电路（IC）的普及而大大加速。</p>
+<p>现代的CPU使用集成电路制作，集成电路可以把日益复杂的CPU设计制造在很小的空间里。CPU的小型化和标准化，大大增加了这些数字器件在现代生活中的应用范围，远远超出了专用运算机器这一有限的应用。现代微处理器已经随处可见，从汽车到手机，甚至儿童玩具。</p>
+<h2 id="cpu">CPU工作过程</h2>
+<p>CPU和内存由数字集成电路（数字芯片）构成，集成电路通常称为IC（Integrated Circuit），它由晶体管组成，每一个晶体管具有ON/OFF两个状态。CPU中不同的数字电路实现不同的运算，相同的运算也可以用不同的数字电路实现。CPU能实现的各种最基本的运算统称为指令集，而 <mark>CPU自身就是一种指令集的实现。</mark></p>
+<blockquote>
+<p>实际上，从计算机组成的层次结构看，计算机指令又分为微指令、机器指令、宏指令。</p>
+<ol>
+<li>
+<p>微指令：微程序级的命令，属于硬件。</p>
+</li>
+<li>
+<p>宏指令：若干条机器指令组成的命令，属于软件（汇编语言的宏指令）。</p>
+</li>
+<li>
+<p>机器指令：通常所说的指令，介于微指令和宏指令之前 ，可完成一个独立的算术运算或逻辑运算操作。<mark>机器指令是CPU可以直接识别（执行）的指令。</mark> </p>
+</li>
+</ol>
+</blockquote>
+<p>CPU的基本工作是执行内存中的指令序列，即程序。</p>
+<p>几乎所有的冯诺伊曼型计算机的CPU，其工作都可以分为5个阶段：取指令、指令译码、执行指令、访存取数和结果写回。其中取指令、指令译码、执行指令是三个不可或缺的阶段。</p>
+<div align=center><img src="https://software.intel.com/content/dam/develop/external/us/en/images/3-4-257058.jpg">
+<center><font size=3> 指令的执行过程</font> </center>
+</div>
+
+<p>计算机在工作时，CPU会不断重复这5个过程，除非遇到停机指令。</p>
+<p><strong>1．取指令</strong></p>
+<p>取指令（Instruction Fetch，IF）是将一条指令从主存中取到指令寄存器的过程。指令先从内存中被取到数据缓冲寄存器（DR），然后送入指令寄存器（IR）。</p>
+<p><strong>2．指令译码</strong></p>
+<p>取出指令后，计算机立即进入指令译码（Instruction Decode，ID）阶段。</p>
+<p>在指令译码阶段，指令译码器（ID）按照预定的指令格式，对指令寄存器（IR）中的指令进行拆分和解释，识别和区分出不同的指令类别及各种获取操作数的方法。</p>
+<p>在组合逻辑控制的计算机中，指令译码器对不同的指令操作码产生不同的控制电位，以形成不同的微操作序列；在微程序控制的计算机中，指令译码器用指令操作码找到执行该指令的微程序的入口，并从此入口开始执行。</p>
+<p>在传统的设计里，CPU中负责指令译码的部分是无法改变的硬件。不过，在众多运用微程序控制技术的新型CPU中，微程序有时是可重写的，可以通过修改成品CPU来改变CPU的译码方式。</p>
+<p><strong>3．执行指令阶段</strong></p>
+<p>在取指令和指令译码阶段之后，接着进入执行指令（Execute，EX）阶段。</p>
+<p>此阶段的任务是完成指令所规定的各种操作，具体实现指令的功能。为此，CPU的不同部分被连接起来，以执行所需的操作。</p>
+<p>例如，如果要求完成一个加法运算，算术逻辑单元（ALU）将被连接到一组输入和一组输出，输入端提供需要相加的数值，而输出端将含有最后的运算结果。</p>
+<p><strong>4．访存取数阶段</strong></p>
+<p>根据指令需要，有可能要访问主存，读取操作数，这样就进入了访存取数（Memory，MEM）阶段。</p>
+<p>此阶段的任务是：根据指令地址码，得到操作数在主存中的地址，并从主存中读取该操作数用于运算。</p>
+<p><strong>5．结果写回阶段</strong></p>
+<p>作为最后一个阶段，结果写回（Writeback，WB）阶段把执行指令阶段的运行结果数据“写回”到某种存储形式。结果数据经常被写到CPU的内部寄存器中，以便被后续的指令快速地存取。在有些情况下，结果数据也可被写入相对较慢、但较廉价且容量较大的主存。许多指令还会改变程序状态字寄存器中标志位的状态，这些标志位标识着不同的操作结果，可被用来影响程序的动作。</p>
+<p>在指令执行完毕、结果数据写回之后，若无意外事件（如结果溢出等）发生，计算机就接着从程序计数器PC中取得下一条指令地址，开始新一轮的循环，下一个指令周期将正常地顺序取出下一条指令。</p>
+<p>许多新型CPU可以同时取出、译码和执行多条指令，体现出并行处理的特性。</p>
+<h2 id="cpu_1">CPU部件</h2>
+<div align=center><img src="https://software.intel.com/content/dam/develop/external/us/en/images/3-2-257071.jpg" style="zoom:110%;"></center>
+<center><font size=3>CPU主要逻辑结构</font></center>
+</div>
+
+<p>从功能方面来看，CPU的内部由寄存器、控制器、运算器和时钟四个部件构成，其中，控制器和运算器是CPU不可或缺的部件。各部件之间由电流信号相互连通。</p>
+<ul>
+<li>
+<p>寄存器用来暂存指令、数据等处理对象，是储存器的一种。根据种类的不同，一个 CPU 内部会有20～100个寄存器。</p>
+</li>
+<li>
+<p>控制器负责把内存上的指令、数据等读入寄存器，并根据指令的执行结果来控制整个计算机。</p>
+</li>
+<li>
+<p>运算器负责运算从内存读入寄存器的数据。</p>
+</li>
+<li>
+<p>时钟负责发出 CPU 开始计时的时钟信号。不过，也有些计算机的时钟位于 CPU 的外部。</p>
+</li>
+</ul>
+<h3 id="_2">寄存器</h3>
+<p>分为通用寄存器和专用寄存器。专用寄存器作用是固定的，如控制器和运算器中的寄存器。而通用寄存器可以由程序员指定用途。</p>
+<p>根据功能的不同，可以将寄存器大致划分为八类。可以看出，<mark>寄存器中存储的内容既可以是指令也可以是数据。其中，数据分为“用于运算的数值”和“表示内存地址的数值”两种。</mark> 数据种类不同，存储该数值的寄存器也不同。CPU 中每个寄存器的功能都是不同的。</p>
 <table>
 <thead>
 <tr>
@@ -1864,27 +1974,69 @@
 </tr>
 </tbody>
 </table>
-<p>寄存器对程序员来说比较特殊，因为寄存器是编程中的一个对象，例如在汇编语言中：</p>
+<p>其中<strong>程序计数器、累加寄存器、标志寄存器、指令寄存器和栈寄存器</strong>都只有一个，其他寄存器一般有多个。</p>
+<div align=center><img src="figures/寄存器数量.png"></center></div>
+
+<p>寄存器对程序员来说比较特殊，因为在汇编语言中，程序员需要直接操纵寄存器：</p>
 <div class="codehilite"><pre><span></span><code><span class="err"># 汇编语言编写的程序示例</span>
-<span class="err">mov  eax, dword ptr [ebp-8]   …把数值从内存复制到 eax</span>
-<span class="err">add  eax, dword ptr [ebp-0Ch] …exa 的数值和内存的数值相加</span>
-<span class="err">mov  dword ptr [ebp-4], eax   …把 exa 的数值（上一步的相加结果）存储在内存中</span>
+<span class="err">mov  eax, dword ptr [ebp-8]    # 把数值从内存复制到 eax</span>
+<span class="err">add  eax, dword ptr [ebp-0Ch]  # exa 的数值和内存的数值相加</span>
+<span class="err">mov  dword ptr [ebp-4], eax    # 把 exa 的数值（上一步的相加结果）存储在内存中</span>
 </code></pre></div>
 
 
-<p>eax 和 ebp 是 CPU 内部的寄存器的名称。内存的存储场所通过地址编号来区分，而寄存器的种类则通过名字来区分。</p>
-<h2 id="main-memory">main memory</h2>
-<p>通常所说的内存指的是计算机的主存储器（main memory），简称主存。<mark>主存通过控制芯片等与 CPU 相连，
-主要负责存储指令和数据。</mark><strong>主存由可读写的元素构成，每个字节（1 Byte = 8 bit ）都带有一个地址编号。</strong>CPU 可以通过该地址读取主存中的指令和数据，以及写入数据。</p>
-<h3 id="_2">如何通过内存索引数据？</h3>
-<p>内存的构成单位是一个字节（8位），每一个字节都有一个地址编号，这个地址编号是它的逻辑地址。</p>
-<p>CPU中的寄存器（基址寄存器、变址寄存器）会储存中被运算的数据的编号地址。CPU寄存器的空间大小决定了CPU能识别多大的内存。</p>
-<p>比如说，一个32位的寄存器，它能表示的最大数为$2^{32}-1=4294967295$（十进制数，从0开始；换成16进制数就是FFFFFFFF）。也就是说它能表示$2^{32}=4294967296$种状态。而4g的内存一共有$4\times1024\times1024\times1024=4294967296$个byte，也就是说一个具有32位的寄存器的CPU最多能识别4g的内存。</p>
-<p>通过基址寄存器和变址寄存器，我们可以对主内存上特定的内存区域进行划分。首先，我们用十六进制数
-将计算机内存上 00000000～FFFFFFFF的地址划分出来。那么，凡是该范围的内存区域，只要有一个 32 位的
-寄存器，即可查看全部的内存地址。</p>
-<p><strong>CPU所生成的地址通常称为逻辑地址(logical address)，而内存单元所看到的地址（即加载到内存地址寄存器(memory-address register)中的地址）通常称为物理地址(physical address)</strong>。</p>
-<p>逻辑地址与物理地址的对应关系并不是固定不变的，这取决于执行的地址绑定方案。因此，逻辑地址又称为虚拟地址。虚拟地址通过<strong>映射</strong>与物理地址对应起来。完成这种映射的硬件设备是<strong>内存管理单元</strong>(memory-management unit, MMU)，完成映射的方法有多种，也就是地址绑定方案有多种。程序无法访问物理地址，只能基于虚拟地址进行操作。</p>
+<p>eax 和 ebp 是 CPU 内部的寄存器的名称。<mark>内存的存储场所通过地址编号来区分，而寄存器的种类则通过名字来区分。</mark> </p>
+<h3 id="_3">运算器</h3>
+<ul>
+<li>算术逻辑单元（Arithmetic and Logic Unit, <code>ALU</code>）：负责对数据进行算术运算和逻辑运算。</li>
+<li>累加寄存器（<code>AC</code>）：累加器，通用寄存器，为 <code>ALU</code>提供了一个工作区。</li>
+<li>数据缓冲寄存器（<code>DR</code>）：为CPU和内存、外围设备之间数据传送的中转站、缓冲。</li>
+<li>状态条件寄存器（<code>PSW</code>）：包括状态标准和控制标志，例如进位(C)、溢出(V)、运算结果为0（Z）、运算结果为负值（N）、中断（I）等。</li>
+</ul>
+<h3 id="_4">控制器</h3>
+<p>控制器用于控制整个CPU的工作。一般包括：</p>
+<ul>
+<li>指令寄存器（<code>IR</code>）：当CPU执行一条指令时，先把它从内存中取到 <code>DR</code>，然后送入 <code>IR</code>暂存。指令译码器根据 <code>IR</code>的内容产生各种微操作指令，控制其他部件完成工作。</li>
+<li>程序计数器（<code>PC</code>）: 又称之为指令计数器，<code>PC</code>有寄存信息和计数两个功能。执行指令时，CPU将自动修改 <code>PC</code>内容，使其保持的总是将要执行的下一条指令的地址。</li>
+<li>地址寄存器（<code>AR</code>）: 保存了当前CPU所访问内容单元的地址，直到对内存的读写操作完成。</li>
+<li>指令译码器（<code>ID</code>）: 指令分为操作码和地址码两部分。<code>ID</code>是对指令中的操作码字段进行分析解释，识别指令规定的操作，向操作控制器发出具体的控制信号，控制各部件完成工作。</li>
+</ul>
+<p>其他还包括：</p>
+<ul>
+<li>时序控制器：为每条指令按时间顺序提供有效的控制信号。</li>
+<li>总线逻辑：信息通路的控制电路。</li>
+<li>中断控制器：用于控制各种中断请求，并根据优先级进行排队，逐个交给CPU处理。</li>
+<li>e.t.c</li>
+</ul>
+<h2 id="_5">流水线技术</h2>
+<p>CPU可以有分开的取值单元、解码单元、和执行单元。也就是说，不必等到一条指令从头到尾执行完毕后再开始处理下一条指令。三级流水线其示意图为：</p>
+<div class="codehilite"><pre><span></span><code><span class="err">//</span> <span class="err">流水线技术</span>
+          <span class="err">^</span>
+          <span class="err">|</span>                                           <span class="err">X</span> <span class="err">:</span> <span class="err">取指流水线</span>
+          <span class="err">|</span>                                           <span class="err">Y</span> <span class="err">:</span> <span class="err">解码流水线</span>
+          <span class="err">|</span>                                           <span class="err">Z</span> <span class="err">:</span> <span class="err">执行流水线</span>
+          <span class="err">|</span>
+          <span class="err">|</span>
+<span class="err">+-------+</span> <span class="err">+------+------+-----------------+-----+</span>
+   <span class="err">X</span>      <span class="err">|</span>  <span class="mi">1</span>   <span class="err">|</span>  <span class="mi">2</span>   <span class="err">|</span>       <span class="err">...</span>       <span class="err">|</span>  <span class="err">n</span>  <span class="err">|</span>
+<span class="err">+-------+</span> <span class="err">+----------+------+-------------+----------+</span>
+   <span class="err">Y</span>      <span class="err">|</span>      <span class="err">|</span> <span class="mi">1</span> <span class="err">|</span>  <span class="err">|</span> <span class="mi">2</span> <span class="err">|</span>      <span class="err">...</span>          <span class="err">|</span> <span class="err">n</span>  <span class="err">|</span>
+<span class="err">+-------+</span> <span class="err">|</span>      <span class="err">+------+---------+-----+-----+-+---------+</span>
+   <span class="err">Z</span>      <span class="err">|</span>          <span class="err">|</span>  <span class="mi">1</span>   <span class="err">|</span>  <span class="mi">2</span>  <span class="err">|</span>  <span class="mi">3</span>  <span class="err">|</span> <span class="err">...</span> <span class="err">|</span>      <span class="err">|</span> <span class="err">n</span>  <span class="err">|</span>   <span class="err">时间</span>
+<span class="err">+-------+</span> <span class="err">+-----------------+-----+-----+-----+------------------&gt;</span>
+          <span class="err">|XXXXXX|YYY|</span>                               <span class="err">|ZZZZ|</span>
+          <span class="err">|XXXXXX|YYY|</span>                               <span class="err">|ZZZZ|</span>
+          <span class="err">+----------+</span>                               <span class="err">+----+</span>
+</code></pre></div>
+
+
+<p>在某个时刻，第一条指令取指完成（对应图中XXXXXX标注区域），解码流水线立即开始第一条指令的解码，同时取指流水线开始对第二条指令的取指；第一条指令的解码操作完成之后（对应图中YYYY标注区域），执行流水线开始对第一条指令的执行操作，同时解码流水线等待第二条指令送达。</p>
+<h2 id="_6">参考</h2>
+<ol>
+<li><a href="https://software.intel.com/zh-cn/articles/book-Processor-Architecture_CPU_function_and_composition">CPU的功能和组成</a></li>
+<li><a href="https://software.intel.com/content/www/cn/zh/develop/articles/book-processor-architecture_cpu_work_process.html">CPU的工作过程</a></li>
+<li><a href="[https://www.itminus.com/blog/2017/10/26/Boulevard/OS/%E7%A1%AC%E4%BB%B6%E5%9F%BA%E7%A1%80/CPU/](https://www.itminus.com/blog/2017/10/26/Boulevard/OS/硬件基础/CPU/)">操作系统笔记 硬件基础——CPU</a></li>
+</ol>
                 
                   
                 
@@ -1921,13 +2073,13 @@
           </a>
         
         
-          <a href="1.2.%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5.html" title="1.2.基本概念" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="1.2.Memory.html" title="1.2.Memory" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   下一页
                 </span>
-                1.2.基本概念
+                1.2.Memory
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
