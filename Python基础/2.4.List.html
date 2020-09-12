@@ -36,7 +36,7 @@
     
     
       
-        <title>2.3.List - Python笔记</title>
+        <title>2.4.List - Python笔记</title>
       
     
     
@@ -103,7 +103,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                2.3.List
+                2.4.List
               
             </span>
           
@@ -353,6 +353,18 @@
           
           
 
+
+  <li class="md-nav__item">
+    <a href="2.3.String.html" title="2.3.String" class="md-nav__link">
+      2.3.String
+    </a>
+  </li>
+
+        
+          
+          
+          
+
   
 
 
@@ -362,11 +374,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        2.3.List
+        2.4.List
       </label>
     
-    <a href="2.3.List.html" title="2.3.List" class="md-nav__link md-nav__link--active">
-      2.3.List
+    <a href="2.4.List.html" title="2.4.List" class="md-nav__link md-nav__link--active">
+      2.4.List
     </a>
     
       
@@ -482,18 +494,6 @@
   
 </nav>
     
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="2.4.String.html" title="2.4.String" class="md-nav__link">
-      2.4.String
-    </a>
   </li>
 
         
@@ -1917,14 +1917,14 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/siwing/siwing.github.io/edit/master/docs/Python基础/2.3.List.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/siwing/siwing.github.io/edit/master/docs/Python基础/2.4.List.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                  <h1>2.3.List</h1>
+                  <h1>2.4.List</h1>
                 
                 <div class="codehilite"><pre><span></span><code><span class="err">Windows 10</span>
-<span class="err">Python 3.6.9 @ MSC v.1915 64 bit (AMD64)</span>
-<span class="err">Latest build date 2020.06.13</span>
+<span class="err">Python 3.7.3 @ MSC v.1915 64 bit (AMD64)</span>
+<span class="err">Latest build date 2020.09.12</span>
 </code></pre></div>
 
 
@@ -2005,23 +2005,23 @@
 
 <h3 id="list_1">修改list元素的值</h3>
 <p>修改现有list的值，通过索引、切片来完成。</p>
-<div class="codehilite"><pre><span></span><code><span class="n">list_1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">]</span>
+<div class="codehilite"><pre><span></span><code><span class="n">list_1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
 <span class="c1"># 修改某个索引对应元素的值</span>
-<span class="n">list_1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span> <span class="n">list_1</span>
+<span class="n">list_1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span> <span class="n">list_1</span>
 </code></pre></div>
 
 
-<div class="codehilite"><pre><span></span><code><span class="err">[12, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]</span>
+<div class="codehilite"><pre><span></span><code><span class="err">[100, 10, 20, 30]</span>
 </code></pre></div>
 
 
 <div class="codehilite"><pre><span></span><code><span class="c1"># 修改某个连续区域的值</span>
 <span class="c1"># 切片的长度 和 用于赋值的列表长度 可以不同，如下：</span>
-<span class="n">list_1</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">11</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">16</span><span class="p">,</span><span class="mi">17</span><span class="p">];</span> <span class="n">list_1</span>
+<span class="n">list_1</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">];</span> <span class="n">list_1</span>
 </code></pre></div>
 
 
-<div class="codehilite"><pre><span></span><code><span class="err">[11, 12, 13, 14, 15, 16, 17, 5, 6, 7, 8, 9, 10]</span>
+<div class="codehilite"><pre><span></span><code><span class="err">[11, 12, 13, 14, 20, 30]</span>
 </code></pre></div>
 
 
@@ -2084,8 +2084,8 @@
 
 <p>当然，也可以借助切片在任意位置插入元素。注意的是，对一个list使用切片，必定会得到一个list，这就需要用一个list对切片赋值。</p>
 <div class="codehilite"><pre><span></span><code><span class="c1"># 这样虽然巧妙，但是可读性比不上insert。</span>
-<span class="n">list_1</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">));</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;原列表：&quot;</span><span class="p">,</span><span class="n">list_1</span><span class="p">)</span>
-<span class="n">list_1</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;新元素&quot;</span><span class="p">];</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;新列表：&quot;</span><span class="p">,</span><span class="n">list_1</span><span class="p">)</span>
+<span class="n">list_1</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">));</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;原列表：&quot;</span><span class="p">,</span> <span class="n">list_1</span><span class="p">)</span>
+<span class="n">list_1</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;新元素&quot;</span><span class="p">];</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;新列表：&quot;</span><span class="p">,</span> <span class="n">list_1</span><span class="p">)</span>
 </code></pre></div>
 
 
@@ -2095,8 +2095,8 @@
 
 
 <h3 id="_4">删除\取出最后一个（任意位置的）元素</h3>
-<div class="codehilite"><pre><span></span><code><span class="n">list_2</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;0&#39;</span><span class="p">,</span><span class="s1">&#39;00&#39;</span><span class="p">,</span><span class="s1">&#39;000&#39;</span><span class="p">]</span>
-<span class="c1"># 注意，pop是list中唯一一个修改原列表，并且有返回值的方法</span>
+<p>注意，pop是list中唯一一个修改原列表，并且有返回值的方法</p>
+<div class="codehilite"><pre><span></span><code><span class="n">list_2</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;0&#39;</span><span class="p">,</span> <span class="s1">&#39;00&#39;</span><span class="p">,</span> <span class="s1">&#39;000&#39;</span><span class="p">]</span>
 <span class="n">list_2</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
 </code></pre></div>
 
@@ -2105,8 +2105,8 @@
 </code></pre></div>
 
 
-<div class="codehilite"><pre><span></span><code><span class="n">list_2</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;0&#39;</span><span class="p">,</span><span class="s1">&#39;00&#39;</span><span class="p">,</span><span class="s1">&#39;000&#39;</span><span class="p">]</span>
-<span class="c1"># pop默认删除最后一个元素，但是也可以输入索引值，指定删除元素的位置</span>
+<p>pop默认删除最后一个元素，但是也可以输入索引值，指定删除元素的位置</p>
+<div class="codehilite"><pre><span></span><code><span class="n">list_2</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;0&#39;</span><span class="p">,</span> <span class="s1">&#39;00&#39;</span><span class="p">,</span> <span class="s1">&#39;000&#39;</span><span class="p">]</span>
 <span class="n">list_2</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">list_2</span>
 </code></pre></div>
@@ -2117,7 +2117,7 @@
 
 
 <h3 id="_5">删除第一次出现的元素</h3>
-<div class="codehilite"><pre><span></span><code><span class="n">list_1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+<div class="codehilite"><pre><span></span><code><span class="n">list_1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
 <span class="n">list_1</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">list_1</span>
 </code></pre></div>
@@ -2128,7 +2128,7 @@
 
 
 <h3 id="_6">反序排序</h3>
-<div class="codehilite"><pre><span></span><code><span class="n">list_1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<div class="codehilite"><pre><span></span><code><span class="n">list_1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 <span class="n">list_1</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
 <span class="n">list_1</span>
 </code></pre></div>
@@ -2151,7 +2151,7 @@
 
 
 <div class="codehilite"><pre><span></span><code><span class="c1"># 按照长度降序排序</span>
-<span class="n">list_3</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="nb">len</span><span class="p">,</span><span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">list_3</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="nb">len</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">list_3</span>
 </code></pre></div>
 
@@ -2161,7 +2161,7 @@
 
 
 <h3 id="_8">统计元素出现的次数</h3>
-<div class="codehilite"><pre><span></span><code><span class="n">list_1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+<div class="codehilite"><pre><span></span><code><span class="n">list_1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
 <span class="n">list_1</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 </code></pre></div>
 
@@ -2171,22 +2171,21 @@
 
 
 <h3 id="_9">得到某个值第一次出现时对应的索引值</h3>
-<div class="codehilite"><pre><span></span><code><span class="n">list_1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+<div class="codehilite"><pre><span></span><code><span class="n">list_1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
 <span class="n">list_1</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="s2">&quot;严&quot;</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
 </code></pre></div>
 
 
-<div class="codehilite"><pre><span></span><code><span class="err">b&#39;\xe4\xb8\xa5&#39;</span>
+<div class="codehilite"><pre><span></span><code><span class="err">0</span>
 </code></pre></div>
 
 
 <h3 id="_10">浅拷贝列表</h3>
-<div class="codehilite"><pre><span></span><code><span class="n">list_1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<div class="codehilite"><pre><span></span><code><span class="n">list_1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 <span class="n">list_4</span> <span class="o">=</span> <span class="n">list_1</span>
 <span class="n">list_1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;修改了&quot;</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;list_1：&quot;</span><span class="p">,</span><span class="n">list_1</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;list_4：&quot;</span><span class="p">,</span><span class="n">list_4</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;list_1：&quot;</span><span class="p">,</span> <span class="n">list_1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;list_4：&quot;</span><span class="p">,</span> <span class="n">list_4</span><span class="p">)</span>
 </code></pre></div>
 
 
@@ -2196,12 +2195,12 @@
 
 
 <div class="codehilite"><pre><span></span><code><span class="c1"># 浅拷贝</span>
-<span class="n">list_1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]]</span>
+<span class="n">list_1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]]</span>
 <span class="n">list_5</span> <span class="o">=</span> <span class="n">list_1</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 <span class="n">list_1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;修改了&quot;</span>
 <span class="n">list_1</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;修改了&quot;</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;list_1：&quot;</span><span class="p">,</span><span class="n">list_1</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;list_5：&quot;</span><span class="p">,</span><span class="n">list_5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;list_1：&quot;</span><span class="p">,</span> <span class="n">list_1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;list_5：&quot;</span><span class="p">,</span> <span class="n">list_5</span><span class="p">)</span>
 </code></pre></div>
 
 
@@ -2239,7 +2238,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="2.2.%E8%AF%AD%E5%8F%A5.html" title="2.2.语句" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="2.3.String.html" title="2.3.String" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -2248,19 +2247,19 @@
                 <span class="md-footer-nav__direction">
                   上一页
                 </span>
-                2.2.语句
+                2.3.String
               </span>
             </div>
           </a>
         
         
-          <a href="2.4.String.html" title="2.4.String" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="2.5.Tuple.html" title="2.5.Tuple" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   下一页
                 </span>
-                2.4.String
+                2.5.Tuple
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
