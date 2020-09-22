@@ -646,7 +646,7 @@
       
         <li class="md-nav__item">
   <a href="#package" class="md-nav__link">
-    安装package
+    安装 package
   </a>
   
 </li>
@@ -660,7 +660,7 @@
       
         <li class="md-nav__item">
   <a href="#package_1" class="md-nav__link">
-    下载package
+    下载 package
   </a>
   
 </li>
@@ -674,21 +674,21 @@
       
         <li class="md-nav__item">
   <a href="#package_2" class="md-nav__link">
-    显示已安装的package的信息
+    显示已安装的 package 的信息
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#pypipackage" class="md-nav__link">
-    在PyPi搜索package
+  <a href="#pypi-package" class="md-nav__link">
+    在 PyPi 搜索 package
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#package_3" class="md-nav__link">
-    输出安装的package列表
+    输出安装的 package 列表
   </a>
   
 </li>
@@ -1765,6 +1765,66 @@
   </li>
 
     
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-14" type="checkbox" id="nav-14">
+    
+    <label class="md-nav__link" for="nav-14">
+      文件操作
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-14">
+        文件操作
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/15.2.PDF.html" title="15.2.PDF" class="md-nav__link">
+      15.2.PDF
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/15.3.docx.html" title="15.3.docx" class="md-nav__link">
+      15.3.docx
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/15.4.OCR.html" title="15.4.OCR" class="md-nav__link">
+      15.4.OCR
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
   </ul>
 </nav>
                   </div>
@@ -1812,7 +1872,7 @@
       
         <li class="md-nav__item">
   <a href="#package" class="md-nav__link">
-    安装package
+    安装 package
   </a>
   
 </li>
@@ -1826,7 +1886,7 @@
       
         <li class="md-nav__item">
   <a href="#package_1" class="md-nav__link">
-    下载package
+    下载 package
   </a>
   
 </li>
@@ -1840,21 +1900,21 @@
       
         <li class="md-nav__item">
   <a href="#package_2" class="md-nav__link">
-    显示已安装的package的信息
+    显示已安装的 package 的信息
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#pypipackage" class="md-nav__link">
-    在PyPi搜索package
+  <a href="#pypi-package" class="md-nav__link">
+    在 PyPi 搜索 package
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#package_3" class="md-nav__link">
-    输出安装的package列表
+    输出安装的 package 列表
   </a>
   
 </li>
@@ -1900,7 +1960,7 @@ pip config <span class="nb">set</span> global.index-url https://pypi.tuna.tsingh
 </code></pre></div>
 
 
-<h2 id="package">安装package</h2>
+<h2 id="package">安装 package</h2>
 <div class="codehilite"><pre><span></span><code><span class="c1"># 从指定的requirements文件安装需要的package</span>
 pip install -r
 pip install --requirement
@@ -1934,7 +1994,7 @@ pip install -r &lt;file&gt; --no-index --find-links &lt;<span class="nb">local</
 </code></pre></div>
 
 
-<h2 id="package_1">下载package</h2>
+<h2 id="package_1">下载 package</h2>
 <div class="codehilite"><pre><span></span><code><span class="c1"># 从清华镜像下载requirements文件指定的package到当前目录</span>
 pip download -r &lt;file&gt; -d . -i https://pypi.tuna.tsinghua.edu.cn/simple
 </code></pre></div>
@@ -1946,18 +2006,18 @@ pip check numpy
 </code></pre></div>
 
 
-<h2 id="package_2">显示已安装的package的信息</h2>
+<h2 id="package_2">显示已安装的 package 的信息</h2>
 <div class="codehilite"><pre><span></span><code><span class="c1"># 可以显示 版本信息、安装位置、依赖该package的packages 等等</span>
 pip show numpy
 </code></pre></div>
 
 
-<h2 id="pypipackage">在PyPi搜索package</h2>
+<h2 id="pypi-package">在 PyPi 搜索 package</h2>
 <div class="codehilite"><pre><span></span><code>pip search numpy
 </code></pre></div>
 
 
-<h2 id="package_3">输出安装的package列表</h2>
+<h2 id="package_3">输出安装的 package 列表</h2>
 <div class="codehilite"><pre><span></span><code><span class="c1"># 默认为 columns 格式</span>
 pip list
 <span class="c1"># 以freeze格式输出</span>
