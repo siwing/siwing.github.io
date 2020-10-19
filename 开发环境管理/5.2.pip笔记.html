@@ -1999,9 +1999,10 @@ pip install -r &lt;file&gt; --no-index --find-links &lt;<span class="nb">local</
 
 
 <h2 id="package-index">关于 Package Index 的设置</h2>
-<div class="codehilite"><pre><span></span><code>-i, --index-url &lt;url&gt;      指定 Package Index Url
---extra-index-url &lt;url&gt;    除了使用 --index-url 指定的 URL，还是用 --extra-index-url 指定的 URL
---no-index                 忽略package index（仅在 --find-links 指定的URL中查找package）
+<div class="codehilite"><pre><span></span><code>-i, --index-url &lt;url&gt;      指定 Package Index URL
+--extra-index-url &lt;url&gt;    除了使用 --index-url 指定的 URL
+                           还使用 --extra-index-url 指定的 URL
+--no-index                 忽略package index (仅在 --find-links 指定的URL中查找包)
 -f, --find-links &lt;url&gt;     可以是一个网址，或者储存了package的本地目录
 </code></pre></div>
 

@@ -2078,19 +2078,17 @@ Display information about current conda install.
 Options:
 
 optional arguments:
-  -h, --help         Show this <span class="nb">help</span> message and exit.
-  -a, --all          显示所有信息。
-  --base             基本显示 base 环境路径。
-  -e, --envs         列出所有已知的Conda环境。
-  -s, --system       列出环境变量。
-  --unsafe-channels  Display list of channels with tokens exposed.
+  -h, --help         
+  -a, --all          显示所有信息
+  --base             显示 base 环境的路径
+  -e, --envs         列出所有已知的Conda环境
+  -s, --system       列出环境变量
+  --unsafe-channels  列出暴露token的channel
 
 Output, Prompt, and Flow Control Options:
-  --json             Report all output as json. Suitable <span class="k">for</span> using conda
-                     programmatically.
-  -v, --verbose      Use once <span class="k">for</span> info, twice <span class="k">for</span> debug, three <span class="nb">times</span> <span class="k">for</span>
-                     trace.
-  -q, --quiet        Do not display progress bar.
+  --json             以json格式输出，适合以编程方式使用conda的情况
+  -v, --verbose      输入一次用于info，两次用于debug，三次用于trace
+  -q, --quiet        不显示进度条
 </code></pre></div>
 
 
@@ -2107,97 +2105,75 @@ Output, Prompt, and Flow Control Options:
                               <span class="o">[</span>--no-default-packages<span class="o">]</span> <span class="o">[</span>--dev<span class="o">]</span>
                               <span class="o">[</span>package_spec <span class="o">[</span>package_spec ...<span class="o">]]</span>
 
-Create a new conda environment from a list of specified packages. To use the created environment, use <span class="s1">&#39;source activate envname&#39;</span> look in that directory first.  This <span class="nb">command</span> requires either the -n NAME or -p PREFIX option.
+Create a new conda environment from a list of specified packages.
 
 Options:
 
 positional arguments:
-  package_spec          Packages to install or update in the conda
-                        environment.
+  package_spec          在新conda环境需要安装或更新的包
 
 optional arguments:
-  -h, --help            Show this <span class="nb">help</span> message and exit.
-  --clone ENV           通过克隆其他环境来创建一个新环境，<span class="s1">&#39;ENV&#39;</span>可以是现有本地环境的路径（或名                           称）。
-  --file FILE           从文件创建环境<span class="o">(</span>从给定的文件读入指定版本的包<span class="o">)</span>。可以传递重复的文件规范（例                        如--file<span class="o">=</span>file1 --file<span class="o">=</span>file2）。
-  --dev                 Use <span class="sb">`</span>sys.executable -m conda<span class="sb">`</span> in wrapper scripts
-                        instead of CONDA_EXE This is mainly <span class="k">for</span> use during
-                        tests where we <span class="nb">test</span> new conda <span class="nb">source</span> against old
-                        Python versions.
+  -h, --help            
+  --clone ENV           通过克隆其他环境来创建一个新环境，<span class="s1">&#39;ENV&#39;</span>可以是本地环境的路径或名称
+  --file FILE           从文件创建环境，可以传入多个文件<span class="o">(</span>e.g. --file<span class="o">=</span>file1 --file<span class="o">=</span>file2<span class="o">)</span>
+  --dev                 使用<span class="s1">&#39;sys.executable -m conda&#39;</span>而不是CONDA_EXE，主要用于测试
 
 Target Environment Specification:
   -n ENVIRONMENT, --name ENVIRONMENT
-                        Name of environment.
+                        新环境的名字
   -p PATH, --prefix PATH
-                        Full path to environment location <span class="o">(</span>i.e. prefix<span class="o">)</span>.
+                        环境目录的完整路径
 
 Channel Customization:
   -c CHANNEL, --channel CHANNEL
-                        用于搜索包的其他通道。这些 URL 按给定顺序搜索<span class="o">(</span>包括本地目录file://<span class="o">)</span>。然                         后,搜索 .condarc 中的默认值或通道<span class="o">(</span>除非提供 --override-channels<span class="o">)</span>。                         您可以使用<span class="s2">&quot;defaults&quot;</span>获取 conda 的默认包。您还可以使用任何名称,                               .condarc的channel_alias值将预置。默认的channel_alias是                                   http://conda.anaconda.org/。
-
-  --use-local           使用本地构建的包。等同于<span class="s2">&quot;-c local&quot;</span>。
-  --override-channels   不在 default 或者 .condarc channels 中搜索. Requires
-                        --channel.
+                        添加额外的Channel用于搜索包，可以指定本地目录。按顺序在指定的Channel
+                        进行搜索，<span class="s2">&quot;defaults&quot;</span>和.condarc的Channel会先被搜索，除非提供了
+                        <span class="s1">&#39;--override-channels&#39;</span>参数
+  --use-local           使用本地构建的包，等同于<span class="s2">&quot;-c local&quot;</span>
+  --override-channels   不使用<span class="s2">&quot;defaults&quot;</span>和.condarc的Channel
+                        要求提供<span class="s1">&#39;--channel&#39;</span>参数
   --repodata-fn REPODATA_FNS
-                        Specify name of repodata on remote server. Conda will
-                        try whatever you specify, but will ultimately fall
-                        back to repodata.json <span class="k">if</span> your specs are not
-                        satisfiable with what you specify here. This is used
-                        to employ repodata that is reduced in <span class="nb">time</span> scope. You
-                        may pass this flagmore than once. Leftmost entries are
-                        tried first, and the fallback torepodata.json is added
-                        <span class="k">for</span> you automatically.
 
 Solver Mode Modifiers:
   --strict-channel-priority
-                        Packages in lower priority channels are not considered
-                        <span class="k">if</span> a package with the same name appears in a higher
-                        priority channel.
+                        优先考虑较高优先级的channel的程序包
   --no-channel-priority
-                        Package version takes precedence over channel
-                        priority. Overrides the value given by <span class="sb">`</span>conda config
-                        --show channel_priority<span class="sb">`</span>.
-  --no-deps             Do not install, update, remove, or change
-                        dependencies. This WILL lead to broken environments
-                        and inconsistent behavior. Use at your own risk.
-  --only-deps           Only install dependencies.
-  --no-pin              Ignore pinned file.
+                        优先考虑较高版本的软件版，而不考虑channel的优先级
+                        这将覆盖<span class="s1">&#39;conda config --show channel_priority&#39;</span>给定的值
+  --no-deps             不安装、更新、删除或更改依赖性。这将破坏环境，风险自负
+  --only-deps           仅安装依赖
+  --no-pin              忽略pinned文件
   --no-default-packages
-                        Ignore create_default_packages in the .condarc file.
+                        忽略.condarc配置文件的<span class="s1">&#39;create_default_packages&#39;</span>设置
 
 Package Linking and Install-time Options:
-  --copy                Install all packages using copies instead of hard- or
-                        soft-linking.
-  --no-shortcuts        Don<span class="s1">&#39;t install start menu shortcuts</span>
+  --copy                使用副本而不是硬链接或软链接来安装所有软件包
+  --no-shortcuts        不安装开始菜单快捷方式
 
-<span class="s1">Networking Options:</span>
-<span class="s1">  -C, --use-index-cache</span>
-<span class="s1">                        Use cache of channel index files, even if it has</span>
-<span class="s1">                        expired.</span>
-<span class="s1">  -k, --insecure        Allow conda to perform &quot;insecure&quot; SSL connections and</span>
-<span class="s1">                        transfers. Equivalent to setting &#39;</span>ssl_verify<span class="s1">&#39; to</span>
-<span class="s1">                        &#39;</span>false<span class="s1">&#39;.</span>
-<span class="s1">  --offline             Offline mode. Don&#39;</span>t connect to the Internet.
+Networking Options:
+  -C, --use-index-cache
+                        即使channel的索引文件已过期，也使用其缓存
+  -k, --insecure        允许conda执行不安全的SSL连接和传输
+                        等效于将<span class="s1">&#39;ssl_verify&#39;</span>设置为<span class="s1">&#39;false&#39;</span>
+  --offline             离线模式，不连接网络
 
 Output, Prompt, and Flow Control Options:
-  -d, --dry-run         Only display what would have been <span class="k">done</span>.
-  --json                Report all output as json. Suitable <span class="k">for</span> using conda
-                        programmatically.
-  -q, --quiet           Do not display progress bar.
-  -v, --verbose         Can be used multiple times. Once <span class="k">for</span> INFO, twice <span class="k">for</span>
-                        DEBUG, three <span class="nb">times</span> <span class="k">for</span> TRACE.
-  -y, --yes             Do not ask <span class="k">for</span> confirmation.
-  --download-only       Solve an environment and ensure package caches are
-                        populated, but <span class="nb">exit</span> prior to unlinking and linking
-                        packages into the prefix.
-  --show-channel-urls   Show channel urls. Overrides the value given by <span class="sb">`</span>conda
-                        config --show show_channel_urls<span class="sb">`</span>.
+  -d, --dry-run         仅显示将要完成的操作
+  --json                
+  -q, --quiet           
+  -v, --verbose         
+  -y, --yes             默许所有操作，不要求确认
+  --download-only       
+  --show-channel-urls   显示channel的url
+                        覆盖<span class="sb">`</span>conda config --show show_channel_urls<span class="sb">`</span>的值
 </code></pre></div>
 
 
 <h2 id="conda_2">conda常用命令</h2>
 <h3 id="_1">查看信息</h3>
 <div class="codehilite"><pre><span></span><code><span class="c1"># 查看conda的信息</span>
-<span class="c1">## 该命令可以查看当前安装的 conda 的详细信息，包括 conda 版本、python 版本、软件包仓库地址、新建环境的存放路径等。</span>
+<span class="c1">## 该命令可以查看当前安装的 conda 的详细信息</span>
+<span class="c1">## 其中包括 conda 版本、python 版本、软件包仓库地址、新建环境的存放路径等</span>
 conda info
 
 <span class="c1"># 查看conda版本信息</span>
@@ -2241,7 +2217,8 @@ conda deactivate
 conda list -e &gt; package-list.txt
 conda list -e &gt; package-list.yml
 <span class="c1">## 或者这样</span>
-<span class="c1">### 这会将当前环境中由 conda 管理的包和由 pip 安装的包同时导出到文件中，所以当根据文件创建环境时，无需重新安装 pip 的包。</span>
+<span class="c1">### 这会将当前环境中由 conda 管理的包和由 pip 安装的包同时导出到文件中</span>
+<span class="c1">### 所以当根据文件创建环境时，无需重新安装 pip 的包</span>
 conda env <span class="nb">export</span> --name base --file base_bunnies.yml
 </code></pre></div>
 
@@ -2249,7 +2226,8 @@ conda env <span class="nb">export</span> --name base --file base_bunnies.yml
 <h4 id="_5">创建环境</h4>
 <div class="codehilite"><pre><span></span><code><span class="c1"># 创建环境</span>
 
-<span class="c1">## 新建一个名为 newenv 的环境，并指定新环境中的 python 版本为 3.6 创建出来的环境中只带有最基本的包</span>
+<span class="c1">## 新建一个名为 newenv 的环境，并指定新环境中的 python 版本为3.6</span>
+<span class="c1">## 创建出来的环境中只带有最基本的包</span>
 conda create --name newenv <span class="nv">python</span><span class="o">=</span><span class="m">3</span>.6
 <span class="c1">## 也可以在创建环境时候，包含某些程序或者包 </span>
 conda create --name newenv <span class="nv">python</span><span class="o">=</span><span class="m">3</span>.6 biopython ipython 

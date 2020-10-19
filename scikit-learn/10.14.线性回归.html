@@ -1843,9 +1843,9 @@
                   <h1>10.14.线性回归</h1>
                 
                 <div class="codehilite"><pre><span></span><code><span class="err">Windows 10</span>
-<span class="err">Python 3.7.3 @ MSC v.1915 64 bit (AMD64)</span>
-<span class="err">Latest build date 2020.07.04</span>
-<span class="err">sklearn version:  0.23.1</span>
+<span class="err">Python 3.7.7 @ MSC v.1916 64 bit (AMD64)</span>
+<span class="err">Latest build date 2020.10.19</span>
+<span class="err">sklearn version:  0.23.2</span>
 </code></pre></div>
 
 
@@ -1880,11 +1880,11 @@ $$</p>
 <span class="c1"># 求解最小二乘</span>
 <span class="n">c</span><span class="p">,</span> <span class="n">resid</span><span class="p">,</span> <span class="n">rank</span><span class="p">,</span> <span class="n">sigma</span> <span class="o">=</span> <span class="n">linalg</span><span class="o">.</span><span class="n">lstsq</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;最小二乘估计的参数:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;c1={[0]:.3f}   c2={[1]:.3f}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">c</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;真实参数:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;c1=</span><span class="si">{c1}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;   &quot;</span> <span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;c2=</span><span class="si">{c2}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;真实参数:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;c1=</span><span class="si">{c1}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;   &quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;c2=</span><span class="si">{c2}</span><span class="s2">&quot;</span><span class="p">)</span>
 
 <span class="c1"># 利用估计参数计算z的预测值</span>
-<span class="n">z_pred</span> <span class="o">=</span> <span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">A</span><span class="p">[:,</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">c</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">A</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span>
-<span class="n">lstsq_mse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">z</span><span class="o">-</span><span class="n">z_pred</span><span class="p">))</span>
+<span class="n">z_pred</span> <span class="o">=</span> <span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">A</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">c</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">A</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">lstsq_mse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">z</span> <span class="o">-</span> <span class="n">z_pred</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;最小二乘估计的均方差：&quot;</span><span class="p">,</span> <span class="n">lstsq_mse</span><span class="p">)</span>
 
 
@@ -1914,10 +1914,10 @@ $$</p>
 <span class="c"> [0.40656966 0.9       ]</span>
 <span class="c"> [0.36787944 1.        ]]</span>
 <span class="c">最小二乘估计的参数:</span>
-<span class="c"> c1=4.924   c2=1.775</span>
+<span class="c"> c1=5.259   c2=1.840</span>
 <span class="c">真实参数:</span>
 <span class="c"> c1=5.0     c2=2.0</span>
-<span class="err">最小二乘估计的均方差： 0.028177980785106322</span>
+<span class="err">最小二乘估计的均方差： 0.06473460239351055</span>
 </code></pre></div>
 
 
@@ -1978,9 +1978,9 @@ $$</p>
 
 
 <div class="codehilite"><pre><span></span><code><span class="err">LinearRegression 估计的参数:</span>
-<span class="err"> [4.92369669 1.77539478]</span>
-<span class="err">Mean squared error: 0.03</span>
-<span class="err">Coefficient of determination: 0.82</span>
+<span class="err"> [5.25900749 1.83969839]</span>
+<span class="err">Mean squared error: 0.06</span>
+<span class="err">Coefficient of determination: 0.72</span>
 </code></pre></div>
 
 
@@ -2076,9 +2076,9 @@ $$</p>
 
 
 <div class="codehilite"><pre><span></span><code><span class="c">Coefficients:</span>
-<span class="c"> [4.92336261 1.77456056]</span>
-<span class="err">Mean squared error: 0.03</span>
-<span class="err">Coefficient of determination: 0.82</span>
+<span class="c"> [5.25976419 1.84091438]</span>
+<span class="err">Mean squared error: 0.06</span>
+<span class="err">Coefficient of determination: 0.72</span>
 </code></pre></div>
 
 
