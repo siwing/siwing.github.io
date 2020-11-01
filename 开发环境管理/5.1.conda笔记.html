@@ -784,6 +784,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../PyNote" title="Docker" class="md-nav__link">
+      Docker
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -2040,7 +2052,7 @@
 <p>conda 的可用命令如下：</p>
 <div class="codehilite"><pre><span></span><code>usage: conda-script.py [-h] [-V] command ...
 
-conda is a tool for managing and deploying applications, environments and packages.
+conda是用于管理和部署应用程序、环境和程序包的工具
 
 Options:
 
@@ -2057,13 +2069,13 @@ positional arguments:
     remove       从指定的conda环境移除列表中包含的包
     uninstall    conda remove的别名。
     run          在 conda 环境中运行可执行文件 [实验性功能]
-    search       搜索package并显示相关信息。输入是一个MatchSpec语句（conda软件包的查询语言）
+    search       搜索package并显示相关信息。输入是MatchSpec语句(conda软件包的查询语言)
     update       将 conda 包更新为最新的兼容版本。
     upgrade      conda update的别名
 
 optional arguments:
-  -h, --help     Show this help message and exit.
-  -V, --version  Show the conda version number and exit.
+  -h, --help     
+  -V, --version  
 </code></pre></div>
 
 
@@ -2115,7 +2127,7 @@ positional arguments:
 optional arguments:
   -h, --help            
   --clone ENV           通过克隆其他环境来创建一个新环境，<span class="s1">&#39;ENV&#39;</span>可以是本地环境的路径或名称
-  --file FILE           从文件创建环境，可以传入多个文件<span class="o">(</span>e.g. --file<span class="o">=</span>file1 --file<span class="o">=</span>file2<span class="o">)</span>
+  --file FILE           从文件创建环境，可传入多个文件<span class="o">(</span>e.g. --file<span class="o">=</span>file1 --file<span class="o">=</span>file2<span class="o">)</span>
   --dev                 使用<span class="s1">&#39;sys.executable -m conda&#39;</span>而不是CONDA_EXE，主要用于测试
 
 Target Environment Specification:
@@ -2126,7 +2138,7 @@ Target Environment Specification:
 
 Channel Customization:
   -c CHANNEL, --channel CHANNEL
-                        添加额外的Channel用于搜索包，可以指定本地目录。按顺序在指定的Channel
+                        添加额外的Channel用于搜索包，可指定本地目录。按顺序在指定的Channel
                         进行搜索，<span class="s2">&quot;defaults&quot;</span>和.condarc的Channel会先被搜索，除非提供了
                         <span class="s1">&#39;--override-channels&#39;</span>参数
   --use-local           使用本地构建的包，等同于<span class="s2">&quot;-c local&quot;</span>
@@ -2187,7 +2199,8 @@ conda --version
 <div class="codehilite"><pre><span></span><code><span class="c1"># 查看环境信息</span>
 
 <span class="c1">## 查看系统中安装的所有环境：</span>
-<span class="c1">### 这两个命令都可以查看当前 conda 中已经创建的环境列表，处于激活状态的环境旁边会有一个*的字样。</span>
+<span class="c1">### 这两个命令都可以查看当前 conda 中已经创建的环境列表</span>
+<span class="c1">### 处于激活状态的环境旁边会有一个*的标记</span>
 conda env list
 conda info --envs
 conda info -e
