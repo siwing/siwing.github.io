@@ -635,18 +635,6 @@
   </li>
 
         
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../PyNote" title="Docker" class="md-nav__link">
-      Docker
-    </a>
-  </li>
-
-        
       </ul>
     </nav>
   </li>
@@ -1430,6 +1418,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#sgdregressor_1" class="md-nav__link">
+    手动实现SGDRegressor
+  </a>
+  
+</li>
+      
       
       
       
@@ -1794,6 +1789,54 @@
   </li>
 
     
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-15" type="checkbox" id="nav-15">
+    
+    <label class="md-nav__link" for="nav-15">
+      Docker
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-15">
+        Docker
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Docker/16.2.Dockerfile.html" title="16.2.Dockerfile" class="md-nav__link">
+      16.2.Dockerfile
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Docker/16.3.Image.html" title="16.3.Image" class="md-nav__link">
+      16.3.Image
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
   </ul>
 </nav>
                   </div>
@@ -1833,6 +1876,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#sgdregressor_1" class="md-nav__link">
+    手动实现SGDRegressor
+  </a>
+  
+</li>
+      
       
       
       
@@ -1855,9 +1905,9 @@
                   <h1>10.14.线性回归</h1>
                 
                 <div class="codehilite"><pre><span></span><code><span class="err">Windows 10</span>
-<span class="err">Python 3.7.7 @ MSC v.1916 64 bit (AMD64)</span>
-<span class="err">Latest build date 2020.10.19</span>
-<span class="err">sklearn version:  0.23.2</span>
+<span class="err">Python 3.7.3 @ MSC v.1915 64 bit (AMD64)</span>
+<span class="err">Latest build date 2020.11.03</span>
+<span class="err">sklearn version:  0.23.1</span>
 </code></pre></div>
 
 
@@ -1877,125 +1927,104 @@
 <p>$$
 y = c_1 \times e^{-x} + c_2 \times x
 $$</p>
+<p>$$
+z = y + \varepsilon
+$$</p>
+<p>$$
+\boldsymbol{A} = \left(\boldsymbol{e^{-x}}, \boldsymbol{x} \right)\qquad
+$$</p>
 <div class="codehilite"><pre><span></span><code><span class="c1"># 设定真实函数的参数</span>
 <span class="n">c1</span><span class="p">,</span> <span class="n">c2</span> <span class="o">=</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">2.0</span>
 <span class="c1"># 生成函数的自变量 X</span>
 <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">r_</span><span class="p">[</span><span class="mf">0.1</span><span class="p">:</span><span class="mf">1.1</span><span class="p">:</span><span class="mf">0.1</span><span class="p">]</span>
 <span class="c1"># 设置真实函数</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">c1</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">X</span><span class="p">)</span> <span class="o">+</span> <span class="n">c2</span><span class="o">*</span><span class="n">X</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">c1</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">X</span><span class="p">)</span> <span class="o">+</span> <span class="n">c2</span> <span class="o">*</span> <span class="n">X</span>
 <span class="c1"># 目标函数：真实函数 + 随机干扰</span>
 <span class="n">z</span> <span class="o">=</span> <span class="n">y</span> <span class="o">+</span> <span class="mf">0.05</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
 <span class="c1"># A 是自变量矩阵</span>
 <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">X</span><span class="p">)[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]]</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;系数矩阵:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">A</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;系数矩阵 A:</span><span class="se">\n</span><span class="si">{A}</span><span class="s2">&quot;</span><span class="p">)</span>
 
-<span class="c1"># 求解最小二乘</span>
-<span class="n">c</span><span class="p">,</span> <span class="n">resid</span><span class="p">,</span> <span class="n">rank</span><span class="p">,</span> <span class="n">sigma</span> <span class="o">=</span> <span class="n">linalg</span><span class="o">.</span><span class="n">lstsq</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;最小二乘估计的参数:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;c1={[0]:.3f}   c2={[1]:.3f}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">c</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;真实参数:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;c1=</span><span class="si">{c1}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="s2">&quot;   &quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;c2=</span><span class="si">{c2}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="c1"># 求解最小二乘 A*c = z</span>
+<span class="n">c</span><span class="p">,</span> <span class="n">mse</span><span class="p">,</span> <span class="n">rank</span><span class="p">,</span> <span class="n">sigma</span> <span class="o">=</span> <span class="n">linalg</span><span class="o">.</span><span class="n">lstsq</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>  <span class="c1"># 解 均方差 秩</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Parameters estimated by Least Squares: c1=</span><span class="si">{c[0]:.3f}</span><span class="se">\t</span><span class="s2">c2=</span><span class="si">{c[1]:.3f}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Real parameters: c1=</span><span class="si">{c1}</span><span class="se">\t</span><span class="s2">c2=</span><span class="si">{c2}</span><span class="s2">&quot;</span><span class="p">)</span>
 
 <span class="c1"># 利用估计参数计算z的预测值</span>
 <span class="n">z_pred</span> <span class="o">=</span> <span class="n">c</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">A</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">c</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">A</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>
 <span class="n">lstsq_mse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">z</span> <span class="o">-</span> <span class="n">z_pred</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;最小二乘估计的均方差：&quot;</span><span class="p">,</span> <span class="n">lstsq_mse</span><span class="p">)</span>
-
-
-<span class="c1"># # 生成绘制拟合曲线的X数据</span>
-<span class="c1"># x2 = np.r_[0.1:1.0:100j]</span>
-<span class="c1"># y2 = c[0]*np.exp(-x2) + c[1]*x2</span>
-
-
-<span class="c1"># plt.plot(X, z, &#39;x&#39;, x2, y2)</span>
-<span class="c1"># # 设置坐标轴刻度范围</span>
-<span class="c1"># plt.axis([0,1.1,3.0,5.5])</span>
-<span class="c1"># plt.xlabel(&#39;$x_i$&#39;)</span>
-<span class="c1"># plt.title(&#39;Data fitting with linalg.lstsq&#39;)</span>
-<span class="c1"># plt.show()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Mean squared error: </span><span class="si">{lstsq_mse}</span><span class="s2">&quot;</span><span class="p">)</span>
 </code></pre></div>
 
 
-<div class="codehilite"><pre><span></span><code><span class="c">系数矩阵:</span>
-<span class="c"> [[0.90483742 0.1       ]</span>
-<span class="c"> [0.81873075 0.2       ]</span>
-<span class="c"> [0.74081822 0.3       ]</span>
-<span class="c"> [0.67032005 0.4       ]</span>
-<span class="c"> [0.60653066 0.5       ]</span>
-<span class="c"> [0.54881164 0.6       ]</span>
-<span class="c"> [0.4965853  0.7       ]</span>
-<span class="c"> [0.44932896 0.8       ]</span>
-<span class="c"> [0.40656966 0.9       ]</span>
-<span class="c"> [0.36787944 1.        ]]</span>
-<span class="c">最小二乘估计的参数:</span>
-<span class="c"> c1=5.259   c2=1.840</span>
-<span class="c">真实参数:</span>
-<span class="c"> c1=5.0     c2=2.0</span>
-<span class="err">最小二乘估计的均方差： 0.06473460239351055</span>
+<div class="codehilite"><pre><span></span><code><span class="err">系数矩阵 A:</span>
+<span class="err">[[0.90483742 0.1       ]</span>
+<span class="err"> [0.81873075 0.2       ]</span>
+<span class="err"> [0.74081822 0.3       ]</span>
+<span class="err"> [0.67032005 0.4       ]</span>
+<span class="err"> [0.60653066 0.5       ]</span>
+<span class="err"> [0.54881164 0.6       ]</span>
+<span class="err"> [0.4965853  0.7       ]</span>
+<span class="err"> [0.44932896 0.8       ]</span>
+<span class="err"> [0.40656966 0.9       ]</span>
+<span class="err"> [0.36787944 1.        ]]</span>
+<span class="err">Parameters estimated by Least Squares: c1=5.425 c2=1.852</span>
+<span class="err">Real parameters: c1=5.0 c2=2.0</span>
+<span class="err">Mean squared error: 0.03904797048010764</span>
 </code></pre></div>
 
 
+<p><img alt="" src="figures/10.14.scikit-learn_%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92_figure6_1.png" /></p>
 <h2 id="linearregression">LinearRegression</h2>
 <div class="codehilite"><pre><span></span><code><span class="err">LinearRegression(fit_intercept=True, normalize=False, copy_X=True,</span>
 <span class="err">                 n_jobs=None)</span>
 </code></pre></div>
 
 
-<div class="codehilite"><pre><span></span><code><span class="err">参数含义：</span>
-<span class="mi">1</span><span class="p">.</span><span class="n">fit_intercept</span><span class="p">:</span><span class="err">布尔值，指定是否需要计算线性回归中的截距，即</span><span class="n">b值</span><span class="err">。如果为</span><span class="k">False</span><span class="p">,</span><span class="err">那么不计算</span><span class="n">b值</span><span class="err">。</span>
-<span class="mi">2</span><span class="p">.</span><span class="n">normalize</span><span class="p">:</span><span class="err">布尔值。如果为</span><span class="k">False</span><span class="err">，那么训练样本会进行归一化处理。</span>
-<span class="mi">3</span><span class="p">.</span><span class="n">copy_X</span><span class="err">：布尔值。如果为</span><span class="k">True</span><span class="err">，会复制一份训练数据。</span>
-<span class="mi">4</span><span class="p">.</span><span class="n">n_jobs</span><span class="p">:</span><span class="err">一个整数。任务并行时指定的</span><span class="n">CPU数量</span><span class="err">。如果取值为</span><span class="o">-</span><span class="mi">1</span><span class="err">则使用所有可用的</span><span class="n">CPU</span><span class="err">。</span>
-
-<span class="err">属性</span>
-<span class="mi">1</span><span class="p">.</span><span class="n">coef_</span><span class="p">:</span><span class="err">权重向量</span>
-<span class="mi">2</span><span class="p">.</span><span class="n">intercept_</span><span class="p">:</span><span class="err">截距</span><span class="n">b值</span>
-
-<span class="err">方法：</span>
-<span class="mi">1</span><span class="p">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">)</span><span class="err">：训练模型。</span>
-<span class="mi">2</span><span class="p">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span><span class="err">：用训练好的模型进行预测，并返回预测值。</span>
-<span class="mi">3</span><span class="p">.</span><span class="n">score</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">)</span><span class="err">：返回预测性能的得分。计算公式为：</span><span class="n">score</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">u</span><span class="o">/</span><span class="n">v</span><span class="p">)</span>
-  <span class="err">其中</span> <span class="n">u</span><span class="o">=</span><span class="p">((</span><span class="n">y_true</span> <span class="o">-</span> <span class="n">y_pred</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">).</span><span class="k">sum</span><span class="p">()</span>
-       <span class="n">v</span><span class="o">=</span><span class="p">((</span><span class="n">y_true</span> <span class="o">-</span> <span class="n">y_true</span><span class="p">.</span><span class="n">mean</span><span class="p">())</span> <span class="o">**</span> <span class="mi">2</span><span class="p">).</span><span class="k">sum</span><span class="p">()</span>
-  <span class="n">score最大值是1</span><span class="err">，但有可能是负值</span><span class="p">(</span><span class="err">预测效果太差</span><span class="p">)</span><span class="err">。</span><span class="n">score越大</span><span class="err">，预测性能越好。</span>
-</code></pre></div>
-
-
+<p><strong>参数</strong></p>
+<ul>
+<li><code>fit_intercept</code>：布尔值。是否计算线性回归中的截距。</li>
+<li><code>normalize</code>：布尔值。如果为<code>True</code>，那么训练样本将使用L2范数进行归一化。<code>fit_intercept=False</code>时忽略该参数。</li>
+<li><code>copy_X</code>：布尔值。是否复制<code>X</code>，不复制的话可能会改写<code>X</code>变量。</li>
+<li><code>n_jobs</code>：整数。指定任务并行时使用的CPU数量，如果取值为-1则使用所有可用的CPU。</li>
+</ul>
+<p><strong>属性</strong></p>
+<ul>
+<li><code>coef</code>：权重向量</li>
+<li><code>intercept_</code>：截距</li>
+</ul>
+<p><strong>方法</strong></p>
+<ul>
+<li><code>fit(X,y)</code>：训练模型。</li>
+<li><code>predict(X)</code>：预测。</li>
+<li><code>score(X,y)</code>：评分，计算公式为$\text{score} = R^2 = 1 - \frac{\sum(y - \hat{y})^2}{\sum(y - \bar{y})^2}$。score最大值是1，但有可能是负值(预测效果太差)。score越大，预测性能越好。</li>
+</ul>
 <div class="codehilite"><pre><span></span><code><span class="c1"># Create linear regression object</span>
-<span class="n">regr</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">(</span><span class="n">fit_intercept</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">normalize</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">regress_model</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">(</span><span class="n">fit_intercept</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">normalize</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
 <span class="c1"># Train the model using the training sets</span>
-<span class="n">regr</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+<span class="n">regress_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
 
 <span class="c1"># Make predictions using the testing set</span>
-<span class="n">z_pred</span> <span class="o">=</span> <span class="n">regr</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="n">z_pred</span> <span class="o">=</span> <span class="n">regress_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
 
 <span class="n">sklearn_mse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">z</span><span class="o">-</span><span class="n">z_pred</span><span class="p">))</span>
 <span class="c1"># The coefficients</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;LinearRegression 估计的参数: </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">regr</span><span class="o">.</span><span class="n">coef_</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Parameters estimated by LinearRegression: </span><span class="si">{regress_model.coef_}</span><span class="s1">&#39;</span><span class="p">)</span>
 <span class="c1"># The mean squared error</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Mean squared error: </span><span class="si">%.2f</span><span class="s1">&#39;</span>
-      <span class="o">%</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">z_pred</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Mean squared error: </span><span class="si">%.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">z_pred</span><span class="p">))</span>
 <span class="c1"># The coefficient of determination: 1 is perfect prediction</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Coefficient of determination: </span><span class="si">%.2f</span><span class="s1">&#39;</span>
-      <span class="o">%</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">z_pred</span><span class="p">))</span>
-
-<span class="c1"># # Plot outputs</span>
-<span class="c1"># plt.scatter(X, z,  color=&#39;black&#39;)</span>
-<span class="c1"># plt.plot(X, z_pred, color=&#39;blue&#39;, linewidth=3)</span>
-
-<span class="c1"># plt.xticks(()) </span>
-<span class="c1"># plt.yticks(())</span>
-
-<span class="c1"># plt.show()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Coefficient of determination: </span><span class="si">%.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">z_pred</span><span class="p">))</span>
 </code></pre></div>
 
 
-<div class="codehilite"><pre><span></span><code><span class="err">LinearRegression 估计的参数:</span>
-<span class="err"> [5.25900749 1.83969839]</span>
-<span class="err">Mean squared error: 0.06</span>
-<span class="err">Coefficient of determination: 0.72</span>
+<div class="codehilite"><pre><span></span><code><span class="err">Parameters estimated by LinearRegression: [5.42512871 1.85174901]</span>
+<span class="err">Mean squared error: 0.04</span>
+<span class="err">Coefficient of determination: 0.81</span>
 </code></pre></div>
 
 
+<p><img alt="" src="figures/10.14.scikit-learn_%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92_figure10_1.png" /></p>
 <h2 id="sgdregressor">SGDRegressor</h2>
 <div class="codehilite"><pre><span></span><code><span class="err">SGDRegressor(loss=&#39;squared_loss&#39;, penalty=&#39;l2&#39;, alpha=0.0001,</span>
 <span class="err">             l1_ratio=0.15, fit_intercept=True, max_iter=1000,</span>
@@ -2007,41 +2036,82 @@ $$</p>
 </code></pre></div>
 
 
-<div class="codehilite"><pre><span></span><code><span class="n">sgdr</span> <span class="o">=</span> <span class="n">SGDRegressor</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s1">&#39;squared_loss&#39;</span><span class="p">,</span>
-                    <span class="n">fit_intercept</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">100000</span><span class="p">,</span> 
-                    <span class="n">alpha</span><span class="o">=</span><span class="mf">0.000001</span><span class="p">,</span> <span class="n">validation_fraction</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
+<ul>
+<li><strong><code>loss</code></strong>：要使用的损失函数。可能的值为<code>"squared_loss"</code>，<code>"huber"</code>，<code>"epsilon_insensitive"</code>, <code>"squared_epsilon_insensitive"</code>。</li>
+<li><strong><code>penalty</code></strong>：正则项。可能的值为<code>"l2"</code>, <code>"l1"</code>, <code>"elasticnet"</code>，默认为<code>"l2"</code>。</li>
+<li><strong><code>alpha</code></strong>：与正则项相乘的常数。值越高，正则化越强。默认为0.0001。</li>
+<li><strong><code>l1_ratio</code></strong>： Elastic 网络混合参数。取值范围为0 &lt;= l1_ratio &lt;= 1。1_ratio=0相当于L2正则项，1_ratio=1相当于L1正则项。仅在<code>penalty='elasticnet'</code>时有效。</li>
+<li><strong><code>fit_intercept</code></strong>：是否应该估计截距。如果为False，则假定数据已经中心化。</li>
+<li><strong><code>max_iter</code></strong>：训练集的最大迭代次数，又称为epochs，它只会影响<code>fit</code>方法中的行为，而不会影响 <a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.SGDRegressor.html#sklearn.linear_model.SGDRegressor.partial_fit"><code>partial_fit</code></a>方法。</li>
+<li><strong><code>tol</code></strong>：停止准则。如果非<code>None</code>，则当 loss &gt; best_loss - tol 持续 <code>n_iter_no_change</code> 次迭代后，训练将停止。</li>
+<li><strong><code>shuffle</code></strong>：在每个epoch之后是否应重新对训练数据进行洗牌。</li>
+<li><strong><code>epsilon</code></strong>：epsilon-insensitive 损失函数中的Epsilon ，仅当<code>loss</code>为<code>"huber"</code>，<code>"epsilon_insensitive"</code>, <code>"squared_epsilon_insensitive"</code>时有效。</li>
+<li>
+<p><strong><code>learning_rate</code></strong>：学习率调整策略。可能的值为：</p>
+<ul>
+<li>
+<p><code>"constant"</code>: <code>eta = eta0</code></p>
+</li>
+<li>
+<p><code>"optimal"</code>: <code>eta = 1.0 / (alpha * (t + t0))</code> 其中t0由Leon Bottou提出的启发式方法选择。</p>
+</li>
+<li>
+<p><code>"invscaling"</code>: <code>eta = eta0 / pow(t, power_t)</code></p>
+</li>
+<li>
+<p><code>"adaptive"</code>: eta = eta0</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong><code>eta0</code></strong>：学习率。</p>
+</li>
+<li><strong><code>early_stopping</code></strong>：当验证分数没有提高时，是否使用提前停止来终止培训。如果设置为 True，它将自动留出一部分训练数据作为验证，并在<code>score</code>方法返回的验证得分至少<code>n_iter_no_change</code>个epoch没有减少<code>tol</code>时终止训练。</li>
+<li><strong><code>validation_fraction</code></strong>：预留的验证集的比例。仅在<code>early_stopping</code>为True时使用。</li>
+</ul>
+<div class="codehilite"><pre><span></span><code><span class="n">sgd_regression_model</span> <span class="o">=</span> <span class="n">SGDRegressor</span><span class="p">(</span><span class="n">loss</span><span class="o">=</span><span class="s1">&#39;squared_loss&#39;</span><span class="p">,</span>
+                                    <span class="n">fit_intercept</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">10000</span><span class="p">,</span>
+                                    <span class="n">alpha</span><span class="o">=</span><span class="mf">0.001</span><span class="p">,</span> <span class="n">validation_fraction</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
 
 
-<span class="c1"># sgdr.fit(A, z)</span>
-<span class="n">repeat_num</span> <span class="o">=</span> <span class="mi">10000</span>
+<span class="n">sgd_regression_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Coefficients: </span><span class="si">{sgd_regression_model.coef_}</span><span class="s1">&#39;</span><span class="p">)</span>
+</code></pre></div>
+
+
+<div class="codehilite"><pre><span></span><code><span class="c">Coefficients: [4.11459251 2.76786944]</span>
+</code></pre></div>
+
+
+<p>如果训练集样本量太少，即使增加epoch的大小，也难以拟合。以下对训练集进行过采样。</p>
+<div class="codehilite"><pre><span></span><code><span class="n">repeat_num</span> <span class="o">=</span> <span class="mi">10000</span>
 <span class="n">new_A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">A</span><span class="p">]</span><span class="o">*</span><span class="n">repeat_num</span><span class="p">)</span>
 <span class="n">new_z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">z</span><span class="p">]</span><span class="o">*</span><span class="n">repeat_num</span><span class="p">)</span>
 
-<span class="n">sgdr</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">new_A</span><span class="p">,</span> <span class="n">new_z</span><span class="p">)</span>
+<span class="n">sgd_regression_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">new_A</span><span class="p">,</span> <span class="n">new_z</span><span class="p">)</span>
 
 <span class="c1"># Make predictions using the testing set</span>
-<span class="n">z_pred</span> <span class="o">=</span> <span class="n">sgdr</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+<span class="n">z_pred</span> <span class="o">=</span> <span class="n">sgd_regression_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
 
 <span class="c1"># The coefficients</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Coefficients: </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">sgdr</span><span class="o">.</span><span class="n">coef_</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Coefficients: </span><span class="si">{sgd_regression_model.coef_}</span><span class="s1">&#39;</span><span class="p">)</span>
 <span class="c1"># The mean squared error</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Mean squared error: </span><span class="si">%.2f</span><span class="s1">&#39;</span>
-      <span class="o">%</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">z_pred</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Mean squared error: </span><span class="si">%.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">z_pred</span><span class="p">))</span>
 <span class="c1"># The coefficient of determination: 1 is perfect prediction</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Coefficient of determination: </span><span class="si">%.2f</span><span class="s1">&#39;</span>
-      <span class="o">%</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">z_pred</span><span class="p">))</span>
-
-<span class="c1"># # Plot outputs</span>
-<span class="c1"># plt.scatter(X, z,  color=&#39;black&#39;)</span>
-<span class="c1"># plt.plot(X, z_pred, color=&#39;blue&#39;, linewidth=3)</span>
-
-<span class="c1"># plt.xticks(())</span>
-<span class="c1"># plt.yticks(())</span>
-
-<span class="c1"># plt.show()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Coefficient of determination: </span><span class="si">%.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">r2_score</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">z_pred</span><span class="p">))</span>
+</code></pre></div>
 
 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="codehilite"><pre><span></span><code><span class="c">Coefficients: [5.4053131  1.86414048]</span>
+<span class="err">Mean squared error: 0.04</span>
+<span class="err">Coefficient of determination: 0.81</span>
+</code></pre></div>
+
+
+<p><img alt="" src="figures/10.14.scikit-learn_%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92_figure14_1.png" /></p>
+<h2 id="sgdregressor_1">手动实现SGDRegressor</h2>
+<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
 
 <span class="k">class</span> <span class="nc">SGDRegressorSimple</span><span class="p">:</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">learn_ratio</span><span class="o">=</span><span class="mf">0.001</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
@@ -2050,7 +2120,7 @@ $$</p>
         <span class="bp">self</span><span class="o">.</span><span class="n">C</span> <span class="o">=</span> <span class="kc">None</span>
 
     <span class="k">def</span> <span class="nf">_calculate_gradient</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">):</span>
-        <span class="n">step</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">learn_ratio</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">C</span><span class="p">)</span><span class="o">-</span><span class="n">Y</span><span class="p">)</span> <span class="o">*</span> <span class="n">A</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">step</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">learn_ratio</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">C</span><span class="p">)</span> <span class="o">-</span> <span class="n">Y</span><span class="p">)</span> <span class="o">*</span> <span class="n">A</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
         <span class="n">step</span> <span class="o">=</span> <span class="n">step</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">C</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">C</span> <span class="o">-=</span> <span class="n">step</span>
 
@@ -2058,7 +2128,7 @@ $$</p>
         <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
         <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">Y</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-            <span class="n">Y</span> <span class="o">=</span> <span class="n">Y</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">Y</span> <span class="o">=</span> <span class="n">Y</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
         <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">Y</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;the shape of Y must be 2 dim&quot;</span><span class="p">)</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">:</span>
@@ -2076,25 +2146,17 @@ $$</p>
 
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">max_iter</span><span class="p">):</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_calculate_gradient</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">Y</span><span class="p">)</span>
+</code></pre></div>
 
 
-<span class="n">sgd</span> <span class="o">=</span> <span class="n">SGDRegressorSimple</span><span class="p">(</span><span class="n">learn_ratio</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><code><span class="n">sgd</span> <span class="o">=</span> <span class="n">SGDRegressorSimple</span><span class="p">(</span><span class="n">learn_ratio</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
 
 <span class="n">sgd</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-
-<span class="n">sgd</span><span class="o">.</span><span class="n">C</span>
-<span class="n">c1</span><span class="p">,</span> <span class="n">c2</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Coefficients: {sgd.C.flatten()}&#39;</span><span class="p">)</span>
 </code></pre></div>
 
 
-<div class="codehilite"><pre><span></span><code><span class="c">Coefficients:</span>
-<span class="c"> [5.25976419 1.84091438]</span>
-<span class="err">Mean squared error: 0.06</span>
-<span class="err">Coefficient of determination: 0.72</span>
-</code></pre></div>
-
-
-<div class="codehilite"><pre><span></span><code><span class="err">(5.0, 2.0)</span>
+<div class="codehilite"><pre><span></span><code><span class="c">Coefficients: [4.9999651  2.00003525]</span>
 </code></pre></div>
                 
                   

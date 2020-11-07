@@ -635,18 +635,6 @@
   </li>
 
         
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../PyNote" title="Docker" class="md-nav__link">
-      Docker
-    </a>
-  </li>
-
-        
       </ul>
     </nav>
   </li>
@@ -1442,6 +1430,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#extremely-randomized-tree" class="md-nav__link">
+    extremely randomized tree
+  </a>
+  
+</li>
+      
       
       
       
@@ -1794,6 +1789,54 @@
   </li>
 
     
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-15" type="checkbox" id="nav-15">
+    
+    <label class="md-nav__link" for="nav-15">
+      Docker
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-15">
+        Docker
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Docker/16.2.Dockerfile.html" title="16.2.Dockerfile" class="md-nav__link">
+      16.2.Dockerfile
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Docker/16.3.Image.html" title="16.3.Image" class="md-nav__link">
+      16.3.Image
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
   </ul>
 </nav>
                   </div>
@@ -1833,6 +1876,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#extremely-randomized-tree" class="md-nav__link">
+    extremely randomized tree
+  </a>
+  
+</li>
+      
       
       
       
@@ -1855,9 +1905,17 @@
                   <h1>10.15.决策树</h1>
                 
                 <div class="codehilite"><pre><span></span><code><span class="err">Windows 10</span>
-<span class="err">Python 3.7.7 @ MSC v.1916 64 bit (AMD64)</span>
-<span class="err">Latest build date 2020.10.10</span>
-<span class="err">sklearn version:  0.23.2</span>
+<span class="err">Python 3.7.3 @ MSC v.1915 64 bit (AMD64)</span>
+<span class="err">Latest build date 2020.11.07</span>
+<span class="err">sklearn version:  0.23.1</span>
+</code></pre></div>
+
+
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="p">(</span><span class="n">DecisionTreeClassifier</span><span class="p">,</span> <span class="n">DecisionTreeRegressor</span><span class="p">,</span>
+                          <span class="n">ExtraTreeClassifier</span><span class="p">,</span> <span class="n">ExtraTreeRegressor</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">tree</span>
+
+<span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="n">tree</span><span class="p">)</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">i</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">)]</span>
 </code></pre></div>
 
 
@@ -1873,12 +1931,6 @@
 
 
 <h2 id="_1">参数说明</h2>
-<div class="codehilite"><pre><span></span><code><span class="n">_</span> <span class="o">=</span> <span class="n">H</span><span class="o">.</span><span class="n">get_param</span><span class="p">(</span><span class="s2">&quot;DecisionTreeClassifier&quot;</span><span class="p">,</span> <span class="n">global_dict</span><span class="o">=</span><span class="nb">globals</span><span class="p">(),</span> <span class="n">width</span><span class="o">=</span><span class="mi">85</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">()</span>
-<span class="n">_</span> <span class="o">=</span> <span class="n">H</span><span class="o">.</span><span class="n">get_param</span><span class="p">(</span><span class="s2">&quot;DecisionTreeRegressor&quot;</span><span class="p">,</span> <span class="n">global_dict</span><span class="o">=</span><span class="nb">globals</span><span class="p">(),</span> <span class="n">width</span><span class="o">=</span><span class="mi">85</span><span class="p">)</span>
-</code></pre></div>
-
-
 <div class="codehilite"><pre><span></span><code><span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">criterion</span><span class="o">=</span><span class="s1">&#39;gini&#39;</span><span class="p">,</span> <span class="n">splitter</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">,</span> <span class="n">max_depth</span><span class="o">=</span><span class="k">None</span><span class="p">,</span>
                        <span class="n">min_samples_split</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">min_samples_leaf</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
                        <span class="n">min_weight_fraction_leaf</span><span class="o">=</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span> <span class="n">max_features</span><span class="o">=</span><span class="k">None</span><span class="p">,</span>
@@ -1895,10 +1947,21 @@
 </code></pre></div>
 
 
+<p><strong>分裂策略参数</strong></p>
 <p><strong><code>criterion</code></strong>：分裂准则。对于分类树：<code>{'gini', 'entropy'}</code>，使用Gini系数或者信息增益。 对于回归树：<code>{"mse", "friedman_mse", "mae"}</code>。</p>
-<p><strong><code>splitter</code></strong>：<code>{'best', 'random'}</code>。分裂策略。best 表示选择最优的拆分；random 表示随机选择最优的拆分。默认的 best 适合样本量不大的情况，如果样本数据量非常大，推荐使用 random。</p>
+<p><strong><code>splitter</code></strong>：<code>{'best', 'random'}</code>。分裂策略。<code>'best'</code>表示选择最优的拆分；<code>'random'</code>表示随机选择最优的拆分。<code>'best'</code>适合样本量不大的情况，如果样本数据量非常大，推荐使用 <code>'random'</code>。</p>
+<p><strong><code>max_features</code></strong>：指定寻找best split时考虑的特征数量。在找到至少一个有效的特征用于分裂之前，不会停止搜索，即使搜索的特征数量超过<code>max_features</code>。</p>
+<ul>
+<li>如果是整数，则每次切分只考虑<code>max_features</code>个特征</li>
+<li>如果是浮点数，每次切分只考虑<code>max_features*n_features</code>个特征</li>
+<li>如果是字符串<code>'auto'</code>，则<code>max_features=sqrt(n_features)</code></li>
+<li>如果是字符串<code>'sqrt'</code>，则<code>max_features=sqrt(n_features)</code></li>
+<li>如果是字符串<code>'log2'</code>，则<code>max_features=log2(n_features)</code></li>
+<li>如果是<code>None</code>，则<code>max_features=n_features</code></li>
+</ul>
+<p><strong>预剪枝参数</strong></p>
 <p><strong><code>max_depth</code></strong>：可以为整数或者None，指定树的最大深度，防止过拟合。如果为None，则树的深度不限，直到每个叶子结点都是纯的（即所有样本点都属于一个类），或者叶子结点包含的样本量小于 min_samples_split。如果<code>max_leaf_nodes</code>参数非None，则忽略此项。</p>
-<p><strong><code>min_samples_split</code></strong>：指定每个内部结点（非叶子结点）包含的最少的样本数。</p>
+<p><strong><code>min_samples_split</code></strong>：指定每个内部结点（非叶结点）包含的最少的样本数。</p>
 <ul>
 <li>如果是整数，该整数就是最少样本数。</li>
 <li>如果是浮点数，则<code>ceil(min_samples_split * n_samples)</code>是最少样本数。</li>
@@ -1909,21 +1972,17 @@
 <li>如果是浮点数，则<code>ceil(min_samples_split * n_samples)</code>是最少样本数。</li>
 </ul>
 <p><strong><code>min_weight_fraction_leaf</code></strong>：浮点数，叶子结点中所有样本权重之和的最小值，默认为0.0。</p>
-<p><strong><code>max_features</code></strong>：指定寻找best split时考虑的特征数量。在找到至少一个有效的特征用于分裂之前，不会停止搜索，即使搜索的特征数量超过<code>max_features</code>。</p>
-<ul>
-<li>如果是整数，则每次切分只考虑max_features个特征</li>
-<li>如果是浮点数，每次切分只考虑max_features*n_features个特征(max_features指定百分比)</li>
-<li>如果是字符串<code>'auto'</code>，则<code>max_features=sqrt(n_features)</code></li>
-<li>如果是字符串<code>'sqrt'</code>，则<code>max_features=sqrt(n_features)</code></li>
-<li>如果是字符串<code>'log2'</code>，则<code>max_features=log2(n_features)</code></li>
-<li>如果是<code>None</code>，则<code>max_features=n_features</code></li>
-</ul>
 <p><strong><code>max_leaf_nodes</code></strong>：整数或None，指定叶子结点的最大数量。如果为<code>None</code>，此时叶子节点数不限。如果非<code>None</code>，则<code>max_depth</code>参数被忽略。</p>
-<p><strong><code>min_impurity_decrease</code></strong>：默认为0.0，如果该分裂导致不纯度的减少量大于或等于该值，则将分裂节点。加权的不纯度减少量计算公式如下：</p>
-<p>$$
+<p><strong><code>min_impurity_decrease</code></strong>：默认为0.0，如果该分裂导致不纯度的减少量大于或等于该值，则将分裂节点。加权的不纯度减少量计算公式如下：
+$$
 \frac{N_t}{N} \times (\text{impurity} - \frac{N_{t_R}}{N_t} \times \text{impurity}_R- \frac{N{t_L}}{N_t} \times \text{impurity}_L)
 $$</p>
-<p><strong><code>min_impurity_split</code></strong>：默认为1e-07，早停的阈值。如果结点的impurity高于该阈值，则该节点将分裂，否则标记为叶结点。该参数在0.25版本中将被移除，建议使用<code>min_impurity_decrease</code>参数。</p>
+<blockquote>
+<p><strong><code>min_impurity_split</code></strong>：<strong>弃用</strong>，早停的impurity阈值。如果结点的impurity高于该阈值，则分裂结点，否则标记为叶结点。该参数在0.25版本中将被移除，建议使用<code>min_impurity_decrease</code>参数。</p>
+</blockquote>
+<p><strong>后剪枝参数</strong></p>
+<p><strong><code>ccp_alpha</code></strong>：成本复杂度参数，默认为0.0，即不会执行后剪枝。</p>
+<p><strong>其他参数</strong></p>
 <p><strong><code>class_weight</code></strong>：dict, list of dict or "balanced", or None. 指定了各类别的权重。</p>
 <ul>
 <li>
@@ -1931,26 +1990,25 @@ $$</p>
 </li>
 <li>
 <p>如果是多标签分类问题，例如4-class多标签分类问题应该通过如下形式指定权重：</p>
-</li>
-</ul>
 <p><code>[{0: 1, 1: 1}, {0: 1, 1: 5}, {0: 1, 1: 1}, {0: 1, 1: 1}]</code></p>
 <p>列表中每个dict对应<code>y</code>的每一列。而不是通过如下形式指定权重：</p>
 <p><code>[{1:1}, {2:5}, {3:1}, {4:1}]</code></p>
-<ul>
-<li>如果为<code>None</code>，则每个类别权重都为1。</li>
+</li>
+<li>
+<p>如果为<code>None</code>，则每个类别权重都为1。</p>
+</li>
 <li>如果为<code>‘balanced’</code>，则类别权重将自动计算，公式为：<code>n_samples / (n_classes * np.bincount(y))</code>。如果是多标签分类，<code>y</code>的每一列将相乘。</li>
 <li>如果在<code>fit</code>方法指定了<code>sample_weight</code>，则<code>sample_weight</code>将于对应的<code>class_weight</code>相乘。</li>
 </ul>
-<p><strong><code>presort</code></strong>：bool. 该参数将在0.24版本中被移除。指定了是否要提前排序数据从而加速寻找最优切分的过程。设置为True时，对于大数据集会减慢总体训练过程，但对于小数据集或者设定了最大深度的情况下，则会加速训练过程。</p>
-<p><strong><code>ccp_alpha</code></strong>：成本复杂度参数，默认为0.0，即不会执行后剪枝。</p>
+<p><strong><code>presort</code></strong>：<strong>弃用</strong>，指定了是否要提前排序数据从而加速寻找最优分割的过程。该参数将在0.24版本中被移除。设置为True时，对于大数据集会减慢总体训练过程，但对于小数据集或者设定了最大深度的情况下，则会加速训练过程。</p>
 <h2 id="_2">属性</h2>
-<p><code>classes_</code>：各类别的标签值。</p>
-<p><code>feature_importances_</code>：特征的重要程度。该值越高，则特征越重要(也称为Gini importance)。</p>
-<p><code>max_features_</code>：<code>max_feature</code>参数的推断值。</p>
-<p><code>n_classes_</code>：类别的数量。</p>
-<p><code>n_features_</code>：执行fit后，特征的数量。</p>
-<p><code>n_outputs_</code>：执行fit后，输出的数量。</p>
-<p><code>tree_</code>：底层的决策树对象。</p>
+<p><strong><code>classes_</code></strong>：各类别的标签值。</p>
+<p><strong><code>feature_importances_</code></strong>：特征的重要程度。该值越高，则特征越重要(也称为Gini importance)。</p>
+<p><strong><code>max_features_</code></strong>：<code>max_feature</code>参数的推断值。</p>
+<p><strong><code>n_classes_</code></strong>：类别的数量。</p>
+<p><strong><code>n_features_</code></strong>：执行fit后，特征的数量。</p>
+<p><strong><code>n_outputs_</code></strong>：执行fit后，输出的数量。</p>
+<p><strong><code>tree_</code></strong>：底层的决策树对象。</p>
 <h2 id="_3">方法</h2>
 <table>
 <thead>
@@ -2010,6 +2068,36 @@ $$</p>
 </tr>
 </tbody>
 </table>
+<p>对于分类树，<code>score()</code>方法返回的结果是：</p>
+<div class="codehilite"><pre><span></span><code><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">),</span> <span class="n">sample_weight</span><span class="o">=</span><span class="n">sample_weight</span><span class="p">)</span>
+</code></pre></div>
+
+
+<p>对于回归树，<code>score()</code>方法返回的结果是：</p>
+<div class="codehilite"><pre><span></span><code><span class="n">r2_score</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">sample_weight</span><span class="o">=</span><span class="n">sample_weight</span><span class="p">)</span>
+</code></pre></div>
+
+
+<p>$$
+R^2 = 1 - \frac{\sum(y - \hat{y})^2}{\sum(y - \bar{y})^2}
+$$</p>
+<p>$R^2$有可能为负值。</p>
+<h2 id="extremely-randomized-tree">extremely randomized tree</h2>
+<p>极端随机树与经典决策树的构建方式不同。寻找最佳分割时，Extra-trees 在所有拆分中随机选择<code>max_features</code>个拆分，并在<code>max_features</code>个拆分中选择最佳拆分。当<code>max_features</code>设置为1时，即建立了一个完全随机的决策树。</p>
+<p>实际上，<code>ExtraTree</code> 继承自 <code>DecisionTree</code>，<code>ExtraTree</code>只是将<code>splitter</code>、<code>max_features</code>参数分别默认设置为<code>"random"</code>和<code>"auto"</code>而已。</p>
+<div class="codehilite"><pre><span></span><code><span class="n">ExtraTreeClassifier</span><span class="p">(</span><span class="n">criterion</span><span class="o">=</span><span class="s1">&#39;gini&#39;</span><span class="p">,</span> <span class="n">splitter</span><span class="o">=</span><span class="s1">&#39;random&#39;</span><span class="p">,</span> <span class="n">max_depth</span><span class="o">=</span><span class="k">None</span><span class="p">,</span>
+                    <span class="n">min_samples_split</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">min_samples_leaf</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                    <span class="n">min_weight_fraction_leaf</span><span class="o">=</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span> <span class="n">max_features</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span>
+                    <span class="n">random_state</span><span class="o">=</span><span class="k">None</span><span class="p">,</span> <span class="n">max_leaf_nodes</span><span class="o">=</span><span class="k">None</span><span class="p">,</span>
+                    <span class="n">min_impurity_decrease</span><span class="o">=</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span> <span class="n">min_impurity_split</span><span class="o">=</span><span class="k">None</span><span class="p">,</span>
+                    <span class="n">class_weight</span><span class="o">=</span><span class="k">None</span><span class="p">,</span> <span class="n">ccp_alpha</span><span class="o">=</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="n">ExtraTreeRegressor</span><span class="p">(</span><span class="n">criterion</span><span class="o">=</span><span class="s1">&#39;mse&#39;</span><span class="p">,</span> <span class="n">splitter</span><span class="o">=</span><span class="s1">&#39;random&#39;</span><span class="p">,</span> <span class="n">max_depth</span><span class="o">=</span><span class="k">None</span><span class="p">,</span>
+                   <span class="n">min_samples_split</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">min_samples_leaf</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                   <span class="n">min_weight_fraction_leaf</span><span class="o">=</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span> <span class="n">max_features</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span>
+                   <span class="n">random_state</span><span class="o">=</span><span class="k">None</span><span class="p">,</span> <span class="n">min_impurity_decrease</span><span class="o">=</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span>
+                   <span class="n">min_impurity_split</span><span class="o">=</span><span class="k">None</span><span class="p">,</span> <span class="n">max_leaf_nodes</span><span class="o">=</span><span class="k">None</span><span class="p">,</span> <span class="n">ccp_alpha</span><span class="o">=</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span>
+</code></pre></div>
                 
                   
                 
