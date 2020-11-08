@@ -1,0 +1,2425 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="zh">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\uff0c\u3002]+">
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1, mkdocs-material-4.6.3">
+    
+    
+      
+        <title>10.1.架构 - Python笔记</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application.adb8469c.css">
+      
+      
+    
+    
+      <script src="../assets/javascripts/modernizr.86422ebf.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    <body dir="ltr">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#introduction" tabindex="0" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href=".." title="Python笔记" aria-label="Python笔记" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              Python笔记
+            </span>
+            <span class="md-header-nav__topic">
+              
+                10.1.架构
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" aria-label="search" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/siwing/siwing.github.io/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href=".." title="Python笔记" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    Python笔记
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/siwing/siwing.github.io/" title="前往 Github 仓库" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../index.html" title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      计算机基础
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        计算机基础
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/1.1.CPU.html" title="1.1.CPU" class="md-nav__link">
+      1.1.CPU
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/1.2.Memory.html" title="1.2.Memory" class="md-nav__link">
+      1.2.Memory
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/1.3.%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5.html" title="1.3.基本概念" class="md-nav__link">
+      1.3.基本概念
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/1.4.%E7%BC%96%E8%AF%91%E5%9E%8B%E8%AF%AD%E8%A8%80%E5%92%8C%E8%A7%A3%E9%87%8A%E5%9E%8B%E8%AF%AD%E8%A8%80%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9%E5%AF%B9%E6%AF%94.html" title="1.4.编译型语言 vs 解释型语言" class="md-nav__link">
+      1.4.编译型语言 vs 解释型语言
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/1.5.%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81.html" title="1.5.字符编码" class="md-nav__link">
+      1.5.字符编码
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Python基础
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Python基础
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python%E5%9F%BA%E7%A1%80/2.1.python%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95.html" title="2.1.python基本语法" class="md-nav__link">
+      2.1.python基本语法
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python%E5%9F%BA%E7%A1%80/2.2.%E8%AF%AD%E5%8F%A5.html" title="2.2.语句" class="md-nav__link">
+      2.2.语句
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python%E5%9F%BA%E7%A1%80/2.3.String.html" title="2.3.String" class="md-nav__link">
+      2.3.String
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python%E5%9F%BA%E7%A1%80/2.4.List.html" title="2.4.List" class="md-nav__link">
+      2.4.List
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python%E5%9F%BA%E7%A1%80/2.5.Tuple.html" title="2.5.Tuple" class="md-nav__link">
+      2.5.Tuple
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python%E5%9F%BA%E7%A1%80/2.6.Dict.html" title="2.6.Dict" class="md-nav__link">
+      2.6.Dict
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python%E5%9F%BA%E7%A1%80/2.7.%E7%AE%80%E6%B4%81%E7%9A%84Python.html" title="2.7.简洁的Python" class="md-nav__link">
+      2.7.简洁的Python
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python%E5%9F%BA%E7%A1%80/2.8.%E8%B5%8B%E5%80%BC%E3%80%81immutable%E3%80%81%E6%B7%B1%E6%8B%B7%E8%B4%9D.html" title="2.8.赋值、immutable、深拷贝" class="md-nav__link">
+      2.8.赋值、immutable、深拷贝
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python%E5%9F%BA%E7%A1%80/2.9.%E5%87%BD%E6%95%B0.html" title="2.9.函数" class="md-nav__link">
+      2.9.函数
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python%E5%9F%BA%E7%A1%80/2.10.%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0.html" title="2.10.内置函数" class="md-nav__link">
+      2.10.内置函数
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python%E5%9F%BA%E7%A1%80/2.11.%E7%AE%80%E6%B4%81%E7%9A%84Python.html" title="2.11.简洁的Python" class="md-nav__link">
+      2.11.简洁的Python
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python%E5%9F%BA%E7%A1%80/3.1.%E5%BC%82%E5%B8%B8.html" title="3.1.异常" class="md-nav__link">
+      3.1.异常
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python%E5%9F%BA%E7%A1%80/3.2.%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4%E5%92%8C%E4%BD%9C%E7%94%A8%E5%9F%9F.html" title="3.2.命名空间和作用域" class="md-nav__link">
+      3.2.命名空间和作用域
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python%E5%9F%BA%E7%A1%80/3.3.%E9%97%AD%E5%8C%85.html" title="3.3.闭包" class="md-nav__link">
+      3.3.闭包
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python%E5%9F%BA%E7%A1%80/3.4.%E8%A3%85%E9%A5%B0%E5%99%A8.html" title="3.4.装饰器" class="md-nav__link">
+      3.4.装饰器
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python%E5%9F%BA%E7%A1%80/4.1.%E7%B1%BB.html" title="4.1.类" class="md-nav__link">
+      4.1.类
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python%E5%9F%BA%E7%A1%80/4.2.%E5%A4%9A%E9%87%8D%E7%BB%A7%E6%89%BF%E5%92%8CMRO.html" title="4.2.多重继承和MRO" class="md-nav__link">
+      4.2.多重继承和MRO
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python%E5%9F%BA%E7%A1%80/4.3.%E6%A8%A1%E5%9D%97.html" title="4.3.模块" class="md-nav__link">
+      4.3.模块
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python%E5%9F%BA%E7%A1%80/4.4.%E9%AD%94%E6%9C%AF%E6%96%B9%E6%B3%95.html" title="4.4.魔术方法" class="md-nav__link">
+      4.4.魔术方法
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      开发环境管理
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        开发环境管理
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%AE%A1%E7%90%86/5.1.conda%E7%AC%94%E8%AE%B0.html" title="5.1.conda笔记" class="md-nav__link">
+      5.1.conda笔记
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%AE%A1%E7%90%86/5.2.pip%E7%AC%94%E8%AE%B0.html" title="5.2.pip笔记" class="md-nav__link">
+      5.2.pip笔记
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%AE%A1%E7%90%86/5.3.pip%E5%AF%B9%E6%AF%94conda.html" title="5.3.pip对比conda" class="md-nav__link">
+      5.3.pip对比conda
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%AE%A1%E7%90%86/5.4.anaconda.html" title="5.4.anaconda" class="md-nav__link">
+      5.4.anaconda
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%AE%A1%E7%90%86/5.5.jupyter%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0.html" title="5.5.jupyter使用笔记" class="md-nav__link">
+      5.5.jupyter使用笔记
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      标准库
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        标准库
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.1.string.html" title="6.1.string" class="md-nav__link">
+      6.1.string
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.2.textwrap.html" title="6.2.textwrap" class="md-nav__link">
+      6.2.textwrap
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.3.time.html" title="6.3.time" class="md-nav__link">
+      6.3.time
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.4.datetime.html" title="6.4.datetime" class="md-nav__link">
+      6.4.datetime
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.5.calendar.html" title="6.5.calendar" class="md-nav__link">
+      6.5.calendar
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.7.urllib.html" title="6.7.urllib" class="md-nav__link">
+      6.7.urllib
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.8.requests.html" title="6.8.requests" class="md-nav__link">
+      6.8.requests
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.9.re.html" title="6.9.re" class="md-nav__link">
+      6.9.re
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.10.os_path.html" title="6.10.os.path" class="md-nav__link">
+      6.10.os.path
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.11.traceback.html" title="6.11.traceback" class="md-nav__link">
+      6.11.traceback
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.12.enum.html" title="6.12.enum" class="md-nav__link">
+      6.12.enum
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.13.difflib%E2%80%94%E2%80%94%E5%AD%97%E7%AC%A6%E6%AF%94%E8%BE%83.html" title="6.13.difflib——字符比较" class="md-nav__link">
+      6.13.difflib——字符比较
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.14.logging.html" title="6.14.logging" class="md-nav__link">
+      6.14.logging
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      设计模式
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        设计模式
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/7.1.%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%9F%BA%E7%A1%80.html" title="7.1.面向对象程序设计基础" class="md-nav__link">
+      7.1.面向对象程序设计基础
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/7.2.%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99.html" title="7.2.面向对象软件设计原则" class="md-nav__link">
+      7.2.面向对象软件设计原则
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/7.3.%E5%88%9B%E5%BB%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F.html" title="7.3.创建型模式" class="md-nav__link">
+      7.3.创建型模式
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../设计模式/7.4.结构型模式.md" title="7.4.结构型模式" class="md-nav__link">
+      7.4.结构型模式
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      numpy笔记
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        numpy笔记
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy%E7%AC%94%E8%AE%B0/8.1.%E5%88%9B%E5%BB%BA%E6%95%B0%E7%BB%84.html" title="8.1.创建数组" class="md-nav__link">
+      8.1.创建数组
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy%E7%AC%94%E8%AE%B0/8.2.%E7%B4%A2%E5%BC%95.html" title="8.2.索引" class="md-nav__link">
+      8.2.索引
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy%E7%AC%94%E8%AE%B0/8.3.%E5%86%85%E5%AD%98%E5%B8%83%E5%B1%80.html" title="8.3.内存布局" class="md-nav__link">
+      8.3.内存布局
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy%E7%AC%94%E8%AE%B0/8.4.%E5%B9%BF%E6%92%AD.html" title="8.4.广播" class="md-nav__link">
+      8.4.广播
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy%E7%AC%94%E8%AE%B0/8.5.%E5%B8%B8%E9%87%8F.html" title="8.5.常量" class="md-nav__link">
+      8.5.常量
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy%E7%AC%94%E8%AE%B0/8.6.%E6%89%93%E5%8D%B0%E6%95%B0%E7%BB%84.html" title="8.6.打印数组" class="md-nav__link">
+      8.6.打印数组
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy%E7%AC%94%E8%AE%B0/8.7.%E6%B7%BB%E5%8A%A0%E5%92%8C%E5%88%A0%E9%99%A4.html" title="8.7.添加和删除" class="md-nav__link">
+      8.7.添加和删除
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy%E7%AC%94%E8%AE%B0/8.8.%E5%BD%A2%E7%8A%B6%E6%93%8D%E7%BA%B5.html" title="8.8.形状操纵" class="md-nav__link">
+      8.8.形状操纵
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy%E7%AC%94%E8%AE%B0/8.9.ufunc%E5%87%BD%E6%95%B0.html" title="8.9.ufunc函数" class="md-nav__link">
+      8.9.ufunc函数
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy%E7%AC%94%E8%AE%B0/8.10.%E5%87%BD%E6%95%B0%E5%BA%93.html" title="8.10.函数库" class="md-nav__link">
+      8.10.函数库
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy%E7%AC%94%E8%AE%B0/8.11.%E4%BF%9D%E5%AD%98%E5%92%8C%E5%8A%A0%E8%BD%BD.html" title="8.11.保存和加载" class="md-nav__link">
+      8.11.保存和加载
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy%E7%AC%94%E8%AE%B0/8.12.%E7%BB%93%E6%9E%84%E5%8C%96%E6%95%B0%E7%BB%84.html" title="8.12.结构化数组" class="md-nav__link">
+      8.12.结构化数组
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../numpy%E7%AC%94%E8%AE%B0/8.13.%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86.html" title="8.13.数据处理" class="md-nav__link">
+      8.13.数据处理
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+    
+    <label class="md-nav__link" for="nav-8">
+      pandas笔记
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        pandas笔记
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../pandas%E7%AC%94%E8%AE%B0/9.1.Series.html" title="9.1.Series" class="md-nav__link">
+      9.1.Series
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../pandas%E7%AC%94%E8%AE%B0/9.2.DataFrame.html" title="9.2.DataFrame" class="md-nav__link">
+      9.2.DataFrame
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../pandas%E7%AC%94%E8%AE%B0/9.3.%E7%B4%A2%E5%BC%95.html" title="9.3.索引" class="md-nav__link">
+      9.3.索引
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../pandas%E7%AC%94%E8%AE%B0/9.4.%E7%B4%A2%E5%BC%95%E5%AF%B9%E8%B1%A1.html" title="9.4.索引对象" class="md-nav__link">
+      9.4.索引对象
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../pandas%E7%AC%94%E8%AE%B0/9.5.%E7%B4%A2%E5%BC%95%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C.html" title="9.5.索引的基本操作" class="md-nav__link">
+      9.5.索引的基本操作
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../pandas%E7%AC%94%E8%AE%B0/9.6.%E6%8B%BC%E6%8E%A5.html" title="9.6.拼接" class="md-nav__link">
+      9.6.拼接
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../pandas%E7%AC%94%E8%AE%B0/9.7.%E5%8F%98%E6%8D%A2%E7%B4%A2%E5%BC%95.html" title="9.7.变换索引" class="md-nav__link">
+      9.7.变换索引
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../pandas%E7%AC%94%E8%AE%B0/9.8.%E5%88%86%E7%BB%84%E4%B8%8E%E8%81%9A%E5%90%88.html" title="9.8.分组与聚合" class="md-nav__link">
+      9.8.分组与聚合
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../pandas%E7%AC%94%E8%AE%B0/9.9.%E7%BB%98%E5%9B%BE.html" title="9.9.绘图" class="md-nav__link">
+      9.9.绘图
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../pandas%E7%AC%94%E8%AE%B0/9.11.%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86.html" title="9.11.数据处理" class="md-nav__link">
+      9.11.数据处理
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9" checked>
+    
+    <label class="md-nav__link" for="nav-9">
+      Matplotlib
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-9">
+        Matplotlib
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        10.1.架构
+      </label>
+    
+    <a href="10.1.%E6%9E%B6%E6%9E%84.html" title="10.1.架构" class="md-nav__link md-nav__link--active">
+      10.1.架构
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#origin-of-matplotlib" class="md-nav__link">
+    Origin of matplotlib
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overview-of-matplotlib-architecture" class="md-nav__link">
+    Overview of matplotlib Architecture
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#backend-layer" class="md-nav__link">
+    Backend layer
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#figurecanvas" class="md-nav__link">
+    FigureCanvas
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#renderer" class="md-nav__link">
+    Renderer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#event" class="md-nav__link">
+    Event
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#artist-layer" class="md-nav__link">
+    Artist layer
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#primitives-containers" class="md-nav__link">
+    Primitives &amp; Containers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#collections" class="md-nav__link">
+    Collections
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scripting-layer" class="md-nav__link">
+    Scripting layer
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-10" type="checkbox" id="nav-10">
+    
+    <label class="md-nav__link" for="nav-10">
+      scikit-learn
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-10">
+        scikit-learn
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../scikit-learn/11.1.%E6%95%B0%E6%8D%AE%E9%9B%86.html" title="11.1.数据集" class="md-nav__link">
+      11.1.数据集
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../scikit-learn/11.2.%E8%AF%84%E4%BB%B7%E6%8C%87%E6%A0%87.html" title="11.2.评价指标-分类" class="md-nav__link">
+      11.2.评价指标-分类
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../scikit-learn/11.5.%E6%8B%86%E5%88%86%E6%95%B0%E6%8D%AE.html" title="11.5.拆分数据" class="md-nav__link">
+      11.5.拆分数据
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../scikit-learn/11.6.%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81.html" title="11.6.交叉验证" class="md-nav__link">
+      11.6.交叉验证
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../scikit-learn/11.7.%E8%B6%85%E5%8F%82%E6%95%B0%E5%AF%BB%E4%BC%98.html" title="11.7.超参数寻优" class="md-nav__link">
+      11.7.超参数寻优
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../scikit-learn/11.8.%E4%BF%9D%E5%AD%98%E6%A8%A1%E5%9E%8B.html" title="11.8.保存模型" class="md-nav__link">
+      11.8.保存模型
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../scikit-learn/11.9.%E7%89%B9%E5%BE%81%E5%A4%84%E7%90%86.html" title="11.9.特征处理" class="md-nav__link">
+      11.9.特征处理
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../scikit-learn/11.10.%E8%BD%AC%E6%8D%A2%E9%A2%84%E6%B5%8B%E7%9B%AE%E6%A0%87y.html" title="11.10.转换预测目标y" class="md-nav__link">
+      11.10.转换预测目标y
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../scikit-learn/11.11.%E7%89%B9%E5%BE%81%E9%80%89%E6%8B%A9.html" title="11.11.特征选择" class="md-nav__link">
+      11.11.特征选择
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../scikit-learn/11.12.%E7%89%B9%E5%BE%81%E6%8F%90%E5%8F%96.html" title="11.12.特征提取" class="md-nav__link">
+      11.12.特征提取
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../scikit-learn/11.13.%E7%BC%BA%E5%A4%B1%E5%80%BC%E5%A4%84%E7%90%86.html" title="11.13.缺失值处理" class="md-nav__link">
+      11.13.缺失值处理
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../scikit-learn/11.14.%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92.html" title="11.14.线性回归" class="md-nav__link">
+      11.14.线性回归
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../scikit-learn/11.15.%E5%86%B3%E7%AD%96%E6%A0%91.html" title="11.15.决策树" class="md-nav__link">
+      11.15.决策树
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-11" type="checkbox" id="nav-11">
+    
+    <label class="md-nav__link" for="nav-11">
+      tensorflow笔记
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-11">
+        tensorflow笔记
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tensorflow%E7%AC%94%E8%AE%B0/12.1.keras%E6%95%B0%E6%8D%AE%E9%9B%86.html" title="12.1.keras数据集" class="md-nav__link">
+      12.1.keras数据集
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tensorflow%E7%AC%94%E8%AE%B0/12.2.%E5%88%9B%E5%BB%BA%E5%BC%A0%E9%87%8F.html" title="12.2.创建张量" class="md-nav__link">
+      12.2.创建张量
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tensorflow%E7%AC%94%E8%AE%B0/12.3.%E5%BC%A0%E9%87%8F%E8%BF%9B%E9%98%B6%E6%93%8D%E4%BD%9C.html" title="12.3.张量进阶操作" class="md-nav__link">
+      12.3.张量进阶操作
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tensorflow%E7%AC%94%E8%AE%B0/12.4.%E6%B1%82%E5%AF%BC.html" title="12.4.求导" class="md-nav__link">
+      12.4.求导
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tensorflow%E7%AC%94%E8%AE%B0/12.5.%E5%8F%AF%E7%94%A8%E6%80%A7%E6%B5%8B%E8%AF%95.html" title="12.5.可用性测试" class="md-nav__link">
+      12.5.可用性测试
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tensorflow%E7%AC%94%E8%AE%B0/12.6.Perceptron.html" title="12.6.Perceptron" class="md-nav__link">
+      12.6.Perceptron
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../tensorflow%E7%AC%94%E8%AE%B0/12.7.keras%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B.html" title="12.7.keras快速开始" class="md-nav__link">
+      12.7.keras快速开始
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-12" type="checkbox" id="nav-12">
+    
+    <label class="md-nav__link" for="nav-12">
+      爬虫
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-12">
+        爬虫
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E7%88%AC%E8%99%AB/13.1.lxml.html" title="13.1.lxml" class="md-nav__link">
+      13.1.lxml
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E7%88%AC%E8%99%AB/13.3.pyquery.html" title="13.3.pyquery" class="md-nav__link">
+      13.3.pyquery
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-13" type="checkbox" id="nav-13">
+    
+    <label class="md-nav__link" for="nav-13">
+      gensim
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-13">
+        gensim
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../gensim/14.1.word2vec%20model.html" title="14.1.word2vec model" class="md-nav__link">
+      14.1.word2vec model
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../gensim/14.2.word2vec%E5%8F%82%E6%95%B0.html" title="14.2.word2vec参数" class="md-nav__link">
+      14.2.word2vec参数
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-14" type="checkbox" id="nav-14">
+    
+    <label class="md-nav__link" for="nav-14">
+      数据库
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-14">
+        数据库
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%95%B0%E6%8D%AE%E5%BA%93/15.1.DBAPI.html" title="15.1.DBAPI" class="md-nav__link">
+      15.1.DBAPI
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%95%B0%E6%8D%AE%E5%BA%93/15.2.PostgreSQL.html" title="15.2.PostgreSQL" class="md-nav__link">
+      15.2.PostgreSQL
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%95%B0%E6%8D%AE%E5%BA%93/15.3.MSSQL.html" title="15.3.MSSQL" class="md-nav__link">
+      15.3.MSSQL
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%95%B0%E6%8D%AE%E5%BA%93/15.4.SQLAlchemy.html" title="15.4.SQLAlchemy" class="md-nav__link">
+      15.4.SQLAlchemy
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-15" type="checkbox" id="nav-15">
+    
+    <label class="md-nav__link" for="nav-15">
+      文件操作
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-15">
+        文件操作
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/16.2.PDF.html" title="16.2.PDF" class="md-nav__link">
+      16.2.PDF
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/16.3.docx.html" title="16.3.docx" class="md-nav__link">
+      16.3.docx
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/16.4.OCR.html" title="16.4.OCR" class="md-nav__link">
+      16.4.OCR
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-16" type="checkbox" id="nav-16">
+    
+    <label class="md-nav__link" for="nav-16">
+      Docker
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-16">
+        Docker
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Docker/17.2.Dockerfile.html" title="17.2.Dockerfile" class="md-nav__link">
+      17.2.Dockerfile
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Docker/17.3.Image.html" title="17.3.Image" class="md-nav__link">
+      17.3.Image
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    Introduction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#origin-of-matplotlib" class="md-nav__link">
+    Origin of matplotlib
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overview-of-matplotlib-architecture" class="md-nav__link">
+    Overview of matplotlib Architecture
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#backend-layer" class="md-nav__link">
+    Backend layer
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#figurecanvas" class="md-nav__link">
+    FigureCanvas
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#renderer" class="md-nav__link">
+    Renderer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#event" class="md-nav__link">
+    Event
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#artist-layer" class="md-nav__link">
+    Artist layer
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#primitives-containers" class="md-nav__link">
+    Primitives &amp; Containers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#collections" class="md-nav__link">
+    Collections
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scripting-layer" class="md-nav__link">
+    Scripting layer
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    References
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/siwing/siwing.github.io/edit/master/docs/Matplotlib/10.1.架构.md" title="编辑此页" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                  <h1>10.1.架构</h1>
+                
+                <h2 id="introduction">Introduction</h2>
+<p>Matplotlib 是一个绘图库，通常被视为Python可视化库的祖父。该项目由科学家约翰·亨特（John Hunter）于2003年发起，此后由开源社区开发。</p>
+<h2 id="origin-of-matplotlib">Origin of matplotlib</h2>
+<p>Matplotlib 的起源可以追溯到 John Hunter 试图把他自己和他研究癫痫的同事从分析皮质脑电图(ECoG)的专有软件中解放出来。他工作的实验室只有一个软件许可证，各种各样的研究生、医学生、博士后、实习生和调查人员轮流分享硬件密钥。</p>
+<p>MATLAB 在生物医学界被广泛应用于数据分析和可视化，因此 Hunter 开始着手用一个基于 MATLAB 的版本来取代专有软件，并取得了一些成功。这个版本可以被多个研究人员使用和扩展。然而，癫痫手术患者的真实医疗数据具有多种数据模式 (CT、MRI、ECoG、EEG)，其复杂性让 MATLAB 在数据管理方面受到挑战。由于不满意 MATLAB 对这项任务的适用性，Hunter 开始在用户界面工具包 GTK + 的基础上开发一个新的 Python 应用程序，在当时 GTK + 是领先的 Linux 桌面视窗系统。</p>
+<blockquote>
+<p>GTK（原名GTK+）最初是GIMP的专用开发库（GIMP Toolkit），后来发展为Unix-like系统下开发图形界面的应用程序的主流开发工具之一。GTK是自由软件，并且是GNU计划的一部分。自2019年2月6日起，GTK+改名为GTK。GTK使用C语言开发，但是其设计者使用面向对象技术，也提供了其他语言（如Python）的接口。</p>
+</blockquote>
+<p>Matplotlib 最初是为这个 GTK + 应用程序开发的 EEG/ECoG 可视化工具，这个用例指导了它的原始架构。Matplotlib 最初的设计还有第二个目的：作为交互式命令驱动的图形生成工具的替代品，MATLAB 在这一点上做得非常好。MATLAB 的设计使加载数据文件和绘图这些容易完成的任务变得非常简单直接，然而完整的面向对象 API 在语法上过于繁重。因此 matplotlib 还提供了一个有状态的脚本编制界面，用于快速简单地生成类似于 MATLAB 的图形。</p>
+<h2 id="overview-of-matplotlib-architecture">Overview of matplotlib Architecture</h2>
+<p>Matplotlib 中，包含和管理给定图形中所有元素的顶级 matplotlib 对象称为 <code>Figure</code>。当前 Matplotlib 体系结构围绕着用户创建、表示（渲染）和更新 <code>Figure</code> 对象所需的操作展开。从逻辑上讲，完成这一系列操作的体系结构分为三层，可以将其视为堆栈。这三层从下到上分别是：backend、artist 和scripting。上层知道如何与下面的层进行通信，但下层却不知道上层。</p>
+<div align="center">
+<img src="https://delftswa.gitbooks.io/desosa-2017/content/matplotlib/images-matplotlib/functional_view.png" alt="" style="zoom: 100%;" />
+<br>Fig 1
+</div>
+
+<ol>
+<li>
+<p>Matplotlib 是一个绘图库，它依赖于某些后端来渲染图片。backend 层可以与不同的运行环境 (backend) 直接交互，为上层提供统一的接口。</p>
+</li>
+<li>
+<p>一个图形需要由多个对象组成，这些对象应该被单独修改，并且修改的行为对整个图片的影响是正面的、可预测的。artist 层包含了一张图中每个可视组件的抽象。由于这层与可视化高度相关，该层被认为是创建视觉艺术的一般性概念，因此被称为artist layer。</p>
+</li>
+<li>
+<p>最后，还需要支持以编程的方式与图片交互，为用户提供尽可能干净、直观的语法去操作图形。这层被称为脚本层。</p>
+</li>
+</ol>
+<h2 id="backend-layer">Backend layer</h2>
+<p>matplotlib 的后端可以分为两种：</p>
+<ol>
+<li>User interface backends (interactive)</li>
+<li>Hardcopy backends (non-interactive)</li>
+</ol>
+<p>使用User interface后端时，<code>Figure</code> 会被渲染到用户界面窗口，用户可以通过 User interface backend 的 GUI 事件（如键盘和鼠标输入） 交互地修改图片。使用Hardcopy backend时，<code>Figure</code>会被保存为图片文件。分别有如下的User interface backend 和 Hardcopy backend：</p>
+<div align=center>
+<table>
+<thead>
+<tr>
+<th>User interface backend</th>
+<th>Hardcopy backend</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GTK 2.x and GTK 3.x</td>
+<td>PS</td>
+</tr>
+<tr>
+<td>wxWidgets</td>
+<td>PDF</td>
+</tr>
+<tr>
+<td>Tk</td>
+<td>SVG</td>
+</tr>
+<tr>
+<td>Qt4 and Qt5</td>
+<td>PNG</td>
+</tr>
+<tr>
+<td>Mac OS X Cocoa</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<p>根据是否支持raster graphics和vector graphics，Hardcopy backend 又可以分为：</p>
+<ol>
+<li>仅支持raster graphics</li>
+<li>仅支持vector graphics</li>
+<li>支持以上两者</li>
+</ol>
+<p>交互式后端和非交互后端建立在一些核心的抽象之上，这些基类如下。对于不同的后端，这些基类有不同的具体实现。</p>
+<ul>
+<li><code>FigureCanvasBase</code> and <code>FigureManagerBase</code></li>
+<li><code>RendererBase</code> and <code>GraphicsContextBase</code></li>
+<li><code>Event</code>, <code>ShowBase</code>, and <code>Timer</code></li>
+</ul>
+<h3 id="figurecanvas"><code>FigureCanvas</code></h3>
+<p><code>FigureCanvasBase</code>是 User interface backend 和 Hardcopy backend 都使用的基类，它表示用于呈现图形的画布。其职责包括：</p>
+<ol>
+<li>
+<p>持有Figure的引用</p>
+</li>
+<li>
+<p>使用Figure更新画布</p>
+</li>
+<li>
+<p>定义运行时将被注册的事件方法</p>
+</li>
+<li>
+<p>将原生backend的事件转换为 matplotlib 事件抽象框架 </p>
+</li>
+<li>
+<p>定义绘制方法用于渲染图形 </p>
+</li>
+<li>
+<p>启动和停止非 GUI 事件循环的方法</p>
+</li>
+</ol>
+<p>使用 Hardcopy backend 时，<code>FigureCanvasBase</code> 可以注册后端支持的图片文件类型。当使用interface backends时，<code>FigureCanvasBase</code> 提供将画布插入backend 窗口的方法。</p>
+<p>在 pyplot 模式下运行时，matplotlib 会使用 <code>FigureManagerBase</code> 类。该类包装了<code>FigureCanvasBase</code> 类以及各种 GUI backend 的方法，以便更轻松地呈现图形和接口。</p>
+<h3 id="renderer"><code>Renderer</code></h3>
+<p>在 matplotlib 中，renderer 的工作是提供一个底层的绘图接口，用于在画布上添加墨水。</p>
+<p>如上所述，原始 matplotlib 应用程序是 GTK+ 应用程序中的 ECoG 查看器，因此，原始设计的大部分灵感来自当时可用的 gdk/GTK+ API。原始的 renderer API 是受 GDK Drawable 接口的启发，它实现了绘制点、绘制线、绘制矩形、绘制图像、绘制多边形和绘制字形等基本方法。一开始，Matplotlib 为每个额外的后端 (最早的是 PostScript 后端和 GD 后端) 都实现了 GDK Drawable API，并将它们转换为与后端相关的本地绘图命令。这复杂化了新后端的实现，后面这个 API 随后被简化了，这使得将 matplotlib 移植到一个新的用户界面工具包或文件规范的过程更加简单。通过这种抽象，Matplotlib 可以在不同的平台渲染图像或输出图像文件。</p>
+<p>此外，许多渲染操作都交给了一个额外的抽象——<code>GraphicsContextBase</code>。此抽象为处理颜色、线条样式、剖面线样式、混合属性和反锯色选项等的代码提供了干净的分隔。</p>
+<p>Matplotlib 的一个很好的设计决策是使用C++ 模板库 <a href="http://www.antigrain.com/">Anti Grain Geometry</a> 或 agg 的基于核心像素的 renderer，从而实现不同平台之间图像的一致性。这是一个用于渲染抗锯齿的2D 图形的高性能库，可以生成有吸引力的图像。Matplotlib 支持将 agg 后端呈现的像素缓冲插入到其所支持的每个用户界面工具包中，这样就可以跨 UI 和操作系统获得像素精确的图形。因为输出PNG时，Matplotlib 也使用 agg 渲染器，所以硬拷贝和屏幕显示的效果是一样的，因此你所看到的就是从用户界面、操作系统和 PNG 输出中获得的图像。</p>
+<h3 id="event"><code>Event</code></h3>
+<p>Matplotlib 后端还有一些逻辑与事件、事件循环和计时有关。这些逻辑分别通过三个基类（及其派生类）实现：</p>
+<ol>
+<li><code>Event</code>：这是 <code>DrawEvent</code>、<code>MouseEvent</code> 和 <code>KeyEvent</code> 等的基类</li>
+<li><code>ShowBase</code>：这是 GUI 后端的模块级别的子类</li>
+<li><code>TimerBase</code>：这是<code>TimerQT</code>、<code>TimerGTK3</code>和<code>TimerWx</code>的基类</li>
+</ol>
+<p>Matplotlib Event 框架将诸如 key-press-Event 或 mouse-motion-Event 之类的 UI 事件映射到 matplotlib 类 <code>KeyEvent</code> 或 <code>MouseEvent</code>。用户可以将这些事件连接到回调函数，并与图形和数据进行交互（例如，在Event发生后，自动选择一个数据点或一组点，或操作图形某部分）。</p>
+<p>Matplotlib Event框架对各中底层 UI 工具包的事件框架进行了抽象，这允许 matplotlib 开发人员和最终用户以 “write once run everywhere” 的方式编写 UI 事件处理代码。例如，图形在所有用户界面工具包中的交互式平移和缩放，都可以在 matplotlib 事件框架中实现。</p>
+<div align="center">
+<img src="./figures/matplotlib_backend_layer.png" alt="" style="zoom: 80%;" />
+<br>Fig 2
+</div>
+
+<h2 id="artist-layer">Artist layer</h2>
+<p>matplotlib 大部分代码都位于artist layer之中，实际上，大多数繁琐的工作都在此层完成。<mark>位于 artist layer 的 <code>Artist</code> 对象知道如何使用 <code>renderer</code> 在画布 <code>FigureCanvas</code> 上绘制图形。</mark> </p>
+<p><code>Artist</code> 对象和 backend layer 之间的耦合发生在 <code>draw</code> 方法中。例如，下面创建了一个模拟类 <code>SomeArtist</code>，它是 <code>Artist</code> 的子类，<code>SomeArtist</code> 必须实现的基本方法是 <code>draw</code>， <code>draw</code>方法需要一个参数 <code>renderer</code>，该参数由 backend layer 传过来。<code>SomeArtist</code>不知道渲染器将在后端 (PDF、 SVG、 GTK+ DrawingArea, etc.) 绘制图像，但它知道渲染器的 API，并会调用适当的API (<code>draw_text</code> 或 <code>draw_path</code>)。由于渲染器有一个指向画布的指针，并且知道如何在画布上绘制，所以 <code>draw</code>方法将 <code>Artist</code>的抽象表示转换为像素缓冲区中的颜色、 SVG 文件中的路径或者其他任何具体表示。</p>
+<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">SomeArtist</span><span class="p">(</span><span class="n">Artist</span><span class="p">):</span>
+    <span class="s1">&#39;An example Artist that implements the draw method&#39;</span>
+
+    <span class="k">def</span> <span class="nf">draw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">renderer</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Call the appropriate renderer methods to paint self onto canvas&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_visible</span><span class="p">():</span>  <span class="k">return</span>
+
+        <span class="c1"># create some objects and use renderer to draw self here</span>
+        <span class="n">renderer</span><span class="o">.</span><span class="n">draw_path</span><span class="p">(</span><span class="n">graphics_context</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">transform</span><span class="p">)</span>
+</code></pre></div>
+
+
+<p><code>Figure</code>中所有可视的组件（例如 lines、shapes、axes、text等等）都是  <code>Artist</code> 派生类的实例。图3是一个<code>Figure</code>的示意图。</p>
+<p><code>Artist</code> 基类包含了所有 artist 共享的属性：</p>
+<ul>
+<li>canvas 和 artist 坐标系统之间的转换</li>
+<li>可视化</li>
+<li>定义 artist 可绘制区域的剪辑框</li>
+<li>标签 (Labels)</li>
+<li>用于处理用户交互事件的回调注册实例（比如，鼠标在 artist 上点击、挑选某些 artist 等等）</li>
+</ul>
+<h3 id="primitives-containers">Primitives &amp; Containers</h3>
+<p><code>Artist</code> 子类可分为两种：Primitives 和 Containers。 Primitives 是基本的图形对象，Containers 由多个 Primitives 对象组成。它们分别包括但不限于以下内容：</p>
+<div align=center>
+<table>
+<thead>
+<tr>
+<th>Primitives</th>
+<th>Containers (Composite artists)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Line2D</code></td>
+<td><code>Figure</code></td>
+</tr>
+<tr>
+<td>Shape (patch) class，e.g. <code>Rectangle</code>, <code>Polygon</code>, <code>Ellipse</code>, <code>Circle</code>, <code>ArcText</code>, <code>Annotation</code>, <code>TextPath</code></td>
+<td><code>XAxis</code> and <code>YAxis</code></td>
+</tr>
+<tr>
+<td><code>AxesImage</code> and <code>FigureImage</code></td>
+<td><code>Axes</code>, <code>PolarAxes</code>, <code>HammerAxes</code>, <code>MollweideAxes</code>, and <code>LambertAxes</code></td>
+</tr>
+<tr>
+<td></td>
+<td><code>Subplot</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+<div align="center">
+<img src="https://matplotlib.org/_images/anatomy1.png" alt="" style="zoom: 90%;" />
+<br>Fig 3: A Figure
+</div>
+
+<p>各个 Aritist 对象从属关系</p>
+<div align="center">
+<img src="./figures/matplotlib_artist_hierarchy.png" alt="" style="zoom: 80%;" />
+<br>Fig 4: The hierarchy of artist instances used to draw
+</div>
+
+<p>通常来说，实例化一个 <code>Figure</code> 对象并将其用于创建一个或多个 <code>Axes</code> 或 <code>Subplot</code> 实例。<code>Axe</code> 和 <code>Subplot</code> 将根据需要创建 Primitive 对象，因此用户不必手动跟踪 Primitive 对象的创建，并将其储存到相应的容器中。</p>
+<p>在所有 Containers 中，<code>Axes</code>类是最重要的类之一，因为 <code>Axes</code>实例是大多数 matplotlib 对象的目的地（Primitives 和其他 Containers），并且包含许多辅助方法用于创建 Primitive Artist 并将它们添加到 <code>Axes</code> 实例之中。</p>
+<p>除了创建 Primitive 之外，<code>Axes</code> 和 <code>Subplot</code> 还包含了准备 Primitive 所需数据的方法，这些数据在创建Primitive时使用。<code>Axes</code> 和 <code>Subplot</code> 会将这些数据储存到对应的容器中。此外，<code>Axes</code> 对象为 Figure 设置了坐标系，并跟踪可以连接到<code>xlim_changed</code>和<code>ylim_changed</code>事件的回调。回调在调用时将 <code>Axes</code>实例作为参数。</p>
+<h3 id="collections">Collections</h3>
+<p>artist layer 的另一个组件是 <code>Collections</code>。使用 <code>Collections</code> 类可以高效地绘制大量类似对象。例如，需要创建数万的 <code>circles</code>, <code>polygons</code>, <code>lines</code>等对象。在大多数情况下，如果将这些圆圈、多边形、线等放入 <code>Collections</code> 中，可以获得更好的性能。可用的类包括但不限于<code>PathCollection</code>，<code>CircleCollection</code>，<code>PolyCollection</code>，<code>EllipseCollection</code>，<code>LineCollection</code>和<code>EventCollection</code>。</p>
+<div align="center">
+<img src="./figures/matplotlib_artist_layer.png" alt="" style="zoom: 80%;" />
+<br>Fig 5
+</div>
+
+<p>您可能会注意到，基类可能自相矛盾地包含父类。这真的只是对在创建基类时通常创建的父类的引用。在调查 matplotlib 内部时，请记住这一点非常有用。 与逻辑后端图一样，matplotlib 内部不是要全面的。然而，它的目的是为视觉导向的视觉导向，当思考如何结合位在一起的概念帮助。 有了这个，我们被带到了 matplotlib 架构的最后一层。</p>
+<h2 id="scripting-layer">Scripting layer</h2>
+<p>对于程序员来说，在编写 web 应用服务器、UI 应用程序或者与其他开发人员共享的脚本时，backend layer 和 artist layer 的 API 是合适编程范型。但对于日常用途，特别是对于实验室科学家、数据科学家（非专业程序员）的交互式探索性工作来说，这些 API 在语法上有点繁重。大多数用于数据分析和可视化的特殊用途语言都提供了一个更轻便的脚本接口，以简化常见任务。Matplotlib 在其 <code>matplotlib.pyplot</code> 接口中也做到了这一点。</p>
+<p><code>pyplot</code> 是一个有状态的接口，它处理大部分样板文件，用于创建图形和轴，并将它们连接到您选择的后端，并维护表示当前图形和轴的模块级内部数据结构，以指导绘图命令。</p>
+<ul>
+<li><code>pyplot</code>模块被导入时，它将解析本地配置文件。用户在配置文件中指明默认的后端以及其他设置。如果是像 QtAgg 这样的用户界面后端，<code>pyplot</code> 脚本将导入 GUI 框架并启动一个可嵌入绘图的 Qt 窗口。如果是像 Agg 的纯图像后端，<code>pyplot</code>脚本将生成 hard-copy 然后退出。</li>
+<li>
+<p>选择后端后，<code>pyplot</code> 调用一个 setup 函数执行以下操作：</p>
+<ul>
+<li>
+<p>创建 figure 管理工厂函数，调用该函数时将创建适合所选后端的新 figure 管理器</p>
+</li>
+<li>
+<p>准备与所选后端匹配的绘图函数</p>
+<blockquote>
+<p>e.g. <code>plot</code>, <code>gca</code>, <code>savefig</code>, etc. 这些是通过<code>pyploy</code>接口直接调用的函数，具体可以调用什么函数需要考虑是交互式后端还是非交互后端，这取决于 setup 函数返回的结果。</p>
+</blockquote>
+</li>
+<li>
+<p>标识与后端 <code>mainloop</code> 函数集成的可调用函数</p>
+</li>
+<li>
+<p>为所选后端提供模块</p>
+</li>
+<li>当执行绘图命令时（e.g. <code>plot.plot()</code>, <code>plt.hist()</code>, <code>plt.title()</code>, etc.），<code>pyplot</code> 将检查其内部数据结构，以查看当前是否存在 <code>Figure</code> 实例。如果存在，它将提取当前的 <code>Axes</code> 实例，并调用 <code>Axes.plot</code> 或 <code>Axes.hist</code> 之类的API进行绘图。如果当前不存在 <code>Figure</code> 实例，它将创建一个  <code>Figure</code> 实例 和  <code>Axes</code> 实例，并将它们设置为 current，然后调用 <code>Axes</code> 的API。</li>
+<li>当执行 <code>plt.show()</code> 命令时，这将强制渲染 <code>Figure</code>，如果用户在配置文件中指定了默认的 GUI 后端，将启动 GUI mainloop，并将所有图形创建到屏幕。</li>
+</ul>
+</li>
+</ul>
+<p>下面显示了 <code>pyplot</code>经常使用的 Line 绘制函数 <code>matplotlib.pyplot.plot</code> 的简化版本，这直观地说明  <code>matplotlib.pyplot.plot</code> 函数如何在 matplotlib 中封装对象和功能。所有其他 <code>pyplot</code>脚本接口功能都遵循相同的设计。</p>
+<div class="codehilite"><pre><span></span><code><span class="nd">@autogen_docstring</span><span class="p">(</span><span class="n">Axes</span><span class="o">.</span><span class="n">plot</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">plot</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="n">ax</span> <span class="o">=</span> <span class="n">gca</span><span class="p">()</span>
+
+    <span class="n">ret</span> <span class="o">=</span> <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="n">draw_if_interactive</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">ret</span>
+</code></pre></div>
+
+
+<div align="center">
+<img src="./figures/matplotlib_scripting_layer.png" alt="" style="zoom: 90%;" />
+<br>Fig 6
+</div>
+
+<h2 id="references">References</h2>
+<ol>
+<li><a href="https://delftswa.gitbooks.io/desosa-2017/content/matplotlib/chapter.html#fig-codeline">Matplotlib - The Python 2D Plotting Library </a></li>
+<li><a href="https://www.aosabook.org/en/matplotlib.html">The Architecture of Open Source Applications <em>Volume Il. Structure Scale and a Few More Fearless Hacks</em></a></li>
+<li><a href="https://medium.com/python4u/hello-matplotlib-8ffe04355ebf">Hello Matplotlib！</a></li>
+<li><a href="[https://creately.com/diagram/example/hqz3w6j12/Matplotlib%203-tiered%20architecture](https://creately.com/diagram/example/hqz3w6j12/Matplotlib 3-tiered architecture)">Matplotlib 3-tiered architecture ( Class Diagram (UML))</a></li>
+<li><a href="https://markdowntohtml.com/">Convert Markdown to HTML</a></li>
+<li><a href="https://brainphd-cn.github.io/handbook/short-intro/#_32">脑科学博士申请指南</a></li>
+</ol>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../pandas%E7%AC%94%E8%AE%B0/9.11.%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86.html" title="9.11.数据处理" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  上一页
+                </span>
+                9.11.数据处理
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../scikit-learn/11.1.%E6%95%B0%E6%8D%AE%E9%9B%86.html" title="11.1.数据集" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  下一页
+                </span>
+                11.1.数据集
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org" target="_blank" rel="noopener">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application.c33a9706.js"></script>
+      
+        
+        
+          
+          <script src="../assets/javascripts/lunr/lunr.stemmer.support.js"></script>
+          
+            
+              
+              
+            
+          
+          
+        
+      
+      <script>app.initialize({version:"1.1",url:{base:".."}})</script>
+      
+        <script src="../javascript/extra.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+    
+  </body>
+</html>
