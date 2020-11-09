@@ -1355,6 +1355,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#math-text" class="md-nav__link">
+    Math Text
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#references" class="md-nav__link">
     References
   </a>
@@ -2049,6 +2056,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#math-text" class="md-nav__link">
+    Math Text
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#references" class="md-nav__link">
     References
   </a>
@@ -2077,14 +2091,14 @@
                   <h1>10.1.架构</h1>
                 
                 <h2 id="introduction">Introduction</h2>
-<p>Matplotlib 是一个绘图库，通常被视为Python可视化库的祖父。该项目由科学家约翰·亨特（John Hunter）于2003年发起，此后由开源社区开发。</p>
+<p>Matplotlib 是一个 Python 2D绘图库，它是一个开源项目，得到 Python 科学计算社区的全力支持。该项目由生物学家 John Hunter 于2003年发起，最初的作者大部分都是在编程领域自学成才的科学家，现在项目由开源社区开发。</p>
+<p>Matplotlib 现在已经被很多人用于分析和研究目的，甚至被 NASA 用于凤凰号火星探测器的数据可视化。值得一提的是，人类捕捉的第一张<a href="https://www.jpl.nasa.gov/images/universe/20190410/blackhole20190410.jpg">黑洞照片</a>完全使用 Python 合成，其中就用到了 Matplotlib。</p>
 <h2 id="origin-of-matplotlib">Origin of matplotlib</h2>
-<p>Matplotlib 的起源可以追溯到 John Hunter 试图把他自己和他研究癫痫的同事从分析皮质脑电图(ECoG)的专有软件中解放出来。他工作的实验室只有一个软件许可证，各种各样的研究生、医学生、博士后、实习生和调查人员轮流分享硬件密钥。</p>
-<p>MATLAB 在生物医学界被广泛应用于数据分析和可视化，因此 Hunter 开始着手用一个基于 MATLAB 的版本来取代专有软件，并取得了一些成功。这个版本可以被多个研究人员使用和扩展。然而，癫痫手术患者的真实医疗数据具有多种数据模式 (CT、MRI、ECoG、EEG)，其复杂性让 MATLAB 在数据管理方面受到挑战。由于不满意 MATLAB 对这项任务的适用性，Hunter 开始在用户界面工具包 GTK + 的基础上开发一个新的 Python 应用程序，在当时 GTK + 是领先的 Linux 桌面视窗系统。</p>
+<p>Matplotlib 的起源可以追溯到 John Hunter 试图把他自己和研究癫痫的同事从分析皮质脑电图(ECoG)的专有软件 (Proprietary software) 中解放出来。在当时，专有的数据可视化软件是一种有限的资源。John Hunter 工作的实验室只有一个软件许可证，各种各样的研究生、医学生、博士后、实习生和调查人员轮流分享硬件密钥。John Hunter 想找到一个可供整个团队使用的替代工具。在当时，MATLAB 已被广泛应用于在生物医学界的数据分析和可视化，因此 Hunter 开始着手基于 MATLAB 开发一个工具用来取代专用软件，并取得了一些成功。这个版本可以被多个研究人员使用和扩展。然而，癫痫手术患者的真实医疗数据具有多种数据模式 (CT、MRI、ECoG、EEG)，其复杂性让 MATLAB 在数据管理方面受到挑战。由于不满意 MATLAB 对这项任务的适用性，Hunter 开始在用户界面工具包 GTK + 的基础上开发一个新的 Python 应用程序，在当时 GTK + 是领先的 Linux 桌面视窗系统。</p>
 <blockquote>
 <p>GTK（原名GTK+）最初是GIMP的专用开发库（GIMP Toolkit），后来发展为Unix-like系统下开发图形界面的应用程序的主流开发工具之一。GTK是自由软件，并且是GNU计划的一部分。自2019年2月6日起，GTK+改名为GTK。GTK使用C语言开发，但是其设计者使用面向对象技术，也提供了其他语言（如Python）的接口。</p>
 </blockquote>
-<p>Matplotlib 最初是为这个 GTK + 应用程序开发的 EEG/ECoG 可视化工具，这个用例指导了它的原始架构。Matplotlib 最初的设计还有第二个目的：作为交互式命令驱动的图形生成工具的替代品，MATLAB 在这一点上做得非常好。MATLAB 的设计使加载数据文件和绘图这些容易完成的任务变得非常简单直接，然而完整的面向对象 API 在语法上过于繁重。因此 matplotlib 还提供了一个有状态的脚本编制界面，用于快速简单地生成类似于 MATLAB 的图形。</p>
+<p>Matplotlib 最初是为这个 GTK+ 应用程序开发的 EEG/ECoG 可视化工具，这个用例指导了它的原始架构。Matplotlib 最初的设计还有第二个目的：作为交互式命令驱动的图形生成工具的替代品，MATLAB 在这一点上做得非常好。MATLAB 的设计使加载数据文件和绘图的任务变得非常简单直接，然而完整的面向对象 API 在语法上过于繁重。因此 matplotlib 还提供了一个有状态的脚本接口，用于快速简单地生成类似于 MATLAB 的图形。</p>
 <h2 id="overview-of-matplotlib-architecture">Overview of matplotlib Architecture</h2>
 <p>Matplotlib 中，包含和管理给定图形中所有元素的顶级 matplotlib 对象称为 <code>Figure</code>。当前 Matplotlib 体系结构围绕着用户创建、表示（渲染）和更新 <code>Figure</code> 对象所需的操作展开。从逻辑上讲，完成这一系列操作的体系结构分为三层，可以将其视为堆栈。这三层从下到上分别是：backend、artist 和scripting。上层知道如何与下面的层进行通信，但下层却不知道上层。</p>
 <div align="center">
@@ -2320,6 +2334,10 @@
 <br>Fig 6
 </div>
 
+<h2 id="math-text">Math Text</h2>
+<p>由于 Matplotlib 的用户通常具有科学背景，所以直接在图上放置格式丰富的数学表达式是很有用的。来自计算机科学家 Donald Knuth 教授的 $\TeX$ 排版系统可能是最流行的数学排版系统，因此 Matplotlib 也使用 $\TeX$ 语法来输入公式。</p>
+<p>Matplotlib 提供了两种渲染数学公式的方法。第一个是 <code>usetex</code>，它使用用户计算机中的完整 TeX 引擎来渲染数学公式。TeX 以其原始的 DVI （与设备无关）格式输出公式中字符和行的位置。然后  Matplotlib 解析 DVI 文件并将其转换为（用于输出的）后端的一组绘图命令，然后直接渲染在图片上。这种方式可以处理大量晦涩的数学公式语法。但是，它要求用户完整安装一个可用的 Tex 系统。因此，Matplotlib 也提供它内部的数学渲染引擎，称为 <code>mathtext</code>。<code>mathtext</code> 是 TeX 数学渲染引擎的直接接口，由一个更简单的解析器提供。该解析器使用 <code>pyparsing</code> [<a href="https://www.aosabook.org/en/bib2.html#pyparsing">McG07</a>] 解析框架编写。</p>
+<p>这个接口是基于 TeX 源代码 [<a href="https://www.aosabook.org/en/bib2.html#texprogram">Knu86</a>] 编写的。这个简单的解析器构建一个 box 和 glue，然后由布局引擎布局。虽然包含了完整的 TeX 数学渲染引擎，但是没有包含大量的第三方 TeX 和 LaTeX 数学库。<code>mathtext</code> 根据需要移植这些数学库的特性，首要目标是移植经常使用的，但非特定学科的特性。这是一种非常好的、轻量级的方法用来呈现大部分数学公式。</p>
 <h2 id="references">References</h2>
 <ol>
 <li><a href="https://delftswa.gitbooks.io/desosa-2017/content/matplotlib/chapter.html#fig-codeline">Matplotlib - The Python 2D Plotting Library </a></li>
@@ -2328,6 +2346,11 @@
 <li><a href="[https://creately.com/diagram/example/hqz3w6j12/Matplotlib%203-tiered%20architecture](https://creately.com/diagram/example/hqz3w6j12/Matplotlib 3-tiered architecture)">Matplotlib 3-tiered architecture ( Class Diagram (UML))</a></li>
 <li><a href="https://markdowntohtml.com/">Convert Markdown to HTML</a></li>
 <li><a href="https://brainphd-cn.github.io/handbook/short-intro/#_32">脑科学博士申请指南</a></li>
+<li><a href="http://jessenoller.com/blog/2012/08/30/rest-in-peace-john-hunter-matplotlib-has-passed-away">REST IN PEACE: JOHN HUNTER, MATPLOTLIB AUTHOR, FATHER HAS PASSED AWAY.</a></li>
+<li><a href="https://matplotlib.org/3.1.0/users/history.html">History</a></li>
+<li><a href="https://github.com/achael/eht-imaging">eht-imaging</a></li>
+<li><a href="https://numpy.org/case-studies/blackhole-image/">CASE STUDY: THE FIRST IMAGE OF A BLACK HOLE</a></li>
+<li><a href="https://www.python-course.eu/matplotlib.php">Matplotlib Tutorial</a></li>
 </ol>
                 
                   
