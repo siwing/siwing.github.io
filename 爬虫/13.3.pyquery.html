@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-6.1.4">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.4">
     
     
       
@@ -820,6 +820,18 @@
   <li class="md-nav__item">
     <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.16.shutil.html" class="md-nav__link">
       6.16.shutil
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.17.test.html" class="md-nav__link">
+      6.17.test
     </a>
   </li>
 
@@ -2202,16 +2214,15 @@
                 
                   <h1>13.3.pyquery</h1>
                 
-                <div class="codehilite"><pre><span></span><code><span class="err">Windows 10</span>
-<span class="err">Python 3.7.7 @ MSC v.1916 64 bit (AMD64)</span>
-<span class="err">Latest build date 2020.10.09</span>
+                <div class="highlight"><pre><span></span><code>Windows 10
+Python 3.7.7 @ MSC v.1916 64 bit (AMD64)
+Latest build date 2020.10.09
 </code></pre></div>
-
 
 <h2 id="_1">初始化</h2>
 <p>像 Beautiful Soup 一样，初始化 pyquery 的时候，也需要传入 HTML 文本来初始化一个 PyQuery 对象。它的初始化方式有多种，比如直接传入字符串，传入 URL，传入文件名，等等。</p>
 <h3 id="_2">字符串初始化</h3>
-<div class="codehilite"><pre><span></span><code><span class="n">html</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="n">html</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
 <span class="s1">&lt;div&gt;</span>
 <span class="s1">    &lt;ul&gt;</span>
 <span class="s1">         &lt;li class=&quot;item-0&quot;&gt;first item&lt;/li&gt;</span>
@@ -2228,56 +2239,48 @@
 <span class="n">doc</span><span class="p">(</span><span class="s1">&#39;li&#39;</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">[&lt;li.item-0&gt;, &lt;li.item-1&gt;, &lt;li.item-0.active&gt;, &lt;li.item-1.active&gt;, &lt;li.item-0&gt;]</span>
+<div class="highlight"><pre><span></span><code>[&lt;li.item-0&gt;, &lt;li.item-1&gt;, &lt;li.item-0.active&gt;, &lt;li.item-1.active&gt;, &lt;li.item-0&gt;]
 </code></pre></div>
-
 
 <h3 id="url">URL 初始化</h3>
 <p>初始化的参数不仅可以以字符串的形式传递，还可以传入网页的 URL，此时只需要指定参数为 url 即可：</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">pyquery</span> <span class="kn">import</span> <span class="n">PyQuery</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">pyquery</span> <span class="kn">import</span> <span class="n">PyQuery</span>
 <span class="n">doc</span> <span class="o">=</span> <span class="n">PyQuery</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s1">&#39;https://www.python.org&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">doc</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">))</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="nt">&lt;title&gt;</span>Welcome to Python.org<span class="nt">&lt;/title&gt;</span>
+<div class="highlight"><pre><span></span><code>&lt;title&gt;Welcome to Python.org&lt;/title&gt;
 </code></pre></div>
 
-
 <p>PyQuery 对象会首先请求这个 URL，然后用得到的 HTML 内容完成初始化，这其实就相当于用网页的源代码以字符串的形式传递给 PyQuery 类来初始化。它与下面的功能是相同的：</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">pyquery</span> <span class="kn">import</span> <span class="n">PyQuery</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">pyquery</span> <span class="kn">import</span> <span class="n">PyQuery</span>
 <span class="kn">import</span> <span class="nn">requests</span>
 <span class="n">doc</span> <span class="o">=</span> <span class="n">PyQuery</span><span class="p">(</span><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;https://www.python.org&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">doc</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">))</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="nt">&lt;title&gt;</span>Welcome to Python.org<span class="nt">&lt;/title&gt;</span>
+<div class="highlight"><pre><span></span><code>&lt;title&gt;Welcome to Python.org&lt;/title&gt;
 </code></pre></div>
-
 
 <h3 id="_3">文件初始化</h3>
 <p>当然除了传递一个 URL，还可以传递本地的文件名，参数指定为 filename 即可：</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">pyquery</span> <span class="kn">import</span> <span class="n">PyQuery</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">pyquery</span> <span class="kn">import</span> <span class="n">PyQuery</span>
 <span class="n">doc</span> <span class="o">=</span> <span class="n">PyQuery</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;../datasets/file/test.html&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">doc</span><span class="p">(</span><span class="s1">&#39;li&#39;</span><span class="p">))</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;item-0&quot;</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;link1.html&quot;</span><span class="nt">&gt;</span>first item<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
-         <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;item-1&quot;</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;link2.html&quot;</span><span class="nt">&gt;</span>second item<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
-         <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;item-inactive&quot;</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;link3.html&quot;</span><span class="nt">&gt;</span>third item<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
-         <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;item-1&quot;</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;link4.html&quot;</span><span class="nt">&gt;</span>fourth item<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
-         <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;item-0&quot;</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;link5.html&quot;</span><span class="nt">&gt;</span>fifth item<span class="nt">&lt;/a&gt;</span>
-     <span class="nt">&lt;/li&gt;</span>
+<div class="highlight"><pre><span></span><code>&lt;li class=&quot;item-0&quot;&gt;&lt;a href=&quot;link1.html&quot;&gt;first item&lt;/a&gt;&lt;/li&gt;
+         &lt;li class=&quot;item-1&quot;&gt;&lt;a href=&quot;link2.html&quot;&gt;second item&lt;/a&gt;&lt;/li&gt;
+         &lt;li class=&quot;item-inactive&quot;&gt;&lt;a href=&quot;link3.html&quot;&gt;third item&lt;/a&gt;&lt;/li&gt;
+         &lt;li class=&quot;item-1&quot;&gt;&lt;a href=&quot;link4.html&quot;&gt;fourth item&lt;/a&gt;&lt;/li&gt;
+         &lt;li class=&quot;item-0&quot;&gt;&lt;a href=&quot;link5.html&quot;&gt;fifth item&lt;/a&gt;
+     &lt;/li&gt;
 </code></pre></div>
-
 
 <p>首先读取本地的文件内容，然后用文件内容以字符串的形式传递给 PyQuery 类来初始化。</p>
 <h2 id="css">基本 CSS 选择器</h2>
 <p>我们首先用一个实例来感受一下 pyquery 的 CSS 选择器的用法：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">html</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="n">html</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
 <span class="s1">&lt;div id=&quot;container&quot;&gt;</span>
 <span class="s1">    &lt;ul class=&quot;list&quot;&gt;</span>
 <span class="s1">         &lt;li class=&quot;item-0&quot;&gt;first item&lt;/li&gt;</span>
@@ -2295,25 +2298,23 @@
 <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">doc</span><span class="p">(</span><span class="s1">&#39;#container .list li&#39;</span><span class="p">)))</span>
 </code></pre></div>
 
+<div class="highlight"><pre><span></span><code>&lt;li class=&quot;item-0&quot;&gt;first item&lt;/li&gt;
+         &lt;li class=&quot;item-1&quot;&gt;&lt;a href=&quot;link2.html&quot;&gt;second item&lt;/a&gt;&lt;/li&gt;
+         &lt;li class=&quot;item-0 active&quot;&gt;&lt;a href=&quot;link3.html&quot;&gt;&lt;span
+class=&quot;bold&quot;&gt;third item&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+         &lt;li class=&quot;item-1 active&quot;&gt;&lt;a href=&quot;link4.html&quot;&gt;fourth
+item&lt;/a&gt;&lt;/li&gt;
+         &lt;li class=&quot;item-0&quot;&gt;&lt;a href=&quot;link5.html&quot;&gt;fifth item&lt;/a&gt;&lt;/li&gt;
 
-<div class="codehilite"><pre><span></span><code><span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;item-0&quot;</span><span class="nt">&gt;</span>first item<span class="nt">&lt;/li&gt;</span>
-         <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;item-1&quot;</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;link2.html&quot;</span><span class="nt">&gt;</span>second item<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
-         <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;item-0 active&quot;</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;link3.html&quot;</span><span class="nt">&gt;&lt;span</span>
-<span class="na">class=</span><span class="s">&quot;bold&quot;</span><span class="nt">&gt;</span>third item<span class="nt">&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;</span>
-         <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;item-1 active&quot;</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;link4.html&quot;</span><span class="nt">&gt;</span>fourth
-item<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
-         <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;item-0&quot;</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;link5.html&quot;</span><span class="nt">&gt;</span>fifth item<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
 
-
-<span class="nt">&lt;class</span> <span class="err">&#39;pyquery.pyquery.PyQuery&#39;</span><span class="nt">&gt;</span>
+&lt;class &#39;pyquery.pyquery.PyQuery&#39;&gt;
 </code></pre></div>
-
 
 <p>初始化 PyQuery 对象之后，传入了一个 CSS 选择器<code>#container .list li</code>，它的意思是先选取 id 为 container 的节点，然后再选取其内部的 class 为 list 的节点内部的所有 li 节点。</p>
 <p>下面介绍一些常用的查询方法，这些函数和 jQuery 中的方法用法也完全相同。</p>
 <h3 id="_4">查找子节点</h3>
 <p>查找子节点需要用到 find 方法，传入的参数是 CSS 选择器，我们还是以上面的 HTML 为例：</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">pyquery</span> <span class="kn">import</span> <span class="n">PyQuery</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">pyquery</span> <span class="kn">import</span> <span class="n">PyQuery</span>
 <span class="n">doc</span> <span class="o">=</span> <span class="n">PyQuery</span><span class="p">(</span><span class="n">html</span><span class="p">)</span>
 <span class="n">items</span> <span class="o">=</span> <span class="n">doc</span><span class="p">(</span><span class="s1">&#39;.list&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">items</span><span class="p">),</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -2323,60 +2324,54 @@ item<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">lis</span><span class="p">)</span>
 </code></pre></div>
 
+<div class="highlight"><pre><span></span><code>&lt;class &#39;pyquery.pyquery.PyQuery&#39;&gt; 
 
-<div class="codehilite"><pre><span></span><code><span class="nt">&lt;class</span> <span class="err">&#39;pyquery.pyquery.PyQuery&#39;</span><span class="nt">&gt;</span> 
+&lt;ul class=&quot;list&quot;&gt;
+         &lt;li class=&quot;item-0&quot;&gt;first item&lt;/li&gt;
+         &lt;li class=&quot;item-1&quot;&gt;&lt;a href=&quot;link2.html&quot;&gt;second item&lt;/a&gt;&lt;/li&gt;
+         &lt;li class=&quot;item-0 active&quot;&gt;&lt;a href=&quot;link3.html&quot;&gt;&lt;span class=&quot;bold&quot;&gt;third item&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+         &lt;li class=&quot;item-1 active&quot;&gt;&lt;a href=&quot;link4.html&quot;&gt;fourth item&lt;/a&gt;&lt;/li&gt;
+         &lt;li class=&quot;item-0&quot;&gt;&lt;a href=&quot;link5.html&quot;&gt;fifth item&lt;/a&gt;&lt;/li&gt;
+     &lt;/ul&gt;
 
-<span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">&quot;list&quot;</span><span class="nt">&gt;</span>
-         <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;item-0&quot;</span><span class="nt">&gt;</span>first item<span class="nt">&lt;/li&gt;</span>
-         <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;item-1&quot;</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;link2.html&quot;</span><span class="nt">&gt;</span>second item<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
-         <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;item-0 active&quot;</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;link3.html&quot;</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">&quot;bold&quot;</span><span class="nt">&gt;</span>third item<span class="nt">&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;</span>
-         <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;item-1 active&quot;</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;link4.html&quot;</span><span class="nt">&gt;</span>fourth item<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
-         <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;item-0&quot;</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;link5.html&quot;</span><span class="nt">&gt;</span>fifth item<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
-     <span class="nt">&lt;/ul&gt;</span>
+&lt;class &#39;pyquery.pyquery.PyQuery&#39;&gt; 
 
-<span class="nt">&lt;class</span> <span class="err">&#39;pyquery.pyquery.PyQuery&#39;</span><span class="nt">&gt;</span> 
-
-<span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;item-0&quot;</span><span class="nt">&gt;</span>first item<span class="nt">&lt;/li&gt;</span>
-         <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;item-1&quot;</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;link2.html&quot;</span><span class="nt">&gt;</span>second item<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
-         <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;item-0 active&quot;</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;link3.html&quot;</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">&quot;bold&quot;</span><span class="nt">&gt;</span>third item<span class="nt">&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;</span>
-         <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;item-1 active&quot;</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;link4.html&quot;</span><span class="nt">&gt;</span>fourth item<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
-         <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;item-0&quot;</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;link5.html&quot;</span><span class="nt">&gt;</span>fifth item<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+&lt;li class=&quot;item-0&quot;&gt;first item&lt;/li&gt;
+         &lt;li class=&quot;item-1&quot;&gt;&lt;a href=&quot;link2.html&quot;&gt;second item&lt;/a&gt;&lt;/li&gt;
+         &lt;li class=&quot;item-0 active&quot;&gt;&lt;a href=&quot;link3.html&quot;&gt;&lt;span class=&quot;bold&quot;&gt;third item&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+         &lt;li class=&quot;item-1 active&quot;&gt;&lt;a href=&quot;link4.html&quot;&gt;fourth item&lt;/a&gt;&lt;/li&gt;
+         &lt;li class=&quot;item-0&quot;&gt;&lt;a href=&quot;link5.html&quot;&gt;fifth item&lt;/a&gt;&lt;/li&gt;
 </code></pre></div>
-
 
 <p>首先选取 class 为 list 的节点，然后调用了 find() 方法，传入 CSS 选择器，选取其内部的 li 节点。</p>
 <p>find 方法的查找范围是节点的所有子孙节点，而如果我们只想查找子节点，那可以用 children 方法：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">lis</span> <span class="o">=</span> <span class="n">items</span><span class="o">.</span><span class="n">children</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span class="n">lis</span> <span class="o">=</span> <span class="n">items</span><span class="o">.</span><span class="n">children</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">lis</span><span class="p">),</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">lis</span><span class="p">)</span>
 </code></pre></div>
 
+<div class="highlight"><pre><span></span><code>&lt;class &#39;pyquery.pyquery.PyQuery&#39;&gt; 
 
-<div class="codehilite"><pre><span></span><code><span class="nt">&lt;class</span> <span class="err">&#39;pyquery.pyquery.PyQuery&#39;</span><span class="nt">&gt;</span> 
-
-<span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;item-0&quot;</span><span class="nt">&gt;</span>first item<span class="nt">&lt;/li&gt;</span>
-         <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;item-1&quot;</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;link2.html&quot;</span><span class="nt">&gt;</span>second item<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
-         <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;item-0 active&quot;</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;link3.html&quot;</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">&quot;bold&quot;</span><span class="nt">&gt;</span>third item<span class="nt">&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;</span>
-         <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;item-1 active&quot;</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;link4.html&quot;</span><span class="nt">&gt;</span>fourth item<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
-         <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;item-0&quot;</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;link5.html&quot;</span><span class="nt">&gt;</span>fifth item<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+&lt;li class=&quot;item-0&quot;&gt;first item&lt;/li&gt;
+         &lt;li class=&quot;item-1&quot;&gt;&lt;a href=&quot;link2.html&quot;&gt;second item&lt;/a&gt;&lt;/li&gt;
+         &lt;li class=&quot;item-0 active&quot;&gt;&lt;a href=&quot;link3.html&quot;&gt;&lt;span class=&quot;bold&quot;&gt;third item&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+         &lt;li class=&quot;item-1 active&quot;&gt;&lt;a href=&quot;link4.html&quot;&gt;fourth item&lt;/a&gt;&lt;/li&gt;
+         &lt;li class=&quot;item-0&quot;&gt;&lt;a href=&quot;link5.html&quot;&gt;fifth item&lt;/a&gt;&lt;/li&gt;
 </code></pre></div>
 
-
 <p>如果要筛选所有子节点中符合条件的节点，比如想筛选出子节点中 class 为 active 的节点，可以向 children() 方法传入 CSS 选择器.active：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">lis</span> <span class="o">=</span> <span class="n">items</span><span class="o">.</span><span class="n">children</span><span class="p">(</span><span class="s1">&#39;.active&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">lis</span> <span class="o">=</span> <span class="n">items</span><span class="o">.</span><span class="n">children</span><span class="p">(</span><span class="s1">&#39;.active&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">lis</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;item-0 active&quot;</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;link3.html&quot;</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">&quot;bold&quot;</span><span class="nt">&gt;</span>third item<span class="nt">&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;</span>
-         <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;item-1 active&quot;</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;link4.html&quot;</span><span class="nt">&gt;</span>fourth item<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+<div class="highlight"><pre><span></span><code>&lt;li class=&quot;item-0 active&quot;&gt;&lt;a href=&quot;link3.html&quot;&gt;&lt;span class=&quot;bold&quot;&gt;third item&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+         &lt;li class=&quot;item-1 active&quot;&gt;&lt;a href=&quot;link4.html&quot;&gt;fourth item&lt;/a&gt;&lt;/li&gt;
 </code></pre></div>
-
 
 <p>可以看到输出的结果已经做了筛选，留下了 class 为 active 的节点。</p>
 <h3 id="_5">查找父节点</h3>
 <p>可以用 parent 方法来获取某个节点的父节点：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">html</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="n">html</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
 <span class="s1">&lt;div class=&quot;wrap&quot;&gt;</span>
 <span class="s1">    &lt;div id=&quot;container&quot;&gt;</span>
 <span class="s1">        &lt;ul class=&quot;list&quot;&gt;</span>
@@ -2398,24 +2393,22 @@ item<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">container</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="nt">&lt;class</span> <span class="err">&#39;pyquery.pyquery.PyQuery&#39;</span><span class="nt">&gt;</span>
-<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;container&quot;</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">&quot;list&quot;</span><span class="nt">&gt;</span>
-             <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;item-0&quot;</span><span class="nt">&gt;</span>first item<span class="nt">&lt;/li&gt;</span>
-             <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;item-1&quot;</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;link2.html&quot;</span><span class="nt">&gt;</span>second item<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
-             <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;item-0 active&quot;</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;link3.html&quot;</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">&quot;bold&quot;</span><span class="nt">&gt;</span>third item<span class="nt">&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;</span>
-             <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;item-1 active&quot;</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;link4.html&quot;</span><span class="nt">&gt;</span>fourth item<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
-             <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;item-0&quot;</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;link5.html&quot;</span><span class="nt">&gt;</span>fifth item<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
-         <span class="nt">&lt;/ul&gt;</span>
-     <span class="nt">&lt;/div&gt;</span>
+<div class="highlight"><pre><span></span><code>&lt;class &#39;pyquery.pyquery.PyQuery&#39;&gt;
+&lt;div id=&quot;container&quot;&gt;
+        &lt;ul class=&quot;list&quot;&gt;
+             &lt;li class=&quot;item-0&quot;&gt;first item&lt;/li&gt;
+             &lt;li class=&quot;item-1&quot;&gt;&lt;a href=&quot;link2.html&quot;&gt;second item&lt;/a&gt;&lt;/li&gt;
+             &lt;li class=&quot;item-0 active&quot;&gt;&lt;a href=&quot;link3.html&quot;&gt;&lt;span class=&quot;bold&quot;&gt;third item&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+             &lt;li class=&quot;item-1 active&quot;&gt;&lt;a href=&quot;link4.html&quot;&gt;fourth item&lt;/a&gt;&lt;/li&gt;
+             &lt;li class=&quot;item-0&quot;&gt;&lt;a href=&quot;link5.html&quot;&gt;fifth item&lt;/a&gt;&lt;/li&gt;
+         &lt;/ul&gt;
+     &lt;/div&gt;
 </code></pre></div>
-
 
 <p>这里我们首先用.list 选取 class 为 list 的节点，然后调用 parent 方法得到其父节点，其类型依然是 PyQuery 类型。</p>
 <p>这里的父节点是该节点的直接父节点，也就是说，它不会再去查找父节点的父节点，即祖先节点。</p>
 <p>如果想获取祖先节点可以用 parents 方法：</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">pyquery</span> <span class="kn">import</span> <span class="n">PyQuery</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">pyquery</span> <span class="kn">import</span> <span class="n">PyQuery</span>
 <span class="n">doc</span> <span class="o">=</span> <span class="n">PyQuery</span><span class="p">(</span><span class="n">html</span><span class="p">)</span>
 <span class="n">items</span> <span class="o">=</span> <span class="n">doc</span><span class="p">(</span><span class="s1">&#39;.list&#39;</span><span class="p">)</span>
 <span class="n">parents</span> <span class="o">=</span> <span class="n">items</span><span class="o">.</span><span class="n">parents</span><span class="p">()</span>
@@ -2423,103 +2416,93 @@ item<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">parents</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="nt">&lt;class</span> <span class="err">&#39;pyquery.pyquery.PyQuery&#39;</span><span class="nt">&gt;</span>
-<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;wrap&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;container&quot;</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">&quot;list&quot;</span><span class="nt">&gt;</span>
-             <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;item-0&quot;</span><span class="nt">&gt;</span>first item<span class="nt">&lt;/li&gt;</span>
-             <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;item-1&quot;</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;link2.html&quot;</span><span class="nt">&gt;</span>second item<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
-             <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;item-0 active&quot;</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;link3.html&quot;</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">&quot;bold&quot;</span><span class="nt">&gt;</span>third item<span class="nt">&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;</span>
-             <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;item-1 active&quot;</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;link4.html&quot;</span><span class="nt">&gt;</span>fourth item<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
-             <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;item-0&quot;</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;link5.html&quot;</span><span class="nt">&gt;</span>fifth item<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
-         <span class="nt">&lt;/ul&gt;</span>
-     <span class="nt">&lt;/div&gt;</span>
- <span class="nt">&lt;/div&gt;&lt;div</span> <span class="na">id=</span><span class="s">&quot;container&quot;</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">&quot;list&quot;</span><span class="nt">&gt;</span>
-             <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;item-0&quot;</span><span class="nt">&gt;</span>first item<span class="nt">&lt;/li&gt;</span>
-             <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;item-1&quot;</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;link2.html&quot;</span><span class="nt">&gt;</span>second item<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
-             <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;item-0 active&quot;</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;link3.html&quot;</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">&quot;bold&quot;</span><span class="nt">&gt;</span>third item<span class="nt">&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;</span>
-             <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;item-1 active&quot;</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;link4.html&quot;</span><span class="nt">&gt;</span>fourth item<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
-             <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;item-0&quot;</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;link5.html&quot;</span><span class="nt">&gt;</span>fifth item<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
-         <span class="nt">&lt;/ul&gt;</span>
-     <span class="nt">&lt;/div&gt;</span>
+<div class="highlight"><pre><span></span><code>&lt;class &#39;pyquery.pyquery.PyQuery&#39;&gt;
+&lt;div class=&quot;wrap&quot;&gt;
+    &lt;div id=&quot;container&quot;&gt;
+        &lt;ul class=&quot;list&quot;&gt;
+             &lt;li class=&quot;item-0&quot;&gt;first item&lt;/li&gt;
+             &lt;li class=&quot;item-1&quot;&gt;&lt;a href=&quot;link2.html&quot;&gt;second item&lt;/a&gt;&lt;/li&gt;
+             &lt;li class=&quot;item-0 active&quot;&gt;&lt;a href=&quot;link3.html&quot;&gt;&lt;span class=&quot;bold&quot;&gt;third item&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+             &lt;li class=&quot;item-1 active&quot;&gt;&lt;a href=&quot;link4.html&quot;&gt;fourth item&lt;/a&gt;&lt;/li&gt;
+             &lt;li class=&quot;item-0&quot;&gt;&lt;a href=&quot;link5.html&quot;&gt;fifth item&lt;/a&gt;&lt;/li&gt;
+         &lt;/ul&gt;
+     &lt;/div&gt;
+ &lt;/div&gt;&lt;div id=&quot;container&quot;&gt;
+        &lt;ul class=&quot;list&quot;&gt;
+             &lt;li class=&quot;item-0&quot;&gt;first item&lt;/li&gt;
+             &lt;li class=&quot;item-1&quot;&gt;&lt;a href=&quot;link2.html&quot;&gt;second item&lt;/a&gt;&lt;/li&gt;
+             &lt;li class=&quot;item-0 active&quot;&gt;&lt;a href=&quot;link3.html&quot;&gt;&lt;span class=&quot;bold&quot;&gt;third item&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+             &lt;li class=&quot;item-1 active&quot;&gt;&lt;a href=&quot;link4.html&quot;&gt;fourth item&lt;/a&gt;&lt;/li&gt;
+             &lt;li class=&quot;item-0&quot;&gt;&lt;a href=&quot;link5.html&quot;&gt;fifth item&lt;/a&gt;&lt;/li&gt;
+         &lt;/ul&gt;
+     &lt;/div&gt;
 </code></pre></div>
-
 
 <p>可以看到，输出结果有两个：一个是 class 为 wrap 的节点，一个是 id 为 container 的节点。也就是说，parents() 方法会返回所有的祖先节点。</p>
 <p>如果想要筛选某个祖先节点的话，可以向 parents 方法传入 CSS 选择器，这样就会返回祖先节点中符合 CSS 选择器的节点：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">parent</span> <span class="o">=</span> <span class="n">items</span><span class="o">.</span><span class="n">parents</span><span class="p">(</span><span class="s1">&#39;.wrap&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">parent</span> <span class="o">=</span> <span class="n">items</span><span class="o">.</span><span class="n">parents</span><span class="p">(</span><span class="s1">&#39;.wrap&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">parent</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">&quot;wrap&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;container&quot;</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">&quot;list&quot;</span><span class="nt">&gt;</span>
-             <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;item-0&quot;</span><span class="nt">&gt;</span>first item<span class="nt">&lt;/li&gt;</span>
-             <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;item-1&quot;</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;link2.html&quot;</span><span class="nt">&gt;</span>second item<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
-             <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;item-0 active&quot;</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;link3.html&quot;</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">&quot;bold&quot;</span><span class="nt">&gt;</span>third item<span class="nt">&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;</span>
-             <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;item-1 active&quot;</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;link4.html&quot;</span><span class="nt">&gt;</span>fourth item<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
-             <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;item-0&quot;</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;link5.html&quot;</span><span class="nt">&gt;</span>fifth item<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
-         <span class="nt">&lt;/ul&gt;</span>
-     <span class="nt">&lt;/div&gt;</span>
- <span class="nt">&lt;/div&gt;</span>
+<div class="highlight"><pre><span></span><code>&lt;div class=&quot;wrap&quot;&gt;
+    &lt;div id=&quot;container&quot;&gt;
+        &lt;ul class=&quot;list&quot;&gt;
+             &lt;li class=&quot;item-0&quot;&gt;first item&lt;/li&gt;
+             &lt;li class=&quot;item-1&quot;&gt;&lt;a href=&quot;link2.html&quot;&gt;second item&lt;/a&gt;&lt;/li&gt;
+             &lt;li class=&quot;item-0 active&quot;&gt;&lt;a href=&quot;link3.html&quot;&gt;&lt;span class=&quot;bold&quot;&gt;third item&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+             &lt;li class=&quot;item-1 active&quot;&gt;&lt;a href=&quot;link4.html&quot;&gt;fourth item&lt;/a&gt;&lt;/li&gt;
+             &lt;li class=&quot;item-0&quot;&gt;&lt;a href=&quot;link5.html&quot;&gt;fifth item&lt;/a&gt;&lt;/li&gt;
+         &lt;/ul&gt;
+     &lt;/div&gt;
+ &lt;/div&gt;
 </code></pre></div>
-
 
 <p>可以看到，输出结果少了一个节点，只保留了 class 为 wrap 的节点。</p>
 <h3 id="_6">查找兄弟节点</h3>
 <p>前面我们说明了子节点和父节点的用法，还有一种节点，那就是兄弟节点。如果要获取兄弟节点，可以使用 siblings() 方法。这里还是以上面的 HTML 代码为例：</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">pyquery</span> <span class="kn">import</span> <span class="n">PyQuery</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">pyquery</span> <span class="kn">import</span> <span class="n">PyQuery</span>
 <span class="n">doc</span> <span class="o">=</span> <span class="n">PyQuery</span><span class="p">(</span><span class="n">html</span><span class="p">)</span>
 <span class="n">li</span> <span class="o">=</span> <span class="n">doc</span><span class="p">(</span><span class="s1">&#39;.list .item-0.active&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">li</span><span class="o">.</span><span class="n">siblings</span><span class="p">())</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;item-1&quot;</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;link2.html&quot;</span><span class="nt">&gt;</span>second item<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
-             <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;item-0&quot;</span><span class="nt">&gt;</span>first item<span class="nt">&lt;/li&gt;</span>
-             <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;item-1 active&quot;</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;link4.html&quot;</span><span class="nt">&gt;</span>fourth item<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
-             <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;item-0&quot;</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;link5.html&quot;</span><span class="nt">&gt;</span>fifth item<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+<div class="highlight"><pre><span></span><code>&lt;li class=&quot;item-1&quot;&gt;&lt;a href=&quot;link2.html&quot;&gt;second item&lt;/a&gt;&lt;/li&gt;
+             &lt;li class=&quot;item-0&quot;&gt;first item&lt;/li&gt;
+             &lt;li class=&quot;item-1 active&quot;&gt;&lt;a href=&quot;link4.html&quot;&gt;fourth item&lt;/a&gt;&lt;/li&gt;
+             &lt;li class=&quot;item-0&quot;&gt;&lt;a href=&quot;link5.html&quot;&gt;fifth item&lt;/a&gt;&lt;/li&gt;
 </code></pre></div>
-
 
 <p>这里首先选择 class 为 list 的节点内部 class 为 item-0 和 active 的节点，也就是第三个 li 节点。那么，很明显，它的兄弟节点有 4 个，那就是第一、二、四、五个 li 节点。</p>
 <p>如果要筛选某个兄弟节点，我们依然可以向 siblings 方法传入 CSS 选择器，这样就会从所有兄弟节点中挑选出符合条件的节点了：</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">pyquery</span> <span class="kn">import</span> <span class="n">PyQuery</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">pyquery</span> <span class="kn">import</span> <span class="n">PyQuery</span>
 <span class="n">doc</span> <span class="o">=</span> <span class="n">PyQuery</span><span class="p">(</span><span class="n">html</span><span class="p">)</span>
 <span class="n">li</span> <span class="o">=</span> <span class="n">doc</span><span class="p">(</span><span class="s1">&#39;.list .item-0.active&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">li</span><span class="o">.</span><span class="n">siblings</span><span class="p">(</span><span class="s1">&#39;.active&#39;</span><span class="p">))</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;item-1 active&quot;</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;link4.html&quot;</span><span class="nt">&gt;</span>fourth item<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+<div class="highlight"><pre><span></span><code>&lt;li class=&quot;item-1 active&quot;&gt;&lt;a href=&quot;link4.html&quot;&gt;fourth item&lt;/a&gt;&lt;/li&gt;
 </code></pre></div>
-
 
 <p>这里我们筛选了 class 为 active 的节点，通过刚才的结果可以观察到，class 为 active 的兄弟节点只有第四个 li 节点，所以结果应该是一个。</p>
 <h3 id="_7">遍历</h3>
 <p>刚才可以观察到，pyquery 的选择结果可能是多个节点，也可能是单个节点，类型都是 PyQuery 类型，并没有返回像 Beautiful Soup 那样的列表。</p>
 <p>对于单个节点来说，可以直接打印输出，也可以直接转成字符串：</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">pyquery</span> <span class="kn">import</span> <span class="n">PyQuery</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">pyquery</span> <span class="kn">import</span> <span class="n">PyQuery</span>
 <span class="n">doc</span> <span class="o">=</span> <span class="n">PyQuery</span><span class="p">(</span><span class="n">html</span><span class="p">)</span>
 <span class="n">li</span> <span class="o">=</span> <span class="n">doc</span><span class="p">(</span><span class="s1">&#39;.item-0.active&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">li</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">li</span><span class="p">))</span>
 </code></pre></div>
 
+<div class="highlight"><pre><span></span><code>&lt;li class=&quot;item-0 active&quot;&gt;&lt;a href=&quot;link3.html&quot;&gt;&lt;span
+class=&quot;bold&quot;&gt;third item&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
 
-<div class="codehilite"><pre><span></span><code><span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;item-0 active&quot;</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;link3.html&quot;</span><span class="nt">&gt;&lt;span</span>
-<span class="na">class=</span><span class="s">&quot;bold&quot;</span><span class="nt">&gt;</span>third item<span class="nt">&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;</span>
-
-<span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;item-0 active&quot;</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;link3.html&quot;</span><span class="nt">&gt;&lt;span</span>
-<span class="na">class=</span><span class="s">&quot;bold&quot;</span><span class="nt">&gt;</span>third item<span class="nt">&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;</span>
+&lt;li class=&quot;item-0 active&quot;&gt;&lt;a href=&quot;link3.html&quot;&gt;&lt;span
+class=&quot;bold&quot;&gt;third item&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
 </code></pre></div>
 
-
 <p>对于多个节点的结果，我们就需要遍历来获取了。例如，这里把每一个 li 节点进行遍历，需要调用 items 方法：</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">pyquery</span> <span class="kn">import</span> <span class="n">PyQuery</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">pyquery</span> <span class="kn">import</span> <span class="n">PyQuery</span>
 <span class="n">doc</span> <span class="o">=</span> <span class="n">PyQuery</span><span class="p">(</span><span class="n">html</span><span class="p">)</span>
 <span class="n">lis</span> <span class="o">=</span> <span class="n">doc</span><span class="p">(</span><span class="s1">&#39;li&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">lis</span><span class="p">))</span>
@@ -2527,28 +2510,26 @@ item<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">li</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">li</span><span class="p">))</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="nt">&lt;class</span> <span class="err">&#39;generator&#39;</span><span class="nt">&gt;</span>
-<span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;item-0&quot;</span><span class="nt">&gt;</span>first item<span class="nt">&lt;/li&gt;</span>
-              <span class="nt">&lt;class</span> <span class="err">&#39;pyquery.pyquery.PyQuery&#39;</span><span class="nt">&gt;</span>
-<span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;item-1&quot;</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;link2.html&quot;</span><span class="nt">&gt;</span>second item<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
-              <span class="nt">&lt;class</span> <span class="err">&#39;pyquery.pyquery.PyQuery&#39;</span><span class="nt">&gt;</span>
-<span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;item-0 active&quot;</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;link3.html&quot;</span><span class="nt">&gt;&lt;span</span>
-<span class="na">class=</span><span class="s">&quot;bold&quot;</span><span class="nt">&gt;</span>third item<span class="nt">&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;</span>
-              <span class="nt">&lt;class</span> <span class="err">&#39;pyquery.pyquery.PyQuery&#39;</span><span class="nt">&gt;</span>
-<span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;item-1 active&quot;</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;link4.html&quot;</span><span class="nt">&gt;</span>fourth item<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
-              <span class="nt">&lt;class</span> <span class="err">&#39;pyquery.pyquery.PyQuery&#39;</span><span class="nt">&gt;</span>
-<span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;item-0&quot;</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;link5.html&quot;</span><span class="nt">&gt;</span>fifth item<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
-          <span class="nt">&lt;class</span> <span class="err">&#39;pyquery.pyquery.PyQuery&#39;</span><span class="nt">&gt;</span>
+<div class="highlight"><pre><span></span><code>&lt;class &#39;generator&#39;&gt;
+&lt;li class=&quot;item-0&quot;&gt;first item&lt;/li&gt;
+              &lt;class &#39;pyquery.pyquery.PyQuery&#39;&gt;
+&lt;li class=&quot;item-1&quot;&gt;&lt;a href=&quot;link2.html&quot;&gt;second item&lt;/a&gt;&lt;/li&gt;
+              &lt;class &#39;pyquery.pyquery.PyQuery&#39;&gt;
+&lt;li class=&quot;item-0 active&quot;&gt;&lt;a href=&quot;link3.html&quot;&gt;&lt;span
+class=&quot;bold&quot;&gt;third item&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
+              &lt;class &#39;pyquery.pyquery.PyQuery&#39;&gt;
+&lt;li class=&quot;item-1 active&quot;&gt;&lt;a href=&quot;link4.html&quot;&gt;fourth item&lt;/a&gt;&lt;/li&gt;
+              &lt;class &#39;pyquery.pyquery.PyQuery&#39;&gt;
+&lt;li class=&quot;item-0&quot;&gt;&lt;a href=&quot;link5.html&quot;&gt;fifth item&lt;/a&gt;&lt;/li&gt;
+          &lt;class &#39;pyquery.pyquery.PyQuery&#39;&gt;
 </code></pre></div>
-
 
 <p>可以发现，调用 items() 方法后，会得到一个生成器，遍历一下，就可以逐个得到 li 节点对象了，它的类型也是 PyQuery 类型。每个 li 节点还可以调用前面所说的方法进行选择，比如继续查询子节点，寻找某个祖先节点等，非常灵活。</p>
 <h3 id="_8">获取信息</h3>
 <p>提取到节点之后，我们的最终目的当然是提取节点所包含的信息了。比较重要的信息有两类，一是获取属性，二是获取文本，下面分别进行说明。</p>
 <h4 id="_9">获取属性</h4>
 <p>提取到某个 PyQuery 类型的节点后，就可以调用 attr() 方法来获取属性：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">html</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="n">html</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
 <span class="s1">&lt;div class=&quot;wrap&quot;&gt;</span>
 <span class="s1">    &lt;div id=&quot;container&quot;&gt;</span>
 <span class="s1">        &lt;ul class=&quot;list&quot;&gt;</span>
@@ -2568,63 +2549,55 @@ item<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">attr</span><span class="p">(</span><span class="s1">&#39;href&#39;</span><span class="p">))</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;link3.html&quot;</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">&quot;bold&quot;</span><span class="nt">&gt;</span>third item<span class="nt">&lt;/span&gt;&lt;/a&gt;</span> <span class="nt">&lt;class</span>
-<span class="err">&#39;pyquery.pyquery.PyQuery&#39;</span><span class="nt">&gt;</span>
+<div class="highlight"><pre><span></span><code>&lt;a href=&quot;link3.html&quot;&gt;&lt;span class=&quot;bold&quot;&gt;third item&lt;/span&gt;&lt;/a&gt; &lt;class
+&#39;pyquery.pyquery.PyQuery&#39;&gt;
 link3.html
 </code></pre></div>
-
 
 <p>这里首先选中 class 为 item-0 和 active 的 li 节点内的 a 节点，它的类型是 PyQuery 类型。</p>
 <p>然后调用 attr 方法。在这个方法中传入属性的名称，就可以得到这个属性值了。</p>
 <p>此外，也可以通过调用 attr 属性来获取属性，用法如下：</p>
-<div class="codehilite"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">attr</span><span class="o">.</span><span class="n">href</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">attr</span><span class="o">.</span><span class="n">href</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">link3.html</span>
+<div class="highlight"><pre><span></span><code>link3.html
 </code></pre></div>
-
 
 <p>这两种方法的结果完全一样。</p>
 <p>如果选中的是多个元素，然后调用 attr 方法，会出现怎样的结果呢？我们用实例来测试一下：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">doc</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">doc</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">attr</span><span class="p">(</span><span class="s1">&#39;href&#39;</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">attr</span><span class="o">.</span><span class="n">href</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;link2.html&quot;</span><span class="nt">&gt;</span>second item<span class="nt">&lt;/a&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;link3.html&quot;</span><span class="nt">&gt;&lt;span</span>
-<span class="na">class=</span><span class="s">&quot;bold&quot;</span><span class="nt">&gt;</span>third item<span class="nt">&lt;/span&gt;&lt;/a&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;link4.html&quot;</span><span class="nt">&gt;</span>fourth
-item<span class="nt">&lt;/a&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;link5.html&quot;</span><span class="nt">&gt;</span>fifth item<span class="nt">&lt;/a&gt;</span> <span class="nt">&lt;class</span>
-<span class="err">&#39;pyquery.pyquery.PyQuery&#39;</span><span class="nt">&gt;</span>
+<div class="highlight"><pre><span></span><code>&lt;a href=&quot;link2.html&quot;&gt;second item&lt;/a&gt;&lt;a href=&quot;link3.html&quot;&gt;&lt;span
+class=&quot;bold&quot;&gt;third item&lt;/span&gt;&lt;/a&gt;&lt;a href=&quot;link4.html&quot;&gt;fourth
+item&lt;/a&gt;&lt;a href=&quot;link5.html&quot;&gt;fifth item&lt;/a&gt; &lt;class
+&#39;pyquery.pyquery.PyQuery&#39;&gt;
 link2.html
 link2.html
 </code></pre></div>
 
-
 <p>照理来说，我们选中的 a 节点应该有 4 个，而且打印结果也应该是 4 个，但是当我们调用 attr 方法时，返回结果却只是第一个。这是因为，当返回结果包含多个节点时，调用 attr 方法，只会得到第一个节点的属性。</p>
 <p>那么，遇到这种情况时，如果想获取所有的 a 节点的属性，就要用到前面所说的遍历了：</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">pyquery</span> <span class="kn">import</span> <span class="n">PyQuery</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">pyquery</span> <span class="kn">import</span> <span class="n">PyQuery</span>
 <span class="n">doc</span> <span class="o">=</span> <span class="n">PyQuery</span><span class="p">(</span><span class="n">html</span><span class="p">)</span>
 <span class="n">a</span> <span class="o">=</span> <span class="n">doc</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">a</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">item</span><span class="o">.</span><span class="n">attr</span><span class="p">(</span><span class="s1">&#39;href&#39;</span><span class="p">))</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">link2.html</span>
-<span class="err">link3.html</span>
-<span class="err">link4.html</span>
-<span class="err">link5.html</span>
+<div class="highlight"><pre><span></span><code>link2.html
+link3.html
+link4.html
+link5.html
 </code></pre></div>
-
 
 <p>因此，在进行属性获取时，可以观察返回节点是一个还是多个，如果是多个，则需要遍历才能依次获取每个节点的属性。</p>
 <h4 id="_10">获取文本</h4>
 <p>获取节点之后的另一个主要操作就是获取其内部的文本了，此时可以调用 text 方法来实现：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">html</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="n">html</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
 <span class="s1">&lt;div class=&quot;wrap&quot;&gt;</span>
 <span class="s1">    &lt;div id=&quot;container&quot;&gt;</span>
 <span class="s1">        &lt;ul class=&quot;list&quot;&gt;</span>
@@ -2644,25 +2617,22 @@ link2.html
 <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">text</span><span class="p">())</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;link3.html&quot;</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">&quot;bold&quot;</span><span class="nt">&gt;</span>third item<span class="nt">&lt;/span&gt;&lt;/a&gt;</span>
+<div class="highlight"><pre><span></span><code>&lt;a href=&quot;link3.html&quot;&gt;&lt;span class=&quot;bold&quot;&gt;third item&lt;/span&gt;&lt;/a&gt;
 third item
 </code></pre></div>
 
-
 <p>这里首先选中一个 a 节点，然后调用 text 方法，就可以获取其内部的文本信息。此时它会忽略掉节点内部包含的所有 HTML，只返回纯文字内容。</p>
 <p>但如果想要获取这个节点内部的 HTML 文本，就要用 html 方法了：</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">pyquery</span> <span class="kn">import</span> <span class="n">PyQuery</span> <span class="k">as</span> <span class="n">pq</span>
-<span class="n">doc</span> <span class="o">=</span> <span class="n">pq</span><span class="p">(</span><span class="n">html</span><span class="p">)</span>
-<span class="n">li</span> <span class="o">=</span> <span class="n">doc</span><span class="p">(</span><span class="s1">&#39;.item-0.active&#39;</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">li</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">li</span><span class="o">.</span><span class="n">html</span><span class="p">())</span>
+<div class="highlight"><pre><span></span><code>from pyquery import PyQuery as pq
+doc = pq(html)
+li = doc(&#39;.item-0.active&#39;)
+print(li)
+print(li.html())
 </code></pre></div>
-
 
 <p>这里我们选中了第三个 li 节点，然后调用了 html() 方法，它返回的结果应该是 li 节点内的所有 HTML 文本。</p>
 <p>这里同样有一个问题，如果我们选中的结果是多个节点，text() 或 html() 会返回什么内容？我们用实例来看一下：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">html</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="n">html</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
 <span class="s1">&lt;div class=&quot;wrap&quot;&gt;</span>
 <span class="s1">    &lt;div id=&quot;container&quot;&gt;</span>
 <span class="s1">        &lt;ul class=&quot;list&quot;&gt;</span>
@@ -2682,12 +2652,10 @@ third item
 <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">li</span><span class="o">.</span><span class="n">text</span><span class="p">()))</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;link2.html&quot;</span><span class="nt">&gt;</span>second item<span class="nt">&lt;/a&gt;</span>
+<div class="highlight"><pre><span></span><code>&lt;a href=&quot;link2.html&quot;&gt;second item&lt;/a&gt;
 second item third item fourth item fifth item
-<span class="nt">&lt;class</span> <span class="err">&#39;str&#39;</span><span class="nt">&gt;</span>
+&lt;class &#39;str&#39;&gt;
 </code></pre></div>
-
 
 <p>结果可能比较出乎意料，html 方法返回的是第一个 li 节点的内部 HTML 文本，而 text 则返回了所有的 li 节点内部的纯文本，中间用一个空格分割开，即返回结果是一个字符串。</p>
 <p>所以这个地方值得注意，如果得到的结果是多个节点，并且想要获取每个节点的内部 HTML 文本，则需要遍历每个节点。而 text() 方法不需要遍历就可以获取，它将所有节点取文本之后合并成一个字符串。</p>
@@ -2696,7 +2664,7 @@ second item third item fourth item fifth item
 <p>由于节点操作的方法太多，下面举几个典型的例子来说明它的用法。</p>
 <h3 id="addclass-removeclass">addClass 和 removeClass</h3>
 <p>我们先用一个实例来感受一下：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">html</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="n">html</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
 <span class="s1">&lt;div class=&quot;wrap&quot;&gt;</span>
 <span class="s1">    &lt;div id=&quot;container&quot;&gt;</span>
 <span class="s1">        &lt;ul class=&quot;list&quot;&gt;</span>
@@ -2719,21 +2687,19 @@ second item third item fourth item fifth item
 <span class="nb">print</span><span class="p">(</span><span class="n">li</span><span class="p">)</span>
 </code></pre></div>
 
+<div class="highlight"><pre><span></span><code>&lt;li class=&quot;item-0 active&quot;&gt;&lt;a href=&quot;link3.html&quot;&gt;&lt;span class=&quot;bold&quot;&gt;third item&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
 
-<div class="codehilite"><pre><span></span><code><span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;item-0 active&quot;</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;link3.html&quot;</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">&quot;bold&quot;</span><span class="nt">&gt;</span>third item<span class="nt">&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;</span>
+&lt;li class=&quot;item-0&quot;&gt;&lt;a href=&quot;link3.html&quot;&gt;&lt;span class=&quot;bold&quot;&gt;third item&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
 
-<span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;item-0&quot;</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;link3.html&quot;</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">&quot;bold&quot;</span><span class="nt">&gt;</span>third item<span class="nt">&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;</span>
-
-<span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;item-0 active&quot;</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;link3.html&quot;</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">&quot;bold&quot;</span><span class="nt">&gt;</span>third item<span class="nt">&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;</span>
+&lt;li class=&quot;item-0 active&quot;&gt;&lt;a href=&quot;link3.html&quot;&gt;&lt;span class=&quot;bold&quot;&gt;third item&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
 </code></pre></div>
-
 
 <p>首先选中了第三个 li 节点，然后调用 removeClass() 方法，将 li 节点的 active 这个 class 移除，后来又调用 addClass() 方法，将 class 添加回来。每执行一次操作，就打印输出当前 li 节点的内容。</p>
 <p>可以看到，一共输出了 3 次。第二次输出时，li 节点的 active 这个 class 被移除了，第三次 class 又添加回来了。</p>
 <p>所以说，addClass 和 removeClass 方法可以动态改变节点的 class 属性。</p>
 <h3 id="attrtexthtml">attr、text、html</h3>
 <p>当然，除了操作 class 这个属性外，也可以用 attr 方法对属性进行操作。此外，还可以用 text 和 html 方法来改变节点内部的内容。示例如下：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">html</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="n">html</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
 <span class="s1">&lt;ul class=&quot;list&quot;&gt;</span>
 <span class="s1">     &lt;li class=&quot;item-0 active&quot;&gt;&lt;a href=&quot;link3.html&quot;&gt;&lt;span class=&quot;bold&quot;&gt;third item&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;</span>
 <span class="s1">&lt;/ul&gt;</span>
@@ -2750,23 +2716,21 @@ second item third item fourth item fifth item
 <span class="nb">print</span><span class="p">(</span><span class="n">li</span><span class="p">)</span>
 </code></pre></div>
 
+<div class="highlight"><pre><span></span><code>&lt;li class=&quot;item-0 active&quot;&gt;&lt;a href=&quot;link3.html&quot;&gt;&lt;span class=&quot;bold&quot;&gt;third item&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
 
-<div class="codehilite"><pre><span></span><code><span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;item-0 active&quot;</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;link3.html&quot;</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">&quot;bold&quot;</span><span class="nt">&gt;</span>third item<span class="nt">&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;</span>
+&lt;li class=&quot;item-0 active&quot; name=&quot;link&quot;&gt;&lt;a href=&quot;link3.html&quot;&gt;&lt;span class=&quot;bold&quot;&gt;third item&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;
 
-<span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;item-0 active&quot;</span> <span class="na">name=</span><span class="s">&quot;link&quot;</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;link3.html&quot;</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">&quot;bold&quot;</span><span class="nt">&gt;</span>third item<span class="nt">&lt;/span&gt;&lt;/a&gt;&lt;/li&gt;</span>
+&lt;li class=&quot;item-0 active&quot; name=&quot;link&quot;&gt;changed item&lt;/li&gt;
 
-<span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;item-0 active&quot;</span> <span class="na">name=</span><span class="s">&quot;link&quot;</span><span class="nt">&gt;</span>changed item<span class="nt">&lt;/li&gt;</span>
-
-<span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;item-0 active&quot;</span> <span class="na">name=</span><span class="s">&quot;link&quot;</span><span class="nt">&gt;&lt;span&gt;</span>changed item<span class="nt">&lt;/span&gt;&lt;/li&gt;</span>
+&lt;li class=&quot;item-0 active&quot; name=&quot;link&quot;&gt;&lt;span&gt;changed item&lt;/span&gt;&lt;/li&gt;
 </code></pre></div>
-
 
 <p>这里我们首先选中 li 节点，然后调用 attr 方法来修改属性，其中该方法的第一个参数为属性名，第二个参数为属性值。接着，调用 text 和 html 方法来改变节点内部的内容。三次操作后，分别打印输出当前的 li 节点。</p>
 <p>可以发现，调用 attr 方法后，li 节点多了一个原本不存在的属性 name，其值为 link。接着调用 text 方法，传入文本之后，li 节点内部的文本全被改为传入的字符串文本了。最后，调用 html 方法传入 HTML 文本后，li 节点内部又变为传入的 HTML 文本了。</p>
 <p>所以说，如果 attr 方法只传入第一个参数的属性名，则是获取这个属性值；如果传入第二个参数，可以用来修改属性值。text 和 html 方法如果不传参数，则是获取节点内纯文本和 HTML 文本；如果传入参数，则进行赋值。</p>
 <h3 id="remove">remove</h3>
 <p>顾名思义，remove 方法就是移除，它有时会为信息的提取带来非常大的便利。下面有一段 HTML 文本：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">html</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="n">html</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
 <span class="s1">&lt;div class=&quot;wrap&quot;&gt;</span>
 <span class="s1">    Hello, World</span>
 <span class="s1">    &lt;p&gt;This is a paragraph.&lt;/p&gt;</span>
@@ -2778,34 +2742,29 @@ second item third item fourth item fifth item
 <span class="nb">print</span><span class="p">(</span><span class="n">wrap</span><span class="o">.</span><span class="n">text</span><span class="p">())</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">Hello, World</span>
-<span class="err">This is a paragraph.</span>
+<div class="highlight"><pre><span></span><code>Hello, World
+This is a paragraph.
 </code></pre></div>
-
 
 <p>现在想提取 Hello, World 这个字符串，而不要 p 节点内部的字符串，需要怎样操作呢？</p>
 <p>这里直接先尝试提取 class 为 wrap 的节点的内容，看看是不是我们想要的。运行结果如下：</p>
-<div class="codehilite"><pre><span></span><code><span class="err">Hello, World This is a paragraph.</span>
+<div class="highlight"><pre><span></span><code>Hello, World This is a paragraph.
 </code></pre></div>
-
 
 <p>这个结果还包含了内部的 p 节点的内容，也就是说 text 把所有的纯文本全提取出来了。如果我们想去掉 p 节点内部的文本，可以选择再把 p 节点内的文本提取一遍，然后从整个结果中移除这个子串，但这个做法明显比较烦琐。</p>
 <p>这时 remove 方法就可以派上用场了，我们可以接着这么做:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">wrap</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">remove</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span class="n">wrap</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">remove</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">wrap</span><span class="o">.</span><span class="n">text</span><span class="p">())</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">Hello, World</span>
+<div class="highlight"><pre><span></span><code>Hello, World
 </code></pre></div>
-
 
 <p>首先选中 p 节点，然后调用了 remove() 方法将其移除，然后这时 wrap 内部就只剩下 Hello, World 这句话了，然后再利用 text() 方法提取即可。</p>
 <p>另外，其实还有很多节点操作的方法，比如 append()、empty() 和 prepend() 等方法，它们和 jQuery 的用法完全一致，详细的用法可以参考官方文档：<a href="http://pyquery.readthedocs.io/en/latest/api.html">http://pyquery.readthedocs.io/en/latest/api.html</a></p>
 <h2 id="_12">伪类选择器</h2>
 <p>CSS 选择器之所以强大，还有一个很重要的原因，那就是它支持多种多样的伪类选择器，例如选择第一个节点、最后一个节点、奇偶数节点、包含某一文本的节点等。示例如下：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">html</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="n">html</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
 <span class="s1">&lt;div class=&quot;wrap&quot;&gt;</span>
 <span class="s1">    &lt;div id=&quot;container&quot;&gt;</span>
 <span class="s1">        &lt;ul class=&quot;list&quot;&gt;</span>
@@ -2834,24 +2793,22 @@ second item third item fourth item fifth item
 <span class="nb">print</span><span class="p">(</span><span class="n">li</span><span class="p">)</span>
 </code></pre></div>
 
+<div class="highlight"><pre><span></span><code>&lt;li class=&quot;item-0&quot;&gt;first item&lt;/li&gt;
 
-<div class="codehilite"><pre><span></span><code><span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;item-0&quot;</span><span class="nt">&gt;</span>first item<span class="nt">&lt;/li&gt;</span>
+&lt;li class=&quot;item-0&quot;&gt;&lt;a href=&quot;link5.html&quot;&gt;fifth item&lt;/a&gt;&lt;/li&gt;
 
-<span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;item-0&quot;</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;link5.html&quot;</span><span class="nt">&gt;</span>fifth item<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+&lt;li class=&quot;item-1&quot;&gt;&lt;a href=&quot;link2.html&quot;&gt;second item&lt;/a&gt;&lt;/li&gt;
 
-<span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;item-1&quot;</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;link2.html&quot;</span><span class="nt">&gt;</span>second item<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+&lt;li class=&quot;item-1 active&quot;&gt;&lt;a href=&quot;link4.html&quot;&gt;fourth item&lt;/a&gt;&lt;/li&gt;
+             &lt;li class=&quot;item-0&quot;&gt;&lt;a href=&quot;link5.html&quot;&gt;fifth
+item&lt;/a&gt;&lt;/li&gt;
 
-<span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;item-1 active&quot;</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;link4.html&quot;</span><span class="nt">&gt;</span>fourth item<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
-             <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;item-0&quot;</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;link5.html&quot;</span><span class="nt">&gt;</span>fifth
-item<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+&lt;li class=&quot;item-1&quot;&gt;&lt;a href=&quot;link2.html&quot;&gt;second item&lt;/a&gt;&lt;/li&gt;
+             &lt;li class=&quot;item-1 active&quot;&gt;&lt;a href=&quot;link4.html&quot;&gt;fourth
+item&lt;/a&gt;&lt;/li&gt;
 
-<span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;item-1&quot;</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;link2.html&quot;</span><span class="nt">&gt;</span>second item<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
-             <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;item-1 active&quot;</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;link4.html&quot;</span><span class="nt">&gt;</span>fourth
-item<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
-
-<span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">&quot;item-1&quot;</span><span class="nt">&gt;&lt;a</span> <span class="na">href=</span><span class="s">&quot;link2.html&quot;</span><span class="nt">&gt;</span>second item<span class="nt">&lt;/a&gt;&lt;/li&gt;</span>
+&lt;li class=&quot;item-1&quot;&gt;&lt;a href=&quot;link2.html&quot;&gt;second item&lt;/a&gt;&lt;/li&gt;
 </code></pre></div>
-
 
 <p>这里我们使用了 CSS3 的伪类选择器，依次选择了第一个 li 节点、最后一个 li 节点、第二个 li 节点、第三个 li 之后的 li 节点、偶数位置的 li 节点、包含 second 文本的 li 节点。</p>
 <p>关于 CSS 选择器的更多用法，可以参考 <a href="http://www.w3school.com.cn/css/index.asp">http://www.w3school.com.cn/css/index.asp</a>。</p>

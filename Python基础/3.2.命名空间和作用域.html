@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-6.1.4">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.4">
     
     
       
@@ -945,6 +945,18 @@
   <li class="md-nav__item">
     <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.16.shutil.html" class="md-nav__link">
       6.16.shutil
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.17.test.html" class="md-nav__link">
+      6.17.test
     </a>
   </li>
 
@@ -2157,7 +2169,7 @@
 </li>
 </ul>
 <p>虽然都是返回命名空间，但<code>globals()</code>和<code>locals()</code>有一点不一样。<code>locals()</code>返回的是局部命名空间的副本，所以修改<code>locals()</code>对象并不会影响局部名字空间。<code>globals</code>返回是全局命名空间，而不是副本，所以修改<code>globals()</code>对象会影响全局命名空间。</p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># 修改局部命名空间无效</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 修改局部命名空间无效</span>
 <span class="k">def</span> <span class="nf">change_local</span><span class="p">():</span>
     <span class="n">x</span> <span class="o">=</span> <span class="mi">123</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;当前的局部命名空间&quot;</span><span class="p">,</span> <span class="nb">locals</span><span class="p">(),</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;：&quot;</span><span class="p">)</span>
@@ -2167,22 +2179,18 @@
 <span class="n">change_local</span><span class="p">()</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">当前的局部命名空间：{&#39;x&#39;: 123}</span>
-<span class="err">修改locals()，并不影响x的值：x=123</span>
+<div class="highlight"><pre><span></span><code>当前的局部命名空间：{&#39;x&#39;: 123}
+修改locals()，并不影响x的值：x=123
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="c1"># 修改全局命名空间生效</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 修改全局命名空间生效</span>
 <span class="n">y</span> <span class="o">=</span> <span class="mi">123</span>
 <span class="nb">globals</span><span class="p">()[</span><span class="s2">&quot;y&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">456</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;修改全局命名空间生效：&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;y=</span><span class="si">{y}</span><span class="s2">&quot;</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">修改全局命名空间生效： y=456</span>
+<div class="highlight"><pre><span></span><code>修改全局命名空间生效： y=456
 </code></pre></div>
-
 
 <h2 id="_2">作用域</h2>
 <p><strong>scope :</strong> scope 是Python程序的一块文本区域（即一个代码区域），在这个区域可以直接访问namespace 。</p>
@@ -2235,7 +2243,7 @@
 <li><code>import</code>语句不一定会改变global namespace，例如<code>import</code>语句写在函数内。</li>
 <li>根据LEGB搜索规则，外层作用域不能引用内层作用域的变量。</li>
 </ol>
-<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">try_to_define_name</span><span class="p">():</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">try_to_define_name</span><span class="p">():</span>
     <span class="sd">&#39;&#39;&#39;函数中定义了名字i，并绑定了一个整数对象1&#39;&#39;&#39;</span>
     <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="c1"># 引用名字i之前，先调用函数定义i</span>
@@ -2244,27 +2252,23 @@
 <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="n">NameError</span><span class="o">:</span> <span class="n">name</span> <span class="s1">&#39;i&#39;</span> <span class="k">is</span> <span class="n">not</span> <span class="n">defined</span>
+<div class="highlight"><pre><span></span><code>NameError: name &#39;i&#39; is not defined
 </code></pre></div>
-
 
 <p>虽然定义了名字<code>i</code>，但是定义在了函数的局部作用域对应的局部命名空间中，按照<code>LEGB</code>搜索规则，在全局作用域中自然访问不到局部作用域的命名空间；再者，函数调用结束后，这个命名空间被销毁了。</p>
 <h2 id="global-nonlocal"><code>global</code>和 <code>nonlocal</code></h2>
 <p><mark>根据LEGB搜索规则，任何时候，Python程序都可以直接读取全局变量，但是却不可以在内层作用域直接改写上层变量。</mark> </p>
 <p>可以读取全部变量，这容易理解，因为任何时候，global namespace都可以被访问。但为什么在内层作用域全局变量可以被访问，却不能被修改呢？这看起来像是Python的一个规定，但其实是很自然的事情。在Python中修改变量意味着将一个名字绑定到另一个对象，这需要使用assignment运算符<code>=</code>。<mark>这意味着<code>=</code>左边的名字会被加入当前的命名空间，名字对应着<code>=</code>右边的对象。</mark></p>
 <p>例如下面的代码：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="k">def</span> <span class="nf">change_a</span><span class="p">():</span>
     <span class="n">a</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="n">change_a</span><span class="p">()</span>
 <span class="n">a</span> <span class="c1"># 1</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">1</span>
+<div class="highlight"><pre><span></span><code>1
 </code></pre></div>
-
 
 <p><code>a = 10</code>语句在函数作用域中，当它被Python执行时，Python会将<code>a</code>加入函数的局部命名空间，而不会将<code>a</code>视作全局命名空间的<code>a</code>。当我们在最外层作用域引用<code>a</code>时，按照LEGB搜索规则，Python会从<code>a</code>所在的作用域对应的命名空间（即全局命名空间）开始搜索<code>a</code>对应的对象，而不会搜索局部命名空间。再者，此时函数<code>change_a()</code>执行完之后，局部命名空间已经被销毁，即使想搜索也搜索不到。</p>
 <p>相信你从上面的叙述已经意识到，如果想让Python在内层作用域修改外层作用域的变量，那就需要让Python知道这个变量来自外层作用域。<code>global</code>语句和<code>nonlocal</code>语句正是可以起到这样的作用。</p>
@@ -2278,7 +2282,7 @@
 <p>当前实现并未强制履行上面两条限制<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>，但程序不应该滥用这种自由，因为未来的版本可能会强制履行它们或者不留痕迹的改变程序含义。</p>
 </div>
 <p><mark><code>nonlocal</code>语句声明列在其后的所有标识符<strong>关联</strong>到<strong>最近的</strong> enclosing 作用域里定义过的同名变量（不包括全局变量，只是最近的 enclosing 作用域的变量）。</mark> </p>
-<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">scope_test</span><span class="p">():</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">scope_test</span><span class="p">():</span>
     <span class="k">def</span> <span class="nf">do_local</span><span class="p">():</span>
         <span class="n">spam</span> <span class="o">=</span> <span class="s2">&quot;local spam of do_local&quot;</span>
 
@@ -2308,17 +2312,15 @@
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;In global scope:&quot;</span><span class="p">,</span> <span class="n">spam</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">After local assignment: test spam of scope_test</span>
-<span class="err">After nonlocal assignment: nonlocal spam of do_nonlocal</span>
-<span class="err">After global assignment: nonlocal spam of do_nonlocal</span>
-<span class="err">In global scope: global spam of do_global</span>
+<div class="highlight"><pre><span></span><code>After local assignment: test spam of scope_test
+After nonlocal assignment: nonlocal spam of do_nonlocal
+After global assignment: nonlocal spam of do_nonlocal
+In global scope: global spam of do_global
 </code></pre></div>
-
 
 <p><strong><code>nonlocal</code>语句和<code>global</code>语句有两个不同点：</strong></p>
 <p>其一，<code>global</code>语句只是声明标识符来存在于全局命名空间，并不会在当前作用域创建该标识符；<code>nonlocal</code> 语句则会在子函数命名空间中创建与父函数变量同名的标识符：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">gv</span> <span class="o">=</span> <span class="s1">&#39;a global var&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="n">gv</span> <span class="o">=</span> <span class="s1">&#39;a global var&#39;</span>
 
 <span class="k">def</span> <span class="nf">func</span><span class="p">():</span>
     <span class="k">global</span> <span class="n">gv</span>
@@ -2334,15 +2336,13 @@
 <span class="n">a</span><span class="p">()</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">{&#39;lv&#39;: &#39;a local var&#39;}</span>
-<span class="err">{&#39;lv&#39;: &#39;a local var&#39;}</span>
+<div class="highlight"><pre><span></span><code>{&#39;lv&#39;: &#39;a local var&#39;}
+{&#39;lv&#39;: &#39;a local var&#39;}
 </code></pre></div>
-
 
 <p>之所以 <code>nonlocal</code> 语句与 <code>global</code> 语句的处理不同，是因为全局变量的作用域生存期很长，在模块内随时都可以访问，而父函数的局部作用域在父函数执行完毕后便会直接释放，因此 <code>nonlocal</code> 语句必须将父函数的标识符和引用写入enclosing namespace。</p>
 <p>其二，<code>global</code>语句可以声明全局作用域还没存在的名字，而<code>nonlocal</code>语句只能将它声明的名字关联到enclosing作用域中已经存在的绑定：</p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># nonlocal 语句之前的eclosing作用域不存在spam 则报错</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># nonlocal 语句之前的eclosing作用域不存在spam 则报错</span>
 <span class="k">def</span> <span class="nf">scope_test</span><span class="p">():</span>
     <span class="k">def</span> <span class="nf">do_nonlocal</span><span class="p">():</span>
         <span class="c1"># 父函数作用域要先定义spam，否则报错</span>
@@ -2352,16 +2352,14 @@
 <span class="n">scope_test</span><span class="p">()</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">  File &quot;&lt;ipython-input-1-e77162de9535&gt;&quot;, line 5</span>
-<span class="err">    nonlocal spam</span>
-<span class="err">    ^</span>
-<span class="c">SyntaxError: no binding for nonlocal &#39;spam&#39; found</span>
+<div class="highlight"><pre><span></span><code>  File &quot;&lt;ipython-input-1-e77162de9535&gt;&quot;, line 5
+    nonlocal spam
+    ^
+SyntaxError: no binding for nonlocal &#39;spam&#39; found
 </code></pre></div>
 
-
 <p><code>nonlocal</code>语句只能声明的名字会绑定到离<code>nonlocal</code>语句最近的enclosing 作用域（如果enclosing 作用域存在<code>nonlocal</code>语句声明的名字）：</p>
-<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">scope_test</span><span class="p">():</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">scope_test</span><span class="p">():</span>
     <span class="n">spam</span> <span class="o">=</span> <span class="s2">&quot;local spam of scope_test&quot;</span>
 
     <span class="k">def</span> <span class="nf">do_local</span><span class="p">():</span>
@@ -2383,17 +2381,15 @@
 <span class="n">scope_test</span><span class="p">()</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">After local assignment: local spam of do_local</span>
-<span class="err">After nonlocal assignment: nonlocal spam of do_nonlocal</span>
-<span class="err">After nonlocal assignment, scope_test&#39;s spam: local spam of scope_test</span>
+<div class="highlight"><pre><span></span><code>After local assignment: local spam of do_local
+After nonlocal assignment: nonlocal spam of do_nonlocal
+After nonlocal assignment, scope_test&#39;s spam: local spam of scope_test
 </code></pre></div>
-
 
 <p>因此<code>nonlocal</code>语句重新绑定的name的真实作用域是不清楚的，这取决于已经存在的name本来位于那一层作用域。</p>
 <p><strong><code>nonlocal</code>语句和<code>global</code>语句有一个相同点：</strong></p>
 <p>当前作用域不能在<code>nonlocal</code>语句和<code>global</code>语句之前绑定两者声明的标识符：</p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># global</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># global</span>
 <span class="k">def</span> <span class="nf">scope_test</span><span class="p">():</span>
     <span class="n">spam</span> <span class="o">=</span> <span class="s2">&quot;conflict&quot;</span>
 
@@ -2417,25 +2413,22 @@
 <span class="n">scope_test</span><span class="p">()</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">  File &quot;&lt;ipython-input-1-d9548726e53c&gt;&quot;, line 5</span>
-<span class="err">    global spam</span>
-<span class="err">    ^</span>
-<span class="c">SyntaxError: name &#39;spam&#39; is assigned to before global declaration</span>
+<div class="highlight"><pre><span></span><code>  File &quot;&lt;ipython-input-1-d9548726e53c&gt;&quot;, line 5
+    global spam
+    ^
+SyntaxError: name &#39;spam&#39; is assigned to before global declaration
 </code></pre></div>
-
 
 <h2 id="_4">类的作用域和命名空间</h2>
 <p>类定义的作用域和函数定义的作用域都可以产生局部命名空间，但它们执行机制不一样，有不小的区别。</p>
 <p><strong>其一，函数初始化时不会被执行，类初始化时会被执行。</strong></p>
 <p>Python读入函数定义时，函数不会被执行：</p>
-<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">func</span><span class="p">():</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">func</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;executed&quot;</span><span class="p">)</span>
 </code></pre></div>
 
-
 <p>Python读入类定义时，类作用域的代码会被执行：</p>
-<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">A</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">A</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;executed_A&quot;</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">A_func</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -2448,12 +2441,10 @@
             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;executed_C&quot;</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">executed_A</span>
-<span class="err">executed_B</span>
-<span class="err">executed_C</span>
+<div class="highlight"><pre><span></span><code>executed_A
+executed_B
+executed_C
 </code></pre></div>
-
 
 <p>这看起来感觉有点不可思议，大家都是定义，为什么类定义会被执行，难道不应该是定义被引用时才执行吗？</p>
 <p>其实这也是很自然的事情。Python解释器读入函数定义时，只需要在当前命名空间绑定函数名，不需要创建函数的局部命名空间，自然不需要执行函数作用域的代码。</p>
@@ -2464,13 +2455,12 @@
 <p>为什么读入类定义就需要创建类局部命名空间？</p>
 <p>因为类具有属性和方法，创建类属性就必须执行代码（进行赋值）。那为什么在读入类定义就创建类属性呢？因为类是创建实例、生成其他类（涉及继承、重载等）的对象，必须在实例之前被创建，在代码加载时就被创建有助于提高效率和降低逻辑复杂度。</p>
 <p>另外，类还有一个特点：类可以直接被调用，不一定要先创建实例。这个特点就要求类初始化时就创建类命名空间。例如，创建一个类用于统一管理某一类常量：</p>
-<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">Math_Constant</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Math_Constant</span><span class="p">:</span>
     <span class="n">pi</span> <span class="o">=</span> <span class="mf">3.1415926</span>
     <span class="n">e</span> <span class="o">=</span> <span class="mf">2.7182818</span>
     <span class="n">sqrt_2</span> <span class="o">=</span> <span class="mf">1.4142135</span>
     <span class="n">rho</span> <span class="o">=</span> <span class="mf">1.3247195</span>
 </code></pre></div>
-
 
 <p>如果<code>Math_Constant</code>的类属性需要创建一个实例才能被调用，那就太麻烦了，而且类方法、静态方法也就没了意义。</p>
 <p>而方法本质是函数，不会在读入定义时被执行。</p>
@@ -2478,7 +2468,7 @@
 <p>一般来说，函数的局部命名空间主要与参数有关，而参数在函数被调用时才传入，创建了命名空间也意义不大。另外函数不像类那么复杂，也就没必要读入定义时就创建局部命名空间。</p>
 <p><strong>其二，类的局部命名空间不在名字搜索路径中。</strong></p>
 <p>例如：</p>
-<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">A</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">A</span><span class="p">:</span>
     <span class="n">pi</span> <span class="o">=</span> <span class="mf">3.1415926</span>
     <span class="k">def</span> <span class="nf">print_pi</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">pi</span><span class="p">)</span>
@@ -2486,45 +2476,39 @@
 <span class="n">A</span><span class="p">()</span><span class="o">.</span><span class="n">print_pi</span><span class="p">()</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="n">NameError</span><span class="o">:</span> <span class="n">name</span> <span class="s1">&#39;pi&#39;</span> <span class="k">is</span> <span class="n">not</span> <span class="n">defined</span>
+<div class="highlight"><pre><span></span><code>NameError: name &#39;pi&#39; is not defined
 </code></pre></div>
-
 
 <p>类<code>A</code>是<code>print_pi</code>方法的外层作用域，按照设想，<code>print_pi</code>方法中找不到变量<code>pi</code>，应该会到上一层作用域中查找，但是<code>print_pi</code>方法并没有在类<code>A</code>的作用域中查找，而是直接抛出异常。</p>
 <p>又例如：</p>
-<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">A</span><span class="p">():</span>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">A</span><span class="p">():</span>
     <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
     <span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span> <span class="o">+</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)]</span>  <span class="c1">#NameError: name &#39;a&#39; is not defined</span>
 </code></pre></div>
-
 
 <p>执行上段代码，我们可以发现在类 <code>A</code> 内列表推导式无法调取 <code>a</code> 的值。</p>
 <blockquote>
 <p>Python3的列表推导式也会产生局部命名空间。</p>
 </blockquote>
 <p>但在函数中，完全没问题：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">def</span> <span class="n">func</span><span class="p">():</span>
-    <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
-    <span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span> <span class="o">+</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="k">in</span> <span class="n">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)]</span>
-    <span class="n">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code>def func():
+    a = 1
+    b = [a + i for i in range(3)]
+    print(b)
 
-<span class="n">func</span><span class="p">()</span>  <span class="o">#</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+func()  #[1, 2, 3]
 </code></pre></div>
 
-
 <p>因此，类<code>A</code> 中的 <code>a</code> 不同于函数 <code>func</code> 中的 <code>a</code> 在局部命名空间中可以被任意引用。之所以强调”不可以被任意读取”，原因在于在类<code>A</code> 的局部空间内，<code>a</code> 在当前层级的作用域是可以被直接引用的：</p>
-<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">A</span><span class="p">():</span>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">A</span><span class="p">():</span>
     <span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
     <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">2</span>
 
 <span class="n">A</span><span class="o">.</span><span class="n">c</span> <span class="c1"># 3</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">3</span>
+<div class="highlight"><pre><span></span><code>3
 </code></pre></div>
-
 
 <p>因此，类内可以产生局部命名空间的代码（方法、推导式等）严格上不是作用域。</p>
 <h2 id="_5">脚注</h2>

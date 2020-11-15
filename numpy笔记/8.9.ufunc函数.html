@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-6.1.4">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.4">
     
     
       
@@ -820,6 +820,18 @@
   <li class="md-nav__item">
     <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.16.shutil.html" class="md-nav__link">
       6.16.shutil
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.17.test.html" class="md-nav__link">
+      6.17.test
     </a>
   </li>
 
@@ -2096,17 +2108,15 @@
                 
                   <h1>8.9.ufunc函数</h1>
                 
-                <div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+                <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="n">np</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">threshold</span><span class="o">=</span><span class="mi">40</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">Windows 10</span>
-<span class="err">Python 3.7.3 @ MSC v.1915 64 bit (AMD64)</span>
-<span class="err">Latest build date 2020.03.28</span>
-<span class="err">numpy version:  1.18.1</span>
+<div class="highlight"><pre><span></span><code>Windows 10
+Python 3.7.3 @ MSC v.1915 64 bit (AMD64)
+Latest build date 2020.03.28
+numpy version:  1.18.1
 </code></pre></div>
-
 
 <p>通用函数（即ufunc）是一种对ndarray中的数据执行元素级运算的函数。可以将其看做简单函数（接受一个或多个标量值，并产生一个或多个标量值）的矢量化包装器。</p>
 <ul>
@@ -2118,7 +2128,7 @@
 </li>
 </ul>
 <h2 id="_1">四则运算</h2>
-<div class="codehilite"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
 <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
 
 <span class="c1"># 表达式形式</span>
@@ -2141,13 +2151,11 @@
 <span class="n">np</span><span class="o">.</span><span class="n">mod</span><span class="p">(</span><span class="n">b</span><span class="p">,</span><span class="n">a</span><span class="p">)</span>  <span class="c1"># 元素级求模</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">array([0, 0, 1, 0, 4], dtype=int32)</span>
+<div class="highlight"><pre><span></span><code>array([0, 0, 1, 0, 4], dtype=int32)
 </code></pre></div>
 
-
 <h2 id="_2">比较运算</h2>
-<div class="codehilite"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
 <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
 
 <span class="c1"># 表达式形式</span>
@@ -2167,16 +2175,14 @@
 <span class="n">np</span><span class="o">.</span><span class="n">greater_equal</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">array([[False, False, False, False, False, False, False, False, False,</span>
-<span class="err">        False],</span>
-<span class="err">       [False, False, False, False, False, False, False, False, False,</span>
-<span class="err">        False]])</span>
+<div class="highlight"><pre><span></span><code>array([[False, False, False, False, False, False, False, False, False,
+        False],
+       [False, False, False, False, False, False, False, False, False,
+        False]])
 </code></pre></div>
 
-
 <h2 id="_3">逻辑运算</h2>
-<div class="codehilite"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
 <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
 
 <span class="c1"># 与</span>
@@ -2193,13 +2199,11 @@
 <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">False</span>
+<div class="highlight"><pre><span></span><code>False
 </code></pre></div>
 
-
 <h2 id="_4">位运算</h2>
-<div class="codehilite"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
 <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
 
 <span class="n">a</span> <span class="o">&amp;</span> <span class="n">b</span>
@@ -2217,23 +2221,20 @@
 <span class="n">np</span><span class="o">.</span><span class="n">bitwise_xor</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">array([[10, 10, 14, 14, 10, 10, 22, 22, 26, 26],</span>
-<span class="err">       [30, 30, 26, 26, 22, 22, 10, 10, 14, 14]], dtype=int32)</span>
+<div class="highlight"><pre><span></span><code>array([[10, 10, 14, 14, 10, 10, 22, 22, 26, 26],
+       [30, 30, 26, 26, 22, 22, 10, 10, 14, 14]], dtype=int32)
 </code></pre></div>
-
 
 <h2 id="ufunc">自定义 ufunc 函数</h2>
 <p>可以通过<code>frompyfunc()</code>将计算单个元素的函数转换成ufunc函数。调用格式为如下：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">numpy</span><span class="o">.</span><span class="n">frompyfunc</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">nin</span><span class="p">,</span> <span class="n">nout</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">numpy</span><span class="o">.</span><span class="n">frompyfunc</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">nin</span><span class="p">,</span> <span class="n">nout</span><span class="p">)</span>
 
 <span class="c1"># func：计算单个元素的函数</span>
 <span class="c1"># nin：func的输入参数的个数 The number of input</span>
 <span class="c1"># nout：func返回值的个数 The number of output</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">my_add</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">my_add</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
     <span class="n">z</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="mi">1</span>
     <span class="k">return</span> <span class="n">z</span>
 
@@ -2244,13 +2245,11 @@
 <span class="n">myufunc</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">array([6, 8, 10, 12, 14], dtype=object)</span>
+<div class="highlight"><pre><span></span><code>array([6, 8, 10, 12, 14], dtype=object)
 </code></pre></div>
 
-
 <p>也可以通过<code>vectorize()</code>函数来实现<code>frompyfunc()</code>的功能。</p>
-<div class="codehilite"><pre><span></span><code><span class="n">np</span><span class="o">.</span><span class="n">vectorize</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">otypes</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">doc</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">excluded</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span><span class="err">。</span>
+<div class="highlight"><pre><span></span><code><span class="n">np</span><span class="o">.</span><span class="n">vectorize</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">otypes</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">doc</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">excluded</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span><span class="err">。</span>
 
 <span class="c1"># func：计算单个元素的函数</span>
 <span class="c1"># otypes：可以是一个表示结果数组元素类型的字符串，也可以是一个类型列表。如果使用类型列表，可以描述多个返回数组的元素类型</span>
@@ -2258,8 +2257,7 @@
 <span class="c1"># excluded：指定func中哪些参数未被向量化。你可以指定一个字符串和整数的集合，其中字符串代表关键字参数，整数代表位置参数。</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">my_add</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">num</span><span class="p">):</span>
@@ -2271,16 +2269,13 @@
 <span class="n">myufunc</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">每一个元素加上一个指定的数</span>
+<div class="highlight"><pre><span></span><code>每一个元素加上一个指定的数
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">array([1, 2, 3, 4, 5])</span>
+<div class="highlight"><pre><span></span><code>array([1, 2, 3, 4, 5])
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">my_add</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">list_num</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">my_add</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">list_num</span><span class="p">):</span>
     <span class="n">z</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">list_num</span><span class="p">:</span>
         <span class="n">z</span> <span class="o">=</span> <span class="n">z</span> <span class="o">+</span> <span class="n">i</span>
@@ -2290,12 +2285,10 @@
 <span class="n">myufunc</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span> <span class="c1"># list_num 作为一个list，而不是向量化成一个个元素</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">array([11, 13, 15, 17, 19])</span>
+<div class="highlight"><pre><span></span><code>array([11, 13, 15, 17, 19])
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">my_add</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">num</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">my_add</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">num</span><span class="p">):</span>
     <span class="n">z</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">num</span>
     <span class="k">return</span> <span class="n">z</span><span class="p">,</span> <span class="n">z</span>
 
@@ -2303,10 +2296,8 @@
 <span class="n">myufunc</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">(array([1., 2., 3., 4., 5.]), array([1, 2, 3, 4, 5]))</span>
+<div class="highlight"><pre><span></span><code>(array([1., 2., 3., 4., 5.]), array([1, 2, 3, 4, 5]))
 </code></pre></div>
-
 
 <h2 id="ufunc_1">ufunc 对象的方法</h2>
 <p>ufunc函数对象本身还有一些方法。</p>
@@ -2314,41 +2305,34 @@
 <h3 id="ufuncreduce"><code>ufunc.reduce()</code></h3>
 <p><code>ufunc.reduce</code>方法：类似于Python的<code>reduce</code>函数，它==沿着==<code>axis</code>参数指定的轴，对数组进行操作。经过一次reduce，结果数组的维度降低一维。</p>
 <p>假设<code>&lt;op&gt;</code>是一个ufunc函数，<code>ufunc.reduce</code>用法如下：</p>
-<div class="codehilite"><pre><span></span><code><span class="o">&lt;</span><span class="n">op</span><span class="o">&gt;.</span><span class="n">reduce</span><span class="p">(</span><span class="n">array</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="o">&lt;</span><span class="n">op</span><span class="o">&gt;.</span><span class="n">reduce</span><span class="p">(</span><span class="n">array</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="k">[[ 0  1  2  3]</span>
- <span class="k">[ 4  5  6  7]</span>
- <span class="k">[ 8  9 10 11]</span>
- <span class="k">[12 13 14 15]</span>
- <span class="k">[16 17 18 19]]</span>
+<div class="highlight"><pre><span></span><code>[[ 0  1  2  3]
+ [ 4  5  6  7]
+ [ 8  9 10 11]
+ [12 13 14 15]
+ [16 17 18 19]]
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="n">np</span><span class="o">.</span><span class="n">add</span><span class="o">.</span><span class="n">reduce</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># 沿着 列方向</span>
+<div class="highlight"><pre><span></span><code><span class="n">np</span><span class="o">.</span><span class="n">add</span><span class="o">.</span><span class="n">reduce</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># 沿着 列方向</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">array([ 6, 22, 38, 54, 70])</span>
+<div class="highlight"><pre><span></span><code>array([ 6, 22, 38, 54, 70])
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="n">np</span><span class="o">.</span><span class="n">add</span><span class="o">.</span><span class="n">reduce</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># 沿着 行方向</span>
+<div class="highlight"><pre><span></span><code><span class="n">np</span><span class="o">.</span><span class="n">add</span><span class="o">.</span><span class="n">reduce</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># 沿着 行方向</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">array([40, 45, 50, 55])</span>
+<div class="highlight"><pre><span></span><code>array([40, 45, 50, 55])
 </code></pre></div>
-
 
 <p><mark>相当于将<op>运算符插入到沿着axis轴的所有元素之间：</mark></p>
-<div class="codehilite"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 
 <span class="k">def</span> <span class="nf">fun</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">):</span>
@@ -2359,79 +2343,68 @@
 <span class="n">fun2</span><span class="o">.</span><span class="n">reduce</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="k">[[ 0  1  2  3]</span>
- <span class="k">[ 4  5  6  7]</span>
- <span class="k">[ 8  9 10 11]</span>
- <span class="k">[12 13 14 15]</span>
- <span class="k">[16 17 18 19]]</span>
+<div class="highlight"><pre><span></span><code>[[ 0  1  2  3]
+ [ 4  5  6  7]
+ [ 8  9 10 11]
+ [12 13 14 15]
+ [16 17 18 19]]
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">array([9, 25, 41, 57, 73], dtype=object)</span>
+<div class="highlight"><pre><span></span><code>array([9, 25, 41, 57, 73], dtype=object)
 </code></pre></div>
-
 
 <h3 id="ufuncaccumulate"><code>ufunc.accumulate()</code></h3>
 <p><code>ufunc.accumulate</code>方法：它类似于reduce()的计算过程，但是它会保存所有的中间计算结果，从而使得返回数组的形状和输入数组的形状相同： </p>
-<div class="codehilite"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="k">[[ 0  1  2  3]</span>
- <span class="k">[ 4  5  6  7]</span>
- <span class="k">[ 8  9 10 11]</span>
- <span class="k">[12 13 14 15]</span>
- <span class="k">[16 17 18 19]]</span>
+<div class="highlight"><pre><span></span><code>[[ 0  1  2  3]
+ [ 4  5  6  7]
+ [ 8  9 10 11]
+ [12 13 14 15]
+ [16 17 18 19]]
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="n">np</span><span class="o">.</span><span class="n">add</span><span class="o">.</span><span class="n">accumulate</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">np</span><span class="o">.</span><span class="n">add</span><span class="o">.</span><span class="n">accumulate</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">array([[ 0,  1,  3,  6],</span>
-<span class="err">       [ 4,  9, 15, 22],</span>
-<span class="err">       [ 8, 17, 27, 38],</span>
-<span class="err">       [12, 25, 39, 54],</span>
-<span class="err">       [16, 33, 51, 70]], dtype=int32)</span>
+<div class="highlight"><pre><span></span><code>array([[ 0,  1,  3,  6],
+       [ 4,  9, 15, 22],
+       [ 8, 17, 27, 38],
+       [12, 25, 39, 54],
+       [16, 33, 51, 70]], dtype=int32)
 </code></pre></div>
-
 
 <h3 id="ufuncouter"><code>ufunc.outer()</code></h3>
 <p><code>ufunc.outer</code>方法：相当于将<op>运算符对输入数组A和输入数组B的每一对元素对(a,b)起作用。设A的shape=(4,5)，B的shape为(4,)，则结果数组的shape=(4,5,4)</p>
 <p>一维数组和一维数组的outer操作为二维数组</p>
-<div class="codehilite"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
 <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
 <span class="n">np</span><span class="o">.</span><span class="n">add</span><span class="o">.</span><span class="n">outer</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">array([[2, 3, 4, 5],</span>
-<span class="err">       [3, 4, 5, 6],</span>
-<span class="err">       [4, 5, 6, 7],</span>
-<span class="err">       [5, 6, 7, 8],</span>
-<span class="err">       [6, 7, 8, 9]])</span>
+<div class="highlight"><pre><span></span><code>array([[2, 3, 4, 5],
+       [3, 4, 5, 6],
+       [4, 5, 6, 7],
+       [5, 6, 7, 8],
+       [6, 7, 8, 9]])
 </code></pre></div>
-
 
 <p>多维数组的outer拆分成各自的一维操作</p>
-<div class="codehilite"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">7</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">7</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
 <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
 <span class="n">np</span><span class="o">.</span><span class="n">add</span><span class="o">.</span><span class="n">outer</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
 </code></pre></div>
 
+<div class="highlight"><pre><span></span><code>array([[[ 2,  3,  4,  5],
+        [ 3,  4,  5,  6],
+        [ 4,  5,  6,  7]],
 
-<div class="codehilite"><pre><span></span><code><span class="nb">array</span><span class="p">([[[</span> <span class="mi">2</span><span class="p">,</span>  <span class="mi">3</span><span class="p">,</span>  <span class="mi">4</span><span class="p">,</span>  <span class="mi">5</span><span class="p">],</span>
-        <span class="p">[</span> <span class="mi">3</span><span class="p">,</span>  <span class="mi">4</span><span class="p">,</span>  <span class="mi">5</span><span class="p">,</span>  <span class="mi">6</span><span class="p">],</span>
-        <span class="p">[</span> <span class="mi">4</span><span class="p">,</span>  <span class="mi">5</span><span class="p">,</span>  <span class="mi">6</span><span class="p">,</span>  <span class="mi">7</span><span class="p">]],</span>
-
-       <span class="p">[[</span> <span class="mi">5</span><span class="p">,</span>  <span class="mi">6</span><span class="p">,</span>  <span class="mi">7</span><span class="p">,</span>  <span class="mi">8</span><span class="p">],</span>
-        <span class="p">[</span> <span class="mi">6</span><span class="p">,</span>  <span class="mi">7</span><span class="p">,</span>  <span class="mi">8</span><span class="p">,</span>  <span class="mi">9</span><span class="p">],</span>
-        <span class="p">[</span> <span class="mi">7</span><span class="p">,</span>  <span class="mi">8</span><span class="p">,</span>  <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">]]])</span>
+       [[ 5,  6,  7,  8],
+        [ 6,  7,  8,  9],
+        [ 7,  8,  9, 10]]])
 </code></pre></div>
-
 
 <h2 id="_5">数学函数</h2>
 <p>下面是一元的数学函数：</p>
@@ -2562,7 +2535,7 @@
 </tr>
 </tbody>
 </table>
-<div class="codehilite"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
 <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
@@ -2573,13 +2546,12 @@
 <span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">setxor1d</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">))</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="k">[0 1 2 3 4]</span>
-<span class="k">[3 4]</span>
-<span class="k">[0 1 2 3 4 5 6 7]</span>
-<span class="k">[False False False  True  True]</span>
-<span class="k">[0 1 2]</span>
-<span class="k">[0 1 2 5 6 7]</span>
+<div class="highlight"><pre><span></span><code>[0 1 2 3 4]
+[3 4]
+[0 1 2 3 4 5 6 7]
+[False False False  True  True]
+[0 1 2]
+[0 1 2 5 6 7]
 </code></pre></div>
                 
               

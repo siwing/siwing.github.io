@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-6.1.4">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.4">
     
     
       
@@ -887,6 +887,18 @@
   <li class="md-nav__item">
     <a href="6.16.shutil.html" class="md-nav__link">
       6.16.shutil
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="6.17.test.html" class="md-nav__link">
+      6.17.test
     </a>
   </li>
 
@@ -1988,18 +2000,17 @@
                   </a>
                 
                 
-                <div class="codehilite"><pre><span></span><code><span class="err">Windows 10</span>
-<span class="err">Python 3.7.7 @ MSC v.1916 64 bit (AMD64)</span>
-<span class="err">Latest build date 2020.08.07</span>
+                <div class="highlight"><pre><span></span><code>Windows 10
+Python 3.7.7 @ MSC v.1916 64 bit (AMD64)
+Latest build date 2020.08.07
 </code></pre></div>
-
 
 <h1 id="difflib">difflib — 字符比较</h1>
 <blockquote>
 <p>目标：字符序列比较，特别是成行的文本。</p>
 </blockquote>
 <p><code>difflib</code> 模块包含用来计算字符序列间不同并进行处理的工具。它在比较文本方面十分有效，同时还包含了利用若干公共差异格式来生成报告的函数。</p>
-<div class="codehilite"><pre><span></span><code><span class="n">text1</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;Lorem ipsum dolor sit amet, consectetuer adipiscing</span>
+<div class="highlight"><pre><span></span><code><span class="n">text1</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;Lorem ipsum dolor sit amet, consectetuer adipiscing</span>
 <span class="s2">elit. Integer eu lacus accumsan arcu fermentum euismod. Donec</span>
 <span class="s2">pulvinar porttitor tellus. Aliquam venenatis. Donec facilisis</span>
 <span class="s2">pharetra tortor.  In nec mauris eget magna consequat</span>
@@ -2028,7 +2039,6 @@
 <span class="n">text2_lines</span> <span class="o">=</span> <span class="n">text2</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()</span>
 </code></pre></div>
 
-
 <h2 id="_1">比较文本体</h2>
 <p><code>Differ</code> 类适用于文本行序列并产生人类可读的增量 ，或更改指令，包括各行内的差异。<code>Differ</code> 生成的默认输出类似于 Unix 下的 <code>diff</code> 命令行工具。它包括来自两个列表的原始输入值（包括公共值）和标记数据，以指示进行了哪些更改。</p>
 <ul>
@@ -2038,175 +2048,161 @@
 <li>如果一行在各版本间没有差异，前缀则为一个空格，使其与存在差异的行对齐。</li>
 </ul>
 <p><strong>在将文本传递给 <code>compare()</code> 之前，将文本分解为一系列单独的行会生成比传入大字符串更可读的输出。</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">difflib</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">difflib</span>
 
 <span class="n">d</span> <span class="o">=</span> <span class="n">difflib</span><span class="o">.</span><span class="n">Differ</span><span class="p">()</span>
 <span class="n">diff</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">compare</span><span class="p">(</span><span class="n">text1_lines</span><span class="p">,</span> <span class="n">text2_lines</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">diff</span><span class="p">))</span>
 </code></pre></div>
 
+<div class="highlight"><pre><span></span><code>  Lorem ipsum dolor sit amet, consectetuer adipiscing
+  elit. Integer eu lacus accumsan arcu fermentum euismod. Donec
+- pulvinar porttitor tellus. Aliquam venenatis. Donec facilisis
++ pulvinar, porttitor tellus. Aliquam venenatis. Donec facilisis
+?         +
 
-<div class="codehilite"><pre><span></span><code>  <span class="n">Lorem</span> <span class="n">ipsum</span> <span class="n">dolor</span> <span class="n">sit</span> <span class="n">amet</span><span class="p">,</span> <span class="n">consectetuer</span> <span class="n">adipiscing</span>
-  <span class="n">elit</span><span class="p">.</span> <span class="nb">Integer</span> <span class="n">eu</span> <span class="n">lacus</span> <span class="n">accumsan</span> <span class="n">arcu</span> <span class="n">fermentum</span> <span class="n">euismod</span><span class="p">.</span> <span class="n">Donec</span>
-<span class="o">-</span> <span class="n">pulvinar</span> <span class="n">porttitor</span> <span class="n">tellus</span><span class="p">.</span> <span class="n">Aliquam</span> <span class="n">venenatis</span><span class="p">.</span> <span class="n">Donec</span> <span class="n">facilisis</span>
-<span class="o">+</span> <span class="n">pulvinar</span><span class="p">,</span> <span class="n">porttitor</span> <span class="n">tellus</span><span class="p">.</span> <span class="n">Aliquam</span> <span class="n">venenatis</span><span class="p">.</span> <span class="n">Donec</span> <span class="n">facilisis</span>
-<span class="o">?</span>         <span class="o">+</span>
+- pharetra tortor.  In nec mauris eget magna consequat
+?                 -
 
-<span class="o">-</span> <span class="n">pharetra</span> <span class="n">tortor</span><span class="p">.</span>  <span class="k">In</span> <span class="n">nec</span> <span class="n">mauris</span> <span class="n">eget</span> <span class="n">magna</span> <span class="n">consequat</span>
-<span class="o">?</span>                 <span class="o">-</span>
++ pharetra tortor. In nec mauris eget magna consequat
+- convalis. Nam sed sem vitae odio pellentesque interdum. Sed
+?                 - --
 
-<span class="o">+</span> <span class="n">pharetra</span> <span class="n">tortor</span><span class="p">.</span> <span class="k">In</span> <span class="n">nec</span> <span class="n">mauris</span> <span class="n">eget</span> <span class="n">magna</span> <span class="n">consequat</span>
-<span class="o">-</span> <span class="n">convalis</span><span class="p">.</span> <span class="n">Nam</span> <span class="n">sed</span> <span class="n">sem</span> <span class="n">vitae</span> <span class="n">odio</span> <span class="n">pellentesque</span> <span class="n">interdum</span><span class="p">.</span> <span class="n">Sed</span>
-<span class="o">?</span>                 <span class="o">-</span> <span class="c1">--</span>
++ convalis. Nam cras vitae mi vitae odio pellentesque interdum. Sed
+?               +++ +++++   +
 
-<span class="o">+</span> <span class="n">convalis</span><span class="p">.</span> <span class="n">Nam</span> <span class="n">cras</span> <span class="n">vitae</span> <span class="n">mi</span> <span class="n">vitae</span> <span class="n">odio</span> <span class="n">pellentesque</span> <span class="n">interdum</span><span class="p">.</span> <span class="n">Sed</span>
-<span class="o">?</span>               <span class="o">+++</span> <span class="o">+++++</span>   <span class="o">+</span>
-
-  <span class="n">consequat</span> <span class="n">viverra</span> <span class="n">nisl</span><span class="p">.</span> <span class="n">Suspendisse</span> <span class="n">arcu</span> <span class="n">metus</span><span class="p">,</span> <span class="n">blandit</span> <span class="n">quis</span><span class="p">,</span>
-  <span class="n">rhoncus</span> <span class="n">ac</span><span class="p">,</span> <span class="n">pharetra</span> <span class="n">eget</span><span class="p">,</span> <span class="n">velit</span><span class="p">.</span> <span class="n">Mauris</span> <span class="n">urna</span><span class="p">.</span> <span class="n">Morbi</span> <span class="n">nonummy</span>
-  <span class="n">molestie</span> <span class="n">orci</span><span class="p">.</span> <span class="n">Praesent</span> <span class="n">nisi</span> <span class="n">elit</span><span class="p">,</span> <span class="n">fringilla</span> <span class="n">ac</span><span class="p">,</span> <span class="n">suscipit</span> <span class="n">non</span><span class="p">,</span>
-  <span class="n">tristique</span> <span class="n">vel</span><span class="p">,</span> <span class="n">mauris</span><span class="p">.</span> <span class="n">Curabitur</span> <span class="n">vel</span> <span class="n">lorem</span> <span class="n">id</span> <span class="n">nisl</span> <span class="n">porta</span>
-<span class="o">-</span> <span class="n">adipiscing</span><span class="p">.</span> <span class="n">Suspendisse</span> <span class="n">eu</span> <span class="n">lectus</span><span class="p">.</span> <span class="k">In</span> <span class="n">nunc</span><span class="p">.</span> <span class="n">Duis</span> <span class="n">vulputate</span>
-<span class="o">-</span> <span class="n">tristique</span> <span class="n">enim</span><span class="p">.</span> <span class="n">Donec</span> <span class="n">quis</span> <span class="n">lectus</span> <span class="n">a</span> <span class="n">justo</span> <span class="n">imperdiet</span> <span class="n">tempus</span><span class="p">.</span>
-<span class="o">+</span> <span class="n">adipiscing</span><span class="p">.</span> <span class="n">Duis</span> <span class="n">vulputate</span> <span class="n">tristique</span> <span class="n">enim</span><span class="p">.</span> <span class="n">Donec</span> <span class="n">quis</span> <span class="n">lectus</span> <span class="n">a</span>
-<span class="o">+</span> <span class="n">justo</span> <span class="n">imperdiet</span> <span class="n">tempus</span><span class="p">.</span>  <span class="n">Suspendisse</span> <span class="n">eu</span> <span class="n">lectus</span><span class="p">.</span> <span class="k">In</span> <span class="n">nunc</span><span class="p">.</span>
+  consequat viverra nisl. Suspendisse arcu metus, blandit quis,
+  rhoncus ac, pharetra eget, velit. Mauris urna. Morbi nonummy
+  molestie orci. Praesent nisi elit, fringilla ac, suscipit non,
+  tristique vel, mauris. Curabitur vel lorem id nisl porta
+- adipiscing. Suspendisse eu lectus. In nunc. Duis vulputate
+- tristique enim. Donec quis lectus a justo imperdiet tempus.
++ adipiscing. Duis vulputate tristique enim. Donec quis lectus a
++ justo imperdiet tempus.  Suspendisse eu lectus. In nunc.
 </code></pre></div>
-
 
 <p>样本数据中两个文本段的开头是相同的，因此第一行打印时没有任何额外的注释。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">  Lorem ipsum dolor sit amet, consectetuer adipiscing</span>
-<span class="err">  elit. Integer eu lacus accumsan arcu fermentum euismod. Donec</span>
+<div class="highlight"><pre><span></span><code>  Lorem ipsum dolor sit amet, consectetuer adipiscing
+  elit. Integer eu lacus accumsan arcu fermentum euismod. Donec
 </code></pre></div>
-
 
 <p>数据的第三行已更改为在修改后包含逗号的文本。 该行的两个版本都打印出来，第 5 行的额外信息显示了修改文本的列，包括添加了 <code>，</code> 字符的事实。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">- pulvinar porttitor tellus. Aliquam venenatis. Donec facilisis</span>
-<span class="err">+ pulvinar, porttitor tellus. Aliquam venenatis. Donec facilisis</span>
-<span class="err">?         +</span>
+<div class="highlight"><pre><span></span><code>- pulvinar porttitor tellus. Aliquam venenatis. Donec facilisis
++ pulvinar, porttitor tellus. Aliquam venenatis. Donec facilisis
+?         +
 </code></pre></div>
-
 
 <p>输出的下几行显示删除了额外的空间。</p>
-<div class="codehilite"><pre><span></span><code><span class="o">-</span> <span class="n">pharetra</span> <span class="n">tortor</span><span class="p">.</span>  <span class="k">In</span> <span class="n">nec</span> <span class="n">mauris</span> <span class="n">eget</span> <span class="n">magna</span> <span class="n">consequat</span>
-<span class="o">?</span>                 <span class="o">-</span>
+<div class="highlight"><pre><span></span><code>- pharetra tortor.  In nec mauris eget magna consequat
+?                 -
 
-<span class="o">+</span> <span class="n">pharetra</span> <span class="n">tortor</span><span class="p">.</span> <span class="k">In</span> <span class="n">nec</span> <span class="n">mauris</span> <span class="n">eget</span> <span class="n">magna</span> <span class="n">consequat</span>
++ pharetra tortor. In nec mauris eget magna consequat
 </code></pre></div>
-
 
 <p>接下来，进行了更复杂的更改，替换了短语中的多个单词。</p>
-<div class="codehilite"><pre><span></span><code><span class="o">-</span> <span class="n">convalis</span><span class="p">.</span> <span class="n">Nam</span> <span class="n">sed</span> <span class="n">sem</span> <span class="n">vitae</span> <span class="n">odio</span> <span class="n">pellentesque</span> <span class="n">interdum</span><span class="p">.</span> <span class="n">Sed</span>
-<span class="o">?</span>                 <span class="o">-</span> <span class="c1">--</span>
+<div class="highlight"><pre><span></span><code>- convalis. Nam sed sem vitae odio pellentesque interdum. Sed
+?                 - --
 
-<span class="o">+</span> <span class="n">convalis</span><span class="p">.</span> <span class="n">Nam</span> <span class="n">cras</span> <span class="n">vitae</span> <span class="n">mi</span> <span class="n">vitae</span> <span class="n">odio</span> <span class="n">pellentesque</span> <span class="n">interdum</span><span class="p">.</span> <span class="n">Sed</span>
-<span class="o">?</span>               <span class="o">+++</span> <span class="o">+++++</span>   <span class="o">+</span>
++ convalis. Nam cras vitae mi vitae odio pellentesque interdum. Sed
+?               +++ +++++   +
 </code></pre></div>
-
 
 <p>段落中的最后一句被显著更改，因此通过删除旧版本并添加新版本来表示差异。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">  consequat viverra nisl. Suspendisse arcu metus, blandit quis,</span>
-<span class="err">  rhoncus ac, pharetra eget, velit. Mauris urna. Morbi nonummy</span>
-<span class="err">  molestie orci. Praesent nisi elit, fringilla ac, suscipit non,</span>
-<span class="err">  tristique vel, mauris. Curabitur vel lorem id nisl porta</span>
-<span class="err">- adipiscing. Suspendisse eu lectus. In nunc. Duis vulputate</span>
-<span class="err">- tristique enim. Donec quis lectus a justo imperdiet tempus.</span>
-<span class="err">+ adipiscing. Duis vulputate tristique enim. Donec quis lectus a</span>
-<span class="err">+ justo imperdiet tempus.  Suspendisse eu lectus. In nunc.</span>
+<div class="highlight"><pre><span></span><code>  consequat viverra nisl. Suspendisse arcu metus, blandit quis,
+  rhoncus ac, pharetra eget, velit. Mauris urna. Morbi nonummy
+  molestie orci. Praesent nisi elit, fringilla ac, suscipit non,
+  tristique vel, mauris. Curabitur vel lorem id nisl porta
+- adipiscing. Suspendisse eu lectus. In nunc. Duis vulputate
+- tristique enim. Donec quis lectus a justo imperdiet tempus.
++ adipiscing. Duis vulputate tristique enim. Donec quis lectus a
++ justo imperdiet tempus.  Suspendisse eu lectus. In nunc.
 </code></pre></div>
-
 
 <p>如果文本没有被拆分为单独的行，则输出结果如下：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">diff</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">compare</span><span class="p">(</span><span class="s2">&quot;abc&quot;</span><span class="p">,</span> <span class="s2">&quot;cba&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">diff</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">compare</span><span class="p">(</span><span class="s2">&quot;abc&quot;</span><span class="p">,</span> <span class="s2">&quot;cba&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">diff</span><span class="p">))</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">+ c</span>
-<span class="err">+ b</span>
-<span class="err">  a</span>
-<span class="err">- b</span>
-<span class="err">- c</span>
+<div class="highlight"><pre><span></span><code>+ c
++ b
+  a
+- b
+- c
 </code></pre></div>
-
 
 <p><strong><code>ndiff()</code> 函数产生基本相同的输出。</strong>该处理专门用于处理文本数据并消除输入中的 “噪声”。</p>
-<div class="codehilite"><pre><span></span><code><span class="n">diff</span> <span class="o">=</span> <span class="n">difflib</span><span class="o">.</span><span class="n">ndiff</span><span class="p">(</span><span class="n">text1_lines</span><span class="p">,</span> <span class="n">text2_lines</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">diff</span> <span class="o">=</span> <span class="n">difflib</span><span class="o">.</span><span class="n">ndiff</span><span class="p">(</span><span class="n">text1_lines</span><span class="p">,</span> <span class="n">text2_lines</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">diff</span><span class="p">))</span>
 </code></pre></div>
 
+<div class="highlight"><pre><span></span><code>  Lorem ipsum dolor sit amet, consectetuer adipiscing
+  elit. Integer eu lacus accumsan arcu fermentum euismod. Donec
+- pulvinar porttitor tellus. Aliquam venenatis. Donec facilisis
++ pulvinar, porttitor tellus. Aliquam venenatis. Donec facilisis
+?         +
 
-<div class="codehilite"><pre><span></span><code>  <span class="n">Lorem</span> <span class="n">ipsum</span> <span class="n">dolor</span> <span class="n">sit</span> <span class="n">amet</span><span class="p">,</span> <span class="n">consectetuer</span> <span class="n">adipiscing</span>
-  <span class="n">elit</span><span class="p">.</span> <span class="nb">Integer</span> <span class="n">eu</span> <span class="n">lacus</span> <span class="n">accumsan</span> <span class="n">arcu</span> <span class="n">fermentum</span> <span class="n">euismod</span><span class="p">.</span> <span class="n">Donec</span>
-<span class="o">-</span> <span class="n">pulvinar</span> <span class="n">porttitor</span> <span class="n">tellus</span><span class="p">.</span> <span class="n">Aliquam</span> <span class="n">venenatis</span><span class="p">.</span> <span class="n">Donec</span> <span class="n">facilisis</span>
-<span class="o">+</span> <span class="n">pulvinar</span><span class="p">,</span> <span class="n">porttitor</span> <span class="n">tellus</span><span class="p">.</span> <span class="n">Aliquam</span> <span class="n">venenatis</span><span class="p">.</span> <span class="n">Donec</span> <span class="n">facilisis</span>
-<span class="o">?</span>         <span class="o">+</span>
+- pharetra tortor.  In nec mauris eget magna consequat
+?                  -
 
-<span class="o">-</span> <span class="n">pharetra</span> <span class="n">tortor</span><span class="p">.</span>  <span class="k">In</span> <span class="n">nec</span> <span class="n">mauris</span> <span class="n">eget</span> <span class="n">magna</span> <span class="n">consequat</span>
-<span class="o">?</span>                  <span class="o">-</span>
++ pharetra tortor. In nec mauris eget magna consequat
+- convalis. Nam sed sem vitae odio pellentesque interdum. Sed
+?                ------
 
-<span class="o">+</span> <span class="n">pharetra</span> <span class="n">tortor</span><span class="p">.</span> <span class="k">In</span> <span class="n">nec</span> <span class="n">mauris</span> <span class="n">eget</span> <span class="n">magna</span> <span class="n">consequat</span>
-<span class="o">-</span> <span class="n">convalis</span><span class="p">.</span> <span class="n">Nam</span> <span class="n">sed</span> <span class="n">sem</span> <span class="n">vitae</span> <span class="n">odio</span> <span class="n">pellentesque</span> <span class="n">interdum</span><span class="p">.</span> <span class="n">Sed</span>
-<span class="o">?</span>                <span class="c1">------</span>
++ convalis. Nam cras vitae mi vitae odio pellentesque interdum. Sed
+?               +++        +++++++++
 
-<span class="o">+</span> <span class="n">convalis</span><span class="p">.</span> <span class="n">Nam</span> <span class="n">cras</span> <span class="n">vitae</span> <span class="n">mi</span> <span class="n">vitae</span> <span class="n">odio</span> <span class="n">pellentesque</span> <span class="n">interdum</span><span class="p">.</span> <span class="n">Sed</span>
-<span class="o">?</span>               <span class="o">+++</span>        <span class="o">+++++++++</span>
-
-  <span class="n">consequat</span> <span class="n">viverra</span> <span class="n">nisl</span><span class="p">.</span> <span class="n">Suspendisse</span> <span class="n">arcu</span> <span class="n">metus</span><span class="p">,</span> <span class="n">blandit</span> <span class="n">quis</span><span class="p">,</span>
-  <span class="n">rhoncus</span> <span class="n">ac</span><span class="p">,</span> <span class="n">pharetra</span> <span class="n">eget</span><span class="p">,</span> <span class="n">velit</span><span class="p">.</span> <span class="n">Mauris</span> <span class="n">urna</span><span class="p">.</span> <span class="n">Morbi</span> <span class="n">nonummy</span>
-  <span class="n">molestie</span> <span class="n">orci</span><span class="p">.</span> <span class="n">Praesent</span> <span class="n">nisi</span> <span class="n">elit</span><span class="p">,</span> <span class="n">fringilla</span> <span class="n">ac</span><span class="p">,</span> <span class="n">suscipit</span> <span class="n">non</span><span class="p">,</span>
-  <span class="n">tristique</span> <span class="n">vel</span><span class="p">,</span> <span class="n">mauris</span><span class="p">.</span> <span class="n">Curabitur</span> <span class="n">vel</span> <span class="n">lorem</span> <span class="n">id</span> <span class="n">nisl</span> <span class="n">porta</span>
-<span class="o">-</span> <span class="n">adipiscing</span><span class="p">.</span> <span class="n">Suspendisse</span> <span class="n">eu</span> <span class="n">lectus</span><span class="p">.</span> <span class="k">In</span> <span class="n">nunc</span><span class="p">.</span> <span class="n">Duis</span> <span class="n">vulputate</span>
-<span class="o">-</span> <span class="n">tristique</span> <span class="n">enim</span><span class="p">.</span> <span class="n">Donec</span> <span class="n">quis</span> <span class="n">lectus</span> <span class="n">a</span> <span class="n">justo</span> <span class="n">imperdiet</span> <span class="n">tempus</span><span class="p">.</span>
-<span class="o">+</span> <span class="n">adipiscing</span><span class="p">.</span> <span class="n">Duis</span> <span class="n">vulputate</span> <span class="n">tristique</span> <span class="n">enim</span><span class="p">.</span> <span class="n">Donec</span> <span class="n">quis</span> <span class="n">lectus</span> <span class="n">a</span>
-<span class="o">+</span> <span class="n">justo</span> <span class="n">imperdiet</span> <span class="n">tempus</span><span class="p">.</span>  <span class="n">Suspendisse</span> <span class="n">eu</span> <span class="n">lectus</span><span class="p">.</span> <span class="k">In</span> <span class="n">nunc</span><span class="p">.</span>
+  consequat viverra nisl. Suspendisse arcu metus, blandit quis,
+  rhoncus ac, pharetra eget, velit. Mauris urna. Morbi nonummy
+  molestie orci. Praesent nisi elit, fringilla ac, suscipit non,
+  tristique vel, mauris. Curabitur vel lorem id nisl porta
+- adipiscing. Suspendisse eu lectus. In nunc. Duis vulputate
+- tristique enim. Donec quis lectus a justo imperdiet tempus.
++ adipiscing. Duis vulputate tristique enim. Donec quis lectus a
++ justo imperdiet tempus.  Suspendisse eu lectus. In nunc.
 </code></pre></div>
-
 
 <h3 id="_2">其他输出格式</h3>
 <p>虽然 <code>Differ</code> 类展示了所有的输入行，<em>unified diff</em> 仅包括修改过的行和一些上下文。<code>unified_diff()</code> 函数产生这种输出。</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">difflib</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">difflib</span>
 
 <span class="n">diff</span> <span class="o">=</span> <span class="n">difflib</span><span class="o">.</span><span class="n">unified_diff</span><span class="p">(</span><span class="n">text1_lines</span><span class="p">,</span> <span class="n">text2_lines</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">lineterm</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">diff</span><span class="p">))</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">---</span>
-<span class="err">+++</span>
-<span class="err">@@ -3,3 +3,3 @@</span>
-<span class="err">-pulvinar porttitor tellus. Aliquam venenatis. Donec facilisis</span>
-<span class="err">-pharetra tortor.  In nec mauris eget magna consequat</span>
-<span class="err">-convalis. Nam sed sem vitae odio pellentesque interdum. Sed</span>
-<span class="err">+pulvinar, porttitor tellus. Aliquam venenatis. Donec facilisis</span>
-<span class="err">+pharetra tortor. In nec mauris eget magna consequat</span>
-<span class="err">+convalis. Nam cras vitae mi vitae odio pellentesque interdum. Sed</span>
-<span class="err">@@ -10,2 +10,2 @@</span>
-<span class="err">-adipiscing. Suspendisse eu lectus. In nunc. Duis vulputate</span>
-<span class="err">-tristique enim. Donec quis lectus a justo imperdiet tempus.</span>
-<span class="err">+adipiscing. Duis vulputate tristique enim. Donec quis lectus a</span>
-<span class="err">+justo imperdiet tempus.  Suspendisse eu lectus. In nunc.</span>
+<div class="highlight"><pre><span></span><code>---
++++
+@@ -3,3 +3,3 @@
+-pulvinar porttitor tellus. Aliquam venenatis. Donec facilisis
+-pharetra tortor.  In nec mauris eget magna consequat
+-convalis. Nam sed sem vitae odio pellentesque interdum. Sed
++pulvinar, porttitor tellus. Aliquam venenatis. Donec facilisis
++pharetra tortor. In nec mauris eget magna consequat
++convalis. Nam cras vitae mi vitae odio pellentesque interdum. Sed
+@@ -10,2 +10,2 @@
+-adipiscing. Suspendisse eu lectus. In nunc. Duis vulputate
+-tristique enim. Donec quis lectus a justo imperdiet tempus.
++adipiscing. Duis vulputate tristique enim. Donec quis lectus a
++justo imperdiet tempus.  Suspendisse eu lectus. In nunc.
 </code></pre></div>
 
-
 <p>使用 <code>context_diff()</code> 产生类似的可读输出。</p>
-<div class="codehilite"><pre><span></span><code><span class="n">diff</span> <span class="o">=</span> <span class="n">difflib</span><span class="o">.</span><span class="n">context_diff</span><span class="p">(</span><span class="n">text1_lines</span><span class="p">,</span> <span class="n">text2_lines</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">lineterm</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">diff</span> <span class="o">=</span> <span class="n">difflib</span><span class="o">.</span><span class="n">context_diff</span><span class="p">(</span><span class="n">text1_lines</span><span class="p">,</span> <span class="n">text2_lines</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">lineterm</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">diff</span><span class="p">))</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="gh">***</span>
-<span class="gh">---</span>
-<span class="gs">***************</span>
-<span class="gs">*** 3,5 **</span>**
+<div class="highlight"><pre><span></span><code>***
+---
+***************
+*** 3,5 ****
 ! pulvinar porttitor tellus. Aliquam venenatis. Donec facilisis
 ! pharetra tortor.  In nec mauris eget magna consequat
 ! convalis. Nam sed sem vitae odio pellentesque interdum. Sed
 --- 3,5 ----
 ! pulvinar, porttitor tellus. Aliquam venenatis. Donec facilisis
 ! pharetra tortor. In nec mauris eget magna consequat
-<span class="gh">! convalis. Nam cras vitae mi vitae odio pellentesque interdum. Sed</span>
-<span class="gh">***************</span>
-<span class="gs">*** 10,11 **</span>**
+! convalis. Nam cras vitae mi vitae odio pellentesque interdum. Sed
+***************
+*** 10,11 ****
 ! adipiscing. Suspendisse eu lectus. In nunc. Duis vulputate
 ! tristique enim. Donec quis lectus a justo imperdiet tempus.
 --- 10,11 ----
@@ -2214,10 +2210,9 @@
 ! justo imperdiet tempus.  Suspendisse eu lectus. In nunc.
 </code></pre></div>
 
-
 <h2 id="_3">垃圾数据</h2>
 <p>生成差异序列的所有函数都接受参数，以指示应忽略哪些行以及应忽略行中的哪些字符。例如，这些参数可用于跳过一个文件的两个版本中的标记或空白变化。</p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># 这个例子改编自 difflib.py 源码。</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 这个例子改编自 difflib.py 源码。</span>
 
 <span class="kn">from</span> <span class="nn">difflib</span> <span class="kn">import</span> <span class="n">SequenceMatcher</span>
 
@@ -2246,25 +2241,23 @@
 <span class="n">show_results</span><span class="p">(</span><span class="n">match2</span><span class="p">)</span>
 </code></pre></div>
 
+<div class="highlight"><pre><span></span><code>A = &#39; abcd&#39;
+B = &#39;abcd abcd&#39;
 
-<div class="codehilite"><pre><span></span><code><span class="n">A</span> <span class="o">=</span> <span class="s1">&#39; abcd&#39;</span>
-<span class="n">B</span> <span class="o">=</span> <span class="s1">&#39;abcd abcd&#39;</span>
+Without junk detection:
+  a    = 0
+  b    = 4
+  size = 5
+  A[a:a+size] = &#39; abcd&#39;
+  B[b:b+size] = &#39; abcd&#39;
 
-<span class="k">Without</span> <span class="n">junk</span> <span class="n">detection</span><span class="p">:</span>
-  <span class="n">a</span>    <span class="o">=</span> <span class="mi">0</span>
-  <span class="n">b</span>    <span class="o">=</span> <span class="mi">4</span>
-  <span class="k">size</span> <span class="o">=</span> <span class="mi">5</span>
-  <span class="n">A</span><span class="p">[</span><span class="n">a</span><span class="p">:</span><span class="n">a</span><span class="o">+</span><span class="k">size</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39; abcd&#39;</span>
-  <span class="n">B</span><span class="p">[</span><span class="n">b</span><span class="p">:</span><span class="n">b</span><span class="o">+</span><span class="k">size</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39; abcd&#39;</span>
-
-<span class="k">Treat</span> <span class="n">spaces</span> <span class="k">as</span> <span class="n">junk</span><span class="p">:</span>
-  <span class="n">a</span>    <span class="o">=</span> <span class="mi">1</span>
-  <span class="n">b</span>    <span class="o">=</span> <span class="mi">0</span>
-  <span class="k">size</span> <span class="o">=</span> <span class="mi">4</span>
-  <span class="n">A</span><span class="p">[</span><span class="n">a</span><span class="p">:</span><span class="n">a</span><span class="o">+</span><span class="k">size</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;abcd&#39;</span>
-  <span class="n">B</span><span class="p">[</span><span class="n">b</span><span class="p">:</span><span class="n">b</span><span class="o">+</span><span class="k">size</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;abcd&#39;</span>
+Treat spaces as junk:
+  a    = 1
+  b    = 0
+  size = 4
+  A[a:a+size] = &#39;abcd&#39;
+  B[b:b+size] = &#39;abcd&#39;
 </code></pre></div>
-
 
 <p><code>Differ</code> 的默认设置是不要忽略任何行或明确的字符，而是依赖于 <code>SequenceMatcher</code> 检测噪声的能力。<code>ndiff()</code> 默认忽略空白符和制表符。</p>
 <h2 id="_4">比较任意类型</h2>
@@ -2296,7 +2289,7 @@
 </tr>
 </tbody>
 </table>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">difflib</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">difflib</span>
 
 <span class="n">s1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
 <span class="n">s2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
@@ -2338,33 +2331,31 @@
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;s1 == s2:&#39;</span><span class="p">,</span> <span class="n">s1</span> <span class="o">==</span> <span class="n">s2</span><span class="p">)</span>
 </code></pre></div>
 
+<div class="highlight"><pre><span></span><code>Initial data:
+s1 = [1, 2, 3, 5, 6, 4]
+s2 = [2, 3, 5, 4, 6, 1]
+s1 == s2: False
 
-<div class="codehilite"><pre><span></span><code><span class="n">Initial</span> <span class="k">data</span><span class="p">:</span>
-<span class="n">s1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
-<span class="n">s2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
-<span class="n">s1</span> <span class="o">==</span> <span class="n">s2</span><span class="p">:</span> <span class="k">False</span>
+Replace [4] from s1[5:6] with [1] from s2[5:6]
+  before = [1, 2, 3, 5, 6, 4]
+   after = [1, 2, 3, 5, 6, 1]
 
-<span class="k">Replace</span> <span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="k">from</span> <span class="n">s1</span><span class="p">[</span><span class="mi">5</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span> <span class="k">with</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">from</span> <span class="n">s2</span><span class="p">[</span><span class="mi">5</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span>
-  <span class="k">before</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
-   <span class="k">after</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+s1[4:5] and s2[4:5] are the same
+   after = [1, 2, 3, 5, 6, 1]
 
-<span class="n">s1</span><span class="p">[</span><span class="mi">4</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span> <span class="k">and</span> <span class="n">s2</span><span class="p">[</span><span class="mi">4</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span> <span class="k">are</span> <span class="n">the</span> <span class="n">same</span>
-   <span class="k">after</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+Insert [4] from s2[3:4] into s1 at 4
+  before = [1, 2, 3, 5, 6, 1]
+   after = [1, 2, 3, 5, 4, 6, 1]
 
-<span class="k">Insert</span> <span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="k">from</span> <span class="n">s2</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span> <span class="k">into</span> <span class="n">s1</span> <span class="k">at</span> <span class="mi">4</span>
-  <span class="k">before</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
-   <span class="k">after</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+s1[1:4] and s2[0:3] are the same
+   after = [1, 2, 3, 5, 4, 6, 1]
 
-<span class="n">s1</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span> <span class="k">and</span> <span class="n">s2</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="k">are</span> <span class="n">the</span> <span class="n">same</span>
-   <span class="k">after</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+Remove [1] from positions [0:1]
+  before = [1, 2, 3, 5, 4, 6, 1]
+   after = [2, 3, 5, 4, 6, 1]
 
-<span class="n">Remove</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">from</span> <span class="n">positions</span> <span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">]</span>
-  <span class="k">before</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
-   <span class="k">after</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
-
-<span class="n">s1</span> <span class="o">==</span> <span class="n">s2</span><span class="p">:</span> <span class="k">True</span>
+s1 == s2: True
 </code></pre></div>
-
 
 <p>此示例比较两个整数列表，并使用 <code>get_opcodes()</code> 派生将原始列表转换为较新版本的指令。以相反的顺序修改，以便在添加和删除项目后列表索引保持准确。</p>
 <p><code>SequenceMatcher</code> 适用于自定义类以及内置类型，只要它们是可散列的。</p>

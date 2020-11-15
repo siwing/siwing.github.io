@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-6.1.4">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.4">
     
     
       
@@ -884,6 +884,18 @@
   <li class="md-nav__item">
     <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.16.shutil.html" class="md-nav__link">
       6.16.shutil
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.17.test.html" class="md-nav__link">
+      6.17.test
     </a>
   </li>
 
@@ -1996,7 +2008,7 @@
 <li>处理（except, else, finally）</li>
 </ol>
 <p>异常即是一个事件，该事件会在程序执行过程中发生，影响了程序的正常执行。一般情况下，在Python无法正常处理程序时就会发生一个异常。当Python脚本发生异常时，异常会从发生异常的位置向程序上层传播。例如异常从函数向外传播到调用函数的地方，如果在这里没有被捕获，则继续向上传播，如果一直都没有被捕获，则传播到程序的最顶层，即主程序（全局作用域）。如果在主程序中也没有处理异常的程序，python将调用默认的异常处理程序，自动匹配异常的类型，然后中止程序并显示栈跟踪信息。</p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># 在cause_error函数中抛出异常</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 在cause_error函数中抛出异常</span>
 <span class="k">def</span> <span class="nf">cause_error</span><span class="p">():</span>
     <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;Somrthing is wrong&quot;</span><span class="p">)</span>
 
@@ -2013,37 +2025,33 @@
 <span class="n">call_cause_error</span><span class="p">()</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">---------------------------------------------------------------------------Exception</span>
-<span class="err">Traceback (most recent call last)&lt;ipython-input-1-eb81f11bf5d9&gt; in</span>
-<span class="err">&lt;module&gt;</span>
-<span class="err">----&gt; 1 call_cause_error()</span>
-<span class="err">&lt;ipython-input-1-ec5e029839e0&gt; in call_cause_error()</span>
-<span class="err">      1 def call_cause_error():</span>
-<span class="err">----&gt; 2     cause_error()</span>
-<span class="err">      3</span>
-<span class="err">&lt;ipython-input-1-11326a099618&gt; in cause_error()</span>
-<span class="err">      1 def cause_error():</span>
-<span class="err">----&gt; 2     raise Exception(&quot;Somrthing is wrong&quot;)</span>
-<span class="err">      3</span>
-<span class="c">Exception: Somrthing is wrong</span>
+<div class="highlight"><pre><span></span><code>---------------------------------------------------------------------------Exception
+Traceback (most recent call last)&lt;ipython-input-1-eb81f11bf5d9&gt; in
+&lt;module&gt;
+----&gt; 1 call_cause_error()
+&lt;ipython-input-1-ec5e029839e0&gt; in call_cause_error()
+      1 def call_cause_error():
+----&gt; 2     cause_error()
+      3
+&lt;ipython-input-1-11326a099618&gt; in cause_error()
+      1 def cause_error():
+----&gt; 2     raise Exception(&quot;Somrthing is wrong&quot;)
+      3
+Exception: Somrthing is wrong
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="n">deal_error</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span class="n">deal_error</span><span class="p">()</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">Exception handled</span>
+<div class="highlight"><pre><span></span><code>Exception handled
 </code></pre></div>
-
 
 <blockquote>
 <p>如你所见，cause_error中引发的异常依次从cause_error和call_cause_error向外传播，最终导致显示一条栈跟踪信息。调用deal_error时，异常在传播到deal_error时被捕获，并被这里的try/except语句处理。</p>
 </blockquote>
 <p>异常是Python对象，表示一个错误。异常可以作为类被定义, 也可以人为引发异常。</p>
 <h2 id="_2">异常处理语句</h2>
-<div class="codehilite"><pre><span></span><code><span class="k">try</span><span class="p">:</span>                           <span class="c1"># try语句中代码首先被运行</span>
+<div class="highlight"><pre><span></span><code><span class="k">try</span><span class="p">:</span>                           <span class="c1"># try语句中代码首先被运行</span>
     <span class="o">&lt;</span><span class="n">statement</span><span class="o">&gt;</span>       
 <span class="k">except</span><span class="err">：</span>                        <span class="c1"># 捕获任何在try中引发的异常</span>
     <span class="o">&lt;</span><span class="n">statement</span><span class="o">&gt;</span>        
@@ -2061,73 +2069,66 @@
 <span class="k">assert</span> <span class="o">&lt;</span><span class="n">judgement</span><span class="o">&gt;</span>              <span class="c1"># 断言 判断为假的话会引发AssertionError</span>
 </code></pre></div>
 
-
 <h2 id="raise">raise语句</h2>
 <p>使用raise...from...语句来提供自己的异常上下文，也可以使用None来禁止上下文。</p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># 默认输出异常上下文</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 默认输出异常上下文</span>
 <span class="k">try</span><span class="p">:</span>
     <span class="mi">1</span><span class="o">/</span><span class="mi">0</span>
 <span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
     <span class="k">raise</span> <span class="ne">ValueError</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">---------------------------------------------------------------------------ZeroDivisionError</span>
-<span class="err">Traceback (most recent call last)&lt;ipython-input-1-56b5a2b441f0&gt; in</span>
-<span class="err">&lt;module&gt;</span>
-<span class="err">      1 try:</span>
-<span class="err">----&gt; 2     1/0</span>
-<span class="err">      3 except ZeroDivisionError:</span>
-<span class="c">ZeroDivisionError: division by zero</span>
-<span class="err">During handling of the above exception, another exception occurred:</span>
-<span class="err">ValueError                                Traceback (most recent call</span>
-<span class="err">last)&lt;ipython-input-1-56b5a2b441f0&gt; in &lt;module&gt;</span>
-<span class="err">      2     1/0</span>
-<span class="err">      3 except ZeroDivisionError:</span>
-<span class="err">----&gt; 4     raise ValueError</span>
-<span class="err">      5</span>
-<span class="c">ValueError:</span>
+<div class="highlight"><pre><span></span><code>---------------------------------------------------------------------------ZeroDivisionError
+Traceback (most recent call last)&lt;ipython-input-1-56b5a2b441f0&gt; in
+&lt;module&gt;
+      1 try:
+----&gt; 2     1/0
+      3 except ZeroDivisionError:
+ZeroDivisionError: division by zero
+During handling of the above exception, another exception occurred:
+ValueError                                Traceback (most recent call
+last)&lt;ipython-input-1-56b5a2b441f0&gt; in &lt;module&gt;
+      2     1/0
+      3 except ZeroDivisionError:
+----&gt; 4     raise ValueError
+      5
+ValueError:
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="c1"># 自定义上下文</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 自定义上下文</span>
 <span class="k">try</span><span class="p">:</span>
     <span class="mi">1</span><span class="o">/</span><span class="mi">0</span>
 <span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
     <span class="k">raise</span> <span class="ne">ValueError</span> <span class="kn">from</span> <span class="nn">ZeroDivisionError</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">---------------------------------------------------------------------------ZeroDivisionError</span>
-<span class="err">Traceback (most recent call last)ZeroDivisionError:</span>
-<span class="err">The above exception was the direct cause of the following exception:</span>
-<span class="err">ValueError                                Traceback (most recent call</span>
-<span class="err">last)&lt;ipython-input-1-00ed5b67ecd8&gt; in &lt;module&gt;</span>
-<span class="err">      2     1/0</span>
-<span class="err">      3 except ZeroDivisionError:</span>
-<span class="err">----&gt; 4     raise ValueError from ZeroDivisionError</span>
-<span class="err">      5</span>
-<span class="c">ValueError:</span>
+<div class="highlight"><pre><span></span><code>---------------------------------------------------------------------------ZeroDivisionError
+Traceback (most recent call last)ZeroDivisionError:
+The above exception was the direct cause of the following exception:
+ValueError                                Traceback (most recent call
+last)&lt;ipython-input-1-00ed5b67ecd8&gt; in &lt;module&gt;
+      2     1/0
+      3 except ZeroDivisionError:
+----&gt; 4     raise ValueError from ZeroDivisionError
+      5
+ValueError:
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="c1"># 禁止上下文</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 禁止上下文</span>
 <span class="k">try</span><span class="p">:</span>
     <span class="mi">1</span><span class="o">/</span><span class="mi">0</span>
 <span class="k">except</span> <span class="ne">ZeroDivisionError</span><span class="p">:</span>
     <span class="k">raise</span> <span class="ne">ValueError</span> <span class="kn">from</span> <span class="bp">None</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">---------------------------------------------------------------------------ValueError</span>
-<span class="err">Traceback (most recent call last)&lt;ipython-input-1-d9388897f61c&gt; in</span>
-<span class="err">&lt;module&gt;</span>
-<span class="err">      2     1/0</span>
-<span class="err">      3 except ZeroDivisionError:</span>
-<span class="err">----&gt; 4     raise ValueError from None</span>
-<span class="c">ValueError:</span>
+<div class="highlight"><pre><span></span><code>---------------------------------------------------------------------------ValueError
+Traceback (most recent call last)&lt;ipython-input-1-d9388897f61c&gt; in
+&lt;module&gt;
+      2     1/0
+      3 except ZeroDivisionError:
+----&gt; 4     raise ValueError from None
+ValueError:
 </code></pre></div>
-
 
 <h2 id="_3">内置异常</h2>
 <table>

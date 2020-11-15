@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-6.1.4">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.4">
     
     
       
@@ -906,6 +906,18 @@
   
 </nav>
     
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="6.17.test.html" class="md-nav__link">
+      6.17.test
+    </a>
   </li>
 
         
@@ -2028,24 +2040,21 @@
                 
                   <h1>6.16.shutil</h1>
                 
-                <div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">shutil</span>
+                <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">shutil</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">from</span> <span class="nn">toolkit</span> <span class="kn">import</span> <span class="n">H</span>
 </code></pre></div>
 
-
 <h2 id="_1">复制文件</h2>
-<div class="codehilite"><pre><span></span><code><span class="err">shutil.copyfile(src, dst, follow_symlinks=True)</span>
+<div class="highlight"><pre><span></span><code>shutil.copyfile(src, dst, follow_symlinks=True)
 </code></pre></div>
-
 
 <p><code>copyfile()</code> 复制源文件的内容到目标位置，如果没有创建新文件的权限将会引发 <code>IOError</code>，如果<code>dst</code>已存在，则会被替换。<code>src</code>、<code>dst</code> 不能是目录。一些特殊的文件（例如 Unix 设备）是不能使用它进行复制的，因为 <code>copyfile()</code> 不管文件的类型如何，都会打开进行读取。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">shutil.copyfileobj(fsrc, fdst, length=16384)</span>
+<div class="highlight"><pre><span></span><code>shutil.copyfileobj(fsrc, fdst, length=16384)
 </code></pre></div>
 
-
 <p><code>copyfile()</code> 是调用低级方法 <code>copyfileobj()</code> 实现的。但传入 <code>copyfile()</code> 的参数是文件名称，而传入 <code>copyfileobj()</code> 是打开的文件描述符。可选的第三个参数是用来设置读取块的大小。默认行为是使用大块读取。使用 <code>-1</code> 一次性读取所有输入，或者使用一个正整数设定一个具体的区块大小。下面的示例代码使用了不同的块大小展示效果。</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">io</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">io</span>
 
 <span class="k">class</span> <span class="nc">VerboseStringIO</span><span class="p">(</span><span class="n">io</span><span class="o">.</span><span class="n">StringIO</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="o">=-</span><span class="mi">1</span><span class="p">):</span>
@@ -2079,53 +2088,46 @@
 <span class="n">shutil</span><span class="o">.</span><span class="n">copyfileobj</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">output</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
 </code></pre></div>
 
+<div class="highlight"><pre><span></span><code>Default:
+read(16384) got 167 bytes
+read(16384) got 0 bytes
 
-<div class="codehilite"><pre><span></span><code><span class="n">Default</span><span class="o">:</span>
-<span class="n">read</span><span class="o">(</span><span class="mi">16384</span><span class="o">)</span> <span class="n">got</span> <span class="mi">167</span> <span class="n">bytes</span>
-<span class="n">read</span><span class="o">(</span><span class="mi">16384</span><span class="o">)</span> <span class="n">got</span> <span class="mi">0</span> <span class="n">bytes</span>
+All at once:
+read(-1) got 167 bytes
+read(-1) got 0 bytes
 
-<span class="n">All</span> <span class="n">at</span> <span class="n">once</span><span class="o">:</span>
-<span class="n">read</span><span class="o">(-</span><span class="mi">1</span><span class="o">)</span> <span class="n">got</span> <span class="mi">167</span> <span class="n">bytes</span>
-<span class="n">read</span><span class="o">(-</span><span class="mi">1</span><span class="o">)</span> <span class="n">got</span> <span class="mi">0</span> <span class="n">bytes</span>
-
-<span class="n">Blocks</span> <span class="n">of</span> <span class="mi">256</span><span class="o">:</span>
-<span class="n">read</span><span class="o">(</span><span class="mi">100</span><span class="o">)</span> <span class="n">got</span> <span class="mi">100</span> <span class="n">bytes</span>
-<span class="n">read</span><span class="o">(</span><span class="mi">100</span><span class="o">)</span> <span class="n">got</span> <span class="mi">67</span> <span class="n">bytes</span>
-<span class="n">read</span><span class="o">(</span><span class="mi">100</span><span class="o">)</span> <span class="n">got</span> <span class="mi">0</span> <span class="n">bytes</span>
+Blocks of 256:
+read(100) got 100 bytes
+read(100) got 67 bytes
+read(100) got 0 bytes
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">shutil.copy(src, dst, follow_symlinks=True)</span>
+<div class="highlight"><pre><span></span><code>shutil.copy(src, dst, follow_symlinks=True)
 </code></pre></div>
-
 
 <p>复制一个文件到目标路径，如果目标路径是一个目录，而不是文件，那么将会在这个目录中创建一个与源文件同名的新文件。<code>copy()</code>函数实际上是先后调用了 <code>copyfile()</code>函数和<code>copymode()</code>函数，因此文件的权限将会随着内容一起复制。<code>copy()</code> 函数会像 Unix 命令行工具 cp 那样打印出新文件的路径。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">shutil.copy2(src, dst, follow_symlinks=True)</span>
+<div class="highlight"><pre><span></span><code>shutil.copy2(src, dst, follow_symlinks=True)
 </code></pre></div>
-
 
 <p><code>copy2()</code> 类似 <code>copy()</code> ，但先后调用的是 <code>copyfile()</code>函数和<code>copystat()</code>函数，因此在复制时会包含元数据中的访问和修改时间。但新旧文件的权限可能不一样，因为默认情况下，Unix 上创建一个新文件的时候，它的权限依赖于当前用户的 umask。如果要复制文件权限，请使用 <code>copymode()</code>。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">shutil.copymode(src, dst, follow_symlinks=True)</span>
+<div class="highlight"><pre><span></span><code>shutil.copymode(src, dst, follow_symlinks=True)
 </code></pre></div>
-
 
 <p>从src复制权限位到dst。该文件的内容，所有者和组不受影响。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">shutil.copystat(src, dst, follow_symlinks=True)</span>
+<div class="highlight"><pre><span></span><code>shutil.copystat(src, dst, follow_symlinks=True)
 </code></pre></div>
-
 
 <p>从src复制权限位、最后访问时间、最后修改时间、文件的flags到dst。该文件的内容，所有者和组不受影响。在 Linux 中，<code>copystat</code> 会在可能的情况下复制"extended attributes"，</p>
-<div class="codehilite"><pre><span></span><code><span class="err">shutil.copytree(src, dst, symlinks=False, ignore=None,</span>
-<span class="err">                copy_function=shutil.copy2,</span>
-<span class="err">                ignore_dangling_symlinks=False)</span>
+<div class="highlight"><pre><span></span><code>shutil.copytree(src, dst, symlinks=False, ignore=None,
+                copy_function=shutil.copy2,
+                ignore_dangling_symlinks=False)
 </code></pre></div>
-
 
 <p>把 src 目录复制到 dst，src 和 dst 都只能是目录，且 dst 必须不存在。</p>
 <p><code>symlinks</code> 参数控制符号链接是被复制为链接还是文件。默认为<code>False</code>，会将符号链接指向的文件复制到 dst，因此，如果符号链接指向的文件已经不存在，则会引发异常。如果这个参数是 <code>true</code> ，将会在 dst 中创建新的符号链接。</p>
 <p><code>ignore_dangling_symlinks</code> 参数为<code>True</code>时，如果 src 存在损坏的 symbolic link，也不会抛出异常。</p>
 <p><code>copytree()</code> 函数使用两个回调参数控制它的行为。<code>ignore</code> 参数在每个目录或者子目录以及目录中内容被复制时调用，它返回一个应该被复制的内容列表。<code>copy_function</code> 参数用于在文件实际复制时调用。</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">glob</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">glob</span>
 <span class="kn">import</span> <span class="nn">pprint</span>
 <span class="kn">import</span> <span class="nn">shutil</span>
 
@@ -2147,36 +2149,30 @@
 <span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s1">&#39;/tmp/example/*&#39;</span><span class="p">))</span>
 </code></pre></div>
 
-
 <p>这个例子中，<code>ignore_patterns()</code> 用于去创建一个忽略方法跳过 Python 源文件。<code>verbose_copy()</code> 打印复制的文件名称然后调用 <code>copy2()</code> 复制，它是默认的复制方法。</p>
 <h2 id="_2">删除文件</h2>
-<div class="codehilite"><pre><span></span><code><span class="err">shutil.rmtree(path, ignore_errors=False, onerror=None)</span>
+<div class="highlight"><pre><span></span><code>shutil.rmtree(path, ignore_errors=False, onerror=None)
 </code></pre></div>
-
 
 <p>错误默认情况下引发为异常，但是如果第二个参数为 true 将被忽略，也可以通过第三个参数提供一个错误处理方法。</p>
 <h2 id="_3">移动文件</h2>
-<div class="codehilite"><pre><span></span><code><span class="err">shutil.move(src, dst, copy_function=shutil.copy2)</span>
+<div class="highlight"><pre><span></span><code>shutil.move(src, dst, copy_function=shutil.copy2)
 </code></pre></div>
-
 
 <p>原理类似于 Unix 命令 mv 。如果源文件和目标文件都存在，源文件将会被重命名。否则源文件被复制到目的地然后被删除。</p>
 <h2 id="_4">查找文件</h2>
-<div class="codehilite"><pre><span></span><code><span class="err">shutil.which(cmd, mode=1, path=None)</span>
+<div class="highlight"><pre><span></span><code>shutil.which(cmd, mode=1, path=None)
 </code></pre></div>
-
 
 <p><code>which()</code> 方法会按照一个搜索路径查找文件。典型的使用场景是在环境变量 <code>PATH</code> 定义的路径中查找可执行程序的位置。如果没有找到文件，<code>which()</code> 返回 <code>None</code> 。</p>
-<div class="codehilite"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">shutil</span><span class="o">.</span><span class="n">which</span><span class="p">(</span><span class="s2">&quot;cmd&quot;</span><span class="p">))</span>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">shutil</span><span class="o">.</span><span class="n">which</span><span class="p">(</span><span class="s2">&quot;cmd&quot;</span><span class="p">))</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="c">C:\WINDOWS\system32\cmd.EXE</span>
+<div class="highlight"><pre><span></span><code>C:\WINDOWS\system32\cmd.EXE
 </code></pre></div>
-
 
 <p><code>which()</code> 方法接收参数依据文件权限以及搜索路径进行过滤。<code>path</code> 参数默认是 <code>os.environ('PATH')</code>，但是可以是任何由 <code>os.pathsep</code> 分隔的字符串。<code>mode</code> 参数应该是一个匹配文件权限的位掩码。默认情况下查找可执行文件。下列的例子使用了可读掩码以及一个搜索路径去查找配置文件。</p>
-<div class="codehilite"><pre><span></span><code><span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">pathsep</span><span class="o">.</span><span class="n">join</span><span class="p">([</span>
+<div class="highlight"><pre><span></span><code><span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">pathsep</span><span class="o">.</span><span class="n">join</span><span class="p">([</span>
     <span class="s1">&#39;.&#39;</span><span class="p">,</span>
     <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s1">&#39;~/pymotw&#39;</span><span class="p">),</span>
 <span class="p">])</span>
@@ -2185,59 +2181,50 @@
 <span class="n">filename</span> <span class="o">=</span> <span class="n">shutil</span><span class="o">.</span><span class="n">which</span><span class="p">(</span><span class="s1">&#39;config.ini&#39;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="n">path</span><span class="p">)</span>
 </code></pre></div>
 
-
 <h2 id="_5">解压缩</h2>
 <p>Python 标准库包含了许多模块用于管理压缩文件，例如 tarfile 和 zipfile。shutil 模块中也有几个高阶方法用于解压缩文件。</p>
 <p><code>shutil</code> 模块维护了一个可在当前系统上压缩、解压缩的格式注册表，通过<code>get_archive_formats()</code> 和 <code>get_unpack_formats()</code> 访问。支持的格式依赖于哪些模块和底层库可用。</p>
-<div class="codehilite"><pre><span></span><code><span class="n">shutil</span><span class="o">.</span><span class="n">get_archive_formats</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span class="n">shutil</span><span class="o">.</span><span class="n">get_archive_formats</span><span class="p">()</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">[(&#39;bztar&#39;, &quot;bzip2&#39;ed tar-file&quot;),</span>
-<span class="err"> (&#39;gztar&#39;, &quot;gzip&#39;ed tar-file&quot;),</span>
-<span class="err"> (&#39;tar&#39;, &#39;uncompressed tar file&#39;),</span>
-<span class="err"> (&#39;xztar&#39;, &quot;xz&#39;ed tar-file&quot;),</span>
-<span class="err"> (&#39;zip&#39;, &#39;ZIP file&#39;)]</span>
+<div class="highlight"><pre><span></span><code>[(&#39;bztar&#39;, &quot;bzip2&#39;ed tar-file&quot;),
+ (&#39;gztar&#39;, &quot;gzip&#39;ed tar-file&quot;),
+ (&#39;tar&#39;, &#39;uncompressed tar file&#39;),
+ (&#39;xztar&#39;, &quot;xz&#39;ed tar-file&quot;),
+ (&#39;zip&#39;, &#39;ZIP file&#39;)]
 </code></pre></div>
-
 
 <p>解压缩的注册表不同于创建压缩文件的注册表，因为它还包括用于每种格式的常用文件扩展名，以便解压方法根据文件扩展名猜测要使用的格式。</p>
-<div class="codehilite"><pre><span></span><code><span class="n">shutil</span><span class="o">.</span><span class="n">get_unpack_formats</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span class="n">shutil</span><span class="o">.</span><span class="n">get_unpack_formats</span><span class="p">()</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">[(&#39;bztar&#39;, [&#39;.tar.bz2&#39;, &#39;.tbz2&#39;], &quot;bzip2&#39;ed tar-file&quot;),</span>
-<span class="err"> (&#39;gztar&#39;, [&#39;.tar.gz&#39;, &#39;.tgz&#39;], &quot;gzip&#39;ed tar-file&quot;),</span>
-<span class="err"> (&#39;tar&#39;, [&#39;.tar&#39;], &#39;uncompressed tar file&#39;),</span>
-<span class="err"> (&#39;xztar&#39;, [&#39;.tar.xz&#39;, &#39;.txz&#39;], &quot;xz&#39;ed tar-file&quot;),</span>
-<span class="err"> (&#39;zip&#39;, [&#39;.zip&#39;], &#39;ZIP file&#39;)]</span>
+<div class="highlight"><pre><span></span><code>[(&#39;bztar&#39;, [&#39;.tar.bz2&#39;, &#39;.tbz2&#39;], &quot;bzip2&#39;ed tar-file&quot;),
+ (&#39;gztar&#39;, [&#39;.tar.gz&#39;, &#39;.tgz&#39;], &quot;gzip&#39;ed tar-file&quot;),
+ (&#39;tar&#39;, [&#39;.tar&#39;], &#39;uncompressed tar file&#39;),
+ (&#39;xztar&#39;, [&#39;.tar.xz&#39;, &#39;.txz&#39;], &quot;xz&#39;ed tar-file&quot;),
+ (&#39;zip&#39;, [&#39;.zip&#39;], &#39;ZIP file&#39;)]
 </code></pre></div>
-
 
 <p>也可以使用 <code>register_archive_format()</code> 和 <code>register_unpack_format()</code> 函数注册自定义的压缩、解压缩函数。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">shutil.register_archive_format(name, function, extra_args=None,</span>
-<span class="err">                               description=&#39;&#39;)</span>
+<div class="highlight"><pre><span></span><code>shutil.register_archive_format(name, function, extra_args=None,
+                               description=&#39;&#39;)
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">shutil.register_unpack_format(name, extensions, function, extra_args=None,</span>
-<span class="err">                              description=&#39;&#39;)</span>
+<div class="highlight"><pre><span></span><code>shutil.register_unpack_format(name, extensions, function, extra_args=None,
+                              description=&#39;&#39;)
 </code></pre></div>
-
 
 <p>或者使用 <code>unregister_archive_format()</code> 和 <code>unregister_unpack_format()</code> 函数取消注册压缩、解压缩函数。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">shutil.unregister_archive_format(name)</span>
-<span class="err">shutil.unregister_unpack_format(name)</span>
+<div class="highlight"><pre><span></span><code>shutil.unregister_archive_format(name)
+shutil.unregister_unpack_format(name)
 </code></pre></div>
-
 
 <p>可以使用 <code>make_archive()</code> 创建一个新的压缩文件。<code>make_archive()</code> 的参数似乎有点混乱，可以参考以下简单的用法。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">shutil.make_archive(base_name, format, root_dir=None, base_dir=None,</span>
-<span class="err">                    verbose=0, dry_run=0, owner=None, group=None, logger=None)</span>
+<div class="highlight"><pre><span></span><code>shutil.make_archive(base_name, format, root_dir=None, base_dir=None,
+                    verbose=0, dry_run=0, owner=None, group=None, logger=None)
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">shutil</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">shutil</span>
 <span class="k">def</span> <span class="nf">make_archive</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">destination</span><span class="p">):</span>
         <span class="n">base</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">destination</span><span class="p">)</span>
         <span class="n">name</span> <span class="o">=</span> <span class="n">base</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
@@ -2251,23 +2238,20 @@
 <span class="n">make_archive</span><span class="p">(</span><span class="s1">&#39;/path/to/folder&#39;</span><span class="p">,</span> <span class="s1">&#39;/path/to/folder.zip&#39;</span><span class="p">)</span>
 </code></pre></div>
 
-
 <blockquote>
 <p>https://www.thinbug.com/q/45245079</p>
 </blockquote>
 <p>使用 <code>unpack_archive()</code> 解压文件，传入压缩文件名以及可选的解压目录，默认是当前目录。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">shutil.unpack_archive(filename, extract_dir=None, format=None)</span>
+<div class="highlight"><pre><span></span><code>shutil.unpack_archive(filename, extract_dir=None, format=None)
 </code></pre></div>
-
 
 <p><code>filename</code> 是压缩档案的名称。<code>extract_dir</code> 是解压的目标目录。如果未提供，则使用当前工作目录。<code>format</code> 是压缩档案格式：zip 、tar、gztar、bztar、xztar 其中之一，或着任何其他的注册格式。如果未提供，<code>unpack_archive</code> 将使用文件扩展名，并查看是否为该扩展名注册了解压程序。如果没有找到，则会引发<code>ValueError</code>。</p>
 <h2 id="_6">文件系统空间</h2>
 <p><code>disk_usage()</code> 返回一个元组表示系统总空间，当前使用总量以及剩余总量，其单位为字节。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">shutil.disk_usage(path)</span>
+<div class="highlight"><pre><span></span><code>shutil.disk_usage(path)
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">shutil</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">shutil</span>
 
 <span class="n">total_b</span><span class="p">,</span> <span class="n">used_b</span><span class="p">,</span> <span class="n">free_b</span> <span class="o">=</span> <span class="n">shutil</span><span class="o">.</span><span class="n">disk_usage</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
 
@@ -2282,29 +2266,24 @@
     <span class="n">free_b</span> <span class="o">/</span> <span class="n">gb</span><span class="p">,</span> <span class="n">free_b</span> <span class="o">/</span> <span class="n">gib</span><span class="p">))</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="n">Total</span><span class="o">:</span> <span class="mf">479.88</span> <span class="n">GB</span>  <span class="mf">446.92</span> <span class="n">GiB</span>
-<span class="n">Used</span> <span class="o">:</span> <span class="mf">318.18</span> <span class="n">GB</span>  <span class="mf">296.33</span> <span class="n">GiB</span>
-<span class="n">Free</span> <span class="o">:</span> <span class="mf">161.69</span> <span class="n">GB</span>  <span class="mf">150.59</span> <span class="n">GiB</span>
+<div class="highlight"><pre><span></span><code>Total: 479.88 GB  446.92 GiB
+Used : 318.18 GB  296.33 GiB
+Free : 161.69 GB  150.59 GiB
 </code></pre></div>
-
 
 <h2 id="_7">获取终端窗口的大小</h2>
-<div class="codehilite"><pre><span></span><code><span class="err">shutil.get_terminal_size(fallback=(80, 24))</span>
+<div class="highlight"><pre><span></span><code>shutil.get_terminal_size(fallback=(80, 24))
 </code></pre></div>
-
 
 <h2 id="_8">忽略函数</h2>
-<div class="codehilite"><pre><span></span><code><span class="err">shutil.ignore_patterns(patterns)</span>
+<div class="highlight"><pre><span></span><code>shutil.ignore_patterns(patterns)
 </code></pre></div>
-
 
 <p><code>ignore_patterns</code> 返回一个函数，可以用作 <code>copytree()</code> 的函数的 <code>ignore</code> 参数。以下表示忽略 python 文件。</p>
-<div class="codehilite"><pre><span></span><code><span class="n">shutil</span><span class="o">.</span><span class="n">ignore_patterns</span><span class="p">(</span><span class="s1">&#39;*.py&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">shutil</span><span class="o">.</span><span class="n">ignore_patterns</span><span class="p">(</span><span class="s1">&#39;*.py&#39;</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">&lt;function shutil.ignore_patterns.&lt;locals&gt;._ignore_patterns(path, names)&gt;</span>
+<div class="highlight"><pre><span></span><code>&lt;function shutil.ignore_patterns.&lt;locals&gt;._ignore_patterns(path, names)&gt;
 </code></pre></div>
                 
               
@@ -2339,13 +2318,13 @@
           </a>
         
         
-          <a href="../%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/7.1.%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%9F%BA%E7%A1%80.html" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="6.17.test.html" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   下一页
                 </span>
-                7.1.面向对象程序设计基础
+                6.17.test
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">

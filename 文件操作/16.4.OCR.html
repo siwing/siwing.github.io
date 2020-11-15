@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-6.1.4">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.4">
     
     
       
@@ -820,6 +820,18 @@
   <li class="md-nav__item">
     <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.16.shutil.html" class="md-nav__link">
       6.16.shutil
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.17.test.html" class="md-nav__link">
+      6.17.test
     </a>
   </li>
 
@@ -1958,125 +1970,115 @@
                 
                   <h1>16.4.OCR</h1>
                 
-                <div class="codehilite"><pre><span></span><code><span class="err">Windows 10</span>
-<span class="err">Python 3.7.7 @ MSC v.1916 64 bit (AMD64)</span>
-<span class="err">Latest build date 2020.09.21</span>
-<span class="err">pytesseract version:  0.3.6</span>
+                <div class="highlight"><pre><span></span><code>Windows 10
+Python 3.7.7 @ MSC v.1916 64 bit (AMD64)
+Latest build date 2020.09.21
+pytesseract version:  0.3.6
 </code></pre></div>
-
 
 <h2 id="tesseract">Tesseract</h2>
 <p>Tesseract的OCR引擎最先由HP实验室于1985年开始研发，至1995年时已经成为OCR业内最准确的三款识别引擎之一。然而，HP不久便决定放弃OCR业务，Tesseract也从此尘封。</p>
 <p>数年以后，HP意识到，与其将Tesseract束之高阁，不如贡献给开源软体业，让其重焕新生——2005年，Tesseract由美国内华达州信息技术研究所获得，并求诸于Google对Tesseract进行改进、消除Bug、优化工作。</p>
 <p>Tesseract目前已作为开源项目发布在Google Project，并提供了一个命令行工具。安装Tesseract之后，可以通过以下命令在terminal打印Tesseract的版本信息：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">output</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">check_output</span><span class="p">(</span>
+<div class="highlight"><pre><span></span><code><span class="n">output</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">check_output</span><span class="p">(</span>
     <span class="sa">r</span><span class="s1">&#39;&quot;C:\Program Files\Tesseract-OCR\tesseract.exe&quot; -v&#39;</span>
 <span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">output</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">))</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">tesseract v5.0.0-alpha.20200328</span>
-<span class="err"> leptonica-1.78.0</span>
-<span class="err">  libgif 5.1.4 : libjpeg 8d (libjpeg-turbo 1.5.3) : libpng 1.6.34 :</span>
-<span class="err">libtiff 4.0.9 : zlib 1.2.11 : libwebp 0.6.1 : libopenjp2 2.3.0</span>
-<span class="err"> Found AVX2</span>
-<span class="err"> Found AVX</span>
-<span class="err"> Found FMA</span>
-<span class="err"> Found SSE</span>
-<span class="err"> Found libarchive 3.3.2 zlib/1.2.11 liblzma/5.2.3 bz2lib/1.0.6</span>
-<span class="err">liblz4/1.7.5</span>
-<span class="err"> Found libcurl/7.59.0 OpenSSL/1.0.2o (WinSSL) zlib/1.2.11 WinIDN</span>
-<span class="err">libssh2/1.7.0 nghttp2/1.31.0</span>
+<div class="highlight"><pre><span></span><code>tesseract v5.0.0-alpha.20200328
+ leptonica-1.78.0
+  libgif 5.1.4 : libjpeg 8d (libjpeg-turbo 1.5.3) : libpng 1.6.34 :
+libtiff 4.0.9 : zlib 1.2.11 : libwebp 0.6.1 : libopenjp2 2.3.0
+ Found AVX2
+ Found AVX
+ Found FMA
+ Found SSE
+ Found libarchive 3.3.2 zlib/1.2.11 liblzma/5.2.3 bz2lib/1.0.6
+liblz4/1.7.5
+ Found libcurl/7.59.0 OpenSSL/1.0.2o (WinSSL) zlib/1.2.11 WinIDN
+libssh2/1.7.0 nghttp2/1.31.0
 </code></pre></div>
-
 
 <p>tesseract 的使用方式如下：</p>
-<div class="codehilite"><pre><span></span><code><span class="err">单一命令</span><span class="o">:</span>
-  <span class="n">tesseract</span> <span class="o">--</span><span class="n">help</span>                <span class="err">#</span> <span class="err">显示简短的帮助文档</span>
-  <span class="n">tesseract</span> <span class="o">--</span><span class="n">help</span><span class="o">-</span><span class="n">extra</span>          <span class="err">#</span> <span class="err">显示完整的帮助文档</span>
-  <span class="n">tesseract</span> <span class="o">--</span><span class="n">help</span><span class="o">-</span><span class="n">psm</span>            <span class="err">#</span> <span class="err">显示</span><span class="o">-</span><span class="n">psmk可选命令的参数的说明</span>
-  <span class="n">tesseract</span> <span class="o">--</span><span class="n">help</span><span class="o">-</span><span class="n">oem</span>            <span class="err">#</span> <span class="err">显示</span><span class="o">-</span><span class="n">oem可选命令的参数的说明</span>
-  <span class="n">tesseract</span> <span class="o">-</span><span class="n">v</span><span class="o">,</span> <span class="o">--</span><span class="n">version</span>         <span class="err">#</span> <span class="err">显示</span><span class="o">-</span><span class="n">oem版本信息</span>
-  <span class="n">tesseract</span> <span class="o">--</span><span class="n">list</span><span class="o">-</span><span class="n">langs</span>          <span class="err">#</span> <span class="err">列出当前</span><span class="n">tesseract引擎的可用语言</span>
-  <span class="n">tesseract</span> <span class="o">--</span><span class="n">print</span><span class="o">-</span><span class="n">parameters</span>    <span class="err">#</span> <span class="err">打印</span><span class="n">tesseract的参数</span>
+<div class="highlight"><pre><span></span><code>单一命令:
+  tesseract --help                # 显示简短的帮助文档
+  tesseract --help-extra          # 显示完整的帮助文档
+  tesseract --help-psm            # 显示-psmk可选命令的参数的说明
+  tesseract --help-oem            # 显示-oem可选命令的参数的说明
+  tesseract -v, --version         # 显示-oem版本信息
+  tesseract --list-langs          # 列出当前tesseract引擎的可用语言
+  tesseract --print-parameters    # 打印tesseract的参数
 
-<span class="n">OCR命令</span><span class="o">:</span>
-  <span class="n">tesseract</span> <span class="err">辨识的图片</span> <span class="err">输出文档</span> <span class="o">[</span><span class="err">可选命令</span><span class="o">]</span>
+OCR命令:
+  tesseract 辨识的图片 输出文档 [可选命令]
 
-    <span class="err">可选命令</span><span class="o">:</span>
-      <span class="o">--</span><span class="n">dpi</span> <span class="n">VALUE</span>           <span class="err">指定输入图片的</span><span class="n">DPI</span>
-      <span class="o">-</span><span class="n">l</span> <span class="n">LANG</span><span class="o">[+</span><span class="n">LANG</span><span class="o">]</span>        <span class="err">指定</span><span class="n">OCR时使用的语言</span>
-      <span class="o">--</span><span class="n">psm</span> <span class="n">NUM</span>             <span class="err">指定页面分割模式</span>
-      <span class="o">--</span><span class="n">oem</span> <span class="n">NUM</span>             <span class="err">指定</span><span class="n">OCR引擎模式</span>
+    可选命令:
+      --dpi VALUE           指定输入图片的DPI
+      -l LANG[+LANG]        指定OCR时使用的语言
+      --psm NUM             指定页面分割模式
+      --oem NUM             指定OCR引擎模式
 </code></pre></div>
-
 
 <p><code>--psm</code>和<code>--oem</code>相关参数的说明如下：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">Page</span> <span class="n">segmentation</span> <span class="n">modes</span><span class="p">:</span>
-  <span class="mi">0</span>    <span class="n">Orientation</span> <span class="k">and</span> <span class="n">script</span> <span class="n">detection</span> <span class="p">(</span><span class="n">OSD</span><span class="p">)</span> <span class="k">only</span><span class="p">.</span>
-  <span class="mi">1</span>    <span class="n">Automatic</span> <span class="n">page</span> <span class="n">segmentation</span> <span class="k">with</span> <span class="n">OSD</span><span class="p">.</span>
-  <span class="mi">2</span>    <span class="n">Automatic</span> <span class="n">page</span> <span class="n">segmentation</span><span class="p">,</span> <span class="n">but</span> <span class="k">no</span> <span class="n">OSD</span><span class="p">,</span> <span class="k">or</span> <span class="n">OCR</span><span class="p">.</span> <span class="p">(</span><span class="k">not</span> <span class="n">implemented</span><span class="p">)</span>
-  <span class="mi">3</span>    <span class="n">Fully</span> <span class="n">automatic</span> <span class="n">page</span> <span class="n">segmentation</span><span class="p">,</span> <span class="n">but</span> <span class="k">no</span> <span class="n">OSD</span><span class="p">.</span> <span class="p">(</span><span class="k">Default</span><span class="p">)</span>
-  <span class="mi">4</span>    <span class="n">Assume</span> <span class="n">a</span> <span class="n">single</span> <span class="k">column</span> <span class="k">of</span> <span class="nb">text</span> <span class="k">of</span> <span class="k">variable</span> <span class="n">sizes</span><span class="p">.</span>
-  <span class="mi">5</span>    <span class="n">Assume</span> <span class="n">a</span> <span class="n">single</span> <span class="n">uniform</span> <span class="n">block</span> <span class="k">of</span> <span class="n">vertically</span> <span class="n">aligned</span> <span class="nb">text</span><span class="p">.</span>
-  <span class="mi">6</span>    <span class="n">Assume</span> <span class="n">a</span> <span class="n">single</span> <span class="n">uniform</span> <span class="n">block</span> <span class="k">of</span> <span class="nb">text</span><span class="p">.</span>
-  <span class="mi">7</span>    <span class="k">Treat</span> <span class="n">the</span> <span class="n">image</span> <span class="k">as</span> <span class="n">a</span> <span class="n">single</span> <span class="nb">text</span> <span class="n">line</span><span class="p">.</span>
-  <span class="mi">8</span>    <span class="k">Treat</span> <span class="n">the</span> <span class="n">image</span> <span class="k">as</span> <span class="n">a</span> <span class="n">single</span> <span class="n">word</span><span class="p">.</span>
-  <span class="mi">9</span>    <span class="k">Treat</span> <span class="n">the</span> <span class="n">image</span> <span class="k">as</span> <span class="n">a</span> <span class="n">single</span> <span class="n">word</span> <span class="k">in</span> <span class="n">a</span> <span class="n">circle</span><span class="p">.</span>
- <span class="mi">10</span>    <span class="k">Treat</span> <span class="n">the</span> <span class="n">image</span> <span class="k">as</span> <span class="n">a</span> <span class="n">single</span> <span class="nb">character</span><span class="p">.</span>
- <span class="mi">11</span>    <span class="n">Sparse</span> <span class="nb">text</span><span class="p">.</span> <span class="n">Find</span> <span class="k">as</span> <span class="n">much</span> <span class="nb">text</span> <span class="k">as</span> <span class="n">possible</span> <span class="k">in</span> <span class="k">no</span> <span class="n">particular</span> <span class="k">order</span><span class="p">.</span>
- <span class="mi">12</span>    <span class="n">Sparse</span> <span class="nb">text</span> <span class="k">with</span> <span class="n">OSD</span><span class="p">.</span>
- <span class="mi">13</span>    <span class="n">Raw</span> <span class="n">line</span><span class="p">.</span> <span class="k">Treat</span> <span class="n">the</span> <span class="n">image</span> <span class="k">as</span> <span class="n">a</span> <span class="n">single</span> <span class="nb">text</span> <span class="n">line</span><span class="p">,</span>
-       <span class="n">bypassing</span> <span class="n">hacks</span> <span class="n">that</span> <span class="k">are</span> <span class="n">Tesseract</span><span class="o">-</span><span class="k">specific</span><span class="p">.</span>
+<div class="highlight"><pre><span></span><code>Page segmentation modes:
+  0    Orientation and script detection (OSD) only.
+  1    Automatic page segmentation with OSD.
+  2    Automatic page segmentation, but no OSD, or OCR. (not implemented)
+  3    Fully automatic page segmentation, but no OSD. (Default)
+  4    Assume a single column of text of variable sizes.
+  5    Assume a single uniform block of vertically aligned text.
+  6    Assume a single uniform block of text.
+  7    Treat the image as a single text line.
+  8    Treat the image as a single word.
+  9    Treat the image as a single word in a circle.
+ 10    Treat the image as a single character.
+ 11    Sparse text. Find as much text as possible in no particular order.
+ 12    Sparse text with OSD.
+ 13    Raw line. Treat the image as a single text line,
+       bypassing hacks that are Tesseract-specific.
 
-<span class="n">OCR</span> <span class="n">Engine</span> <span class="n">modes</span><span class="p">:</span>
-  <span class="mi">0</span>    <span class="n">Legacy</span> <span class="n">engine</span> <span class="k">only</span><span class="p">.</span>
-  <span class="mi">1</span>    <span class="n">Neural</span> <span class="n">nets</span> <span class="n">LSTM</span> <span class="n">engine</span> <span class="k">only</span><span class="p">.</span>
-  <span class="mi">2</span>    <span class="n">Legacy</span> <span class="o">+</span> <span class="n">LSTM</span> <span class="n">engines</span><span class="p">.</span>
-  <span class="mi">3</span>    <span class="k">Default</span><span class="p">,</span> <span class="n">based</span> <span class="k">on</span> <span class="n">what</span> <span class="k">is</span> <span class="n">available</span><span class="p">.</span>
+OCR Engine modes:
+  0    Legacy engine only.
+  1    Neural nets LSTM engine only.
+  2    Legacy + LSTM engines.
+  3    Default, based on what is available.
 </code></pre></div>
-
 
 <p>tesseract 支持同时识别多种语言，例如以下命令代表同时识别test.png图片中的简体中文和英文：</p>
-<div class="codehilite"><pre><span></span><code>tesseract -l chi_sim+end test.png
+<div class="highlight"><pre><span></span><code>tesseract -l chi_sim+end test.png
 </code></pre></div>
-
 
 <p>tesseract支持输出可搜索的pdf：</p>
-<div class="codehilite"><pre><span></span><code>tesseract -l eng test.png test.pdf pdf
+<div class="highlight"><pre><span></span><code>tesseract -l eng test.png test.pdf pdf
 </code></pre></div>
-
 
 <p>这将创建带有图像的pdf文件，其中包含已识别文本的单独可搜索文本层。</p>
 <h2 id="pytesseract">pytesseract</h2>
 <p><code>pytesseract</code> 是一个Python库，它封装了 <code>Tesseract</code>，即为Tesseract提供了Python接口。</p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># If you don&#39;t have tesseract executable in your PATH, include the following:</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># If you don&#39;t have tesseract executable in your PATH, include the following:</span>
 <span class="n">tesseract_path</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;C:\Program Files\Tesseract-OCR\tesseract.exe&quot;</span>
 <span class="n">pytesseract</span><span class="o">.</span><span class="n">pytesseract</span><span class="o">.</span><span class="n">tesseract_cmd</span> <span class="o">=</span> <span class="n">tesseract_path</span>
 </code></pre></div>
 
-
 <p>现在有一张名为<code>ocr_sample.png</code>的图片如下：</p>
 <p><img alt="" src="https://upload.cc/i1/2020/09/21/60phVB.png" /></p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Simple image to string</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># Simple image to string</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">pytesseract</span><span class="o">.</span><span class="n">image_to_string</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;../datasets/file/ocr_sample.png&quot;</span><span class="p">),</span>
                                   <span class="n">lang</span><span class="o">=</span><span class="s2">&quot;chi_sim+eng&quot;</span><span class="p">))</span>
 </code></pre></div>
 
+<div class="highlight"><pre><span></span><code>为了提高小目标检测的精度，各路学者提出了许多行之有效的方案。
 
-<div class="codehilite"><pre><span></span><code><span class="err">为了提高小目标检测的精度，各路学者提出了许多行之有效的方案。</span>
-
-<span class="n">Lin</span> <span class="err">等</span><span class="p">[</span><span class="mi">7</span><span class="err">从损失函数方面出发，提出了</span> <span class="n">RetinaNet</span><span class="err">。</span><span class="n">RetinaNet</span> <span class="err">主要解决了单阶</span>
-<span class="err">段模型正负样本不平衡的问题。通常情况下，一张图仅有几个目标，而产生的候</span>
-<span class="err">选框却是成千上百，负样本对</span>   <span class="err">损失函数的影响远远大于正样本。如此一来，</span>
-<span class="err">模型便会过分关注负样本，也更容易发生对正样本的漏检现象。</span><span class="n">RetinaNet</span> <span class="err">使用的</span>
-<span class="n">Focal</span> <span class="n">Loss</span> <span class="err">提高了对少量样本的关注，很好地解决了正负样本不平衡的问题。</span>
+Lin 等[7从损失函数方面出发，提出了 RetinaNet。RetinaNet 主要解决了单阶
+段模型正负样本不平衡的问题。通常情况下，一张图仅有几个目标，而产生的候
+选框却是成千上百，负样本对   损失函数的影响远远大于正样本。如此一来，
+模型便会过分关注负样本，也更容易发生对正样本的漏检现象。RetinaNet 使用的
+Focal Loss 提高了对少量样本的关注，很好地解决了正负样本不平衡的问题。
 </code></pre></div>
 
-
 <p>可以设置<code>timeout</code>参数。</p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Timeout/terminate the tesseract job after a period of time</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># Timeout/terminate the tesseract job after a period of time</span>
 <span class="k">try</span><span class="p">:</span>
     <span class="c1"># Timeout after half a second</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">pytesseract</span><span class="o">.</span><span class="n">image_to_string</span><span class="p">(</span><span class="s1">&#39;test.jpg&#39;</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mf">0.5</span><span class="p">))</span>
@@ -2085,109 +2087,98 @@
     <span class="k">pass</span>
 </code></pre></div>
 
-
 <p>现在有一个储存着图片路径列表的文本文件：</p>
-<div class="codehilite"><pre><span></span><code><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../datasets/file/ocr_list.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../datasets/file/ocr_list.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="cp">../datasets/file/ocr_sample.png</span>
-<span class="cp">../datasets/file/ocr_sample.png</span>
+<div class="highlight"><pre><span></span><code>../datasets/file/ocr_sample.png
+../datasets/file/ocr_sample.png
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="c1"># Batch processing with a single file containing the list of multiple image file paths</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># Batch processing with a single file containing the list of multiple image file paths</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">pytesseract</span><span class="o">.</span><span class="n">image_to_string</span><span class="p">(</span><span class="s2">&quot;../datasets/file/ocr_list.txt&quot;</span><span class="p">,</span>
                                   <span class="n">lang</span><span class="o">=</span><span class="s2">&quot;chi_sim&quot;</span><span class="p">))</span>
 </code></pre></div>
 
+<div class="highlight"><pre><span></span><code>为了提高小目标检测的精度，各路学者提出了许多行之有效的方案。
 
-<div class="codehilite"><pre><span></span><code><span class="err">为了提高小目标检测的精度，各路学者提出了许多行之有效的方案。</span>
-
-<span class="n">Lin</span> <span class="err">等</span><span class="p">[</span><span class="mi">7</span><span class="err">从损失函数方面出发，提出了</span> <span class="n">RetinaNet</span><span class="err">。</span><span class="n">RetinaNet</span> <span class="err">主要解决了单阶</span>
-<span class="err">段模型正负样本不平衡的问题。通常情况下，一张图仅有几个目标，而产生的候</span>
-<span class="err">选框却是成千上百，负样本对</span>   <span class="err">损失函数的影响远远大于正样本。如此一来，</span>
-<span class="err">模型便会过分关注负样本，也更容易发生对正样本的漏检现象。</span><span class="n">RetinaNet</span> <span class="err">使用的</span>
-<span class="n">Focal</span> <span class="n">Loss</span> <span class="err">提高了对少量样本的关注，很好地解决了正负样本不平衡的问题。</span>
+Lin 等[7从损失函数方面出发，提出了 RetinaNet。RetinaNet 主要解决了单阶
+段模型正负样本不平衡的问题。通常情况下，一张图仅有几个目标，而产生的候
+选框却是成千上百，负样本对   损失函数的影响远远大于正样本。如此一来，
+模型便会过分关注负样本，也更容易发生对正样本的漏检现象。RetinaNet 使用的
+Focal Loss 提高了对少量样本的关注，很好地解决了正负样本不平衡的问题。
 
 
- <span class="err">为了提高小目标检测的精度，各路学者提出了许多行之有效的方案。</span>
+ 为了提高小目标检测的精度，各路学者提出了许多行之有效的方案。
 
-<span class="n">Lin</span> <span class="err">等</span><span class="p">[</span><span class="mi">7</span><span class="err">从损失函数方面出发，提出了</span> <span class="n">RetinaNet</span><span class="err">。</span><span class="n">RetinaNet</span> <span class="err">主要解决了单阶</span>
-<span class="err">段模型正负样本不平衡的问题。通常情况下，一张图仅有几个目标，而产生的候</span>
-<span class="err">选框却是成千上百，负样本对</span>   <span class="err">损失函数的影响远远大于正样本。如此一来，</span>
-<span class="err">模型便会过分关注负样本，也更容易发生对正样本的漏检现象。</span><span class="n">RetinaNet</span> <span class="err">使用的</span>
-<span class="n">Focal</span> <span class="n">Loss</span> <span class="err">提高了对少量样本的关注，很好地解决了正负样本不平衡的问题。</span>
+Lin 等[7从损失函数方面出发，提出了 RetinaNet。RetinaNet 主要解决了单阶
+段模型正负样本不平衡的问题。通常情况下，一张图仅有几个目标，而产生的候
+选框却是成千上百，负样本对   损失函数的影响远远大于正样本。如此一来，
+模型便会过分关注负样本，也更容易发生对正样本的漏检现象。RetinaNet 使用的
+Focal Loss 提高了对少量样本的关注，很好地解决了正负样本不平衡的问题。
 </code></pre></div>
 
-
 <p>返回可识别字符和可识别字符的边界。</p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Get bounding box estimates</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># Get bounding box estimates</span>
 <span class="n">boxes</span> <span class="o">=</span> <span class="n">pytesseract</span><span class="o">.</span><span class="n">image_to_boxes</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;../datasets/file/ocr_sample.png&quot;</span><span class="p">),</span>
                                    <span class="n">lang</span><span class="o">=</span><span class="s2">&quot;chi_sim&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">boxes</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)[:</span><span class="mi">6</span><span class="p">]))</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">为 44 162 72 179 0</span>
-<span class="err">了 71 153 84 183 0</span>
-<span class="err">提 83 162 98 179 0</span>
-<span class="err">高 101 162 129 179 0</span>
-<span class="err">小 131 167 136 174 0</span>
-<span class="err">目 146 162 164 179 0</span>
+<div class="highlight"><pre><span></span><code>为 44 162 72 179 0
+了 71 153 84 183 0
+提 83 162 98 179 0
+高 101 162 129 179 0
+小 131 167 136 174 0
+目 146 162 164 179 0
 </code></pre></div>
 
-
 <p>获取更详细的信息，字符边界、置信度、行数、页数</p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Get verbose data including boxes, confidences, line and page numbers</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># Get verbose data including boxes, confidences, line and page numbers</span>
 <span class="n">more_info</span> <span class="o">=</span> <span class="n">pytesseract</span><span class="o">.</span><span class="n">image_to_data</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;../datasets/file/ocr_sample.png&quot;</span><span class="p">),</span>
                                       <span class="n">lang</span><span class="o">=</span><span class="s2">&quot;chi_sim&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">more_info</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)[:</span><span class="mi">10</span><span class="p">]))</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">level   page_num        block_num       par_num line_num</span>
-<span class="err">word_num        left    top     width   height  conf    text</span>
-<span class="err">1       1       0       0       0       0       0       0       687</span>
-<span class="err">188     -1</span>
-<span class="err">2       1       1       0       0       0       10      9       672</span>
-<span class="err">171     -1</span>
-<span class="err">3       1       1       1       0       0       44      9       557</span>
-<span class="err">17      -1</span>
-<span class="err">4       1       1       1       1       0       44      9       557</span>
-<span class="err">17      -1</span>
-<span class="err">5       1       1       1       1       1       44      9       28</span>
-<span class="err">17      96      为</span>
-<span class="err">5       1       1       1       1       2       71      5       13</span>
-<span class="err">30      96      了</span>
-<span class="err">5       1       1       1       1       3       83      9       46</span>
-<span class="err">17      95      提高</span>
-<span class="err">5       1       1       1       1       4       131     14      5</span>
-<span class="err">7       96      小</span>
-<span class="err">5       1       1       1       1       5       146     9       28</span>
-<span class="err">17      96      目标</span>
+<div class="highlight"><pre><span></span><code>level   page_num        block_num       par_num line_num
+word_num        left    top     width   height  conf    text
+1       1       0       0       0       0       0       0       687
+188     -1
+2       1       1       0       0       0       10      9       672
+171     -1
+3       1       1       1       0       0       44      9       557
+17      -1
+4       1       1       1       1       0       44      9       557
+17      -1
+5       1       1       1       1       1       44      9       28
+17      96      为
+5       1       1       1       1       2       71      5       13
+30      96      了
+5       1       1       1       1       3       83      9       46
+17      95      提高
+5       1       1       1       1       4       131     14      5
+7       96      小
+5       1       1       1       1       5       146     9       28
+17      96      目标
 </code></pre></div>
 
-
 <p>获取页面文字方向信息。</p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Get information about orientation and script detection</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># Get information about orientation and script detection</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">pytesseract</span><span class="o">.</span><span class="n">image_to_osd</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">&quot;../datasets/file/ocr_sample.png&quot;</span><span class="p">),</span>
                                <span class="n">lang</span><span class="o">=</span><span class="s2">&quot;chi_sim&quot;</span><span class="p">))</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">Page number: 0</span>
-<span class="err">Orientation in degrees: 270</span>
-<span class="c">Rotate: 90</span>
-<span class="err">Orientation confidence: 170.00</span>
-<span class="c">Script: Latin</span>
-<span class="err">Script confidence: 2.00</span>
+<div class="highlight"><pre><span></span><code>Page number: 0
+Orientation in degrees: 270
+Rotate: 90
+Orientation confidence: 170.00
+Script: Latin
+Script confidence: 2.00
 </code></pre></div>
 
-
 <p>生成可搜索的PDF。</p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Get a searchable PDF</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># Get a searchable PDF</span>
 <span class="n">pdf</span> <span class="o">=</span> <span class="n">pytesseract</span><span class="o">.</span><span class="n">image_to_pdf_or_hocr</span><span class="p">(</span><span class="s2">&quot;../datasets/file/ocr_sample.png&quot;</span><span class="p">,</span>
                                        <span class="n">lang</span><span class="o">=</span><span class="s2">&quot;chi_sim&quot;</span><span class="p">,</span>
                                        <span class="n">extension</span><span class="o">=</span><span class="s2">&quot;pdf&quot;</span><span class="p">)</span>
@@ -2196,23 +2187,20 @@
 <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;../datasets/file/ocr_sample.pdf&quot;</span><span class="p">)</span>
 </code></pre></div>
 
-
 <p>获取 hocr格式的输出。</p>
 <blockquote>
 <p>hOCR是一种HTML文件，它对每个识别的字词会后一些参数的说明。</p>
 </blockquote>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Get HOCR output</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># Get HOCR output</span>
 <span class="n">hocr</span> <span class="o">=</span> <span class="n">pytesseract</span><span class="o">.</span><span class="n">image_to_pdf_or_hocr</span><span class="p">(</span><span class="s2">&quot;../datasets/file/ocr_sample.png&quot;</span><span class="p">,</span>
                                         <span class="n">lang</span><span class="o">=</span><span class="s2">&quot;chi_sim&quot;</span><span class="p">,</span>
                                         <span class="n">extension</span><span class="o">=</span><span class="s2">&quot;hocr&quot;</span><span class="p">)</span>
 </code></pre></div>
 
-
 <p>获取 ALTO XML 格式的输出。</p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Get ALTO XML output</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># Get ALTO XML output</span>
 <span class="n">xml</span> <span class="o">=</span> <span class="n">pytesseract</span><span class="o">.</span><span class="n">image_to_alto_xml</span><span class="p">(</span><span class="s2">&quot;../datasets/file/ocr_sample.png&quot;</span><span class="p">)</span>
 </code></pre></div>
-
 
 <h2 id="_1">参考</h2>
 <ol>

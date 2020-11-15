@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-6.1.4">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.4">
     
     
       
@@ -820,6 +820,18 @@
   <li class="md-nav__item">
     <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.16.shutil.html" class="md-nav__link">
       6.16.shutil
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.17.test.html" class="md-nav__link">
+      6.17.test
     </a>
   </li>
 
@@ -2178,16 +2190,15 @@
                 
                   <h1>12.3.张量进阶操作</h1>
                 
-                <div class="codehilite"><pre><span></span><code><span class="err">Windows 10</span>
-<span class="err">Python 3.7.3 @ MSC v.1915 64 bit (AMD64)</span>
-<span class="err">Latest build date 2020.05.28</span>
-<span class="err">tensorflow version:  2.1.0</span>
+                <div class="highlight"><pre><span></span><code>Windows 10
+Python 3.7.3 @ MSC v.1915 64 bit (AMD64)
+Latest build date 2020.05.28
+tensorflow version:  2.1.0
 </code></pre></div>
-
 
 <h2 id="_1">索引与切片</h2>
 <p>tensorflow 的索引操作比较简单，就是Python常用的整数索引和切片。</p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># 一共有4张图片</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 一共有4张图片</span>
 <span class="c1"># 每张图片的大小为 32*32</span>
 <span class="c1"># 每一个像素点由 3个 rgb值组成</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
@@ -2196,54 +2207,45 @@
 <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">&lt;tf.Tensor: shape=(3,), dtype=float32, numpy=array([0.13605669,</span>
-<span class="err">0.43695715, 0.85433054], dtype=float32)&gt;</span>
+<div class="highlight"><pre><span></span><code>&lt;tf.Tensor: shape=(3,), dtype=float32, numpy=array([0.13605669,
+0.43695715, 0.85433054], dtype=float32)&gt;
 </code></pre></div>
 
-
 <h2 id="_2">维度操纵</h2>
-<div class="codehilite"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">range</span><span class="p">(</span><span class="mi">96</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">range</span><span class="p">(</span><span class="mi">96</span><span class="p">)</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
 </code></pre></div>
 
-
 <h3 id="_3">插入维度</h3>
 <p>在第x个轴之前插入一个轴</p>
-<div class="codehilite"><pre><span></span><code><span class="n">y</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">y</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">y</span><span class="o">.</span><span class="n">shape</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">TensorShape([48, 1, 2])</span>
+<div class="highlight"><pre><span></span><code>TensorShape([48, 1, 2])
 </code></pre></div>
-
 
 <h3 id="1">删除长度为1的轴</h3>
 <p>不指定axis 则默认删除所有长度为1的轴</p>
-<div class="codehilite"><pre><span></span><code><span class="n">y</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">y</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">y</span><span class="o">.</span><span class="n">shape</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">TensorShape([48, 2])</span>
+<div class="highlight"><pre><span></span><code>TensorShape([48, 2])
 </code></pre></div>
-
 
 <h3 id="_4">交换维度</h3>
 <p>交换维度之后，内存中元素的储存顺序改变，因此交换维度的计算代价比改变视图形状要高。</p>
-<div class="codehilite"><pre><span></span><code><span class="n">z</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">perm</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+<div class="highlight"><pre><span></span><code><span class="n">z</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">perm</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
 <span class="n">z</span><span class="o">.</span><span class="n">shape</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">TensorShape([2, 48])</span>
+<div class="highlight"><pre><span></span><code>TensorShape([2, 48])
 </code></pre></div>
 
-
 <h2 id="_5">复制数据</h2>
-<div class="codehilite"><pre><span></span><code><span class="n">b</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<div class="highlight"><pre><span></span><code><span class="n">b</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
 <span class="n">P</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 <span class="n">b</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">P</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
@@ -2251,97 +2253,80 @@
 <span class="n">P</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">TensorShape([2])</span>
-<span class="err">TensorShape([1, 2])</span>
-<span class="err">TensorShape([2, 2])</span>
+<div class="highlight"><pre><span></span><code>TensorShape([2])
+TensorShape([1, 2])
+TensorShape([2, 2])
 </code></pre></div>
-
 
 <p><code>multiples</code> 分别指定了每个维度上面的复制倍数，对应位置为<code>1</code>表明不复制，为<code>2</code>表明新长度为原来长度的2 倍，即数据复制一份，以此类推。</p>
 <h2 id="_6">广播</h2>
 <p>broadcasting 的效果和 <code>tf.tile</code> 一样。</p>
 <h2 id="_7">算术运算</h2>
-<div class="codehilite"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">range</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">range</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 <span class="n">b</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 </code></pre></div>
 
-
 <p>除</p>
-<div class="codehilite"><pre><span></span><code><span class="n">a</span><span class="o">/</span><span class="n">b</span>
+<div class="highlight"><pre><span></span><code><span class="n">a</span><span class="o">/</span><span class="n">b</span>
 <span class="n">tf</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">&lt;tf.Tensor: shape=(4,), dtype=float64, numpy=array([0. , 0.5, 1. ,</span>
-<span class="err">1.5])&gt;</span>
+<div class="highlight"><pre><span></span><code>&lt;tf.Tensor: shape=(4,), dtype=float64, numpy=array([0. , 0.5, 1. ,
+1.5])&gt;
 </code></pre></div>
-
 
 <p>取余</p>
-<div class="codehilite"><pre><span></span><code><span class="n">a</span><span class="o">%</span><span class="n">b</span>
+<div class="highlight"><pre><span></span><code><span class="n">a</span><span class="o">%</span><span class="n">b</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">&lt;tf.Tensor: shape=(4,), dtype=int32, numpy=array([0, 1, 0, 1])&gt;</span>
+<div class="highlight"><pre><span></span><code>&lt;tf.Tensor: shape=(4,), dtype=int32, numpy=array([0, 1, 0, 1])&gt;
 </code></pre></div>
-
 
 <p>平方运算</p>
-<div class="codehilite"><pre><span></span><code><span class="n">a</span><span class="o">**</span><span class="mi">2</span>
+<div class="highlight"><pre><span></span><code><span class="n">a</span><span class="o">**</span><span class="mi">2</span>
 <span class="n">tf</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">&lt;tf.Tensor: shape=(4,), dtype=int32, numpy=array([0, 1, 4, 9])&gt;</span>
+<div class="highlight"><pre><span></span><code>&lt;tf.Tensor: shape=(4,), dtype=int32, numpy=array([0, 1, 4, 9])&gt;
 </code></pre></div>
 
-
 <p>幂运算</p>
-<div class="codehilite"><pre><span></span><code><span class="n">a</span><span class="o">**</span><span class="n">b</span>
+<div class="highlight"><pre><span></span><code><span class="n">a</span><span class="o">**</span><span class="n">b</span>
 <span class="n">tf</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">&lt;tf.Tensor: shape=(4,), dtype=int32, numpy=array([0, 1, 4, 9])&gt;</span>
+<div class="highlight"><pre><span></span><code>&lt;tf.Tensor: shape=(4,), dtype=int32, numpy=array([0, 1, 4, 9])&gt;
 </code></pre></div>
-
 
 <p>开根号 (必须是浮点数)</p>
-<div class="codehilite"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="mf">9.0</span><span class="p">))</span>
+<div class="highlight"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="mf">9.0</span><span class="p">))</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">&lt;tf.Tensor: shape=(), dtype=float32, numpy=3.0&gt;</span>
+<div class="highlight"><pre><span></span><code>&lt;tf.Tensor: shape=(), dtype=float32, numpy=3.0&gt;
 </code></pre></div>
-
 
 <p>指数</p>
-<div class="codehilite"><pre><span></span><code><span class="mi">2</span><span class="o">**</span><span class="n">a</span>
+<div class="highlight"><pre><span></span><code><span class="mi">2</span><span class="o">**</span><span class="n">a</span>
 <span class="c1"># 必须是浮点数</span>
 <span class="n">tf</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mf">3.0</span><span class="p">)</span>
 <span class="n">np</span><span class="o">.</span><span class="n">e</span><span class="o">**</span><span class="mf">3.0</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">20.085536923187664</span>
+<div class="highlight"><pre><span></span><code>20.085536923187664
 </code></pre></div>
-
 
 <p>对数</p>
 <blockquote>
 <p>如果希望计算其它底数的对数，暂时只能通过换底公式实现</p>
 </blockquote>
-<div class="codehilite"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="mf">9.0</span><span class="p">))</span>
+<div class="highlight"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="mf">9.0</span><span class="p">))</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">&lt;tf.Tensor: shape=(), dtype=float32, numpy=2.1972246&gt;</span>
+<div class="highlight"><pre><span></span><code>&lt;tf.Tensor: shape=(), dtype=float32, numpy=2.1972246&gt;
 </code></pre></div>
-
 
 <p>矩阵乘法</p>
-<div class="codehilite"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]])</span>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]])</span>
 <span class="n">b</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
@@ -2349,40 +2334,34 @@
 <span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">tf.Tensor(</span>
-<span class="err">[[2 2]</span>
-<span class="err"> [1 2]], shape=(2, 2), dtype=int32)</span>
-<span class="err">tf.Tensor(</span>
-<span class="err">[[2 3]</span>
-<span class="err"> [1 1]], shape=(2, 2), dtype=int32)</span>
+<div class="highlight"><pre><span></span><code>tf.Tensor(
+[[2 2]
+ [1 2]], shape=(2, 2), dtype=int32)
+tf.Tensor(
+[[2 3]
+ [1 1]], shape=(2, 2), dtype=int32)
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">&lt;tf.Tensor: shape=(2, 2), dtype=int32, numpy=</span>
-<span class="err">array([[6, 8],</span>
-<span class="err">       [4, 5]])&gt;</span>
+<div class="highlight"><pre><span></span><code>&lt;tf.Tensor: shape=(2, 2), dtype=int32, numpy=
+array([[6, 8],
+       [4, 5]])&gt;
 </code></pre></div>
-
 
 <h2 id="_8">合并</h2>
-<div class="codehilite"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span><span class="mi">35</span><span class="p">,</span><span class="mi">8</span><span class="p">])</span>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span><span class="mi">35</span><span class="p">,</span><span class="mi">8</span><span class="p">])</span>
 <span class="n">b</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">([</span><span class="mi">6</span><span class="p">,</span><span class="mi">35</span><span class="p">,</span><span class="mi">8</span><span class="p">])</span>
 </code></pre></div>
 
-
 <p>不需要合并的维度的大小必须完全相等</p>
-<div class="codehilite"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">tf</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">TensorShape([10, 35, 8])</span>
+<div class="highlight"><pre><span></span><code>TensorShape([10, 35, 8])
 </code></pre></div>
 
-
 <h2 id="_9">堆叠</h2>
-<div class="codehilite"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">([</span><span class="mi">35</span><span class="p">,</span><span class="mi">8</span><span class="p">])</span>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">([</span><span class="mi">35</span><span class="p">,</span><span class="mi">8</span><span class="p">])</span>
 <span class="n">b</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">([</span><span class="mi">35</span><span class="p">,</span><span class="mi">8</span><span class="p">])</span>
 <span class="n">P</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 
@@ -2391,86 +2370,72 @@
 <span class="n">P</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">],</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">TensorShape([2, 35, 8])</span>
-<span class="err">TensorShape([35, 8, 2])</span>
+<div class="highlight"><pre><span></span><code>TensorShape([2, 35, 8])
+TensorShape([35, 8, 2])
 </code></pre></div>
 
-
 <h2 id="_10">拆分</h2>
-<div class="codehilite"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">8</span><span class="p">])</span>
+<div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">8</span><span class="p">])</span>
 <span class="c1"># 等长切割为 10 份</span>
 <span class="n">result</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">num_or_size_splits</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">)</span> <span class="c1"># 返回 10 个张量组成的列表</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">10</span>
+<div class="highlight"><pre><span></span><code>10
 </code></pre></div>
 
-
 <p>特别地，如果希望在某个维度上全部按长度为 1 的方式分割，还可以使用 <code>tf.unstack(x, axis)</code>函数。这种方式是 <code>tf.split</code> 的一种特殊情况，切割长度固定为 1，只需要指定切割维度的索引号即可。</p>
-<div class="codehilite"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span><span class="mi">35</span><span class="p">,</span><span class="mi">8</span><span class="p">])</span>
+<div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span><span class="mi">35</span><span class="p">,</span><span class="mi">8</span><span class="p">])</span>
 <span class="n">result</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">unstack</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># Unstack 为长度为 1 的张量</span>
 <span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">)</span> <span class="c1"># 返回 10 个张量的列表</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">10</span>
+<div class="highlight"><pre><span></span><code>10
 </code></pre></div>
-
 
 <h2 id="_11">统计计算</h2>
 <h3 id="_12">范数</h3>
-<div class="codehilite"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">ones</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
+<div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">ones</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
 <span class="n">tf</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="nb">ord</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># 计算 L1 范数</span>
 <span class="n">tf</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="nb">ord</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># 计算 L2 范数</span>
 <span class="n">tf</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="nb">ord</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">)</span> <span class="c1"># 计算∞范数</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">&lt;tf.Tensor: shape=(), dtype=float32, numpy=1.0&gt;</span>
+<div class="highlight"><pre><span></span><code>&lt;tf.Tensor: shape=(), dtype=float32, numpy=1.0&gt;
 </code></pre></div>
 
-
 <h3 id="_13">最值、均值、和</h3>
-<div class="codehilite"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
 <span class="n">tf</span><span class="o">.</span><span class="n">reduce_max</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># 最大值</span>
 <span class="n">tf</span><span class="o">.</span><span class="n">reduce_min</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># 最小值</span>
 <span class="n">tf</span><span class="o">.</span><span class="n">reduce_mean</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># 均值</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">&lt;tf.Tensor: shape=(2,), dtype=float32, numpy=array([-0.16865723,</span>
-<span class="err">0.29473132], dtype=float32)&gt;</span>
+<div class="highlight"><pre><span></span><code>&lt;tf.Tensor: shape=(2,), dtype=float32, numpy=array([-0.16865723,
+0.29473132], dtype=float32)&gt;
 </code></pre></div>
 
-
 <p>统计全局的最大、最小、均值、和，返回的张量均为标量</p>
-<div class="codehilite"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">reduce_max</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">tf</span><span class="o">.</span><span class="n">reduce_min</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">tf</span><span class="o">.</span><span class="n">reduce_mean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">reduce_max</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">tf</span><span class="o">.</span><span class="n">reduce_min</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">tf</span><span class="o">.</span><span class="n">reduce_mean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 
 <span class="n">tf</span><span class="o">.</span><span class="n">reduce_sum</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># 求最后一个维度的和</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">&lt;tf.Tensor: shape=(2,), dtype=float32, numpy=array([-0.6746289,</span>
-<span class="err">1.1789253], dtype=float32)&gt;</span>
+<div class="highlight"><pre><span></span><code>&lt;tf.Tensor: shape=(2,), dtype=float32, numpy=array([-0.6746289,
+1.1789253], dtype=float32)&gt;
 </code></pre></div>
 
-
 <p>通过 <code>tf.argmax(x, axis)</code> 和 <code>tf.argmin(x, axis)</code> 可以求解在 <code>axis</code> 轴上，<code>x</code> 的最大值、最小值所在的索引</p>
-<div class="codehilite"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="n">tf</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">&lt;tf.Tensor: shape=(4,), dtype=int64, numpy=array([0, 0, 1, 0],</span>
-<span class="err">dtype=int64)&gt;</span>
+<div class="highlight"><pre><span></span><code>&lt;tf.Tensor: shape=(4,), dtype=int64, numpy=array([0, 0, 1, 0],
+dtype=int64)&gt;
 </code></pre></div>
 
-
 <h2 id="_14">张量比较</h2>
-<div class="codehilite"><pre><span></span><code><span class="c1">#  tf.equal(a, b)</span>
+<div class="highlight"><pre><span></span><code><span class="c1">#  tf.equal(a, b)</span>
 <span class="c1"># tf.math.greater 𝑏 &gt; 𝑐</span>
 <span class="c1"># tf.math.less 𝑏 &lt; 𝑐</span>
 <span class="c1"># tf.math.greater_equal 𝑏 ≥ 𝑐</span>
@@ -2479,96 +2444,85 @@
 <span class="c1"># tf.math.is_nan 𝑏 = nan</span>
 </code></pre></div>
 
-
 <h2 id="_15">填充与复制</h2>
 <p>这里所说的填充实际上是插入</p>
-<div class="codehilite"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">])</span> <span class="c1"># 第一个句子</span>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">])</span> <span class="c1"># 第一个句子</span>
 <span class="n">b</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">([</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">])</span>     <span class="c1"># 第二个句子</span>
 <span class="n">b</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">pad</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">]])</span>         <span class="c1"># 句子末尾填充 2 个 0</span>
 <span class="n">b</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">&lt;tf.Tensor: shape=(6,), dtype=int32, numpy=array([7, 8, 1, 6, 0, 0])&gt;</span>
+<div class="highlight"><pre><span></span><code>&lt;tf.Tensor: shape=(6,), dtype=int32, numpy=array([7, 8, 1, 6, 0, 0])&gt;
 </code></pre></div>
 
-
 <h2 id="_16">数据限幅运算</h2>
-<div class="codehilite"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">range</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">range</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
 <span class="n">P</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span> <span class="c1"># 下限幅到 2</span>
 <span class="n">P</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">minimum</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span> <span class="c1"># 上限幅到 7</span>
 <span class="n">P</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">minimum</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">11</span><span class="p">))</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">&lt;tf.Tensor: shape=(9,), dtype=int32, numpy=array([2, 2, 2, 3, 4, 5, 6,</span>
-<span class="err">7, 8])&gt;</span>
-<span class="err">&lt;tf.Tensor: shape=(9,), dtype=int32, numpy=array([0, 1, 2, 3, 4, 5, 6,</span>
-<span class="err">7, 7])&gt;</span>
-<span class="err">&lt;tf.Tensor: shape=(9,), dtype=int32, numpy=array([0, 1, 2, 3, 4, 5, 6,</span>
-<span class="err">7, 8])&gt;</span>
+<div class="highlight"><pre><span></span><code>&lt;tf.Tensor: shape=(9,), dtype=int32, numpy=array([2, 2, 2, 3, 4, 5, 6,
+7, 8])&gt;
+&lt;tf.Tensor: shape=(9,), dtype=int32, numpy=array([0, 1, 2, 3, 4, 5, 6,
+7, 7])&gt;
+&lt;tf.Tensor: shape=(9,), dtype=int32, numpy=array([0, 1, 2, 3, 4, 5, 6,
+7, 8])&gt;
 </code></pre></div>
 
-
 <p>高级操作</p>
-<div class="codehilite"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="n">maxval</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="n">maxval</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
 <span class="n">tf</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 </code></pre></div>
 
+<div class="highlight"><pre><span></span><code>&lt;tf.Tensor: shape=(2, 5, 6), dtype=int32, numpy=
+array([[[20, 91, 41, 61, 83,  7],
+        [28, 74,  8, 56, 23, 28],
+        [21, 71, 19, 35, 85, 24],
+        [59, 96, 14, 87, 17, 22],
+        [65, 27, 42, 94, 52, 94]],
 
-<div class="codehilite"><pre><span></span><code><span class="o">&lt;</span><span class="n">tf</span><span class="p">.</span><span class="n">Tensor</span><span class="p">:</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">int32</span><span class="p">,</span> <span class="n">numpy</span><span class="o">=</span>
-<span class="nb">array</span><span class="p">([[[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">91</span><span class="p">,</span> <span class="mi">41</span><span class="p">,</span> <span class="mi">61</span><span class="p">,</span> <span class="mi">83</span><span class="p">,</span>  <span class="mi">7</span><span class="p">],</span>
-        <span class="p">[</span><span class="mi">28</span><span class="p">,</span> <span class="mi">74</span><span class="p">,</span>  <span class="mi">8</span><span class="p">,</span> <span class="mi">56</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">28</span><span class="p">],</span>
-        <span class="p">[</span><span class="mi">21</span><span class="p">,</span> <span class="mi">71</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">85</span><span class="p">,</span> <span class="mi">24</span><span class="p">],</span>
-        <span class="p">[</span><span class="mi">59</span><span class="p">,</span> <span class="mi">96</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">87</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">22</span><span class="p">],</span>
-        <span class="p">[</span><span class="mi">65</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">94</span><span class="p">,</span> <span class="mi">52</span><span class="p">,</span> <span class="mi">94</span><span class="p">]],</span>
-
-       <span class="p">[[</span><span class="mi">35</span><span class="p">,</span> <span class="mi">66</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span>  <span class="mi">6</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">99</span><span class="p">],</span>
-        <span class="p">[</span><span class="mi">90</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">85</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">74</span><span class="p">,</span> <span class="mi">20</span><span class="p">],</span>
-        <span class="p">[</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">97</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">91</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span>  <span class="mi">1</span><span class="p">],</span>
-        <span class="p">[</span><span class="mi">79</span><span class="p">,</span> <span class="mi">74</span><span class="p">,</span> <span class="mi">81</span><span class="p">,</span> <span class="mi">83</span><span class="p">,</span> <span class="mi">78</span><span class="p">,</span>  <span class="mi">9</span><span class="p">],</span>
-        <span class="p">[</span><span class="mi">85</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">71</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">9</span><span class="p">,</span> <span class="mi">28</span><span class="p">]]])</span><span class="o">&gt;</span>
+       [[35, 66, 70,  6, 18, 99],
+        [90, 15, 85, 12, 74, 20],
+        [ 4, 97, 55, 91, 90,  1],
+        [79, 74, 81, 83, 78,  9],
+        [85, 32, 71,  1,  9, 28]]])&gt;
 </code></pre></div>
-
 
 <p>实际上，对于上述需求，通过切片<code>y[:2]</code>可以更加方便地实现。但是对于不规则的索引方式，比如，需要抽取第二轴索引为 0、2、3 的数据，则切片方式实现起来非常麻烦，而 <code>tf.gather</code> 则是针对于此需求设计的，使用起来更加方便。</p>
-<div class="codehilite"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span><span class="n">x</span><span class="p">,[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span><span class="n">x</span><span class="p">,[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </code></pre></div>
 
+<div class="highlight"><pre><span></span><code>&lt;tf.Tensor: shape=(4, 3, 6), dtype=int32, numpy=
+array([[[20, 91, 41, 61, 83,  7],
+        [21, 71, 19, 35, 85, 24],
+        [59, 96, 14, 87, 17, 22]],
 
-<div class="codehilite"><pre><span></span><code><span class="o">&lt;</span><span class="n">tf</span><span class="p">.</span><span class="n">Tensor</span><span class="p">:</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">int32</span><span class="p">,</span> <span class="n">numpy</span><span class="o">=</span>
-<span class="nb">array</span><span class="p">([[[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">91</span><span class="p">,</span> <span class="mi">41</span><span class="p">,</span> <span class="mi">61</span><span class="p">,</span> <span class="mi">83</span><span class="p">,</span>  <span class="mi">7</span><span class="p">],</span>
-        <span class="p">[</span><span class="mi">21</span><span class="p">,</span> <span class="mi">71</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">85</span><span class="p">,</span> <span class="mi">24</span><span class="p">],</span>
-        <span class="p">[</span><span class="mi">59</span><span class="p">,</span> <span class="mi">96</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">87</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">22</span><span class="p">]],</span>
+       [[35, 66, 70,  6, 18, 99],
+        [ 4, 97, 55, 91, 90,  1],
+        [79, 74, 81, 83, 78,  9]],
 
-       <span class="p">[[</span><span class="mi">35</span><span class="p">,</span> <span class="mi">66</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span>  <span class="mi">6</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">99</span><span class="p">],</span>
-        <span class="p">[</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">97</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">91</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span>  <span class="mi">1</span><span class="p">],</span>
-        <span class="p">[</span><span class="mi">79</span><span class="p">,</span> <span class="mi">74</span><span class="p">,</span> <span class="mi">81</span><span class="p">,</span> <span class="mi">83</span><span class="p">,</span> <span class="mi">78</span><span class="p">,</span>  <span class="mi">9</span><span class="p">]],</span>
+       [[90, 46,  9, 12, 51, 19],
+        [99, 16, 88, 28, 24, 73],
+        [79, 28, 45, 55, 66, 84]],
 
-       <span class="p">[[</span><span class="mi">90</span><span class="p">,</span> <span class="mi">46</span><span class="p">,</span>  <span class="mi">9</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">51</span><span class="p">,</span> <span class="mi">19</span><span class="p">],</span>
-        <span class="p">[</span><span class="mi">99</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">88</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">73</span><span class="p">],</span>
-        <span class="p">[</span><span class="mi">79</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">66</span><span class="p">,</span> <span class="mi">84</span><span class="p">]],</span>
-
-       <span class="p">[[</span><span class="mi">73</span><span class="p">,</span> <span class="mi">33</span><span class="p">,</span>  <span class="mi">4</span><span class="p">,</span> <span class="mi">57</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">86</span><span class="p">],</span>
-        <span class="p">[</span><span class="mi">95</span><span class="p">,</span> <span class="mi">46</span><span class="p">,</span> <span class="mi">59</span><span class="p">,</span> <span class="mi">67</span><span class="p">,</span> <span class="mi">48</span><span class="p">,</span> <span class="mi">67</span><span class="p">],</span>
-        <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">89</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">94</span><span class="p">,</span> <span class="mi">87</span><span class="p">,</span> <span class="mi">38</span><span class="p">]]])</span><span class="o">&gt;</span>
+       [[73, 33,  4, 57, 75, 86],
+        [95, 46, 59, 67, 48, 67],
+        [20, 89, 20, 94, 87, 38]]])&gt;
 </code></pre></div>
-
 
 <p>通过 <code>tf.gather_nd</code> 函数，可以通过指定每次采样点的多维坐标来实现采样多个点的目的：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">gather_nd</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">]])</span>
+<div class="highlight"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">gather_nd</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">]])</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">&lt;tf.Tensor: shape=(3, 6), dtype=int32, numpy=</span>
-<span class="err">array([[90, 15, 85, 12, 74, 20],</span>
-<span class="err">       [99, 16, 88, 28, 24, 73],</span>
-<span class="err">       [20, 89, 20, 94, 87, 38]])&gt;</span>
+<div class="highlight"><pre><span></span><code>&lt;tf.Tensor: shape=(3, 6), dtype=int32, numpy=
+array([[90, 15, 85, 12, 74, 20],
+       [99, 16, 88, 28, 24, 73],
+       [20, 89, 20, 94, 87, 38]])&gt;
 </code></pre></div>
-
 
 <p>通过 <code>tf.where(cond, a, b)</code> 操作可以根据 <code>cond</code> 条件的真假从参数b或c中读取数据。</p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># tf.where()</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># tf.where()</span>
 <span class="c1"># tf.scatter_nd()</span>
 </code></pre></div>
                 

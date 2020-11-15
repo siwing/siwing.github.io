@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-6.1.4">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.4">
     
     
       
@@ -980,6 +980,18 @@
   <li class="md-nav__item">
     <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.16.shutil.html" class="md-nav__link">
       6.16.shutil
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.17.test.html" class="md-nav__link">
+      6.17.test
     </a>
   </li>
 
@@ -2178,14 +2190,13 @@
                 
                   <h1>2.3.String</h1>
                 
-                <div class="codehilite"><pre><span></span><code><span class="err">Windows 10</span>
-<span class="err">Python 3.7.3 @ MSC v.1915 64 bit (AMD64)</span>
-<span class="err">Latest build date 2020.09.12</span>
+                <div class="highlight"><pre><span></span><code>Windows 10
+Python 3.7.3 @ MSC v.1915 64 bit (AMD64)
+Latest build date 2020.11.15
 </code></pre></div>
 
-
 <h2 id="_1">多行字符串</h2>
-<div class="codehilite"><pre><span></span><code><span class="n">str_1</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="n">str_1</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">This is a multi-line string</span>
 <span class="s2">This is the second line</span>
 <span class="s2">&quot;&quot;&quot;</span>
@@ -2197,30 +2208,25 @@
 <span class="n">str_1</span> <span class="o">==</span> <span class="n">str_2</span>
 </code></pre></div>
 
+<div class="highlight"><pre><span></span><code>This is a multi-line string
+This is the second line
 
-<div class="codehilite"><pre><span></span><code><span class="n">This</span> <span class="k">is</span> <span class="n">a</span> <span class="n">multi</span><span class="o">-</span><span class="n">line</span> <span class="n">string</span>
-<span class="n">This</span> <span class="k">is</span> <span class="n">the</span> <span class="k">second</span> <span class="n">line</span>
 
-
-<span class="n">This</span> <span class="k">is</span> <span class="n">a</span> <span class="n">multi</span><span class="o">-</span><span class="n">line</span> <span class="n">string</span>
-<span class="n">This</span> <span class="k">is</span> <span class="n">the</span> <span class="k">second</span> <span class="n">line</span>
+This is a multi-line string
+This is the second line
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">True</span>
+<div class="highlight"><pre><span></span><code>True
 </code></pre></div>
-
 
 <h2 id="_2">转义</h2>
 <p>如果要在字符串里面输入特殊字符，需要使用转义符<code>\</code>，例如输入转义符本身：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">str_3</span> <span class="o">=</span> <span class="s2">&quot;12</span><span class="se">\\</span><span class="s2">14&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="n">str_3</span> <span class="o">=</span> <span class="s2">&quot;12</span><span class="se">\\</span><span class="s2">14&quot;</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">str_3</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">12\14</span>
+<div class="highlight"><pre><span></span><code>12\14
 </code></pre></div>
-
 
 <h2 id="_3">前缀</h2>
 <p>在Python中，字符串可以添加前缀<code>r\R</code>、<code>b</code>、<code>u\U</code>、<code>f</code>。</p>
@@ -2229,12 +2235,10 @@
 <p><code>r\R</code>：表示非转义的原始字符串，常用于正则表达式、路径字符串。</p>
 </li>
 <li>
-<p><code>b</code>：表示Python3的bytes，Python2的字符串默认就是bytes。
-Python2的b前缀只是为了兼容Python3的这种写法。</p>
+<p><code>b</code>：表示Python3的bytes，Python2的字符串默认就是bytes。Python2的b前缀只是为了兼容Python3的这种写法。</p>
 </li>
 <li>
-<p><code>u\U</code>：表示Python2的unicode字符串，代表是对字符串进行unicode编码。
-Python3里默认的str就是(Python2的)unicode。Python3的u前缀只是为了兼容Python2的这种写法。建议统一采用UTF-8编码。</p>
+<p><code>u\U</code>：表示Python2的unicode字符串，代表是对字符串进行unicode编码。Python3里默认的str就是(Python2的)unicode。Python3的u前缀只是为了兼容Python2的这种写法。建议统一采用UTF-8编码。</p>
 </li>
 <li>
 <p><code>f</code>：表示<code>f</code>格式字符串。</p>
@@ -2254,131 +2258,106 @@ Python3里默认的str就是(Python2的)unicode。Python3的u前缀只是为了�
 \end{array}
 $$</p>
 <p>在python3中实例化一个字符串</p>
-<div class="codehilite"><pre><span></span><code><span class="n">str_1</span> <span class="o">=</span> <span class="s2">&quot;中国&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="n">str_1</span> <span class="o">=</span> <span class="s2">&quot;中国&quot;</span>
 <span class="c1"># 编码</span>
 <span class="n">str_1</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">b&#39;\xe4\xb8\xad\xe5\x9b\xbd&#39;</span>
+<div class="highlight"><pre><span></span><code>b&#39;\xe4\xb8\xad\xe5\x9b\xbd&#39;
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="c1"># 创建一个二进制字符串</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 创建一个二进制字符串</span>
 <span class="n">str_2</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;</span><span class="se">\xe4\xb8\xad\xe5\x9b\xbd</span><span class="s1">&#39;</span>
 <span class="c1"># 解码</span>
 <span class="n">str_2</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">&#39;中国&#39;</span>
+<div class="highlight"><pre><span></span><code>&#39;中国&#39;
 </code></pre></div>
-
 
 <p>如果对字符编码不了解，可以参考<a href="../计算机基础/1.4.字符编码.md">1.4字符编码</a>。</p>
 <h2 id="bytes">bytes字符</h2>
 <p>文本字符类型在内存中以二进制的形式表示，默认为Unicode码，一个字符对应若干个字节。如果要在网络上传输，或者保存到磁盘上，就需要把<code>str</code>变为以字节为单位的<code>bytes</code>。</p>
 <p>Python3对<code>bytes</code>类型的数据用带<code>b</code>前缀的单引号或双引号表示。</p>
-<div class="codehilite"><pre><span></span><code><span class="n">bytes_8</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">&quot;ABC&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="n">bytes_8</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">&quot;ABC&quot;</span>
 <span class="n">bytes_8</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">b&#39;ABC&#39;</span>
+<div class="highlight"><pre><span></span><code>b&#39;ABC&#39;
 </code></pre></div>
-
 
 <p>要注意的是：bytes字面值中只允许ASCII字符（无论源代码声明的编码为何）。任何超出127的二进制值以16进制的形式显示。</p>
 <p>可以对str（unicode类型）对象使用<code>encode()</code>方法，编码为bytes的形式。</p>
-<div class="codehilite"><pre><span></span><code><span class="s1">&#39;中文&#39;</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="s1">&#39;中文&#39;</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">b&#39;\xe4\xb8\xad\xe6\x96\x87&#39;</span>
+<div class="highlight"><pre><span></span><code>b&#39;\xe4\xb8\xad\xe6\x96\x87&#39;
 </code></pre></div>
-
 
 <p>要注意的是，使用<code>encode</code>方法时，不能超出指定编码的范围，例如不能对中文字符使用<code>.encode("ascii")</code>，因为中文不在ascii码的范围内。</p>
-<div class="codehilite"><pre><span></span><code><span class="k">try</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="k">try</span><span class="p">:</span>
     <span class="s1">&#39;中文&#39;</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;ascii&#39;</span><span class="p">)</span>
 <span class="k">except</span> <span class="ne">UnicodeEncodeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">&#39;ascii&#39; codec can&#39;t encode characters in position 0-1: ordinal not in</span>
-<span class="err">range(128)</span>
+<div class="highlight"><pre><span></span><code>&#39;ascii&#39; codec can&#39;t encode characters in position 0-1: ordinal not in
+range(128)
 </code></pre></div>
-
 
 <p>反过来，如果我们从网络或磁盘上读取了字节流，那么读到的数据就是bytes。要把bytes变为str，就需要用<code>decode()</code>方法：</p>
-<div class="codehilite"><pre><span></span><code><span class="sa">b</span><span class="s1">&#39;ABC&#39;</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;ascii&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="sa">b</span><span class="s1">&#39;ABC&#39;</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;ascii&#39;</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">&#39;ABC&#39;</span>
+<div class="highlight"><pre><span></span><code>&#39;ABC&#39;
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="sa">b</span><span class="s1">&#39;</span><span class="se">\xe4\xb8\xad\xe6\x96\x87</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="sa">b</span><span class="s1">&#39;</span><span class="se">\xe4\xb8\xad\xe6\x96\x87</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">&#39;中文&#39;</span>
+<div class="highlight"><pre><span></span><code>&#39;中文&#39;
 </code></pre></div>
-
 
 <p>如果bytes中包含无法解码的字节，<code>decode()</code>方法会报错：</p>
-<div class="codehilite"><pre><span></span><code><span class="sa">b</span><span class="s1">&#39;</span><span class="se">\xe4\xb8\xad\xff</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="k">try</span><span class="p">:</span>
+    <span class="sa">b</span><span class="s1">&#39;</span><span class="se">\xe4\xb8\xad\xff</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">UnicodeDecodeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">---------------------------------------------------------------------------UnicodeDecodeError</span>
-<span class="err">Traceback (most recent call last)&lt;ipython-input-1-cd8de1b11dcd&gt; in</span>
-<span class="err">&lt;module&gt;</span>
-<span class="err">----&gt; 1 b&#39;\xe4\xb8\xad\xff&#39;.decode(&#39;utf-8&#39;)</span>
-<span class="c">UnicodeDecodeError: &#39;utf-8&#39; codec can&#39;t decode byte 0xff in position</span>
-<span class="c">3: invalid start byte</span>
+<div class="highlight"><pre><span></span><code>&#39;utf-8&#39; codec can&#39;t decode byte 0xff in position 3: invalid start byte
 </code></pre></div>
-
 
 <p>但是，如果bytes中只有一小部分无效的字节，可以传入<code>errors = 'ignore'</code>忽略错误的字节：</p>
-<div class="codehilite"><pre><span></span><code><span class="s2">&quot;中&quot;</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>  <span class="c1"># 中 原来的编码</span>
+<div class="highlight"><pre><span></span><code><span class="s2">&quot;中&quot;</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>  <span class="c1"># 中 原来的编码</span>
 <span class="sa">b</span><span class="s1">&#39;</span><span class="se">\xe4\xb8\xad\xff</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">&#39;中&#39;</span>
+<div class="highlight"><pre><span></span><code>&#39;中&#39;
 </code></pre></div>
-
 
 <p><strong>在对str和bytes互相转换时，为了避免乱码问题，应该使用UTF-8编码对str和bytes进行转换。</strong></p>
-<p>由于Python源代码也是一个文本文件，所以，当你的源代码中包含中文的时候，在保存源代码时，就需要务必指定保存为UTF-8编码。当Python解释器读取源代码时，为了让它按UTF-8编码读取，我们通常在文件开头写上这两行：</p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># !/usr/bin/env python3</span>
+<p>由于Python源代码也是一个文本文件，所以，当你的源代码中包含中文的时候，在保存源代码时，就需要务必指定保存为UTF-8 编码。当Python解释器读取源代码时，为了让它按UTF-8编码读取，我们通常在文件开头写上这两行：</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># !/usr/bin/env python3</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 </code></pre></div>
-
 
 <p>第一行注释是为了告诉Linux/OS X系统，这是一个Python可执行程序，Windows系统会忽略这个注释。第二行注释是为了告诉Python解释器，按照UTF-8编码读取源代码，否则，在源代码中写的中文输出可能会有乱码。</p>
 <p><strong>UTF-8编码注释只是让Python解释器按UTF-8的编码规则读取源代码，并不意味着源代码一定是使用UT8-8编码保存的，必须并且要确保文本编辑器正在使用UTF-8编码。</strong></p>
 <h2 id="_5">格式化</h2>
 <h3 id="c-printf">C printf 样式的格式化</h3>
 <p>字符串具有一种特殊的内置操作：使用 % (取模)运算符，可以格式化字符串，此时<code>%</code>也被称为字符串的格式化运算符或插值运算符。对于format % values(其中format为一个字符串)，在format中的 % 转换标记符将被替换为零个或多个values条目。 其效果类似于在C语言中使用sprintf()。</p>
-<div class="codehilite"><pre><span></span><code><span class="s1">&#39;Hello, </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="s1">&#39;world&#39;</span>  <span class="c1"># 省略括号</span>
+<div class="highlight"><pre><span></span><code><span class="s1">&#39;Hello, </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="s1">&#39;world&#39;</span>  <span class="c1"># 省略括号</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">&#39;Hello, world&#39;</span>
+<div class="highlight"><pre><span></span><code>&#39;Hello, world&#39;
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="s1">&#39;Hi, </span><span class="si">%s</span><span class="s1">, you have $</span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="s1">&#39;Michael&#39;</span><span class="p">,</span> <span class="mf">10000.58</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="s1">&#39;Hi, </span><span class="si">%s</span><span class="s1">, you have $</span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="s1">&#39;Michael&#39;</span><span class="p">,</span> <span class="mf">10000.58</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">&#39;Hi, Michael, you have $10000&#39;</span>
+<div class="highlight"><pre><span></span><code>&#39;Hi, Michael, you have $10000&#39;
 </code></pre></div>
-
 
 <p><strong>转换标记符</strong>包含两个或更多字符，由以下元素组成，且必须遵循此处规定的顺序：</p>
 <ol>
@@ -2492,90 +2471,76 @@ $$</p>
 </tr>
 </tbody>
 </table>
-<div class="codehilite"><pre><span></span><code><span class="c1"># 映射键</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 映射键</span>
 <span class="c1">## 如果值是一个字典，那么必须使用映射键. 如：</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%(num)d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">{</span><span class="s2">&quot;num&quot;</span><span class="p">:</span> <span class="mi">10</span><span class="p">})</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">10</span>
+<div class="highlight"><pre><span></span><code>10
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="c1"># 最小字段宽度</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 最小字段宽度</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%2s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="mi">123456</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%8s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="mi">123456</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%*s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">123456</span><span class="p">))</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">123456</span>
-<span class="err">  123456</span>
-<span class="err">    123456</span>
+<div class="highlight"><pre><span></span><code>123456
+  123456
+    123456
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="c1"># 精度</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 精度</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="mf">100.256</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%.*f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mf">100.256</span><span class="p">))</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">100.26</span>
-<span class="err">100.26</span>
+<div class="highlight"><pre><span></span><code>100.26
+100.26
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="c1"># 转换标志</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 转换标志</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%-8d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="mi">123456</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%+8d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="mi">123456</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%08d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="mi">123456</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">123456</span>
-<span class="err"> +123456</span>
-<span class="err">00123456</span>
+<div class="highlight"><pre><span></span><code>123456
+ +123456
+00123456
 </code></pre></div>
-
 
 <h3 id="format">format方法</h3>
-<div class="codehilite"><pre><span></span><code><span class="o">&lt;</span> <span class="n">模板字符串</span> <span class="o">&gt;.</span><span class="n">format</span><span class="p">(</span> <span class="o">&lt;</span> <span class="n">逗号分隔的参数</span> <span class="o">&gt;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="o">&lt;</span> <span class="n">模板字符串</span> <span class="o">&gt;.</span><span class="n">format</span><span class="p">(</span> <span class="o">&lt;</span> <span class="n">逗号分隔的参数</span> <span class="o">&gt;</span><span class="p">)</span>
 </code></pre></div>
-
 
 <p><code>&lt;模板字符串&gt;</code>由一系列的槽<code>{}</code>组成，用来控制修改字符串中嵌入值出现的位置，其基本思想是将format()方法的<code>&lt;逗号分隔的参数&gt;</code>中的参数按照序号关系替换到<code>&lt;模板字符串&gt;</code>的槽中。如果大括号中没有序号，则按照出现顺序替换。该方法会创建新字符串对象，不会修改原值。</p>
 <p>{}中指定顺序，按指定的顺序替换</p>
-<div class="codehilite"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{2}</span><span class="s2">:</span><span class="si">{1}</span><span class="s2">:</span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span> <span class="s2">&quot;3&quot;</span><span class="p">))</span>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{2}</span><span class="s2">:</span><span class="si">{1}</span><span class="s2">:</span><span class="si">{0}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span> <span class="s2">&quot;3&quot;</span><span class="p">))</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="mi">3</span><span class="o">:</span><span class="mi">2</span><span class="o">:</span><span class="mi">1</span>
+<div class="highlight"><pre><span></span><code>3:2:1
 </code></pre></div>
-
 
 <p>没有指定顺序，按出现的顺序依次替换</p>
-<div class="codehilite"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">:</span><span class="si">{}</span><span class="s2">:</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span> <span class="s2">&quot;3&quot;</span><span class="p">))</span>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2">:</span><span class="si">{}</span><span class="s2">:</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span> <span class="s2">&quot;3&quot;</span><span class="p">))</span>
 <span class="c1"># 等价于</span>
 <span class="c1"># &quot;{1}:{2}:{3}&quot;.format(&quot;1&quot;, &quot;2&quot;, &quot;3&quot;)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="mi">1</span><span class="o">:</span><span class="mi">2</span><span class="o">:</span><span class="mi">3</span>
+<div class="highlight"><pre><span></span><code>1:2:3
 </code></pre></div>
-
 
 <p>format()方法中<code>&lt;模板字符串&gt;</code>的槽除了包括参数序号，还可以包括格式控制信息。槽内部的完整样式如下：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">替换字段</span><span class="w">       </span><span class="o">-</span><span class="w"> </span><span class="n">replacement_field</span><span class="w"> </span><span class="o">::=</span><span class="w">  </span><span class="ss">&quot;{&quot;</span><span class="w"> </span><span class="o">[</span><span class="n">field_name</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">&quot;!&quot; conversion</span><span class="o">]</span><span class="w"> </span><span class="o">[</span><span class="n">&quot;:&quot; format_spec</span><span class="o">]</span><span class="w"> </span><span class="ss">&quot;}&quot;</span><span class="w"></span>
-<span class="n">字段名</span><span class="w">         </span><span class="o">-</span><span class="w"> </span><span class="n">field_name</span><span class="w">        </span><span class="o">::=</span><span class="w">  </span><span class="n">arg_name</span><span class="w"> </span><span class="p">(</span><span class="ss">&quot;.&quot;</span><span class="w"> </span><span class="n">attribute_name</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="ss">&quot;[&quot;</span><span class="w"> </span><span class="n">element_index</span><span class="w"> </span><span class="ss">&quot;]&quot;</span><span class="p">)</span><span class="o">*</span><span class="w"></span>
-<span class="n">参数名</span><span class="w">         </span><span class="o">-</span><span class="w"> </span><span class="n">arg_name</span><span class="w">          </span><span class="o">::=</span><span class="w">  </span><span class="o">[</span><span class="n">identifier | integer</span><span class="o">]</span><span class="w"></span>
-<span class="n">属性名</span><span class="w">         </span><span class="o">-</span><span class="w"> </span><span class="n">attribute_name</span><span class="w">    </span><span class="o">::=</span><span class="w">  </span><span class="n">identifier</span><span class="w"></span>
-<span class="n">元素索引</span><span class="w">       </span><span class="o">-</span><span class="w"> </span><span class="n">element_index</span><span class="w">     </span><span class="o">::=</span><span class="w">  </span><span class="k">integer</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">index_string</span><span class="w"></span>
-<span class="n">索引字符串</span><span class="w">     </span><span class="o">-</span><span class="w"> </span><span class="n">index_string</span><span class="w">      </span><span class="o">::=</span><span class="w">  </span><span class="o">&lt;</span><span class="ow">any</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="k">character</span><span class="w"> </span><span class="ow">except</span><span class="w"> </span><span class="ss">&quot;]&quot;</span><span class="o">&gt;</span><span class="w"> </span><span class="o">+</span><span class="w"></span>
-<span class="n">转换字段</span><span class="w">       </span><span class="o">-</span><span class="w"> </span><span class="n">conversion</span><span class="w">        </span><span class="o">::=</span><span class="w">  </span><span class="ss">&quot;r&quot;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="ss">&quot;s&quot;</span><span class="w"></span>
-<span class="n">格式规范说明符</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">format_spec</span><span class="w">        </span><span class="o">::=</span><span class="w">  </span><span class="o">&lt;</span><span class="n">described</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">next</span><span class="w"> </span><span class="k">section</span><span class="o">&gt;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code>替换字段       - replacement_field ::=  &quot;{&quot; [field_name] [&quot;!&quot; conversion] [&quot;:&quot; format_spec] &quot;}&quot;
+字段名         - field_name        ::=  arg_name (&quot;.&quot; attribute_name | &quot;[&quot; element_index &quot;]&quot;)*
+参数名         - arg_name          ::=  [identifier | integer]
+属性名         - attribute_name    ::=  identifier
+元素索引       - element_index     ::=  integer | index_string
+索引字符串     - index_string      ::=  &lt;any source character except &quot;]&quot;&gt; +
+转换字段       - conversion        ::=  &quot;r&quot; | &quot;s&quot;
+格式规范说明符 - format_spec        ::=  &lt;described in the next section&gt;
 </code></pre></div>
-
 
 <p>一个槽<code>{}</code>由三部分组成：</p>
 <ol>
@@ -2600,7 +2565,7 @@ $$</p>
 </li>
 <li><strong>format_spec</strong>: 格式规范说明符由 <code>:</code> 开始。</li>
 </ol>
-<div class="codehilite"><pre><span></span><code><span class="c1"># field_name 是 关键字</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># field_name 是 关键字</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{name!r}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;小明&quot;</span><span class="p">))</span>
 <span class="c1"># field_name 是 整数</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{0!s}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;小明&quot;</span><span class="p">))</span>
@@ -2619,26 +2584,23 @@ $$</p>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;{[name]!s}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">names</span><span class="p">))</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">&#39;小明&#39;</span>
-<span class="err">小明</span>
-<span class="err">小明</span>
-<span class="err">小明</span>
-<span class="err">小明</span>
+<div class="highlight"><pre><span></span><code>&#39;小明&#39;
+小明
+小明
+小明
+小明
 </code></pre></div>
-
 
 <p>其中，<code>&lt;格式控制标记&gt;</code>用来控制参数显示时的格式，可以使用的参数如下：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">format_spec</span><span class="w">     </span><span class="o">::=</span><span class="w">  </span><span class="o">[</span><span class="n">[fill</span><span class="o">]</span><span class="n">align</span><span class="err">]</span><span class="o">[</span><span class="n">sign</span><span class="o">][</span><span class="n">#</span><span class="o">][</span><span class="n">0</span><span class="o">][</span><span class="n">width</span><span class="o">][</span><span class="n">grouping_option</span><span class="o">][</span><span class="n">.precision</span><span class="o">][</span><span class="n">type</span><span class="o">]</span><span class="w"></span>
-<span class="n">fill</span><span class="w">            </span><span class="o">::=</span><span class="w">  </span><span class="o">&lt;</span><span class="ow">any</span><span class="w"> </span><span class="k">character</span><span class="o">&gt;</span><span class="w"></span>
-<span class="n">align</span><span class="w">           </span><span class="o">::=</span><span class="w">  </span><span class="ss">&quot;&lt;&quot;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="ss">&quot;&gt;&quot;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="ss">&quot;=&quot;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="ss">&quot;^&quot;</span><span class="w"></span>
-<span class="nf">sign</span><span class="w">            </span><span class="o">::=</span><span class="w">  </span><span class="ss">&quot;+&quot;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="ss">&quot;-&quot;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="ss">&quot; &quot;</span><span class="w"></span>
-<span class="n">width</span><span class="w">           </span><span class="o">::=</span><span class="w">  </span><span class="n">digit</span><span class="o">+</span><span class="w"></span>
-<span class="n">grouping_option</span><span class="w"> </span><span class="o">::=</span><span class="w">  </span><span class="ss">&quot;_&quot;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="ss">&quot;,&quot;</span><span class="w"></span>
-<span class="k">precision</span><span class="w">       </span><span class="o">::=</span><span class="w">  </span><span class="n">digit</span><span class="o">+</span><span class="w"></span>
-<span class="n">type</span><span class="w">            </span><span class="o">::=</span><span class="w">  </span><span class="ss">&quot;b&quot;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="ss">&quot;c&quot;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="ss">&quot;d&quot;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="ss">&quot;e&quot;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="ss">&quot;E&quot;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="ss">&quot;f&quot;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="ss">&quot;F&quot;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="ss">&quot;g&quot;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="ss">&quot;G&quot;</span><span class="o">|</span><span class="w"> </span><span class="ss">&quot;n&quot;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="ss">&quot;o&quot;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="ss">&quot;s&quot;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="ss">&quot;x&quot;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="ss">&quot;X&quot;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="ss">&quot;%&quot;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code>format_spec     ::=  [[fill]align][sign][#][0][width][grouping_option][.precision][type]
+fill            ::=  &lt;any character&gt;
+align           ::=  &quot;&lt;&quot; | &quot;&gt;&quot; | &quot;=&quot; | &quot;^&quot;
+sign            ::=  &quot;+&quot; | &quot;-&quot; | &quot; &quot;
+width           ::=  digit+
+grouping_option ::=  &quot;_&quot; | &quot;,&quot;
+precision       ::=  digit+
+type            ::=  &quot;b&quot; | &quot;c&quot; | &quot;d&quot; | &quot;e&quot; | &quot;E&quot; | &quot;f&quot; | &quot;F&quot; | &quot;g&quot; | &quot;G&quot;| &quot;n&quot; | &quot;o&quot; | &quot;s&quot; | &quot;x&quot; | &quot;X&quot; | &quot;%&quot;
 </code></pre></div>
-
 
 <p><strong>填充字符</strong>：如果指定了对齐选项，则可以使用填充字符。默认为空格.</p>
 <p><strong>对齐选项</strong>：默认右对齐，各种对齐选项的含义如下：</p>
@@ -2805,51 +2767,41 @@ $$</p>
 </tr>
 </tbody>
 </table>
-<div class="codehilite"><pre><span></span><code><span class="c1"># 填充、对齐、符号、宽度、分组选项、精度</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 填充、对齐、符号、宽度、分组选项、精度</span>
 <span class="c1"># 填充*号、居中、正号标记、2精度</span>
 <span class="s2">&quot;</span><span class="si">{0:*^+20.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">120</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">&#39;******+120.00*******&#39;</span>
+<div class="highlight"><pre><span></span><code>&#39;******+120.00*******&#39;
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="c1"># 填充*号、居中、正号标记、_分隔符、2精度</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 填充*号、居中、正号标记、_分隔符、2精度</span>
 <span class="s2">&quot;{0:*^+20_.2f}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">12000</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">&#39;*****+12_000.00*****&#39;</span>
+<div class="highlight"><pre><span></span><code>&#39;*****+12_000.00*****&#39;
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="c1"># 填充*号、居中、正号标记、,分隔符、2精度</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 填充*号、居中、正号标记、,分隔符、2精度</span>
 <span class="s2">&quot;</span><span class="si">{0:*^+20,.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">12000</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">&#39;*****+12,000.00*****&#39;</span>
+<div class="highlight"><pre><span></span><code>&#39;*****+12,000.00*****&#39;
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="c1"># 填充*号、左对齐、正号标记、2精度</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 填充*号、左对齐、正号标记、2精度</span>
 <span class="s2">&quot;</span><span class="si">{0:*&lt;+20.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">-</span><span class="mi">120</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">&#39;-120.00*************&#39;</span>
+<div class="highlight"><pre><span></span><code>&#39;-120.00*************&#39;
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="c1"># 填充*号、左对齐、负号标记、2精度</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 填充*号、左对齐、负号标记、2精度</span>
 <span class="s2">&quot;</span><span class="si">{0:*&gt;-20.2f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">-</span><span class="mi">120</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">&#39;*************-120.00&#39;</span>
+<div class="highlight"><pre><span></span><code>&#39;*************-120.00&#39;
 </code></pre></div>
-
 
 <h2 id="_6">方法</h2>
 <h3 id="_7">逻辑方法</h3>
@@ -2987,54 +2939,42 @@ $$</p>
 </tr>
 </tbody>
 </table>
-<div class="codehilite"><pre><span></span><code><span class="s2">&quot;123#456#789&quot;</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">sep</span><span class="o">=</span><span class="s2">&quot;#&quot;</span><span class="p">,</span> <span class="n">maxsplit</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="s2">&quot;123#456#789&quot;</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">sep</span><span class="o">=</span><span class="s2">&quot;#&quot;</span><span class="p">,</span> <span class="n">maxsplit</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">[&#39;123&#39;, &#39;456#789&#39;]</span>
+<div class="highlight"><pre><span></span><code>[&#39;123&#39;, &#39;456#789&#39;]
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="s2">&quot;123#456#789&quot;</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="n">sep</span><span class="o">=</span><span class="s2">&quot;#&quot;</span><span class="p">,</span> <span class="n">maxsplit</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="s2">&quot;123#456#789&quot;</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="n">sep</span><span class="o">=</span><span class="s2">&quot;#&quot;</span><span class="p">,</span> <span class="n">maxsplit</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">[&#39;123#456&#39;, &#39;789&#39;]</span>
+<div class="highlight"><pre><span></span><code>[&#39;123#456&#39;, &#39;789&#39;]
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="s2">&quot;123</span><span class="se">\r\n</span><span class="s2">456</span><span class="se">\r\n</span><span class="s2">789&quot;</span><span class="o">.</span><span class="n">splitlines</span><span class="p">(</span><span class="n">keepends</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="s2">&quot;123</span><span class="se">\r\n</span><span class="s2">456</span><span class="se">\r\n</span><span class="s2">789&quot;</span><span class="o">.</span><span class="n">splitlines</span><span class="p">(</span><span class="n">keepends</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">[&#39;123&#39;, &#39;456&#39;, &#39;789&#39;]</span>
+<div class="highlight"><pre><span></span><code>[&#39;123&#39;, &#39;456&#39;, &#39;789&#39;]
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="s2">&quot;123</span><span class="se">\r\n</span><span class="s2">456</span><span class="se">\r\n</span><span class="s2">789&quot;</span><span class="o">.</span><span class="n">splitlines</span><span class="p">(</span><span class="n">keepends</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="s2">&quot;123</span><span class="se">\r\n</span><span class="s2">456</span><span class="se">\r\n</span><span class="s2">789&quot;</span><span class="o">.</span><span class="n">splitlines</span><span class="p">(</span><span class="n">keepends</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">[&#39;123\r\n&#39;, &#39;456\r\n&#39;, &#39;789&#39;]</span>
+<div class="highlight"><pre><span></span><code>[&#39;123\r\n&#39;, &#39;456\r\n&#39;, &#39;789&#39;]
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="s2">&quot;123#456#789&quot;</span><span class="o">.</span><span class="n">partition</span><span class="p">(</span><span class="s2">&quot;#&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="s2">&quot;123#456#789&quot;</span><span class="o">.</span><span class="n">partition</span><span class="p">(</span><span class="s2">&quot;#&quot;</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">(&#39;123&#39;, &#39;#&#39;, &#39;456#789&#39;)</span>
+<div class="highlight"><pre><span></span><code>(&#39;123&#39;, &#39;#&#39;, &#39;456#789&#39;)
 </code></pre></div>
-
 
 <h3 id="_10">合并字符串</h3>
-<div class="codehilite"><pre><span></span><code><span class="s2">&quot;_&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">])</span>
+<div class="highlight"><pre><span></span><code><span class="s2">&quot;_&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">])</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">&#39;a_b_c&#39;</span>
+<div class="highlight"><pre><span></span><code>&#39;a_b_c&#39;
 </code></pre></div>
-
 
 <h3 id="_11">替换字符串</h3>
 <table>
@@ -3067,37 +3007,29 @@ $$</p>
 </tr>
 </tbody>
 </table>
-<div class="codehilite"><pre><span></span><code><span class="s2">&quot;  </span><span class="se">\n</span><span class="s2">abc</span><span class="se">\t\n\r</span><span class="s2"> &quot;</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span class="s2">&quot;  </span><span class="se">\n</span><span class="s2">abc</span><span class="se">\t\n\r</span><span class="s2"> &quot;</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">&#39;abc&#39;</span>
+<div class="highlight"><pre><span></span><code>&#39;abc&#39;
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="s2">&quot;  </span><span class="se">\n</span><span class="s2">abc</span><span class="se">\t\n\r</span><span class="s2"> &quot;</span><span class="o">.</span><span class="n">lstrip</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span class="s2">&quot;  </span><span class="se">\n</span><span class="s2">abc</span><span class="se">\t\n\r</span><span class="s2"> &quot;</span><span class="o">.</span><span class="n">lstrip</span><span class="p">()</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">&#39;abc\t\n\r &#39;</span>
+<div class="highlight"><pre><span></span><code>&#39;abc\t\n\r &#39;
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="s2">&quot;  </span><span class="se">\n</span><span class="s2">abc</span><span class="se">\t\n\r</span><span class="s2"> &quot;</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span class="s2">&quot;  </span><span class="se">\n</span><span class="s2">abc</span><span class="se">\t\n\r</span><span class="s2"> &quot;</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">&#39;  \nabc&#39;</span>
+<div class="highlight"><pre><span></span><code>&#39;  \nabc&#39;
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="s2">&quot;  </span><span class="se">\n</span><span class="s2">abc</span><span class="se">\t\n\r</span><span class="s2"> &quot;</span><span class="o">.</span><span class="n">expandtabs</span><span class="p">(</span><span class="n">tabsize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="s2">&quot;  </span><span class="se">\n</span><span class="s2">abc</span><span class="se">\t\n\r</span><span class="s2"> &quot;</span><span class="o">.</span><span class="n">expandtabs</span><span class="p">(</span><span class="n">tabsize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">&#39;  \nabc     \n\r &#39;</span>
+<div class="highlight"><pre><span></span><code>&#39;  \nabc     \n\r &#39;
 </code></pre></div>
-
 
 <h3 id="_12">格式化字符串</h3>
 <table>
@@ -3135,19 +3067,17 @@ $$</p>
 </tbody>
 </table>
 <p><code>.format_map</code>与<code>.format</code>在用法上大体一致，但有一个区别：</p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># format_map 和 format 的区别</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># format_map 和 format 的区别</span>
 <span class="c1"># 如果要使用关键字 format必须这样使用</span>
 <span class="s2">&quot;</span><span class="si">{name}</span><span class="s2">, </span><span class="si">{sex}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Jack&quot;</span><span class="p">,</span> <span class="n">sex</span><span class="o">=</span><span class="s2">&quot;male&quot;</span><span class="p">)</span>
 <span class="c1"># format_map 可以用dict</span>
 <span class="s2">&quot;</span><span class="si">{name}</span><span class="s2">, </span><span class="si">{sex}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format_map</span><span class="p">({</span><span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;Jack&quot;</span><span class="p">,</span> <span class="s2">&quot;sex&quot;</span><span class="p">:</span><span class="s2">&quot;male&quot;</span><span class="p">})</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">&#39;Jack, male&#39;</span>
+<div class="highlight"><pre><span></span><code>&#39;Jack, male&#39;
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;abc&quot;</span><span class="o">.</span><span class="n">ljust</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="s2">&quot;#&quot;</span><span class="p">))</span>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;abc&quot;</span><span class="o">.</span><span class="n">ljust</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="s2">&quot;#&quot;</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;abc&quot;</span><span class="o">.</span><span class="n">rjust</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="s2">&quot;#&quot;</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;abc&quot;</span><span class="o">.</span><span class="n">center</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="s2">&quot;#&quot;</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;123&quot;</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
@@ -3155,52 +3085,43 @@ $$</p>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;abc&quot;</span><span class="o">.</span><span class="n">zfill</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">abc#######</span>
-<span class="err">#######abc</span>
-<span class="err">###abc####</span>
-<span class="err">0000000123</span>
-<span class="err">0000000abc</span>
+<div class="highlight"><pre><span></span><code>abc#######
+#######abc
+###abc####
+0000000123
+0000000abc
 </code></pre></div>
-
 
 <h3 id="_13">统计子字符串出现次数</h3>
-<div class="codehilite"><pre><span></span><code><span class="s2">&quot;abcAbc&quot;</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="s2">&quot;abcAbc&quot;</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">2</span>
+<div class="highlight"><pre><span></span><code>2
 </code></pre></div>
-
 
 <h3 id="_14">查找子字符串第一次出现的位置</h3>
 <p><code>.index</code>与<code>.find</code>的功能是一样的，只不过<code>.index</code>方法若找不到子字符串会抛出ValueError，而<code>.find</code>会返回<code>-1</code>。</p>
-<div class="codehilite"><pre><span></span><code><span class="s2">&quot;abcAbc&quot;</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s2">&quot;bc&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="s2">&quot;abcAbc&quot;</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s2">&quot;bc&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
 <span class="s2">&quot;abcAbc&quot;</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;bc&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">1</span>
+<div class="highlight"><pre><span></span><code>1
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="s2">&quot;abcAbc&quot;</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s2">&quot;bc&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="s2">&quot;abcAbc&quot;</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s2">&quot;bc&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">---------------------------------------------------------------------------ValueError</span>
-<span class="err">Traceback (most recent call last)&lt;ipython-input-1-f8cead4644a3&gt; in</span>
-<span class="err">&lt;module&gt;</span>
-<span class="err">----&gt; 1 &quot;abcAbc&quot;.index(&quot;bc&quot;, 0, 2)</span>
-<span class="c">ValueError: substring not found</span>
+<div class="highlight"><pre><span></span><code>---------------------------------------------------------------------------ValueError
+Traceback (most recent call last)&lt;ipython-input-1-f8cead4644a3&gt; in
+&lt;module&gt;
+----&gt; 1 &quot;abcAbc&quot;.index(&quot;bc&quot;, 0, 2)
+ValueError: substring not found
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="s2">&quot;abcAbc&quot;</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;bc&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="s2">&quot;abcAbc&quot;</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s2">&quot;bc&quot;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">-1</span>
+<div class="highlight"><pre><span></span><code>-1
 </code></pre></div>
                 
               

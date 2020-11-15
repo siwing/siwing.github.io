@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-6.1.4">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.4">
     
     
       
@@ -952,6 +952,18 @@
   <li class="md-nav__item">
     <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.16.shutil.html" class="md-nav__link">
       6.16.shutil
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.17.test.html" class="md-nav__link">
+      6.17.test
     </a>
   </li>
 
@@ -2125,7 +2137,7 @@
                 <h2 id="_1">构造和初始化</h2>
 <p>每个人都知道一个最基本的魔术方法， <code>__init__</code> 。通过此方法我们可以定义一个对象的初始操作。但很多博客和个别书籍中都把<code>__init__</code>当作类似于C++的构造方法，其实是错误的。<code>__init__</code>并不是第一个被调用的方法。实际上，还有一个叫做 <code>__new__</code> 的方法，来构造这个实例。然后给在开始创建时候的初始化函数来传递参数。在对象生命周期的另一端，也有一个 <code>__del__</code> 方法。</p>
 <p><code>__new__(cls, [...)</code> <code>__new__</code> 是在一个对象实例化的时候所调用的第一个方法。它的第一个参数是这个类，其他的参数是用来直接传递给 <code>__init__</code> 方法。 <code>__new__</code> 方法相当不常用，也不是很有用处，但是它有自己的特性，特别是当继承一个不可变的类型（比如一个tuple或者string）：</p>
-<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">inch</span><span class="p">(</span><span class="nb">float</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">inch</span><span class="p">(</span><span class="nb">float</span><span class="p">):</span>
     <span class="s2">&quot;Convert from inch to meter&quot;</span>
     <span class="k">def</span> <span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">arg</span><span class="o">=</span><span class="mf">0.0</span><span class="p">):</span>
         <span class="k">return</span> <span class="nb">float</span><span class="o">.</span><span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">arg</span><span class="o">*</span><span class="mf">0.0254</span><span class="p">)</span>
@@ -2133,13 +2145,11 @@
 <span class="nb">print</span><span class="p">(</span><span class="n">inch</span><span class="p">(</span><span class="mi">12</span><span class="p">))</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">0.30479999999999996</span>
+<div class="highlight"><pre><span></span><code>0.30479999999999996
 </code></pre></div>
 
-
 <p>这个类可能不是很有用，但是它显示了如何扩展不可变类型的构造函数。如果我们尝试替代<code>__init__</code>而不是<code>__new__</code>，那么它将不起作用：</p>
-<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">inch</span><span class="p">(</span><span class="nb">float</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">inch</span><span class="p">(</span><span class="nb">float</span><span class="p">):</span>
     <span class="s2">&quot;THIS DOESN&#39;T WORK!!!&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arg</span><span class="o">=</span><span class="mf">0.0</span><span class="p">):</span>
         <span class="nb">float</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arg</span><span class="o">*</span><span class="mf">0.0254</span><span class="p">)</span>
@@ -2150,14 +2160,12 @@
     <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">object.__init__() takes exactly one argument (the instance to</span>
-<span class="err">initialize)</span>
+<div class="highlight"><pre><span></span><code>object.__init__() takes exactly one argument (the instance to
+initialize)
 </code></pre></div>
 
-
 <p>重写初始值的版本不起作用，因为浮点类型的初始值是一个不可变对象。另一个<code>__new__</code>的例子是单例模式。</p>
-<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">A</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">A</span><span class="p">:</span>
     <span class="k">pass</span>
 
 <span class="n">new1</span> <span class="o">=</span> <span class="n">A</span><span class="p">()</span>
@@ -2166,13 +2174,11 @@
 <span class="nb">print</span><span class="p">(</span><span class="n">new2</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">&lt;__main__.A object at 0x0000021AA9651AC8&gt;</span>
-<span class="err">&lt;__main__.A object at 0x0000021AA9651B00&gt;</span>
+<div class="highlight"><pre><span></span><code>&lt;__main__.A object at 0x0000021AA9651AC8&gt;
+&lt;__main__.A object at 0x0000021AA9651B00&gt;
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">A</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">A</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="n">_singleton</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="k">def</span> <span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="bp">cls</span><span class="o">.</span><span class="n">_singleton</span><span class="p">:</span>
@@ -2186,11 +2192,9 @@
 <span class="nb">print</span><span class="p">(</span><span class="n">new2</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">&lt;__main__.A object at 0x0000021AA86752E8&gt;</span>
-<span class="err">&lt;__main__.A object at 0x0000021AA86752E8&gt;</span>
+<div class="highlight"><pre><span></span><code>&lt;__main__.A object at 0x0000021AA86752E8&gt;
+&lt;__main__.A object at 0x0000021AA86752E8&gt;
 </code></pre></div>
-
 
 <p>关于<code>__new__</code>的一些规则：</p>
 <ul>
@@ -2200,7 +2204,7 @@
 </ul>
 <p><code>__init__(self, […)</code> 此方法为类的初始化方法。当构造函数被调用的时候的任何参数都将会传给它。(比如如果我们调用 <code>x = SomeClass(10, 'foo')</code>)，那么 <code>__init__</code> 将会得到两个参数10和foo。 <code>__init__</code> 在Python的类定义中被广泛用到。</p>
 <p><code>__del__(self)</code> 如果 <code>__new__</code> 和 <code>__init__</code> 是对象的构造器的话，那么 <code>__del__</code> 就是析构器。它不实现语句 <code>del x</code> (以上代码将不会翻译为 <code>x.__del__()</code> )。它定义的是当一个对象进行垃圾回收时候的行为。当一个对象在删除的时需要更多的清洁工作的时候此方法会很有用，比如套接字对象或者是文件对象。注意，如果解释器退出的时候对象还存存在，就不能保证 <code>__del__</code> 能够被执行。</p>
-<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">A</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">A</span><span class="p">:</span>
     <span class="k">def</span> <span class="fm">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;我被删除了&quot;</span><span class="p">)</span>
 
@@ -2208,10 +2212,8 @@
 <span class="k">del</span> <span class="n">a</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">我被删除了</span>
+<div class="highlight"><pre><span></span><code>我被删除了
 </code></pre></div>
-
 
 <h2 id="_2">用于比较的魔术方法</h2>
 <table>
@@ -2255,7 +2257,7 @@
 </tr>
 </tbody>
 </table>
-<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">A</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">A</span><span class="p">:</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">num</span> <span class="o">=</span> <span class="n">num</span>
     <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -2283,15 +2285,13 @@
 <span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">&lt;=</span> <span class="mi">6</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">True</span>
-<span class="err">False</span>
-<span class="err">True</span>
-<span class="err">True</span>
-<span class="err">True</span>
-<span class="err">True</span>
+<div class="highlight"><pre><span></span><code>True
+False
+True
+True
+True
+True
 </code></pre></div>
-
 
 <h2 id="_3">数值处理的魔术方法</h2>
 <h3 id="_4">一元运算符和内置函数</h3>
@@ -2326,7 +2326,7 @@
 </tr>
 </tbody>
 </table>
-<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">A</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">A</span><span class="p">:</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">num</span> <span class="o">=</span> <span class="n">num</span>
     <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -2348,12 +2348,10 @@
 <span class="nb">print</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">-5</span>
-<span class="err">5</span>
-<span class="err">5</span>
+<div class="highlight"><pre><span></span><code>-5
+5
+5
 </code></pre></div>
-
 
 <h3 id="_5">算术运算符</h3>
 <table>
@@ -2402,7 +2400,7 @@
 </tr>
 </tbody>
 </table>
-<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">A</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">A</span><span class="p">:</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">num</span> <span class="o">=</span> <span class="n">num</span>
     <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -2440,29 +2438,25 @@
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a % 2 =&quot;</span><span class="p">,</span> <span class="n">a</span> <span class="o">%</span> <span class="mi">2</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">a + 2 = 7</span>
-<span class="err">a - 2 = 3</span>
-<span class="err">a * 2 = 10</span>
-<span class="err">a / 2 = 2.5</span>
-<span class="err">a ** 2 = 25</span>
-<span class="err">a // 2 = 2</span>
-<span class="err">a % 2 = 1</span>
+<div class="highlight"><pre><span></span><code>a + 2 = 7
+a - 2 = 3
+a * 2 = 10
+a / 2 = 2.5
+a ** 2 = 25
+a // 2 = 2
+a % 2 = 1
 </code></pre></div>
-
 
 <h3 id="_6">反运算</h3>
 <p>以下是一个普通的加法运算的例子:</p>
-<div class="codehilite"><pre><span></span><code><span class="err"># __add__</span>
-<span class="err">some_object + other</span>
+<div class="highlight"><pre><span></span><code># __add__
+some_object + other
 </code></pre></div>
-
 
 <p>反运算是相同的，只是把操作数调换了位置:</p>
-<div class="codehilite"><pre><span></span><code><span class="err"># __radd__</span>
-<span class="err">other + some_object</span>
+<div class="highlight"><pre><span></span><code># __radd__
+other + some_object
 </code></pre></div>
-
 
 <p>所以，除了当与其他对象操作的时候自己会成为第二个操作数之外，所有的这些魔术方法都与普通的操作是相同的。大多数情况下，反运算的结果是与普通运算相同的。所以你可以你可以将 <code>__radd__</code> 与 <code>__add__</code> 等价。</p>
 <table>
@@ -2560,14 +2554,12 @@
 </table>
 <h2 id="_8">表现你的类</h2>
 <p>如果有一个字符串来表示一个类将会非常有用，例如：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 <span class="n">a</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">[1, 2, 3]</span>
+<div class="highlight"><pre><span></span><code>[1, 2, 3]
 </code></pre></div>
-
 
 <p>在Python中，有很多方法可以实现类定义内置的一些函数的返回值。</p>
 <p><code>__str__(self)</code> 定义当 <code>str()</code> 调用的时候的返回值。<code>__repr__(self)</code> 定义 <code>repr()</code> 被调用的时候的返回值。 <code>str()</code> 和 <code>repr()</code> 的主要区别在于 <code>repr()</code> 返回的是机器可读的输出，而 <code>str()</code> 返回的是人类可读的。 </p>
@@ -2645,16 +2637,15 @@
 <p><code>__call__</code> 在那些类的实例经常改变状态的时候会非常有效。调用这个实例是一种改变这个对象状态的直接和优雅的做法。用一个实例来表达最好不过了。</p>
 <h2 id="_12">会话管理</h2>
 <p>在Python 2.5中，为了代码利用定义了一个新的关键词 <code>with</code> 语句。会话控制在Python中不罕见(之前是作为库的一部分被实现)，直到 <a href="http://www.python.org/dev/peps/pep-0343/">PEP343</a> 被添加后。它被成为一级语言结构。你也许之前看到这样的语句:</p>
-<div class="codehilite"><pre><span></span><code><span class="err">with open(&#39;foo.txt&#39;) as bar:</span>
-<span class="err"># perform some action with bar</span>
+<div class="highlight"><pre><span></span><code>with open(&#39;foo.txt&#39;) as bar:
+# perform some action with bar
 </code></pre></div>
-
 
 <p>回话控制器通过包装一个 <code>with</code> 语句来设置和清理行为。回话控制器的行为通过两个魔术方法来定义: </p>
 <p><code>__enter__(self)</code> 定义当使用 <code>with</code> 语句的时候会话管理器应该初始块被创建的时候的行为。注意 <code>__enter__</code> 的返回值被 <code>with</code> 语句的目标或者 <code>as</code> 后的名字绑定。 </p>
 <p><code>__exit__(self, exception_type,exception_value, traceback)</code> 定义当一个代码块被执行或者终止后会话管理器应该做什么。它可以被用来处理异常，清除工作或者做一些代码块执行完毕之后的日常工作。如果代码块执行成功， <code>exception_type</code> , <code>exception_value</code> , 和 <code>traceback</code> 将会是 <code>None</code> 。否则的话你可以选择处理这个异常或者是直接交给用户处理。如果你想处理这个异常的话，确认 <code>__exit__</code> 在所有结束之后会返回 <code>True</code> 。如果你想让异常被会话管理器处理的话，那么就这样处理。</p>
 <p><code>__enter</code> 和 <code>__exit__</code> 对于明确有定义好的和日常行为的设置和清洁工作的类很有帮助。你也可以使用这些方法来创建一般的可以包装其他对象的会话管理器。以下是一个例子：</p>
-<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">Closer</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Closer</span><span class="p">:</span>
     <span class="sd">&#39;&#39;&#39;通过with语句和一个close方法来关闭一个对象的会话管理器&#39;&#39;&#39;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">obj</span> <span class="o">=</span> <span class="n">obj</span>
@@ -2673,10 +2664,8 @@
     <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">Not closable.</span>
+<div class="highlight"><pre><span></span><code>Not closable.
 </code></pre></div>
-
 
 <h2 id="_13">参考</h2>
 <ol>

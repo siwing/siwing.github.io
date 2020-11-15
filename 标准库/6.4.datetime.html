@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-6.1.4">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.4">
     
     
       
@@ -1008,6 +1008,18 @@
   <li class="md-nav__item">
     <a href="6.16.shutil.html" class="md-nav__link">
       6.16.shutil
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="6.17.test.html" class="md-nav__link">
+      6.17.test
     </a>
   </li>
 
@@ -2234,19 +2246,17 @@
                 
                   <h1>6.4.datetime</h1>
                 
-                <div class="codehilite"><pre><span></span><code><span class="err">Windows 10</span>
-<span class="err">Python 3.7.3 @ MSC v.1915 64 bit (AMD64)</span>
+                <div class="highlight"><pre><span></span><code>Windows 10
+Python 3.7.3 @ MSC v.1915 64 bit (AMD64)
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="c1"># from tools import Help as H</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># from tools import Help as H</span>
 <span class="kn">import</span> <span class="nn">datetime</span>
 </code></pre></div>
 
-
 <h2 id="time">time：时间</h2>
 <p><code>time</code> 实例只保存时间值，而不保存与时间相关的日期值。</p>
-<div class="codehilite"><pre><span></span><code><span class="n">t</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">time</span><span class="p">(</span><span class="n">hour</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">minute</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">second</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">microsecond</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">tzinfo</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">t</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">time</span><span class="p">(</span><span class="n">hour</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">minute</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">second</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">microsecond</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">tzinfo</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;hour       :&#39;</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">hour</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;minute     :&#39;</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">minute</span><span class="p">)</span>
@@ -2255,18 +2265,16 @@
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;tzinfo     :&#39;</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">tzinfo</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="mi">01</span><span class="o">:</span><span class="mi">02</span><span class="o">:</span><span class="mf">03.000004</span>
-<span class="n">hour</span>       <span class="o">:</span> <span class="mi">1</span>
-<span class="n">minute</span>     <span class="o">:</span> <span class="mi">2</span>
-<span class="n">second</span>     <span class="o">:</span> <span class="mi">3</span>
-<span class="n">microsecond</span><span class="o">:</span> <span class="mi">4</span>
-<span class="n">tzinfo</span>     <span class="o">:</span> <span class="n">None</span>
+<div class="highlight"><pre><span></span><code>01:02:03.000004
+hour       : 1
+minute     : 2
+second     : 3
+microsecond: 4
+tzinfo     : None
 </code></pre></div>
 
-
 <p><code>min</code> 和 <code>max</code> 类的属性代表一天内的有效时间范围。<code>time</code> 的精度（即 <code>time</code> 能够有效表示的最小时间间隔）被限制为1微秒。</p>
-<div class="codehilite"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;最小时间&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;最小时间&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;min:&#39;</span><span class="p">,</span> <span class="n">datetime</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">min</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;最大时间&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;min:&#39;</span><span class="p">,</span> <span class="n">datetime</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">max</span><span class="p">)</span>
@@ -2274,28 +2282,24 @@
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Resolution:&#39;</span><span class="p">,</span> <span class="n">datetime</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">resolution</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">最小时间</span>
-<span class="c">min: 00:00:00</span>
-<span class="err">最大时间</span>
-<span class="c">min: 23:59:59.999999</span>
-<span class="err">最小刻度单位</span>
-<span class="c">Resolution: 0:00:00.000001</span>
+<div class="highlight"><pre><span></span><code>最小时间
+min: 00:00:00
+最大时间
+min: 23:59:59.999999
+最小刻度单位
+Resolution: 0:00:00.000001
 </code></pre></div>
-
 
 <p>其他构造器：<code>datetime.date.today()</code>：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">datetime.date(2020, 2, 3)</span>
+<div class="highlight"><pre><span></span><code>datetime.date(2020, 2, 3)
 </code></pre></div>
-
 
 <h2 id="date">date：日期</h2>
 <p>日历日期可以用 <code>date</code> 类来描述。<code>date</code> 类实例化后有属性  <code>year</code>， <code>month</code>，和 <code>day</code>。</p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># 如果参数超出限制范围，抛出ValueError异常</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 如果参数超出限制范围，抛出ValueError异常</span>
 <span class="n">MYdate</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">2019</span><span class="p">,</span><span class="n">month</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">day</span><span class="o">=</span><span class="mi">22</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">MYdate</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;year  :&#39;</span><span class="p">,</span> <span class="n">MYdate</span><span class="o">.</span><span class="n">year</span><span class="p">)</span>
@@ -2310,131 +2314,107 @@
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Resolution:&#39;</span><span class="p">,</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">resolution</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">2019-03-22</span>
-<span class="err">year  : 2019</span>
-<span class="err">month : 3</span>
-<span class="err">day   : 22</span>
-<span class="err">最小时间</span>
-<span class="c">min: 0001-01-01</span>
-<span class="err">最大时间</span>
-<span class="c">min: 9999-12-31</span>
-<span class="err">最小刻度单位</span>
-<span class="c">Resolution: 1 day, 0:00:00</span>
+<div class="highlight"><pre><span></span><code>2019-03-22
+year  : 2019
+month : 3
+day   : 22
+最小时间
+min: 0001-01-01
+最大时间
+min: 9999-12-31
+最小刻度单位
+Resolution: 1 day, 0:00:00
 </code></pre></div>
 
-
 <h3 id="_1">其他构造函数</h3>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">time</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">time</span>
 
 <span class="n">t</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
 </code></pre></div>
 
-
 <p>从timestamp构造date</p>
-<div class="codehilite"><pre><span></span><code><span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">fromtimestamp</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">fromtimestamp</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">datetime.date(2020, 2, 3)</span>
+<div class="highlight"><pre><span></span><code>datetime.date(2020, 2, 3)
 </code></pre></div>
-
 
 <p>从proleptic Gregorian ordinal构造date</p>
-<div class="codehilite"><pre><span></span><code><span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">fromordinal</span><span class="p">(</span><span class="mi">737140</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">fromordinal</span><span class="p">(</span><span class="mi">737140</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">datetime.date(2019, 3, 22)</span>
+<div class="highlight"><pre><span></span><code>datetime.date(2019, 3, 22)
 </code></pre></div>
-
 
 <p>从ISO格式的日期构造date</p>
-<div class="codehilite"><pre><span></span><code><span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">fromisoformat</span><span class="p">(</span><span class="s1">&#39;2019-03-22&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">fromisoformat</span><span class="p">(</span><span class="s1">&#39;2019-03-22&#39;</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">datetime.date(2019, 3, 22)</span>
+<div class="highlight"><pre><span></span><code>datetime.date(2019, 3, 22)
 </code></pre></div>
-
 
 <h3 id="date_1">date → 字符串时间</h3>
-<div class="codehilite"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">ctime</span><span class="p">(</span><span class="n">MYdate</span><span class="p">))</span>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">ctime</span><span class="p">(</span><span class="n">MYdate</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="n">MYdate</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">%a</span><span class="s2"> %b </span><span class="si">%d</span><span class="s2"> %H:%M:%S %Y&quot;</span><span class="p">))</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">Fri Mar 22 00:00:00 2019</span>
-<span class="err">Fri Mar 22 00:00:00 2019</span>
+<div class="highlight"><pre><span></span><code>Fri Mar 22 00:00:00 2019
+Fri Mar 22 00:00:00 2019
 </code></pre></div>
-
 
 <h3 id="date-struct_time">date → struct_time</h3>
-<div class="codehilite"><pre><span></span><code><span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">timetuple</span><span class="p">(</span><span class="n">MYdate</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">timetuple</span><span class="p">(</span><span class="n">MYdate</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">time.struct_time(tm_year=2019, tm_mon=3, tm_mday=22, tm_hour=0,</span>
-<span class="err">tm_min=0, tm_sec=0, tm_wday=4, tm_yday=81, tm_isdst=-1)</span>
+<div class="highlight"><pre><span></span><code>time.struct_time(tm_year=2019, tm_mon=3, tm_mday=22, tm_hour=0,
+tm_min=0, tm_sec=0, tm_wday=4, tm_yday=81, tm_isdst=-1)
 </code></pre></div>
-
 
 <h3 id="_2">日期函数</h3>
 <p>Return a 3-tuple containing ISO year, week number, and weekday.</p>
-<div class="codehilite"><pre><span></span><code><span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">isocalendar</span><span class="p">(</span><span class="n">MYdate</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">isocalendar</span><span class="p">(</span><span class="n">MYdate</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">(2019, 12, 5)</span>
+<div class="highlight"><pre><span></span><code>(2019, 12, 5)
 </code></pre></div>
-
 
 <p>Return the date formatted according to ISO.This is 'YYYY-MM-DD'.</p>
-<div class="codehilite"><pre><span></span><code><span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">isoformat</span><span class="p">(</span><span class="n">MYdate</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">isoformat</span><span class="p">(</span><span class="n">MYdate</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">&#39;2019-03-22&#39;</span>
+<div class="highlight"><pre><span></span><code>&#39;2019-03-22&#39;
 </code></pre></div>
-
 
 <p>"Return day of the week, where Monday == 1 ... Sunday == 7."</p>
-<div class="codehilite"><pre><span></span><code><span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">isoweekday</span><span class="p">(</span><span class="n">MYdate</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">isoweekday</span><span class="p">(</span><span class="n">MYdate</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">5</span>
+<div class="highlight"><pre><span></span><code>5
 </code></pre></div>
-
 
 <p>"Return day of the week, where Monday == 0 ... Sunday == 6."</p>
-<div class="codehilite"><pre><span></span><code><span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">weekday</span><span class="p">(</span><span class="n">MYdate</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">weekday</span><span class="p">(</span><span class="n">MYdate</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">4</span>
+<div class="highlight"><pre><span></span><code>4
 </code></pre></div>
-
 
 <p>Return proleptic Gregorian ordinal for the year, month and day.</p>
-<div class="codehilite"><pre><span></span><code><span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">toordinal</span><span class="p">(</span><span class="n">MYdate</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">toordinal</span><span class="p">(</span><span class="n">MYdate</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">737140</span>
+<div class="highlight"><pre><span></span><code>737140
 </code></pre></div>
-
 
 <h2 id="datetime">datetime：日期和时间</h2>
-<div class="codehilite"><pre><span></span><code><span class="n">date_time</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">2020</span><span class="p">,</span> <span class="n">month</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> 
+<div class="highlight"><pre><span></span><code><span class="n">date_time</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="mi">2020</span><span class="p">,</span> <span class="n">month</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> 
                               <span class="n">day</span><span class="o">=</span><span class="mi">23</span><span class="p">,</span> <span class="n">hour</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> 
                               <span class="n">minute</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">second</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
                               <span class="n">microsecond</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">tzinfo</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 </code></pre></div>
 
-
 <h3 id="_3">其他构造函数</h3>
-<div class="codehilite"><pre><span></span><code><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">()</span>
 <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
 <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
 <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">fromisoformat</span><span class="p">(</span><span class="s1">&#39;2019-03-22-10:15:30&#39;</span><span class="p">)</span>
@@ -2443,82 +2423,66 @@
 <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">utcfromtimestamp</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">())</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">datetime.datetime(2020, 2, 3, 13, 11, 31, 149891)</span>
+<div class="highlight"><pre><span></span><code>datetime.datetime(2020, 2, 3, 13, 11, 31, 149891)
 </code></pre></div>
 
-
 <h3 id="datetime-date">datetime → date</h3>
-<div class="codehilite"><pre><span></span><code><span class="n">date_time</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span class="n">date_time</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
 <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="p">(</span><span class="n">date_time</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">datetime.date(2020, 2, 3)</span>
+<div class="highlight"><pre><span></span><code>datetime.date(2020, 2, 3)
 </code></pre></div>
-
 
 <h3 id="datetime-time">datetime → time</h3>
-<div class="codehilite"><pre><span></span><code><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">time</span><span class="p">(</span><span class="n">date_time</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">time</span><span class="p">(</span><span class="n">date_time</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">datetime.time(21, 11, 31, 172888)</span>
+<div class="highlight"><pre><span></span><code>datetime.time(21, 11, 31, 172888)
 </code></pre></div>
-
 
 <h3 id="date-and-time-datetime">date and time → datetime</h3>
-<div class="codehilite"><pre><span></span><code><span class="n">t1</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span class="n">t1</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
 <span class="n">t2</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">time</span><span class="p">(</span><span class="n">hour</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">minute</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">second</span><span class="o">=</span><span class="mi">30</span><span class="p">)</span>
 <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">combine</span><span class="p">(</span><span class="n">t1</span><span class="p">,</span> <span class="n">t2</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">datetime.datetime(2020, 2, 3, 10, 15, 30)</span>
+<div class="highlight"><pre><span></span><code>datetime.datetime(2020, 2, 3, 10, 15, 30)
 </code></pre></div>
 
-
 <h3 id="datetime-time-string">datetime → time string</h3>
-<div class="codehilite"><pre><span></span><code><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">ctime</span><span class="p">(</span><span class="n">date_time</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">ctime</span><span class="p">(</span><span class="n">date_time</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="n">date_time</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">%a</span><span class="s2"> %b </span><span class="si">%d</span><span class="s2"> %H:%M:%S %Y&quot;</span><span class="p">))</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">Mon Feb 03 21:11:31 2020</span>
+<div class="highlight"><pre><span></span><code>Mon Feb 03 21:11:31 2020
 </code></pre></div>
-
 
 <h3 id="time-string-datetime">time string → datetime</h3>
-<div class="codehilite"><pre><span></span><code><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="s1">&#39;Mon Feb  3 19:56:21 2020&#39;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">%a</span><span class="s2"> %b </span><span class="si">%d</span><span class="s2"> %H:%M:%S %Y&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="s1">&#39;Mon Feb  3 19:56:21 2020&#39;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">%a</span><span class="s2"> %b </span><span class="si">%d</span><span class="s2"> %H:%M:%S %Y&quot;</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">datetime.datetime(2020, 2, 3, 19, 56, 21)</span>
+<div class="highlight"><pre><span></span><code>datetime.datetime(2020, 2, 3, 19, 56, 21)
 </code></pre></div>
-
 
 <h3 id="datetime-timestamp">datetime → timestamp</h3>
-<div class="codehilite"><pre><span></span><code><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">timestamp</span><span class="p">(</span><span class="n">date_time</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">timestamp</span><span class="p">(</span><span class="n">date_time</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">1580735491.172888</span>
+<div class="highlight"><pre><span></span><code>1580735491.172888
 </code></pre></div>
-
 
 <h3 id="datetime-timetuple">datetime → timetuple</h3>
-<div class="codehilite"><pre><span></span><code><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">timetuple</span><span class="p">(</span><span class="n">date_time</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">timetuple</span><span class="p">(</span><span class="n">date_time</span><span class="p">)</span>
 <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">utctimetuple</span><span class="p">(</span><span class="n">date_time</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">time.struct_time(tm_year=2020, tm_mon=2, tm_mday=3, tm_hour=21,</span>
-<span class="err">tm_min=11, tm_sec=31, tm_wday=0, tm_yday=34, tm_isdst=0)</span>
+<div class="highlight"><pre><span></span><code>time.struct_time(tm_year=2020, tm_mon=2, tm_mday=3, tm_hour=21,
+tm_min=11, tm_sec=31, tm_wday=0, tm_yday=34, tm_isdst=0)
 </code></pre></div>
 
-
 <h3 id="_4">其他函数</h3>
-<div class="codehilite"><pre><span></span><code><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">toordinal</span><span class="p">(</span><span class="n">date_time</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">toordinal</span><span class="p">(</span><span class="n">date_time</span><span class="p">)</span>
 <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">isocalendar</span><span class="p">(</span><span class="n">date_time</span><span class="p">)</span>
 <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">isoformat</span><span class="p">(</span><span class="n">date_time</span><span class="p">)</span>
 <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">isoweekday</span><span class="p">(</span><span class="n">date_time</span><span class="p">)</span>
@@ -2530,20 +2494,17 @@
 <span class="n">date_time</span><span class="o">.</span><span class="n">astimezone</span><span class="p">(</span><span class="n">tz</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">datetime.datetime(2020, 2, 3, 21, 11, 31, 172888,</span>
-<span class="err">tzinfo=datetime.timezone(datetime.timedelta(seconds=28800),</span>
-<span class="err">&#39;?D1¨²¡À¨º¡Á?¨º¡À??&#39;))</span>
+<div class="highlight"><pre><span></span><code>datetime.datetime(2020, 2, 3, 21, 11, 31, 172888,
+tzinfo=datetime.timezone(datetime.timedelta(seconds=28800),
+&#39;?D1¨²¡À¨º¡Á?¨º¡À??&#39;))
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">[&#39;astimezone&#39;, &#39;dst&#39;, &#39;replace&#39;, &#39;timetz&#39;, &#39;tzname&#39;, &#39;utcoffset&#39;]</span>
+<div class="highlight"><pre><span></span><code>[&#39;astimezone&#39;, &#39;dst&#39;, &#39;replace&#39;, &#39;timetz&#39;, &#39;tzname&#39;, &#39;utcoffset&#39;]
 </code></pre></div>
-
 
 <h2 id="timedelta">timedelta</h2>
 <p>可以使用两个 <code>datetime</code> 对象的基本运算来计算未来和过去的日期，或者是通过将一个 <code>datetime</code> 对象和一个 <code>timedelta</code> 对象相结合的方法来计算。不同的日期相减会产生一个 <code>timedelta</code> ，一个日期加上或者减去一个 <code>timedelta</code> 会产生另一个日期。 <code>timedelta</code> 的内部值以天、秒和微秒的形式存储。</p>
-<div class="codehilite"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;microseconds:&#39;</span><span class="p">,</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">microseconds</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;microseconds:&#39;</span><span class="p">,</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">microseconds</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;milliseconds:&#39;</span><span class="p">,</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">milliseconds</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;seconds     :&#39;</span><span class="p">,</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">seconds</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;minutes     :&#39;</span><span class="p">,</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">minutes</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
@@ -2552,19 +2513,17 @@
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;weeks       :&#39;</span><span class="p">,</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">weeks</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="n">microseconds</span><span class="o">:</span> <span class="mi">0</span><span class="o">:</span><span class="mi">00</span><span class="o">:</span><span class="mf">00.000001</span>
-<span class="n">milliseconds</span><span class="o">:</span> <span class="mi">0</span><span class="o">:</span><span class="mi">00</span><span class="o">:</span><span class="mf">00.001000</span>
-<span class="n">seconds</span>     <span class="o">:</span> <span class="mi">0</span><span class="o">:</span><span class="mi">00</span><span class="o">:</span><span class="mi">01</span>
-<span class="n">minutes</span>     <span class="o">:</span> <span class="mi">0</span><span class="o">:</span><span class="mi">01</span><span class="o">:</span><span class="mi">00</span>
-<span class="n">hours</span>       <span class="o">:</span> <span class="mi">1</span><span class="o">:</span><span class="mi">00</span><span class="o">:</span><span class="mi">00</span>
-<span class="n">days</span>        <span class="o">:</span> <span class="mi">1</span> <span class="n">day</span><span class="o">,</span> <span class="mi">0</span><span class="o">:</span><span class="mi">00</span><span class="o">:</span><span class="mi">00</span>
-<span class="n">weeks</span>       <span class="o">:</span> <span class="mi">7</span> <span class="n">days</span><span class="o">,</span> <span class="mi">0</span><span class="o">:</span><span class="mi">00</span><span class="o">:</span><span class="mi">00</span>
+<div class="highlight"><pre><span></span><code>microseconds: 0:00:00.000001
+milliseconds: 0:00:00.001000
+seconds     : 0:00:01
+minutes     : 0:01:00
+hours       : 1:00:00
+days        : 1 day, 0:00:00
+weeks       : 7 days, 0:00:00
 </code></pre></div>
 
-
 <p>可以使用 <code>total_seconds()</code> 将 <code>timedelta</code> 的整个持续时间检索为秒数。</p>
-<div class="codehilite"><pre><span></span><code><span class="k">for</span> <span class="n">delta</span> <span class="ow">in</span> <span class="p">[</span><span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">microseconds</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">delta</span> <span class="ow">in</span> <span class="p">[</span><span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">microseconds</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
               <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">milliseconds</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
               <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">seconds</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
               <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">minutes</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
@@ -2577,19 +2536,17 @@
     <span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="mi">0</span><span class="o">:</span><span class="mi">00</span><span class="o">:</span><span class="mf">00.000001</span>  <span class="o">=</span>    <span class="mi">1</span><span class="n">e</span><span class="o">-</span><span class="mi">06</span> <span class="n">seconds</span>
-<span class="mi">0</span><span class="o">:</span><span class="mi">00</span><span class="o">:</span><span class="mf">00.001000</span>  <span class="o">=</span>    <span class="mf">0.001</span> <span class="n">seconds</span>
-<span class="mi">0</span><span class="o">:</span><span class="mi">00</span><span class="o">:</span><span class="mi">01</span>         <span class="o">=</span>      <span class="mf">1.0</span> <span class="n">seconds</span>
-<span class="mi">0</span><span class="o">:</span><span class="mi">01</span><span class="o">:</span><span class="mi">00</span>         <span class="o">=</span>     <span class="mf">60.0</span> <span class="n">seconds</span>
-<span class="mi">1</span><span class="o">:</span><span class="mi">00</span><span class="o">:</span><span class="mi">00</span>         <span class="o">=</span>   <span class="mf">3600.0</span> <span class="n">seconds</span>
-<span class="mi">1</span> <span class="n">day</span><span class="o">,</span> <span class="mi">0</span><span class="o">:</span><span class="mi">00</span><span class="o">:</span><span class="mi">00</span>  <span class="o">=</span>  <span class="mf">86400.0</span> <span class="n">seconds</span>
-<span class="mi">7</span> <span class="n">days</span><span class="o">,</span> <span class="mi">0</span><span class="o">:</span><span class="mi">00</span><span class="o">:</span><span class="mi">00</span> <span class="o">=</span> <span class="mf">604800.0</span> <span class="n">seconds</span>
+<div class="highlight"><pre><span></span><code>0:00:00.000001  =    1e-06 seconds
+0:00:00.001000  =    0.001 seconds
+0:00:01         =      1.0 seconds
+0:01:00         =     60.0 seconds
+1:00:00         =   3600.0 seconds
+1 day, 0:00:00  =  86400.0 seconds
+7 days, 0:00:00 = 604800.0 seconds
 </code></pre></div>
 
-
 <h2 id="_5">日期算术运算</h2>
-<div class="codehilite"><pre><span></span><code><span class="n">one_day</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">one_day</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">today</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
 <span class="n">yesterday</span> <span class="o">=</span> <span class="n">today</span> <span class="o">-</span> <span class="n">one_day</span>
 <span class="n">tomorrow</span> <span class="o">=</span> <span class="n">today</span> <span class="o">+</span> <span class="n">one_day</span>
@@ -2598,17 +2555,14 @@
 <span class="nb">type</span><span class="p">(</span><span class="n">yesterday</span><span class="p">)</span> <span class="o">==</span> <span class="nb">type</span><span class="p">(</span><span class="n">today</span><span class="p">)</span> <span class="o">==</span> <span class="nb">type</span><span class="p">(</span><span class="n">tomorrow</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">&lt;class &#39;datetime.date&#39;&gt;</span>
+<div class="highlight"><pre><span></span><code>&lt;class &#39;datetime.date&#39;&gt;
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">True</span>
+<div class="highlight"><pre><span></span><code>True
 </code></pre></div>
-
 
 <p><code>timedelta</code> 对象还支持与整型数、浮点数和其它 <code>timedelta</code> 实例的算术运算。</p>
-<div class="codehilite"><pre><span></span><code><span class="n">one_day</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">one_day</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;1 day    :&#39;</span><span class="p">,</span> <span class="n">one_day</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;5 days   :&#39;</span><span class="p">,</span> <span class="n">one_day</span> <span class="o">*</span> <span class="mi">5</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;1.5 days :&#39;</span><span class="p">,</span> <span class="n">one_day</span> <span class="o">*</span> <span class="mf">1.5</span><span class="p">)</span>
@@ -2620,17 +2574,15 @@
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;meetings per day :&#39;</span><span class="p">,</span> <span class="n">work_day</span> <span class="o">/</span> <span class="n">meeting_length</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">1 day    : 1 day, 0:00:00</span>
-<span class="err">5 days   : 5 days, 0:00:00</span>
-<span class="err">1.5 days : 1 day, 12:00:00</span>
-<span class="err">1/4 day  : 6:00:00</span>
-<span class="err">meetings per day : 7.0</span>
+<div class="highlight"><pre><span></span><code>1 day    : 1 day, 0:00:00
+5 days   : 5 days, 0:00:00
+1.5 days : 1 day, 12:00:00
+1/4 day  : 6:00:00
+meetings per day : 7.0
 </code></pre></div>
 
-
 <h2 id="_6">比较数值</h2>
-<div class="codehilite"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Times:&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Times:&#39;</span><span class="p">)</span>
 <span class="n">t1</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">time</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;  t1:&#39;</span><span class="p">,</span> <span class="n">t1</span><span class="p">)</span>
 <span class="n">t2</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">time</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
@@ -2646,22 +2598,20 @@
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;  d1 &gt; d2:&#39;</span><span class="p">,</span> <span class="n">d1</span> <span class="o">&gt;</span> <span class="n">d2</span><span class="p">)</span>
 </code></pre></div>
 
+<div class="highlight"><pre><span></span><code>Times:
+  t1: 12:55:00
+  t2: 13:05:00
+  t1 &lt; t2: True
 
-<div class="codehilite"><pre><span></span><code><span class="n">Times</span><span class="o">:</span>
-  <span class="n">t1</span><span class="o">:</span> <span class="mi">12</span><span class="o">:</span><span class="mi">55</span><span class="o">:</span><span class="mi">00</span>
-  <span class="n">t2</span><span class="o">:</span> <span class="mi">13</span><span class="o">:</span><span class="mi">05</span><span class="o">:</span><span class="mi">00</span>
-  <span class="n">t1</span> <span class="o">&lt;</span> <span class="n">t2</span><span class="o">:</span> <span class="n">True</span>
-
-<span class="n">Dates</span><span class="o">:</span>
-  <span class="n">d1</span><span class="o">:</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">03</span>
-  <span class="n">d2</span><span class="o">:</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">04</span>
-  <span class="n">d1</span> <span class="o">&gt;</span> <span class="n">d2</span><span class="o">:</span> <span class="n">False</span>
+Dates:
+  d1: 2020-02-03
+  d2: 2020-02-04
+  d1 &gt; d2: False
 </code></pre></div>
-
 
 <h2 id="_7">格式化和解析</h2>
 <p>datetime 对象默认的字符串表示法采用的是 ISO-8601 格式 (<code>YYYY-MM-DDTHH:MM:SS.mmmmmm</code>)。当然也可以使用 <code>strftime()</code> 函数生成其它的格式。</p>
-<div class="codehilite"><pre><span></span><code><span class="nb">format</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%a</span><span class="s2"> %b </span><span class="si">%d</span><span class="s2"> %H:%M:%S %Y&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="nb">format</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%a</span><span class="s2"> %b </span><span class="si">%d</span><span class="s2"> %H:%M:%S %Y&quot;</span>
 
 <span class="n">today</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;ISO     :&#39;</span><span class="p">,</span> <span class="n">today</span><span class="p">)</span>
@@ -2673,24 +2623,20 @@
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;strptime:&#39;</span><span class="p">,</span> <span class="n">d</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="nb">format</span><span class="p">))</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="n">ISO</span>     <span class="o">:</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">03</span> <span class="mi">21</span><span class="o">:</span><span class="mi">11</span><span class="o">:</span><span class="mf">31.684806</span>
-<span class="n">strftime</span><span class="o">:</span> <span class="n">Mon</span> <span class="n">Feb</span> <span class="mi">03</span> <span class="mi">21</span><span class="o">:</span><span class="mi">11</span><span class="o">:</span><span class="mi">31</span> <span class="mi">2020</span>
-<span class="n">strptime</span><span class="o">:</span> <span class="n">Mon</span> <span class="n">Feb</span> <span class="mi">03</span> <span class="mi">21</span><span class="o">:</span><span class="mi">11</span><span class="o">:</span><span class="mi">31</span> <span class="mi">2020</span>
+<div class="highlight"><pre><span></span><code>ISO     : 2020-02-03 21:11:31.684806
+strftime: Mon Feb 03 21:11:31 2020
+strptime: Mon Feb 03 21:11:31 2020
 </code></pre></div>
 
-
 <p>相同的格式化代码可以与 Python 的 <a href="https://docs.python.org/3.5/library/string.html#格式规范">string formatting mini-language</a> 一起使用，方法是将它们放在格式字符串的字段规范中的 <code>:</code> 后面。</p>
-<div class="codehilite"><pre><span></span><code><span class="n">today</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span class="n">today</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;ISO     :&#39;</span><span class="p">,</span> <span class="n">today</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;format(): {:</span><span class="si">%a</span><span class="s1"> %b </span><span class="si">%d</span><span class="s1"> %H:%M:%S %Y}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">today</span><span class="p">))</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="n">ISO</span>     <span class="o">:</span> <span class="mi">2020</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">03</span> <span class="mi">21</span><span class="o">:</span><span class="mi">11</span><span class="o">:</span><span class="mf">31.729803</span>
-<span class="n">format</span><span class="o">():</span> <span class="n">Mon</span> <span class="n">Feb</span> <span class="mi">03</span> <span class="mi">21</span><span class="o">:</span><span class="mi">11</span><span class="o">:</span><span class="mi">31</span> <span class="mi">2020</span>
+<div class="highlight"><pre><span></span><code>ISO     : 2020-02-03 21:11:31.729803
+format(): Mon Feb 03 21:11:31 2020
 </code></pre></div>
-
 
 <p>每一个 datetime 格式代码均以 <code>%</code> 为前缀，并且后面的冒号被当作是要输出的字符。</p>
 <table>
@@ -2822,7 +2768,7 @@
 <h2 id="_8">时区</h2>
 <p>在 <code>datetime</code> 中，时区由 <code>tzinfo</code> 的子类表示。由于 <code>tzinfo</code> 是一个抽象基类，因此应用程序需要定义一个子类。为了让这个类能用，应用程序还要为一些方法提供适当的实现。</p>
 <p>在 <code>timezone</code> 类中， <code>datetime</code> 确实包含了一个略为简单的实现。它使用 UTC 的固定偏移量，并且不支持一年中不同日期的不同偏移量。比如，使用夏令时的地方或者 UTC 的偏移量会随时间变化的地方。</p>
-<div class="codehilite"><pre><span></span><code><span class="n">min6</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timezone</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">hours</span><span class="o">=-</span><span class="mi">6</span><span class="p">))</span>
+<div class="highlight"><pre><span></span><code><span class="n">min6</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timezone</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">hours</span><span class="o">=-</span><span class="mi">6</span><span class="p">))</span>
 <span class="n">plus6</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timezone</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span><span class="n">hours</span><span class="o">=</span><span class="mi">6</span><span class="p">))</span>
 <span class="n">d</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(</span><span class="n">min6</span><span class="p">)</span>
 
@@ -2836,13 +2782,11 @@
 <span class="nb">print</span><span class="p">(</span><span class="n">d_system</span><span class="o">.</span><span class="n">tzinfo</span><span class="p">,</span> <span class="s1">&#39;      :&#39;</span><span class="p">,</span> <span class="n">d_system</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="c">UTC-06:00 : 2020-02-03 07:11:31.756794-06:00</span>
-<span class="err">UTC : 2020-02-03 13:11:31.756794+00:00</span>
-<span class="err">UTC+06:00 : 2020-02-03 19:11:31.756794+06:00</span>
-<span class="err">?D1¨²¡À¨º¡Á?¨º¡À??       : 2020-02-03 21:11:31.756794+08:00</span>
+<div class="highlight"><pre><span></span><code>UTC-06:00 : 2020-02-03 07:11:31.756794-06:00
+UTC : 2020-02-03 13:11:31.756794+00:00
+UTC+06:00 : 2020-02-03 19:11:31.756794+06:00
+?D1¨²¡À¨º¡Á?¨º¡À??       : 2020-02-03 21:11:31.756794+08:00
 </code></pre></div>
-
 
 <p>要想将 datetime 值从一个时区转换到另一个时区，可以使用 <code>astimezone()</code> 函数。在上面的例子中，在 UTC 的两边分别显示了 6 小时的时区，并且还使用 <code>datetime.timezone</code> 中的 <code>utc</code> 实例作为参考。最后的输出行显示系统时区中的值，该值可以通过调用 <code>astimezone()</code> 函数获得，调用时不需要参数。</p>
                 

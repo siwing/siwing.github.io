@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-6.1.4">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.4">
     
     
       
@@ -820,6 +820,18 @@
   <li class="md-nav__item">
     <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.16.shutil.html" class="md-nav__link">
       6.16.shutil
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.17.test.html" class="md-nav__link">
+      6.17.test
     </a>
   </li>
 
@@ -2054,26 +2066,23 @@
                 
                   <h1>9.2.DataFrame</h1>
                 
-                <div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">pandas</span> <span class="kn">import</span> <span class="n">DataFrame</span>
+                <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">pandas</span> <span class="kn">import</span> <span class="n">DataFrame</span>
 <span class="kn">from</span> <span class="nn">pandas</span> <span class="kn">import</span> <span class="n">Series</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">Windows 10</span>
-<span class="err">Python 3.7.3 @ MSC v.1915 64 bit (AMD64)</span>
-<span class="err">Latest build date 2020.03.24</span>
-<span class="err">pandas version:  1.0.1</span>
-<span class="err">numpy version:  1.18.1</span>
+<div class="highlight"><pre><span></span><code>Windows 10
+Python 3.7.3 @ MSC v.1915 64 bit (AMD64)
+Latest build date 2020.03.24
+pandas version:  1.0.1
+numpy version:  1.18.1
 </code></pre></div>
-
 
 <h2 id="dataframe">DataFrame类</h2>
 <p>DataFrame是一个表格型的数据结构，它含有一组有序的列，每列可以是不同的值类型<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>（数值、字符串、布尔值等）。DataFrame既有行索引也有列索引，它可以被看做是Series的容器。</p>
 <p>pandas中的<code>DataFrame</code>可以使用以下构造函数创建 -</p>
-<div class="codehilite"><pre><span></span><code><span class="err">pandas.DataFrame(data=None, index=None, columns=None, dtype=None, copy=False)</span>
+<div class="highlight"><pre><span></span><code>pandas.DataFrame(data=None, index=None, columns=None, dtype=None, copy=False)
 </code></pre></div>
-
 
 <ul>
 <li><code>data</code>：数据可以是各种形式，如:<code>ndarray</code>，<code>series</code>，<code>map</code>，<code>lists</code>，<code>dict</code>，<code>constant</code>和另一个<code>DataFrame</code>。</li>
@@ -2133,33 +2142,29 @@
 <h2 id="_1">从列表创建</h2>
 <p>可以使用<strong>单个列表</strong>或<strong>列表内嵌列表</strong>来创建DataFrame。</p>
 <p>单个列表的例子：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
 <span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">   0</span>
-<span class="err">0  1</span>
-<span class="err">1  2</span>
-<span class="err">2  3</span>
-<span class="err">3  4</span>
-<span class="err">4  5</span>
+<div class="highlight"><pre><span></span><code>   0
+0  1
+1  2
+2  3
+3  4
+4  5
 </code></pre></div>
-
 
 <p><img alt="" src="https://upload.cc/i1/2018/08/25/QKbdyn.png" /></p>
 <p>列表内嵌列表的例子：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">data</span> <span class="o">=</span> <span class="p">[[</span><span class="s1">&#39;Alex&#39;</span><span class="p">,</span><span class="mi">10</span><span class="p">],[</span><span class="s1">&#39;Bob&#39;</span><span class="p">,</span><span class="mi">12</span><span class="p">],[</span><span class="s1">&#39;Clarke&#39;</span><span class="p">,</span><span class="mi">13</span><span class="p">]]</span>
+<div class="highlight"><pre><span></span><code><span class="n">data</span> <span class="o">=</span> <span class="p">[[</span><span class="s1">&#39;Alex&#39;</span><span class="p">,</span><span class="mi">10</span><span class="p">],[</span><span class="s1">&#39;Bob&#39;</span><span class="p">,</span><span class="mi">12</span><span class="p">],[</span><span class="s1">&#39;Clarke&#39;</span><span class="p">,</span><span class="mi">13</span><span class="p">]]</span>
 <span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">,</span><span class="s1">&#39;Age&#39;</span><span class="p">])</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">     Name  Age</span>
-<span class="err">0    Alex   10</span>
-<span class="err">1     Bob   12</span>
-<span class="err">2  Clarke   13</span>
+<div class="highlight"><pre><span></span><code>     Name  Age
+0    Alex   10
+1     Bob   12
+2  Clarke   13
 </code></pre></div>
-
 
 <p><img alt="" src="https://upload.cc/i1/2018/08/25/M8a1mh.png" /></p>
 <h2 id="ndarrayslists">从包含ndarrays/Lists的字典创建</h2>
@@ -2167,123 +2172,108 @@
 <blockquote>
 <p>结果DataFrame会自动加上索引（跟Series一样），且全部列<strong>会被有序排列。</strong></p>
 </blockquote>
-<div class="codehilite"><pre><span></span><code><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;state&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Ohio&#39;</span><span class="p">,</span> <span class="s1">&#39;Ohio&#39;</span><span class="p">,</span> <span class="s1">&#39;Ohio&#39;</span><span class="p">,</span> <span class="s1">&#39;Nevada&#39;</span><span class="p">,</span> <span class="s1">&#39;Nevada&#39;</span><span class="p">],</span>
+<div class="highlight"><pre><span></span><code><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;state&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Ohio&#39;</span><span class="p">,</span> <span class="s1">&#39;Ohio&#39;</span><span class="p">,</span> <span class="s1">&#39;Ohio&#39;</span><span class="p">,</span> <span class="s1">&#39;Nevada&#39;</span><span class="p">,</span> <span class="s1">&#39;Nevada&#39;</span><span class="p">],</span>
         <span class="s1">&#39;year&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">2000</span><span class="p">,</span> <span class="mi">2001</span><span class="p">,</span> <span class="mi">2002</span><span class="p">,</span> <span class="mi">2001</span><span class="p">,</span> <span class="mi">2002</span><span class="p">],</span>
         <span class="s1">&#39;pop&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">1.7</span><span class="p">,</span> <span class="mf">3.6</span><span class="p">,</span> <span class="mf">2.4</span><span class="p">,</span> <span class="mf">2.9</span><span class="p">]}</span>
 <span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">    state  year  pop</span>
-<span class="err">0    Ohio  2000  1.5</span>
-<span class="err">1    Ohio  2001  1.7</span>
-<span class="err">2    Ohio  2002  3.6</span>
-<span class="err">3  Nevada  2001  2.4</span>
-<span class="err">4  Nevada  2002  2.9</span>
+<div class="highlight"><pre><span></span><code>    state  year  pop
+0    Ohio  2000  1.5
+1    Ohio  2001  1.7
+2    Ohio  2002  3.6
+3  Nevada  2001  2.4
+4  Nevada  2002  2.9
 </code></pre></div>
-
 
 <p>如果指定了列序列，则DataFrame的列就会按照指定顺序进行排列：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;state&#39;</span><span class="p">,</span> <span class="s1">&#39;pop&#39;</span><span class="p">])</span>
+<div class="highlight"><pre><span></span><code><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;state&#39;</span><span class="p">,</span> <span class="s1">&#39;pop&#39;</span><span class="p">])</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">   year   state  pop</span>
-<span class="err">0  2000    Ohio  1.5</span>
-<span class="err">1  2001    Ohio  1.7</span>
-<span class="err">2  2002    Ohio  3.6</span>
-<span class="err">3  2001  Nevada  2.4</span>
-<span class="err">4  2002  Nevada  2.9</span>
+<div class="highlight"><pre><span></span><code>   year   state  pop
+0  2000    Ohio  1.5
+1  2001    Ohio  1.7
+2  2002    Ohio  3.6
+3  2001  Nevada  2.4
+4  2002  Nevada  2.9
 </code></pre></div>
-
 
 <p><img alt="" src="https://upload.cc/i1/2018/08/25/KPq8eu.png" /></p>
 <h2 id="_2">从字典列表创建</h2>
-<div class="codehilite"><pre><span></span><code><span class="n">data</span> <span class="o">=</span> <span class="p">[{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">},{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">:</span> <span class="mi">20</span><span class="p">}]</span>
+<div class="highlight"><pre><span></span><code><span class="n">data</span> <span class="o">=</span> <span class="p">[{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">},{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">:</span> <span class="mi">20</span><span class="p">}]</span>
 <span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;first&#39;</span><span class="p">,</span> <span class="s1">&#39;second&#39;</span><span class="p">])</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">        a   b     c</span>
-<span class="err">first   1   2   NaN</span>
-<span class="err">second  5  10  20.0</span>
+<div class="highlight"><pre><span></span><code>        a   b     c
+first   1   2   NaN
+second  5  10  20.0
 </code></pre></div>
-
 
 <p><img alt="" src="https://upload.cc/i1/2018/08/25/5HX2J4.png" /></p>
 <h2 id="series">从Series的字典创建</h2>
-<div class="codehilite"><pre><span></span><code><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;one&#39;</span> <span class="p">:</span> <span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">]),</span>
+<div class="highlight"><pre><span></span><code><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;one&#39;</span> <span class="p">:</span> <span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">]),</span>
       <span class="s1">&#39;two&#39;</span> <span class="p">:</span> <span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">])}</span>
 
 <span class="n">df</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
 <span class="n">df</span><span class="p">[[</span><span class="s2">&quot;two&quot;</span><span class="p">,</span><span class="s2">&quot;two&quot;</span><span class="p">]]</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">   two  two</span>
-<span class="err">a    1    1</span>
-<span class="err">b    2    2</span>
-<span class="err">c    3    3</span>
-<span class="err">d    4    4</span>
+<div class="highlight"><pre><span></span><code>   two  two
+a    1    1
+b    2    2
+c    3    3
+d    4    4
 </code></pre></div>
-
 
 <p><img alt="" src="https://upload.cc/i1/2018/08/25/VzR14h.png" /></p>
 <h2 id="_3">替代构造函数</h2>
 <h3 id="dataframefrom_dict">DataFrame.from_dict</h3>
-<div class="codehilite"><pre><span></span><code><span class="err">DataFrame.from_dict(data, orient=&quot;columns&quot;, dtype=None, columns=None)</span>
+<div class="highlight"><pre><span></span><code>DataFrame.from_dict(data, orient=&quot;columns&quot;, dtype=None, columns=None)
 </code></pre></div>
 
-
 <p><code>DataFrame.from_dict</code>接受dict或类似数组的序列的dict并返回DataFrame。</p>
-<div class="codehilite"><pre><span></span><code><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="nb">dict</span><span class="p">([(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]),</span> <span class="p">(</span><span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])]))</span>
+<div class="highlight"><pre><span></span><code><span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="nb">dict</span><span class="p">([(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]),</span> <span class="p">(</span><span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])]))</span>
 
 <span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="nb">dict</span><span class="p">([(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]),</span> <span class="p">(</span><span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])]),</span>
                             <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;index&#39;</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">,</span> <span class="s1">&#39;three&#39;</span><span class="p">])</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">   one  two  three</span>
-<span class="err">A    1    2      3</span>
-<span class="err">B    4    5      6</span>
+<div class="highlight"><pre><span></span><code>   one  two  three
+A    1    2      3
+B    4    5      6
 </code></pre></div>
-
 
 <h3 id="dataframefrom_records">DataFrame.from_records</h3>
-<div class="codehilite"><pre><span></span><code><span class="err">DataFrame.from_records(</span>
-<span class="err">        data,</span>
-<span class="err">        index=None,</span>
-<span class="err">        exclude=None,</span>
-<span class="err">        columns=None,</span>
-<span class="err">        coerce_float=False,</span>
-<span class="err">        nrows=None,</span>
-<span class="err">    )</span>
+<div class="highlight"><pre><span></span><code>DataFrame.from_records(
+        data,
+        index=None,
+        exclude=None,
+        columns=None,
+        coerce_float=False,
+        nrows=None,
+    )
 </code></pre></div>
 
-
 <p><code>DataFrame.from_records</code>接受具有结构化dtype的元组或ndarray的列表。它与普通的<code>DataFrame</code>构造函数相似，除了所得的DataFrame索引可能是结构化dtype的特定字段。例如：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="sa">b</span><span class="s1">&#39;Hello&#39;</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mf">3.</span><span class="p">,</span> <span class="sa">b</span><span class="s1">&#39;World&#39;</span><span class="p">)],</span>
+<div class="highlight"><pre><span></span><code><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="sa">b</span><span class="s1">&#39;Hello&#39;</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mf">3.</span><span class="p">,</span> <span class="sa">b</span><span class="s1">&#39;World&#39;</span><span class="p">)],</span>
           <span class="n">dtype</span><span class="o">=</span><span class="p">[(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;i4&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;&lt;f4&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="s1">&#39;S10&#39;</span><span class="p">)])</span>
 
 <span class="n">DataFrame</span><span class="o">.</span><span class="n">from_records</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="s1">&#39;C&#39;</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">          A    B</span>
-<span class="err">C</span>
-<span class="err">b&#39;Hello&#39;  1  2.0</span>
-<span class="err">b&#39;World&#39;  2  3.0</span>
+<div class="highlight"><pre><span></span><code>          A    B
+C
+b&#39;Hello&#39;  1  2.0
+b&#39;World&#39;  2  3.0
 </code></pre></div>
-
 
 <h3 id="dataframefrom_items">DataFrame.from_items</h3>
-<div class="codehilite"><pre><span></span><code><span class="n">DataFrame</span><span class="p">.</span><span class="n">from_items</span><span class="p">(</span><span class="n">items</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="k">None</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;columns&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code>DataFrame.from_items(items, columns=None, orient=&#39;columns&#39;)
 
-<span class="o">#</span> <span class="n">items</span><span class="err">：为元组序列，元组格式为：</span><span class="p">(</span><span class="k">key</span><span class="p">,</span><span class="n">value</span><span class="p">)</span>
-<span class="o">#</span> <span class="err">当</span><span class="n">orient</span><span class="o">=</span><span class="s1">&#39;index&#39;</span><span class="err">时必须传入（此时</span><span class="k">key</span> <span class="err">指定的是行的</span><span class="n">label</span><span class="err">），且长度不能大于</span><span class="n">DataFrame的列数</span><span class="err">。</span>
-<span class="o">#</span> <span class="err">当</span><span class="n">orient</span><span class="o">=</span><span class="err">&#39;</span><span class="n">columns时</span><span class="err">，</span><span class="n">key就是列的label</span><span class="err">，此时</span><span class="n">columns关键字参数指定的列label必须等于某个key</span><span class="err">；否则抛出异常。</span>
+# items：为元组序列，元组格式为：(key,value)
+# 当orient=&#39;index&#39;时必须传入（此时key 指定的是行的label），且长度不能大于DataFrame的列数。
+# 当orient=&#39;columns时，key就是列的label，此时columns关键字参数指定的列label必须等于某个key；否则抛出异常。
 </code></pre></div>
-
 
 <p>从元组序列中创建<code>DataFrame</code>。</p>
 <div class="footnote">

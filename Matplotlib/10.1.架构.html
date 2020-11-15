@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-6.1.4">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.4">
     
     
       
@@ -820,6 +820,18 @@
   <li class="md-nav__item">
     <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.16.shutil.html" class="md-nav__link">
       6.16.shutil
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.17.test.html" class="md-nav__link">
+      6.17.test
     </a>
   </li>
 
@@ -2247,7 +2259,7 @@
 <h2 id="artist-layer">Artist layer</h2>
 <p>matplotlib 大部分代码都位于artist layer之中，实际上，大多数繁琐的工作都在此层完成。<mark>位于 artist layer 的 <code>Artist</code> 对象知道如何使用 <code>renderer</code> 在画布 <code>FigureCanvas</code> 上绘制图形。</mark> </p>
 <p><code>Artist</code> 对象和 backend layer 之间的耦合发生在 <code>draw</code> 方法中。例如，下面创建了一个模拟类 <code>SomeArtist</code>，它是 <code>Artist</code> 的子类，<code>SomeArtist</code> 必须实现的基本方法是 <code>draw</code>， <code>draw</code>方法需要一个参数 <code>renderer</code>，该参数由 backend layer 传过来。<code>SomeArtist</code>不知道渲染器将在后端 (PDF、 SVG、 GTK+ DrawingArea, etc.) 绘制图像，但它知道渲染器的 API，并会调用适当的API (<code>draw_text</code> 或 <code>draw_path</code>)。由于渲染器有一个指向画布的指针，并且知道如何在画布上绘制，所以 <code>draw</code>方法将 <code>Artist</code>的抽象表示转换为像素缓冲区中的颜色、 SVG 文件中的路径或者其他任何具体表示。</p>
-<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">SomeArtist</span><span class="p">(</span><span class="n">Artist</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">SomeArtist</span><span class="p">(</span><span class="n">Artist</span><span class="p">):</span>
     <span class="s1">&#39;An example Artist that implements the draw method&#39;</span>
 
     <span class="k">def</span> <span class="nf">draw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">renderer</span><span class="p">):</span>
@@ -2257,7 +2269,6 @@
         <span class="c1"># create some objects and use renderer to draw self here</span>
         <span class="n">renderer</span><span class="o">.</span><span class="n">draw_path</span><span class="p">(</span><span class="n">graphics_context</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">transform</span><span class="p">)</span>
 </code></pre></div>
-
 
 <p><code>Figure</code>中所有可视的组件（例如 lines、shapes、axes、text等等）都是  <code>Artist</code> 派生类的实例。图3是一个<code>Figure</code>的示意图。</p>
 <p><code>Artist</code> 基类包含了所有 artist 共享的属性：</p>
@@ -2350,7 +2361,7 @@
 </li>
 </ul>
 <p>下面显示了 <code>pyplot</code>经常使用的 Line 绘制函数 <code>matplotlib.pyplot.plot</code> 的简化版本，这直观地说明  <code>matplotlib.pyplot.plot</code> 函数如何在 matplotlib 中封装对象和功能。所有其他 <code>pyplot</code>脚本接口功能都遵循相同的设计。</p>
-<div class="codehilite"><pre><span></span><code><span class="nd">@autogen_docstring</span><span class="p">(</span><span class="n">Axes</span><span class="o">.</span><span class="n">plot</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="nd">@autogen_docstring</span><span class="p">(</span><span class="n">Axes</span><span class="o">.</span><span class="n">plot</span><span class="p">)</span>
 <span class="k">def</span> <span class="nf">plot</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="n">ax</span> <span class="o">=</span> <span class="n">gca</span><span class="p">()</span>
 
@@ -2359,7 +2370,6 @@
 
     <span class="k">return</span> <span class="n">ret</span>
 </code></pre></div>
-
 
 <div align="center">
 <img src="./figures/matplotlib_scripting_layer.png" alt="" style="zoom: 90%;" />

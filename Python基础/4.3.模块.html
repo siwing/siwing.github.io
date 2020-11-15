@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-6.1.4">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.4">
     
     
       
@@ -932,6 +932,18 @@
   <li class="md-nav__item">
     <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.16.shutil.html" class="md-nav__link">
       6.16.shutil
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.17.test.html" class="md-nav__link">
+      6.17.test
     </a>
   </li>
 
@@ -2109,41 +2121,36 @@
 <p>当我们使用import加载自己编写的py代码时，必须放在python的搜索路径下才可以import。</p>
 <h3 id="syspathappend">添加临时路径——<code>sys.path.append</code></h3>
 <p>在python中引入<code>sys</code>，<code>sys</code>中的<code>path</code>是一个列表类型的对象，内容就是路径的列表，我们将sys引入后查看就可以清楚的知道了：</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">sys</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">sys</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="p">))</span>
 <span class="n">sys</span><span class="o">.</span><span class="n">path</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">&lt;class &#39;list&#39;&gt;</span>
+<div class="highlight"><pre><span></span><code>&lt;class &#39;list&#39;&gt;
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">[&#39;...\\Anaconda3\\python37.zip&#39;,</span>
-<span class="err"> &#39;...\\Anaconda3\\DLLs&#39;,</span>
-<span class="err"> &#39;...\\Anaconda3\\lib&#39;,</span>
-<span class="err"> &#39;...\\Anaconda3&#39;,</span>
-<span class="err"> &#39;...\\Anaconda3\\lib\\site-packages&#39;,</span>
-<span class="err"> &#39;...\\Anaconda3\\lib\\site-packages\\xgboost-1.0.0_snapshot-py3.7.egg&#39;,</span>
-<span class="err"> &#39;...\\Anaconda3\\lib\\site-packages\\win32&#39;,</span>
-<span class="err"> &#39;...\\Anaconda3\\lib\\site-packages\\win32\\lib&#39;,</span>
-<span class="err"> &#39;...\\Anaconda3\\lib\\site-packages\\Pythonwin&#39;,</span>
-<span class="err"> &#39;...\\Anaconda3\\lib\\site-packages\\IPython\\extensions&#39;]</span>
+<div class="highlight"><pre><span></span><code>[&#39;...\\Anaconda3\\python37.zip&#39;,
+ &#39;...\\Anaconda3\\DLLs&#39;,
+ &#39;...\\Anaconda3\\lib&#39;,
+ &#39;...\\Anaconda3&#39;,
+ &#39;...\\Anaconda3\\lib\\site-packages&#39;,
+ &#39;...\\Anaconda3\\lib\\site-packages\\xgboost-1.0.0_snapshot-py3.7.egg&#39;,
+ &#39;...\\Anaconda3\\lib\\site-packages\\win32&#39;,
+ &#39;...\\Anaconda3\\lib\\site-packages\\win32\\lib&#39;,
+ &#39;...\\Anaconda3\\lib\\site-packages\\Pythonwin&#39;,
+ &#39;...\\Anaconda3\\lib\\site-packages\\IPython\\extensions&#39;]
 </code></pre></div>
-
 
 <p>既然是list对象，那么使用append可以向列表添加新的元素，假设我们要添加的路径是<code>"C:\Users\Android\Desktop"</code>：</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">sys</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">sys</span>
 <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;C:\Users\Android\Desktop&quot;</span><span class="p">)</span>
 </code></pre></div>
-
 
 <p>但这只是临时添加路径，如果重启编译器，添加的路径就会消失。</p>
 <h3 id="_4">修改环境变量</h3>
 <p>在Windows10中，选择<strong>-&gt;控制面板\系统和安全\系统-&gt;高级系统设置-&gt;环境变量</strong>，</p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># 找到path后选择编辑，添加新的路径。</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 找到path后选择编辑，添加新的路径。</span>
 </code></pre></div>
-
 
 <p>但这种方法不能适用所有python的功能，因为这种方法并未将要查找的路径添加到python的Path系统环境中，在sys.path的列表中找不到相关路径的元素。也就是说这样做并没有将路径添加到python的搜索路径中。</p>
 <h3 id="pth">添加永久搜索路径——增加.pth文件</h3>
@@ -2151,56 +2158,47 @@
 <p>先编辑一个扩展名为<code>.pth</code>的文本文件，在这个文本文件里面写上要添加的path就可以了，例如：</p>
 <p>文本文件的文件名是：test.pth</p>
 <p><code>test.pth</code>文件的内容是：</p>
-<div class="codehilite"><pre><span></span><code><span class="c">C:\Users\Android\Desktop</span>
+<div class="highlight"><pre><span></span><code>C:\Users\Android\Desktop
 </code></pre></div>
 
-
 <p>接着获取python的site-packages文件夹的路径：</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">site</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">site</span>
 <span class="n">site</span><span class="o">.</span><span class="n">getsitepackages</span><span class="p">()</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">[&#39;G:\\Installed\\Anaconda3&#39;, &#39;G:\\Installed\\Anaconda3\\lib\\site-</span>
-<span class="err">packages&#39;]</span>
+<div class="highlight"><pre><span></span><code>[&#39;G:\\Installed\\Anaconda3&#39;, &#39;G:\\Installed\\Anaconda3\\lib\\site-
+packages&#39;]
 </code></pre></div>
-
 
 <p>然后将<code>test.pth</code>文件放进<code>G:\Installed\Anaconda3\lib\site-packages</code>里面即可。</p>
 <h2 id="_5">模块的导入</h2>
 <p>在 python 用 <code>import</code> 或者 <code>from...import</code> 来导入相应的模块。</p>
 <p><strong>将整个模块(module)导入:</strong></p>
 <p>例如，我们要使用使用<code>sys</code>模块，那么首先要导入该模块：</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">sys</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">sys</span>
 </code></pre></div>
-
 
 <p>导入<code>sys</code>模块后，我们就有了<strong>变量<code>sys</code>指向该模块，利用<code>sys</code>这个变量，就可以访问<code>sys</code>模块的所有功能。</strong>也就是说导入整个模块的做法会导致命名空间的修改。</p>
 <p>也可以一次性导入多个module：</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">time</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">time</span>
 </code></pre></div>
-
 
 <p>通过<code>as</code>关键字，可以在导入module的时候，给module定义别名：</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">sys</span> <span class="k">as</span> <span class="nn">system</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">sys</span> <span class="k">as</span> <span class="nn">system</span>
 </code></pre></div>
-
 
 <p><strong>从某个模块中导入函数：</strong></p>
 <p>从某个模块中导入某个函数</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">somemodule</span> <span class="kn">import</span> <span class="n">somefunction</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">somemodule</span> <span class="kn">import</span> <span class="n">somefunction</span>
 </code></pre></div>
-
 
 <p>从某个模块中导入多个函数</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">somemodule</span> <span class="kn">import</span> <span class="n">firstfunc</span><span class="p">,</span> <span class="n">secondfunc</span><span class="p">,</span> <span class="n">thirdfunc</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">somemodule</span> <span class="kn">import</span> <span class="n">firstfunc</span><span class="p">,</span> <span class="n">secondfunc</span><span class="p">,</span> <span class="n">thirdfunc</span>
 </code></pre></div>
-
 
 <p>将某个模块中的全部函数导入</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">somemodule</span> <span class="kn">import</span> <span class="o">*</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">somemodule</span> <span class="kn">import</span> <span class="o">*</span>
 </code></pre></div>
-
 
 <p>一般而言，除了实验、排查，不推荐导入模块内的所有公开符号（没有前缀 _ 的那些）。因为导入模块会修改namespace，而通常你不知道模块定义了哪些符号、是否与当前的namespace有重名的符号。一旦有重名，那么，就会覆盖掉当前namespace的值。从而造成难以排查的错误</p>
 <h2 id="_6">模块重载</h2>
@@ -2212,25 +2210,22 @@
 <ul>
 <li>Python 2.x：</li>
 </ul>
-<div class="codehilite"><pre><span></span><code><span class="n">reload</span><span class="p">(</span><span class="n">modulename</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">reload</span><span class="p">(</span><span class="n">modulename</span><span class="p">)</span>
 </code></pre></div>
-
 
 <ul>
 <li>Python 2.x 至 Python3.3：</li>
 </ul>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">imp</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">imp</span>
 <span class="n">imp</span><span class="o">.</span><span class="n">reload</span><span class="p">(</span><span class="n">modulename</span><span class="p">)</span>
 </code></pre></div>
-
 
 <ul>
 <li>Python3.4+：</li>
 </ul>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">importlib</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">importlib</span>
 <span class="n">importlib</span><span class="o">.</span><span class="n">reload</span><span class="p">(</span><span class="n">modulename</span><span class="p">)</span>
 </code></pre></div>
-
 
 <p>另外，spyder 的UMR(user module reloader)提供了自动重载模块的功能。</p>
 <h2 id="__name__"><code>__name__</code></h2>
@@ -2240,17 +2235,16 @@
 <li>对于被 <code>import</code> 进主程序的模块来说，这一脚本的 <code>__name__</code> 被定义为脚本的文件名（base filename）</li>
 </ul>
 <p>因此，我们可以用如下的形式，在模块代码中定义一些测试代码：</p>
-<div class="codehilite"><pre><span></span><code><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
     <span class="o">...</span>
 </code></pre></div>
-
 
 <p>当脚本被直接运行时，测试代码就会被运行；当脚本作为模块被导入，测试代码不会被运行。</p>
 <p>以下是一个完整的代码示例：</p>
 <blockquote>
 <p>参考：<a href="https://liam0205.me/2017/07/23/modules-and-packages-of-python/">Python 中的黑暗角落（三）：模块与包</a></p>
 </blockquote>
-<div class="codehilite"><pre><span></span><code><span class="ch">#!/usr/bin/env python3</span>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/usr/bin/env python3</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 
 <span class="s1">&#39; a test module &#39;</span>
@@ -2272,10 +2266,8 @@
     <span class="n">test</span><span class="p">()</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">Hello, world!</span>
+<div class="highlight"><pre><span></span><code>Hello, world!
 </code></pre></div>
-
 
 <h2 id="_7">作用域</h2>
 <p>在一个模块中，我们可能会定义很多函数和变量，但有的函数和变量我们希望给别人使用，有的函数和变量我们希望仅仅在模块内部使用（隐藏代码内部逻辑），在Python中，是通过<code>_</code>前缀来实现的。</p>

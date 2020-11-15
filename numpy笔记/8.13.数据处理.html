@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-6.1.4">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.4">
     
     
       
@@ -820,6 +820,18 @@
   <li class="md-nav__item">
     <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.16.shutil.html" class="md-nav__link">
       6.16.shutil
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.17.test.html" class="md-nav__link">
+      6.17.test
     </a>
   </li>
 
@@ -2040,77 +2052,65 @@
                 
                   <h1>8.13.数据处理</h1>
                 
-                <div class="codehilite"><pre><span></span><code><span class="err">Windows 10</span>
-<span class="err">Python 3.7.3 @ MSC v.1915 64 bit (AMD64)</span>
-<span class="err">Latest build date 2020.04.12</span>
-<span class="err">numpy version:  1.18.1</span>
+                <div class="highlight"><pre><span></span><code>Windows 10
+Python 3.7.3 @ MSC v.1915 64 bit (AMD64)
+Latest build date 2020.04.12
+numpy version:  1.18.1
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="n">ary</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<div class="highlight"><pre><span></span><code><span class="n">ary</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
 <span class="n">ary</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">array([[ 0,  1,  2,  3],</span>
-<span class="err">       [ 4,  5,  6,  7],</span>
-<span class="err">       [ 8,  9, 10, 11],</span>
-<span class="err">       [12, 13, 14, 15]])</span>
+<div class="highlight"><pre><span></span><code>array([[ 0,  1,  2,  3],
+       [ 4,  5,  6,  7],
+       [ 8,  9, 10, 11],
+       [12, 13, 14, 15]])
 </code></pre></div>
-
 
 <h2 id="_1">获取符合条件的元素的索引</h2>
 <h3 id="_2">最大元素的索引</h3>
-<div class="codehilite"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">ary</span><span class="p">))</span>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">ary</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">ary</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">ary</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">15</span>
-<span class="err">[3 3 3 3]</span>
-<span class="err">[3 3 3 3]</span>
+<div class="highlight"><pre><span></span><code>15
+[3 3 3 3]
+[3 3 3 3]
 </code></pre></div>
 
-
 <p>如果只是想找出最大值：</p>
-<div class="codehilite"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">amax</span><span class="p">(</span><span class="n">ary</span><span class="p">))</span>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">amax</span><span class="p">(</span><span class="n">ary</span><span class="p">))</span>
 <span class="c1"># np.max是np.amax的别名</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">ary</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">ary</span><span class="o">.</span><span class="n">max</span><span class="p">())</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">ary</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">15</span>
-<span class="err">[12 13 14 15]</span>
-<span class="err">15</span>
-<span class="err">[12 13 14 15]</span>
+<div class="highlight"><pre><span></span><code>15
+[12 13 14 15]
+15
+[12 13 14 15]
 </code></pre></div>
-
 
 <h3 id="_3">最小元素的索引</h3>
-<div class="codehilite"><pre><span></span><code><span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">ary</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">ary</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">0</span>
+<div class="highlight"><pre><span></span><code>0
 </code></pre></div>
-
 
 <p>如果只是想找出最小值：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">np</span><span class="o">.</span><span class="n">amin</span><span class="p">(</span><span class="n">ary</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">np</span><span class="o">.</span><span class="n">amin</span><span class="p">(</span><span class="n">ary</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">0</span>
+<div class="highlight"><pre><span></span><code>0
 </code></pre></div>
-
 
 <h3 id="_4">按大小排序的索引</h3>
-<div class="codehilite"><pre><span></span><code><span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 </code></pre></div>
-
 
 <ul>
 <li>
@@ -2120,20 +2120,17 @@
 <p><code>order</code>：如果是结构化数组，可以用<code>order</code>参数指定按照数组的字段顺序排序。</p>
 </li>
 </ul>
-<div class="codehilite"><pre><span></span><code><span class="n">ary2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">])</span>
+<div class="highlight"><pre><span></span><code><span class="n">ary2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">])</span>
 <span class="c1"># 由小到大排序</span>
 <span class="n">ary2</span><span class="o">.</span><span class="n">argsort</span><span class="p">()</span>
 <span class="n">ary2</span><span class="p">[</span><span class="n">ary2</span><span class="o">.</span><span class="n">argsort</span><span class="p">()]</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">array([0, 1, 2, ..., 7, 8, 9])</span>
+<div class="highlight"><pre><span></span><code>array([0, 1, 2, ..., 7, 8, 9])
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="n">np</span><span class="o">.</span><span class="n">argpartition</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">kth</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;introselect&#39;</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">np</span><span class="o">.</span><span class="n">argpartition</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">kth</span><span class="p">,</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s1">&#39;introselect&#39;</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 </code></pre></div>
-
 
 <ul>
 <li>
@@ -2146,7 +2143,7 @@
 <p><code>order</code>：如果是结构化数组，可以用<code>order</code>参数指定按照数组的字段顺序排序。</p>
 </li>
 </ul>
-<div class="codehilite"><pre><span></span><code><span class="n">ary2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">])</span>
+<div class="highlight"><pre><span></span><code><span class="n">ary2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">])</span>
 <span class="c1"># kth 为非负数: 从小到大排序</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">ary2</span><span class="o">.</span><span class="n">argpartition</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">ary2</span><span class="p">[</span><span class="n">ary2</span><span class="o">.</span><span class="n">argpartition</span><span class="p">(</span><span class="mi">2</span><span class="p">)])</span>
@@ -2154,155 +2151,129 @@
 <span class="nb">print</span><span class="p">(</span><span class="n">ary2</span><span class="p">[</span><span class="n">ary2</span><span class="o">.</span><span class="n">argpartition</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">)])</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="k">[4 0 3 ... 6 7 8]</span>
-<span class="k">[0 1 2 ... 8 5 7]</span>
-<span class="k">[0 1 5 ... 7 8 9]</span>
+<div class="highlight"><pre><span></span><code>[4 0 3 ... 6 7 8]
+[0 1 2 ... 8 5 7]
+[0 1 5 ... 7 8 9]
 </code></pre></div>
-
 
 <h3 id="_5">非零数的索引</h3>
 <p><code>np.nonzero</code>会返回非零元素的索引（这意味着<code>nan</code>的索引也会被返回）。</p>
-<div class="codehilite"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;符合条件的索引：&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;符合条件的索引：&quot;</span><span class="p">)</span>
 <span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nonzero</span><span class="p">(</span><span class="n">ary</span><span class="p">))</span>
 <span class="c1"># ary.nonzero()</span>
 <span class="n">ary</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">nonzero</span><span class="p">(</span><span class="n">ary</span><span class="p">)]</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">符合条件的索引：</span>
-<span class="err">(array([0, 0, 0, ..., 3, 3, 3], dtype=int64),</span>
-<span class="err"> array([1, 2, 3, ..., 1, 2, 3], dtype=int64))</span>
+<div class="highlight"><pre><span></span><code>符合条件的索引：
+(array([0, 0, 0, ..., 3, 3, 3], dtype=int64),
+ array([1, 2, 3, ..., 1, 2, 3], dtype=int64))
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">array([ 1,  2,  3, ..., 13, 14, 15])</span>
+<div class="highlight"><pre><span></span><code>array([ 1,  2,  3, ..., 13, 14, 15])
 </code></pre></div>
-
 
 <h3 id="_6">指定条件</h3>
 <p><code>np.where(condition)</code>，当condition为真，则返回元素的索引：</p>
-<div class="codehilite"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;符合条件的索引：&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;符合条件的索引：&quot;</span><span class="p">)</span>
 <span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">ary</span><span class="o">&gt;</span><span class="mi">5</span><span class="p">))</span>
 <span class="n">ary</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">ary</span><span class="o">&gt;</span><span class="mi">5</span><span class="p">)]</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">符合条件的索引：</span>
-<span class="err">(array([1, 1, 2, ..., 3, 3, 3], dtype=int64),</span>
-<span class="err"> array([2, 3, 0, ..., 1, 2, 3], dtype=int64))</span>
+<div class="highlight"><pre><span></span><code>符合条件的索引：
+(array([1, 1, 2, ..., 3, 3, 3], dtype=int64),
+ array([2, 3, 0, ..., 1, 2, 3], dtype=int64))
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">array([ 6,  7,  8, ..., 13, 14, 15])</span>
+<div class="highlight"><pre><span></span><code>array([ 6,  7,  8, ..., 13, 14, 15])
 </code></pre></div>
-
 
 <p><code>np.where(condition)</code>实际上是<code>np.asarray(condition).nonzero()</code>的快捷方式。</p>
-<div class="codehilite"><pre><span></span><code><span class="n">ary</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">ary</span><span class="o">&gt;</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">nonzero</span><span class="p">()]</span>
+<div class="highlight"><pre><span></span><code><span class="n">ary</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">ary</span><span class="o">&gt;</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">nonzero</span><span class="p">()]</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">array([ 6,  7,  8, ..., 13, 14, 15])</span>
+<div class="highlight"><pre><span></span><code>array([ 6,  7,  8, ..., 13, 14, 15])
 </code></pre></div>
-
 
 <p>如果只是想得到符合条件的元素，不需要索引，使用mask数组是一个方便的方法：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">ary</span><span class="o">&gt;</span><span class="mi">5</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">ary</span><span class="o">&gt;</span><span class="mi">5</span><span class="p">)</span>
 <span class="n">ary</span><span class="p">[</span><span class="n">ary</span><span class="o">&gt;</span><span class="mi">5</span><span class="p">]</span>
 
 <span class="c1"># np.nanargmax(ary)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">array([[False, False, False, False],</span>
-<span class="err">       [False, False,  True,  True],</span>
-<span class="err">       [ True,  True,  True,  True],</span>
-<span class="err">       [ True,  True,  True,  True]])</span>
+<div class="highlight"><pre><span></span><code>array([[False, False, False, False],
+       [False, False,  True,  True],
+       [ True,  True,  True,  True],
+       [ True,  True,  True,  True]])
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">array([ 6,  7,  8, ..., 13, 14, 15])</span>
+<div class="highlight"><pre><span></span><code>array([ 6,  7,  8, ..., 13, 14, 15])
 </code></pre></div>
-
 
 <h2 id="_7">缺失值处理</h2>
-<div class="codehilite"><pre><span></span><code><span class="n">nan_ary</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">nan_ary</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
 <span class="n">nan_ary</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">NAN</span>
 <span class="n">nan_ary</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
 <span class="n">nan_ary</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">array([[ 0.,  1.,  2.,  3.],</span>
-<span class="err">       [ 4., nan,  6.,  7.],</span>
-<span class="err">       [ 8.,  9., 10., 11.],</span>
-<span class="err">       [12., 13., nan, 15.]], dtype=float32)</span>
+<div class="highlight"><pre><span></span><code>array([[ 0.,  1.,  2.,  3.],
+       [ 4., nan,  6.,  7.],
+       [ 8.,  9., 10., 11.],
+       [12., 13., nan, 15.]], dtype=float32)
 </code></pre></div>
-
 
 <p>使用<code>np.isnan</code> ufunc 函数得到mask数组：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">nan_ary</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">nan_ary</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">array([[False, False, False, False],</span>
-<span class="err">       [False,  True, False, False],</span>
-<span class="err">       [False, False, False, False],</span>
-<span class="err">       [False, False,  True, False]])</span>
+<div class="highlight"><pre><span></span><code>array([[False, False, False, False],
+       [False,  True, False, False],
+       [False, False, False, False],
+       [False, False,  True, False]])
 </code></pre></div>
-
 
 <p>这样就可以轻松地将<code>nan</code>填充为常量：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">nan_ary</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">nan_ary</span><span class="p">)]</span>
+<div class="highlight"><pre><span></span><code><span class="n">nan_ary</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">nan_ary</span><span class="p">)]</span>
 <span class="c1"># nan_ary[np.isnan(nan_ary)] = 2</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">array([nan, nan], dtype=float32)</span>
+<div class="highlight"><pre><span></span><code>array([nan, nan], dtype=float32)
 </code></pre></div>
-
 
 <p>如果想得到<code>nan</code>值的索引：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">nan_ary</span><span class="p">))</span>
+<div class="highlight"><pre><span></span><code><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">nan_ary</span><span class="p">))</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">(array([1, 3], dtype=int64), array([1, 2], dtype=int64))</span>
+<div class="highlight"><pre><span></span><code>(array([1, 3], dtype=int64), array([1, 2], dtype=int64))
 </code></pre></div>
-
 
 <p>如果想丢弃存在<code>nan</code>值的行：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">np</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">nan_ary</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">nan_ary</span><span class="p">))[</span><span class="mi">0</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">np</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">nan_ary</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">nan_ary</span><span class="p">))[</span><span class="mi">0</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">array([[ 0.,  1.,  2.,  3.],</span>
-<span class="err">       [ 8.,  9., 10., 11.]], dtype=float32)</span>
+<div class="highlight"><pre><span></span><code>array([[ 0.,  1.,  2.,  3.],
+       [ 8.,  9., 10., 11.]], dtype=float32)
 </code></pre></div>
-
 
 <p>统计存在<code>nan</code>值的行（样本）所占的比列也很简单：</p>
-<div class="codehilite"><pre><span></span><code><span class="nb">len</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">nan_ary</span><span class="p">))[</span><span class="mi">0</span><span class="p">])</span> <span class="o">/</span> <span class="n">nan_ary</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span class="nb">len</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">nan_ary</span><span class="p">))[</span><span class="mi">0</span><span class="p">])</span> <span class="o">/</span> <span class="n">nan_ary</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">0.5</span>
+<div class="highlight"><pre><span></span><code>0.5
 </code></pre></div>
-
 
 <p>如果想将<code>nan</code>值填充为非常量（比如平均值、中位数等），这就要先计算出平均值,再对<code>nan</code>数据逐个进行填充。</p>
 <h2 id="_8">填充边缘</h2>
-<div class="codehilite"><pre><span></span><code><span class="n">np</span><span class="o">.</span><span class="n">pad</span><span class="p">(</span><span class="n">nan_ary</span><span class="p">,</span> <span class="n">pad_width</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;mean&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">np</span><span class="o">.</span><span class="n">pad</span><span class="p">(</span><span class="n">nan_ary</span><span class="p">,</span> <span class="n">pad_width</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;mean&quot;</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">array([[ nan,  6. ,  nan,  nan,  9. ,  nan],</span>
-<span class="err">       [ 1.5,  0. ,  1. ,  2. ,  3. ,  1.5],</span>
-<span class="err">       [ nan,  4. ,  nan,  6. ,  7. ,  nan],</span>
-<span class="err">       [ 9.5,  8. ,  9. , 10. , 11. ,  9.5],</span>
-<span class="err">       [ nan, 12. , 13. ,  nan, 15. ,  nan],</span>
-<span class="err">       [ nan,  6. ,  nan,  nan,  9. ,  nan]], dtype=float32)</span>
+<div class="highlight"><pre><span></span><code>array([[ nan,  6. ,  nan,  nan,  9. ,  nan],
+       [ 1.5,  0. ,  1. ,  2. ,  3. ,  1.5],
+       [ nan,  4. ,  nan,  6. ,  7. ,  nan],
+       [ 9.5,  8. ,  9. , 10. , 11. ,  9.5],
+       [ nan, 12. , 13. ,  nan, 15. ,  nan],
+       [ nan,  6. ,  nan,  nan,  9. ,  nan]], dtype=float32)
 </code></pre></div>
                 
               

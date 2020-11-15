@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-6.1.4">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.4">
     
     
       
@@ -820,6 +820,18 @@
   <li class="md-nav__item">
     <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.16.shutil.html" class="md-nav__link">
       6.16.shutil
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.17.test.html" class="md-nav__link">
+      6.17.test
     </a>
   </li>
 
@@ -2014,14 +2026,13 @@
                 
                   <h1>12.4.求导</h1>
                 
-                <div class="codehilite"><pre><span></span><code><span class="err">Windows 10</span>
-<span class="err">Python 3.7.3 @ MSC v.1915 64 bit (AMD64)</span>
-<span class="err">Latest build date 2020.07.04</span>
-<span class="err">tensorflow version:  2.1.0</span>
+                <div class="highlight"><pre><span></span><code>Windows 10
+Python 3.7.3 @ MSC v.1915 64 bit (AMD64)
+Latest build date 2020.07.04
+tensorflow version:  2.1.0
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">toolkit</span> <span class="kn">import</span> <span class="n">H</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">toolkit</span> <span class="kn">import</span> <span class="n">H</span>
 <span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span> <span class="k">as</span> <span class="n">P</span>
 <span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
 <span class="kn">from</span> <span class="nn">tensorflow</span> <span class="kn">import</span> <span class="n">keras</span>
@@ -2033,10 +2044,9 @@
 <span class="kn">import</span> <span class="nn">copy</span>
 </code></pre></div>
 
-
 <h2 id="_1">自动求导</h2>
 <p>TensorFlow 为自动微分提供了<code>tf.GradientTape</code>API。Tensorflow 会把<code>tf.GradientTape</code>上下文中执行的所有计算步骤都记录在tape之中。然后基于这个tape和每次操作产生的导数，用反向微分法（reverse mode differentiation）来计算这些被“记录在案”的函数的导数。</p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># 先创建一个待优化的张量</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 先创建一个待优化的张量</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">initial_value</span><span class="o">=</span><span class="mf">3.</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;x trainable:&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">trainable</span><span class="p">)</span>
 
@@ -2049,17 +2059,14 @@
 <span class="n">y_grad</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">x trainable: True</span>
+<div class="highlight"><pre><span></span><code>x trainable: True
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">&lt;tf.Tensor: shape=(), dtype=float32, numpy=6.0&gt;</span>
+<div class="highlight"><pre><span></span><code>&lt;tf.Tensor: shape=(), dtype=float32, numpy=6.0&gt;
 </code></pre></div>
-
 
 <p>如果待求导的张量并不是待优化张量， 在<code>tf.GradientTape</code>之中调用<code>watch</code>方法，也可以让tensorflow跟踪张量的变化。</p>
-<div class="codehilite"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="mf">3.</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="mf">3.</span><span class="p">)</span>
 
 <span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">GradientTape</span><span class="p">()</span> <span class="k">as</span> <span class="n">tape</span><span class="p">:</span>
     <span class="n">tape</span><span class="o">.</span><span class="n">watch</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
@@ -2069,14 +2076,12 @@
 <span class="n">y_grad</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">&lt;tf.Tensor: shape=(), dtype=float32, numpy=6.0&gt;</span>
+<div class="highlight"><pre><span></span><code>&lt;tf.Tensor: shape=(), dtype=float32, numpy=6.0&gt;
 </code></pre></div>
-
 
 <h2 id="gradienttape-python">GradientTape 记录Python控制流</h2>
 <p>GradientTape会记录所有执行的操作，即使是Python 控制流（如使用 if 和 while 的代码段）也会被记录。</p>
-<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
   <span class="n">output</span> <span class="o">=</span> <span class="mf">1.0</span>
   <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">y</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>
@@ -2096,10 +2101,9 @@
 <span class="k">assert</span> <span class="n">grad</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span> <span class="o">==</span> <span class="mf">4.0</span>
 </code></pre></div>
 
-
 <h2 id="gradienttape">GradientTape 对象持久化</h2>
 <p>默认情况下，调用 <code>GradientTape.gradient()</code> 方法时， GradientTape 占用的资源会立即得到释放。通过创建一个持久的梯度带，可以计算同个函数的多个导数。这样在GradientTape对象被垃圾回收时，就可以多次调用 'gradient()' 方法。例如：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="mf">3.0</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="mf">3.0</span><span class="p">)</span>
 <span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">GradientTape</span><span class="p">(</span><span class="n">persistent</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="k">as</span> <span class="n">t</span><span class="p">:</span>
   <span class="n">t</span><span class="o">.</span><span class="n">watch</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
   <span class="n">y</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span>
@@ -2109,9 +2113,8 @@
 <span class="k">del</span> <span class="n">t</span>  <span class="c1"># Drop the reference to the tape</span>
 </code></pre></div>
 
-
 <h2 id="_2">多元函数求导</h2>
-<div class="codehilite"><pre><span></span><code><span class="n">X</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">([[</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">],</span> <span class="p">[</span><span class="mf">3.</span><span class="p">,</span> <span class="mf">4.</span><span class="p">]])</span>
+<div class="highlight"><pre><span></span><code><span class="n">X</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">([[</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">],</span> <span class="p">[</span><span class="mf">3.</span><span class="p">,</span> <span class="mf">4.</span><span class="p">]])</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">([[</span><span class="mf">1.</span><span class="p">],</span> <span class="p">[</span><span class="mf">2.</span><span class="p">]])</span>
 <span class="n">w</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">initial_value</span><span class="o">=</span><span class="p">[[</span><span class="mf">1.</span><span class="p">],</span> <span class="p">[</span><span class="mf">2.</span><span class="p">]])</span>
 <span class="n">b</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">initial_value</span><span class="o">=</span><span class="mf">1.</span><span class="p">)</span>
@@ -2126,17 +2129,15 @@
 <span class="nb">print</span><span class="p">(</span><span class="n">b_grad</span><span class="o">.</span><span class="n">numpy</span><span class="p">())</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">62.5</span>
-<span class="err">[[35.]</span>
-<span class="err"> [50.]]</span>
-<span class="err">15.0</span>
+<div class="highlight"><pre><span></span><code>62.5
+[[35.]
+ [50.]]
+15.0
 </code></pre></div>
-
 
 <h2 id="_3">高阶导数</h2>
 <p>在 GradientTape 上下文管理器中执行的操作都会被记录，用于自动微分。所以即使在上下文中计算导数，导数的函数也会被记录下来。因此，同个 GradientTape 可以用于高阶导数。例如：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>  <span class="c1"># Create a Tensorflow variable initialized to 1.0</span>
+<div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>  <span class="c1"># Create a Tensorflow variable initialized to 1.0</span>
 
 <span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">GradientTape</span><span class="p">()</span> <span class="k">as</span> <span class="n">t</span><span class="p">:</span>
   <span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">GradientTape</span><span class="p">()</span> <span class="k">as</span> <span class="n">t2</span><span class="p">:</span>
@@ -2150,10 +2151,9 @@
 <span class="k">assert</span> <span class="n">d2y_dx2</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span> <span class="o">==</span> <span class="mf">6.0</span>
 </code></pre></div>
 
-
 <h2 id="numpy">numpy实现梯度下降</h2>
 <p>制造样本</p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># 随机采样 x</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 随机采样 x</span>
 <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">low</span><span class="o">=-</span><span class="mf">10.</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mf">10.</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
 <span class="c1"># 服从正态分布的噪音</span>
 <span class="n">eps</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mf">0.</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
@@ -2165,14 +2165,13 @@
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div>
 
-
 <p><img src="figures/11.4.tensorflowb笔记_求导_figure10_1.png" style="zoom: 45%;" /></p>
 <p>定义相关函数：</p>
 <ol>
 <li>先推导出导数公式</li>
 <li>套用导数公式，计算损失函数关于自变量（模型参数）的梯度</li>
 </ol>
-<div class="codehilite"><pre><span></span><code><span class="c1"># 定义mse损失函数</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 定义mse损失函数</span>
 <span class="k">def</span> <span class="nf">mse</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
     <span class="n">y_predict</span> <span class="o">=</span> <span class="n">w</span><span class="o">*</span><span class="n">X</span> <span class="o">+</span> <span class="n">b</span>
     <span class="n">total_error</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">y</span> <span class="o">-</span> <span class="n">y_predict</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
@@ -2205,11 +2204,9 @@
     <span class="k">return</span> <span class="n">w</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">loss_l</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="n">w</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">loss</span> <span class="o">=</span> <span class="n">gradient_descent</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">w_start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">b_start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> 
+<div class="highlight"><pre><span></span><code><span class="n">w</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">loss</span> <span class="o">=</span> <span class="n">gradient_descent</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">w_start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">b_start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> 
                               <span class="n">learn_ratio</span><span class="o">=</span><span class="mf">0.02</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
 </code></pre></div>
-
 
 <p>可以看到，因为$w$和$b$的初始值是零，很接近真实值，所以迭代很快就收敛。</p>
 <p><img alt="" src="figures/gradient_descent_numpy.svg" /></p>
@@ -2222,7 +2219,7 @@
 <p>使用 <code>optimizer.apply_gradients(grads_and_vars)</code> 自动更新模型参数</p>
 </li>
 </ol>
-<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">gradient_descent_tf</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">w_start</span><span class="p">,</span> <span class="n">b_start</span><span class="p">,</span> <span class="n">lr</span><span class="p">,</span> <span class="n">max_iter</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">gradient_descent_tf</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">w_start</span><span class="p">,</span> <span class="n">b_start</span><span class="p">,</span> <span class="n">lr</span><span class="p">,</span> <span class="n">max_iter</span><span class="p">):</span>
     <span class="n">w</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">initial_value</span><span class="o">=</span><span class="n">w_start</span><span class="p">)</span>
     <span class="n">b</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">initial_value</span><span class="o">=</span><span class="n">b_start</span><span class="p">)</span>
     <span class="n">variables</span> <span class="o">=</span> <span class="p">[</span><span class="n">w</span><span class="p">,</span> <span class="n">b</span><span class="p">]</span>
@@ -2244,10 +2241,8 @@
     <span class="k">return</span> <span class="n">w</span><span class="o">.</span><span class="n">numpy</span><span class="p">(),</span> <span class="n">b</span><span class="o">.</span><span class="n">numpy</span><span class="p">(),</span> <span class="n">loss_l</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="n">w</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">loss</span> <span class="o">=</span> <span class="n">gradient_descent_tf</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">w</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">loss</span> <span class="o">=</span> <span class="n">gradient_descent_tf</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
 </code></pre></div>
-
 
 <p><img alt="" src="figures/gradient_descent_tensorflow.svg" /></p>
                 

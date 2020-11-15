@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-6.1.4">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.4">
     
     
       
@@ -820,6 +820,18 @@
   <li class="md-nav__item">
     <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.16.shutil.html" class="md-nav__link">
       6.16.shutil
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.17.test.html" class="md-nav__link">
+      6.17.test
     </a>
   </li>
 
@@ -1962,21 +1974,19 @@
                   </a>
                 
                 
-                <div class="codehilite"><pre><span></span><code><span class="err">Windows 10</span>
-<span class="err">Python 3.7.3 @ MSC v.1915 64 bit (AMD64)</span>
-<span class="err">Latest build date 2020.05.14</span>
-<span class="err">sklearn version:  0.22.1</span>
+                <div class="highlight"><pre><span></span><code>Windows 10
+Python 3.7.3 @ MSC v.1915 64 bit (AMD64)
+Latest build date 2020.05.14
+sklearn version:  0.22.1
 </code></pre></div>
-
 
 <h1 id="label">label编码</h1>
 <h2 id="labelbinarizer">LabelBinarizer： 二分类或多分类</h2>
 <p>以 one-vs-all 的方式对label进行二值化。将二分类的算法推广到多分类任务的一个简单的方法是使用 one-vs-all 方案。</p>
-<div class="codehilite"><pre><span></span><code><span class="n">LabelBinarizer</span><span class="p">(</span><span class="n">neg_label</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">pos_label</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">sparse_output</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">LabelBinarizer</span><span class="p">(</span><span class="n">neg_label</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">pos_label</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">sparse_output</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">LabelBinarizer</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">LabelBinarizer</span>
 
 <span class="n">lb</span> <span class="o">=</span> <span class="n">LabelBinarizer</span><span class="p">()</span>
 <span class="n">lb</span><span class="o">.</span><span class="n">fit</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
@@ -1985,32 +1995,27 @@
 <span class="n">lb</span><span class="o">.</span><span class="n">transform</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">[1 2 4 6]</span>
+<div class="highlight"><pre><span></span><code>[1 2 4 6]
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">array([[1, 0, 0, 0],</span>
-<span class="err">       [0, 0, 0, 1]])</span>
+<div class="highlight"><pre><span></span><code>array([[1, 0, 0, 0],
+       [0, 0, 0, 1]])
 </code></pre></div>
-
 
 <p>上述过程和 <code>OneHotEncoder</code> 很像，但并不一样，<code>OneHotEncoder</code>用于转换特征，并且要求数据是二维的，以及<code>fit</code>的数据和<code>transform</code>的数据具有相同的维度。</p>
 <p>将二分类转换为列向量表示：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">lb</span> <span class="o">=</span> <span class="n">LabelBinarizer</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span class="n">lb</span> <span class="o">=</span> <span class="n">LabelBinarizer</span><span class="p">()</span>
 <span class="n">lb</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">([</span><span class="s1">&#39;yes&#39;</span><span class="p">,</span> <span class="s1">&#39;no&#39;</span><span class="p">,</span> <span class="s1">&#39;no&#39;</span><span class="p">,</span> <span class="s1">&#39;yes&#39;</span><span class="p">])</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">array([[1],</span>
-<span class="err">       [0],</span>
-<span class="err">       [0],</span>
-<span class="err">       [1]])</span>
+<div class="highlight"><pre><span></span><code>array([[1],
+       [0],
+       [0],
+       [1]])
 </code></pre></div>
 
-
 <p>将多分类转换为二维矩阵表示：</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="c1"># fit 只学习了输入数组的形状</span>
 <span class="n">lb</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> 
                  <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]]))</span>
@@ -2019,53 +2024,44 @@
 <span class="n">lb</span><span class="o">.</span><span class="n">transform</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">[0 1 2]</span>
+<div class="highlight"><pre><span></span><code>[0 1 2]
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">array([[1, 0, 0],</span>
-<span class="err">       [0, 1, 0],</span>
-<span class="err">       [0, 0, 1],</span>
-<span class="err">       [0, 1, 0]])</span>
+<div class="highlight"><pre><span></span><code>array([[1, 0, 0],
+       [0, 1, 0],
+       [0, 0, 1],
+       [0, 1, 0]])
 </code></pre></div>
-
 
 <h2 id="multilabelbinarizer">MultiLabelBinarizer： 多标签</h2>
 <p><code>LabelBinarizer</code>只适合多分类任务，而多标签的情况则需要<code>MultiLabelBinarizer</code>。</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">MultiLabelBinarizer</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">MultiLabelBinarizer</span>
 <span class="n">mlb</span> <span class="o">=</span> <span class="n">MultiLabelBinarizer</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">mlb</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">([(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,)]))</span>
 <span class="n">mlb</span><span class="o">.</span><span class="n">classes_</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="k">[[1 1 0]</span>
- <span class="k">[0 0 1]]</span>
+<div class="highlight"><pre><span></span><code>[[1 1 0]
+ [0 0 1]]
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">array([1, 2, 3])</span>
+<div class="highlight"><pre><span></span><code>array([1, 2, 3])
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">mlb</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">([{</span><span class="s1">&#39;sci-fi&#39;</span><span class="p">,</span> <span class="s1">&#39;thriller&#39;</span><span class="p">},</span> 
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">mlb</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">([{</span><span class="s1">&#39;sci-fi&#39;</span><span class="p">,</span> <span class="s1">&#39;thriller&#39;</span><span class="p">},</span> 
                          <span class="p">{</span><span class="s1">&#39;comedy&#39;</span><span class="p">}]))</span>
 <span class="nb">list</span><span class="p">(</span><span class="n">mlb</span><span class="o">.</span><span class="n">classes_</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="k">[[0 1 1]</span>
- <span class="k">[1 0 0]]</span>
+<div class="highlight"><pre><span></span><code>[[0 1 1]
+ [1 0 0]]
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">[&#39;comedy&#39;, &#39;sci-fi&#39;, &#39;thriller&#39;]</span>
+<div class="highlight"><pre><span></span><code>[&#39;comedy&#39;, &#39;sci-fi&#39;, &#39;thriller&#39;]
 </code></pre></div>
-
 
 <p>一个常见的错误是给<code>MultiLabelBinarizer</code>传入一维列表：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">mlb</span> <span class="o">=</span> <span class="n">MultiLabelBinarizer</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span class="n">mlb</span> <span class="o">=</span> <span class="n">MultiLabelBinarizer</span><span class="p">()</span>
 <span class="n">mlb</span><span class="o">.</span><span class="n">fit</span><span class="p">([</span><span class="s1">&#39;sci-fi&#39;</span><span class="p">,</span> <span class="s1">&#39;thriller&#39;</span><span class="p">,</span> <span class="s1">&#39;comedy&#39;</span><span class="p">])</span>
 <span class="n">mlb</span><span class="o">.</span><span class="n">classes_</span>
 
@@ -2076,13 +2072,11 @@
 <span class="n">mlb</span><span class="o">.</span><span class="n">classes_</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">array([&#39;comedy&#39;, &#39;sci-fi&#39;, &#39;thriller&#39;], dtype=object)</span>
+<div class="highlight"><pre><span></span><code>array([&#39;comedy&#39;, &#39;sci-fi&#39;, &#39;thriller&#39;], dtype=object)
 </code></pre></div>
 
-
 <h2 id="labelencoder-label">LabelEncoder： label的整数编码</h2>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">LabelEncoder</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">LabelEncoder</span>
 
 <span class="n">le</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
 <span class="n">le</span><span class="o">.</span><span class="n">fit</span><span class="p">([</span><span class="s1">&#39;beijing&#39;</span><span class="p">,</span> <span class="s1">&#39;shanghai&#39;</span><span class="p">,</span> <span class="s1">&#39;guangzhou&#39;</span><span class="p">,</span> <span class="s1">&#39;hangzhou&#39;</span><span class="p">,</span> <span class="s1">&#39;nanjing&#39;</span><span class="p">,</span> <span class="s1">&#39;wuhan&#39;</span><span class="p">])</span>
@@ -2091,12 +2085,10 @@
               <span class="s1">&#39;hangzhou&#39;</span><span class="p">,</span> <span class="s1">&#39;nanjing&#39;</span><span class="p">,</span> <span class="s1">&#39;guangzhou&#39;</span><span class="p">])</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">[&#39;beijing&#39; &#39;guangzhou&#39; &#39;hangzhou&#39; &#39;nanjing&#39; &#39;shanghai&#39; &#39;wuhan&#39;]</span>
+<div class="highlight"><pre><span></span><code>[&#39;beijing&#39; &#39;guangzhou&#39; &#39;hangzhou&#39; &#39;nanjing&#39; &#39;shanghai&#39; &#39;wuhan&#39;]
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">array([2, 1, 0, 2, 3, 1], dtype=int64)</span>
+<div class="highlight"><pre><span></span><code>array([2, 1, 0, 2, 3, 1], dtype=int64)
 </code></pre></div>
                 
               

@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-6.1.4">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.4">
     
     
       
@@ -820,6 +820,18 @@
   <li class="md-nav__item">
     <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.16.shutil.html" class="md-nav__link">
       6.16.shutil
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.17.test.html" class="md-nav__link">
+      6.17.test
     </a>
   </li>
 
@@ -2142,17 +2154,15 @@
                   </a>
                 
                 
-                <div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">toolkit</span> <span class="kn">import</span> <span class="n">H</span>
+                <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">toolkit</span> <span class="kn">import</span> <span class="n">H</span>
 <span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">Windows 10</span>
-<span class="err">Python 3.7.3 @ MSC v.1915 64 bit (AMD64)</span>
-<span class="err">Latest build date 2020.11.07</span>
-<span class="err">sklearn version:  0.23.1</span>
+<div class="highlight"><pre><span></span><code>Windows 10
+Python 3.7.3 @ MSC v.1915 64 bit (AMD64)
+Latest build date 2020.11.07
+sklearn version:  0.23.1
 </code></pre></div>
-
 
 <h1 id="_1">数据集</h1>
 <p><code>sklearn</code>包自带一些玩具数据集，还具有一些人工数据生成器。主要接口如下：</p>
@@ -2168,10 +2178,9 @@
 <p><strong><code>datasets.make_*()</code></strong>：本地生成数据集。 </p>
 </li>
 </ol>
-<div class="codehilite"><pre><span></span><code><span class="n">datasets</span><span class="o">.</span><span class="n">get_data_home</span><span class="p">()</span> <span class="c1"># 获取数据集目录</span>
+<div class="highlight"><pre><span></span><code><span class="n">datasets</span><span class="o">.</span><span class="n">get_data_home</span><span class="p">()</span> <span class="c1"># 获取数据集目录</span>
 <span class="n">datasets</span><span class="o">.</span><span class="n">clear_data_home</span><span class="p">(</span><span class="n">data_home</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="c1"># 删除所有下载数据</span>
 </code></pre></div>
-
 
 <p><code>load*</code>和<code>fetch*</code>函数返回的数据类型是<code>datasets.base.Bunch</code>，本质上是一个<code>dict</code>。可像<code>dict</code>一样，通过<code>key</code>访问<code>value</code>，也可以通过对象属性方式访问，主要包含以下属性：</p>
 <ol>
@@ -2218,7 +2227,7 @@
 </li>
 </ol>
 <p>这些数据集可用于快速实现<code>scikit-learn</code>中的各种算法。但是这些数据集太小，并不能代表现实世界的机器学习任务。</p>
-<div class="codehilite"><pre><span></span><code><span class="sd">&#39;&#39;&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="sd">&#39;&#39;&#39;</span>
 <span class="sd">用于分类的iris数据</span>
 <span class="sd">&#39;&#39;&#39;</span>
 <span class="n">iris</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">load_iris</span><span class="p">(</span><span class="n">return_X_y</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># (data,target) 的二维tuple</span>
@@ -2228,8 +2237,7 @@
 <span class="nb">type</span><span class="p">(</span><span class="n">iris</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="n">iris</span><span class="o">.</span><span class="n">data</span> <span class="c1"># 样本数据</span>
+<div class="highlight"><pre><span></span><code><span class="n">iris</span><span class="o">.</span><span class="n">data</span> <span class="c1"># 样本数据</span>
 <span class="n">iris</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]</span>
 
 <span class="n">iris</span><span class="o">.</span><span class="n">target</span> <span class="c1"># label 数据</span>
@@ -2238,14 +2246,12 @@
 <span class="n">iris</span><span class="o">.</span><span class="n">target_names</span> <span class="c1"># label 名</span>
 </code></pre></div>
 
-
 <h2 id="fetchers">fetchers:提取器——获取大数据集</h2>
-<div class="codehilite"><pre><span></span><code><span class="c1"># 加载20个新闻组数据集中的文件名和数据</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 加载20个新闻组数据集中的文件名和数据</span>
 <span class="n">datasets</span><span class="o">.</span><span class="n">fetch_20newsgroups</span><span class="p">(</span><span class="n">data_home</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">subset</span><span class="o">=</span><span class="s1">&#39;train&#39;</span><span class="p">,</span> <span class="n">categories</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
                            <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">remove</span><span class="o">=</span><span class="p">(),</span> 
                            <span class="n">download_if_missing</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
-
 
 <p><code>data_home</code>: 指定数据集的缓存文件夹。默认值：None，表示存储在<code>〜/ scikit_learn_data</code>文件夹中。</p>
 <p><code>subset</code>: <code>train</code>或者<code>test</code>,<code>all</code>，可选，分别对应训练集、测试集、两者。</p>
@@ -2292,15 +2298,14 @@
 <h2 id="samples-generators">Samples generators:样本生成器</h2>
 <h3 id="_2">多类别分类</h3>
 <p><strong><code>make_classification</code>：生成随机的$n$分类数据。</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="err">datasets.make_classification(n_samples=100, n_features=20,</span>
-<span class="err">                             n_informative=2, n_redundant=2,</span>
-<span class="err">                             n_repeated=0, n_classes=2,</span>
-<span class="err">                             n_clusters_per_class=2, weights=None,</span>
-<span class="err">                             flip_y=0.01, class_sep=1.0,</span>
-<span class="err">                             hypercube=True, shift=0.0, scale=1.0,</span>
-<span class="err">                             shuffle=True, random_state=None)</span>
+<div class="highlight"><pre><span></span><code>datasets.make_classification(n_samples=100, n_features=20,
+                             n_informative=2, n_redundant=2,
+                             n_repeated=0, n_classes=2,
+                             n_clusters_per_class=2, weights=None,
+                             flip_y=0.01, class_sep=1.0,
+                             hypercube=True, shift=0.0, scale=1.0,
+                             shuffle=True, random_state=None)
 </code></pre></div>
-
 
 <p><code>n_samples</code>: <code>int</code>，optional（default = 100)，样本数量。</p>
 <p><code>n_features</code>: <code>int</code>，可选（默认= 20），特征总数。<code>n_features</code>必须大于等于<code>n_repeated</code>+<code>n_repeated</code>+<code>n_informative</code>。</p>
@@ -2313,26 +2318,24 @@
 <p><code>random_state</code>: <code>int</code>，<code>RandomState</code>实例或无，可选（默认=无）如果<code>int</code>，<code>random_state</code>是随机数生成器使用的种子如果<code>RandomState</code>的实例，<code>random_state</code>是随机数生成器如果没有，随机数生成器所使用的<code>RandomState</code>实例<code>np.random</code>。</p>
 <p><code>return</code>: <code>X</code>特征数据集；<code>y</code>目标分类值。</p>
 <h3 id="_3">多标签分类</h3>
-<div class="codehilite"><pre><span></span><code><span class="err">datasets.make_multilabel_classification(n_samples=100, n_features=20,</span>
-<span class="err">                                        n_classes=5, n_labels=2,</span>
-<span class="err">                                        length=50,</span>
-<span class="err">                                        allow_unlabeled=True,</span>
-<span class="err">                                        sparse=False,</span>
-<span class="err">                                        return_indicator=&#39;dense&#39;,</span>
-<span class="err">                                        return_distributions=False,</span>
-<span class="err">                                        random_state=None)</span>
+<div class="highlight"><pre><span></span><code>datasets.make_multilabel_classification(n_samples=100, n_features=20,
+                                        n_classes=5, n_labels=2,
+                                        length=50,
+                                        allow_unlabeled=True,
+                                        sparse=False,
+                                        return_indicator=&#39;dense&#39;,
+                                        return_distributions=False,
+                                        random_state=None)
 </code></pre></div>
-
 
 <h3 id="_4">回归</h3>
 <p><strong><code>make_regression</code>：生成回归数据。</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># 生成用于回归的数据集</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 生成用于回归的数据集</span>
 <span class="n">datasets</span><span class="o">.</span><span class="n">make_regression</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">n_features</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">n_informative</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> 
                          <span class="n">n_targets</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">bias</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">effective_rank</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
                          <span class="n">tail_strength</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">noise</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
                          <span class="n">coef</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 </code></pre></div>
-
 
 <p><code>n_samples</code>: <code>int</code>，optional（default = 100)，样本数量。</p>
 <p><code>n_features</code>: <code>int</code>,optional（default = 100)，特征数量。</p>
@@ -2341,13 +2344,12 @@
 <p><code>return</code>: <code>X</code>特征数据集；<code>y</code>目标分类值。</p>
 <h3 id="_5">两个交错的半圆</h3>
 <p><code>make_moons</code>生成的数据可用于分类或聚类任务。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">datasets.make_moons(n_samples=100, shuffle=True, noise=None,</span>
-<span class="err">                    random_state=None)</span>
+<div class="highlight"><pre><span></span><code>datasets.make_moons(n_samples=100, shuffle=True, noise=None,
+                    random_state=None)
 </code></pre></div>
 
-
 <p><strong><code>noise</code></strong>：加到数据中的高斯噪声的标准差。</p>
-<div class="codehilite"><pre><span></span><code><span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">make_moons</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">make_moons</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">X1</span><span class="p">,</span> <span class="n">y1</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">make_moons</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">noise</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">y</span><span class="o">==</span><span class="mi">0</span><span class="p">][:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[</span><span class="n">y</span><span class="o">==</span><span class="mi">0</span><span class="p">][:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;#CD5C5C&quot;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;noise=0&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">y</span><span class="o">==</span><span class="mi">1</span><span class="p">][:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[</span><span class="n">y</span><span class="o">==</span><span class="mi">1</span><span class="p">][:,</span><span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;#F08080&quot;</span><span class="p">,</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;noise=0&quot;</span><span class="p">)</span>
@@ -2358,17 +2360,15 @@
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div>
 
-
 <div align=center><img src="./figures/10.1.scikit-learn_数据集_figure12_1.png" style="zoom: 52%;"></div>
 
 <h3 id="_6">常量对角块矩阵</h3>
 <p><code>make_biclusters</code>生成具有constant block对角线结构的矩阵，可用于双聚类。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">datasets.make_biclusters(shape, n_clusters, noise=0.0, minval=10,</span>
-<span class="err">                         maxval=100, shuffle=True, random_state=None)</span>
+<div class="highlight"><pre><span></span><code>datasets.make_biclusters(shape, n_clusters, noise=0.0, minval=10,
+                         maxval=100, shuffle=True, random_state=None)
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="n">params</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+<div class="highlight"><pre><span></span><code><span class="n">params</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
               <span class="n">minval</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">maxval</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">noise</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
               <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
@@ -2389,17 +2389,15 @@
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div>
 
-
 <div align=center><img src="./figures/10.1.scikit-learn_数据集_figure14_1.png" style="zoom: 67%;"></div>
 
 <h3 id="_7">各向同性的高斯点</h3>
-<div class="codehilite"><pre><span></span><code><span class="err">datasets.make_blobs(n_samples=100, n_features=2, centers=None,</span>
-<span class="err">                    cluster_std=1.0, center_box=(-10.0, 10.0),</span>
-<span class="err">                    shuffle=True, random_state=None, return_centers=False)</span>
+<div class="highlight"><pre><span></span><code>datasets.make_blobs(n_samples=100, n_features=2, centers=None,
+                    cluster_std=1.0, center_box=(-10.0, 10.0),
+                    shuffle=True, random_state=None, return_centers=False)
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="n">X</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">centers</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">make_blobs</span><span class="p">(</span><span class="n">cluster_std</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">return_centers</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<div class="highlight"><pre><span></span><code><span class="n">X</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">centers</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">make_blobs</span><span class="p">(</span><span class="n">cluster_std</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">return_centers</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
                                         <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">(</span><span class="n">label</span><span class="p">):</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">label</span><span class="o">==</span><span class="n">i</span><span class="p">][:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[</span><span class="n">label</span><span class="o">==</span><span class="n">i</span><span class="p">][:,</span><span class="mi">1</span><span class="p">])</span>
@@ -2407,17 +2405,15 @@
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div>
 
-
 <div align=center><img src="./figures/10.1.scikit-learn_数据集_figure16_1.png" style="zoom: 52%;"></div>
 
 <h3 id="_8">棋盘格结构的矩阵</h3>
 <p><code>make_checkerboard</code>生成具有棋盘格结构的矩阵，可用于双聚类。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">datasets.make_checkerboard(shape, n_clusters, noise=0.0, minval=10,</span>
-<span class="err">                           maxval=100, shuffle=True, random_state=None)</span>
+<div class="highlight"><pre><span></span><code>datasets.make_checkerboard(shape, n_clusters, noise=0.0, minval=10,
+                           maxval=100, shuffle=True, random_state=None)
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="c1"># datasets.make_checkerboard</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># datasets.make_checkerboard</span>
 <span class="n">X</span><span class="p">,</span> <span class="n">row_idx</span><span class="p">,</span> <span class="n">col_idx</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">make_checkerboard</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="n">n_clusters</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
                                                  <span class="n">minval</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">maxval</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">noise</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span>
                                                  <span class="n">shuffle</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -2425,32 +2421,28 @@
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div>
 
-
 <div align=center><img src="./figures/10.1.scikit-learn_数据集_figure18_1.png" style="zoom: 52%;"></div>
 
 <h3 id="_9">包含小圆的大圆</h3>
 <p>用于聚类和分类。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">datasets.make_circles(n_samples=100, shuffle=True, noise=None,</span>
-<span class="err">                      random_state=None, factor=0.8)</span>
+<div class="highlight"><pre><span></span><code>datasets.make_circles(n_samples=100, shuffle=True, noise=None,
+                      random_state=None, factor=0.8)
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">make_circles</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">make_circles</span><span class="p">()</span>
 <span class="n">outer</span><span class="p">,</span> <span class="n">inner</span> <span class="o">=</span> <span class="n">y</span><span class="o">==</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="o">==</span><span class="mi">1</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">outer</span><span class="p">][:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[</span><span class="n">outer</span><span class="p">][:,</span><span class="mi">1</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">inner</span><span class="p">][:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[</span><span class="n">inner</span><span class="p">][:,</span><span class="mi">1</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div>
 
-
 <div align=center><img src="./figures/10.1.scikit-learn_数据集_figure20_1.png" style="zoom: 52%;"></div>
 
 <h3 id="_10">瑞士卷</h3>
-<div class="codehilite"><pre><span></span><code><span class="err">datasets.make_swiss_roll(n_samples=100, noise=0.0, random_state=None)</span>
+<div class="highlight"><pre><span></span><code>datasets.make_swiss_roll(n_samples=100, noise=0.0, random_state=None)
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">mpl_toolkits.mplot3d.axes3d</span> <span class="k">as</span> <span class="nn">p3</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">mpl_toolkits.mplot3d.axes3d</span> <span class="k">as</span> <span class="nn">p3</span>
 
 <span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">make_swiss_roll</span><span class="p">(</span><span class="mi">2000</span><span class="p">)</span>
 
@@ -2466,15 +2458,13 @@
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div>
 
-
 <div align=center><img src="./figures/10.1.scikit-learn_数据集_figure22_1.png" style="zoom: 52%;"></div>
 
 <h3 id="_11">曲面</h3>
-<div class="codehilite"><pre><span></span><code><span class="err">datasets.make_s_curve(n_samples=100, noise=0.0, random_state=None)</span>
+<div class="highlight"><pre><span></span><code>datasets.make_s_curve(n_samples=100, noise=0.0, random_state=None)
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="n">X</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">make_s_curve</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">X</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">make_s_curve</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 
 <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
 <span class="c1"># fig.suptitle(&quot;S curve&quot;, fontsize=25)</span>
@@ -2491,34 +2481,29 @@
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div>
 
-
 <div align=center><img src="./figures/10.1.scikit-learn_数据集_figure24_1.png" style="zoom: 52%;"></div>
 
 <h3 id="_12">随机对称正定矩阵</h3>
-<div class="codehilite"><pre><span></span><code><span class="err">datasets.make_spd_matrix(n_dim, random_state=None)</span>
+<div class="highlight"><pre><span></span><code>datasets.make_spd_matrix(n_dim, random_state=None)
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="n">X</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">make_spd_matrix</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">X</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">make_spd_matrix</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">matshow</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Blues</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div>
-
 
 <div align=center><img src="./figures/10.1.scikit-learn_数据集_figure26_1.png" style="zoom: 52%;"></div>
 
 <h3 id="_13">随机对称正定稀疏矩阵</h3>
-<div class="codehilite"><pre><span></span><code><span class="err">datasets.make_spd_matrix(n_dim, random_state=None)</span>
+<div class="highlight"><pre><span></span><code>datasets.make_spd_matrix(n_dim, random_state=None)
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="n">X</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">make_sparse_spd_matrix</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">X</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">make_sparse_spd_matrix</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">matshow</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Blues</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div>
-
 
 <div align=center><img src="./figures/10.1.scikit-learn_数据集_figure28_1.png" style="zoom: 52%;"></div>
                 

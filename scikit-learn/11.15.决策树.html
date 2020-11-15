@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-6.1.4">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.4">
     
     
       
@@ -820,6 +820,18 @@
   <li class="md-nav__item">
     <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.16.shutil.html" class="md-nav__link">
       6.16.shutil
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.17.test.html" class="md-nav__link">
+      6.17.test
     </a>
   </li>
 
@@ -1972,48 +1984,44 @@
                 
                   <h1>11.15.决策树</h1>
                 
-                <div class="codehilite"><pre><span></span><code><span class="err">Windows 10</span>
-<span class="err">Python 3.7.3 @ MSC v.1915 64 bit (AMD64)</span>
-<span class="err">Latest build date 2020.11.07</span>
-<span class="err">sklearn version:  0.23.1</span>
+                <div class="highlight"><pre><span></span><code>Windows 10
+Python 3.7.3 @ MSC v.1915 64 bit (AMD64)
+Latest build date 2020.11.07
+sklearn version:  0.23.1
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="p">(</span><span class="n">DecisionTreeClassifier</span><span class="p">,</span> <span class="n">DecisionTreeRegressor</span><span class="p">,</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="p">(</span><span class="n">DecisionTreeClassifier</span><span class="p">,</span> <span class="n">DecisionTreeRegressor</span><span class="p">,</span>
                           <span class="n">ExtraTreeClassifier</span><span class="p">,</span> <span class="n">ExtraTreeRegressor</span><span class="p">)</span>
 <span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">tree</span>
 
 <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="n">tree</span><span class="p">)</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">i</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">)]</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">[&#39;BaseDecisionTree&#39;,</span>
-<span class="err"> &#39;DecisionTreeClassifier&#39;,</span>
-<span class="err"> &#39;DecisionTreeRegressor&#39;,</span>
-<span class="err"> &#39;ExtraTreeClassifier&#39;,</span>
-<span class="err"> &#39;ExtraTreeRegressor&#39;,</span>
-<span class="err"> &#39;export_graphviz&#39;,</span>
-<span class="err"> &#39;export_text&#39;,</span>
-<span class="err"> &#39;plot_tree&#39;]</span>
+<div class="highlight"><pre><span></span><code>[&#39;BaseDecisionTree&#39;,
+ &#39;DecisionTreeClassifier&#39;,
+ &#39;DecisionTreeRegressor&#39;,
+ &#39;ExtraTreeClassifier&#39;,
+ &#39;ExtraTreeRegressor&#39;,
+ &#39;export_graphviz&#39;,
+ &#39;export_text&#39;,
+ &#39;plot_tree&#39;]
 </code></pre></div>
-
 
 <h2 id="_1">参数说明</h2>
-<div class="codehilite"><pre><span></span><code><span class="n">DecisionTreeClassifier</span><span class="p">(</span><span class="n">criterion</span><span class="o">=</span><span class="s1">&#39;gini&#39;</span><span class="p">,</span> <span class="n">splitter</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">,</span> <span class="n">max_depth</span><span class="o">=</span><span class="k">None</span><span class="p">,</span>
-                       <span class="n">min_samples_split</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">min_samples_leaf</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-                       <span class="n">min_weight_fraction_leaf</span><span class="o">=</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span> <span class="n">max_features</span><span class="o">=</span><span class="k">None</span><span class="p">,</span>
-                       <span class="n">random_state</span><span class="o">=</span><span class="k">None</span><span class="p">,</span> <span class="n">max_leaf_nodes</span><span class="o">=</span><span class="k">None</span><span class="p">,</span>
-                       <span class="n">min_impurity_decrease</span><span class="o">=</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span> <span class="n">min_impurity_split</span><span class="o">=</span><span class="k">None</span><span class="p">,</span>
-                       <span class="n">class_weight</span><span class="o">=</span><span class="k">None</span><span class="p">,</span> <span class="n">presort</span><span class="o">=</span><span class="s1">&#39;deprecated&#39;</span><span class="p">,</span> <span class="n">ccp_alpha</span><span class="o">=</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code>DecisionTreeClassifier(criterion=&#39;gini&#39;, splitter=&#39;best&#39;, max_depth=None,
+                       min_samples_split=2, min_samples_leaf=1,
+                       min_weight_fraction_leaf=0.0, max_features=None,
+                       random_state=None, max_leaf_nodes=None,
+                       min_impurity_decrease=0.0, min_impurity_split=None,
+                       class_weight=None, presort=&#39;deprecated&#39;, ccp_alpha=0.0)
 
-<span class="n">DecisionTreeRegressor</span><span class="p">(</span><span class="n">criterion</span><span class="o">=</span><span class="s1">&#39;mse&#39;</span><span class="p">,</span> <span class="n">splitter</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">,</span> <span class="n">max_depth</span><span class="o">=</span><span class="k">None</span><span class="p">,</span>
-                      <span class="n">min_samples_split</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">min_samples_leaf</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-                      <span class="n">min_weight_fraction_leaf</span><span class="o">=</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span> <span class="n">max_features</span><span class="o">=</span><span class="k">None</span><span class="p">,</span>
-                      <span class="n">random_state</span><span class="o">=</span><span class="k">None</span><span class="p">,</span> <span class="n">max_leaf_nodes</span><span class="o">=</span><span class="k">None</span><span class="p">,</span>
-                      <span class="n">min_impurity_decrease</span><span class="o">=</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span> <span class="n">min_impurity_split</span><span class="o">=</span><span class="k">None</span><span class="p">,</span>
-                      <span class="n">presort</span><span class="o">=</span><span class="s1">&#39;deprecated&#39;</span><span class="p">,</span> <span class="n">ccp_alpha</span><span class="o">=</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span>
+DecisionTreeRegressor(criterion=&#39;mse&#39;, splitter=&#39;best&#39;, max_depth=None,
+                      min_samples_split=2, min_samples_leaf=1,
+                      min_weight_fraction_leaf=0.0, max_features=None,
+                      random_state=None, max_leaf_nodes=None,
+                      min_impurity_decrease=0.0, min_impurity_split=None,
+                      presort=&#39;deprecated&#39;, ccp_alpha=0.0)
 </code></pre></div>
-
 
 <p><strong>分裂策略参数</strong></p>
 <p><strong><code>criterion</code></strong>：分裂准则。对于分类树：<code>{'gini', 'entropy'}</code>，使用Gini系数或者信息增益。 对于回归树：<code>{"mse", "friedman_mse", "mae"}</code>。</p>
@@ -2137,14 +2145,12 @@ $$</p>
 </tbody>
 </table>
 <p>对于分类树，<code>score()</code>方法返回的结果是：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">),</span> <span class="n">sample_weight</span><span class="o">=</span><span class="n">sample_weight</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">),</span> <span class="n">sample_weight</span><span class="o">=</span><span class="n">sample_weight</span><span class="p">)</span>
 </code></pre></div>
-
 
 <p>对于回归树，<code>score()</code>方法返回的结果是：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">r2_score</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">sample_weight</span><span class="o">=</span><span class="n">sample_weight</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">r2_score</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">sample_weight</span><span class="o">=</span><span class="n">sample_weight</span><span class="p">)</span>
 </code></pre></div>
-
 
 <p>$$
 R^2 = 1 - \frac{\sum(y - \hat{y})^2}{\sum(y - \bar{y})^2}
@@ -2153,18 +2159,18 @@ $$</p>
 <h2 id="extremely-randomized-tree">extremely randomized tree</h2>
 <p>极端随机树与经典决策树的构建方式不同。寻找最佳分割时，Extra-trees 在所有拆分中随机选择<code>max_features</code>个拆分，并在<code>max_features</code>个拆分中选择最佳拆分。当<code>max_features</code>设置为1时，即建立了一个完全随机的决策树。</p>
 <p>实际上，<code>ExtraTree</code> 继承自 <code>DecisionTree</code>，<code>ExtraTree</code>只是将<code>splitter</code>、<code>max_features</code>参数分别默认设置为<code>"random"</code>和<code>"auto"</code>而已。</p>
-<div class="codehilite"><pre><span></span><code><span class="n">ExtraTreeClassifier</span><span class="p">(</span><span class="n">criterion</span><span class="o">=</span><span class="s1">&#39;gini&#39;</span><span class="p">,</span> <span class="n">splitter</span><span class="o">=</span><span class="s1">&#39;random&#39;</span><span class="p">,</span> <span class="n">max_depth</span><span class="o">=</span><span class="k">None</span><span class="p">,</span>
-                    <span class="n">min_samples_split</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">min_samples_leaf</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-                    <span class="n">min_weight_fraction_leaf</span><span class="o">=</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span> <span class="n">max_features</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span>
-                    <span class="n">random_state</span><span class="o">=</span><span class="k">None</span><span class="p">,</span> <span class="n">max_leaf_nodes</span><span class="o">=</span><span class="k">None</span><span class="p">,</span>
-                    <span class="n">min_impurity_decrease</span><span class="o">=</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span> <span class="n">min_impurity_split</span><span class="o">=</span><span class="k">None</span><span class="p">,</span>
-                    <span class="n">class_weight</span><span class="o">=</span><span class="k">None</span><span class="p">,</span> <span class="n">ccp_alpha</span><span class="o">=</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code>ExtraTreeClassifier(criterion=&#39;gini&#39;, splitter=&#39;random&#39;, max_depth=None,
+                    min_samples_split=2, min_samples_leaf=1,
+                    min_weight_fraction_leaf=0.0, max_features=&#39;auto&#39;,
+                    random_state=None, max_leaf_nodes=None,
+                    min_impurity_decrease=0.0, min_impurity_split=None,
+                    class_weight=None, ccp_alpha=0.0)
 
-<span class="n">ExtraTreeRegressor</span><span class="p">(</span><span class="n">criterion</span><span class="o">=</span><span class="s1">&#39;mse&#39;</span><span class="p">,</span> <span class="n">splitter</span><span class="o">=</span><span class="s1">&#39;random&#39;</span><span class="p">,</span> <span class="n">max_depth</span><span class="o">=</span><span class="k">None</span><span class="p">,</span>
-                   <span class="n">min_samples_split</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">min_samples_leaf</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-                   <span class="n">min_weight_fraction_leaf</span><span class="o">=</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span> <span class="n">max_features</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span>
-                   <span class="n">random_state</span><span class="o">=</span><span class="k">None</span><span class="p">,</span> <span class="n">min_impurity_decrease</span><span class="o">=</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">,</span>
-                   <span class="n">min_impurity_split</span><span class="o">=</span><span class="k">None</span><span class="p">,</span> <span class="n">max_leaf_nodes</span><span class="o">=</span><span class="k">None</span><span class="p">,</span> <span class="n">ccp_alpha</span><span class="o">=</span><span class="mi">0</span><span class="p">.</span><span class="mi">0</span><span class="p">)</span>
+ExtraTreeRegressor(criterion=&#39;mse&#39;, splitter=&#39;random&#39;, max_depth=None,
+                   min_samples_split=2, min_samples_leaf=1,
+                   min_weight_fraction_leaf=0.0, max_features=&#39;auto&#39;,
+                   random_state=None, min_impurity_decrease=0.0,
+                   min_impurity_split=None, max_leaf_nodes=None, ccp_alpha=0.0)
 </code></pre></div>
                 
               

@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-6.1.4">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.4">
     
     
       
@@ -891,6 +891,18 @@
   <li class="md-nav__item">
     <a href="6.16.shutil.html" class="md-nav__link">
       6.16.shutil
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="6.17.test.html" class="md-nav__link">
+      6.17.test
     </a>
   </li>
 
@@ -2000,15 +2012,13 @@
                 
                   <h1>6.10.os.path</h1>
                 
-                <div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span>
+                <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">Windows 10</span>
-<span class="err">Python 3.7.3 @ MSC v.1915 64 bit (AMD64)</span>
-<span class="err">Latest build date 2020.04.28</span>
+<div class="highlight"><pre><span></span><code>Windows 10
+Python 3.7.3 @ MSC v.1915 64 bit (AMD64)
+Latest build date 2020.04.28
 </code></pre></div>
-
 
 <p>os标准模块只有一个子模块——os.path模块。os.path 模块提供了跨平台处理文件路径的函数。实际上，在windows系统上，os.path模块是ntpath模块。这些处理路径的函数并不依赖于真实存在的路径，本质上它们只是操作字符串对象。</p>
 <p>os.path模块定义了一些变量，os.path对路径字符串的操作依赖于这些变量。</p>
@@ -2101,79 +2111,65 @@
 </tbody>
 </table>
 <p><code>.basename()</code>返回路径的最后一层</p>
-<div class="codehilite"><pre><span></span><code><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;C:\one\two\three&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;C:\one\two\three&quot;</span><span class="p">)</span>
 <span class="c1"># 等价于</span>
 <span class="c1"># r&quot;C:\one\two\three&quot;.rsplit(&quot;\\&quot;, maxsplit=1)[1]</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">&#39;three&#39;</span>
+<div class="highlight"><pre><span></span><code>&#39;three&#39;
 </code></pre></div>
-
 
 <p>如果路径是以目录分隔符<code>os.sep</code>结尾，那么这个路径的基础部分将被认为是空的:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;C:/one/two/three/&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;C:/one/two/three/&quot;</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">&#39;&#39;</span>
+<div class="highlight"><pre><span></span><code>&#39;&#39;
 </code></pre></div>
-
 
 <p><code>.dirname()</code>返回路径的第一层到倒数第二层：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;C:\one\two\three&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;C:\one\two\three&quot;</span><span class="p">)</span>
 <span class="c1"># 等价于</span>
 <span class="c1"># &quot;C:/one/two/three/&quot;.rsplit(&quot;/&quot;, maxsplit=1)[0]</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">&#39;C:\\one\\two&#39;</span>
+<div class="highlight"><pre><span></span><code>&#39;C:\\one\\two&#39;
 </code></pre></div>
-
 
 <p>将 <code>basename()</code> 和 <code>dirname()</code> 的结果组合起来，就会得到原始的路径。</p>
 <p>使用<code>.split</code>可以同时得到<code>basename()</code> 和 <code>dirname()</code>的结果：</p>
-<div class="codehilite"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;C:\one\two\three&quot;</span><span class="p">))</span>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;C:\one\two\three&quot;</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;C:\one\two\three.txt&quot;</span><span class="p">))</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">(&#39;C:\\one\\two&#39;, &#39;three&#39;)</span>
-<span class="err">(&#39;C:\\one\\two&#39;, &#39;three.txt&#39;)</span>
+<div class="highlight"><pre><span></span><code>(&#39;C:\\one\\two&#39;, &#39;three&#39;)
+(&#39;C:\\one\\two&#39;, &#39;three.txt&#39;)
 </code></pre></div>
 
-
 <p><code>.splitext()</code>根据<code>os.extsep</code>分割路径字符串：</p>
-<div class="codehilite"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;C:/one/two/three.txt&quot;</span><span class="p">))</span>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;C:/one/two/three.txt&quot;</span><span class="p">))</span>
 <span class="c1"># 等价于</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;C:/one/two/three.txt&quot;</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="n">maxsplit</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">(&#39;C:/one/two/three&#39;, &#39;.txt&#39;)</span>
-<span class="err">[&#39;C:/one/two/three&#39;, &#39;txt&#39;]</span>
+<div class="highlight"><pre><span></span><code>(&#39;C:/one/two/three&#39;, &#39;.txt&#39;)
+[&#39;C:/one/two/three&#39;, &#39;txt&#39;]
 </code></pre></div>
-
 
 <p>查找文件扩展名的时，只使用最后一次出现的<code>os.extsep</code>：</p>
-<div class="codehilite"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;C:/one/two/three.txt.md&quot;</span><span class="p">))</span>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;C:/one/two/three.txt.md&quot;</span><span class="p">))</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">(&#39;C:/one/two/three.txt&#39;, &#39;.md&#39;)</span>
+<div class="highlight"><pre><span></span><code>(&#39;C:/one/two/three.txt&#39;, &#39;.md&#39;)
 </code></pre></div>
-
 
 <p><code>.splitdrive()</code>将路径的盘符和其余部分分开：</p>
-<div class="codehilite"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitdrive</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;C:/one/two/three.txt&quot;</span><span class="p">))</span>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitdrive</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;C:/one/two/three.txt&quot;</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitdrive</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;/one/two/three.txt&quot;</span><span class="p">))</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">(&#39;C:&#39;, &#39;/one/two/three.txt&#39;)</span>
-<span class="err">(&#39;&#39;, &#39;/one/two/three.txt&#39;)</span>
+<div class="highlight"><pre><span></span><code>(&#39;C:&#39;, &#39;/one/two/three.txt&#39;)
+(&#39;&#39;, &#39;/one/two/three.txt&#39;)
 </code></pre></div>
-
 
 <h2 id="_2">构建路径</h2>
 <table>
@@ -2203,7 +2199,7 @@
 </tbody>
 </table>
 <p><code>os.path.join</code>可以将多个字符串拼接为一个路径。如果某个参数是以 <code>os.sep</code> 开头，那么它之前的所有参数都将被丢弃，并且返回值将以它作为新的开始。</p>
-<div class="codehilite"><pre><span></span><code><span class="n">PATHS</span> <span class="o">=</span> <span class="p">[</span>
+<div class="highlight"><pre><span></span><code><span class="n">PATHS</span> <span class="o">=</span> <span class="p">[</span>
     <span class="p">(</span><span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">,</span> <span class="s1">&#39;three&#39;</span><span class="p">),</span>
     <span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">,</span> <span class="s1">&#39;three&#39;</span><span class="p">),</span>
     <span class="p">(</span><span class="s1">&#39;/one&#39;</span><span class="p">,</span> <span class="s1">&#39;/two&#39;</span><span class="p">,</span> <span class="s1">&#39;/three&#39;</span><span class="p">),</span>
@@ -2213,40 +2209,34 @@
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{0:&lt;30}</span><span class="s1"> : </span><span class="si">{1!r}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">parts</span><span class="p">),</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="o">*</span><span class="n">parts</span><span class="p">)))</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">(&#39;one&#39;, &#39;two&#39;, &#39;three&#39;)        : &#39;one\\two\\three&#39;</span>
-<span class="err">(&#39;/&#39;, &#39;one&#39;, &#39;two&#39;, &#39;three&#39;)   : &#39;/one\\two\\three&#39;</span>
-<span class="err">(&#39;/one&#39;, &#39;/two&#39;, &#39;/three&#39;)     : &#39;/three&#39;</span>
+<div class="highlight"><pre><span></span><code>(&#39;one&#39;, &#39;two&#39;, &#39;three&#39;)        : &#39;one\\two\\three&#39;
+(&#39;/&#39;, &#39;one&#39;, &#39;two&#39;, &#39;three&#39;)   : &#39;/one\\two\\three&#39;
+(&#39;/one&#39;, &#39;/two&#39;, &#39;/three&#39;)     : &#39;/three&#39;
 </code></pre></div>
 
-
 <p><code>.expanduser()</code> 将会转化波浪号~为用户主目录的名称。如果没有找到用户的主目录，那么这个字符串将被原样返回。</p>
-<div class="codehilite"><pre><span></span><code><span class="k">for</span> <span class="n">user</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;dhellmann&#39;</span><span class="p">,</span> <span class="s1">&#39;nosuchuser&#39;</span><span class="p">]:</span>
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">user</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;dhellmann&#39;</span><span class="p">,</span> <span class="s1">&#39;nosuchuser&#39;</span><span class="p">]:</span>
     <span class="n">lookup</span> <span class="o">=</span> <span class="s1">&#39;~&#39;</span> <span class="o">+</span> <span class="n">user</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{!r:&gt;15}</span><span class="s1"> : </span><span class="si">{!r}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
         <span class="n">lookup</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="n">lookup</span><span class="p">)))</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">            &#39;~&#39; : &#39;C:\\Users\\Android&#39;</span>
-<span class="err">   &#39;~dhellmann&#39; : &#39;C:\\Users\\dhellmann&#39;</span>
-<span class="err">  &#39;~nosuchuser&#39; : &#39;C:\\Users\\nosuchuser&#39;</span>
+<div class="highlight"><pre><span></span><code>            &#39;~&#39; : &#39;C:\\Users\\Android&#39;
+   &#39;~dhellmann&#39; : &#39;C:\\Users\\dhellmann&#39;
+  &#39;~nosuchuser&#39; : &#39;C:\\Users\\nosuchuser&#39;
 </code></pre></div>
 
-
 <p><code>.expandvars()</code> 更一般化，它将会解析路径中所有 shell 环境变量。</p>
-<div class="codehilite"><pre><span></span><code><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;MYVAR&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;VALUE&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">[</span><span class="s1">&#39;MYVAR&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;VALUE&#39;</span>
 <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expandvars</span><span class="p">(</span><span class="s1">&#39;/path/to/$MYVAR&#39;</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">&#39;/path/to/VALUE&#39;</span>
+<div class="highlight"><pre><span></span><code>&#39;/path/to/VALUE&#39;
 </code></pre></div>
-
 
 <h2 id="_3">规范路径</h2>
 <p>使用 <code>.join()</code> 或者嵌入变量的独立字符串组合的路径结尾可能有额外的路径分隔符或者相对路径组件。使用 <code>.normpath()</code> 来清理他们：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">PATHS</span> <span class="o">=</span> <span class="p">[</span>
+<div class="highlight"><pre><span></span><code><span class="n">PATHS</span> <span class="o">=</span> <span class="p">[</span>
     <span class="s1">&#39;one//two//three&#39;</span><span class="p">,</span>
     <span class="s1">&#39;one/./two/./three&#39;</span><span class="p">,</span>
     <span class="s1">&#39;one/../alt/two/three&#39;</span><span class="p">,</span>
@@ -2256,36 +2246,30 @@
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{!r:&gt;22}</span><span class="s1"> : </span><span class="si">{!r}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">normpath</span><span class="p">(</span><span class="n">path</span><span class="p">)))</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">     &#39;one//two//three&#39; : &#39;one\\two\\three&#39;</span>
-<span class="err">   &#39;one/./two/./three&#39; : &#39;one\\two\\three&#39;</span>
-<span class="err">&#39;one/../alt/two/three&#39; : &#39;alt\\two\\three&#39;</span>
+<div class="highlight"><pre><span></span><code>     &#39;one//two//three&#39; : &#39;one\\two\\three&#39;
+   &#39;one/./two/./three&#39; : &#39;one\\two\\three&#39;
+&#39;one/../alt/two/three&#39; : &#39;alt\\two\\three&#39;
 </code></pre></div>
-
 
 <p>可以发现，os.curdir 和 os.pardir 组成的路径片段将被清除。</p>
 <p>使用 <code>abspath()</code> 可以将相对路径转化为绝对路径。实际上，就是将当前工作目录拼接到相对路径之前。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">absolute path = os.getcwd() + relative path</span>
+<div class="highlight"><pre><span></span><code>absolute path = os.getcwd() + relative path
 </code></pre></div>
-
 
 <p>使用 <code>relpath()</code> 可以将绝对路径转化为相对路径，也就是将路径字符串中的当前工作目录剔除。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">relative path = absolute path.replace(os.getcwd(), &quot;&quot;)</span>
+<div class="highlight"><pre><span></span><code>relative path = absolute path.replace(os.getcwd(), &quot;&quot;)
 </code></pre></div>
-
 
 <p>使用 <code>normcase()</code> 可以将路径字符串所有字符转为小写，同时将斜杠统一转换为os.sep。</p>
-<div class="codehilite"><pre><span></span><code><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">normcase</span><span class="p">(</span><span class="s1">&#39;User</span><span class="se">\\</span><span class="s1">Desktop/One&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">normcase</span><span class="p">(</span><span class="s1">&#39;User</span><span class="se">\\</span><span class="s1">Desktop/One&#39;</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">&#39;user\\desktop\\one&#39;</span>
+<div class="highlight"><pre><span></span><code>&#39;user\\desktop\\one&#39;
 </code></pre></div>
-
 
 <h2 id="_4">公共路径</h2>
 <p><code>.commonprefix()</code> 函数会接受一个路径列表作为参数而返回一个字符串表示所有路径中的公共前缀。这个字符串可能表示一个实际不存在的路径，因为路径分隔符并没有被考虑在内，所以这个公共前缀可能并没有落在分隔符边界上。</p>
-<div class="codehilite"><pre><span></span><code><span class="n">paths</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;/one/two/three/four&#39;</span><span class="p">,</span>
+<div class="highlight"><pre><span></span><code><span class="n">paths</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;/one/two/three/four&#39;</span><span class="p">,</span>
          <span class="s1">&#39;/one/two/threefold&#39;</span><span class="p">,</span>
          <span class="s1">&#39;/one/two/three/&#39;</span><span class="p">,</span>
          <span class="p">]</span>
@@ -2297,17 +2281,15 @@
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;PREFIX:&#39;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">commonprefix</span><span class="p">(</span><span class="n">paths</span><span class="p">))</span>
 </code></pre></div>
 
+<div class="highlight"><pre><span></span><code>PATH: /one/two/three/four
+PATH: /one/two/threefold
+PATH: /one/two/three/
 
-<div class="codehilite"><pre><span></span><code><span class="n">PATH</span><span class="p">:</span> <span class="o">/</span><span class="n">one</span><span class="o">/</span><span class="n">two</span><span class="o">/</span><span class="n">three</span><span class="o">/</span><span class="n">four</span>
-<span class="n">PATH</span><span class="p">:</span> <span class="o">/</span><span class="n">one</span><span class="o">/</span><span class="n">two</span><span class="o">/</span><span class="n">threefold</span>
-<span class="n">PATH</span><span class="p">:</span> <span class="o">/</span><span class="n">one</span><span class="o">/</span><span class="n">two</span><span class="o">/</span><span class="n">three</span><span class="o">/</span>
-
-<span class="k">PREFIX</span><span class="p">:</span> <span class="o">/</span><span class="n">one</span><span class="o">/</span><span class="n">two</span><span class="o">/</span><span class="n">three</span>
+PREFIX: /one/two/three
 </code></pre></div>
 
-
 <p><code>.commonpath()</code> 充分考虑路径分隔符，会返回路径序列中各个部分的最长公共有效子路径。</p>
-<div class="codehilite"><pre><span></span><code><span class="n">paths</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;/one/two/three/four&#39;</span><span class="p">,</span>
+<div class="highlight"><pre><span></span><code><span class="n">paths</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;/one/two/three/four&#39;</span><span class="p">,</span>
          <span class="s1">&#39;/one/two/threefold&#39;</span><span class="p">,</span>
          <span class="s1">&#39;/one/two/three/&#39;</span><span class="p">,</span>
          <span class="p">]</span>
@@ -2318,14 +2300,12 @@
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;PREFIX:&#39;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">commonpath</span><span class="p">(</span><span class="n">paths</span><span class="p">))</span>
 </code></pre></div>
 
+<div class="highlight"><pre><span></span><code>PATH: /one/two/three/four
+PATH: /one/two/threefold
+PATH: /one/two/three/
 
-<div class="codehilite"><pre><span></span><code><span class="n">PATH</span><span class="p">:</span> <span class="o">/</span><span class="n">one</span><span class="o">/</span><span class="n">two</span><span class="o">/</span><span class="n">three</span><span class="o">/</span><span class="n">four</span>
-<span class="n">PATH</span><span class="p">:</span> <span class="o">/</span><span class="n">one</span><span class="o">/</span><span class="n">two</span><span class="o">/</span><span class="n">threefold</span>
-<span class="n">PATH</span><span class="p">:</span> <span class="o">/</span><span class="n">one</span><span class="o">/</span><span class="n">two</span><span class="o">/</span><span class="n">three</span><span class="o">/</span>
-
-<span class="k">PREFIX</span><span class="p">:</span> <span class="err">\</span><span class="n">one</span><span class="err">\</span><span class="n">two</span>
+PREFIX: \one\two
 </code></pre></div>
-
 
 <h2 id="_5">文件信息</h2>
 <table>
@@ -2405,7 +2385,7 @@
 </tr>
 </tbody>
 </table>
-<div class="codehilite"><pre><span></span><code><span class="n">FILENAMES</span> <span class="o">=</span> <span class="p">[</span>
+<div class="highlight"><pre><span></span><code><span class="n">FILENAMES</span> <span class="o">=</span> <span class="p">[</span>
     <span class="vm">__file__</span><span class="p">,</span>
     <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">),</span>
     <span class="s1">&#39;/&#39;</span><span class="p">,</span>
@@ -2424,42 +2404,41 @@
     <span class="nb">print</span><span class="p">()</span>
 </code></pre></div>
 
+<div class="highlight"><pre><span></span><code>File        : os.getcwd() + &#39;8.10.标准库_os_path.py&#39;
+Absolute    : True
+Is File?    : True
+Is Dir?     : False
+Is Link?    : False
+Mountpoint? : False
+Exists?     : True
+Link Exists?: True
 
-<div class="codehilite"><pre><span></span><code><span class="n">File</span>        <span class="o">:</span> <span class="n">os</span><span class="o">.</span><span class="na">getcwd</span><span class="o">()</span> <span class="o">+</span> <span class="s1">&#39;8.10.标准库_os_path.py&#39;</span>
-<span class="n">Absolute</span>    <span class="o">:</span> <span class="n">True</span>
-<span class="n">Is</span> <span class="n">File</span><span class="o">?</span>    <span class="o">:</span> <span class="n">True</span>
-<span class="n">Is</span> <span class="n">Dir</span><span class="o">?</span>     <span class="o">:</span> <span class="n">False</span>
-<span class="n">Is</span> <span class="n">Link</span><span class="o">?</span>    <span class="o">:</span> <span class="n">False</span>
-<span class="n">Mountpoint</span><span class="o">?</span> <span class="o">:</span> <span class="n">False</span>
-<span class="n">Exists</span><span class="o">?</span>     <span class="o">:</span> <span class="n">True</span>
-<span class="n">Link</span> <span class="n">Exists</span><span class="o">?:</span> <span class="n">True</span>
+File        : os.getcwd()
+Absolute    : True
+Is File?    : False
+Is Dir?     : True
+Is Link?    : False
+Mountpoint? : False
+Exists?     : True
+Link Exists?: True
 
-<span class="n">File</span>        <span class="o">:</span> <span class="n">os</span><span class="o">.</span><span class="na">getcwd</span><span class="o">()</span>
-<span class="n">Absolute</span>    <span class="o">:</span> <span class="n">True</span>
-<span class="n">Is</span> <span class="n">File</span><span class="o">?</span>    <span class="o">:</span> <span class="n">False</span>
-<span class="n">Is</span> <span class="n">Dir</span><span class="o">?</span>     <span class="o">:</span> <span class="n">True</span>
-<span class="n">Is</span> <span class="n">Link</span><span class="o">?</span>    <span class="o">:</span> <span class="n">False</span>
-<span class="n">Mountpoint</span><span class="o">?</span> <span class="o">:</span> <span class="n">False</span>
-<span class="n">Exists</span><span class="o">?</span>     <span class="o">:</span> <span class="n">True</span>
-<span class="n">Link</span> <span class="n">Exists</span><span class="o">?:</span> <span class="n">True</span>
+File        : &#39;/&#39;
+Absolute    : True
+Is File?    : False
+Is Dir?     : True
+Is Link?    : False
+Mountpoint? : True
+Exists?     : True
+Link Exists?: True
 
-<span class="n">File</span>        <span class="o">:</span> <span class="s1">&#39;/&#39;</span>
-<span class="n">Absolute</span>    <span class="o">:</span> <span class="n">True</span>
-<span class="n">Is</span> <span class="n">File</span><span class="o">?</span>    <span class="o">:</span> <span class="n">False</span>
-<span class="n">Is</span> <span class="n">Dir</span><span class="o">?</span>     <span class="o">:</span> <span class="n">True</span>
-<span class="n">Is</span> <span class="n">Link</span><span class="o">?</span>    <span class="o">:</span> <span class="n">False</span>
-<span class="n">Mountpoint</span><span class="o">?</span> <span class="o">:</span> <span class="n">True</span>
-<span class="n">Exists</span><span class="o">?</span>     <span class="o">:</span> <span class="n">True</span>
-<span class="n">Link</span> <span class="n">Exists</span><span class="o">?:</span> <span class="n">True</span>
-
-<span class="n">File</span>        <span class="o">:</span> <span class="s1">&#39;./broken_link&#39;</span>
-<span class="n">Absolute</span>    <span class="o">:</span> <span class="n">False</span>
-<span class="n">Is</span> <span class="n">File</span><span class="o">?</span>    <span class="o">:</span> <span class="n">False</span>
-<span class="n">Is</span> <span class="n">Dir</span><span class="o">?</span>     <span class="o">:</span> <span class="n">False</span>
-<span class="n">Is</span> <span class="n">Link</span><span class="o">?</span>    <span class="o">:</span> <span class="n">False</span>
-<span class="n">Mountpoint</span><span class="o">?</span> <span class="o">:</span> <span class="n">False</span>
-<span class="n">Exists</span><span class="o">?</span>     <span class="o">:</span> <span class="n">False</span>
-<span class="n">Link</span> <span class="n">Exists</span><span class="o">?:</span> <span class="n">False</span>
+File        : &#39;./broken_link&#39;
+Absolute    : False
+Is File?    : False
+Is Dir?     : False
+Is Link?    : False
+Mountpoint? : False
+Exists?     : False
+Link Exists?: False
 </code></pre></div>
                 
               

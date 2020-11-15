@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-6.1.4">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.4">
     
     
       
@@ -820,6 +820,18 @@
   <li class="md-nav__item">
     <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.16.shutil.html" class="md-nav__link">
       6.16.shutil
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.17.test.html" class="md-nav__link">
+      6.17.test
     </a>
   </li>
 
@@ -2068,20 +2080,18 @@
                 
                   <h1>8.12.结构化数组</h1>
                 
-                <div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+                <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pprint</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">Windows 10</span>
-<span class="err">Python 3.7.3 @ MSC v.1915 64 bit (AMD64)</span>
-<span class="err">Latest build date 2020.03.28</span>
-<span class="err">numpy version:  1.18.1</span>
+<div class="highlight"><pre><span></span><code>Windows 10
+Python 3.7.3 @ MSC v.1915 64 bit (AMD64)
+Latest build date 2020.03.28
+numpy version:  1.18.1
 </code></pre></div>
 
-
 <h2 id="_1">结构化数组常用操作</h2>
-<div class="codehilite"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([(</span><span class="s1">&#39;Rex&#39;</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mf">81.0</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;Fido&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mf">27.0</span><span class="p">)],</span>
+<div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([(</span><span class="s1">&#39;Rex&#39;</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mf">81.0</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;Fido&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mf">27.0</span><span class="p">)],</span>
              <span class="n">dtype</span><span class="o">=</span><span class="p">[(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;U10&#39;</span><span class="p">),</span> 
                     <span class="p">(</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;i4&#39;</span><span class="p">),</span> 
                     <span class="p">(</span><span class="s1">&#39;weight&#39;</span><span class="p">,</span> <span class="s1">&#39;f4&#39;</span><span class="p">)])</span>
@@ -2089,14 +2099,12 @@
 <span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">array([(&#39;Rex&#39;, 9, 81.), (&#39;Fido&#39;, 3, 27.)],</span>
-<span class="err">      dtype=[(&#39;name&#39;, &#39;&lt;U10&#39;), (&#39;age&#39;, &#39;&lt;i4&#39;), (&#39;weight&#39;, &#39;&lt;f4&#39;)])</span>
+<div class="highlight"><pre><span></span><code>array([(&#39;Rex&#39;, 9, 81.), (&#39;Fido&#39;, 3, 27.)],
+      dtype=[(&#39;name&#39;, &#39;&lt;U10&#39;), (&#39;age&#39;, &#39;&lt;i4&#39;), (&#39;weight&#39;, &#39;&lt;f4&#39;)])
 </code></pre></div>
 
-
 <p>通过索引，可以获得一个结构 </p>
-<div class="codehilite"><pre><span></span><code><span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<div class="highlight"><pre><span></span><code><span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 
 <span class="c1"># 可以通过使用 字段名称 建立索引来访问和修改结构化数组的各个 字段：</span>
 <span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">])</span>
@@ -2108,50 +2116,42 @@
 <span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">(&#39;Rex&#39;, 9, 81.)</span>
-<span class="err">array([&#39;Rex&#39;, &#39;Fido&#39;], dtype=&#39;&lt;U10&#39;)</span>
-<span class="err">array([(9, &#39;Rex&#39;), (3, &#39;Fido&#39;)],</span>
-<span class="err">      dtype={&#39;names&#39;:[&#39;age&#39;,&#39;name&#39;], &#39;formats&#39;:[&#39;&lt;i4&#39;,&#39;&lt;U10&#39;],</span>
-<span class="err">&#39;offsets&#39;:[40,0], &#39;itemsize&#39;:48})</span>
-<span class="err">array([&#39;Rex&#39;], dtype=&#39;&lt;U10&#39;)</span>
-<span class="err">array([(&#39;Rex&#39;, 20, 81.), (&#39;Fido&#39;, 20, 27.)],</span>
-<span class="err">      dtype=[(&#39;name&#39;, &#39;&lt;U10&#39;), (&#39;age&#39;, &#39;&lt;i4&#39;), (&#39;weight&#39;, &#39;&lt;f4&#39;)])</span>
+<div class="highlight"><pre><span></span><code>(&#39;Rex&#39;, 9, 81.)
+array([&#39;Rex&#39;, &#39;Fido&#39;], dtype=&#39;&lt;U10&#39;)
+array([(9, &#39;Rex&#39;), (3, &#39;Fido&#39;)],
+      dtype={&#39;names&#39;:[&#39;age&#39;,&#39;name&#39;], &#39;formats&#39;:[&#39;&lt;i4&#39;,&#39;&lt;U10&#39;],
+&#39;offsets&#39;:[40,0], &#39;itemsize&#39;:48})
+array([&#39;Rex&#39;], dtype=&#39;&lt;U10&#39;)
+array([(&#39;Rex&#39;, 20, 81.), (&#39;Fido&#39;, 20, 27.)],
+      dtype=[(&#39;name&#39;, &#39;&lt;U10&#39;), (&#39;age&#39;, &#39;&lt;i4&#39;), (&#39;weight&#39;, &#39;&lt;f4&#39;)])
 </code></pre></div>
-
 
 <h2 id="_2">创建结构化数组</h2>
 <h3 id="list-of-tuple">list of tuple</h3>
 <p>可以通过 a list of tuple 的形式创建结构化数组。</p>
 <p>Tuple的形式是<code>(fieldname, datatype, Shape)</code>。<code>fieldname</code>是字符串，如果使用title，则为元组。<code>fieldname</code>、<code>Shape</code>可以省略，如果<code>fieldname</code>省略，则用 <code>f#</code> 的默认名称代替，<code>shape</code> 如果省略，则默认为<code>(1,)</code>。</p>
-<div class="codehilite"><pre><span></span><code><span class="n">np</span><span class="o">.</span><span class="n">dtype</span><span class="p">([(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;f4&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="s1">&#39;f4&#39;</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">))])</span>
+<div class="highlight"><pre><span></span><code><span class="n">np</span><span class="o">.</span><span class="n">dtype</span><span class="p">([(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;f4&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="s1">&#39;f4&#39;</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">))])</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">dtype([(&#39;x&#39;, &#39;&lt;f4&#39;), (&#39;y&#39;, &#39;&lt;f4&#39;), (&#39;z&#39;, &#39;&lt;f4&#39;, (2, 2))])</span>
+<div class="highlight"><pre><span></span><code>dtype([(&#39;x&#39;, &#39;&lt;f4&#39;), (&#39;y&#39;, &#39;&lt;f4&#39;), (&#39;z&#39;, &#39;&lt;f4&#39;, (2, 2))])
 </code></pre></div>
-
 
 <p>如果 <code>fieldname</code> 是空字符串 <code>''</code>，则将为字段指定格式为 <code>f#</code> 的默认名称，其中 <code>#</code> 是字段的整数索引，从左侧开始从0开始计数：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">np</span><span class="o">.</span><span class="n">dtype</span><span class="p">([(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;f4&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;i4&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="s1">&#39;i8&#39;</span><span class="p">)])</span>
+<div class="highlight"><pre><span></span><code><span class="n">np</span><span class="o">.</span><span class="n">dtype</span><span class="p">([(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;f4&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;i4&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="s1">&#39;i8&#39;</span><span class="p">)])</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">dtype([(&#39;x&#39;, &#39;&lt;f4&#39;), (&#39;f1&#39;, &#39;&lt;i4&#39;), (&#39;z&#39;, &#39;&lt;i8&#39;)])</span>
+<div class="highlight"><pre><span></span><code>dtype([(&#39;x&#39;, &#39;&lt;f4&#39;), (&#39;f1&#39;, &#39;&lt;i4&#39;), (&#39;z&#39;, &#39;&lt;i8&#39;)])
 </code></pre></div>
-
 
 <h3 id="_3">逗号分割的字符串</h3>
 <p>可以通过“A string of comma-separated dtype specifications”创建结构化数组。字符串要符合规范。</p>
-<div class="codehilite"><pre><span></span><code><span class="n">np</span><span class="o">.</span><span class="n">dtype</span><span class="p">(</span><span class="s1">&#39;i8, f4, S3&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">np</span><span class="o">.</span><span class="n">dtype</span><span class="p">(</span><span class="s1">&#39;i8, f4, S3&#39;</span><span class="p">)</span>
 
 <span class="n">np</span><span class="o">.</span><span class="n">dtype</span><span class="p">(</span><span class="s1">&#39;3int8, float32, (2, 3)float64&#39;</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">dtype([(&#39;f0&#39;, &#39;i1&#39;, (3,)), (&#39;f1&#39;, &#39;&lt;f4&#39;), (&#39;f2&#39;, &#39;&lt;f8&#39;, (2, 3))])</span>
+<div class="highlight"><pre><span></span><code>dtype([(&#39;f0&#39;, &#39;i1&#39;, (3,)), (&#39;f1&#39;, &#39;&lt;f4&#39;), (&#39;f2&#39;, &#39;&lt;f8&#39;, (2, 3))])
 </code></pre></div>
-
 
 <h3 id="dict-of-field-parameter-arrays">dict of field parameter arrays</h3>
 <p>通过“关键字参数组成的字典”创建结构化数组。这是最灵活的规范形式，因为它允许控制字段的字节偏移和结构的项目大小。</p>
@@ -2173,48 +2173,42 @@
 <p>可选的<code>titles</code>值应该是长度与<code>names</code>相同的标题列表。 </p>
 </li>
 </ul>
-<div class="codehilite"><pre><span></span><code><span class="n">np</span><span class="o">.</span><span class="n">dtype</span><span class="p">({</span><span class="s1">&#39;names&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;col1&#39;</span><span class="p">,</span> <span class="s1">&#39;col2&#39;</span><span class="p">],</span> <span class="s1">&#39;formats&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;i4&#39;</span><span class="p">,</span> <span class="s1">&#39;f4&#39;</span><span class="p">]})</span>
+<div class="highlight"><pre><span></span><code><span class="n">np</span><span class="o">.</span><span class="n">dtype</span><span class="p">({</span><span class="s1">&#39;names&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;col1&#39;</span><span class="p">,</span> <span class="s1">&#39;col2&#39;</span><span class="p">],</span> <span class="s1">&#39;formats&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;i4&#39;</span><span class="p">,</span> <span class="s1">&#39;f4&#39;</span><span class="p">]})</span>
 
 <span class="n">np</span><span class="o">.</span><span class="n">dtype</span><span class="p">({</span><span class="s1">&#39;names&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;col1&#39;</span><span class="p">,</span> <span class="s1">&#39;col2&#39;</span><span class="p">],</span>
           <span class="s1">&#39;formats&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;i4&#39;</span><span class="p">,</span> <span class="s1">&#39;f4&#39;</span><span class="p">],</span>
           <span class="s1">&#39;offsets&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span><span class="s1">&#39;itemsize&#39;</span><span class="p">:</span> <span class="mi">12</span><span class="p">})</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">dtype({&#39;names&#39;:[&#39;col1&#39;,&#39;col2&#39;], &#39;formats&#39;:[&#39;&lt;i4&#39;,&#39;&lt;f4&#39;],</span>
-<span class="err">&#39;offsets&#39;:[0,4], &#39;itemsize&#39;:12})</span>
+<div class="highlight"><pre><span></span><code>dtype({&#39;names&#39;:[&#39;col1&#39;,&#39;col2&#39;], &#39;formats&#39;:[&#39;&lt;i4&#39;,&#39;&lt;f4&#39;],
+&#39;offsets&#39;:[0,4], &#39;itemsize&#39;:12})
 </code></pre></div>
-
 
 <h3 id="dict-of-fieldnam">dict of fieldnam</h3>
 <p>通过 dict of fieldname 创建结构化数组。不鼓励使用这种形式，因为Python字典在Python 3.6之前的Python版本中不保留顺序，但结构化dtype中字段的顺序有意义。</p>
 <p>字典的关键字是字段名称，值是指定类型和偏移量的元组： </p>
-<div class="codehilite"><pre><span></span><code><span class="n">np</span><span class="o">.</span><span class="n">dtype</span><span class="p">({</span><span class="s1">&#39;col1&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;i1&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="s1">&#39;col2&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;f4&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)})</span>
+<div class="highlight"><pre><span></span><code><span class="n">np</span><span class="o">.</span><span class="n">dtype</span><span class="p">({</span><span class="s1">&#39;col1&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;i1&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="s1">&#39;col2&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;f4&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)})</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">dtype([(&#39;col1&#39;, &#39;i1&#39;), (&#39;col2&#39;, &#39;&lt;f4&#39;)])</span>
+<div class="highlight"><pre><span></span><code>dtype([(&#39;col1&#39;, &#39;i1&#39;), (&#39;col2&#39;, &#39;&lt;f4&#39;)])
 </code></pre></div>
-
 
 <h2 id="_4">操作和显示结构化数据类型</h2>
-<div class="codehilite"><pre><span></span><code><span class="n">d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dtype</span><span class="p">([(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;i8&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;f4&#39;</span><span class="p">)])</span>
+<div class="highlight"><pre><span></span><code><span class="n">d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dtype</span><span class="p">([(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;i8&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="s1">&#39;f4&#39;</span><span class="p">)])</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">names</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">fields</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">(&#39;x&#39;, &#39;y&#39;)</span>
-<span class="err">{&#39;x&#39;: (dtype(&#39;int64&#39;), 0), &#39;y&#39;: (dtype(&#39;float32&#39;), 8)}</span>
+<div class="highlight"><pre><span></span><code>(&#39;x&#39;, &#39;y&#39;)
+{&#39;x&#39;: (dtype(&#39;int64&#39;), 0), &#39;y&#39;: (dtype(&#39;float32&#39;), 8)}
 </code></pre></div>
-
 
 <h2 id="_5">为什么需要结构化数组</h2>
 <p>numpy结构化数组中的用法好像类似于Python的dict of list，那为什么还要用numpy结构化数组呢？</p>
 <p>因为numpy的结构化数组底层是类似C语言的结构，占用一块连续的内存区域，并且numpy底层是C实现，numpy数组中的类型都是静态类型的，性能好于Python的的字典列表。</p>
 <p>可以来做一下性能比较。</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">time</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">time</span>
 
 <span class="c1">### 定义计时器</span>
 <span class="k">def</span> <span class="nf">timer</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
@@ -2265,46 +2259,39 @@
 <span class="n">addage_python</span><span class="p">(</span><span class="n">data_py</span><span class="p">,</span> <span class="n">loop</span><span class="o">=</span><span class="mi">1000000</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">当前函数：&lt;function addage_numpy at 0x0000021944ECBA60&gt;</span>
-<span class="err">用时：4.453125秒</span>
-<span class="err">当前函数：&lt;function addage_python at 0x0000021944ECB9D8&gt;</span>
-<span class="err">用时：1.421875秒</span>
+<div class="highlight"><pre><span></span><code>当前函数：&lt;function addage_numpy at 0x0000021944ECBA60&gt;
+用时：4.453125秒
+当前函数：&lt;function addage_python at 0x0000021944ECB9D8&gt;
+用时：1.421875秒
 </code></pre></div>
-
 
 <h2 id="_6">记录数组</h2>
 <p>记录数组和结构数组没有太大区别，它们所使用的场景也是类似的，只不过记录数组可以通过属性的方式访问数据。</p>
 <p>创建记录数组的最简单方法是<code>numpy.rec.array</code>。</p>
-<div class="codehilite"><pre><span></span><code><span class="n">recordarr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">rec</span><span class="o">.</span><span class="n">array</span><span class="p">([(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="s1">&#39;Hello&#39;</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mf">3.</span><span class="p">,</span> <span class="s2">&quot;World&quot;</span><span class="p">)],</span>                  
+<div class="highlight"><pre><span></span><code><span class="n">recordarr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">rec</span><span class="o">.</span><span class="n">array</span><span class="p">([(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="s1">&#39;Hello&#39;</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mf">3.</span><span class="p">,</span> <span class="s2">&quot;World&quot;</span><span class="p">)],</span>                  
                          <span class="n">dtype</span><span class="o">=</span><span class="p">[(</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;i4&#39;</span><span class="p">),(</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;f4&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;baz&#39;</span><span class="p">,</span> <span class="s1">&#39;S10&#39;</span><span class="p">)])</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">recordarr</span><span class="p">))</span>
 <span class="c1"># 通过属性访问数据</span>
 <span class="n">recordarr</span><span class="o">.</span><span class="n">foo</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">&lt;class &#39;numpy.recarray&#39;&gt;</span>
+<div class="highlight"><pre><span></span><code>&lt;class &#39;numpy.recarray&#39;&gt;
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">array([1, 2])</span>
+<div class="highlight"><pre><span></span><code>array([1, 2])
 </code></pre></div>
-
 
 <p><code>numpy.rec.array</code> 可以将各种参数转换为记录数组，包括结构化数组：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="s1">&#39;Hello&#39;</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mf">3.</span><span class="p">,</span> <span class="s2">&quot;World&quot;</span><span class="p">)],</span>
+<div class="highlight"><pre><span></span><code><span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="s1">&#39;Hello&#39;</span><span class="p">),</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mf">3.</span><span class="p">,</span> <span class="s2">&quot;World&quot;</span><span class="p">)],</span>
                <span class="n">dtype</span><span class="o">=</span><span class="p">[(</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;i4&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;f4&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;baz&#39;</span><span class="p">,</span> <span class="s1">&#39;S10&#39;</span><span class="p">)])</span>
 
 <span class="n">recordarr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">rec</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
 <span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">recordarr</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">rec.array([(1, 2., b&#39;Hello&#39;), (2, 3., b&#39;World&#39;)],</span>
-<span class="err">          dtype=[(&#39;foo&#39;, &#39;&lt;i4&#39;), (&#39;bar&#39;, &#39;&lt;f4&#39;), (&#39;baz&#39;, &#39;S10&#39;)])</span>
+<div class="highlight"><pre><span></span><code>rec.array([(1, 2., b&#39;Hello&#39;), (2, 3., b&#39;World&#39;)],
+          dtype=[(&#39;foo&#39;, &#39;&lt;i4&#39;), (&#39;bar&#39;, &#39;&lt;f4&#39;), (&#39;baz&#39;, &#39;S10&#39;)])
 </code></pre></div>
-
 
 <p><code>numpy.rec</code>模块提供了多个便利的函数来创建记录数组，请参阅<a href="https://numpy.org/doc/1.17/reference/routines.array-creation.html#routines-array-creation-rec">记录数组创建方法列表</a>。</p>
 <p>注意：<code>numpy.rec</code>是<code>numpy.core.records</code>的首选别名。</p>

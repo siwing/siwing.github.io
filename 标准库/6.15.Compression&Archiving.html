@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-6.1.4">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.4">
     
     
       
@@ -950,6 +950,18 @@
   <li class="md-nav__item">
     <a href="6.16.shutil.html" class="md-nav__link">
       6.16.shutil
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="6.17.test.html" class="md-nav__link">
+      6.17.test
     </a>
   </li>
 
@@ -2118,7 +2130,7 @@
                 
                   <h1>6.15.Compression&Archiving</h1>
                 
-                <div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">gzip</span>
+                <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">gzip</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">shutil</span>
 <span class="kn">from</span> <span class="nn">toolkit.blog.util</span> <span class="kn">import</span> <span class="n">get_work_dir</span>
@@ -2126,10 +2138,9 @@
 <span class="n">FileDir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">get_work_dir</span><span class="p">(),</span> <span class="s2">&quot;datasets/file&quot;</span><span class="p">)</span>
 </code></pre></div>
 
-
 <h2 id="gzip">gzip</h2>
 <p>gzip 模块中包含一些常量，这是 DEFLATE 算法生成的压缩文件的一些标记字段。</p>
-<div class="codehilite"><pre><span></span><code><span class="n">gzip</span><span class="o">.</span><span class="n">FCOMMENT</span>
+<div class="highlight"><pre><span></span><code><span class="n">gzip</span><span class="o">.</span><span class="n">FCOMMENT</span>
 <span class="n">gzip</span><span class="o">.</span><span class="n">FEXTRA</span>
 <span class="n">gzip</span><span class="o">.</span><span class="n">FHCRC</span>
 <span class="n">gzip</span><span class="o">.</span><span class="n">FNAME</span>
@@ -2139,32 +2150,27 @@
 <span class="n">gzip</span><span class="o">.</span><span class="n">WRITE</span>
 </code></pre></div>
 
-
 <h3 id="_1">处理比特流</h3>
 <p>压缩内存中的比特流 (字节流)：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">gzip</span><span class="o">.</span><span class="n">compress</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;this is a test.&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">gzip</span><span class="o">.</span><span class="n">compress</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;this is a test.&quot;</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">b&#39;\x1f\x8b\x08\x00\xcc\x88\xaa_\x02\xff+\xc9\xc8,V\x00\xa2D\x85\x92\xd4\xe2\x12=\x00\xc3\xf7\x06N\x0f\x00\x00\x00&#39;</span>
+<div class="highlight"><pre><span></span><code>b&#39;\x1f\x8b\x08\x00\xcc\x88\xaa_\x02\xff+\xc9\xc8,V\x00\xa2D\x85\x92\xd4\xe2\x12=\x00\xc3\xf7\x06N\x0f\x00\x00\x00&#39;
 </code></pre></div>
-
 
 <p>解压缩内存中的比特流：</p>
 <blockquote>
 <p>该比特流必须是使用 gzip 对应的 DEFLATE 压缩算法得到的比特流，否则无法使用对应的算法解压缩。</p>
 </blockquote>
-<div class="codehilite"><pre><span></span><code><span class="n">gzip</span><span class="o">.</span><span class="n">decompress</span><span class="p">(</span><span class="n">gzip</span><span class="o">.</span><span class="n">compress</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;this is a test.&quot;</span><span class="p">))</span>
+<div class="highlight"><pre><span></span><code><span class="n">gzip</span><span class="o">.</span><span class="n">decompress</span><span class="p">(</span><span class="n">gzip</span><span class="o">.</span><span class="n">compress</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;this is a test.&quot;</span><span class="p">))</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">b&#39;this is a test.&#39;</span>
+<div class="highlight"><pre><span></span><code>b&#39;this is a test.&#39;
 </code></pre></div>
-
 
 <h3 id="gz">解压 <code>.gz</code> 文件</h3>
 <p>gzip-1.3.14.tar.gz 会被解压为 gzip-1.3.14.tar 文件。</p>
-<div class="codehilite"><pre><span></span><code><span class="n">gz_file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">FileDir</span><span class="p">,</span> <span class="s2">&quot;gzip-1.3.14.tar.gz&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">gz_file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">FileDir</span><span class="p">,</span> <span class="s2">&quot;gzip-1.3.14.tar.gz&quot;</span><span class="p">)</span>
 <span class="n">ext_file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">FileDir</span><span class="p">,</span> <span class="s2">&quot;gzip-1.3.14.tar&quot;</span><span class="p">)</span>
 <span class="c1"># 创建 gzip 对象</span>
 <span class="n">gz_file</span> <span class="o">=</span> <span class="n">gzip</span><span class="o">.</span><span class="n">GzipFile</span><span class="p">(</span><span class="n">gz_file_path</span><span class="p">)</span>
@@ -2173,45 +2179,38 @@
 <span class="n">gz_file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </code></pre></div>
 
-
 <p>也可以使用 <code>gzip.open</code> 函数打开 gz 文件，实际这也是调用 <code>gzip.GzipFile</code> 类。</p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># gzip.open 相当于 gzip.GzipFile</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># gzip.open 相当于 gzip.GzipFile</span>
 <span class="k">with</span> <span class="n">gzip</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">gz_file_path</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">output</span><span class="p">:</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">ext_file_path</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
         <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">output</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
 </code></pre></div>
 
-
 <h2 id="tarfile">tarfile</h2>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">tarfile</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">tarfile</span>
 <span class="kn">import</span> <span class="nn">time</span>
 </code></pre></div>
 
-
 <p>判断文件是否为tar文档，如果文件不存在，会引发IO ERROR。</p>
-<div class="codehilite"><pre><span></span><code><span class="n">tar_file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">FileDir</span><span class="p">,</span> <span class="s2">&quot;gzip-1.3.14.tar&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">tar_file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">FileDir</span><span class="p">,</span> <span class="s2">&quot;gzip-1.3.14.tar&quot;</span><span class="p">)</span>
 <span class="n">tarfile</span><span class="o">.</span><span class="n">is_tarfile</span><span class="p">(</span><span class="n">tar_file_path</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">True</span>
+<div class="highlight"><pre><span></span><code>True
 </code></pre></div>
-
 
 <h3 id="_2">获取元数据</h3>
 <p>使用 <code>.getnames()</code> 来读取压缩文件中所有文件的文件名。</p>
-<div class="codehilite"><pre><span></span><code><span class="k">with</span> <span class="n">tarfile</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">tar_file_path</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">t</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="k">with</span> <span class="n">tarfile</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">tar_file_path</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">t</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">getnames</span><span class="p">()[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">])</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">[&#39;gzip-1.3.14&#39;, &#39;gzip-1.3.14/zgrep.1&#39;, &#39;gzip-1.3.14/configure.ac&#39;,</span>
-<span class="err">&#39;gzip-1.3.14/gzexe.1&#39;, &#39;gzip-1.3.14/gunzip.1&#39;]</span>
+<div class="highlight"><pre><span></span><code>[&#39;gzip-1.3.14&#39;, &#39;gzip-1.3.14/zgrep.1&#39;, &#39;gzip-1.3.14/configure.ac&#39;,
+&#39;gzip-1.3.14/gzexe.1&#39;, &#39;gzip-1.3.14/gunzip.1&#39;]
 </code></pre></div>
 
-
 <p>通过 <code>.getmembers()</code> 和 <code>.getmember()</code> 函数来获取元数据。</p>
-<div class="codehilite"><pre><span></span><code><span class="k">with</span> <span class="n">tarfile</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">tar_file_path</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">t</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="k">with</span> <span class="n">tarfile</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">tar_file_path</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">t</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">member_info</span> <span class="ow">in</span> <span class="n">t</span><span class="o">.</span><span class="n">getmembers</span><span class="p">():</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">member_info</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  Modified:&quot;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">ctime</span><span class="p">(</span><span class="n">member_info</span><span class="o">.</span><span class="n">mtime</span><span class="p">))</span>
@@ -2222,17 +2221,15 @@
         <span class="k">break</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">gzip-1.3.14</span>
-<span class="err">  Modified: Sat Oct 31 02:54:33 2009</span>
-<span class="err">  Mode    : 0o777</span>
-<span class="err">  Type    : b&#39;5&#39;</span>
-<span class="err">  Size    : 0 bytes</span>
+<div class="highlight"><pre><span></span><code>gzip-1.3.14
+  Modified: Sat Oct 31 02:54:33 2009
+  Mode    : 0o777
+  Type    : b&#39;5&#39;
+  Size    : 0 bytes
 </code></pre></div>
 
-
 <p>如果一个所含文件的文件名已知，可使用 <code>getmember()</code> 函数获取其所对应的 <code>TarInfo</code> 对象。</p>
-<div class="codehilite"><pre><span></span><code><span class="k">with</span> <span class="n">tarfile</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">tar_file_path</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">t</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="k">with</span> <span class="n">tarfile</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">tar_file_path</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">t</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;gzip-1.3.14/doc/Makefile.in&quot;</span><span class="p">,</span>
                      <span class="s2">&quot;gzip-1.3.14/doc/version.texi&quot;</span><span class="p">]:</span>
         <span class="k">try</span><span class="p">:</span>
@@ -2243,15 +2240,13 @@
             <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{info.name}</span><span class="s2"> is </span><span class="si">{info.size:d}</span><span class="s2"> bytes&quot;</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">gzip-1.3.14/doc/Makefile.in is 43510 bytes</span>
-<span class="err">gzip-1.3.14/doc/version.texi is 105 bytes</span>
+<div class="highlight"><pre><span></span><code>gzip-1.3.14/doc/Makefile.in is 43510 bytes
+gzip-1.3.14/doc/version.texi is 105 bytes
 </code></pre></div>
-
 
 <h3 id="tar">解压 tar 文件</h3>
 <p>可使用 <code>extractfile()</code> 方法读入压缩文档中某个成员的数据：</p>
-<div class="codehilite"><pre><span></span><code><span class="k">with</span> <span class="n">tarfile</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">tar_file_path</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">t</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="k">with</span> <span class="n">tarfile</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">tar_file_path</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">t</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;gzip-1.3.14/doc/Makefile.in&quot;</span><span class="p">]:</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="c1"># 解压其中某个文件为二进制数据</span>
@@ -2263,56 +2258,48 @@
             <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">:</span><span class="mi">100</span><span class="p">])</span>
 </code></pre></div>
 
+<div class="highlight"><pre><span></span><code>gzip-1.3.14/doc/Makefile.in :
+# Makefile.in generated by automake 1.11a from Makefile.am.
+# @configure_input@
 
-<div class="codehilite"><pre><span></span><code><span class="n">gzip</span><span class="o">-</span><span class="mf">1.3.14</span><span class="o">/</span><span class="n">doc</span><span class="o">/</span><span class="n">Makefile</span><span class="p">.</span><span class="ow">in</span><span class="w"> </span><span class="err">:</span><span class="w"></span>
-<span class="err">#</span><span class="w"> </span><span class="n">Makefile</span><span class="p">.</span><span class="ow">in</span><span class="w"> </span><span class="n">generated</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="n">automake</span><span class="w"> </span><span class="mf">1.11</span><span class="n">a</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">Makefile</span><span class="p">.</span><span class="n">am</span><span class="p">.</span><span class="w"></span>
-<span class="err">#</span><span class="w"> </span><span class="nv">@configure_input</span><span class="err">@</span><span class="w"></span>
-
-<span class="err">#</span><span class="w"> </span><span class="n">Copyright</span><span class="w"> </span><span class="p">(</span><span class="n">C</span><span class="p">)</span><span class="w"> </span><span class="mi">199</span><span class="w"></span>
+# Copyright (C) 199
 </code></pre></div>
 
-
 <p>解压 tar 压缩文档中文件到硬盘</p>
-<div class="codehilite"><pre><span></span><code><span class="n">out_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">FileDir</span><span class="p">,</span> <span class="s2">&quot;tar&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">out_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">FileDir</span><span class="p">,</span> <span class="s2">&quot;tar&quot;</span><span class="p">)</span>
 <span class="k">with</span> <span class="n">tarfile</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">tar_file_path</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">t</span><span class="p">:</span>
     <span class="n">t</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="s2">&quot;gzip-1.3.14/doc/Makefile.in&quot;</span><span class="p">,</span> <span class="n">out_dir</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">out_dir</span><span class="p">))</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">[&#39;gzip-1.3.14&#39;]</span>
+<div class="highlight"><pre><span></span><code>[&#39;gzip-1.3.14&#39;]
 </code></pre></div>
-
 
 <p>解压整个 tar 压缩文档到硬盘：<code>gzip-1.3.14.tar/gzip-1.3.14/..</code> → <code>tar/gzip-1.3.14/..</code></p>
 <blockquote>
 <p>标准库文档中有一个注释提到 <code>extractall()</code> 方法的安全性强于 <code>extract()</code> ，尤其适用于无法倒带读取输入的较早部分的流数据，所以大多数情况下应该使用 <code>extractall()</code>。</p>
 </blockquote>
-<div class="codehilite"><pre><span></span><code><span class="n">out_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">FileDir</span><span class="p">,</span> <span class="s2">&quot;tar&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">out_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">FileDir</span><span class="p">,</span> <span class="s2">&quot;tar&quot;</span><span class="p">)</span>
 <span class="k">with</span> <span class="n">tarfile</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">tar_file_path</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">t</span><span class="p">:</span>
     <span class="n">t</span><span class="o">.</span><span class="n">extractall</span><span class="p">(</span><span class="n">out_dir</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">out_dir</span><span class="p">))</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">[&#39;gzip-1.3.14&#39;]</span>
+<div class="highlight"><pre><span></span><code>[&#39;gzip-1.3.14&#39;]
 </code></pre></div>
 
-
 <p><code>extractall()</code> 方法也可以只解压部分文件，这需要将待提取的文件名或者 <code>TarInfo</code> 元数据容器作为参数传递给 <code>extractall()</code>。</p>
-<div class="codehilite"><pre><span></span><code><span class="k">with</span> <span class="n">tarfile</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">tar_file_path</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">t</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="k">with</span> <span class="n">tarfile</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">tar_file_path</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">t</span><span class="p">:</span>
     <span class="n">t</span><span class="o">.</span><span class="n">extractall</span><span class="p">(</span><span class="n">out_dir</span><span class="p">,</span> <span class="n">members</span><span class="o">=</span><span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">getmember</span><span class="p">(</span><span class="s2">&quot;gzip-1.3.14/doc/Makefile.in&quot;</span><span class="p">)],</span> <span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">out_dir</span><span class="p">))</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">[&#39;gzip-1.3.14&#39;]</span>
+<div class="highlight"><pre><span></span><code>[&#39;gzip-1.3.14&#39;]
 </code></pre></div>
-
 
 <h3 id="_3">处理其他压缩文件</h3>
 <p>除了正常的 tar 归档文件，tarfile 模块还可处理通过 gzip 或 bzip2 协议压缩的归档文件。要打开一个压缩的归档文件，根据不同的压缩协议，传入 <code>":gz"</code> 或 <code>":bz2"</code> 模式参数到<code>open()</code>函数。</p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># gzip-1.3.14.tar.gz/gzip-1.3.14.tar/gzip-1.3.14/..  →  gz/gzip-1.3.14/..</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># gzip-1.3.14.tar.gz/gzip-1.3.14.tar/gzip-1.3.14/..  →  gz/gzip-1.3.14/..</span>
 <span class="n">gz_file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">FileDir</span><span class="p">,</span> <span class="s2">&quot;gzip-1.3.14.tar.gz&quot;</span><span class="p">)</span>
 <span class="n">out_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">FileDir</span><span class="p">,</span> <span class="s2">&quot;gz&quot;</span><span class="p">)</span>
 <span class="c1"># 直接解压 tar.gz 文件</span>
@@ -2321,12 +2308,10 @@
 <span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">out_dir</span><span class="p">))</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">[&#39;gzip-1.3.14&#39;]</span>
+<div class="highlight"><pre><span></span><code>[&#39;gzip-1.3.14&#39;]
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="c1"># gzip.bzip2/gzip/..  →  gzip/..</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># gzip.bzip2/gzip/..  →  gzip/..</span>
 <span class="n">bz2_file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">FileDir</span><span class="p">,</span> <span class="s2">&quot;gzip.bz2&quot;</span><span class="p">)</span>
 <span class="n">out_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">FileDir</span><span class="p">,</span> <span class="s2">&quot;gzip&quot;</span><span class="p">)</span>
 <span class="c1"># 直接解压 .bz2 文件</span>
@@ -2335,26 +2320,24 @@
 <span class="nb">print</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">out_dir</span><span class="p">))</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">[&#39;.tarball-version&#39;, &#39;aclocal.m4&#39;, &#39;algorithm.doc&#39;, &#39;amiga&#39;, &#39;atari&#39;,</span>
-<span class="err">&#39;AUTHORS&#39;, &#39;bits.c&#39;, &#39;build-aux&#39;, &#39;ChangeLog&#39;, &#39;ChangeLog-2007&#39;,</span>
-<span class="err">&#39;configure&#39;, &#39;configure.ac&#39;, &#39;COPYING&#39;, &#39;crypt.c&#39;, &#39;crypt.h&#39;,</span>
-<span class="err">&#39;deflate.c&#39;, &#39;doc&#39;, &#39;GNUmakefile&#39;, &#39;gunzip.1&#39;, &#39;gunzip.in&#39;, &#39;gzexe.1&#39;,</span>
-<span class="err">&#39;gzexe.in&#39;, &#39;gzip.1&#39;, &#39;gzip.c&#39;, &#39;gzip.doc&#39;, &#39;gzip.h&#39;, &#39;inflate.c&#39;,</span>
-<span class="err">&#39;INSTALL&#39;, &#39;lib&#39;, &#39;lzw.c&#39;, &#39;lzw.h&#39;, &#39;m4&#39;, &#39;maint.mk&#39;, &#39;Makefile.am&#39;,</span>
-<span class="err">&#39;Makefile.in&#39;, &#39;msdos&#39;, &#39;NEWS&#39;, &#39;nt&#39;, &#39;os2&#39;, &#39;primos&#39;, &#39;README&#39;,</span>
-<span class="err">&#39;revision.h&#39;, &#39;sample&#39;, &#39;tailor.h&#39;, &#39;tests&#39;, &#39;THANKS&#39;, &#39;TODO&#39;,</span>
-<span class="err">&#39;trees.c&#39;, &#39;unlzh.c&#39;, &#39;unlzw.c&#39;, &#39;unpack.c&#39;, &#39;unzip.c&#39;, &#39;util.c&#39;,</span>
-<span class="err">&#39;vms&#39;, &#39;zcat.1&#39;, &#39;zcat.in&#39;, &#39;zcmp.1&#39;, &#39;zcmp.in&#39;, &#39;zdiff.1&#39;,</span>
-<span class="err">&#39;zdiff.in&#39;, &#39;zegrep.in&#39;, &#39;zfgrep.in&#39;, &#39;zforce.1&#39;, &#39;zforce.in&#39;,</span>
-<span class="err">&#39;zgrep.1&#39;, &#39;zgrep.in&#39;, &#39;zip.c&#39;, &#39;zless.1&#39;, &#39;zless.in&#39;, &#39;zmore.1&#39;,</span>
-<span class="err">&#39;zmore.in&#39;, &#39;znew.1&#39;, &#39;znew.in&#39;]</span>
+<div class="highlight"><pre><span></span><code>[&#39;.tarball-version&#39;, &#39;aclocal.m4&#39;, &#39;algorithm.doc&#39;, &#39;amiga&#39;, &#39;atari&#39;,
+&#39;AUTHORS&#39;, &#39;bits.c&#39;, &#39;build-aux&#39;, &#39;ChangeLog&#39;, &#39;ChangeLog-2007&#39;,
+&#39;configure&#39;, &#39;configure.ac&#39;, &#39;COPYING&#39;, &#39;crypt.c&#39;, &#39;crypt.h&#39;,
+&#39;deflate.c&#39;, &#39;doc&#39;, &#39;GNUmakefile&#39;, &#39;gunzip.1&#39;, &#39;gunzip.in&#39;, &#39;gzexe.1&#39;,
+&#39;gzexe.in&#39;, &#39;gzip.1&#39;, &#39;gzip.c&#39;, &#39;gzip.doc&#39;, &#39;gzip.h&#39;, &#39;inflate.c&#39;,
+&#39;INSTALL&#39;, &#39;lib&#39;, &#39;lzw.c&#39;, &#39;lzw.h&#39;, &#39;m4&#39;, &#39;maint.mk&#39;, &#39;Makefile.am&#39;,
+&#39;Makefile.in&#39;, &#39;msdos&#39;, &#39;NEWS&#39;, &#39;nt&#39;, &#39;os2&#39;, &#39;primos&#39;, &#39;README&#39;,
+&#39;revision.h&#39;, &#39;sample&#39;, &#39;tailor.h&#39;, &#39;tests&#39;, &#39;THANKS&#39;, &#39;TODO&#39;,
+&#39;trees.c&#39;, &#39;unlzh.c&#39;, &#39;unlzw.c&#39;, &#39;unpack.c&#39;, &#39;unzip.c&#39;, &#39;util.c&#39;,
+&#39;vms&#39;, &#39;zcat.1&#39;, &#39;zcat.in&#39;, &#39;zcmp.1&#39;, &#39;zcmp.in&#39;, &#39;zdiff.1&#39;,
+&#39;zdiff.in&#39;, &#39;zegrep.in&#39;, &#39;zfgrep.in&#39;, &#39;zforce.1&#39;, &#39;zforce.in&#39;,
+&#39;zgrep.1&#39;, &#39;zgrep.in&#39;, &#39;zip.c&#39;, &#39;zless.1&#39;, &#39;zless.in&#39;, &#39;zmore.1&#39;,
+&#39;zmore.in&#39;, &#39;znew.1&#39;, &#39;znew.in&#39;]
 </code></pre></div>
-
 
 <h2 id="bz2">bz2</h2>
 <h3 id="bz2_1">解压 bz2 文件</h3>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">bz2</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">bz2</span>
 
 <span class="n">bz2_file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">FileDir</span><span class="p">,</span> <span class="s2">&quot;gzip.bz2&quot;</span><span class="p">)</span>
 <span class="n">out_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">FileDir</span><span class="p">,</span> <span class="s2">&quot;gzip&quot;</span><span class="p">)</span>
@@ -2364,10 +2347,9 @@
         <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">out</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
 </code></pre></div>
 
-
 <h2 id="zipfile">zipfile</h2>
 <h3 id="zip">解压 zip 文件</h3>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">zipfile</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">zipfile</span>
 
 <span class="n">zip_file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">FileDir</span><span class="p">,</span> <span class="s2">&quot;gzip.zip&quot;</span><span class="p">)</span>
 <span class="n">out_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">FileDir</span><span class="p">,</span> <span class="s2">&quot;zip&quot;</span><span class="p">)</span>

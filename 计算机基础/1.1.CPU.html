@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-6.1.4">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.4">
     
     
       
@@ -911,6 +911,18 @@
   <li class="md-nav__item">
     <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.16.shutil.html" class="md-nav__link">
       6.16.shutil
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.17.test.html" class="md-nav__link">
+      6.17.test
     </a>
   </li>
 
@@ -2166,12 +2178,11 @@
 <div align=center><img src="figures/寄存器数量.png"></center></div>
 
 <p>寄存器对程序员来说比较特殊，因为在汇编语言中，程序员需要直接操纵寄存器：</p>
-<div class="codehilite"><pre><span></span><code><span class="err"># 汇编语言编写的程序示例</span>
-<span class="err">mov  eax, dword ptr [ebp-8]    # 把数值从内存复制到 eax</span>
-<span class="err">add  eax, dword ptr [ebp-0Ch]  # exa 的数值和内存的数值相加</span>
-<span class="err">mov  dword ptr [ebp-4], eax    # 把 exa 的数值（上一步的相加结果）存储在内存中</span>
+<div class="highlight"><pre><span></span><code># 汇编语言编写的程序示例
+mov  eax, dword ptr [ebp-8]    # 把数值从内存复制到 eax
+add  eax, dword ptr [ebp-0Ch]  # exa 的数值和内存的数值相加
+mov  dword ptr [ebp-4], eax    # 把 exa 的数值（上一步的相加结果）存储在内存中
 </code></pre></div>
-
 
 <p>eax 和 ebp 是 CPU 内部的寄存器的名称。<mark>内存的存储场所通过地址编号来区分，而寄存器的种类则通过名字来区分。</mark> </p>
 <h3 id="_3">运算器</h3>
@@ -2198,7 +2209,7 @@
 </ul>
 <h2 id="_5">流水线技术</h2>
 <p>CPU可以有分开的取值单元、解码单元、和执行单元。也就是说，不必等到一条指令从头到尾执行完毕后再开始处理下一条指令。三级流水线其示意图为：</p>
-<div class="codehilite"><pre><span></span><code><span class="err">//</span> <span class="err">流水线技术</span>
+<div class="highlight"><pre><span></span><code><span class="err">//</span> <span class="err">流水线技术</span>
           <span class="err">^</span>
           <span class="err">|</span>                                           <span class="err">X</span> <span class="err">:</span> <span class="err">取指流水线</span>
           <span class="err">|</span>                                           <span class="err">Y</span> <span class="err">:</span> <span class="err">解码流水线</span>
@@ -2216,7 +2227,6 @@
           <span class="err">|XXXXXX|YYY|</span>                               <span class="err">|ZZZZ|</span>
           <span class="err">+----------+</span>                               <span class="err">+----+</span>
 </code></pre></div>
-
 
 <p>在某个时刻，第一条指令取指完成（对应图中XXXXXX标注区域），解码流水线立即开始第一条指令的解码，同时取指流水线开始对第二条指令的取指；第一条指令的解码操作完成之后（对应图中YYYY标注区域），执行流水线开始对第一条指令的执行操作，同时解码流水线等待第二条指令送达。</p>
 <h2 id="_6">参考</h2>

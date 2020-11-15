@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-6.1.4">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.4">
     
     
       
@@ -891,6 +891,18 @@
   <li class="md-nav__item">
     <a href="6.16.shutil.html" class="md-nav__link">
       6.16.shutil
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="6.17.test.html" class="md-nav__link">
+      6.17.test
     </a>
   </li>
 
@@ -2000,34 +2012,30 @@
                 
                   <h1>6.12.enum</h1>
                 
-                <div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">toolkit</span> <span class="kn">import</span> <span class="n">H</span>
+                <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">toolkit</span> <span class="kn">import</span> <span class="n">H</span>
 <span class="kn">import</span> <span class="nn">enum</span>
 <span class="kn">import</span> <span class="nn">json</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">Windows 10</span>
-<span class="err">Python 3.7.3 @ MSC v.1915 64 bit (AMD64)</span>
-<span class="err">Latest build date 2020.08.09</span>
+<div class="highlight"><pre><span></span><code>Windows 10
+Python 3.7.3 @ MSC v.1915 64 bit (AMD64)
+Latest build date 2020.11.13
 </code></pre></div>
 
-
 <p>enum 模块提供的类和函数如下：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">d</span> <span class="o">=</span> <span class="n">H</span><span class="p">(</span><span class="n">enum</span><span class="p">)</span><span class="o">.</span><span class="n">dicts</span>
+<div class="highlight"><pre><span></span><code><span class="n">d</span> <span class="o">=</span> <span class="n">H</span><span class="p">(</span><span class="n">enum</span><span class="p">)</span><span class="o">.</span><span class="n">dicts</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;class&quot;</span><span class="p">,</span> <span class="n">d</span><span class="p">[</span><span class="s2">&quot;class&quot;</span><span class="p">])</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;function&quot;</span><span class="p">,</span> <span class="n">d</span><span class="p">[</span><span class="s2">&quot;function&quot;</span><span class="p">])</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">module</span>
-<span class="err">class [&#39;Enum&#39;, &#39;EnumMeta&#39;, &#39;Flag&#39;, &#39;IntEnum&#39;, &#39;IntFlag&#39;, &#39;auto&#39;]</span>
-<span class="err">function [&#39;unique&#39;]</span>
+<div class="highlight"><pre><span></span><code>module
+class [&#39;Enum&#39;, &#39;EnumMeta&#39;, &#39;Flag&#39;, &#39;IntEnum&#39;, &#39;IntFlag&#39;, &#39;auto&#39;]
+function [&#39;unique&#39;]
 </code></pre></div>
-
 
 <h2 id="_1">创建枚举类</h2>
 <p><code>Enum</code> 的成员在类被解析的时候转化为实例。每一个实例都有一个 <code>name</code>属性对应成员的名称，一个 <code>value</code> 属性对应在类中赋值给成员名称的值。</p>
-<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">BugStatus</span><span class="p">(</span><span class="n">enum</span><span class="o">.</span><span class="n">Enum</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">BugStatus</span><span class="p">(</span><span class="n">enum</span><span class="o">.</span><span class="n">Enum</span><span class="p">):</span>
     <span class="n">new</span> <span class="o">=</span> <span class="mi">7</span>
     <span class="n">incomplete</span> <span class="o">=</span> <span class="mi">6</span>
     <span class="n">invalid</span> <span class="o">=</span> <span class="mi">5</span>
@@ -2041,27 +2049,23 @@
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Member value: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">BugStatus</span><span class="o">.</span><span class="n">wont_fix</span><span class="o">.</span><span class="n">value</span><span class="p">))</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">&lt;class &#39;enum.EnumMeta&#39;&gt;</span>
-<span class="err">Member name: wont_fix</span>
-<span class="err">Member value: 4</span>
+<div class="highlight"><pre><span></span><code>&lt;class &#39;enum.EnumMeta&#39;&gt;
+Member name: wont_fix
+Member value: 4
 </code></pre></div>
 
-
 <p><mark>不能通过直接引用<code>Enum</code> 的成员的方式和其值作比较：</mark></p>
-<div class="codehilite"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">BugStatus</span><span class="o">.</span><span class="n">new</span> <span class="o">==</span> <span class="mi">7</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">BugStatus</span><span class="o">.</span><span class="n">new</span> <span class="o">==</span> <span class="mi">7</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">BugStatus</span><span class="o">.</span><span class="n">new</span><span class="o">.</span><span class="n">value</span> <span class="o">==</span> <span class="mi">7</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">False</span>
-<span class="err">True</span>
+<div class="highlight"><pre><span></span><code>False
+True
 </code></pre></div>
-
 
 <h2 id="_2">迭代</h2>
 <p><mark>成员以它们在类中被定义的顺序逐个产生，</mark> 成员的名称和值没有以任何方式用来对它们进行排序。</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">enum</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">enum</span>
 
 <span class="k">class</span> <span class="nc">BugStatus</span><span class="p">(</span><span class="n">enum</span><span class="o">.</span><span class="n">Enum</span><span class="p">):</span>
     <span class="n">new</span> <span class="o">=</span> <span class="mi">7</span>
@@ -2076,20 +2080,18 @@
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:15}</span><span class="s1"> = </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">status</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">status</span><span class="o">.</span><span class="n">value</span><span class="p">))</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">new             = 7</span>
-<span class="err">incomplete      = 6</span>
-<span class="err">invalid         = 5</span>
-<span class="err">wont_fix        = 4</span>
-<span class="err">in_progress     = 3</span>
-<span class="err">fix_committed   = 2</span>
-<span class="err">fix_released    = 1</span>
+<div class="highlight"><pre><span></span><code>new             = 7
+incomplete      = 6
+invalid         = 5
+wont_fix        = 4
+in_progress     = 3
+fix_committed   = 2
+fix_released    = 1
 </code></pre></div>
-
 
 <h2 id="enum">Enum 类成员比较</h2>
 <p>由于枚举成员不是有序的，所以它们只支持按 id 或按值的相等性进行比较。对枚举成员应用大于和小于比较操作符将抛出 <code>TypeError</code> 异常。</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">enum</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">enum</span>
 
 <span class="k">class</span> <span class="nc">BugStatus</span><span class="p">(</span><span class="n">enum</span><span class="o">.</span><span class="n">Enum</span><span class="p">):</span>
     <span class="n">new</span> <span class="o">=</span> <span class="mi">7</span>
@@ -2116,17 +2118,15 @@
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;  Cannot sort: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">err</span><span class="p">))</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="n">Equality</span><span class="o">:</span> <span class="n">False</span> <span class="n">True</span>
-<span class="n">Identity</span><span class="o">:</span> <span class="n">False</span> <span class="n">True</span>
-<span class="n">Ordered</span> <span class="n">by</span> <span class="n">value</span><span class="o">:</span>
-  <span class="n">Cannot</span> <span class="n">sort</span><span class="o">:</span> <span class="s1">&#39;&lt;&#39;</span> <span class="n">not</span> <span class="n">supported</span> <span class="n">between</span> <span class="n">instances</span> <span class="n">of</span> <span class="s1">&#39;BugStatus&#39;</span> <span class="n">and</span>
-<span class="s1">&#39;BugStatus&#39;</span>
+<div class="highlight"><pre><span></span><code>Equality: False True
+Identity: False True
+Ordered by value:
+  Cannot sort: &#39;&lt;&#39; not supported between instances of &#39;BugStatus&#39; and
+&#39;BugStatus&#39;
 </code></pre></div>
 
-
 <p>若想使枚举成员表现得更类似于数字 —— 举例来说，要支持大于或小于比较，则需要使用 IntEnum 类。</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">enum</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">enum</span>
 
 <span class="k">class</span> <span class="nc">BugStatus</span><span class="p">(</span><span class="n">enum</span><span class="o">.</span><span class="n">IntEnum</span><span class="p">):</span>
     <span class="n">new</span> <span class="o">=</span> <span class="mi">7</span>
@@ -2141,25 +2141,22 @@
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;  &#39;</span> <span class="o">+</span> <span class="n">s</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">BugStatus</span><span class="p">)))</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">Ordered by value:</span>
-<span class="err">  fix_released</span>
-<span class="err">  fix_committed</span>
-<span class="err">  in_progress</span>
-<span class="err">  wont_fix</span>
-<span class="err">  invalid</span>
-<span class="err">  incomplete</span>
-<span class="err">  new</span>
+<div class="highlight"><pre><span></span><code>Ordered by value:
+  fix_released
+  fix_committed
+  in_progress
+  wont_fix
+  invalid
+  incomplete
+  new
 </code></pre></div>
-
 
 <h2 id="_3">唯一的枚举值</h2>
 <p>具有相同值的 Enum 成员会被当作同一对象的别名引用进行跟踪。别名不会导致 Enum 的迭代器里面出现重复值。</p>
 <blockquote>
-<p>Python 内部会对小整数 [-5,257) 进行缓存，所有对小整数的声明都指向同一个对象。
-但是在 Enum 里面大于 257 的重复整数也会被指向同一个对象。</p>
+<p>Python 内部会对小整数 [-5,257) 进行缓存，所有对小整数的声明都指向同一个对象。但是在 Enum 里面大于 257 的重复整数也会被指向同一个对象。</p>
 </blockquote>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">enum</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">enum</span>
 
 <span class="k">class</span> <span class="nc">BugStatus</span><span class="p">(</span><span class="n">enum</span><span class="o">.</span><span class="n">Enum</span><span class="p">):</span>
     <span class="n">new</span> <span class="o">=</span> <span class="mi">7</span>
@@ -2182,23 +2179,21 @@
       <span class="n">BugStatus</span><span class="o">.</span><span class="n">closed</span> <span class="ow">is</span> <span class="n">BugStatus</span><span class="o">.</span><span class="n">fix_released</span><span class="p">)</span>
 </code></pre></div>
 
+<div class="highlight"><pre><span></span><code>new             = 7
+incomplete      = 6
+invalid         = 5
+wont_fix        = 4
+in_progress     = 3
+fix_committed   = 2
+fix_released    = 1
 
-<div class="codehilite"><pre><span></span><code><span class="k">new</span>             <span class="o">=</span> <span class="mi">7</span>
-<span class="n">incomplete</span>      <span class="o">=</span> <span class="mi">6</span>
-<span class="n">invalid</span>         <span class="o">=</span> <span class="mi">5</span>
-<span class="n">wont_fix</span>        <span class="o">=</span> <span class="mi">4</span>
-<span class="n">in_progress</span>     <span class="o">=</span> <span class="mi">3</span>
-<span class="n">fix_committed</span>   <span class="o">=</span> <span class="mi">2</span>
-<span class="n">fix_released</span>    <span class="o">=</span> <span class="mi">1</span>
-
-<span class="n">Same</span><span class="p">:</span> <span class="n">by_design</span> <span class="k">is</span> <span class="n">wont_fix</span><span class="p">:</span>  <span class="k">True</span>
-<span class="n">Same</span><span class="p">:</span> <span class="n">closed</span> <span class="k">is</span> <span class="n">fix_released</span><span class="p">:</span>  <span class="k">True</span>
+Same: by_design is wont_fix:  True
+Same: closed is fix_released:  True
 </code></pre></div>
-
 
 <p>因为 <code>by_design</code> 和 <code>closed</code> 是其他成员的别名， 在遍历 Enum 的时候，它们都不会出现在输出中。<mark>枚举成员中第一个关联到成员值的名称是规范名称。</mark></p>
 <p>如果想要枚举成员只包含唯一值， 可以在 Enum 上加上装饰器 <code>@unique</code>。当 Enum 类被解释器执行的时候，重复的成员会触发一个 <code>ValueError</code> 异常。</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">enum</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">enum</span>
 
 <span class="k">try</span><span class="p">:</span>
     <span class="nd">@enum</span><span class="o">.</span><span class="n">unique</span>
@@ -2218,15 +2213,13 @@
     <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">duplicate values found in &lt;enum &#39;BugStatus&#39;&gt;: by_design -&gt; wont_fix,</span>
-<span class="err">closed -&gt; fix_released</span>
+<div class="highlight"><pre><span></span><code>duplicate values found in &lt;enum &#39;BugStatus&#39;&gt;: by_design -&gt; wont_fix,
+closed -&gt; fix_released
 </code></pre></div>
-
 
 <h2 id="_4">动态创建枚举类</h2>
 <p>在某种情况下，比起以类定义的方式硬编码枚举，用在编码中动态创建的枚举的方式更加方便。针对这种情况， Enum 提供了将成员名称和值传递到类构造器的方式创建枚举。</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">enum</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">enum</span>
 
 <span class="n">BugStatus</span> <span class="o">=</span> <span class="n">enum</span><span class="o">.</span><span class="n">Enum</span><span class="p">(</span>
     <span class="n">value</span><span class="o">=</span><span class="s1">&#39;BugStatus&#39;</span><span class="p">,</span>
@@ -2241,22 +2234,20 @@
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:15}</span><span class="s1"> = </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">status</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">status</span><span class="o">.</span><span class="n">value</span><span class="p">))</span>
 </code></pre></div>
 
+<div class="highlight"><pre><span></span><code>Member: BugStatus.new
 
-<div class="codehilite"><pre><span></span><code><span class="n">Member</span><span class="o">:</span> <span class="n">BugStatus</span><span class="o">.</span><span class="na">new</span>
-
-<span class="n">All</span> <span class="n">members</span><span class="o">:</span>
-<span class="n">fix_released</span>    <span class="o">=</span> <span class="mi">1</span>
-<span class="n">fix_committed</span>   <span class="o">=</span> <span class="mi">2</span>
-<span class="n">in_progress</span>     <span class="o">=</span> <span class="mi">3</span>
-<span class="n">wont_fix</span>        <span class="o">=</span> <span class="mi">4</span>
-<span class="n">invalid</span>         <span class="o">=</span> <span class="mi">5</span>
-<span class="n">incomplete</span>      <span class="o">=</span> <span class="mi">6</span>
-<span class="k">new</span>             <span class="o">=</span> <span class="mi">7</span>
+All members:
+fix_released    = 1
+fix_committed   = 2
+in_progress     = 3
+wont_fix        = 4
+invalid         = 5
+incomplete      = 6
+new             = 7
 </code></pre></div>
 
-
 <p>为了更加方便的控制枚举成员的值，<code>names</code> 字符串可以被替换成二元元组组成的序列或者是由名称和值组成的字典。这样就不需要按顺序传入名称。</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">enum</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">enum</span>
 
 <span class="n">BugStatus</span> <span class="o">=</span> <span class="n">enum</span><span class="o">.</span><span class="n">Enum</span><span class="p">(</span>
     <span class="n">value</span><span class="o">=</span><span class="s1">&#39;BugStatus&#39;</span><span class="p">,</span>
@@ -2276,21 +2267,19 @@
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{:15}</span><span class="s1"> = </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">status</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">status</span><span class="o">.</span><span class="n">value</span><span class="p">))</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">All members:</span>
-<span class="err">new             = 7</span>
-<span class="err">incomplete      = 6</span>
-<span class="err">invalid         = 5</span>
-<span class="err">wont_fix        = 4</span>
-<span class="err">in_progress     = 3</span>
-<span class="err">fix_committed   = 2</span>
-<span class="err">fix_released    = 1</span>
+<div class="highlight"><pre><span></span><code>All members:
+new             = 7
+incomplete      = 6
+invalid         = 5
+wont_fix        = 4
+in_progress     = 3
+fix_committed   = 2
+fix_released    = 1
 </code></pre></div>
-
 
 <h2 id="_5">非整数成员值</h2>
 <p>枚举成员值并没有限制为整数类型。实际上，枚举成员可以关联任何对象的类型。如果值是一个元组，==成员值会作为独立的参数传递给 <code>__init__()</code> 函数。==因此，重写 <code>__init__()</code> 函数或 <code>__new__()</code> 函数可以为成员值添加新属性。</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">enum</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">enum</span>
 
 <span class="k">class</span> <span class="nc">BugStatus</span><span class="p">(</span><span class="n">enum</span><span class="o">.</span><span class="n">Enum</span><span class="p">):</span>
 
@@ -2319,17 +2308,15 @@
       <span class="n">BugStatus</span><span class="o">.</span><span class="n">in_progress</span><span class="o">.</span><span class="n">can_transition</span><span class="p">(</span><span class="n">BugStatus</span><span class="o">.</span><span class="n">new</span><span class="p">))</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="n">Name</span><span class="o">:</span> <span class="n">BugStatus</span><span class="o">.</span><span class="na">in_progress</span>
-<span class="n">Value</span><span class="o">:</span> <span class="o">(</span><span class="mi">3</span><span class="o">,</span> <span class="o">[</span><span class="s1">&#39;new&#39;</span><span class="o">,</span> <span class="s1">&#39;fix_committed&#39;</span><span class="o">])</span>
-<span class="n">Custom</span> <span class="n">attribute</span><span class="o">:</span> <span class="o">[</span><span class="s1">&#39;new&#39;</span><span class="o">,</span> <span class="s1">&#39;fix_committed&#39;</span><span class="o">]</span>
-<span class="n">Using</span> <span class="n">attribute</span><span class="o">:</span> <span class="n">True</span>
+<div class="highlight"><pre><span></span><code>Name: BugStatus.in_progress
+Value: (3, [&#39;new&#39;, &#39;fix_committed&#39;])
+Custom attribute: [&#39;new&#39;, &#39;fix_committed&#39;]
+Using attribute: True
 </code></pre></div>
-
 
 <p>在这个例子中， 每一个成员值都是包含数字 ID（方便于存储在数据库中）和transitions列表。</p>
 <p>对于更复杂的情况来说，元组可能会变得比较笨拙。由于成员值可以是任何类型的对象，字典可以被用于需要跟踪每个枚举值的独立属性的情况。复杂的值作为除了 <code>self</code> 之外唯一的参数传递给 <code>__init__()</code></p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">enum</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">enum</span>
 
 <span class="k">class</span> <span class="nc">BugStatus</span><span class="p">(</span><span class="n">enum</span><span class="o">.</span><span class="n">Enum</span><span class="p">):</span>
 
@@ -2381,16 +2368,14 @@
       <span class="n">BugStatus</span><span class="o">.</span><span class="n">in_progress</span><span class="o">.</span><span class="n">can_transition</span><span class="p">(</span><span class="n">BugStatus</span><span class="o">.</span><span class="n">new</span><span class="p">))</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="n">Name</span><span class="o">:</span> <span class="n">BugStatus</span><span class="o">.</span><span class="na">in_progress</span>
-<span class="n">Value</span><span class="o">:</span> <span class="o">{</span><span class="s1">&#39;num&#39;</span><span class="o">:</span> <span class="mi">3</span><span class="o">,</span> <span class="s1">&#39;transitions&#39;</span><span class="o">:</span> <span class="o">[</span><span class="s1">&#39;new&#39;</span><span class="o">,</span> <span class="s1">&#39;fix_committed&#39;</span><span class="o">]}</span>
-<span class="n">Custom</span> <span class="n">attribute</span><span class="o">:</span> <span class="o">[</span><span class="s1">&#39;new&#39;</span><span class="o">,</span> <span class="s1">&#39;fix_committed&#39;</span><span class="o">]</span>
-<span class="n">Using</span> <span class="n">attribute</span><span class="o">:</span> <span class="n">True</span>
+<div class="highlight"><pre><span></span><code>Name: BugStatus.in_progress
+Value: {&#39;num&#39;: 3, &#39;transitions&#39;: [&#39;new&#39;, &#39;fix_committed&#39;]}
+Custom attribute: [&#39;new&#39;, &#39;fix_committed&#39;]
+Using attribute: True
 </code></pre></div>
 
-
 <p>重写 <code>__new__()</code> 函数可添加属性。</p>
-<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">AutoNumber</span><span class="p">(</span><span class="n">enum</span><span class="o">.</span><span class="n">Enum</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">AutoNumber</span><span class="p">(</span><span class="n">enum</span><span class="o">.</span><span class="n">Enum</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
         <span class="n">value</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">__members__</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
         <span class="n">obj</span> <span class="o">=</span> <span class="nb">object</span><span class="o">.</span><span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span>
@@ -2405,8 +2390,31 @@
 <span class="nb">print</span><span class="p">(</span><span class="n">Color</span><span class="o">.</span><span class="n">RED</span><span class="o">.</span><span class="n">test</span><span class="p">)</span>
 </code></pre></div>
 
+<div class="highlight"><pre><span></span><code>1
+</code></pre></div>
 
-<div class="codehilite"><pre><span></span><code><span class="err">1</span>
+<blockquote>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+</div>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor massa, nec semper lorem quam in massa.</p>
+<p>$$
+\sum
+$$</p>
+<blockquote>
+<p>$$
+\sum
+$$</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor massa, nec semper lorem quam in massa.</p>
+<p><div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+</code></pre></div>
+</p>
+</blockquote>
+</blockquote>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;test&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>test
 </code></pre></div>
                 
               

@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-6.1.4">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.4">
     
     
       
@@ -815,6 +815,18 @@
   <li class="md-nav__item">
     <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.16.shutil.html" class="md-nav__link">
       6.16.shutil
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.17.test.html" class="md-nav__link">
+      6.17.test
     </a>
   </li>
 
@@ -1870,7 +1882,7 @@
                 
                   <h1>15.4.SQLAlchemy</h1>
                 
-                <div class="codehilite"><pre><span></span><code><span class="c1"># -*- coding: utf-8 -*-</span>
+                <div class="highlight"><pre><span></span><code><span class="c1"># -*- coding: utf-8 -*-</span>
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">Created on Tue May 26 20:30:42 2020</span>
 
@@ -1968,66 +1980,64 @@
 <span class="n">d</span> <span class="o">=</span> <span class="n">h</span><span class="o">.</span><span class="n">dicts</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="k">module</span>
-<span class="mi">2020</span><span class="o">-</span><span class="mo">06</span><span class="o">-</span><span class="mo">02</span> <span class="mi">13</span>:<span class="mo">03</span>:<span class="mi">22</span>,<span class="mi">529</span> <span class="n">INFO</span> <span class="n">sqlalchemy</span>.<span class="n">engine</span>.<span class="n">base</span>.<span class="n">Engine</span> <span class="n">SELECT</span>
-<span class="n">CAST</span>(<span class="s">&#39;test plain returns&#39;</span> <span class="n">AS</span> <span class="n">VARCHAR</span>(<span class="mi">60</span>)) <span class="n">AS</span> <span class="n">anon_1</span>
-<span class="mi">2020</span><span class="o">-</span><span class="mo">06</span><span class="o">-</span><span class="mo">02</span> <span class="mi">13</span>:<span class="mo">03</span>:<span class="mi">22</span>,<span class="mi">533</span> <span class="n">INFO</span> <span class="n">sqlalchemy</span>.<span class="n">engine</span>.<span class="n">base</span>.<span class="n">Engine</span> ()
-<span class="mi">2020</span><span class="o">-</span><span class="mo">06</span><span class="o">-</span><span class="mo">02</span> <span class="mi">13</span>:<span class="mo">03</span>:<span class="mi">22</span>,<span class="mi">536</span> <span class="n">INFO</span> <span class="n">sqlalchemy</span>.<span class="n">engine</span>.<span class="n">base</span>.<span class="n">Engine</span> <span class="n">SELECT</span>
-<span class="n">CAST</span>(<span class="s">&#39;test unicode returns&#39;</span> <span class="n">AS</span> <span class="n">VARCHAR</span>(<span class="mi">60</span>)) <span class="n">AS</span> <span class="n">anon_1</span>
-<span class="mi">2020</span><span class="o">-</span><span class="mo">06</span><span class="o">-</span><span class="mo">02</span> <span class="mi">13</span>:<span class="mo">03</span>:<span class="mi">22</span>,<span class="mi">538</span> <span class="n">INFO</span> <span class="n">sqlalchemy</span>.<span class="n">engine</span>.<span class="n">base</span>.<span class="n">Engine</span> ()
-<span class="mi">2020</span><span class="o">-</span><span class="mo">06</span><span class="o">-</span><span class="mo">02</span> <span class="mi">13</span>:<span class="mo">03</span>:<span class="mi">22</span>,<span class="mi">540</span> <span class="n">INFO</span> <span class="n">sqlalchemy</span>.<span class="n">engine</span>.<span class="n">base</span>.<span class="n">Engine</span> <span class="n">PRAGMA</span>
-<span class="n">main</span>.<span class="n">table_info</span>(<span class="s">&quot;users&quot;</span>)
-<span class="mi">2020</span><span class="o">-</span><span class="mo">06</span><span class="o">-</span><span class="mo">02</span> <span class="mi">13</span>:<span class="mo">03</span>:<span class="mi">22</span>,<span class="mi">542</span> <span class="n">INFO</span> <span class="n">sqlalchemy</span>.<span class="n">engine</span>.<span class="n">base</span>.<span class="n">Engine</span> ()
-<span class="mi">2020</span><span class="o">-</span><span class="mo">06</span><span class="o">-</span><span class="mo">02</span> <span class="mi">13</span>:<span class="mo">03</span>:<span class="mi">22</span>,<span class="mi">545</span> <span class="n">INFO</span> <span class="n">sqlalchemy</span>.<span class="n">engine</span>.<span class="n">base</span>.<span class="n">Engine</span> <span class="n">PRAGMA</span>
-<span class="k">temp</span>.<span class="n">table_info</span>(<span class="s">&quot;users&quot;</span>)
-<span class="mi">2020</span><span class="o">-</span><span class="mo">06</span><span class="o">-</span><span class="mo">02</span> <span class="mi">13</span>:<span class="mo">03</span>:<span class="mi">22</span>,<span class="mi">547</span> <span class="n">INFO</span> <span class="n">sqlalchemy</span>.<span class="n">engine</span>.<span class="n">base</span>.<span class="n">Engine</span> ()
-<span class="mi">2020</span><span class="o">-</span><span class="mo">06</span><span class="o">-</span><span class="mo">02</span> <span class="mi">13</span>:<span class="mo">03</span>:<span class="mi">22</span>,<span class="mi">550</span> <span class="n">INFO</span> <span class="n">sqlalchemy</span>.<span class="n">engine</span>.<span class="n">base</span>.<span class="n">Engine</span>
-<span class="n">CREATE</span> <span class="n">TABLE</span> <span class="n">users</span> (
-        <span class="n">id</span> <span class="n">INTEGER</span> <span class="n">NOT</span> <span class="n">NULL</span>,
-        <span class="nb">name</span> <span class="n">VARCHAR</span>,
-        <span class="n">fullname</span> <span class="n">VARCHAR</span>,
-        <span class="n">nickname</span> <span class="n">VARCHAR</span>,
-        <span class="n">PRIMARY</span> <span class="n">KEY</span> (<span class="n">id</span>)
+<div class="highlight"><pre><span></span><code>module
+2020-06-02 13:03:22,529 INFO sqlalchemy.engine.base.Engine SELECT
+CAST(&#39;test plain returns&#39; AS VARCHAR(60)) AS anon_1
+2020-06-02 13:03:22,533 INFO sqlalchemy.engine.base.Engine ()
+2020-06-02 13:03:22,536 INFO sqlalchemy.engine.base.Engine SELECT
+CAST(&#39;test unicode returns&#39; AS VARCHAR(60)) AS anon_1
+2020-06-02 13:03:22,538 INFO sqlalchemy.engine.base.Engine ()
+2020-06-02 13:03:22,540 INFO sqlalchemy.engine.base.Engine PRAGMA
+main.table_info(&quot;users&quot;)
+2020-06-02 13:03:22,542 INFO sqlalchemy.engine.base.Engine ()
+2020-06-02 13:03:22,545 INFO sqlalchemy.engine.base.Engine PRAGMA
+temp.table_info(&quot;users&quot;)
+2020-06-02 13:03:22,547 INFO sqlalchemy.engine.base.Engine ()
+2020-06-02 13:03:22,550 INFO sqlalchemy.engine.base.Engine
+CREATE TABLE users (
+        id INTEGER NOT NULL,
+        name VARCHAR,
+        fullname VARCHAR,
+        nickname VARCHAR,
+        PRIMARY KEY (id)
 )
 
 
-<span class="mi">2020</span><span class="o">-</span><span class="mo">06</span><span class="o">-</span><span class="mo">02</span> <span class="mi">13</span>:<span class="mo">03</span>:<span class="mi">22</span>,<span class="mi">552</span> <span class="n">INFO</span> <span class="n">sqlalchemy</span>.<span class="n">engine</span>.<span class="n">base</span>.<span class="n">Engine</span> ()
-<span class="mi">2020</span><span class="o">-</span><span class="mo">06</span><span class="o">-</span><span class="mo">02</span> <span class="mi">13</span>:<span class="mo">03</span>:<span class="mi">22</span>,<span class="mi">555</span> <span class="n">INFO</span> <span class="n">sqlalchemy</span>.<span class="n">engine</span>.<span class="n">base</span>.<span class="n">Engine</span> <span class="n">COMMIT</span>
-<span class="mi">2020</span><span class="o">-</span><span class="mo">06</span><span class="o">-</span><span class="mo">02</span> <span class="mi">13</span>:<span class="mo">03</span>:<span class="mi">22</span>,<span class="mi">562</span> <span class="n">INFO</span> <span class="n">sqlalchemy</span>.<span class="n">engine</span>.<span class="n">base</span>.<span class="n">Engine</span> <span class="k">BEGIN</span>
-(<span class="n">implicit</span>)
-<span class="mi">2020</span><span class="o">-</span><span class="mo">06</span><span class="o">-</span><span class="mo">02</span> <span class="mi">13</span>:<span class="mo">03</span>:<span class="mi">22</span>,<span class="mi">564</span> <span class="n">INFO</span> <span class="n">sqlalchemy</span>.<span class="n">engine</span>.<span class="n">base</span>.<span class="n">Engine</span> <span class="n">INSERT</span> <span class="n">INTO</span>
-<span class="n">users</span> (<span class="nb">name</span>, <span class="n">fullname</span>, <span class="n">nickname</span>) <span class="n">VALUES</span> (?, ?, ?)
-<span class="mi">2020</span><span class="o">-</span><span class="mo">06</span><span class="o">-</span><span class="mo">02</span> <span class="mi">13</span>:<span class="mo">03</span>:<span class="mi">22</span>,<span class="mi">566</span> <span class="n">INFO</span> <span class="n">sqlalchemy</span>.<span class="n">engine</span>.<span class="n">base</span>.<span class="n">Engine</span> (<span class="s">&#39;ed&#39;</span>, <span class="s">&#39;Ed</span>
-<span class="s">Jones&#39;</span>, <span class="s">&#39;edsnickname&#39;</span>)
-<span class="mi">2020</span><span class="o">-</span><span class="mo">06</span><span class="o">-</span><span class="mo">02</span> <span class="mi">13</span>:<span class="mo">03</span>:<span class="mi">22</span>,<span class="mi">568</span> <span class="n">INFO</span> <span class="n">sqlalchemy</span>.<span class="n">engine</span>.<span class="n">base</span>.<span class="n">Engine</span> <span class="n">SELECT</span>
-<span class="n">users</span>.<span class="n">id</span> <span class="n">AS</span> <span class="n">users_id</span>, <span class="n">users</span>.<span class="nb">name</span> <span class="n">AS</span> <span class="n">users_name</span>, <span class="n">users</span>.<span class="n">fullname</span> <span class="n">AS</span>
-<span class="n">users_fullname</span>, <span class="n">users</span>.<span class="n">nickname</span> <span class="n">AS</span> <span class="n">users_nickname</span>
-<span class="n">FROM</span> <span class="n">users</span>
-<span class="nb">WHERE</span> <span class="n">users</span>.<span class="nb">name</span> = ?
- <span class="n">LIMIT</span> ? <span class="n">OFFSET</span> ?
-<span class="mi">2020</span><span class="o">-</span><span class="mo">06</span><span class="o">-</span><span class="mo">02</span> <span class="mi">13</span>:<span class="mo">03</span>:<span class="mi">22</span>,<span class="mi">570</span> <span class="n">INFO</span> <span class="n">sqlalchemy</span>.<span class="n">engine</span>.<span class="n">base</span>.<span class="n">Engine</span> (<span class="s">&#39;ed&#39;</span>, <span class="mi">1</span>,
-<span class="mi">0</span>)
-<span class="n">C:</span>\<span class="n">ProgramData</span>\<span class="n">Anaconda3</span>\<span class="n">lib</span>\<span class="n">site-</span>
-<span class="n">packages</span>\<span class="n">sqlalchemy</span>\<span class="n">ext</span>\<span class="n">declarative</span>\<span class="n">clsregistry</span>.<span class="n">py:129:</span> <span class="n">SAWarning:</span>
-<span class="n">This</span> <span class="n">declarative</span> <span class="n">base</span> <span class="n">already</span> <span class="nb">contains</span> <span class="n">a</span> <span class="k">class</span> <span class="n">with</span> <span class="n">the</span> <span class="n">same</span> <span class="k">class</span>
-<span class="nb">name</span> <span class="o">and</span> <span class="k">module</span> <span class="nb">name</span> <span class="k">as</span> <span class="n">__main__</span>.<span class="n">User</span>, <span class="o">and</span> <span class="k">will</span> <span class="n">be</span> <span class="n">replaced</span> <span class="n">in</span> <span class="n">the</span>
-<span class="n">string-lookup</span> <span class="n">table</span>.
-  % (<span class="n">item</span>.<span class="n">__module__</span>, <span class="n">item</span>.<span class="n">__name__</span>)
-  <span class="n">Loading</span>... <span class="mi">0</span>  <span class="n">Loading</span>... <span class="mi">1</span>  <span class="n">Loading</span>... <span class="mi">2</span>  <span class="n">Loading</span>... <span class="mi">3</span>  <span class="n">Loading</span>... <span class="mi">4</span>
-<span class="n">Loading</span>... <span class="mi">5</span>  <span class="n">Loading</span>... <span class="mi">6</span>  <span class="n">Loading</span>... <span class="mi">7</span>  <span class="n">Loading</span>... <span class="mi">8</span>  <span class="n">Loading</span>... <span class="mi">9</span>
+2020-06-02 13:03:22,552 INFO sqlalchemy.engine.base.Engine ()
+2020-06-02 13:03:22,555 INFO sqlalchemy.engine.base.Engine COMMIT
+2020-06-02 13:03:22,562 INFO sqlalchemy.engine.base.Engine BEGIN
+(implicit)
+2020-06-02 13:03:22,564 INFO sqlalchemy.engine.base.Engine INSERT INTO
+users (name, fullname, nickname) VALUES (?, ?, ?)
+2020-06-02 13:03:22,566 INFO sqlalchemy.engine.base.Engine (&#39;ed&#39;, &#39;Ed
+Jones&#39;, &#39;edsnickname&#39;)
+2020-06-02 13:03:22,568 INFO sqlalchemy.engine.base.Engine SELECT
+users.id AS users_id, users.name AS users_name, users.fullname AS
+users_fullname, users.nickname AS users_nickname
+FROM users
+WHERE users.name = ?
+ LIMIT ? OFFSET ?
+2020-06-02 13:03:22,570 INFO sqlalchemy.engine.base.Engine (&#39;ed&#39;, 1,
+0)
+C:\ProgramData\Anaconda3\lib\site-
+packages\sqlalchemy\ext\declarative\clsregistry.py:129: SAWarning:
+This declarative base already contains a class with the same class
+name and module name as __main__.User, and will be replaced in the
+string-lookup table.
+  % (item.__module__, item.__name__)
+  Loading... 0  Loading... 1  Loading... 2  Loading... 3  Loading... 4
+Loading... 5  Loading... 6  Loading... 7  Loading... 8  Loading... 9
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="o">---------------------------------------------------------------------------</span><span class="ne">ModuleNotFoundError</span>
-<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span><span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">bf4fe48533c7</span><span class="o">&gt;</span> <span class="ow">in</span>
-<span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-     <span class="mi">87</span>
-     <span class="mi">88</span>
-<span class="o">---&gt;</span> <span class="mi">89</span> <span class="kn">import</span> <span class="nn">genanki</span>
-     <span class="mi">90</span>
-     <span class="mi">91</span> <span class="nb">dir</span><span class="p">(</span><span class="n">genanki</span><span class="p">)</span>
-<span class="ne">ModuleNotFoundError</span><span class="p">:</span> <span class="n">No</span> <span class="n">module</span> <span class="n">named</span> <span class="s1">&#39;genanki&#39;</span>
+<div class="highlight"><pre><span></span><code>---------------------------------------------------------------------------ModuleNotFoundError
+Traceback (most recent call last)&lt;ipython-input-1-bf4fe48533c7&gt; in
+&lt;module&gt;
+     87
+     88
+---&gt; 89 import genanki
+     90
+     91 dir(genanki)
+ModuleNotFoundError: No module named &#39;genanki&#39;
 </code></pre></div>
                 
               

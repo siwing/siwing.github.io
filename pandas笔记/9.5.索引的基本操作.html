@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-6.1.4">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.4">
     
     
       
@@ -820,6 +820,18 @@
   <li class="md-nav__item">
     <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.16.shutil.html" class="md-nav__link">
       6.16.shutil
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.17.test.html" class="md-nav__link">
+      6.17.test
     </a>
   </li>
 
@@ -2068,23 +2080,21 @@
                 
                   <h1>9.5.索引的基本操作</h1>
                 
-                <div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">toolkit.Help</span> <span class="kn">import</span> <span class="n">Help</span> <span class="k">as</span> <span class="n">H</span>
+                <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">toolkit.Help</span> <span class="kn">import</span> <span class="n">Help</span> <span class="k">as</span> <span class="n">H</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">from</span> <span class="nn">pandas</span> <span class="kn">import</span> <span class="n">DataFrame</span><span class="p">,</span> <span class="n">Series</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">Windows 10</span>
-<span class="err">Python 3.7.3 @ MSC v.1915 64 bit (AMD64)</span>
-<span class="err">Latest build date 2020.04.11</span>
-<span class="err">pandas version:  1.0.1</span>
-<span class="err">numpy version:  1.18.1</span>
+<div class="highlight"><pre><span></span><code>Windows 10
+Python 3.7.3 @ MSC v.1915 64 bit (AMD64)
+Latest build date 2020.04.11
+pandas version:  1.0.1
+numpy version:  1.18.1
 </code></pre></div>
 
-
 <h3 id="_1">索引对象的方法</h3>
-<div class="codehilite"><pre><span></span><code><span class="n">tuples</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;one&#39;</span><span class="p">),</span>
+<div class="highlight"><pre><span></span><code><span class="n">tuples</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;one&#39;</span><span class="p">),</span>
          <span class="p">(</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">),</span>
          <span class="p">(</span><span class="s1">&#39;baz&#39;</span><span class="p">,</span> <span class="s1">&#39;one&#39;</span><span class="p">),</span>
          <span class="p">(</span><span class="s1">&#39;baz&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">),</span>
@@ -2097,47 +2107,41 @@
 <span class="n">index</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">MultiIndex([(&#39;bar&#39;, &#39;one&#39;),</span>
-<span class="err">            (&#39;bar&#39;, &#39;two&#39;),</span>
-<span class="err">            (&#39;baz&#39;, &#39;one&#39;),</span>
-<span class="err">            (&#39;baz&#39;, &#39;two&#39;),</span>
-<span class="err">            (&#39;foo&#39;, &#39;one&#39;),</span>
-<span class="err">            (&#39;foo&#39;, &#39;two&#39;),</span>
-<span class="err">            (&#39;qux&#39;, &#39;one&#39;),</span>
-<span class="err">            (&#39;qux&#39;, &#39;two&#39;)],</span>
-<span class="err">           names=[&#39;first&#39;, &#39;second&#39;])</span>
+<div class="highlight"><pre><span></span><code>MultiIndex([(&#39;bar&#39;, &#39;one&#39;),
+            (&#39;bar&#39;, &#39;two&#39;),
+            (&#39;baz&#39;, &#39;one&#39;),
+            (&#39;baz&#39;, &#39;two&#39;),
+            (&#39;foo&#39;, &#39;one&#39;),
+            (&#39;foo&#39;, &#39;two&#39;),
+            (&#39;qux&#39;, &#39;one&#39;),
+            (&#39;qux&#39;, &#39;two&#39;)],
+           names=[&#39;first&#39;, &#39;second&#39;])
 </code></pre></div>
-
 
 <p><code>.levels</code>为<code>property</code>属性，它返回一个<code>FrozenList</code>（不可变列表），列表中存储每一级的<code>label</code>（也就是创建<code>MultiIndex</code>时传入的<code>levels</code>参数）。</p>
-<div class="codehilite"><pre><span></span><code><span class="n">index</span><span class="o">.</span><span class="n">levels</span>
+<div class="highlight"><pre><span></span><code><span class="n">index</span><span class="o">.</span><span class="n">levels</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">FrozenList([[&#39;bar&#39;, &#39;baz&#39;, &#39;foo&#39;, &#39;qux&#39;], [&#39;one&#39;, &#39;two&#39;]])</span>
+<div class="highlight"><pre><span></span><code>FrozenList([[&#39;bar&#39;, &#39;baz&#39;, &#39;foo&#39;, &#39;qux&#39;], [&#39;one&#39;, &#39;two&#39;]])
 </code></pre></div>
-
 
 <p><code>.get_level_values(level)</code>：返回指定<code>level</code>的<code>Index</code>，用于<code>MultiIndex</code>。</p>
-<div class="codehilite"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">index</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">index</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">index</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">index</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="s1">&#39;second&#39;</span><span class="p">))</span>
 </code></pre></div>
 
+<div class="highlight"><pre><span></span><code>Index([&#39;bar&#39;, &#39;bar&#39;, &#39;baz&#39;, &#39;baz&#39;, &#39;foo&#39;, &#39;foo&#39;, &#39;qux&#39;, &#39;qux&#39;],
+dtype=&#39;object&#39;, name=&#39;first&#39;)
 
-<div class="codehilite"><pre><span></span><code><span class="k">Index</span><span class="p">([</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;baz&#39;</span><span class="p">,</span> <span class="s1">&#39;baz&#39;</span><span class="p">,</span> <span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;qux&#39;</span><span class="p">,</span> <span class="s1">&#39;qux&#39;</span><span class="p">],</span>
-<span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;object&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;first&#39;</span><span class="p">)</span>
+Index([&#39;one&#39;, &#39;two&#39;, &#39;one&#39;, &#39;two&#39;, &#39;one&#39;, &#39;two&#39;, &#39;one&#39;, &#39;two&#39;],
+dtype=&#39;object&#39;, name=&#39;second&#39;)
 
-<span class="k">Index</span><span class="p">([</span><span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">,</span> <span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">,</span> <span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">,</span> <span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">],</span>
-<span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;object&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;second&#39;</span><span class="p">)</span>
-
-<span class="k">Index</span><span class="p">([</span><span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">,</span> <span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">,</span> <span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">,</span> <span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">],</span>
-<span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;object&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;second&#39;</span><span class="p">)</span>
+Index([&#39;one&#39;, &#39;two&#39;, &#39;one&#39;, &#39;two&#39;, &#39;one&#39;, &#39;two&#39;, &#39;one&#39;, &#39;two&#39;],
+dtype=&#39;object&#39;, name=&#39;second&#39;)
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="n">index</span><span class="p">[:</span><span class="mi">6</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="n">index</span><span class="p">[:</span><span class="mi">6</span><span class="p">])</span>
+<div class="highlight"><pre><span></span><code><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="n">index</span><span class="p">[:</span><span class="mi">6</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="n">index</span><span class="p">[:</span><span class="mi">6</span><span class="p">])</span>
 
 <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">levels</span>  <span class="c1"># original MultiIndex</span>
 
@@ -2147,24 +2151,20 @@
 <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;qux&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_level_values</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">Index([&#39;foo&#39;, &#39;foo&#39;], dtype=&#39;object&#39;, name=&#39;first&#39;)</span>
+<div class="highlight"><pre><span></span><code>Index([&#39;foo&#39;, &#39;foo&#39;], dtype=&#39;object&#39;, name=&#39;first&#39;)
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="n">new_mi</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;qux&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">remove_unused_levels</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span class="n">new_mi</span> <span class="o">=</span> <span class="n">df</span><span class="p">[[</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;qux&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">remove_unused_levels</span><span class="p">()</span>
 <span class="n">new_mi</span><span class="o">.</span><span class="n">levels</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">FrozenList([[&#39;foo&#39;], [&#39;one&#39;, &#39;two&#39;]])</span>
+<div class="highlight"><pre><span></span><code>FrozenList([[&#39;foo&#39;], [&#39;one&#39;, &#39;two&#39;]])
 </code></pre></div>
-
 
 <h2 id="_2">索引重赋值、索引对齐</h2>
 <p><code>level</code>参数已经被加入到pandas对象中的 <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.reindex.html#pandas.DataFrame.reindex"><code>reindex()</code></a> 和 <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.align.html#pandas.DataFrame.align"><code>align()</code></a> 方法中。这将有助于沿着一个层级来广播值（broadcast values）。例如：</p>
 <p>创建示例<code>df</code>：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">midx</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">MultiIndex</span><span class="p">(</span><span class="n">levels</span><span class="o">=</span><span class="p">[[</span><span class="s1">&#39;zero&#39;</span><span class="p">,</span> <span class="s1">&#39;one&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">]],</span>
+<div class="highlight"><pre><span></span><code><span class="n">midx</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">MultiIndex</span><span class="p">(</span><span class="n">levels</span><span class="o">=</span><span class="p">[[</span><span class="s1">&#39;zero&#39;</span><span class="p">,</span> <span class="s1">&#39;one&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">]],</span>
                       <span class="n">codes</span><span class="o">=</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
 
 
@@ -2173,60 +2173,52 @@
 <span class="n">df</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">               0         1</span>
-<span class="err">one  y  0.525254  1.268302</span>
-<span class="err">     x  0.796250 -0.278151</span>
-<span class="err">zero y -1.861484  0.216773</span>
-<span class="err">     x -0.369220 -0.408655</span>
+<div class="highlight"><pre><span></span><code>               0         1
+one  y  0.525254  1.268302
+     x  0.796250 -0.278151
+zero y -1.861484  0.216773
+     x -0.369220 -0.408655
 </code></pre></div>
 
-
 <p>创建示例<code>df2</code>：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">df2</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">df2</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">df2</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">             0         1</span>
-<span class="err">one   0.660752  0.495076</span>
-<span class="err">zero -1.115352 -0.095941</span>
+<div class="highlight"><pre><span></span><code>             0         1
+one   0.660752  0.495076
+zero -1.115352 -0.095941
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="n">df2</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">df2</span><span class="o">.</span><span class="n">reindex</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">               0         1</span>
-<span class="err">one  y  0.660752  0.495076</span>
-<span class="err">     x  0.660752  0.495076</span>
-<span class="err">zero y -1.115352 -0.095941</span>
-<span class="err">     x -1.115352 -0.095941</span>
+<div class="highlight"><pre><span></span><code>               0         1
+one  y  0.660752  0.495076
+     x  0.660752  0.495076
+zero y -1.115352 -0.095941
+     x -1.115352 -0.095941
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="c1"># aligning</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># aligning</span>
 <span class="n">df_aligned</span><span class="p">,</span> <span class="n">df2_aligned</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">align</span><span class="p">(</span><span class="n">df2</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">df_aligned</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">df2_aligned</span><span class="p">)</span>
 </code></pre></div>
 
+<div class="highlight"><pre><span></span><code>               0         1
+one  y  0.525254  1.268302
+     x  0.796250 -0.278151
+zero y -1.861484  0.216773
+     x -0.369220 -0.408655
 
-<div class="codehilite"><pre><span></span><code>               <span class="mi">0</span>         <span class="mi">1</span>
-<span class="n">one</span>  <span class="n">y</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">525254</span>  <span class="mi">1</span><span class="p">.</span><span class="mi">268302</span>
-     <span class="n">x</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">796250</span> <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">278151</span>
-<span class="n">zero</span> <span class="n">y</span> <span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">861484</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">216773</span>
-     <span class="n">x</span> <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">369220</span> <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">408655</span>
-
-               <span class="mi">0</span>         <span class="mi">1</span>
-<span class="n">one</span>  <span class="n">y</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">660752</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">495076</span>
-     <span class="n">x</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">660752</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">495076</span>
-<span class="n">zero</span> <span class="n">y</span> <span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">115352</span> <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">095941</span>
-     <span class="n">x</span> <span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">115352</span> <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">095941</span>
+               0         1
+one  y  0.660752  0.495076
+     x  0.660752  0.495076
+zero y -1.115352 -0.095941
+     x -1.115352 -0.095941
 </code></pre></div>
-
 
 <h3 id="reindex"><code>reindex</code>方法参数</h3>
 <p>重新索引：<code>Series/DataFrame.reindex(index=None, **kwargs)</code>：</p>
@@ -2242,115 +2234,101 @@
 </ul>
 <h2 id="swaplevel">交换索引层级：<code>swaplevel</code>方法</h2>
 <p><a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.MultiIndex.swaplevel.html#pandas.MultiIndex.swaplevel"><code>swaplevel()</code></a>函数可以用来交换两个层级</p>
-<div class="codehilite"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">swaplevel</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
 </code></pre></div>
 
+<div class="highlight"><pre><span></span><code>               0         1
+one  y  0.525254  1.268302
+     x  0.796250 -0.278151
+zero y -1.861484  0.216773
+     x -0.369220 -0.408655
 
-<div class="codehilite"><pre><span></span><code>               <span class="mi">0</span>         <span class="mi">1</span>
-<span class="n">one</span>  <span class="n">y</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">525254</span>  <span class="mi">1</span><span class="p">.</span><span class="mi">268302</span>
-     <span class="n">x</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">796250</span> <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">278151</span>
-<span class="n">zero</span> <span class="n">y</span> <span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">861484</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">216773</span>
-     <span class="n">x</span> <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">369220</span> <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">408655</span>
-
-               <span class="mi">0</span>         <span class="mi">1</span>
-<span class="n">y</span> <span class="n">one</span>   <span class="mi">0</span><span class="p">.</span><span class="mi">525254</span>  <span class="mi">1</span><span class="p">.</span><span class="mi">268302</span>
-<span class="n">x</span> <span class="n">one</span>   <span class="mi">0</span><span class="p">.</span><span class="mi">796250</span> <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">278151</span>
-<span class="n">y</span> <span class="n">zero</span> <span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">861484</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">216773</span>
-<span class="n">x</span> <span class="n">zero</span> <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">369220</span> <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">408655</span>
+               0         1
+y one   0.525254  1.268302
+x one   0.796250 -0.278151
+y zero -1.861484  0.216773
+x zero -0.369220 -0.408655
 </code></pre></div>
-
 
 <h2 id="reorder_levels">交换索引层级：<code>reorder_levels</code>方法</h2>
 <p><a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.MultiIndex.reorder_levels.html#pandas.MultiIndex.reorder_levels"><code>reorder_levels()</code></a>是一个更一般化的 <code>swaplevel</code>方法，允许您用简单的一步来重排列索引的层级：</p>
-<div class="codehilite"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">reorder_levels</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
 </code></pre></div>
 
+<div class="highlight"><pre><span></span><code>               0         1
+one  y  0.525254  1.268302
+     x  0.796250 -0.278151
+zero y -1.861484  0.216773
+     x -0.369220 -0.408655
 
-<div class="codehilite"><pre><span></span><code>               <span class="mi">0</span>         <span class="mi">1</span>
-<span class="n">one</span>  <span class="n">y</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">525254</span>  <span class="mi">1</span><span class="p">.</span><span class="mi">268302</span>
-     <span class="n">x</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">796250</span> <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">278151</span>
-<span class="n">zero</span> <span class="n">y</span> <span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">861484</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">216773</span>
-     <span class="n">x</span> <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">369220</span> <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">408655</span>
-
-               <span class="mi">0</span>         <span class="mi">1</span>
-<span class="n">y</span> <span class="n">one</span>   <span class="mi">0</span><span class="p">.</span><span class="mi">525254</span>  <span class="mi">1</span><span class="p">.</span><span class="mi">268302</span>
-<span class="n">x</span> <span class="n">one</span>   <span class="mi">0</span><span class="p">.</span><span class="mi">796250</span> <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">278151</span>
-<span class="n">y</span> <span class="n">zero</span> <span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">861484</span>  <span class="mi">0</span><span class="p">.</span><span class="mi">216773</span>
-<span class="n">x</span> <span class="n">zero</span> <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">369220</span> <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">408655</span>
+               0         1
+y one   0.525254  1.268302
+x one   0.796250 -0.278151
+y zero -1.861484  0.216773
+x zero -0.369220 -0.408655
 </code></pre></div>
-
 
 <h2 id="_3">重命名索引</h2>
 <p><a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.rename.html#pandas.DataFrame.rename"><code>rename()</code></a>方法可以用来重命名多层索引，也可以用来重命名列。<code>renames</code>的<code>columns</code>参数可以接受一个字典，从而仅仅重命名你希望更改名字的列：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="s2">&quot;col0&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;col1&quot;</span><span class="p">})</span>
+<div class="highlight"><pre><span></span><code><span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="s2">&quot;col0&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="s2">&quot;col1&quot;</span><span class="p">})</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">            col0      col1</span>
-<span class="err">one  y  0.525254  1.268302</span>
-<span class="err">     x  0.796250 -0.278151</span>
-<span class="err">zero y -1.861484  0.216773</span>
-<span class="err">     x -0.369220 -0.408655</span>
+<div class="highlight"><pre><span></span><code>            col0      col1
+one  y  0.525254  1.268302
+     x  0.796250 -0.278151
+zero y -1.861484  0.216773
+     x -0.369220 -0.408655
 </code></pre></div>
-
 
 <p>用于重命名索引：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;one&quot;</span><span class="p">:</span> <span class="s2">&quot;two&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="s2">&quot;z&quot;</span><span class="p">})</span>
+<div class="highlight"><pre><span></span><code><span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;one&quot;</span><span class="p">:</span> <span class="s2">&quot;two&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="s2">&quot;z&quot;</span><span class="p">})</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">               0         1</span>
-<span class="err">two  z  0.525254  1.268302</span>
-<span class="err">     x  0.796250 -0.278151</span>
-<span class="err">zero z -1.861484  0.216773</span>
-<span class="err">     x -0.369220 -0.408655</span>
+<div class="highlight"><pre><span></span><code>               0         1
+two  z  0.525254  1.268302
+     x  0.796250 -0.278151
+zero z -1.861484  0.216773
+     x -0.369220 -0.408655
 </code></pre></div>
-
 
 <p><a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.rename_axis.html#pandas.DataFrame.rename_axis"><code>rename_axis()</code></a> 方法可以用于对<code>Index</code> 或者 <code>MultiIndex</code>进行重命名。尤其的，你可以明确<code>MultiIndex</code>中的不同层级的名称，这可以被用于在之后使用 <code>reset_index()</code> ，把多层级索引的值转换为一个列</p>
-<div class="codehilite"><pre><span></span><code><span class="n">df</span><span class="o">.</span><span class="n">rename_axis</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;abc&#39;</span><span class="p">,</span> <span class="s1">&#39;def&#39;</span><span class="p">])</span>
+<div class="highlight"><pre><span></span><code><span class="n">df</span><span class="o">.</span><span class="n">rename_axis</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;abc&#39;</span><span class="p">,</span> <span class="s1">&#39;def&#39;</span><span class="p">])</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">                 0         1</span>
-<span class="err">abc  def</span>
-<span class="err">one  y    0.525254  1.268302</span>
-<span class="err">     x    0.796250 -0.278151</span>
-<span class="err">zero y   -1.861484  0.216773</span>
-<span class="err">     x   -0.369220 -0.408655</span>
+<div class="highlight"><pre><span></span><code>                 0         1
+abc  def
+one  y    0.525254  1.268302
+     x    0.796250 -0.278151
+zero y   -1.861484  0.216773
+     x   -0.369220 -0.408655
 </code></pre></div>
-
 
 <p>注意，<code>DataFrame</code>的列也是一个索引，因此在<code>rename_axis</code>中使用 <code>columns</code> 参数，将会改变那个索引的名称</p>
-<div class="codehilite"><pre><span></span><code><span class="n">df</span><span class="o">.</span><span class="n">rename_axis</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="s2">&quot;Cols&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span>
+<div class="highlight"><pre><span></span><code><span class="n">df</span><span class="o">.</span><span class="n">rename_axis</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="s2">&quot;Cols&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">RangeIndex(start=0, stop=2, step=1, name=&#39;Cols&#39;)</span>
+<div class="highlight"><pre><span></span><code>RangeIndex(start=0, stop=2, step=1, name=&#39;Cols&#39;)
 </code></pre></div>
-
 
 <p><code>rename</code> 和<code>rename_axis</code>都支持一个明确的字典，<code>Series</code> 或者一个映射函数，将标签，名称映射为新的值。</p>
-<div class="codehilite"><pre><span></span><code><span class="n">df</span><span class="o">.</span><span class="n">rename_axis</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;abc&#39;</span><span class="p">,</span> <span class="s1">&#39;def&#39;</span><span class="p">],</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">df</span><span class="o">.</span><span class="n">rename_axis</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;abc&#39;</span><span class="p">,</span> <span class="s1">&#39;def&#39;</span><span class="p">],</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">                 0         1</span>
-<span class="err">abc  def</span>
-<span class="err">one  y    0.525254  1.268302</span>
-<span class="err">     x    0.796250 -0.278151</span>
-<span class="err">zero y   -1.861484  0.216773</span>
-<span class="err">     x   -0.369220 -0.408655</span>
+<div class="highlight"><pre><span></span><code>                 0         1
+abc  def
+one  y    0.525254  1.268302
+     x    0.796250 -0.278151
+zero y   -1.861484  0.216773
+     x   -0.369220 -0.408655
 </code></pre></div>
-
 
 <h2 id="_4">对<code>多索引</code>进行排序</h2>
 <p>对于拥有多层级索引的对象来说，使用 <code>sort_index</code>方法来排序。</p>
 <p>创建示例<code>s</code>：</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">random</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">random</span>
 
 <span class="n">tuples</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;one&#39;</span><span class="p">),</span>
             <span class="p">(</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">),</span>
@@ -2366,99 +2344,89 @@
 <span class="n">s</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">baz  one   -0.030676</span>
-<span class="err">qux  one   -1.202456</span>
-<span class="err">bar  two   -0.427874</span>
-<span class="err">qux  two    0.143079</span>
-<span class="err">foo  two   -1.195304</span>
-<span class="err">baz  two   -0.420060</span>
-<span class="err">bar  one    0.777924</span>
-<span class="err">foo  one   -1.037374</span>
-<span class="c">dtype: float64</span>
+<div class="highlight"><pre><span></span><code>baz  one   -0.030676
+qux  one   -1.202456
+bar  two   -0.427874
+qux  two    0.143079
+foo  two   -1.195304
+baz  two   -0.420060
+bar  one    0.777924
+foo  one   -1.037374
+dtype: float64
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="c1"># 两者等价</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 两者等价</span>
 <span class="n">s</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
 <span class="n">s</span><span class="o">.</span><span class="n">sort_index</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">bar  one    0.777924</span>
-<span class="err">     two   -0.427874</span>
-<span class="err">baz  one   -0.030676</span>
-<span class="err">     two   -0.420060</span>
-<span class="err">foo  one   -1.037374</span>
-<span class="err">     two   -1.195304</span>
-<span class="err">qux  one   -1.202456</span>
-<span class="err">     two    0.143079</span>
-<span class="c">dtype: float64</span>
+<div class="highlight"><pre><span></span><code>bar  one    0.777924
+     two   -0.427874
+baz  one   -0.030676
+     two   -0.420060
+foo  one   -1.037374
+     two   -1.195304
+qux  one   -1.202456
+     two    0.143079
+dtype: float64
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="n">s</span><span class="o">.</span><span class="n">sort_index</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">s</span><span class="o">.</span><span class="n">sort_index</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">bar  one    0.777924</span>
-<span class="err">baz  one   -0.030676</span>
-<span class="err">foo  one   -1.037374</span>
-<span class="err">qux  one   -1.202456</span>
-<span class="err">bar  two   -0.427874</span>
-<span class="err">baz  two   -0.420060</span>
-<span class="err">foo  two   -1.195304</span>
-<span class="err">qux  two    0.143079</span>
-<span class="c">dtype: float64</span>
+<div class="highlight"><pre><span></span><code>bar  one    0.777924
+baz  one   -0.030676
+foo  one   -1.037374
+qux  one   -1.202456
+bar  two   -0.427874
+baz  two   -0.420060
+foo  two   -1.195304
+qux  two    0.143079
+dtype: float64
 </code></pre></div>
-
 
 <p>如果“多层级索引”都被命名了的话，你也可以向 <code>sort_index</code> 传入一个层级名称。</p>
-<div class="codehilite"><pre><span></span><code><span class="n">s</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">set_names</span><span class="p">([</span><span class="s1">&#39;L1&#39;</span><span class="p">,</span> <span class="s1">&#39;L2&#39;</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">s</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">set_names</span><span class="p">([</span><span class="s1">&#39;L1&#39;</span><span class="p">,</span> <span class="s1">&#39;L2&#39;</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">sort_index</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="s1">&#39;L1&#39;</span><span class="p">),</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">sort_index</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="s1">&#39;L2&#39;</span><span class="p">))</span>
 </code></pre></div>
 
+<div class="highlight"><pre><span></span><code>L1   L2
+bar  one    0.777924
+     two   -0.427874
+baz  one   -0.030676
+     two   -0.420060
+foo  one   -1.037374
+     two   -1.195304
+qux  one   -1.202456
+     two    0.143079
+dtype: float64
 
-<div class="codehilite"><pre><span></span><code><span class="n">L1</span>   <span class="n">L2</span>
-<span class="n">bar</span>  <span class="n">one</span>    <span class="mi">0</span><span class="p">.</span><span class="mi">777924</span>
-     <span class="n">two</span>   <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">427874</span>
-<span class="n">baz</span>  <span class="n">one</span>   <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">030676</span>
-     <span class="n">two</span>   <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">420060</span>
-<span class="n">foo</span>  <span class="n">one</span>   <span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">037374</span>
-     <span class="n">two</span>   <span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">195304</span>
-<span class="n">qux</span>  <span class="n">one</span>   <span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">202456</span>
-     <span class="n">two</span>    <span class="mi">0</span><span class="p">.</span><span class="mi">143079</span>
-<span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
-
-<span class="n">L1</span>   <span class="n">L2</span>
-<span class="n">bar</span>  <span class="n">one</span>    <span class="mi">0</span><span class="p">.</span><span class="mi">777924</span>
-<span class="n">baz</span>  <span class="n">one</span>   <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">030676</span>
-<span class="n">foo</span>  <span class="n">one</span>   <span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">037374</span>
-<span class="n">qux</span>  <span class="n">one</span>   <span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">202456</span>
-<span class="n">bar</span>  <span class="n">two</span>   <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">427874</span>
-<span class="n">baz</span>  <span class="n">two</span>   <span class="o">-</span><span class="mi">0</span><span class="p">.</span><span class="mi">420060</span>
-<span class="n">foo</span>  <span class="n">two</span>   <span class="o">-</span><span class="mi">1</span><span class="p">.</span><span class="mi">195304</span>
-<span class="n">qux</span>  <span class="n">two</span>    <span class="mi">0</span><span class="p">.</span><span class="mi">143079</span>
-<span class="n">dtype</span><span class="p">:</span> <span class="n">float64</span>
+L1   L2
+bar  one    0.777924
+baz  one   -0.030676
+foo  one   -1.037374
+qux  one   -1.202456
+bar  two   -0.427874
+baz  two   -0.420060
+foo  two   -1.195304
+qux  two    0.143079
+dtype: float64
 </code></pre></div>
-
 
 <p>对于多维度的对象来说，你也可以对任意的的维度来进行索引，只要他们是具有<code>多层级索引</code>的：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">df</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">sort_index</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">df</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">sort_index</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">abc       one      zero       one      zero</span>
-<span class="err">def         x         x         y         y</span>
-<span class="err">0    0.796250 -0.369220  0.525254 -1.861484</span>
-<span class="err">1   -0.278151 -0.408655  1.268302  0.216773</span>
+<div class="highlight"><pre><span></span><code>abc       one      zero       one      zero
+def         x         x         y         y
+0    0.796250 -0.369220  0.525254 -1.861484
+1   -0.278151 -0.408655  1.268302  0.216773
 </code></pre></div>
-
 
 <p>即便数据没有排序，你仍然可以对他们进行索引，但是索引的效率会极大降低，并且也会抛出<code>PerformanceWarning</code>警告。而且，这将返回一个数据的副本而非一个数据的视图：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">dfm</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;jim&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+<div class="highlight"><pre><span></span><code><span class="n">dfm</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;jim&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
                      <span class="s1">&#39;joe&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">],</span>
                      <span class="s1">&#39;jolie&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">4</span><span class="p">)})</span>
 
@@ -2469,108 +2437,88 @@
 <span class="n">dfm</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">)]</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">.\setup_m.py:9: PerformanceWarning: indexing past lexsort depth may</span>
-<span class="err">impact performance.</span>
+<div class="highlight"><pre><span></span><code>.\setup_m.py:9: PerformanceWarning: indexing past lexsort depth may
+impact performance.
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">            jolie</span>
-<span class="err">jim joe</span>
-<span class="err">1   z    0.411054</span>
+<div class="highlight"><pre><span></span><code>            jolie
+jim joe
+1   z    0.411054
 </code></pre></div>
-
 
 <p>另外，如果你试图索引一个没有完全lexsorted的对象，你将会碰到如下的错误：</p>
-<div class="codehilite"><pre><span></span><code><span class="k">try</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="k">try</span><span class="p">:</span>
     <span class="n">dfm</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">):(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">)]</span>
 <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;UnsortedIndexError: </span><span class="si">{e}</span><span class="s2">&quot;</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="c">UnsortedIndexError: &#39;Key length (2) was greater than MultiIndex</span>
-<span class="err">lexsort depth (1)&#39;</span>
+<div class="highlight"><pre><span></span><code>UnsortedIndexError: &#39;Key length (2) was greater than MultiIndex
+lexsort depth (1)&#39;
 </code></pre></div>
-
 
 <p>排序之后则不会报错</p>
-<div class="codehilite"><pre><span></span><code><span class="n">dfm</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">):(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">)]</span>
+<div class="highlight"><pre><span></span><code><span class="n">dfm</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">):(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">)]</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">            jolie</span>
-<span class="err">jim joe</span>
-<span class="err">1   y    0.599272</span>
-<span class="err">    z    0.411054</span>
+<div class="highlight"><pre><span></span><code>            jolie
+jim joe
+1   y    0.599272
+    z    0.411054
 </code></pre></div>
-
 
 <p>在<code>MultiIndex</code>上使用 <a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.MultiIndex.is_lexsorted.html#pandas.MultiIndex.is_lexsorted"><code>is_lexsorted()</code></a> 方法，你可以查看这个索引是否已经被排序。而使用<code>lexsort_depth</code> 属性则可以返回排序的深度</p>
-<div class="codehilite"><pre><span></span><code><span class="n">dfm</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">is_lexsorted</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span class="n">dfm</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">is_lexsorted</span><span class="p">()</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">False</span>
+<div class="highlight"><pre><span></span><code>False
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="n">dfm</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">lexsort_depth</span>
+<div class="highlight"><pre><span></span><code><span class="n">dfm</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">lexsort_depth</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">1</span>
+<div class="highlight"><pre><span></span><code>1
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="n">dfm</span> <span class="o">=</span> <span class="n">dfm</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span class="n">dfm</span> <span class="o">=</span> <span class="n">dfm</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
 <span class="n">dfm</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">            jolie</span>
-<span class="err">jim joe</span>
-<span class="err">0   x    0.180559</span>
-<span class="err">    x    0.757809</span>
-<span class="err">1   y    0.599272</span>
-<span class="err">    z    0.411054</span>
+<div class="highlight"><pre><span></span><code>            jolie
+jim joe
+0   x    0.180559
+    x    0.757809
+1   y    0.599272
+    z    0.411054
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="n">dfm</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">is_lexsorted</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span class="n">dfm</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">is_lexsorted</span><span class="p">()</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">True</span>
+<div class="highlight"><pre><span></span><code>True
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="n">dfm</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">lexsort_depth</span>
+<div class="highlight"><pre><span></span><code><span class="n">dfm</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">lexsort_depth</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">2</span>
+<div class="highlight"><pre><span></span><code>2
 </code></pre></div>
-
 
 <p>现在，你的选择就可以正常工作了。</p>
-<div class="codehilite"><pre><span></span><code><span class="n">dfm</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">):(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">)]</span>
+<div class="highlight"><pre><span></span><code><span class="n">dfm</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">):(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;z&#39;</span><span class="p">)]</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">            jolie</span>
-<span class="err">jim joe</span>
-<span class="err">1   y    0.599272</span>
-<span class="err">    z    0.411054</span>
+<div class="highlight"><pre><span></span><code>            jolie
+jim joe
+1   y    0.599272
+    z    0.411054
 </code></pre></div>
-
 
 <h2 id="_5">将列转换为索引</h2>
 <p>将列数据变成行索引（只对<code>DataFrame</code>有效，因为<code>Series</code>没有列索引），其中：<code>col label</code>变成<code>index name</code>，列数据变成行<code>label</code>：</p>
-<div class="codehilite"><pre><span></span><code>  <span class="n">DataFrame</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="n">keys</span><span class="p">,</span> <span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">append</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> 
+<div class="highlight"><pre><span></span><code>  <span class="n">DataFrame</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="n">keys</span><span class="p">,</span> <span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">append</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> 
   <span class="n">verify_integrity</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </code></pre></div>
-
 
 <ul>
 <li><code>keys</code>： 指定了一个或者一列的<code>column label</code>。这些列将会转换为行<code>index</code></li>
@@ -2579,41 +2527,36 @@
 <li><code>inplace</code>：一个布尔值。如果为<code>True</code>，则原地修改并且返回<code>None</code></li>
 <li><code>verify_integrity</code>：一个布尔值。如果为<code>True</code>，则检查新的<code>index</code>是否有重复值。否则会推迟到检测过程到必须检测的时候。</li>
 </ul>
-<div class="codehilite"><pre><span></span><code><span class="n">df</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">)))</span>
+<div class="highlight"><pre><span></span><code><span class="n">df</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">)))</span>
 <span class="n">df</span><span class="p">[</span><span class="s2">&quot;key&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span><span class="s2">&quot;B&quot;</span><span class="p">,</span><span class="s2">&quot;C&quot;</span><span class="p">,</span><span class="s2">&quot;D&quot;</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 
 <span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="n">keys</span><span class="o">=</span><span class="s2">&quot;key&quot;</span><span class="p">,</span><span class="n">append</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">   0  1  2 key</span>
-<span class="err">0  2  9  3   A</span>
-<span class="err">1  2  4  9   B</span>
-<span class="err">2  0  6  4   C</span>
-<span class="err">3  4  3  2   D</span>
+<div class="highlight"><pre><span></span><code>   0  1  2 key
+0  2  9  3   A
+1  2  4  9   B
+2  0  6  4   C
+3  4  3  2   D
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">       0  1  2</span>
-<span class="err">  key</span>
-<span class="err">0 A    2  9  3</span>
-<span class="err">1 B    2  4  9</span>
-<span class="err">2 C    0  6  4</span>
-<span class="err">3 D    4  3  2</span>
+<div class="highlight"><pre><span></span><code>       0  1  2
+  key
+0 A    2  9  3
+1 B    2  4  9
+2 C    0  6  4
+3 D    4  3  2
 </code></pre></div>
-
 
 <h2 id="reset_index">将索引转换为列：<code>reset_index</code></h2>
 <p><code>reset_index</code>会将层次化的行<code>index</code>转移到列中，成为新的一列。同时<code>index</code> 变成一个整数型的，从0开始编号：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">DataFrame</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">drop</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> 
+<div class="highlight"><pre><span></span><code><span class="n">DataFrame</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">drop</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> 
                       <span class="n">col_level</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">col_fill</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="n">Series</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">drop</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">Series</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">drop</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </code></pre></div>
-
 
 <ul>
 <li><code>level</code>：一个整数、<code>str</code>、元组或者列表。它指定了将从层次化的<code>index</code>中移除的<code>level</code>。如果为<code>None</code>，则移除所有的<code>level</code>。</li>
@@ -2623,31 +2566,28 @@
 <li><code>col_fill</code>：指定除<code>col_level</code>之外的列level的名字。默认为空字符串。当存在多级列索引时生效。</li>
 </ul>
 <p>对于<code>Series</code>，<code>name</code>就是插入后，对应的列<code>label</code></p>
-<div class="codehilite"><pre><span></span><code><span class="n">columns</span> <span class="o">=</span> <span class="p">[[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">],[</span><span class="s2">&quot;1&quot;</span><span class="p">,</span><span class="s2">&quot;2&quot;</span><span class="p">,</span><span class="s2">&quot;3&quot;</span><span class="p">]]</span>
+<div class="highlight"><pre><span></span><code><span class="n">columns</span> <span class="o">=</span> <span class="p">[[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">],[</span><span class="s2">&quot;1&quot;</span><span class="p">,</span><span class="s2">&quot;2&quot;</span><span class="p">,</span><span class="s2">&quot;3&quot;</span><span class="p">]]</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">)),</span> <span class="n">columns</span><span class="o">=</span><span class="n">columns</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 
 <span class="n">df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">col_level</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">   a     b</span>
-<span class="err">   1  2  3</span>
-<span class="err">0  9  6  3</span>
-<span class="err">1  8  1  3</span>
-<span class="err">2  5  0  9</span>
-<span class="err">3  6  0  5</span>
+<div class="highlight"><pre><span></span><code>   a     b
+   1  2  3
+0  9  6  3
+1  8  1  3
+2  5  0  9
+3  6  0  5
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">  index  a     b</span>
-<span class="err">         1  2  3</span>
-<span class="err">0     0  9  6  3</span>
-<span class="err">1     1  8  1  3</span>
-<span class="err">2     2  5  0  9</span>
-<span class="err">3     3  6  0  5</span>
+<div class="highlight"><pre><span></span><code>  index  a     b
+         1  2  3
+0     0  9  6  3
+1     1  8  1  3
+2     2  5  0  9
+3     3  6  0  5
 </code></pre></div>
-
 
 <h2 id="label">按label删除行、列</h2>
 <p>丢弃某条轴上的一个或者多个<code>label</code>：<code>Series/DataFrame.drop(labels[, axis, level, inplace, errors])</code>:</p>
@@ -2658,7 +2598,7 @@
 <li><code>inplace</code>：一个布尔值。如果为<code>True</code>，则原地修改并且返回<code>None</code></li>
 <li><code>errors</code>：可以为<code>'ignore'/'raise'</code></li>
 </ul>
-<div class="codehilite"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">col_level</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">col_level</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">a</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
 
@@ -2673,15 +2613,13 @@
 <span class="n">idx</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">fun</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="c">G:\Installed\Anaconda3\lib\site-packages\pandas\core\generic.py:3936:</span>
-<span class="c">PerformanceWarning: dropping on a non-lexsorted multi-index without a</span>
-<span class="err">level parameter may impact performance.</span>
-<span class="err">  obj = obj._drop_axis(labels, axis, level=level, errors=errors)</span>
+<div class="highlight"><pre><span></span><code>G:\Installed\Anaconda3\lib\site-packages\pandas\core\generic.py:3936:
+PerformanceWarning: dropping on a non-lexsorted multi-index without a
+level parameter may impact performance.
+  obj = obj._drop_axis(labels, axis, level=level, errors=errors)
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">Int64Index([10, 11, 12, 13], dtype=&#39;int64&#39;)</span>
+<div class="highlight"><pre><span></span><code>Int64Index([10, 11, 12, 13], dtype=&#39;int64&#39;)
 </code></pre></div>
                 
               

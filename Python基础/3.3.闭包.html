@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-6.1.4">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.4">
     
     
       
@@ -877,6 +877,18 @@
   <li class="md-nav__item">
     <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.16.shutil.html" class="md-nav__link">
       6.16.shutil
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.17.test.html" class="md-nav__link">
+      6.17.test
     </a>
   </li>
 
@@ -1981,7 +1993,7 @@
 <p>在一些语言中，在函数中可以（嵌套）定义另一个函数时，如果内部的函数引用了外部的函数的变量，则可能产生闭包。运行时，一旦外部的函数被执行，一个闭包就形成了，闭包中包含了内部函数的代码，以及所需外部函数中的变量的引用。其中所引用的变量称作<strong>上值</strong>(upvalue)。</p>
 <hr />
 <p>维基百科中对于闭包的介绍，应该还是比较直观的。简而言之：内嵌函数引用了外部函数的变量，这个内嵌函数被执行时，就形成一个闭包。例如：</p>
-<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">outside</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">outside</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
     <span class="n">a</span> <span class="o">=</span> <span class="n">a</span>
     <span class="n">b</span> <span class="o">=</span> <span class="n">b</span>
     <span class="k">def</span> <span class="nf">inner</span><span class="p">():</span>
@@ -1994,10 +2006,8 @@
 <span class="n">outside</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">{&#39;y&#39;: 3, &#39;a&#39;: 1, &#39;b&#39;: 2}</span>
+<div class="highlight"><pre><span></span><code>{&#39;y&#39;: 3, &#39;a&#39;: 1, &#39;b&#39;: 2}
 </code></pre></div>
-
 
 <p><code>inner()</code>被执行时，创建的局部命名空间会包括其引用的外层函数的变量，这样的局部命名空间被称为闭包命名空间（enclosing namespace）。</p>
 <p><mark>注意，在Python中，内嵌函数可以被外层函数返回，也就是Python函数可以返回闭包。</mark> 理解什么是闭包不难，但问题在于闭包有什么作用呢？</p>
@@ -2005,7 +2015,7 @@
 <p>闭包的独特之处在于它可以绑定外部函数的变量，即使生成闭包的环境（外层函数）已经释放，闭包仍然存在。</p>
 <p>这个过程很像类生成实例，不同的是外部函数只在调用时生成命名空间，执行完毕后其命名空间就会释放，而类的命名空间在读入定义时创建，一般Python解释器退出才释放命名空间。因此对一些需要重用的功能且不足以定义为类的行为，使用闭包会比使用类占用更少的资源，且更轻巧灵活。</p>
 <p>例如：假设我们仅仅想打印出各类动物的叫声，分别以类和闭包来实现：</p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># 类实现</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 类实现</span>
 <span class="k">class</span> <span class="nc">Animal</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">animal</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">animal</span> <span class="o">=</span> <span class="n">animal</span>
@@ -2018,13 +2028,11 @@
 <span class="n">dog</span><span class="o">.</span><span class="n">sound</span><span class="p">(</span><span class="s2">&quot;wowo&quot;</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="n">dog</span> <span class="o">:</span> <span class="n">wangwang</span> <span class="o">...</span>
-<span class="n">dog</span> <span class="o">:</span> <span class="n">wowo</span> <span class="o">...</span>
+<div class="highlight"><pre><span></span><code>dog : wangwang ...
+dog : wowo ...
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="c1"># 闭包实现</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 闭包实现</span>
 <span class="k">def</span> <span class="nf">voice</span><span class="p">(</span><span class="n">animal</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">sound</span><span class="p">(</span><span class="n">voc</span><span class="p">):</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">animal</span><span class="p">,</span> <span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">voc</span><span class="p">,</span> <span class="s2">&quot;...&quot;</span><span class="p">)</span>
@@ -2035,17 +2043,15 @@
 <span class="n">dog</span><span class="p">(</span><span class="s2">&quot;wowo&quot;</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="n">dog</span> <span class="o">:</span> <span class="n">wangwang</span> <span class="o">...</span>
-<span class="n">dog</span> <span class="o">:</span> <span class="n">wowo</span> <span class="o">...</span>
+<div class="highlight"><pre><span></span><code>dog : wangwang ...
+dog : wowo ...
 </code></pre></div>
-
 
 <p>输出结果是完全一样的，但显然类的实现相对繁琐，且这里只是想输出一下动物的叫声，定义一个<code>Animal</code>类未免小题大做，而且 voice 函数在执行完毕后，其命名空间就已经释放，但<code>Animal</code>类及其实例 dog 的相应属性却一直贮存在内存中。而这种内存占用是没有必要的。</p>
 <p>除此之外，闭包还有其他作用。闭包可以减少函数参数的数目，因此可以用于封装。这对并行计算也非常有用，比如可以让每台电脑负责一个函数的计算。另外，闭包在Python中有一种重要的应用——装饰器。这个会在装饰器的文章讲述。</p>
 <h2 id="_3">闭包作用域与命名空间</h2>
 <p>来看一个典型的<a href="https://segmentfault.com/q/1010000004505977/a-1020000004506793">闭包</a>结构：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">gv</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;global&#39;</span><span class="p">,</span> <span class="s1">&#39;var&#39;</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span class="n">gv</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;global&#39;</span><span class="p">,</span> <span class="s1">&#39;var&#39;</span><span class="p">]</span>
 
 <span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">v</span><span class="p">):</span>
     <span class="n">gv</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;gv&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">gv</span> <span class="c1"># UnboundLocalError:local variable &#39;gv&#39; referenced before assignment</span>
@@ -2057,17 +2063,15 @@
     <span class="k">return</span> <span class="n">inn_func</span>
 </code></pre></div>
 
-
 <p>这段代码似乎没有问题，赋值操作从右到左执行，先从右边的<code>gv</code>、<code>lv</code>开始执行代码，此时局部作用域还没有<code>gv</code>变量，局部作用域也没有<code>lv</code>变量，Python应该会访问外层作用域的<code>gv</code>、<code>lv</code>变量。但实际调用 <code>func()</code>函数时，上面两处对 <code>gv</code> 和 <code>lv</code> 进行赋值操作的地方都会触发 <code>UnboundLocalError</code>。</p>
 <p><mark>这是因为 Python 在执行函数前，会首先生成各层命名空间和作用域</mark>，因此 Python 在执行赋值前会将<code>func</code> 内的 <code>'gv'</code> <code>'lv'</code> 写入局部命名空间和闭包命名空间：</p>
-<div class="codehilite"><pre><span></span><code><span class="err">dict_局部命名空间.update({“gv”:[&#39;gv&#39;] + gv})</span>
-<span class="err">dict_闭包命名空间.update({“lv”:[&#39;lv&#39;] + lv})</span>
+<div class="highlight"><pre><span></span><code>dict_局部命名空间.update({“gv”:[&#39;gv&#39;] + gv})
+dict_闭包命名空间.update({“lv”:[&#39;lv&#39;] + lv})
 </code></pre></div>
-
 
 <p>当 Python 执行赋值时，按照LEGB搜索规则，会先在局部作用域、闭包作用域内发现<code>gv</code> 和 <code>lv</code> 标识符，但<code>gv</code> 和 <code>lv</code> 在局部命名空间和闭包命名空间内都没有绑定对象，从而引发错误。</p>
 <p>这段代码本意只是想让具有对象的全局变量<code>gv</code> 和局部变量 <code>lv</code> 参与运算，而不是局部命名空间中的<code>gv</code>和闭包命名空间中的<code>lv</code>。为了避免类似的情况发生，<mark>Python 引入了 <code>global</code>、<code>nonlocal</code> 语句来说明所修饰的 <code>gv</code>、<code>lv</code> 分别来自全局命名空间和局部命名空间</mark>，声明之后，就可以在 <code>func</code> 和 <code>inn_func</code> 内直接改写上层命名空间内 <code>gv</code> 和 <code>lv</code> 的值：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">gv</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;global&#39;</span><span class="p">,</span> <span class="s1">&#39;var&#39;</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span class="n">gv</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;global&#39;</span><span class="p">,</span> <span class="s1">&#39;var&#39;</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;gv的内存地址&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="p">(</span><span class="n">gv</span><span class="p">))</span>
 
 <span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">v</span><span class="p">):</span>
@@ -2088,22 +2092,19 @@
 <span class="n">a</span><span class="p">()</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">gv的内存地址 1484188467336</span>
-<span class="err">gv的内存地址 1484188467336</span>
-<span class="err">lv的内存地址 1484188467336</span>
-<span class="err">lv的内存地址 1484188467336</span>
+<div class="highlight"><pre><span></span><code>gv的内存地址 1484188467336
+gv的内存地址 1484188467336
+lv的内存地址 1484188467336
+lv的内存地址 1484188467336
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">[&#39;gv&#39;, &#39;is&#39;, &#39;a&#39;, &#39;global&#39;, &#39;var&#39;]</span>
+<div class="highlight"><pre><span></span><code>[&#39;gv&#39;, &#39;is&#39;, &#39;a&#39;, &#39;global&#39;, &#39;var&#39;]
 </code></pre></div>
-
 
 <p>如上，全局变量 <code>gv</code> 值被函数改写了， <code>inn_func</code> 修改的也确实是父函数 <code>lv</code>的值 （依据内存地址判断）。</p>
 <h2 id="_4">借壳</h2>
 <p>那么是不是不使用 <code>global</code> 和 <code>nonlocal</code> 就不能达到上面的目的呢？来看看下面这段代码：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">gv</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;global&#39;</span><span class="p">,</span> <span class="s1">&#39;var&#39;</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span class="n">gv</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;global&#39;</span><span class="p">,</span> <span class="s1">&#39;var&#39;</span><span class="p">]</span>
 
 <span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">v</span><span class="p">):</span>
     <span class="n">gv</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;gv&#39;</span><span class="p">)</span>
@@ -2121,16 +2122,14 @@
 <span class="nb">print</span><span class="p">(</span><span class="n">gv</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">lv的内存地址 1484150018632</span>
-<span class="err">lv的内存地址 1484150018632</span>
-<span class="err">[&#39;gv&#39;, &#39;is&#39;, &#39;a&#39;, &#39;global&#39;, &#39;var&#39;]</span>
+<div class="highlight"><pre><span></span><code>lv的内存地址 1484150018632
+lv的内存地址 1484150018632
+[&#39;gv&#39;, &#39;is&#39;, &#39;a&#39;, &#39;global&#39;, &#39;var&#39;]
 </code></pre></div>
-
 
 <p>可以发现，执行结果同上面完全一致，问题自然来了：“为什么不用 <code>global</code> <code>nonlocal</code> 也可以改写全局变量<code>gv</code>和父函数变量<code>lv</code>的值？</p>
 <p>为了看清楚这个过程，我们将上面的<code>gv.insert(0, 'gv')</code> 和<code>lv.append(v)</code> 改写为 <code>gv[0:0] = ['gv']</code> 和<code>lv[:] = [v]</code>：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">gv</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;global&#39;</span><span class="p">,</span> <span class="s1">&#39;var&#39;</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span class="n">gv</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;global&#39;</span><span class="p">,</span> <span class="s1">&#39;var&#39;</span><span class="p">]</span>
 
 <span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">v</span><span class="p">):</span>
     <span class="n">gv</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;gv&#39;</span><span class="p">]</span>
@@ -2148,12 +2147,10 @@
 <span class="nb">print</span><span class="p">(</span><span class="n">gv</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">lv的内存地址 1484192557512</span>
-<span class="err">lv的内存地址 1484192557512</span>
-<span class="err">[&#39;gv&#39;, &#39;is&#39;, &#39;a&#39;, &#39;global&#39;, &#39;var&#39;]</span>
+<div class="highlight"><pre><span></span><code>lv的内存地址 1484192557512
+lv的内存地址 1484192557512
+[&#39;gv&#39;, &#39;is&#39;, &#39;a&#39;, &#39;global&#39;, &#39;var&#39;]
 </code></pre></div>
-
 
 <p>执行结果完全一致，事实上两者之间的本质也是完全一样的。<code>.insert()</code>、<code>.append()</code>方法并没有修改 <code>gv</code> 和 <code>lv</code>，而是修改 <code>gv</code> 和 <code>lv</code> 的元素 <code>gv[0:0]</code> 和 <code>lv[:]</code> ，因此<code>gv</code>和<code>lv</code>并没有被加入局部命名空间。因此，不需要 <code>global</code> 和 <code>nonlocal</code>修饰就可以直接改写，<strong>这就是“借壳”。</strong>另外，也是借助了list对象的mutable性质。</p>
 <p>在 <code>nonlocal</code> 尚未引入 Python 中，比如 Python 2.x 若要在子函数中改写父函数变量的值就得通过这种方法。</p>

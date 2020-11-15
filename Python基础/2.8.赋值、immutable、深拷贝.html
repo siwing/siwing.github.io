@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-6.1.4">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.4">
     
     
       
@@ -891,6 +891,18 @@
   <li class="md-nav__item">
     <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.16.shutil.html" class="md-nav__link">
       6.16.shutil
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.17.test.html" class="md-nav__link">
+      6.17.test
     </a>
   </li>
 
@@ -2010,20 +2022,18 @@
 <p>下次我们使用这个名称时，便得到与名称相关联的值。</p>
 <p><mark><strong>assignment永远不会复制数据，并且多个name可以引用同一个value。</strong></mark></p>
 <p>当值具有多个名称时，很容易混淆并将其视为两个名称和两个值。：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="mi">23</span>
+<div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="mi">23</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">x</span>
 </code></pre></div>
-
 
 <p><img alt="" src="figures/snipaste_20190811_174817.png" /></p>
 <p>实际上，将已有的变量赋值给新变量时，Python永远不会复制值。分配只是使左侧的名称引用右侧的值。在这种情况下，我们只有一个23，<code>x</code>和<code>y</code>都引用它，就像我们在上图中看到的那样。</p>
 <p><mark><strong>名称是独立于其他名称重新分配的。</strong></mark></p>
 <p>如果两个名称引用相同的值，则不会链接这两个名称。重新分配其中一个不会导致另一个也被重新分配：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="mi">23</span>
+<div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="mi">23</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">x</span>
 <span class="n">x</span> <span class="o">=</span> <span class="mi">12</span>
 </code></pre></div>
-
 
 <iframe width="800" height="270" frameborder="0" src="http://pythontutor.com/iframe-embed.html#code=x%20%3D%2023%0Ay%20%3D%20x%0Ax%20%3D%2012&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=true&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>
 
@@ -2055,21 +2065,19 @@
 </ul>
 <p>所谓的mutable、immutable是指name指向的object可不可以在原地址被修改。如果不可以在原地址修改，就只能在新地址创建新对象，name指向新对象（旧对象若没有引用，则会被内存回收机制销毁）：</p>
 <p><img src="figures/20200126_4.png" alt="20200126_4" style="zoom:18%;" /></p>
-<div class="codehilite"><pre><span></span><code><span class="n">name</span> <span class="o">=</span> <span class="mi">10</span>
+<div class="highlight"><pre><span></span><code><span class="n">name</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;name的id：&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
 <span class="n">name</span> <span class="o">=</span> <span class="mi">20</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;name的id：&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">name的id： 140728401826912</span>
-<span class="err">name的id： 140728401827232</span>
+<div class="highlight"><pre><span></span><code>name的id： 140728401826912
+name的id： 140728401827232
 </code></pre></div>
-
 
 <p>如果可以在原地址被修改，那么name的指向就不会改变（容器类型的对象实际上保存的是元素的引用）：</p>
 <p><img src="figures/20200126_3.png" alt="20200126_3" style="zoom:18%;" /></p>
-<div class="codehilite"><pre><span></span><code><span class="n">name</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span class="n">name</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;name的值:&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="s2">&quot;  &quot;</span><span class="p">,</span> <span class="s2">&quot;name的id：&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
 <span class="k">for</span> <span class="n">num</span><span class="p">,</span><span class="n">i</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;第</span><span class="si">{num}</span><span class="s2">个元素的id&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
@@ -2080,21 +2088,19 @@
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;第</span><span class="si">{num}</span><span class="s2">个元素的id&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="c">name的值: [1, 2, 3, 4, 5]    name的id： 1694876445512</span>
-<span class="err">第0个元素的id 140728401826624</span>
-<span class="err">第1个元素的id 140728401826656</span>
-<span class="err">第2个元素的id 140728401826688</span>
-<span class="err">第3个元素的id 140728401826720</span>
-<span class="err">第4个元素的id 140728401826752</span>
-<span class="c">name的值: [20, 2, 3, 4, 5]    name的id： 1694876445512</span>
-<span class="err">第0个元素的id 140728401827232</span>
-<span class="err">第1个元素的id 140728401826656</span>
-<span class="err">第2个元素的id 140728401826688</span>
-<span class="err">第3个元素的id 140728401826720</span>
-<span class="err">第4个元素的id 140728401826752</span>
+<div class="highlight"><pre><span></span><code>name的值: [1, 2, 3, 4, 5]    name的id： 1694876445512
+第0个元素的id 140728401826624
+第1个元素的id 140728401826656
+第2个元素的id 140728401826688
+第3个元素的id 140728401826720
+第4个元素的id 140728401826752
+name的值: [20, 2, 3, 4, 5]    name的id： 1694876445512
+第0个元素的id 140728401827232
+第1个元素的id 140728401826656
+第2个元素的id 140728401826688
+第3个元素的id 140728401826720
+第4个元素的id 140728401826752
 </code></pre></div>
-
 
 <h2 id="immutable">immutable的本质</h2>
 <p><strong><mark>神话：Python以不同的方式分配可变和不可变的值。</mark></strong></p>
@@ -2105,7 +2111,7 @@
 <p><strong><mark>神话：值是有范围的。</mark></strong></p>
 <p>在python中存在作用域这样的概念，人们可能会觉得作用域指的是值（对象）的作用范围，但事实上，<strong>值是没有范围的，作用域指的是名称的作用范围。</strong></p>
 <p>我们可以定义一个简单的函数与验证这点。</p>
-<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">check_name_space_range</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">check_name_space_range</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;x的内存地址是：&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span>
 
 <span class="c1"># 先在最外层的作用域赋值，并打印地址</span>
@@ -2114,15 +2120,13 @@
 <span class="n">check_name_space_range</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">a的内存地址是：140728401826912</span>
-<span class="err">x的内存地址是：140728401826912</span>
+<div class="highlight"><pre><span></span><code>a的内存地址是：140728401826912
+x的内存地址是：140728401826912
 </code></pre></div>
-
 
 <p>很明显，在内外层作用域的值都是同一个。</p>
 <p><strong><mark>陷阱：因为值没有范围，并且赋值不会复制值，这就可能出现可变对象被意外地改变：</mark></strong> </p>
-<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">variable_change</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">variable_change</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span>
     <span class="k">return</span> <span class="n">x</span>
 
@@ -2132,25 +2136,21 @@
 <span class="nb">print</span><span class="p">(</span><span class="n">a_other</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="k">[10, 2, 3]</span>
-<span class="k">[10, 2, 3]</span>
+<div class="highlight"><pre><span></span><code>[10, 2, 3]
+[10, 2, 3]
 </code></pre></div>
 
-
 <p>可以看到，<code>a</code>、<code>a_other</code>都被改变了，因为<code>a</code>、<code>a_other</code>都是同一个对象。</p>
-<div class="codehilite"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a的内存地址是：&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">)))</span>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a的内存地址是：&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">)))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a_other的内存地址是：&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">a_other</span><span class="p">)))</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">a的内存地址是：1694877001032</span>
-<span class="err">a_other的内存地址是：1694877001032</span>
+<div class="highlight"><pre><span></span><code>a的内存地址是：1694877001032
+a_other的内存地址是：1694877001032
 </code></pre></div>
 
-
 <p>因此，如果要在函数里面更改可变对象参数的值，最好复制一个副本。</p>
-<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">variable_change_shallow</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">variable_change_shallow</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="nb">list</span><span class="p">):</span>
         <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
         <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span>
@@ -2166,17 +2166,15 @@
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a_other的内存地址是：&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">a_other</span><span class="p">)))</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="k">[1, 2, 3]</span>
-<span class="k">[10, 2, 3]</span>
-<span class="na">a的内存地址是：1694876642120</span>
-<span class="na">a_other的内存地址是：1694876641288</span>
+<div class="highlight"><pre><span></span><code>[1, 2, 3]
+[10, 2, 3]
+a的内存地址是：1694876642120
+a_other的内存地址是：1694876641288
 </code></pre></div>
-
 
 <p><code>a</code>的值并没有改变，上面的结果看似是没问题的，但还是会有新的”惊喜“。</p>
 <p>我们来修改一下<code>variable_change_shallow</code>函数</p>
-<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">variable_change_shallow</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">variable_change_shallow</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="nb">list</span><span class="p">):</span>
         <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
         <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span> <span class="mi">10</span>
@@ -2192,13 +2190,11 @@
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a_other的内存地址是：&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">a_other</span><span class="p">)))</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="k">[[10, 2], 2, 3]</span>
-<span class="k">[[10, 2], 2, 3]</span>
-<span class="na">a的内存地址是：1694877003720</span>
-<span class="na">a_other的内存地址是：1694876445576</span>
+<div class="highlight"><pre><span></span><code>[[10, 2], 2, 3]
+[[10, 2], 2, 3]
+a的内存地址是：1694877003720
+a_other的内存地址是：1694876445576
 </code></pre></div>
-
 
 <p>”惊喜“就是<code>a</code>的值也改变了。因为<code>x.copy()</code>只是浅拷贝。</p>
 <p>在python里面有三种方式去引用某个值：</p>
@@ -2208,13 +2204,12 @@
 <li>深拷贝</li>
 </ol>
 <p>这三种方式是有区别的。</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">copy</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">copy</span>
 <span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]]</span>
 <span class="n">a_reference</span> <span class="o">=</span> <span class="n">a</span>
 <span class="n">a_shallow</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 <span class="n">a_deep_copy</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </code></pre></div>
-
 
 <p>变量<code>a</code>和<code>a_reference</code>都是同一个对象的名称。</p>
 <p><img alt="" src="figures/snipaste_20190811_232331.png" /></p>
@@ -2226,27 +2221,25 @@
 <h2 id="_3">赋值陷阱——引用不仅仅限于名称</h2>
 <p>以上所有示例都使用名称作为值的引用，但引用也可以是其他东西。<strong>Python有许多复合数据结构，每个结构都包含对值的引用：列表元素，字典键和值，对象属性等。</strong>其中每一个都可以在赋值符号的左侧使用，以上所有细节都适用于它们。<strong>任何可以出现在赋值语句左侧的内容都是引用</strong>，在本文中说“名称”的任何地方都可以用“引用”替换。</p>
 <p>在上面的示意图中，数字被显示为元素，但实际上，每个元素都是对数字的引用，因此它应该像这样绘制：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">nums</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span class="n">nums</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
 </code></pre></div>
-
 
 <p><img alt="" src="figures/snipaste_20190811_234253.png" /></p>
 <p>但这很快变得复杂，所以上面的绘图用了视觉速记：</p>
 <p><img alt="" src="figures/snipaste_20190811_234356.png" /></p>
 <p>如果你有列表元素引用其他可变值，例如子列表，请务必记住列表元素只是对值的引用。</p>
 <p>这是一些其他assignment的例子。这些左侧中的每一个都是引用（reference）：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">my_obj</span><span class="o">.</span><span class="n">attr</span> <span class="o">=</span> <span class="mi">23</span>  <span class="c1"># 类属性</span>
+<div class="highlight"><pre><span></span><code><span class="n">my_obj</span><span class="o">.</span><span class="n">attr</span> <span class="o">=</span> <span class="mi">23</span>  <span class="c1"># 类属性</span>
 <span class="n">my_dict</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="mi">24</span> <span class="c1"># 字典</span>
 <span class="n">my_list</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="mi">25</span> <span class="c1"># 列表</span>
 <span class="n">my_obj</span><span class="o">.</span><span class="n">attr</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="n">index</span><span class="p">]</span><span class="o">.</span><span class="n">attr</span> <span class="o">=</span> <span class="s2">&quot;etc, etc&quot;</span> <span class="c1"># 多个对象嵌套</span>
 </code></pre></div>
 
-
 <p><strong><code>i = x</code> 指定了名称<code>i</code>，但<code>i[0] = x</code>并不是指定名称<code>i</code>，而是指定了<code>i</code>的值的第一个元素。</strong></p>
 <p><strong><mark>很多东西都是Assignment。</mark></strong></p>
 <p>正如上面所说，许多东西都可以作为引用，python里面有很多东西可以作为assignments。</p>
 <p>这些行中的每一行都是名称<code>X</code>的赋值：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">X</span> <span class="o">=</span> <span class="o">...</span>
+<div class="highlight"><pre><span></span><code><span class="n">X</span> <span class="o">=</span> <span class="o">...</span>
 <span class="k">for</span> <span class="n">X</span> <span class="ow">in</span> <span class="o">...</span>
 <span class="p">[</span><span class="o">...</span> <span class="k">for</span> <span class="n">X</span> <span class="ow">in</span> <span class="o">...</span><span class="p">]</span>
 <span class="p">(</span><span class="o">...</span> <span class="k">for</span> <span class="n">X</span> <span class="ow">in</span> <span class="o">...</span><span class="p">)</span>
@@ -2262,27 +2255,23 @@
 <span class="kn">from</span> <span class="nn">...</span> <span class="kn">import</span> <span class="o">...</span> <span class="k">as</span> <span class="n">X</span>
 </code></pre></div>
 
-
 <p>注意，我并不是说这些语句像assignments，我的意思是这些语句都是赋值。它们都使名称<code>X</code>引用某个值。上面所说的关于赋值的所有内容都适用于所有这些赋值。</p>
 <p>在大多数情况下，这些语句将<code>X</code>定义在与语句相同的作用域内。Python 2和Python 3之间的细节略有不同。但它们都是真正的赋值，而且每个事实都是关于赋值适用于所有这些。</p>
 <p><strong><mark>Python通过赋值来传递函数参数。</mark></strong></p>
 <p>让我们来看看这些上面assignment列表中最有趣的一个：调用一个函数。当我定义一个函数时，我将其参数命名为：</p>
-<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">my_func</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">my_func</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span>
 </code></pre></div>
 
-
 <p>这里<code>x</code>和<code>y</code>是函数<code>my_func</code>的参数。当我调用<code>my_func</code>时，我提供了实际值作为函数的参数。这些值分配给<strong>参数名称</strong>，就像使用了赋值语句一样：</p>
-<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">my_func</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">my_func</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">my_func</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">17</span>
+<div class="highlight"><pre><span></span><code>17
 </code></pre></div>
-
 
 <p>调用<code>my_func</code>时，8被赋值给名称<code>x</code>，9被赋值给名称<code>y</code>。该赋值与我们一直在讨论的简单赋值语句完全相同。名称<code>x</code>和<code>y</code>是函数的本地名称（local），因此当函数返回时，这些名称就会消失。但是，如果它们引用的值仍然被其他名称引用，则值仍然存在。</p>
 <p>就像所有其他赋值一样，可变值可以传递给函数，并且通过其所有名称可以看到对值的更改。</p>
@@ -2293,10 +2282,9 @@
 <p>正如名称没有类型一样，值也没有范围。当我们说一个函数有一个局部变量时，我们的意思是该名称的作用域是函数：你不能在函数外部使用该名称，当函数返回时，名称将被销毁。但是正如我们所看到的，如果名称的值具有其他引用，它将继续在函数调用之外。它是本地名称，而不是本地值。</p>
 <p><strong><mark>值不能删除，只有名称可以删除。</mark></strong></p>
 <p>Python的内存管理对其行为至关重要，你不仅不必删除值，而且无法删除值。</p>
-<div class="codehilite"><pre><span></span><code><span class="n">nums</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span class="n">nums</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 <span class="k">del</span> <span class="n">nums</span>
 </code></pre></div>
-
 
 <p>这不会删除值<code>nums</code>，它会删除名称<code>nums</code>。该名称将从其范围中删除，然后通常的引用计数开始执行：如果<code>nums</code>的值只有一个引用，则将回收该值。但如果它有其他引用，那么它不会被回收。</p>
 <p><strong><mark>神话：Python没有变量。</mark></strong></p>

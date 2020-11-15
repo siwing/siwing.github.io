@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-6.1.4">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.4">
     
     
       
@@ -1019,6 +1019,18 @@
   <li class="md-nav__item">
     <a href="6.16.shutil.html" class="md-nav__link">
       6.16.shutil
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="6.17.test.html" class="md-nav__link">
+      6.17.test
     </a>
   </li>
 
@@ -2256,29 +2268,25 @@
                 
                   <h1>6.14.logging</h1>
                 
-                <div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">toolkit</span> <span class="kn">import</span> <span class="n">H</span>
+                <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">toolkit</span> <span class="kn">import</span> <span class="n">H</span>
 <span class="kn">import</span> <span class="nn">logging</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">Windows 10</span>
-<span class="err">Python 3.7.7 @ MSC v.1916 64 bit (AMD64)</span>
-<span class="err">Latest build date 2020.08.14</span>
-<span class="err">logging version:  0.5.1.2</span>
+<div class="highlight"><pre><span></span><code>Windows 10
+Python 3.7.7 @ MSC v.1916 64 bit (AMD64)
+Latest build date 2020.08.14
+logging version:  0.5.1.2
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="n">h</span> <span class="o">=</span> <span class="n">H</span><span class="p">(</span><span class="n">logging</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">h</span> <span class="o">=</span> <span class="n">H</span><span class="p">(</span><span class="n">logging</span><span class="p">)</span>
 <span class="n">d</span> <span class="o">=</span> <span class="n">h</span><span class="o">.</span><span class="n">dicts</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">module</span>
+<div class="highlight"><pre><span></span><code>module
 </code></pre></div>
 
-
 <h2 id="_1">常量</h2>
-<div class="codehilite"><pre><span></span><code><span class="n">sort_func</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">k</span><span class="p">:</span> <span class="nb">eval</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;logging.</span><span class="si">{k}</span><span class="s2">&quot;</span><span class="p">)</span> \
+<div class="highlight"><pre><span></span><code><span class="n">sort_func</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">k</span><span class="p">:</span> <span class="nb">eval</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;logging.</span><span class="si">{k}</span><span class="s2">&quot;</span><span class="p">)</span> \
     <span class="k">if</span> <span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="nb">eval</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;logging.</span><span class="si">{k}</span><span class="s2">&quot;</span><span class="p">),</span> <span class="nb">int</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">eval</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;logging.</span><span class="si">{k}</span><span class="s2">&quot;</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">)</span> \
     <span class="k">else</span> <span class="mi">100</span>
 
@@ -2290,26 +2298,24 @@
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">{0:&lt;20}</span><span class="s2">:</span><span class="si">{1}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">constant</span><span class="p">,</span> <span class="n">value</span><span class="p">))</span>
 </code></pre></div>
 
+<div class="highlight"><pre><span></span><code>field                value
 
-<div class="codehilite"><pre><span></span><code><span class="n">field</span>                <span class="n">value</span>
-
-<span class="n">NOTSET</span>              <span class="p">:</span><span class="mi">0</span>
-<span class="n">DEBUG</span>               <span class="p">:</span><span class="mi">10</span>
-<span class="n">INFO</span>                <span class="p">:</span><span class="mi">20</span>
-<span class="n">WARN</span>                <span class="p">:</span><span class="mi">30</span>
-<span class="n">WARNING</span>             <span class="p">:</span><span class="mi">30</span>
-<span class="n">ERROR</span>               <span class="p">:</span><span class="mi">40</span>
-<span class="n">CRITICAL</span>            <span class="p">:</span><span class="mi">50</span>
-<span class="n">FATAL</span>               <span class="p">:</span><span class="mi">50</span>
-<span class="n">BASIC_FORMAT</span>        <span class="p">:</span><span class="o">%</span><span class="p">(</span><span class="n">levelname</span><span class="p">)</span><span class="n">s</span><span class="p">:</span><span class="o">%</span><span class="p">(</span><span class="n">name</span><span class="p">)</span><span class="n">s</span><span class="p">:</span><span class="o">%</span><span class="p">(</span><span class="n">message</span><span class="p">)</span><span class="n">s</span>
-<span class="n">lastResort</span>          <span class="p">:</span><span class="o">&lt;</span><span class="n">_StderrHandler</span> <span class="n">stderr</span> <span class="p">(</span><span class="n">WARNING</span><span class="p">)</span><span class="o">&gt;</span>
-<span class="n">logMultiprocessing</span>  <span class="p">:</span><span class="k">True</span>
-<span class="n">logProcesses</span>        <span class="p">:</span><span class="k">True</span>
-<span class="n">logThreads</span>          <span class="p">:</span><span class="k">True</span>
-<span class="n">raiseExceptions</span>     <span class="p">:</span><span class="k">True</span>
-<span class="n">root</span>                <span class="p">:</span><span class="o">&lt;</span><span class="n">RootLogger</span> <span class="n">root</span> <span class="p">(</span><span class="n">WARNING</span><span class="p">)</span><span class="o">&gt;</span>
+NOTSET              :0
+DEBUG               :10
+INFO                :20
+WARN                :30
+WARNING             :30
+ERROR               :40
+CRITICAL            :50
+FATAL               :50
+BASIC_FORMAT        :%(levelname)s:%(name)s:%(message)s
+lastResort          :&lt;_StderrHandler stderr (WARNING)&gt;
+logMultiprocessing  :True
+logProcesses        :True
+logThreads          :True
+raiseExceptions     :True
+root                :&lt;RootLogger root (WARNING)&gt;
 </code></pre></div>
-
 
 <p>日志级别越高打印的日志越少，默认的级别是<code>WARNING</code>，意味着只会追踪该级别及以上的事件。<code>notset</code>等同于<code>debug</code>。</p>
 <h2 id="_2">记录日志的模块函数</h2>
@@ -2318,7 +2324,7 @@
 <li>使用 Logging 提供的模块级别的函数</li>
 <li>使用 Logging 日志系统的四大组件</li>
 </ul>
-<div class="codehilite"><pre><span></span><code><span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Python debug&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Python debug&#39;</span><span class="p">)</span>
 <span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;Python debug&#39;</span><span class="p">)</span>
 <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Python info&#39;</span><span class="p">)</span>
 <span class="c1"># logging.warn is deprecated</span>
@@ -2333,20 +2339,18 @@
     <span class="n">logging</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
 </code></pre></div>
 
-
 <p>日志输出结果：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">WARNING</span><span class="o">:</span><span class="n">root</span><span class="o">:</span><span class="n">Python</span> <span class="n">warning</span>
-<span class="n">ERROR</span><span class="o">:</span><span class="n">root</span><span class="o">:</span><span class="n">Python</span> <span class="n">Error</span>
-<span class="n">CRITICAL</span><span class="o">:</span><span class="n">root</span><span class="o">:</span><span class="n">Python</span> <span class="n">critical</span>
-<span class="n">CRITICAL</span><span class="o">:</span><span class="n">root</span><span class="o">:</span><span class="n">Python</span> <span class="n">fatal</span>
-<span class="n">WARNING</span><span class="o">:</span><span class="n">root</span><span class="o">:</span><span class="n">log</span> <span class="kd">function</span>
-<span class="n">ERROR</span><span class="o">:</span><span class="n">root</span><span class="o">:</span><span class="n">division</span> <span class="n">by</span> <span class="n">zero</span>
-<span class="n">Traceback</span> <span class="o">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="o">):</span>
-  <span class="n">File</span> <span class="s2">&quot;&lt;ipython-input-16-d24461d1cf55&gt;&quot;</span><span class="o">,</span> <span class="n">line</span> <span class="mi">11</span><span class="o">,</span> <span class="k">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-    <span class="mi">1</span><span class="o">/</span><span class="mi">0</span>
-<span class="n">ZeroDivisionError</span><span class="o">:</span> <span class="n">division</span> <span class="n">by</span> <span class="n">zero</span>
+<div class="highlight"><pre><span></span><code>WARNING:root:Python warning
+ERROR:root:Python Error
+CRITICAL:root:Python critical
+CRITICAL:root:Python fatal
+WARNING:root:log function
+ERROR:root:division by zero
+Traceback (most recent call last):
+  File &quot;&lt;ipython-input-16-d24461d1cf55&gt;&quot;, line 11, in &lt;module&gt;
+    1/0
+ZeroDivisionError: division by zero
 </code></pre></div>
-
 
 <h3 id="_3">设置日志显示级别</h3>
 <p>通过 <code>logging.basicConfig()</code> 可以设置 root 的日志级别和日志输出格式。</p>
@@ -2443,7 +2447,7 @@
 </tr>
 </tbody>
 </table>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">logging</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">logging</span>
 
 <span class="c1">#　打印日志级别</span>
 <span class="k">def</span> <span class="nf">test</span><span class="p">():</span>
@@ -2457,36 +2461,32 @@
 <span class="n">test</span><span class="p">()</span>
 </code></pre></div>
 
-
 <p>输出：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">DEBUG</span><span class="o">:</span><span class="n">root</span><span class="o">:</span><span class="n">Python</span> <span class="n">debug</span>
-<span class="n">INFO</span><span class="o">:</span><span class="n">root</span><span class="o">:</span><span class="n">Python</span> <span class="n">info</span>
-<span class="n">WARNING</span><span class="o">:</span><span class="n">root</span><span class="o">:</span><span class="n">Python</span> <span class="n">warning</span>
-<span class="n">ERROR</span><span class="o">:</span><span class="n">root</span><span class="o">:</span><span class="n">Python</span> <span class="n">Error</span>
-<span class="n">CRITICAL</span><span class="o">:</span><span class="n">root</span><span class="o">:</span><span class="n">Python</span> <span class="n">critical</span>
+<div class="highlight"><pre><span></span><code>DEBUG:root:Python debug
+INFO:root:Python info
+WARNING:root:Python warning
+ERROR:root:Python Error
+CRITICAL:root:Python critical
 </code></pre></div>
 
-
 <h3 id="_4">将日志信息记录到文件</h3>
-<div class="codehilite"><pre><span></span><code><span class="c1"># 日志信息记录到文件</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 日志信息记录到文件</span>
 <span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;example.log&#39;</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
 <span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;This message should go to the log file&#39;</span><span class="p">)</span>
 <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;So should this&#39;</span><span class="p">)</span>
 <span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s1">&#39;And this, too&#39;</span><span class="p">)</span>
 </code></pre></div>
 
-
 <p>在相应的路径下会有 example.log 日志文件，内容如下：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">DEBUG</span><span class="o">:</span><span class="n">root</span><span class="o">:</span><span class="n">This</span> <span class="n">message</span> <span class="n">should</span> <span class="n">go</span> <span class="n">to</span> <span class="n">the</span> <span class="n">log</span> <span class="n">file</span>
-<span class="n">INFO</span><span class="o">:</span><span class="n">root</span><span class="o">:</span><span class="n">So</span> <span class="n">should</span> <span class="k">this</span>
-<span class="n">WARNING</span><span class="o">:</span><span class="n">root</span><span class="o">:</span><span class="n">And</span> <span class="k">this</span><span class="o">,</span> <span class="n">too</span>
+<div class="highlight"><pre><span></span><code>DEBUG:root:This message should go to the log file
+INFO:root:So should this
+WARNING:root:And this, too
 </code></pre></div>
-
 
 <h3 id="_5">多个模块记录日志信息</h3>
 <p>如果程序包含多个模块，则用以下实例来显示日志信息： 实例中有两个模块，一个模块通过导入另一个模块的方式用日志显示另一个模块的信息：</p>
 <p><strong>myapp.py 模块</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">logging</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">logging</span>
 <span class="kn">import</span> <span class="nn">mylib</span>
 <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
     <span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;myapp.log&#39;</span><span class="p">,</span><span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
@@ -2498,21 +2498,18 @@
     <span class="n">main</span><span class="p">()</span>
 </code></pre></div>
 
-
 <p><strong>mylib.py 模块</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">logging</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">logging</span>
 
 <span class="k">def</span> <span class="nf">do_something</span><span class="p">():</span>
     <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Doing something&#39;</span><span class="p">)</span>
 </code></pre></div>
 
-
 <p>执行 myapp.py 模块会打印相应日志，在文件 myapp.log 中显示信息如下：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">INFO</span><span class="o">:</span><span class="n">root</span><span class="o">:</span><span class="n">Started</span>
-<span class="n">INFO</span><span class="o">:</span><span class="n">root</span><span class="o">:</span><span class="n">Doing</span> <span class="n">something</span>
-<span class="n">INFO</span><span class="o">:</span><span class="n">root</span><span class="o">:</span><span class="n">Finishe</span>
+<div class="highlight"><pre><span></span><code>INFO:root:Started
+INFO:root:Doing something
+INFO:root:Finishe
 </code></pre></div>
-
 
 <h2 id="logging">logging 模块四大组件</h2>
 <table>
@@ -2548,14 +2545,13 @@
 </table>
 <h3 id="-logger">日志器 - Logger</h3>
 <p>Logger 持有日志记录器的方法，应用程序代码通过Logger对象调用日志接口，日志记录器不直接实例化，而是通过模块级函数<code>logging.getLogger(name)</code> 来实例化。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">logger = logging.getLogger(logger_name)</span>
+<div class="highlight"><pre><span></span><code>logger = logging.getLogger(logger_name)
 </code></pre></div>
-
 
 <p><code>getLogger()</code> 函数最好加上日志所记录的模块的名字，配置文件和打印日志格式中的<code>%(name)s</code>对应的是这里的模块名字，如果不指定name则返回root对象。</p>
 <p><mark>使用相同的名称多次调用 <code>getLogger()</code> 总是会返回对相同 Logger 对象的引用。</mark></p>
 <p>Logger最常用的操作有两类：配置和发送日志消息。</p>
-<div class="codehilite"><pre><span></span><code><span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 <span class="c1"># 设置日志级别</span>
 <span class="n">logger</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
 <span class="c1"># 为 Logger 实例增加一个处理器</span>
@@ -2563,7 +2559,6 @@
 <span class="c1"># 为 Logger 实例删除一个处理器</span>
 <span class="n">logger</span><span class="o">.</span><span class="n">removeHandler</span><span class="p">(</span><span class="n">handler_name</span><span class="p">)</span>
 </code></pre></div>
-
 
 <h3 id="-handler">处理器 - Handler</h3>
 <p>Handler 处理器类型有很多种，比较常用的有三个</p>
@@ -2574,7 +2569,7 @@
 </ol>
 <h4 id="streamhandler">StreamHandler</h4>
 <p>创建<code>StreamHandler</code>之后，可以通过使用以下方法设置日志级别，设置格式化器<code>Formatter</code>，增加或删除过滤器<code>Filter</code>：</p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># 创建 StreamHandler 实例</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 创建 StreamHandler 实例</span>
 <span class="n">sh</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">StreamHandler</span><span class="p">(</span><span class="n">stream</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 <span class="c1"># 指定日志级别，低于WARN级别的日志将被忽略</span>
 <span class="n">sh</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">WARN</span><span class="p">)</span>
@@ -2586,18 +2581,15 @@
 <span class="n">ch</span><span class="o">.</span><span class="n">removeFilter</span><span class="p">(</span><span class="n">filter_name</span><span class="p">)</span>
 </code></pre></div>
 
-
 <h3 id="-filter">过滤器 - Filter</h3>
 <p>Handlers 和 Loggers 可以使用 Filters 来完成比级别更复杂的过滤。 Filter 基类只允许特定 Logger 层次以下的事件。 例如用 ‘A.B’ 初始化的 Filter 允许Logger ‘A.B’, ‘A.B.C’, ‘A.B.C.D’, ‘A.B.D’ 等记录的事件，logger‘A.BB’, ‘B.A.B’ 等就不行。 如果用空字符串来初始化，所有的事件都接受。</p>
-<div class="codehilite"><pre><span></span><code><span class="nb">filter</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">Filter</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="nb">filter</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">Filter</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
 </code></pre></div>
-
 
 <h3 id="-formatter">格式器 - Formatter</h3>
 <p>使用Formatter对象设置日志信息最后的规则、结构和内容，默认的时间格式为<code>%Y-%m-%d %H:%M:%S</code>。</p>
-<div class="codehilite"><pre><span></span><code><span class="n">formatter</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">Formatter</span><span class="p">(</span><span class="n">fmt</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">datefmt</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">formatter</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">Formatter</span><span class="p">(</span><span class="n">fmt</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">datefmt</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 </code></pre></div>
-
 
 <p>其中，<code>fmt</code>是消息的格式化字符串，<code>datefmt</code>是日期字符串。如果不指明<code>datefmt</code>，将使用<code>‘%(message)s’</code> 。如果不指明<code>datefmt</code>，将使用 ISO8601 日期格式。</p>
 <h3 id="_6">组件之间的关系</h3>
@@ -2633,7 +2625,7 @@
 <p><code>logging.config</code>模块提供了<code>logging.config.fileConfig()</code>方法可以从配置文件中进行日志配置。</p>
 <h4 id="ini">ini 文件</h4>
 <p>先创建一个配置文件 <code>logconfig.ini</code>，配置文件的格式具有如下的形式：</p>
-<div class="codehilite"><pre><span></span><code><span class="k">[loggers]</span>
+<div class="highlight"><pre><span></span><code><span class="k">[loggers]</span>
 <span class="na">keys</span><span class="o">=</span><span class="s">root</span>
 
 <span class="k">[handlers]</span>
@@ -2662,10 +2654,9 @@
 <span class="na">format</span><span class="o">=</span><span class="s">%(name)s - %(levelname)s - %(message)s</span>
 </code></pre></div>
 
-
 <p><code>[loggers]</code> 配置项指定需要配置的logger，<code>root</code> 是logging系统默认logger。若有多个值，用逗号分隔<code>keys=root, testLogger</code>。然后在<code>[logger_%(name)s]</code> 配置项配置各个logger的具体配置信息。</p>
 <p>程序调用配置文件：</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">logging</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">logging</span>
 <span class="kn">import</span> <span class="nn">logging.config</span>
 
 <span class="c1"># 文件的后缀名似乎不必须为.ini</span>
@@ -2682,9 +2673,8 @@
 <span class="n">logger</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="s1">&#39;critical message&#39;</span><span class="p">)</span>
 </code></pre></div>
 
-
 <h4 id="yaml">YAML 文件</h4>
-<div class="codehilite"><pre><span></span><code><span class="nt">version</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+<div class="highlight"><pre><span></span><code><span class="nt">version</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
 <span class="nt">disable_existing_loggers</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">False</span>
 <span class="nt">formatters</span><span class="p">:</span>
     <span class="nt">simple</span><span class="p">:</span>
@@ -2726,9 +2716,8 @@
     <span class="nt">handlers</span><span class="p">:</span> <span class="p p-Indicator">[</span><span class="nv">console</span><span class="p p-Indicator">,</span> <span class="nv">info_file_handler</span><span class="p p-Indicator">,</span> <span class="nv">error_file_handler</span><span class="p p-Indicator">]</span>
 </code></pre></div>
 
-
 <h4 id="json">JSON 文件</h4>
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
     <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
     <span class="nt">&quot;disable_existing_loggers&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
     <span class="nt">&quot;formatters&quot;</span><span class="p">:</span> <span class="p">{</span>
@@ -2781,10 +2770,9 @@
 <span class="p">}</span>
 </code></pre></div>
 
-
 <h3 id="dictconfig">dictConfig</h3>
 <p>同时向控制台和文件输出日志。</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">logging</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">logging</span>
 <span class="kn">from</span> <span class="nn">logging.config</span> <span class="kn">import</span> <span class="n">dictConfig</span>
 
 <span class="n">level</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span>
@@ -2826,21 +2814,19 @@
 <span class="n">dictConfig</span><span class="p">(</span><span class="n">logging_config</span><span class="p">)</span>
 </code></pre></div>
 
-
 <h3 id="python">在python代码中配置</h3>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">logging</span>
+<div class="highlight"><pre><span></span><code>import logging
 
-<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">()</span>
-<span class="n">handler</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">StreamHandler</span><span class="p">()</span>
-<span class="n">formatter</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">Formatter</span><span class="p">(</span>
-        <span class="s1">&#39;</span><span class="si">%(asctime)s</span><span class="s1"> </span><span class="si">%(name)-12s</span><span class="s1"> </span><span class="si">%(levelname)-8s</span><span class="s1"> </span><span class="si">%(message)s</span><span class="s1">&#39;</span><span class="p">)</span>
-<span class="n">handler</span><span class="o">.</span><span class="n">setFormatter</span><span class="p">(</span><span class="n">formatter</span><span class="p">)</span>
-<span class="n">logger</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">handler</span><span class="p">)</span>
-<span class="n">logger</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
+logger = logging.getLogger()
+handler = logging.StreamHandler()
+formatter = logging.Formatter(
+        &#39;%(asctime)s %(name)-12s %(levelname)-8s %(message)s&#39;)
+handler.setFormatter(formatter)
+logger.addHandler(handler)
+logger.setLevel(logging.DEBUG)
 
-<span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;often makes a very good meal of </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span> <span class="s1">&#39;visiting tourists&#39;</span><span class="p">)</span>
+logger.debug(&#39;often makes a very good meal of %s&#39;, &#39;visiting tourists&#39;)
 </code></pre></div>
-
 
 <h2 id="_7">参考</h2>
 <ol>

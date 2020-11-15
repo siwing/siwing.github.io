@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-6.1.4">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.4">
     
     
       
@@ -820,6 +820,18 @@
   <li class="md-nav__item">
     <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.16.shutil.html" class="md-nav__link">
       6.16.shutil
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.17.test.html" class="md-nav__link">
+      6.17.test
     </a>
   </li>
 
@@ -2080,14 +2092,13 @@
                 
                   <h1>12.6.Perceptron</h1>
                 
-                <div class="codehilite"><pre><span></span><code><span class="err">Windows 10</span>
-<span class="err">Python 3.7.3 @ MSC v.1915 64 bit (AMD64)</span>
-<span class="err">Latest build date 2020.07.05</span>
-<span class="err">tensorflow version:  2.1.0</span>
+                <div class="highlight"><pre><span></span><code>Windows 10
+Python 3.7.3 @ MSC v.1915 64 bit (AMD64)
+Latest build date 2020.07.05
+tensorflow version:  2.1.0
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">make_classification</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">make_classification</span>
 <span class="kn">from</span> <span class="nn">toolkit.blog.util</span> <span class="kn">import</span> <span class="n">get_md_dir</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -2095,10 +2106,9 @@
 <span class="kn">import</span> <span class="nn">copy</span>
 </code></pre></div>
 
-
 <h2 id="_1">样本生成</h2>
 <p>生成一个线性可分的样本集</p>
-<div class="codehilite"><pre><span></span><code><span class="n">X</span><span class="p">,</span> <span class="n">y_0_1</span> <span class="o">=</span> <span class="n">make_classification</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">n_features</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">n_classes</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+<div class="highlight"><pre><span></span><code><span class="n">X</span><span class="p">,</span> <span class="n">y_0_1</span> <span class="o">=</span> <span class="n">make_classification</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">n_features</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">n_classes</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
                            <span class="n">n_informative</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">n_redundant</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
                            <span class="n">n_repeated</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
                            <span class="n">n_clusters_per_class</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">flip_y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
@@ -2118,10 +2128,9 @@
 <span class="c1"># X, y = np.split(data, indices_or_sections=[2], axis=1)</span>
 </code></pre></div>
 
-
 <p><img alt="" src="figures/perceptron_data_0704.svg" /></p>
 <p>对target赋予其他值：</p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># 反转数据</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 反转数据</span>
 <span class="n">y_1_0</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">y_0_1</span><span class="p">)</span>
 <span class="n">y_1_0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="nb">int</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">y_0_1</span> <span class="o">==</span> <span class="mi">0</span><span class="p">])</span>
 
@@ -2135,9 +2144,8 @@
 <span class="n">y_1_10</span><span class="p">[</span><span class="n">y_1_10</span><span class="o">==</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span>
 </code></pre></div>
 
-
 <h2 id="_2">定义画图函数</h2>
-<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">plot_perceptron</span><span class="p">(</span><span class="n">w_1</span><span class="p">,</span> <span class="n">w_2</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">plot_perceptron</span><span class="p">(</span><span class="n">w_1</span><span class="p">,</span> <span class="n">w_2</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
     <span class="n">x2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">X</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="mf">0.01</span><span class="p">)</span>
     <span class="n">x1</span> <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="n">w_2</span><span class="o">*</span><span class="n">x2</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span> <span class="o">/</span> <span class="n">w_1</span>
 
@@ -2160,23 +2168,20 @@
     <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div>
 
-
 <h2 id="_3">手动实现感知机</h2>
 <p><code>Perceptron</code>类是自定义的感知机模型。</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">toolkit.example.perceptron</span> <span class="kn">import</span> <span class="n">Perceptron</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">toolkit.example.perceptron</span> <span class="kn">import</span> <span class="n">Perceptron</span>
 </code></pre></div>
 
-
 <p>定义激活函数</p>
-<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">activation</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">activation</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
         <span class="k">return</span> <span class="mi">1</span>
     <span class="k">elif</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
         <span class="k">return</span> <span class="mi">0</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="n">model</span> <span class="o">=</span> <span class="n">Perceptron</span><span class="p">(</span><span class="n">input_num</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">activation_func</span><span class="o">=</span><span class="n">activation</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">model</span> <span class="o">=</span> <span class="n">Perceptron</span><span class="p">(</span><span class="n">input_num</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">activation_func</span><span class="o">=</span><span class="n">activation</span><span class="p">)</span>
 <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y_0_1</span><span class="p">,</span> <span class="n">iteration</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">learn_rate</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span>
 <span class="c1"># 输出权重、偏置信息</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;weights:&quot;</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">weights</span><span class="p">)</span>
@@ -2190,16 +2195,14 @@
 <span class="n">plot_perceptron</span><span class="p">(</span><span class="n">w_1</span><span class="p">,</span> <span class="n">w_2</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y_0_1</span><span class="p">,</span> <span class="s2">&quot;my_perceptron.svg&quot;</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="c">weights: [-0.10291166  0.01125555]</span>
-<span class="c">bias:    0.0</span>
+<div class="highlight"><pre><span></span><code>weights: [-0.10291166  0.01125555]
+bias:    0.0
 </code></pre></div>
-
 
 <p><img alt="" src="figures/my_perceptron.svg" /></p>
 <h3 id="1-0">测试 1-0 数据</h3>
 <p>对 Perceptron 测试 1-0 target。</p>
-<div class="codehilite"><pre><span></span><code><span class="n">model_1</span> <span class="o">=</span> <span class="n">Perceptron</span><span class="p">(</span><span class="n">input_num</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">activation_func</span> <span class="o">=</span> <span class="n">activation</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">model_1</span> <span class="o">=</span> <span class="n">Perceptron</span><span class="p">(</span><span class="n">input_num</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">activation_func</span> <span class="o">=</span> <span class="n">activation</span><span class="p">)</span>
 <span class="n">model_1</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y_1_0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">)</span>
 <span class="c1"># 输出权重、偏置信息</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;weights:&quot;</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">weights</span><span class="p">)</span>
@@ -2211,20 +2214,17 @@
 <span class="n">w_1</span><span class="p">,</span> <span class="n">w_2</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">weights</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="c">weights: [-0.10291166  0.01125555]</span>
-<span class="c">bias:    0.0</span>
+<div class="highlight"><pre><span></span><code>weights: [-0.10291166  0.01125555]
+bias:    0.0
 </code></pre></div>
-
 
 <p>反转0-1数据并没有影响</p>
-<div class="codehilite"><pre><span></span><code><span class="n">plot_perceptron</span><span class="p">(</span><span class="n">w_1</span><span class="p">,</span> <span class="n">w_2</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y_1_0</span><span class="p">,</span> <span class="s2">&quot;my_perceptron_1_0.svg&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">plot_perceptron</span><span class="p">(</span><span class="n">w_1</span><span class="p">,</span> <span class="n">w_2</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y_1_0</span><span class="p">,</span> <span class="s2">&quot;my_perceptron_1_0.svg&quot;</span><span class="p">)</span>
 </code></pre></div>
-
 
 <p><img alt="" src="figures/my_perceptron_1_0.svg" /></p>
 <h3 id="0-1-1-1">0-1标签数据转化为-1-1数据</h3>
-<div class="codehilite"><pre><span></span><code><span class="n">model_2</span> <span class="o">=</span> <span class="n">Perceptron</span><span class="p">(</span><span class="n">input_num</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">activation_func</span> <span class="o">=</span> <span class="n">activation</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">model_2</span> <span class="o">=</span> <span class="n">Perceptron</span><span class="p">(</span><span class="n">input_num</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">activation_func</span> <span class="o">=</span> <span class="n">activation</span><span class="p">)</span>
 <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y_1_1</span><span class="p">,</span> <span class="n">iteration</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">learn_rate</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span>
 <span class="c1"># 输出权重、偏置信息</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;weights:&quot;</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">weights</span><span class="p">)</span>
@@ -2236,20 +2236,17 @@
 <span class="n">w_1</span><span class="p">,</span> <span class="n">w_2</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">weights</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="c">weights: [-314.87203203 -160.23410029]</span>
-<span class="c">bias:    -160.00000000000213</span>
+<div class="highlight"><pre><span></span><code>weights: [-314.87203203 -160.23410029]
+bias:    -160.00000000000213
 </code></pre></div>
-
 
 <p>0-1标签数据转化为-1-1数据，优化方法失效</p>
-<div class="codehilite"><pre><span></span><code><span class="n">plot_perceptron</span><span class="p">(</span><span class="n">w_1</span><span class="p">,</span> <span class="n">w_2</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y_1_1</span><span class="p">,</span> <span class="s2">&quot;my_perceptron_1_1.svg&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">plot_perceptron</span><span class="p">(</span><span class="n">w_1</span><span class="p">,</span> <span class="n">w_2</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y_1_1</span><span class="p">,</span> <span class="s2">&quot;my_perceptron_1_1.svg&quot;</span><span class="p">)</span>
 </code></pre></div>
-
 
 <p><img alt="" src="figures/my_perceptron_1_1.svg" /></p>
 <h2 id="scikit-learn">调用scikit-learn感知机</h2>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">Perceptron</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">Perceptron</span>
 
 <span class="n">perceptron</span> <span class="o">=</span> <span class="n">Perceptron</span><span class="p">(</span><span class="n">penalty</span><span class="o">=</span><span class="s1">&#39;l1&#39;</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.0001</span><span class="p">,</span><span class="n">fit_intercept</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
                         <span class="n">max_iter</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span><span class="n">tol</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span><span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
@@ -2271,15 +2268,13 @@
 <span class="n">w_2</span> <span class="o">=</span> <span class="n">W</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="n">plot_perceptron</span><span class="p">(</span><span class="n">w_1</span><span class="p">,</span> <span class="n">w_2</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y_0_1</span><span class="p">,</span> <span class="s2">&quot;sk_perceptron_0_1.svg&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">plot_perceptron</span><span class="p">(</span><span class="n">w_1</span><span class="p">,</span> <span class="n">w_2</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y_0_1</span><span class="p">,</span> <span class="s2">&quot;sk_perceptron_0_1.svg&quot;</span><span class="p">)</span>
 </code></pre></div>
-
 
 <p><img alt="" src="figures/sk_perceptron_0_1.svg" /></p>
 <h3 id="1-0_1">测试 1-0 数据</h3>
 <p>对 scikit-learn Perceptron 测试 1-0 target。</p>
-<div class="codehilite"><pre><span></span><code><span class="n">perceptron</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y_1_0</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">perceptron</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y_1_0</span><span class="p">)</span>
 
 <span class="n">b</span> <span class="o">=</span> <span class="n">perceptron</span><span class="o">.</span><span class="n">intercept_</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">W</span> <span class="o">=</span> <span class="n">perceptron</span><span class="o">.</span><span class="n">coef_</span>
@@ -2287,16 +2282,14 @@
 <span class="n">w_2</span> <span class="o">=</span> <span class="n">W</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
 </code></pre></div>
 
-
 <p>没有问题</p>
-<div class="codehilite"><pre><span></span><code><span class="n">plot_perceptron</span><span class="p">(</span><span class="n">w_1</span><span class="p">,</span> <span class="n">w_2</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y_1_0</span><span class="p">,</span> <span class="s2">&quot;sk_perceptron_1_0.svg&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">plot_perceptron</span><span class="p">(</span><span class="n">w_1</span><span class="p">,</span> <span class="n">w_2</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y_1_0</span><span class="p">,</span> <span class="s2">&quot;sk_perceptron_1_0.svg&quot;</span><span class="p">)</span>
 </code></pre></div>
-
 
 <p><img alt="" src="figures/sk_perceptron_1_0.svg" /></p>
 <h3 id="-1-1">测试-1-1数据</h3>
 <p>对 scikit-learn Perceptron 测试 -1-1 target。</p>
-<div class="codehilite"><pre><span></span><code><span class="n">perceptron</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y_1_1</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">perceptron</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y_1_1</span><span class="p">)</span>
 
 <span class="n">b</span> <span class="o">=</span> <span class="n">perceptron</span><span class="o">.</span><span class="n">intercept_</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">W</span> <span class="o">=</span> <span class="n">perceptron</span><span class="o">.</span><span class="n">coef_</span>
@@ -2304,16 +2297,14 @@
 <span class="n">w_2</span> <span class="o">=</span> <span class="n">W</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
 </code></pre></div>
 
-
 <p>没有问题</p>
-<div class="codehilite"><pre><span></span><code><span class="n">plot_perceptron</span><span class="p">(</span><span class="n">w_1</span><span class="p">,</span> <span class="n">w_2</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y_1_1</span><span class="p">,</span> <span class="s2">&quot;sk_perceptron_1_1.svg&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">plot_perceptron</span><span class="p">(</span><span class="n">w_1</span><span class="p">,</span> <span class="n">w_2</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y_1_1</span><span class="p">,</span> <span class="s2">&quot;sk_perceptron_1_1.svg&quot;</span><span class="p">)</span>
 </code></pre></div>
-
 
 <p><img alt="" src="figures/sk_perceptron_1_1.svg" /></p>
 <h3 id="-3-10-target">测试 -3-10 target</h3>
 <p>对 scikit-learn Perceptron 测试 -3-10 target。</p>
-<div class="codehilite"><pre><span></span><code><span class="n">perceptron</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y_1_10</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">perceptron</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y_1_10</span><span class="p">)</span>
 
 <span class="n">b</span> <span class="o">=</span> <span class="n">perceptron</span><span class="o">.</span><span class="n">intercept_</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">W</span> <span class="o">=</span> <span class="n">perceptron</span><span class="o">.</span><span class="n">coef_</span>
@@ -2321,26 +2312,22 @@
 <span class="n">w_2</span> <span class="o">=</span> <span class="n">W</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
 </code></pre></div>
 
-
 <p>没有问题。<mark>scikit-learn 的优化方法不固定于 y 的label</mark> 。</p>
-<div class="codehilite"><pre><span></span><code><span class="n">plot_perceptron</span><span class="p">(</span><span class="n">w_1</span><span class="p">,</span> <span class="n">w_2</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y_1_10</span><span class="p">,</span> <span class="s2">&quot;sk_perceptron_1_10.svg&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">plot_perceptron</span><span class="p">(</span><span class="n">w_1</span><span class="p">,</span> <span class="n">w_2</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y_1_10</span><span class="p">,</span> <span class="s2">&quot;sk_perceptron_1_10.svg&quot;</span><span class="p">)</span>
 </code></pre></div>
-
 
 <p><img alt="" src="figures/sk_perceptron_1_10.svg" /></p>
 <h2 id="keras">调用keras感知机</h2>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">keras</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">keras</span>
 <span class="kn">from</span> <span class="nn">tensorflow.keras.models</span> <span class="kn">import</span> <span class="n">Sequential</span>
 <span class="kn">from</span> <span class="nn">tensorflow.keras.layers</span> <span class="kn">import</span> <span class="n">Dense</span><span class="p">,</span> <span class="n">Dropout</span>
 <span class="kn">from</span> <span class="nn">tensorflow.keras.optimizers</span> <span class="kn">import</span> <span class="n">RMSprop</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">Using TensorFlow backend.</span>
+<div class="highlight"><pre><span></span><code>Using TensorFlow backend.
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="n">y_seq</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">to_categorical</span><span class="p">(</span><span class="n">y_0_1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">y_seq</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">to_categorical</span><span class="p">(</span><span class="n">y_0_1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 
 <span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
 <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;softsign&#39;</span><span class="p">,</span> <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,),</span>
@@ -2365,10 +2352,8 @@
 <span class="n">w_2</span> <span class="o">=</span> <span class="n">W</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="n">plot_perceptron</span><span class="p">(</span><span class="n">w_1</span><span class="p">,</span> <span class="n">w_2</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y_0_1</span><span class="p">,</span> <span class="s2">&quot;tf_perceptron_0_1.svg&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">plot_perceptron</span><span class="p">(</span><span class="n">w_1</span><span class="p">,</span> <span class="n">w_2</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y_0_1</span><span class="p">,</span> <span class="s2">&quot;tf_perceptron_0_1.svg&quot;</span><span class="p">)</span>
 </code></pre></div>
-
 
 <p><img alt="" src="figures/tf_perceptron_0_1.svg" /></p>
                 

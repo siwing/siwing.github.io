@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-6.1.4">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.4">
     
     
       
@@ -820,6 +820,18 @@
   <li class="md-nav__item">
     <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.16.shutil.html" class="md-nav__link">
       6.16.shutil
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.17.test.html" class="md-nav__link">
+      6.17.test
     </a>
   </li>
 
@@ -1998,14 +2010,13 @@
                 
                   <h1>12.7.keras快速开始</h1>
                 
-                <div class="codehilite"><pre><span></span><code><span class="err">Windows 10</span>
-<span class="err">Python 3.7.3 @ MSC v.1915 64 bit (AMD64)</span>
-<span class="err">Latest build date 2020.07.05</span>
-<span class="err">tensorflow version:  2.2.0</span>
+                <div class="highlight"><pre><span></span><code>Windows 10
+Python 3.7.3 @ MSC v.1915 64 bit (AMD64)
+Latest build date 2020.07.05
+tensorflow version:  2.2.0
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">keras</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">keras</span>
 <span class="kn">from</span> <span class="nn">toolkit</span> <span class="kn">import</span> <span class="n">H</span>
 
 <span class="kn">from</span> <span class="nn">keras</span> <span class="kn">import</span> <span class="n">models</span>
@@ -2024,93 +2035,79 @@
 <span class="n">tf</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">experimental</span><span class="o">.</span><span class="n">set_memory_growth</span><span class="p">(</span><span class="n">gpus</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
 
-
 <p>keras 的顶层api</p>
-<div class="codehilite"><pre><span></span><code><span class="n">h</span> <span class="o">=</span> <span class="n">H</span><span class="p">(</span><span class="n">keras</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">h</span> <span class="o">=</span> <span class="n">H</span><span class="p">(</span><span class="n">keras</span><span class="p">)</span>
 <span class="n">d</span> <span class="o">=</span> <span class="n">h</span><span class="o">.</span><span class="n">dicts</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">module</span>
+<div class="highlight"><pre><span></span><code>module
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="n">d</span><span class="p">[</span><span class="s2">&quot;function&quot;</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span class="n">d</span><span class="p">[</span><span class="s2">&quot;function&quot;</span><span class="p">]</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">[]</span>
+<div class="highlight"><pre><span></span><code>[]
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="n">d</span><span class="p">[</span><span class="s2">&quot;class&quot;</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span class="n">d</span><span class="p">[</span><span class="s2">&quot;class&quot;</span><span class="p">]</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">[&#39;Model&#39;, &#39;RandomRotation&#39;, &#39;Sequential&#39;]</span>
+<div class="highlight"><pre><span></span><code>[&#39;Model&#39;, &#39;RandomRotation&#39;, &#39;Sequential&#39;]
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="n">d</span><span class="p">[</span><span class="s2">&quot;module&quot;</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span class="n">d</span><span class="p">[</span><span class="s2">&quot;module&quot;</span><span class="p">]</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">[&#39;activations.py&#39;,</span>
-<span class="err"> &#39;applications&#39;,</span>
-<span class="err"> &#39;backend.py&#39;,</span>
-<span class="err"> &#39;callbacks.py&#39;,</span>
-<span class="err"> &#39;constraints.py&#39;,</span>
-<span class="err"> &#39;datasets&#39;,</span>
-<span class="err"> &#39;engine&#39;,</span>
-<span class="err"> &#39;initializers.py&#39;,</span>
-<span class="err"> &#39;layers&#39;,</span>
-<span class="err"> &#39;losses.py&#39;,</span>
-<span class="err"> &#39;metrics.py&#39;,</span>
-<span class="err"> &#39;models.py&#39;,</span>
-<span class="err"> &#39;objectives.py&#39;,</span>
-<span class="err"> &#39;optimizers&#39;,</span>
-<span class="err"> &#39;preprocessing&#39;,</span>
-<span class="err"> &#39;regularizers.py&#39;,</span>
-<span class="err"> &#39;utils&#39;,</span>
-<span class="err"> &#39;wrappers&#39;]</span>
+<div class="highlight"><pre><span></span><code>[&#39;activations.py&#39;,
+ &#39;applications&#39;,
+ &#39;backend.py&#39;,
+ &#39;callbacks.py&#39;,
+ &#39;constraints.py&#39;,
+ &#39;datasets&#39;,
+ &#39;engine&#39;,
+ &#39;initializers.py&#39;,
+ &#39;layers&#39;,
+ &#39;losses.py&#39;,
+ &#39;metrics.py&#39;,
+ &#39;models.py&#39;,
+ &#39;objectives.py&#39;,
+ &#39;optimizers&#39;,
+ &#39;preprocessing&#39;,
+ &#39;regularizers.py&#39;,
+ &#39;utils&#39;,
+ &#39;wrappers&#39;]
 </code></pre></div>
-
 
 <h2 id="sequential">建立 Sequential 模型</h2>
-<div class="codehilite"><pre><span></span><code><span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">([</span><span class="n">Dense</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="mi">784</span><span class="p">,)),</span>
+<div class="highlight"><pre><span></span><code><span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">([</span><span class="n">Dense</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="mi">784</span><span class="p">,)),</span>
                     <span class="n">Activation</span><span class="p">(</span><span class="s2">&quot;relu&quot;</span><span class="p">),</span> <span class="n">Dense</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span>
                     <span class="n">Activation</span><span class="p">(</span><span class="s2">&quot;softmax&quot;</span><span class="p">)])</span>
 </code></pre></div>
 
-
 <p>或者使用add方法将各网络层添加到模型</p>
-<div class="codehilite"><pre><span></span><code><span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
 <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="n">input_dim</span><span class="o">=</span><span class="mi">784</span><span class="p">))</span>
 <span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Activation</span><span class="p">(</span><span class="s2">&quot;relu&quot;</span><span class="p">))</span>
 </code></pre></div>
 
-
 <h2 id="compile">配置学习过程 compile方法</h2>
 <p>编译模型时必须指明损失函数和优化器，也可以自定义损失函数。</p>
 <p>多分类</p>
-<div class="codehilite"><pre><span></span><code><span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s1">&#39;rmsprop&#39;</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="s1">&#39;categorical_crossentropy&#39;</span><span class="p">,</span>
+<div class="highlight"><pre><span></span><code><span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s1">&#39;rmsprop&#39;</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="s1">&#39;categorical_crossentropy&#39;</span><span class="p">,</span>
               <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">])</span>
 </code></pre></div>
-
 
 <p>二分类</p>
-<div class="codehilite"><pre><span></span><code><span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s1">&#39;rmsprop&#39;</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="s1">&#39;binary_crossentropy&#39;</span><span class="p">,</span>
+<div class="highlight"><pre><span></span><code><span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s1">&#39;rmsprop&#39;</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="s1">&#39;binary_crossentropy&#39;</span><span class="p">,</span>
               <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">])</span>
 </code></pre></div>
 
-
 <p>均方误差回归问题</p>
-<div class="codehilite"><pre><span></span><code><span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s1">&#39;rmsprop&#39;</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="s1">&#39;mse&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s1">&#39;rmsprop&#39;</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="s1">&#39;mse&#39;</span><span class="p">)</span>
 </code></pre></div>
 
-
 <p>自定义评估函数</p>
-<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">mean_pred</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">mean_pred</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">):</span>
     <span class="c1"># return K.mean(y_pred)</span>
     <span class="k">return</span> <span class="n">mean</span><span class="p">(</span><span class="n">y_pred</span><span class="p">)</span>
 
@@ -2119,12 +2116,11 @@
               <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">,</span> <span class="n">mean_pred</span><span class="p">])</span>
 </code></pre></div>
 
-
 <h2 id="_1">训练</h2>
 <p>Keras 模型在输入数据和标签的 Numpy 矩阵上进行训练。为了训练一个模型，你通常会使 用 fit 函数。</p>
 <h3 id="_2">二分类</h3>
 <p>对于具有 2 个类的单输入模型（二进制分类）：</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="c1"># 生成虚拟数据</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">100</span><span class="p">))</span>
@@ -2143,34 +2139,32 @@
 <span class="n">data_pred</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict_classes</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">Epoch 1/2</span>
-<span class="err">  1/16 [&gt;.............................] - ETA: 0s - loss: 0.6671 -</span>
-<span class="c">accuracy:</span>
-<span class="err">0.6250</span>
-<span class="err">8/16 [==============&gt;...............] - ETA: 0s - loss: 0.7103 -</span>
-<span class="c">accuracy:</span>
-<span class="err">0.5488</span>
-<span class="err">15/16 [===========================&gt;..] - ETA: 0s - loss: 0.7050 -</span>
-<span class="c">accuracy:</span>
-<span class="err">0.5302</span>
-<span class="err">16/16 [==============================] - 0s 7ms/step - loss: 0.7075 -</span>
-<span class="c">accuracy: 0.5240</span>
-<span class="err">Epoch 2/2</span>
-<span class="err">  1/16 [&gt;.............................] - ETA: 0s - loss: 0.6855 -</span>
-<span class="c">accuracy:</span>
-<span class="err">0.6094</span>
-<span class="err">9/16 [===============&gt;..............] - ETA: 0s - loss: 0.6984 -</span>
-<span class="c">accuracy:</span>
-<span class="err">0.5104</span>
-<span class="err">16/16 [==============================] - 0s 6ms/step - loss: 0.7003 -</span>
-<span class="c">accuracy: 0.5030</span>
+<div class="highlight"><pre><span></span><code>Epoch 1/2
+  1/16 [&gt;.............................] - ETA: 0s - loss: 0.6671 -
+accuracy:
+0.6250
+8/16 [==============&gt;...............] - ETA: 0s - loss: 0.7103 -
+accuracy:
+0.5488
+15/16 [===========================&gt;..] - ETA: 0s - loss: 0.7050 -
+accuracy:
+0.5302
+16/16 [==============================] - 0s 7ms/step - loss: 0.7075 -
+accuracy: 0.5240
+Epoch 2/2
+  1/16 [&gt;.............................] - ETA: 0s - loss: 0.6855 -
+accuracy:
+0.6094
+9/16 [===============&gt;..............] - ETA: 0s - loss: 0.6984 -
+accuracy:
+0.5104
+16/16 [==============================] - 0s 6ms/step - loss: 0.7003 -
+accuracy: 0.5030
 </code></pre></div>
-
 
 <h3 id="_3">多分类</h3>
 <p>对于具有 10 个类的单输入模型（多分类分类）：</p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># 生成虚拟数据</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 生成虚拟数据</span>
 <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">((</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">100</span><span class="p">))</span>
 <span class="n">labels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
 <span class="c1"># 将标签转换为分类的 one-hot 编码 </span>
@@ -2191,43 +2185,42 @@
 <span class="c1"># model.evaluate()</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">Epoch 1/2</span>
-<span class="err">  1/16 [&gt;.............................] - ETA: 0s - loss: 2.6500 -</span>
-<span class="c">accuracy:</span>
-<span class="err">0.0938</span>
-<span class="err">7/16 [============&gt;.................] - ETA: 0s - loss: 2.4654 -</span>
-<span class="c">accuracy:</span>
-<span class="err">0.0804</span>
-<span class="err">13/16 [=======================&gt;......] - ETA: 0s - loss: 2.4299 -</span>
-<span class="c">accuracy:</span>
-<span class="err">0.0817</span>
-<span class="err">16/16 [==============================] - 0s 9ms/step - loss: 2.4209 -</span>
-<span class="c">accuracy: 0.0810</span>
-<span class="err">Epoch 2/2</span>
-<span class="err">  1/16 [&gt;.............................] - ETA: 0s - loss: 2.3873 -</span>
-<span class="c">accuracy:</span>
-<span class="err">0.0625</span>
-<span class="err">6/16 [==========&gt;...................] - ETA: 0s - loss: 2.3356 -</span>
-<span class="c">accuracy:</span>
-<span class="err">0.0911</span>
-<span class="err">12/16 [=====================&gt;........] - ETA: 0s - loss: 2.3405 -</span>
-<span class="c">accuracy:</span>
-<span class="err">0.0872</span>
-<span class="err">16/16 [==============================] - 0s 9ms/step - loss: 2.3407 -</span>
-<span class="c">accuracy: 0.0900</span>
-<span class="c">Model: &quot;sequential_43&quot;</span>
-<span class="err">_________________________________________________________________</span>
-<span class="err">Layer (type)                 Output Shape              Param #</span>
-<span class="err">=================================================================</span>
-<span class="err">dense_75 (Dense)             (None, 32)                3232</span>
-<span class="err">_________________________________________________________________</span>
-<span class="err">dense_76 (Dense)             (None, 10)                330</span>
-<span class="err">=================================================================</span>
-<span class="err">Total params: 3,562</span>
-<span class="err">Trainable params: 3,562</span>
-<span class="err">Non-trainable params: 0</span>
-<span class="err">_________________________________________________________________</span>
+<div class="highlight"><pre><span></span><code>Epoch 1/2
+  1/16 [&gt;.............................] - ETA: 0s - loss: 2.6500 -
+accuracy:
+0.0938
+7/16 [============&gt;.................] - ETA: 0s - loss: 2.4654 -
+accuracy:
+0.0804
+13/16 [=======================&gt;......] - ETA: 0s - loss: 2.4299 -
+accuracy:
+0.0817
+16/16 [==============================] - 0s 9ms/step - loss: 2.4209 -
+accuracy: 0.0810
+Epoch 2/2
+  1/16 [&gt;.............................] - ETA: 0s - loss: 2.3873 -
+accuracy:
+0.0625
+6/16 [==========&gt;...................] - ETA: 0s - loss: 2.3356 -
+accuracy:
+0.0911
+12/16 [=====================&gt;........] - ETA: 0s - loss: 2.3405 -
+accuracy:
+0.0872
+16/16 [==============================] - 0s 9ms/step - loss: 2.3407 -
+accuracy: 0.0900
+Model: &quot;sequential_43&quot;
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #
+=================================================================
+dense_75 (Dense)             (None, 32)                3232
+_________________________________________________________________
+dense_76 (Dense)             (None, 10)                330
+=================================================================
+Total params: 3,562
+Trainable params: 3,562
+Non-trainable params: 0
+_________________________________________________________________
 </code></pre></div>
                 
               

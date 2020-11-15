@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-6.1.4">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.4">
     
     
       
@@ -820,6 +820,18 @@
   <li class="md-nav__item">
     <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.16.shutil.html" class="md-nav__link">
       6.16.shutil
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.17.test.html" class="md-nav__link">
+      6.17.test
     </a>
   </li>
 
@@ -2144,7 +2156,7 @@
                   </a>
                 
                 
-                <div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">toolkit</span> <span class="kn">import</span> <span class="n">H</span>
+                <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">toolkit</span> <span class="kn">import</span> <span class="n">H</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">from</span> <span class="nn">matplotlib.patches</span> <span class="kn">import</span> <span class="n">Patch</span>
@@ -2160,25 +2172,21 @@
                                      <span class="n">StratifiedShuffleSplit</span><span class="p">,</span> <span class="n">TimeSeriesSplit</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">Windows 10</span>
-<span class="err">Python 3.7.3 @ MSC v.1915 64 bit (AMD64)</span>
-<span class="err">Latest build date 2020.05.04</span>
-<span class="err">sklearn version:  0.22.1</span>
+<div class="highlight"><pre><span></span><code>Windows 10
+Python 3.7.3 @ MSC v.1915 64 bit (AMD64)
+Latest build date 2020.05.04
+sklearn version:  0.22.1
 </code></pre></div>
-
 
 <h1 id="_1">拆分数据集</h1>
 <h2 id="train_test_split"><code>train_test_split</code>：简单拆分</h2>
 <p>拆分函数（Splitter Functions）<code>train_test_split()</code>可以实现简单拆分。</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="n">train_test_split</span><span class="p">(</span><span class="o">*</span><span class="n">arrays</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">train_size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
+<div class="highlight"><pre><span></span><code><span class="n">train_test_split</span><span class="p">(</span><span class="o">*</span><span class="n">arrays</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">train_size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
                  <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">stratify</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 </code></pre></div>
-
 
 <ol>
 <li>
@@ -2197,7 +2205,7 @@
 <p><code>stratify</code>：分层参数。如果不是None，则以分层方式拆分数据，并将其用作类标签。stratify的array与y的array一一对应。</p>
 </li>
 </ol>
-<div class="codehilite"><pre><span></span><code><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">)</span>
 <span class="n">x_train</span><span class="p">,</span> <span class="n">x_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
 <span class="c1"># shuffle=False</span>
@@ -2225,9 +2233,8 @@
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div>
 
-
 <p><img alt="" src="figures/train_test_split_no_shuffle.svg" /></p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># shuffle=True    </span>
+<div class="highlight"><pre><span></span><code><span class="c1"># shuffle=True    </span>
 <span class="n">num</span> <span class="o">=</span> <span class="mi">3</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">num</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">num</span><span class="p">))</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
@@ -2251,7 +2258,6 @@
             <span class="n">bbox_inches</span> <span class="o">=</span> <span class="s1">&#39;tight&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div>
-
 
 <p><img alt="" src="figures/train_test_split_shuffle.svg" /></p>
 <h2 id="_2">拆分器可视化</h2>
@@ -2345,7 +2351,7 @@
 </tbody>
 </table>
 <p>创建示例数据：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">123</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">123</span><span class="p">)</span>
 <span class="n">cmap_data</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Paired</span>
 <span class="n">cmap_cv</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">coolwarm</span>
 <span class="n">n_splits</span> <span class="o">=</span> <span class="mi">4</span> <span class="c1"># 拆分成4组</span>
@@ -2374,10 +2380,9 @@
 <span class="n">visualize_groups</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">groups</span><span class="p">,</span> <span class="s1">&#39;no groups&#39;</span><span class="p">)</span>
 </code></pre></div>
 
-
 <p><img alt="" src="figures/dataset_split_data.svg" /></p>
 <p>各个拆分器的区别：</p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># 定义函数</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 定义函数</span>
 <span class="k">def</span> <span class="nf">plot_cv_indices</span><span class="p">(</span><span class="n">cv</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">group</span><span class="p">,</span> <span class="n">ax</span><span class="p">,</span> <span class="n">n_splits</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Create a sample plot for indices of a cross-validation object.&quot;&quot;&quot;</span>
 
@@ -2409,8 +2414,7 @@
     <span class="k">return</span> <span class="n">ax</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="n">cvs</span> <span class="o">=</span> <span class="p">[</span><span class="n">KFold</span><span class="p">,</span>
+<div class="highlight"><pre><span></span><code><span class="n">cvs</span> <span class="o">=</span> <span class="p">[</span><span class="n">KFold</span><span class="p">,</span>
         <span class="n">GroupKFold</span><span class="p">,</span>
         <span class="n">StratifiedKFold</span><span class="p">,</span>
         <span class="n">ShuffleSplit</span><span class="p">,</span>
@@ -2431,7 +2435,6 @@
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div>
 
-
 <p><img alt="" src="figures/KFold.svg" /></p>
 <p><img alt="" src="figures/GroupKFold.svg" /></p>
 <p><img alt="" src="figures/StratifiedKFold.svg" /></p>
@@ -2442,11 +2445,10 @@
 <p>这里未提到的拆分器的用法可以参考下文，下文为每个拆分器提供了示例。</p>
 <h2 id="kfoldk"><code>KFold</code>：K折拆分</h2>
 <p>将数据集划分得到K个互斥子集。</p>
-<div class="codehilite"><pre><span></span><code><span class="n">KFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">KFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">KFold</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">KFold</span>
 
 <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]])</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
@@ -2460,14 +2462,12 @@
    <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">train_index</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="n">test_index</span><span class="p">]</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">KFold(n_splits=2, random_state=None, shuffle=False)</span>
-<span class="c">TRAIN: [2 3] TEST: [0 1]</span>
-<span class="c">TRAIN: [0 1] TEST: [2 3]</span>
+<div class="highlight"><pre><span></span><code>KFold(n_splits=2, random_state=None, shuffle=False)
+TRAIN: [2 3] TEST: [0 1]
+TRAIN: [0 1] TEST: [2 3]
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;未设置随机搅动&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;未设置随机搅动&quot;</span><span class="p">)</span>
 <span class="n">kf</span> <span class="o">=</span> <span class="n">KFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="c1"># 未设置随机搅动</span>
 <span class="n">i</span><span class="o">=</span><span class="mi">0</span>
 <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>
@@ -2479,27 +2479,25 @@
     <span class="n">i</span><span class="o">=</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">未设置随机搅动</span>
-<span class="c">TRAIN: [2 3] TEST: [0 1]</span>
-<span class="c">TRAIN: [0 1] TEST: [2 3]</span>
-<span class="err">------------------------------</span>
-<span class="c">TRAIN: [2 3] TEST: [0 1]</span>
-<span class="c">TRAIN: [0 1] TEST: [2 3]</span>
-<span class="err">------------------------------</span>
-<span class="c">TRAIN: [2 3] TEST: [0 1]</span>
-<span class="c">TRAIN: [0 1] TEST: [2 3]</span>
-<span class="err">------------------------------</span>
-<span class="c">TRAIN: [2 3] TEST: [0 1]</span>
-<span class="c">TRAIN: [0 1] TEST: [2 3]</span>
-<span class="err">------------------------------</span>
-<span class="c">TRAIN: [2 3] TEST: [0 1]</span>
-<span class="c">TRAIN: [0 1] TEST: [2 3]</span>
-<span class="err">------------------------------</span>
+<div class="highlight"><pre><span></span><code>未设置随机搅动
+TRAIN: [2 3] TEST: [0 1]
+TRAIN: [0 1] TEST: [2 3]
+------------------------------
+TRAIN: [2 3] TEST: [0 1]
+TRAIN: [0 1] TEST: [2 3]
+------------------------------
+TRAIN: [2 3] TEST: [0 1]
+TRAIN: [0 1] TEST: [2 3]
+------------------------------
+TRAIN: [2 3] TEST: [0 1]
+TRAIN: [0 1] TEST: [2 3]
+------------------------------
+TRAIN: [2 3] TEST: [0 1]
+TRAIN: [0 1] TEST: [2 3]
+------------------------------
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;设置随机搅动&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;设置随机搅动&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;可以看到每次的训练集和测试集都会尽量改变&quot;</span><span class="p">)</span>
 <span class="n">kf</span> <span class="o">=</span> <span class="n">KFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="c1"># 设置随机搅动</span>
 <span class="n">i</span><span class="o">=</span><span class="mi">0</span>
@@ -2512,34 +2510,31 @@
     <span class="n">i</span><span class="o">=</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">设置随机搅动</span>
-<span class="err">可以看到每次的训练集和测试集都会尽量改变</span>
-<span class="c">TRAIN: [0 2] TEST: [1 3]</span>
-<span class="c">TRAIN: [1 3] TEST: [0 2]</span>
-<span class="err">------------------------------</span>
-<span class="c">TRAIN: [0 1] TEST: [2 3]</span>
-<span class="c">TRAIN: [2 3] TEST: [0 1]</span>
-<span class="err">------------------------------</span>
-<span class="c">TRAIN: [0 3] TEST: [1 2]</span>
-<span class="c">TRAIN: [1 2] TEST: [0 3]</span>
-<span class="err">------------------------------</span>
-<span class="c">TRAIN: [0 1] TEST: [2 3]</span>
-<span class="c">TRAIN: [2 3] TEST: [0 1]</span>
-<span class="err">------------------------------</span>
-<span class="c">TRAIN: [2 3] TEST: [0 1]</span>
-<span class="c">TRAIN: [0 1] TEST: [2 3]</span>
-<span class="err">------------------------------</span>
+<div class="highlight"><pre><span></span><code>设置随机搅动
+可以看到每次的训练集和测试集都会尽量改变
+TRAIN: [0 2] TEST: [1 3]
+TRAIN: [1 3] TEST: [0 2]
+------------------------------
+TRAIN: [0 1] TEST: [2 3]
+TRAIN: [2 3] TEST: [0 1]
+------------------------------
+TRAIN: [0 3] TEST: [1 2]
+TRAIN: [1 2] TEST: [0 3]
+------------------------------
+TRAIN: [0 1] TEST: [2 3]
+TRAIN: [2 3] TEST: [0 1]
+------------------------------
+TRAIN: [2 3] TEST: [0 1]
+TRAIN: [0 1] TEST: [2 3]
+------------------------------
 </code></pre></div>
-
 
 <h2 id="groupkfoldk"><code>GroupKFold</code>：K 组拆分</h2>
 <p><code>GroupKFold</code> 在保证<code>kFold</code>的基础上，保证同一个<code>group</code>的样本在同一个拆分。</p>
-<div class="codehilite"><pre><span></span><code><span class="n">GroupKFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">GroupKFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">GroupKFold</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">GroupKFold</span>
 
 <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">],</span> <span class="p">[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">]])</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
@@ -2554,21 +2549,18 @@
     <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">train_index</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="n">test_index</span><span class="p">]</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">GroupKFold(n_splits=2)</span>
-<span class="c">TRAIN: [2 3] TEST: [0 1 4]</span>
-<span class="c">TRAIN: [0 1 4] TEST: [2 3]</span>
+<div class="highlight"><pre><span></span><code>GroupKFold(n_splits=2)
+TRAIN: [2 3] TEST: [0 1 4]
+TRAIN: [0 1 4] TEST: [2 3]
 </code></pre></div>
-
 
 <h2 id="stratifiedkfoldk"><code>StratifiedKFold</code>：分层K折拆分</h2>
 <p>与KFold相似，但是<strong>分层K折拆分</strong>按照原数据各类标签的所占比例进行拆分，维持每组的标签比例不变。</p>
-<div class="codehilite"><pre><span></span><code><span class="n">StratifiedKFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">StratifiedKFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 </code></pre></div>
 
-
 <p><code>StratifiedKFold.split</code> 有一个无效的 groups 参数（只是为了兼容），groups 总是默认为y，分类即分层。</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">StratifiedKFold</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">StratifiedKFold</span>
 
 <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">(</span><span class="mi">150</span><span class="p">)</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span><span class="mi">2</span><span class="p">)])</span>
@@ -2586,26 +2578,23 @@
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;------------------------------&quot;</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">StratifiedKFold(n_splits=2, random_state=None, shuffle=False)</span>
-<span class="err">第0类 25</span>
-<span class="err">第1类 25</span>
-<span class="err">第2类 25</span>
-<span class="err">------------------------------</span>
-<span class="err">第0类 25</span>
-<span class="err">第1类 25</span>
-<span class="err">第2类 25</span>
-<span class="err">------------------------------</span>
+<div class="highlight"><pre><span></span><code>StratifiedKFold(n_splits=2, random_state=None, shuffle=False)
+第0类 25
+第1类 25
+第2类 25
+------------------------------
+第0类 25
+第1类 25
+第2类 25
+------------------------------
 </code></pre></div>
-
 
 <h2 id="repeatedkfoldk"><code>RepeatedKFold</code>：重复K折拆分</h2>
-<div class="codehilite"><pre><span></span><code><span class="n">StratifiedKFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">n_repeats</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">StratifiedKFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">n_repeats</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 </code></pre></div>
 
-
 <p>RepeatedKFold 重复 K-Fold n 次。当需要运行时可以使用它 KFold n 次，<strong>尽量在每次重复中产生不同的分割</strong>。</p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># 2折 K-Fold 重复 2 次的示例:</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 2折 K-Fold 重复 2 次的示例:</span>
 <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">RepeatedKFold</span>
 
 <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]])</span>
@@ -2618,25 +2607,22 @@
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;------------------------------&quot;</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="c">TRAIN: [0 1] TEST: [2 3]</span>
-<span class="err">------------------------------</span>
-<span class="c">TRAIN: [2 3] TEST: [0 1]</span>
-<span class="err">------------------------------</span>
-<span class="c">TRAIN: [1 2] TEST: [0 3]</span>
-<span class="err">------------------------------</span>
-<span class="c">TRAIN: [0 3] TEST: [1 2]</span>
-<span class="err">------------------------------</span>
+<div class="highlight"><pre><span></span><code>TRAIN: [0 1] TEST: [2 3]
+------------------------------
+TRAIN: [2 3] TEST: [0 1]
+------------------------------
+TRAIN: [1 2] TEST: [0 3]
+------------------------------
+TRAIN: [0 3] TEST: [1 2]
+------------------------------
 </code></pre></div>
-
 
 <h2 id="repeatedstratifiedkfoldk"><code>RepeatedStratifiedKFold</code>：重复分层K折拆分</h2>
-<div class="codehilite"><pre><span></span><code><span class="n">RepeatedStratifiedKFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">n_repeats</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">RepeatedStratifiedKFold</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">n_repeats</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 </code></pre></div>
 
-
 <p><code>RepeatedStratifiedKFold.split</code>同样有一个无效的<code>groups</code>参数，在内部<code>groups</code>总是默认为Y 分类即分层。    </p>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">RepeatedStratifiedKFold</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">RepeatedStratifiedKFold</span>
 
 <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]])</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
@@ -2647,21 +2633,18 @@
     <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">train_index</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="n">test_index</span><span class="p">]</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="c">TRAIN: [1 2] TEST: [0 3]</span>
-<span class="c">TRAIN: [0 3] TEST: [1 2]</span>
-<span class="c">TRAIN: [0 3] TEST: [1 2]</span>
-<span class="c">TRAIN: [1 2] TEST: [0 3]</span>
+<div class="highlight"><pre><span></span><code>TRAIN: [1 2] TEST: [0 3]
+TRAIN: [0 3] TEST: [1 2]
+TRAIN: [0 3] TEST: [1 2]
+TRAIN: [1 2] TEST: [0 3]
 </code></pre></div>
-
 
 <h2 id="leaveoneout"><code>LeaveOneOut</code>：留一法</h2>
-<div class="codehilite"><pre><span></span><code><span class="n">LeaveOneOut</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span class="n">LeaveOneOut</span><span class="p">()</span>
 </code></pre></div>
 
-
 <p>会返回$C_n^1$对训练、测试数据集。    </p>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">LeaveOneOut</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">LeaveOneOut</span>
 
 <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]])</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
@@ -2677,26 +2660,23 @@
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;------------------------------&quot;</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">LeaveOneOut()</span>
-<span class="c">TRAIN索引: [1 2 3] TEST索引: [0]</span>
-<span class="err">------------------------------</span>
-<span class="c">TRAIN索引: [0 2 3] TEST索引: [1]</span>
-<span class="err">------------------------------</span>
-<span class="c">TRAIN索引: [0 1 3] TEST索引: [2]</span>
-<span class="err">------------------------------</span>
-<span class="c">TRAIN索引: [0 1 2] TEST索引: [3]</span>
-<span class="err">------------------------------</span>
+<div class="highlight"><pre><span></span><code>LeaveOneOut()
+TRAIN索引: [1 2 3] TEST索引: [0]
+------------------------------
+TRAIN索引: [0 2 3] TEST索引: [1]
+------------------------------
+TRAIN索引: [0 1 3] TEST索引: [2]
+------------------------------
+TRAIN索引: [0 1 2] TEST索引: [3]
+------------------------------
 </code></pre></div>
-
 
 <h2 id="leavepoutp"><code>LeavePOut</code>：留P法</h2>
 <p>测试数据的可能组数为$C_n^P$。</p>
-<div class="codehilite"><pre><span></span><code><span class="n">LeavePOut</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">LeavePOut</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">LeavePOut</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">LeavePOut</span>
 
 <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]])</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
@@ -2712,26 +2692,24 @@
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;------------------------------&quot;</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">LeavePOut(p=2)</span>
-<span class="c">TRAIN: [2 3] TEST: [0 1]</span>
-<span class="err">------------------------------</span>
-<span class="c">TRAIN: [1 3] TEST: [0 2]</span>
-<span class="err">------------------------------</span>
-<span class="c">TRAIN: [1 2] TEST: [0 3]</span>
-<span class="err">------------------------------</span>
-<span class="c">TRAIN: [0 3] TEST: [1 2]</span>
-<span class="err">------------------------------</span>
-<span class="c">TRAIN: [0 2] TEST: [1 3]</span>
-<span class="err">------------------------------</span>
-<span class="c">TRAIN: [0 1] TEST: [2 3]</span>
-<span class="err">------------------------------</span>
+<div class="highlight"><pre><span></span><code>LeavePOut(p=2)
+TRAIN: [2 3] TEST: [0 1]
+------------------------------
+TRAIN: [1 3] TEST: [0 2]
+------------------------------
+TRAIN: [1 2] TEST: [0 3]
+------------------------------
+TRAIN: [0 3] TEST: [1 2]
+------------------------------
+TRAIN: [0 2] TEST: [1 3]
+------------------------------
+TRAIN: [0 1] TEST: [2 3]
+------------------------------
 </code></pre></div>
-
 
 <h2 id="leaveonegroupout"><code>LeaveOneGroupOut</code>：留一组</h2>
 <p>与留一法相似，只是留一法相对于单个元素，留一组相对于一组元素。</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">LeaveOneGroupOut</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">LeaveOneGroupOut</span>
 
 <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]])</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
@@ -2751,19 +2729,17 @@
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;------------------------------&quot;</span><span class="p">)</span>
 </code></pre></div>
 
+<div class="highlight"><pre><span></span><code>LeaveOneGroupOut()
 
-<div class="codehilite"><pre><span></span><code><span class="n">LeaveOneGroupOut</span><span class="p">()</span>
+ TRAIN: [2 3] TEST: [0 1]
+------------------------------
 
- <span class="n">TRAIN</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span> <span class="mi">3</span><span class="p">]</span> <span class="n">TEST</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span> <span class="mi">1</span><span class="p">]</span>
-<span class="c1">------------------------------</span>
-
- <span class="n">TRAIN</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span> <span class="mi">1</span><span class="p">]</span> <span class="n">TEST</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span> <span class="mi">3</span><span class="p">]</span>
-<span class="c1">------------------------------</span>
+ TRAIN: [0 1] TEST: [2 3]
+------------------------------
 </code></pre></div>
 
-
 <h2 id="leavepgroupsoutp"><code>LeavePGroupsOut</code>：留P组</h2>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">LeavePGroupsOut</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">LeavePGroupsOut</span>
 
 <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
@@ -2780,22 +2756,20 @@
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;------------------------------&quot;</span><span class="p">)</span>
 </code></pre></div>
 
+<div class="highlight"><pre><span></span><code>LeavePGroupsOut(n_groups=2)
 
-<div class="codehilite"><pre><span></span><code><span class="n">LeavePGroupsOut</span><span class="p">(</span><span class="n">n_groups</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+ TRAIN: [2] TEST: [0 1]
+------------------------------
 
- <span class="n">TRAIN</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="n">TEST</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span> <span class="mi">1</span><span class="p">]</span>
-<span class="c1">------------------------------</span>
+ TRAIN: [1] TEST: [0 2]
+------------------------------
 
- <span class="n">TRAIN</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="n">TEST</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span> <span class="mi">2</span><span class="p">]</span>
-<span class="c1">------------------------------</span>
-
- <span class="n">TRAIN</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="n">TEST</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span> <span class="mi">2</span><span class="p">]</span>
-<span class="c1">------------------------------</span>
+ TRAIN: [0] TEST: [1 2]
+------------------------------
 </code></pre></div>
 
-
 <h2 id="predefinedsplit"><code>PredefinedSplit</code>：预定义拆分</h2>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">PredefinedSplit</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">PredefinedSplit</span>
 
 <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]])</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
@@ -2821,21 +2795,18 @@
    <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">train_index</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="n">test_index</span><span class="p">]</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">PredefinedSplit(test_fold=array([ 0,  1, -1,  1]))</span>
-<span class="c">TRAIN: [1 2 3] TEST: [0]</span>
-<span class="c">TRAIN: [0 2] TEST: [1 3]</span>
+<div class="highlight"><pre><span></span><code>PredefinedSplit(test_fold=array([ 0,  1, -1,  1]))
+TRAIN: [1 2 3] TEST: [0]
+TRAIN: [0 2] TEST: [1 3]
 </code></pre></div>
-
 
 <h2 id="shufflesplit"><code>ShuffleSplit</code>：随机拆分</h2>
 <p>将样本集合随机“打散”后划分为训练集、测试集。</p>
-<div class="codehilite"><pre><span></span><code><span class="n">ShuffleSplit</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="err">’</span><span class="n">default</span><span class="err">’</span><span class="p">,</span> <span class="n">train_size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
+<div class="highlight"><pre><span></span><code><span class="n">ShuffleSplit</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="err">’</span><span class="n">default</span><span class="err">’</span><span class="p">,</span> <span class="n">train_size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
              <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">ShuffleSplit</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">ShuffleSplit</span>
 
 <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
@@ -2849,41 +2820,37 @@
    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;----------------------------&quot;</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">ShuffleSplit(n_splits=5, random_state=0, test_size=0.25,</span>
-<span class="err">train_size=None)</span>
-<span class="c">TRAIN: [1 3 0 4] TEST: [5 2]</span>
-<span class="err">----------------------------</span>
-<span class="c">TRAIN: [4 0 2 5] TEST: [1 3]</span>
-<span class="err">----------------------------</span>
-<span class="c">TRAIN: [1 2 4 0] TEST: [3 5]</span>
-<span class="err">----------------------------</span>
-<span class="c">TRAIN: [3 4 1 0] TEST: [5 2]</span>
-<span class="err">----------------------------</span>
-<span class="c">TRAIN: [3 5 1 0] TEST: [2 4]</span>
-<span class="err">----------------------------</span>
+<div class="highlight"><pre><span></span><code>ShuffleSplit(n_splits=5, random_state=0, test_size=0.25,
+train_size=None)
+TRAIN: [1 3 0 4] TEST: [5 2]
+----------------------------
+TRAIN: [4 0 2 5] TEST: [1 3]
+----------------------------
+TRAIN: [1 2 4 0] TEST: [3 5]
+----------------------------
+TRAIN: [3 4 1 0] TEST: [5 2]
+----------------------------
+TRAIN: [3 5 1 0] TEST: [2 4]
+----------------------------
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="n">rs</span> <span class="o">=</span> <span class="n">ShuffleSplit</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">train_size</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=.</span><span class="mi">25</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">rs</span> <span class="o">=</span> <span class="n">ShuffleSplit</span><span class="p">(</span><span class="n">n_splits</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">train_size</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=.</span><span class="mi">25</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">train_index</span><span class="p">,</span> <span class="n">test_index</span> <span class="ow">in</span> <span class="n">rs</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">X</span><span class="p">):</span>
    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;TRAIN:&quot;</span><span class="p">,</span> <span class="n">train_index</span><span class="p">,</span> <span class="s2">&quot;TEST:&quot;</span><span class="p">,</span> <span class="n">test_index</span><span class="p">)</span>
    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;----------------------------&quot;</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="c">TRAIN: [1 3 0] TEST: [5 2]</span>
-<span class="err">----------------------------</span>
-<span class="c">TRAIN: [4 0 2] TEST: [1 3]</span>
-<span class="err">----------------------------</span>
-<span class="c">TRAIN: [1 2 4] TEST: [3 5]</span>
-<span class="err">----------------------------</span>
-<span class="c">TRAIN: [3 4 1] TEST: [5 2]</span>
-<span class="err">----------------------------</span>
-<span class="c">TRAIN: [3 5 1] TEST: [2 4]</span>
-<span class="err">----------------------------</span>
+<div class="highlight"><pre><span></span><code>TRAIN: [1 3 0] TEST: [5 2]
+----------------------------
+TRAIN: [4 0 2] TEST: [1 3]
+----------------------------
+TRAIN: [1 2 4] TEST: [3 5]
+----------------------------
+TRAIN: [3 4 1] TEST: [5 2]
+----------------------------
+TRAIN: [3 5 1] TEST: [2 4]
+----------------------------
 </code></pre></div>
-
 
 <h2 id="groupshufflesplit">GroupShuffleSplit</h2>
 <h2 id="stratifiedshufflesplit">StratifiedShuffleSplit</h2>

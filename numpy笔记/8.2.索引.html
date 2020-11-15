@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-6.1.4">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.4">
     
     
       
@@ -820,6 +820,18 @@
   <li class="md-nav__item">
     <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.16.shutil.html" class="md-nav__link">
       6.16.shutil
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.17.test.html" class="md-nav__link">
+      6.17.test
     </a>
   </li>
 
@@ -1972,17 +1984,15 @@
                 
                   <h1>8.2.索引</h1>
                 
-                <div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+                <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">copy</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">Windows 10</span>
-<span class="err">Python 3.7.3 @ MSC v.1915 64 bit (AMD64)</span>
-<span class="err">Latest build date 2020.03.28</span>
-<span class="err">numpy version:  1.18.1</span>
+<div class="highlight"><pre><span></span><code>Windows 10
+Python 3.7.3 @ MSC v.1915 64 bit (AMD64)
+Latest build date 2020.03.28
+numpy version:  1.18.1
 </code></pre></div>
-
 
 <p><code>ndarrays</code>可以使用标准<code>Python x[obj]</code>语法对其进行索引 ，其中<code>x</code>是数组，<code>obj</code>是索引。有三种可用的索引，哪一个发生取决于<code>obj</code>：</p>
 <ol>
@@ -1991,7 +2001,7 @@
 <li>高级索引（整数索引、布尔索引）</li>
 </ol>
 <p><mark><strong>在 Python 中，<code>x[(exp1，exp2，.，EXPN)]</code> 等同于 <code>x[exp1，exp2，.，EXPN]</code>。后者只是前者的语法糖。</strong></mark></p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># 创建一个一维数组</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 创建一个一维数组</span>
 <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
 <span class="c1"># 创建一个二维数组 </span>
 <span class="n">b</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">5</span><span class="p">)))</span>
@@ -2003,7 +2013,6 @@
 
 <span class="c1"># x = np.zeros((2,2), dtype=[(&#39;a&#39;, np.int32), (&#39;b&#39;, np.float64, (3,3))])</span>
 </code></pre></div>
-
 
 <h2 id="_1">一维数组的索引</h2>
 <p>一维数组的索引和列表相同。假设<code>A</code>是一维数组，那么有以下5种使用索引的情况：</p>
@@ -2024,7 +2033,7 @@
 <p>可以指定一个<strong>布尔数组</strong>作为数组下标，如<code>A[B]</code>。此时将获得数组<code>A</code>中与数组<code>B</code>中的<code>True</code>对应的元素。新数组不和原始数组共享数据。</p>
 </li>
 </ul>
-<div class="codehilite"><pre><span></span><code><span class="c1"># 指定一个整数</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 指定一个整数</span>
 <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># OWNDATA : True</span>
 <span class="c1">## 等价于</span>
 <span class="n">a</span><span class="p">[(</span><span class="mi">1</span><span class="p">)]</span> <span class="c1"># OWNDATA : True</span>
@@ -2050,11 +2059,9 @@
 <span class="n">bool_a</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">bool_a</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="k">[[0 1 2]</span>
- <span class="k">[3 4 5]]</span>
+<div class="highlight"><pre><span></span><code>[[0 1 2]
+ [3 4 5]]
 </code></pre></div>
-
 
 <h2 id="_2">多维数组的索引</h2>
 <p>多维数组使用<strong>元组</strong>作为数组的下标，如<code>A[1,2]</code>，当然你也可以添加圆括号为<code>A[(1,2)]</code>。实际上，一维数组也是如此，只是一维数组只有第 0 轴。</p>
@@ -2095,7 +2102,7 @@
 <p><strong>整数数组、切片、整数元组混搭</strong></p>
 </li>
 </ul>
-<div class="codehilite"><pre><span></span><code><span class="c1"># 指定一个整数元组</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 指定一个整数元组</span>
 <span class="n">b</span><span class="p">[(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)]</span> <span class="c1"># OWNDATA : Trues</span>
 <span class="c1">## 等价于</span>
 <span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="c1"># OWNDATA : Trues</span>
@@ -2137,26 +2144,22 @@
 <span class="n">b</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">array([[ 0,  6, 12],</span>
-<span class="err">       [ 3,  9, 14]])</span>
+<div class="highlight"><pre><span></span><code>array([[ 0,  6, 12],
+       [ 3,  9, 14]])
 </code></pre></div>
-
 
 <p>多维数组的下标是布尔数组或者下标元组中包含了布尔数组，则相当于将布尔数组通过<code>np.nonzero()</code>将布尔数组转换成一个整数数组的元组，然后使用整数数组进行下标运行。</p>
 <p><code>np.nonzero(a)</code>返回数组<code>a</code>中，值非零的元素的<strong>下标</strong>。它返回值是一个长度为<code>a.ndim</code>的元组，元组的每个元素都是一个一维的整数数组，其值为非零元素的下标在对应轴上的值。如：第 0 个元素为a中的非零值元素在0轴的下标、第 1 个元素为a中的非零值元素在1轴的下标...</p>
-<div class="codehilite"><pre><span></span><code><span class="n">np</span><span class="o">.</span><span class="n">nonzero</span><span class="p">(</span><span class="n">bool_a</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">np</span><span class="o">.</span><span class="n">nonzero</span><span class="p">(</span><span class="n">bool_a</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">(array([51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65,</span>
-<span class="err">66, 67,</span>
-<span class="err">        68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82,</span>
-<span class="err">83, 84,</span>
-<span class="err">        85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99],</span>
-<span class="err">       dtype=int64),)</span>
+<div class="highlight"><pre><span></span><code>(array([51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65,
+66, 67,
+        68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82,
+83, 84,
+        85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99],
+       dtype=int64),)
 </code></pre></div>
-
 
 <h2 id="_3">进阶说明</h2>
 <p><strong>使用切片返回视图的原因：</strong></p>
@@ -2188,15 +2191,14 @@
 <p>当数组的下标元组的长度大于数组的维度ndim时，元组中哪里出现None，索引结果就在哪里创建一个新轴，该轴长度为 1。</p>
 </li>
 </ul>
-<div class="codehilite"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="kc">None</span><span class="p">])</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">])</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">7</span>
-<span class="err">[7]</span>
-<span class="err">[7]</span>
+<div class="highlight"><pre><span></span><code>7
+[7]
+[7]
 </code></pre></div>
                 
               

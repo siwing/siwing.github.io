@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-6.1.4">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.4">
     
     
       
@@ -820,6 +820,18 @@
   <li class="md-nav__item">
     <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.16.shutil.html" class="md-nav__link">
       6.16.shutil
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.17.test.html" class="md-nav__link">
+      6.17.test
     </a>
   </li>
 
@@ -2178,20 +2190,18 @@
                 
                   <h1>9.8.分组与聚合</h1>
                 
-                <div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">toolkit.Help</span> <span class="kn">import</span> <span class="n">Help</span> <span class="k">as</span> <span class="n">H</span>
+                <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">toolkit.Help</span> <span class="kn">import</span> <span class="n">Help</span> <span class="k">as</span> <span class="n">H</span>
 <span class="kn">import</span> <span class="nn">pprint</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">Windows 10</span>
-<span class="err">Python 3.7.3 @ MSC v.1915 64 bit (AMD64)</span>
-<span class="err">Latest build date 2020.04.12</span>
-<span class="err">pandas version:  1.0.1</span>
-<span class="err">numpy version:  1.18.1</span>
+<div class="highlight"><pre><span></span><code>Windows 10
+Python 3.7.3 @ MSC v.1915 64 bit (AMD64)
+Latest build date 2020.04.12
+pandas version:  1.0.1
+numpy version:  1.18.1
 </code></pre></div>
-
 
 <p>对数据集进行分组并对各组应用一个函数（无论是聚合还是转换），通常是数据分析工作中的重要环节。在将数据集加载、融合、准备好之后，通常就是计算分组统计或生成透视表。pandas提供了一个灵活高效的<code>gruopby</code>功能，它能以一种自然的方式对数据集进行切片、切块、摘要等操作。</p>
 <p>关系型数据库和SQL（Structured Query Language，结构化查询语言）能够如此流行的原因之一就是其能够方便地对数据进行连接、过滤、转换和聚合。但是，像SQL这样的查询语言所能执行的分组运算的种类很有限。pandas可以执行复杂得多的分组运算（利用任何可以接受pandas对象或NumPy数组的函数）。</p>
@@ -2232,14 +2242,13 @@
 </ol>
 <h2 id="groupby_1"><code>groupby</code>方法</h2>
 <p><code>.groupby()</code>方法是分组方法：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
+<div class="highlight"><pre><span></span><code><span class="n">groupby</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
         <span class="n">as_index</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> 
         <span class="n">sort</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> 
         <span class="n">group_keys</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> 
         <span class="n">squeeze</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> 
         <span class="n">observed</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> 
 </code></pre></div>
-
 
 <ul>
 <li>
@@ -2287,7 +2296,7 @@
 <p>该函数返回一个<code>GroupBy</code>对象。</p>
 <h2 id="_1">拆分组</h2>
 <p>创建示例数据:    </p>
-<div class="codehilite"><pre><span></span><code><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Class&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;1班&#39;</span><span class="p">,</span> <span class="s1">&#39;2班&#39;</span><span class="p">,</span> <span class="s1">&#39;1班&#39;</span><span class="p">,</span> <span class="s1">&#39;1班&#39;</span><span class="p">,</span> <span class="s1">&#39;2班&#39;</span><span class="p">,</span> <span class="s1">&#39;2班&#39;</span><span class="p">],</span>
+<div class="highlight"><pre><span></span><code><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Class&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;1班&#39;</span><span class="p">,</span> <span class="s1">&#39;2班&#39;</span><span class="p">,</span> <span class="s1">&#39;1班&#39;</span><span class="p">,</span> <span class="s1">&#39;1班&#39;</span><span class="p">,</span> <span class="s1">&#39;2班&#39;</span><span class="p">,</span> <span class="s1">&#39;2班&#39;</span><span class="p">],</span>
                    <span class="s1">&#39;Gender&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;男&#39;</span><span class="p">,</span> <span class="s1">&#39;男&#39;</span><span class="p">,</span> <span class="s1">&#39;女&#39;</span><span class="p">,</span> <span class="s1">&#39;男&#39;</span><span class="p">,</span> <span class="s1">&#39;女&#39;</span><span class="p">,</span> <span class="s1">&#39;女&#39;</span><span class="p">],</span>
                    <span class="s1">&#39;Math Score&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="mi">72</span><span class="p">,</span> <span class="mi">86</span><span class="p">,</span> <span class="mi">76</span><span class="p">,</span> <span class="mi">85</span><span class="p">,</span> <span class="mi">89</span><span class="p">,</span> <span class="mi">90</span><span class="p">],</span>
                    <span class="s1">&#39;Language Score&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="mi">73</span><span class="p">,</span> <span class="mi">88</span><span class="p">,</span> <span class="mi">81</span><span class="p">,</span> <span class="mi">82</span><span class="p">,</span> <span class="mi">79</span><span class="p">,</span> <span class="mi">86</span><span class="p">]},</span>
@@ -2297,143 +2306,130 @@
 <span class="n">df</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">     Class Gender  Math Score  Language Score</span>
-<span class="err">Name</span>
-<span class="err">小明      1班      男          72              73</span>
-<span class="err">小聪      2班      男          86              88</span>
-<span class="err">小红      1班      女          76              81</span>
-<span class="err">小华      1班      男          85              82</span>
-<span class="err">小丽      2班      女          89              79</span>
-<span class="err">小美      2班      女          90              86</span>
+<div class="highlight"><pre><span></span><code>     Class Gender  Math Score  Language Score
+Name
+小明      1班      男          72              73
+小聪      2班      男          86              88
+小红      1班      女          76              81
+小华      1班      男          85              82
+小丽      2班      女          89              79
+小美      2班      女          90              86
 </code></pre></div>
-
 
 <p>以下是使用不同类型的分组键的示例。</p>
 <h3 id="series">Series或字典</h3>
-<div class="codehilite"><pre><span></span><code><span class="n">grouped</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Math Score&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Class&#39;</span><span class="p">]))</span>
+<div class="highlight"><pre><span></span><code><span class="n">grouped</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Math Score&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Class&#39;</span><span class="p">]))</span>
 <span class="c1"># grouped = df[&#39;Math Score&#39;].groupby(df[&#39;Class&#39;])</span>
 <span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">grouped</span><span class="p">))</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">[(&#39;1班&#39;, Name</span>
-<span class="err">小明    72</span>
-<span class="err">小红    76</span>
-<span class="err">小华    85</span>
-<span class="c">Name: Math Score, dtype: int64),</span>
-<span class="c"> (&#39;2班&#39;, Name</span>
-<span class="err">小聪    86</span>
-<span class="err">小丽    89</span>
-<span class="err">小美    90</span>
-<span class="c">Name: Math Score, dtype: int64)]</span>
+<div class="highlight"><pre><span></span><code>[(&#39;1班&#39;, Name
+小明    72
+小红    76
+小华    85
+Name: Math Score, dtype: int64),
+ (&#39;2班&#39;, Name
+小聪    86
+小丽    89
+小美    90
+Name: Math Score, dtype: int64)]
 </code></pre></div>
 
-
 <h3 id="column-label">column label</h3>
-<div class="codehilite"><pre><span></span><code><span class="n">grouped</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Class&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">grouped</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Class&#39;</span><span class="p">)</span>
 <span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">grouped</span><span class="p">))</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">[(&#39;1班&#39;,</span>
-<span class="err">       Class Gender  Math Score  Language Score</span>
-<span class="err">Name                                         </span>
-<span class="err">小明      1班      男          72              73</span>
-<span class="err">小红      1班      女          76              81</span>
-<span class="err">小华      1班      男          85              82),</span>
-<span class="err"> (&#39;2班&#39;,</span>
-<span class="err">       Class Gender  Math Score  Language Score</span>
-<span class="err">Name                                         </span>
-<span class="err">小聪      2班      男          86              88</span>
-<span class="err">小丽      2班      女          89              79</span>
-<span class="err">小美      2班      女          90              86)]</span>
+<div class="highlight"><pre><span></span><code>[(&#39;1班&#39;,
+       Class Gender  Math Score  Language Score
+Name                                         
+小明      1班      男          72              73
+小红      1班      女          76              81
+小华      1班      男          85              82),
+ (&#39;2班&#39;,
+       Class Gender  Math Score  Language Score
+Name                                         
+小聪      2班      男          86              88
+小丽      2班      女          89              79
+小美      2班      女          90              86)]
 </code></pre></div>
 
-
 <p>通过<code>axis</code>参数，也可以指定行的index：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">grouped</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Name&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">grouped</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Name&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="nb">list</span><span class="p">(</span><span class="n">grouped</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">[(&#39;小丽&#39;,</span>
-<span class="err">       Class Gender  Math Score  Language Score</span>
-<span class="err">  Name                                         </span>
-<span class="err">  小丽      2班      女          89              79),</span>
-<span class="err"> (&#39;小华&#39;,</span>
-<span class="err">       Class Gender  Math Score  Language Score</span>
-<span class="err">  Name                                         </span>
-<span class="err">  小华      1班      男          85              82),</span>
-<span class="err"> (&#39;小明&#39;,</span>
-<span class="err">       Class Gender  Math Score  Language Score</span>
-<span class="err">  Name                                         </span>
-<span class="err">  小明      1班      男          72              73),</span>
-<span class="err"> (&#39;小红&#39;,</span>
-<span class="err">       Class Gender  Math Score  Language Score</span>
-<span class="err">  Name                                         </span>
-<span class="err">  小红      1班      女          76              81),</span>
-<span class="err"> (&#39;小美&#39;,</span>
-<span class="err">       Class Gender  Math Score  Language Score</span>
-<span class="err">  Name                                         </span>
-<span class="err">  小美      2班      女          90              86),</span>
-<span class="err"> (&#39;小聪&#39;,</span>
-<span class="err">       Class Gender  Math Score  Language Score</span>
-<span class="err">  Name                                         </span>
-<span class="err">  小聪      2班      男          86              88)]</span>
+<div class="highlight"><pre><span></span><code>[(&#39;小丽&#39;,
+       Class Gender  Math Score  Language Score
+  Name                                         
+  小丽      2班      女          89              79),
+ (&#39;小华&#39;,
+       Class Gender  Math Score  Language Score
+  Name                                         
+  小华      1班      男          85              82),
+ (&#39;小明&#39;,
+       Class Gender  Math Score  Language Score
+  Name                                         
+  小明      1班      男          72              73),
+ (&#39;小红&#39;,
+       Class Gender  Math Score  Language Score
+  Name                                         
+  小红      1班      女          76              81),
+ (&#39;小美&#39;,
+       Class Gender  Math Score  Language Score
+  Name                                         
+  小美      2班      女          90              86),
+ (&#39;小聪&#39;,
+       Class Gender  Math Score  Language Score
+  Name                                         
+  小聪      2班      男          86              88)]
 </code></pre></div>
 
-
 <h3 id="list-of-column-label">list of column label</h3>
-<div class="codehilite"><pre><span></span><code><span class="c1"># axis=1 沿着1轴拆分 使用0轴的lable</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># axis=1 沿着1轴拆分 使用0轴的lable</span>
 <span class="n">grouped</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Class&#39;</span><span class="p">,</span><span class="s1">&#39;Gender&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">grouped</span><span class="p">))</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">[]</span>
+<div class="highlight"><pre><span></span><code>[]
 </code></pre></div>
 
-
 <h3 id="_2">序列</h3>
-<div class="codehilite"><pre><span></span><code><span class="n">seq_1</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Class&#39;</span><span class="p">])</span>
+<div class="highlight"><pre><span></span><code><span class="n">seq_1</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Class&#39;</span><span class="p">])</span>
 <span class="n">seq_2</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Gender&#39;</span><span class="p">])</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="n">grouped</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Math Score&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">seq_1</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">grouped</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Math Score&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">seq_1</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">grouped</span><span class="p">),</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="n">grouped</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Math Score&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="n">seq_1</span><span class="p">,</span> <span class="n">seq_2</span><span class="p">])</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">grouped</span><span class="p">))</span>
 </code></pre></div>
 
+<div class="highlight"><pre><span></span><code>[(&#39;1班&#39;, Name
+小明    72
+小红    76
+小华    85
+Name: Math Score, dtype: int64), (&#39;2班&#39;, Name
+小聪    86
+小丽    89
+小美    90
+Name: Math Score, dtype: int64)] 
 
-<div class="codehilite"><pre><span></span><code><span class="p">[(</span><span class="s1">&#39;1班&#39;</span><span class="p">,</span> <span class="n">Name</span>
-<span class="err">小明</span>    <span class="mi">72</span>
-<span class="err">小红</span>    <span class="mi">76</span>
-<span class="err">小华</span>    <span class="mi">85</span>
-<span class="n">Name</span><span class="p">:</span> <span class="n">Math</span> <span class="n">Score</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">int64</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;2班&#39;</span><span class="p">,</span> <span class="n">Name</span>
-<span class="err">小聪</span>    <span class="mi">86</span>
-<span class="err">小丽</span>    <span class="mi">89</span>
-<span class="err">小美</span>    <span class="mi">90</span>
-<span class="n">Name</span><span class="p">:</span> <span class="n">Math</span> <span class="n">Score</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">int64</span><span class="p">)]</span> 
-
-<span class="p">[((</span><span class="s1">&#39;1班&#39;</span><span class="p">,</span> <span class="s1">&#39;女&#39;</span><span class="p">),</span> <span class="n">Name</span>
-<span class="err">小红</span>    <span class="mi">76</span>
-<span class="n">Name</span><span class="p">:</span> <span class="n">Math</span> <span class="n">Score</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">int64</span><span class="p">),</span> <span class="p">((</span><span class="s1">&#39;1班&#39;</span><span class="p">,</span> <span class="s1">&#39;男&#39;</span><span class="p">),</span> <span class="n">Name</span>
-<span class="err">小明</span>    <span class="mi">72</span>
-<span class="err">小华</span>    <span class="mi">85</span>
-<span class="n">Name</span><span class="p">:</span> <span class="n">Math</span> <span class="n">Score</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">int64</span><span class="p">),</span> <span class="p">((</span><span class="s1">&#39;2班&#39;</span><span class="p">,</span> <span class="s1">&#39;女&#39;</span><span class="p">),</span> <span class="n">Name</span>
-<span class="err">小丽</span>    <span class="mi">89</span>
-<span class="err">小美</span>    <span class="mi">90</span>
-<span class="n">Name</span><span class="p">:</span> <span class="n">Math</span> <span class="n">Score</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">int64</span><span class="p">),</span> <span class="p">((</span><span class="s1">&#39;2班&#39;</span><span class="p">,</span> <span class="s1">&#39;男&#39;</span><span class="p">),</span> <span class="n">Name</span>
-<span class="err">小聪</span>    <span class="mi">86</span>
-<span class="n">Name</span><span class="p">:</span> <span class="n">Math</span> <span class="n">Score</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">int64</span><span class="p">)]</span>
+[((&#39;1班&#39;, &#39;女&#39;), Name
+小红    76
+Name: Math Score, dtype: int64), ((&#39;1班&#39;, &#39;男&#39;), Name
+小明    72
+小华    85
+Name: Math Score, dtype: int64), ((&#39;2班&#39;, &#39;女&#39;), Name
+小丽    89
+小美    90
+Name: Math Score, dtype: int64), ((&#39;2班&#39;, &#39;男&#39;), Name
+小聪    86
+Name: Math Score, dtype: int64)]
 </code></pre></div>
 
-
 <h3 id="_3">函数</h3>
-<div class="codehilite"><pre><span></span><code><span class="c1"># 定义函数</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 定义函数</span>
 <span class="k">def</span> <span class="nf">fun_1</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">key</span>
 <span class="k">def</span> <span class="nf">fun_2</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
@@ -2448,85 +2444,78 @@
 <span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">grouped</span><span class="p">))</span>
 </code></pre></div>
 
+<div class="highlight"><pre><span></span><code>[(&#39;小丽&#39;, Name
+小丽    89
+Name: Math Score, dtype: int64), (&#39;小华&#39;, Name
+小华    85
+Name: Math Score, dtype: int64), (&#39;小明&#39;, Name
+小明    72
+Name: Math Score, dtype: int64), (&#39;小红&#39;, Name
+小红    76
+Name: Math Score, dtype: int64), (&#39;小美&#39;, Name
+小美    90
+Name: Math Score, dtype: int64), (&#39;小聪&#39;, Name
+小聪    86
+Name: Math Score, dtype: int64)]
 
-<div class="codehilite"><pre><span></span><code><span class="p">[(</span><span class="s1">&#39;小丽&#39;</span><span class="p">,</span> <span class="n">Name</span>
-<span class="err">小丽</span>    <span class="mi">89</span>
-<span class="n">Name</span><span class="p">:</span> <span class="n">Math</span> <span class="n">Score</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">int64</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;小华&#39;</span><span class="p">,</span> <span class="n">Name</span>
-<span class="err">小华</span>    <span class="mi">85</span>
-<span class="n">Name</span><span class="p">:</span> <span class="n">Math</span> <span class="n">Score</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">int64</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;小明&#39;</span><span class="p">,</span> <span class="n">Name</span>
-<span class="err">小明</span>    <span class="mi">72</span>
-<span class="n">Name</span><span class="p">:</span> <span class="n">Math</span> <span class="n">Score</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">int64</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;小红&#39;</span><span class="p">,</span> <span class="n">Name</span>
-<span class="err">小红</span>    <span class="mi">76</span>
-<span class="n">Name</span><span class="p">:</span> <span class="n">Math</span> <span class="n">Score</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">int64</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;小美&#39;</span><span class="p">,</span> <span class="n">Name</span>
-<span class="err">小美</span>    <span class="mi">90</span>
-<span class="n">Name</span><span class="p">:</span> <span class="n">Math</span> <span class="n">Score</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">int64</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;小聪&#39;</span><span class="p">,</span> <span class="n">Name</span>
-<span class="err">小聪</span>    <span class="mi">86</span>
-<span class="n">Name</span><span class="p">:</span> <span class="n">Math</span> <span class="n">Score</span><span class="p">,</span> <span class="n">dtype</span><span class="p">:</span> <span class="n">int64</span><span class="p">)]</span>
-
-<span class="p">[((</span><span class="s1">&#39;小丽&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">),</span>      <span class="k">Class</span> <span class="n">Gender</span>  <span class="n">Math</span> <span class="n">Score</span>  <span class="k">Language</span> <span class="n">Score</span>
-<span class="n">Name</span>
-<span class="err">小丽</span>      <span class="mi">2</span><span class="err">班</span>      <span class="err">女</span>          <span class="mi">89</span>              <span class="mi">79</span><span class="p">),</span> <span class="p">((</span><span class="s1">&#39;小华&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">),</span>
-<span class="k">Class</span> <span class="n">Gender</span>  <span class="n">Math</span> <span class="n">Score</span>  <span class="k">Language</span> <span class="n">Score</span>
-<span class="n">Name</span>
-<span class="err">小华</span>      <span class="mi">1</span><span class="err">班</span>      <span class="err">男</span>          <span class="mi">85</span>              <span class="mi">82</span><span class="p">),</span> <span class="p">((</span><span class="s1">&#39;小明&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">),</span>
-<span class="k">Class</span> <span class="n">Gender</span>  <span class="n">Math</span> <span class="n">Score</span>  <span class="k">Language</span> <span class="n">Score</span>
-<span class="n">Name</span>
-<span class="err">小明</span>      <span class="mi">1</span><span class="err">班</span>      <span class="err">男</span>          <span class="mi">72</span>              <span class="mi">73</span><span class="p">),</span> <span class="p">((</span><span class="s1">&#39;小红&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">),</span>
-<span class="k">Class</span> <span class="n">Gender</span>  <span class="n">Math</span> <span class="n">Score</span>  <span class="k">Language</span> <span class="n">Score</span>
-<span class="n">Name</span>
-<span class="err">小红</span>      <span class="mi">1</span><span class="err">班</span>      <span class="err">女</span>          <span class="mi">76</span>              <span class="mi">81</span><span class="p">),</span> <span class="p">((</span><span class="s1">&#39;小美&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">),</span>
-<span class="k">Class</span> <span class="n">Gender</span>  <span class="n">Math</span> <span class="n">Score</span>  <span class="k">Language</span> <span class="n">Score</span>
-<span class="n">Name</span>
-<span class="err">小美</span>      <span class="mi">2</span><span class="err">班</span>      <span class="err">女</span>          <span class="mi">90</span>              <span class="mi">86</span><span class="p">),</span> <span class="p">((</span><span class="s1">&#39;小聪&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">),</span>
-<span class="k">Class</span> <span class="n">Gender</span>  <span class="n">Math</span> <span class="n">Score</span>  <span class="k">Language</span> <span class="n">Score</span>
-<span class="n">Name</span>
-<span class="err">小聪</span>      <span class="mi">2</span><span class="err">班</span>      <span class="err">男</span>          <span class="mi">86</span>              <span class="mi">88</span><span class="p">)]</span>
+[((&#39;小丽&#39;, &#39;a&#39;),      Class Gender  Math Score  Language Score
+Name
+小丽      2班      女          89              79), ((&#39;小华&#39;, &#39;a&#39;),
+Class Gender  Math Score  Language Score
+Name
+小华      1班      男          85              82), ((&#39;小明&#39;, &#39;a&#39;),
+Class Gender  Math Score  Language Score
+Name
+小明      1班      男          72              73), ((&#39;小红&#39;, &#39;a&#39;),
+Class Gender  Math Score  Language Score
+Name
+小红      1班      女          76              81), ((&#39;小美&#39;, &#39;a&#39;),
+Class Gender  Math Score  Language Score
+Name
+小美      2班      女          90              86), ((&#39;小聪&#39;, &#39;a&#39;),
+Class Gender  Math Score  Language Score
+Name
+小聪      2班      男          86              88)]
 </code></pre></div>
 
-
 <h2 id="_4">遍历组</h2>
-<div class="codehilite"><pre><span></span><code><span class="n">grouped</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Class&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">grouped</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Class&#39;</span><span class="p">)</span>
 
 <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">grouped</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">group</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">1班</span>
-<span class="err">     Class Gender  Math Score  Language Score</span>
-<span class="err">Name</span>
-<span class="err">小明      1班      男          72              73</span>
-<span class="err">小红      1班      女          76              81</span>
-<span class="err">小华      1班      男          85              82</span>
-<span class="err">2班</span>
-<span class="err">     Class Gender  Math Score  Language Score</span>
-<span class="err">Name</span>
-<span class="err">小聪      2班      男          86              88</span>
-<span class="err">小丽      2班      女          89              79</span>
-<span class="err">小美      2班      女          90              86</span>
+<div class="highlight"><pre><span></span><code>1班
+     Class Gender  Math Score  Language Score
+Name
+小明      1班      男          72              73
+小红      1班      女          76              81
+小华      1班      男          85              82
+2班
+     Class Gender  Math Score  Language Score
+Name
+小聪      2班      男          86              88
+小丽      2班      女          89              79
+小美      2班      女          90              86
 </code></pre></div>
 
-
 <h2 id="_5">选择组</h2>
-<div class="codehilite"><pre><span></span><code><span class="n">grouped</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Class&#39;</span><span class="p">)</span> 
+<div class="highlight"><pre><span></span><code><span class="n">grouped</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Class&#39;</span><span class="p">)</span> 
 <span class="n">grouped</span><span class="o">.</span><span class="n">get_group</span><span class="p">(</span><span class="s2">&quot;1班&quot;</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">     Class Gender  Math Score  Language Score</span>
-<span class="err">Name</span>
-<span class="err">小明      1班      男          72              73</span>
-<span class="err">小红      1班      女          76              81</span>
-<span class="err">小华      1班      男          85              82</span>
+<div class="highlight"><pre><span></span><code>     Class Gender  Math Score  Language Score
+Name
+小明      1班      男          72              73
+小红      1班      女          76              81
+小华      1班      男          85              82
 </code></pre></div>
-
 
 <h2 id="cut"><code>cut</code> 函数</h2>
-<div class="codehilite"><pre><span></span><code><span class="n">pandas</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">retbins</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">precision</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>  
+<div class="highlight"><pre><span></span><code><span class="n">pandas</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">retbins</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">precision</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>  
            <span class="n">include_lowest</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </code></pre></div>
-
 
 <ul>
 <li><code>x</code>：一维的数组。</li>
@@ -2551,9 +2540,8 @@
 </ul>
 <p>返回的是一个<code>Categorical</code>对象或者<code>Series</code>对象。该函数类似于<code>numpy.histogram()</code>函数。</p>
 <h2 id="qcut"><code>qcut</code> 函数</h2>
-<div class="codehilite"><pre><span></span><code><span class="n">pandas</span><span class="o">.</span><span class="n">qcut</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">q</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">retbins</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">precision</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">pandas</span><span class="o">.</span><span class="n">qcut</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">q</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">retbins</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">precision</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 </code></pre></div>
-
 
 <ul>
 <li>
@@ -2645,22 +2633,19 @@
 <li>如果你传入了一组函数或者函数名，则得到的结果中，相应的列就用对应的函数名命名。如果你希望提供一个自己的名字，则使用<code>(name,function)</code>元组的序列。其中<code>name</code>用作结果列的列名。</li>
 <li>如果你希望对不同的列采用不同的聚合函数，则向<code>agg()</code>传入一个字典。字典的键就是列名，值就是你希望对该列采用的函数。</li>
 </ul>
-<div class="codehilite"><pre><span></span><code><span class="n">grouped</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Class&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">grouped</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Class&#39;</span><span class="p">)</span>
 <span class="n">grouped</span><span class="o">.</span><span class="n">aggregate</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">       Math Score  Language Score</span>
-<span class="err">Class</span>
-<span class="err">1班            233             236</span>
-<span class="err">2班            265             253</span>
+<div class="highlight"><pre><span></span><code>       Math Score  Language Score
+Class
+1班            233             236
+2班            265             253
 </code></pre></div>
-
 
 <h3 id="apply"><code>apply</code> 方法</h3>
-<div class="codehilite"><pre><span></span><code><span class="n">df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">raw</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">reduce</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">result_type</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(),</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">raw</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">reduce</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">result_type</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(),</span> <span class="o">**</span><span class="n">kwds</span><span class="p">)</span>
 </code></pre></div>
-
 
 <ul>
 <li><code>func</code>：一个可调用对象，它会应用于每一行或者每一列</li>
@@ -2682,16 +2667,14 @@
 </ul>
 </li>
 </ul>
-<div class="codehilite"><pre><span></span><code><span class="n">GroupBy</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">GroupBy</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 </code></pre></div>
-
 
 <ul>
 <li><code>apply</code>是另一个分组级运算。它是最一般化的分组级运算。它将待处理的对象拆分成多个片段，然后对各个片段调用传入的函数，最后尝试将各个片段组合到一起。</li>
 </ul>
-<div class="codehilite"><pre><span></span><code> <span class="n">GroupBy</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> 
+<div class="highlight"><pre><span></span><code> <span class="n">GroupBy</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> 
 </code></pre></div>
-
 
 <ul>
 <li>

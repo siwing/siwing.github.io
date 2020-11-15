@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-6.1.4">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.4">
     
     
       
@@ -820,6 +820,18 @@
   <li class="md-nav__item">
     <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.16.shutil.html" class="md-nav__link">
       6.16.shutil
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.17.test.html" class="md-nav__link">
+      6.17.test
     </a>
   </li>
 
@@ -2052,19 +2064,17 @@
                 
                   <h1>11.11.特征选择</h1>
                 
-                <div class="codehilite"><pre><span></span><code><span class="err">Windows 10</span>
-<span class="err">Python 3.6.9 @ MSC v.1915 64 bit (AMD64)</span>
-<span class="err">Latest build date 2020.05.15</span>
-<span class="err">sklearn version:  0.22.1</span>
+                <div class="highlight"><pre><span></span><code>Windows 10
+Python 3.6.9 @ MSC v.1915 64 bit (AMD64)
+Latest build date 2020.05.15
+sklearn version:  0.22.1
 </code></pre></div>
-
 
 <h2 id="_1">过滤式特征选取</h2>
 <h3 id="variancethreshold">VarianceThreshold</h3>
 <p><code>VarianceThreshold</code> 用于剔除方差很小的特征：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">VarianceThreshold</span><span class="p">(</span><span class="n">threshold</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">VarianceThreshold</span><span class="p">(</span><span class="n">threshold</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span>
 </code></pre></div>
-
 
 <ul>
 <li><code>threshold</code>：一个浮点数，指定方差的阈值。低于此阈值的特征将被剔除。</li>
@@ -2072,7 +2082,7 @@
 <p>例如，假设我们有一个特征是布尔值的数据集，我们想要移除那些在整个数据集中特征值为0或者为1的比例超过80%的特征。布尔特征是伯努利（ Bernoulli ）随机变量，变量的方差为:</p>
 <p>$$\operatorname{Var}[X]=p(1-p)$$</p>
 <p>因此，我们可以使用阈值<code>.8 * (1 - .8)</code>进行选择:    </p>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn.feature_selection</span> <span class="kn">import</span> <span class="n">VarianceThreshold</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn.feature_selection</span> <span class="kn">import</span> <span class="n">VarianceThreshold</span>
 
 <span class="n">X</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> 
      <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> 
@@ -2086,16 +2096,14 @@
 <span class="nb">print</span><span class="p">(</span><span class="n">sel</span><span class="o">.</span><span class="n">get_support</span><span class="p">(</span><span class="n">indices</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="k">[[0 1]</span>
- <span class="k">[1 0]</span>
- <span class="k">[0 0]</span>
- <span class="k">[1 1]</span>
- <span class="k">[1 0]</span>
- <span class="k">[1 1]]</span>
-<span class="k">[False  True  True]</span>
+<div class="highlight"><pre><span></span><code>[[0 1]
+ [1 0]
+ [0 0]
+ [1 1]
+ [1 0]
+ [1 1]]
+[False  True  True]
 </code></pre></div>
-
 
 <p>属性：</p>
 <ul>
@@ -2123,9 +2131,8 @@
 </ul>
 <h3 id="selectkbest">SelectKBest</h3>
 <p><code>SelectKBest</code> 用于保留统计得分最高的K个特征：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">SelectKBest</span><span class="p">(</span><span class="n">score_func</span><span class="o">=&lt;</span><span class="n">function</span> <span class="n">f_classif</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">SelectKBest</span><span class="p">(</span><span class="n">score_func</span><span class="o">=&lt;</span><span class="n">function</span> <span class="n">f_classif</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 </code></pre></div>
-
 
 <ul>
 <li>
@@ -2161,7 +2168,7 @@
 <li><code>pvalues_</code>：一个数组，给出了所有特征得分的<code>p-values</code> 。</li>
 </ul>
 <p>方法：参考<code>VarianceThreshold</code> 。</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_iris</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_iris</span>
 <span class="kn">from</span> <span class="nn">sklearn.feature_selection</span> <span class="kn">import</span> <span class="n">SelectKBest</span>
 <span class="kn">from</span> <span class="nn">sklearn.feature_selection</span> <span class="kn">import</span> <span class="n">chi2</span>
 
@@ -2172,17 +2179,14 @@
 <span class="nb">print</span><span class="p">(</span><span class="n">X_new</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">(150, 4)</span>
-<span class="err">(150, 2)</span>
+<div class="highlight"><pre><span></span><code>(150, 4)
+(150, 2)
 </code></pre></div>
-
 
 <h3 id="selectpercentile">SelectPercentile</h3>
 <p><code>SelectPercentile</code> 用于保留统计得分最高的 比例的特征：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">SelectPercentile</span><span class="p">(</span><span class="n">score_func</span><span class="o">=&lt;</span><span class="n">function</span> <span class="n">f_classif</span><span class="o">&gt;</span><span class="p">,</span><span class="n">percentile</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">SelectPercentile</span><span class="p">(</span><span class="n">score_func</span><span class="o">=&lt;</span><span class="n">function</span> <span class="n">f_classif</span><span class="o">&gt;</span><span class="p">,</span><span class="n">percentile</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 </code></pre></div>
-
 
 <ul>
 <li><code>score_func</code>：一个函数，用于给出统计指标。参考<code>SelectKBest</code>  。</li>
@@ -2193,9 +2197,8 @@
 <h2 id="_2">包裹式特征选取</h2>
 <h3 id="rfe">RFE</h3>
 <p><code>RFE</code>类用于实现包裹式特征选取，其原型为：</p>
-<div class="codehilite"><pre><span></span><code><span class="err">RFE(estimator, n_features_to_select=None,step=1,verbose=0)</span>
+<div class="highlight"><pre><span></span><code>RFE(estimator, n_features_to_select=None,step=1,verbose=0)
 </code></pre></div>
-
 
 <ul>
 <li><code>estimator</code>：一个学习器，它必须提供一个<code>.fit</code>方法和一个<code>.coef_</code>特征。其中<code>.coef_</code>特征中存放的是学习到的各特征的权重系数。</li>
@@ -2253,9 +2256,8 @@
 </ul>
 <h3 id="rfecv">RFECV</h3>
 <p><code>RFECV</code>是<code>RFE</code>的一个变体，它执行一个交叉验证来寻找最优的剩余特征数量，因此不需要指定保留多少个特征。</p>
-<div class="codehilite"><pre><span></span><code><span class="err">RFECV(estimator, step=1, cv=None, scoring=None,verbose=0)</span>
+<div class="highlight"><pre><span></span><code>RFECV(estimator, step=1, cv=None, scoring=None,verbose=0)
 </code></pre></div>
-
 
 <ul>
 <li>
@@ -2287,9 +2289,8 @@
 <p>方法：参考<code>RFE</code> 。</p>
 <h2 id="_3">嵌入式特征选择</h2>
 <p><code>SelectFromModel</code>用于实现嵌入式特征选取，其原型为：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">SelectFromModel</span><span class="p">(</span><span class="n">estimator</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">prefit</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">SelectFromModel</span><span class="p">(</span><span class="n">estimator</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">prefit</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </code></pre></div>
-
 
 <ul>
 <li><code>estimator</code>：一个学习器，它可以是未训练的(<code>prefit=False</code>)，或者是已经训练好的(<code>prefit=True</code>)。</li>

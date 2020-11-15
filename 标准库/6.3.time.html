@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-6.1.4">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.4">
     
     
       
@@ -946,6 +946,18 @@
   <li class="md-nav__item">
     <a href="6.16.shutil.html" class="md-nav__link">
       6.16.shutil
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="6.17.test.html" class="md-nav__link">
+      6.17.test
     </a>
   </li>
 
@@ -2110,18 +2122,16 @@
                 
                   <h1>6.3.time</h1>
                 
-                <div class="codehilite"><pre><span></span><code><span class="err">Windows 10</span>
-<span class="err">Python 3.7.3 @ MSC v.1915 64 bit (AMD64)</span>
+                <div class="highlight"><pre><span></span><code>Windows 10
+Python 3.7.3 @ MSC v.1915 64 bit (AMD64)
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">time</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">time</span>
 <span class="kn">import</span> <span class="nn">textwrap</span>
 <span class="kn">import</span> <span class="nn">warnings</span>
 <span class="c1"># from tools import Help as H</span>
 <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
 </code></pre></div>
-
 
 <p>时间模块 <code>time</code> 提供了几种不同类型时间的方法，每一种对不同目的都有用。</p>
 <ol>
@@ -2133,7 +2143,7 @@
 <h2 id="_1">各个时钟</h2>
 <p>时钟的实现细节因平台而异。使用 “get_clock_info ()” 来访问关于当前方式的基本信息，包括时钟的分辨率。</p>
 <p>当前Python版本所有可用的时钟如下：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">available_clocks</span> <span class="o">=</span> <span class="p">[</span>
+<div class="highlight"><pre><span></span><code><span class="n">available_clocks</span> <span class="o">=</span> <span class="p">[</span>
     <span class="p">(</span><span class="s1">&#39;clock&#39;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">clock</span><span class="p">),</span>
     <span class="p">(</span><span class="s1">&#39;monotonic&#39;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">monotonic</span><span class="p">),</span>
     <span class="p">(</span><span class="s1">&#39;perf_counter&#39;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">),</span>
@@ -2143,8 +2153,7 @@
 <span class="p">]</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="k">for</span> <span class="n">clock_name</span><span class="p">,</span> <span class="n">func</span> <span class="ow">in</span> <span class="n">available_clocks</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">clock_name</span><span class="p">,</span> <span class="n">func</span> <span class="ow">in</span> <span class="n">available_clocks</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">textwrap</span><span class="o">.</span><span class="n">dedent</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span><span class="se">\</span>
 <span class="s1">    </span><span class="si">{name}</span><span class="s1">:</span>
 <span class="s1">        adjustable    : </span><span class="si">{info.adjustable}</span><span class="s1"></span>
@@ -2159,78 +2168,72 @@
     <span class="p">)</span>
 </code></pre></div>
 
+<div class="highlight"><pre><span></span><code>clock:
+    adjustable    : False
+    implementation: QueryPerformanceCounter()
+    monotonic     : True
+    resolution    : 1e-07
+    current       : 516160.6853218
 
-<div class="codehilite"><pre><span></span><code><span class="n">clock</span><span class="o">:</span>
-    <span class="n">adjustable</span>    <span class="o">:</span> <span class="n">False</span>
-    <span class="n">implementation</span><span class="o">:</span> <span class="n">QueryPerformanceCounter</span><span class="o">()</span>
-    <span class="n">monotonic</span>     <span class="o">:</span> <span class="n">True</span>
-    <span class="n">resolution</span>    <span class="o">:</span> <span class="mi">1</span><span class="n">e</span><span class="o">-</span><span class="mi">07</span>
-    <span class="n">current</span>       <span class="o">:</span> <span class="mf">516160.6853218</span>
+monotonic:
+    adjustable    : False
+    implementation: GetTickCount64()
+    monotonic     : True
+    resolution    : 0.015625
+    current       : 1123921.625
 
-<span class="n">monotonic</span><span class="o">:</span>
-    <span class="n">adjustable</span>    <span class="o">:</span> <span class="n">False</span>
-    <span class="n">implementation</span><span class="o">:</span> <span class="n">GetTickCount64</span><span class="o">()</span>
-    <span class="n">monotonic</span>     <span class="o">:</span> <span class="n">True</span>
-    <span class="n">resolution</span>    <span class="o">:</span> <span class="mf">0.015625</span>
-    <span class="n">current</span>       <span class="o">:</span> <span class="mf">1123921.625</span>
+perf_counter:
+    adjustable    : False
+    implementation: QueryPerformanceCounter()
+    monotonic     : True
+    resolution    : 1e-07
+    current       : 516160.6890105
 
-<span class="n">perf_counter</span><span class="o">:</span>
-    <span class="n">adjustable</span>    <span class="o">:</span> <span class="n">False</span>
-    <span class="n">implementation</span><span class="o">:</span> <span class="n">QueryPerformanceCounter</span><span class="o">()</span>
-    <span class="n">monotonic</span>     <span class="o">:</span> <span class="n">True</span>
-    <span class="n">resolution</span>    <span class="o">:</span> <span class="mi">1</span><span class="n">e</span><span class="o">-</span><span class="mi">07</span>
-    <span class="n">current</span>       <span class="o">:</span> <span class="mf">516160.6890105</span>
+process_time:
+    adjustable    : False
+    implementation: GetProcessTimes()
+    monotonic     : True
+    resolution    : 1e-07
+    current       : 565.125
 
-<span class="n">process_time</span><span class="o">:</span>
-    <span class="n">adjustable</span>    <span class="o">:</span> <span class="n">False</span>
-    <span class="n">implementation</span><span class="o">:</span> <span class="n">GetProcessTimes</span><span class="o">()</span>
-    <span class="n">monotonic</span>     <span class="o">:</span> <span class="n">True</span>
-    <span class="n">resolution</span>    <span class="o">:</span> <span class="mi">1</span><span class="n">e</span><span class="o">-</span><span class="mi">07</span>
-    <span class="n">current</span>       <span class="o">:</span> <span class="mf">565.125</span>
+time:
+    adjustable    : True
+    implementation: GetSystemTimeAsFileTime()
+    monotonic     : False
+    resolution    : 0.015625
+    current       : 1580735857.8439054
 
-<span class="n">time</span><span class="o">:</span>
-    <span class="n">adjustable</span>    <span class="o">:</span> <span class="n">True</span>
-    <span class="n">implementation</span><span class="o">:</span> <span class="n">GetSystemTimeAsFileTime</span><span class="o">()</span>
-    <span class="n">monotonic</span>     <span class="o">:</span> <span class="n">False</span>
-    <span class="n">resolution</span>    <span class="o">:</span> <span class="mf">0.015625</span>
-    <span class="n">current</span>       <span class="o">:</span> <span class="mf">1580735857.8439054</span>
-
-<span class="n">thread_time</span><span class="o">:</span>
-    <span class="n">adjustable</span>    <span class="o">:</span> <span class="n">False</span>
-    <span class="n">implementation</span><span class="o">:</span> <span class="n">GetThreadTimes</span><span class="o">()</span>
-    <span class="n">monotonic</span>     <span class="o">:</span> <span class="n">True</span>
-    <span class="n">resolution</span>    <span class="o">:</span> <span class="mi">1</span><span class="n">e</span><span class="o">-</span><span class="mi">07</span>
-    <span class="n">current</span>       <span class="o">:</span> <span class="mf">528.671875</span>
+thread_time:
+    adjustable    : False
+    implementation: GetThreadTimes()
+    monotonic     : True
+    resolution    : 1e-07
+    current       : 528.671875
 </code></pre></div>
-
 
 <p>Windows 10 的输出显示其 perf_counter 和 clocks 模块调用相同的底层。clocks 在Python 3.8会被移除。        </p>
 <h2 id="time">挂钟时间——time</h2>
 <p><code>time</code> 模块的核心函数之一是 <code>time()</code> ，它可以把从 「epoch」 开始之后的秒数以浮点数的格式返回。</p>
-<div class="codehilite"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The time is:&#39;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">())</span>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The time is:&#39;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">())</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The time is:&#39;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">time_ns</span><span class="p">())</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">The time is: 1580735857.8729014</span>
-<span class="err">The time is: 1580735857877901000</span>
+<div class="highlight"><pre><span></span><code>The time is: 1580735857.8729014
+The time is: 1580735857877901000
 </code></pre></div>
-
 
 <p>时元 (epoch) 是测量时间的开始，对于 Unix 系统来说，时元是 1970 年 1 月 1 日 0 点。 虽然该数值一直是一个浮点数，但是它的实际精度是依赖于平台的。</p>
 <p>虽然浮点表示在存储或者比较日期时非常有效，但是，在生成人类可读的表示时就显得有点力不从心。对于记录或者打印时间， <code>ctime()</code> 可能会更有效。</p>
 <p><code>ctime()</code>将自epoch以来的时间（以秒为单位）转换为本地时间的字符串。这等效于<code>asctime(localtime(seconds))</code>。如果时间元组不存在，则使用localtime()返回的当前时间。</p>
-<div class="codehilite"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The time is:&#39;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">ctime</span><span class="p">())</span>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;The time is:&#39;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">ctime</span><span class="p">())</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">The time is: Mon Feb  3 21:17:37 2020</span>
+<div class="highlight"><pre><span></span><code>The time is: Mon Feb  3 21:17:37 2020
 </code></pre></div>
-
 
 <h2 id="monotonic">单调时钟——monotonic</h2>
 <p>因为 <code>time()</code> 函数返回的时间值是系统时钟，并且，为了在多台计算机之间同步时钟，系统时钟可以被用户或者是系统服务更改；所以，在重复调用 <code>time()</code> 函数时产生的时间值可能会有前后波动。在测量持续时间或者使用这些时间进行计算的时候，这可能会导致意料之外的行为。通过使用 <code>monotonic()</code> 函数就可以避免这些情况，因为 <code>monotonic()</code> 函数总是返回前向的时间值。</p>
-<div class="codehilite"><pre><span></span><code><span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">monotonic</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">monotonic</span><span class="p">()</span>
 <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
 <span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">monotonic</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;start : </span><span class="si">{:&gt;9.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">start</span><span class="p">))</span>
@@ -2238,49 +2241,43 @@
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;span  : </span><span class="si">{:&gt;9.2f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">end</span> <span class="o">-</span> <span class="n">start</span><span class="p">))</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="n">start</span> <span class="o">:</span> <span class="mf">1123921.73</span>
-<span class="n">end</span>   <span class="o">:</span> <span class="mf">1123921.84</span>
-<span class="n">span</span>  <span class="o">:</span>      <span class="mf">0.11</span>
+<div class="highlight"><pre><span></span><code>start : 1123921.73
+end   : 1123921.84
+span  :      0.11
 </code></pre></div>
-
 
 <p>我们并没有定义单调时钟的起始点。因此，<mark>只有在使用其它时钟值进行计算时，单调时钟的返回值才会有用。</mark> 在这个例子中，睡眠的持续时间就是用 <code>monotonic()</code> 函数测量的。</p>
 <h2 id="_2">处理器时钟时间</h2>
 <p><code>time()</code> 函数返回的是挂钟时间， <code>perf_counter()</code> 函数返回的是处理器时钟时间。 <code>perf_counter()</code> 函数的返回值反映了程序运行时使用的实际时间。</p>
-<div class="codehilite"><pre><span></span><code><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
     <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">ctime</span><span class="p">(),</span> <span class="s1">&#39;: </span><span class="si">{:0.3f}</span><span class="s1"> </span><span class="si">{:0.3f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">(),</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()))</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">Mon Feb  3 21:17:39 2020 : 1580735859.086 516161.933</span>
-<span class="err">Mon Feb  3 21:17:40 2020 : 1580735860.087 516162.934</span>
-<span class="err">Mon Feb  3 21:17:41 2020 : 1580735861.088 516163.935</span>
-<span class="err">Mon Feb  3 21:17:42 2020 : 1580735862.089 516164.936</span>
+<div class="highlight"><pre><span></span><code>Mon Feb  3 21:17:39 2020 : 1580735859.086 516161.933
+Mon Feb  3 21:17:40 2020 : 1580735860.087 516162.934
+Mon Feb  3 21:17:41 2020 : 1580735861.088 516163.935
+Mon Feb  3 21:17:42 2020 : 1580735862.089 516164.936
 </code></pre></div>
-
 
 <p>如果你想要在自己的系统上运行这个例子，需要想办法增加单次内循环的循环周期或者显著地增加循环的总次数，才可以真正地看到时间差异。（如果循环周期太短，循环次数太少的话，返回的时间值可能还没有来得及变化，整个程序就结束了。）</p>
 <p>通常情况下，如果程序什么事情没有做，处理器时钟就不会滴答计时，或者计时量很小。</p>
-<div class="codehilite"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">ctime</span><span class="p">(),</span> <span class="s1">&#39;: </span><span class="si">{:0.3f}</span><span class="s1"> </span><span class="si">{:0.3f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">(),</span> <span class="n">time</span><span class="o">.</span><span class="n">clock</span><span class="p">()))</span>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">ctime</span><span class="p">(),</span> <span class="s1">&#39;: </span><span class="si">{:0.3f}</span><span class="s1"> </span><span class="si">{:0.3f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">(),</span> <span class="n">time</span><span class="o">.</span><span class="n">clock</span><span class="p">()))</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Sleeping&#39;</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">ctime</span><span class="p">(),</span> <span class="s1">&#39;: </span><span class="si">{:0.3f}</span><span class="s1"> </span><span class="si">{:0.3f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">(),</span> <span class="n">time</span><span class="o">.</span><span class="n">clock</span><span class="p">()))</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">Mon Feb  3 21:17:42 2020 : 1580735862.112 516164.959</span>
-<span class="err">Sleeping</span>
-<span class="err">Mon Feb  3 21:17:42 2020 : 1580735862.113 516164.960</span>
-<span class="err">Sleeping</span>
-<span class="err">Mon Feb  3 21:17:42 2020 : 1580735862.113 516164.961</span>
-<span class="err">Sleeping</span>
-<span class="err">Mon Feb  3 21:17:42 2020 : 1580735862.114 516164.961</span>
-<span class="err">Sleeping</span>
-<span class="err">Mon Feb  3 21:17:42 2020 : 1580735862.114 516164.961</span>
+<div class="highlight"><pre><span></span><code>Mon Feb  3 21:17:42 2020 : 1580735862.112 516164.959
+Sleeping
+Mon Feb  3 21:17:42 2020 : 1580735862.113 516164.960
+Sleeping
+Mon Feb  3 21:17:42 2020 : 1580735862.113 516164.961
+Sleeping
+Mon Feb  3 21:17:42 2020 : 1580735862.114 516164.961
+Sleeping
+Mon Feb  3 21:17:42 2020 : 1580735862.114 516164.961
 </code></pre></div>
-
 
 <h2 id="_3">性能计数器</h2>
 <p>有一个高分辨率的单调时钟来衡量性能是非常重要的。要想确定最佳时钟数据源，需要一些特定于平台的知识，这些知识由 Python 中的 <code>perf_counter()</code> 提供。</p>
@@ -2292,23 +2289,21 @@
 <li><code>localtime()</code> 函数返回的是与当前时区的当前时间 。</li>
 </ol>
 <p><code>mktime()</code> 接收一个 <code>struct_time</code> 型数值并将其转换为浮点型数值。    </p>
-<div class="codehilite"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">gmtime</span><span class="p">())</span>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">gmtime</span><span class="p">())</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">())</span>
 </code></pre></div>
 
+<div class="highlight"><pre><span></span><code>time.struct_time(tm_year=2020, tm_mon=2, tm_mday=3, tm_hour=13,
+tm_min=17, tm_sec=42, tm_wday=0, tm_yday=34, tm_isdst=0)
 
-<div class="codehilite"><pre><span></span><code><span class="n">time</span><span class="p">.</span><span class="n">struct_time</span><span class="p">(</span><span class="n">tm_year</span><span class="o">=</span><span class="mi">2020</span><span class="p">,</span> <span class="n">tm_mon</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">tm_mday</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">tm_hour</span><span class="o">=</span><span class="mi">13</span><span class="p">,</span>
-<span class="n">tm_min</span><span class="o">=</span><span class="mi">17</span><span class="p">,</span> <span class="n">tm_sec</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">tm_wday</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">tm_yday</span><span class="o">=</span><span class="mi">34</span><span class="p">,</span> <span class="n">tm_isdst</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-
-<span class="n">time</span><span class="p">.</span><span class="n">struct_time</span><span class="p">(</span><span class="n">tm_year</span><span class="o">=</span><span class="mi">2020</span><span class="p">,</span> <span class="n">tm_mon</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">tm_mday</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">tm_hour</span><span class="o">=</span><span class="mi">21</span><span class="p">,</span>
-<span class="n">tm_min</span><span class="o">=</span><span class="mi">17</span><span class="p">,</span> <span class="n">tm_sec</span><span class="o">=</span><span class="mi">42</span><span class="p">,</span> <span class="n">tm_wday</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">tm_yday</span><span class="o">=</span><span class="mi">34</span><span class="p">,</span> <span class="n">tm_isdst</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+time.struct_time(tm_year=2020, tm_mon=2, tm_mday=3, tm_hour=21,
+tm_min=17, tm_sec=42, tm_wday=0, tm_yday=34, tm_isdst=0)
 </code></pre></div>
-
 
 <h2 id="_4">与时区相关的工作</h2>
 <p>确定当前时间的函数依赖于时区设置，时区可以由程序设置，也可以使用系统的默认时区设置。改变时区并不会改变实际的时间，只是改变它的表现方式。<code>time</code>模块有4个属性记录了时区的信息：</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span>
 
 <span class="k">def</span> <span class="nf">show_zone_info</span><span class="p">():</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;  TZ    :&#39;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;TZ&#39;</span><span class="p">,</span> <span class="s1">&#39;(not set)&#39;</span><span class="p">))</span>
@@ -2322,86 +2317,71 @@
 <span class="n">show_zone_info</span><span class="p">()</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">  TZ    : (not set)</span>
-<span class="err">  tzname: (&#39;中国标准时间&#39;, &#39;中国夏令时&#39;)</span>
-<span class="err">  Zone  : -28800 (-8.0)</span>
-<span class="err">  DST   : 0</span>
-<span class="err">  ALZone  : -32400 (-9.0)</span>
-<span class="err">  Time  : Mon Feb  3 21:17:42 2020</span>
+<div class="highlight"><pre><span></span><code>  TZ    : (not set)
+  tzname: (&#39;中国标准时间&#39;, &#39;中国夏令时&#39;)
+  Zone  : -28800 (-8.0)
+  DST   : 0
+  ALZone  : -32400 (-9.0)
+  Time  : Mon Feb  3 21:17:42 2020
 </code></pre></div>
-
 
 <h2 id="_5">解析和格式化时间</h2>
 <p>有两个函数 —— <code>strptime()</code> 和 <code>strftime()</code> —— 可以使时间值在 <code>struct_time</code> 表示和字符串表示之间相互转换。有一个很长的格式说明列表可以用来支持不同格式的输入和输出。完整的列表记录在 <code>time</code> 模块的库文件中。</p>
 <p>这个例子将当前时间从字符串格式转换成 <code>struct_time</code> 实例，然后又将其转换为字符串格式。</p>
 <h3 id="struct_time_1">struct_time → 浮点数时间（秒）</h3>
-<div class="codehilite"><pre><span></span><code><span class="n">struct_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span class="n">struct_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">struct_time</span><span class="p">)</span>
 
 <span class="n">seconds</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">mktime</span><span class="p">(</span><span class="n">struct_time</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">seconds</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">time.struct_time(tm_year=2020, tm_mon=2, tm_mday=3, tm_hour=21,</span>
-<span class="err">tm_min=17, tm_sec=42, tm_wday=0, tm_yday=34, tm_isdst=0)</span>
-<span class="err">1580735862.0</span>
+<div class="highlight"><pre><span></span><code>time.struct_time(tm_year=2020, tm_mon=2, tm_mday=3, tm_hour=21,
+tm_min=17, tm_sec=42, tm_wday=0, tm_yday=34, tm_isdst=0)
+1580735862.0
 </code></pre></div>
-
 
 <h3 id="struct_time_2">浮点数时间 → struct_time</h3>
 <h3 id="_6">浮点数时间 → 字符串时间</h3>
-<div class="codehilite"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">())</span>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">())</span>
 <span class="n">time</span><span class="o">.</span><span class="n">ctime</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">())</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">1580735862.2027004</span>
+<div class="highlight"><pre><span></span><code>1580735862.2027004
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">&#39;Mon Feb  3 21:17:42 2020&#39;</span>
+<div class="highlight"><pre><span></span><code>&#39;Mon Feb  3 21:17:42 2020&#39;
 </code></pre></div>
-
 
 <h3 id="struct_time_3">字符串时间 → struct_time</h3>
-<div class="codehilite"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">ctime</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()))</span>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">ctime</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()))</span>
 <span class="n">time</span><span class="o">.</span><span class="n">strptime</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">ctime</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()))</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">Mon Feb  3 21:17:42 2020</span>
+<div class="highlight"><pre><span></span><code>Mon Feb  3 21:17:42 2020
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">time.struct_time(tm_year=2020, tm_mon=2, tm_mday=3, tm_hour=21,</span>
-<span class="err">tm_min=17, tm_sec=42, tm_wday=0, tm_yday=34, tm_isdst=-1)</span>
+<div class="highlight"><pre><span></span><code>time.struct_time(tm_year=2020, tm_mon=2, tm_mday=3, tm_hour=21,
+tm_min=17, tm_sec=42, tm_wday=0, tm_yday=34, tm_isdst=-1)
 </code></pre></div>
-
 
 <h3 id="struct_time_4">struct_time → 字符串时间</h3>
-<div class="codehilite"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">())</span>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">())</span>
 <span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%a</span><span class="s2"> %b </span><span class="si">%d</span><span class="s2"> %H:%M:%S %Y&quot;</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">())</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">time.struct_time(tm_year=2020, tm_mon=2, tm_mday=3, tm_hour=21,</span>
-<span class="err">tm_min=17, tm_sec=42, tm_wday=0, tm_yday=34, tm_isdst=0)</span>
+<div class="highlight"><pre><span></span><code>time.struct_time(tm_year=2020, tm_mon=2, tm_mday=3, tm_hour=21,
+tm_min=17, tm_sec=42, tm_wday=0, tm_yday=34, tm_isdst=0)
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">&#39;Mon Feb 03 21:17:42 2020&#39;</span>
+<div class="highlight"><pre><span></span><code>&#39;Mon Feb 03 21:17:42 2020&#39;
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="n">time</span><span class="o">.</span><span class="n">asctime</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">())</span>
+<div class="highlight"><pre><span></span><code><span class="n">time</span><span class="o">.</span><span class="n">asctime</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">())</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">&#39;Mon Feb  3 21:17:42 2020&#39;</span>
+<div class="highlight"><pre><span></span><code>&#39;Mon Feb  3 21:17:42 2020&#39;
 </code></pre></div>
-
 
 <div class="footnote">
 <hr />

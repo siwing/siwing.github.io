@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-6.1.4">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.4">
     
     
       
@@ -820,6 +820,18 @@
   <li class="md-nav__item">
     <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.16.shutil.html" class="md-nav__link">
       6.16.shutil
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.17.test.html" class="md-nav__link">
+      6.17.test
     </a>
   </li>
 
@@ -2084,19 +2096,17 @@
                 
                   <h1>9.3.索引</h1>
                 
-                <div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">toolkit.Help</span> <span class="kn">import</span> <span class="n">Help</span> <span class="k">as</span> <span class="n">H</span>
+                <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">toolkit.Help</span> <span class="kn">import</span> <span class="n">Help</span> <span class="k">as</span> <span class="n">H</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">Windows 10</span>
-<span class="err">Python 3.7.3 @ MSC v.1915 64 bit (AMD64)</span>
-<span class="err">Latest build date 2020.04.11</span>
-<span class="err">pandas version:  1.0.1</span>
-<span class="err">numpy version:  1.18.1</span>
+<div class="highlight"><pre><span></span><code>Windows 10
+Python 3.7.3 @ MSC v.1915 64 bit (AMD64)
+Latest build date 2020.04.11
+pandas version:  1.0.1
+numpy version:  1.18.1
 </code></pre></div>
-
 
 <p>Series和DataFrame的索引方式很相似：</p>
 <ol>
@@ -2110,234 +2120,204 @@
 <li>Series可以通过<strong><code>[]</code></strong>使用<strong>整数</strong>、<strong>标签</strong>选择行<code>[row_index]</code>；DataFrame只能通过<code>[column_index]</code>使用<strong>列标签</strong>选择列</li>
 </ol>
 <p>创建示例Series和DataFrame：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">ser</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mf">4.5</span><span class="p">,</span> <span class="mf">7.2</span><span class="p">,</span> <span class="o">-</span><span class="mf">5.3</span><span class="p">,</span> <span class="mf">3.6</span><span class="p">,</span> <span class="mf">6.1</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">])</span>
+<div class="highlight"><pre><span></span><code><span class="n">ser</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mf">4.5</span><span class="p">,</span> <span class="mf">7.2</span><span class="p">,</span> <span class="o">-</span><span class="mf">5.3</span><span class="p">,</span> <span class="mf">3.6</span><span class="p">,</span> <span class="mf">6.1</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">])</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">ser</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">d    4.5</span>
-<span class="err">b    7.2</span>
-<span class="err">a   -5.3</span>
-<span class="err">c    3.6</span>
-<span class="err">b    6.1</span>
-<span class="c">dtype: float64</span>
+<div class="highlight"><pre><span></span><code>d    4.5
+b    7.2
+a   -5.3
+c    3.6
+b    6.1
+dtype: float64
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;one&#39;</span> <span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">]),</span>
+<div class="highlight"><pre><span></span><code><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;one&#39;</span> <span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">]),</span>
      <span class="s1">&#39;two&#39;</span> <span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">])}</span>
 
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">   one  two</span>
-<span class="err">a  1.0    1</span>
-<span class="err">b  2.0    2</span>
-<span class="err">c  3.0    3</span>
-<span class="err">d  NaN    4</span>
-<span class="err">e  5.0    5</span>
+<div class="highlight"><pre><span></span><code>   one  two
+a  1.0    1
+b  2.0    2
+c  3.0    3
+d  NaN    4
+e  5.0    5
 </code></pre></div>
 
-
 <h2 id="_1">通过行标签选择行</h2>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Series</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># Series</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">ser</span><span class="o">.</span><span class="n">b</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">ser</span><span class="p">[</span><span class="s2">&quot;b&quot;</span><span class="p">])</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">ser</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;b&quot;</span><span class="p">])</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">b    7.2</span>
-<span class="err">b    6.1</span>
-<span class="c">dtype: float64</span>
-<span class="err">b    7.2</span>
-<span class="err">b    6.1</span>
-<span class="c">dtype: float64</span>
-<span class="err">b    7.2</span>
-<span class="err">b    6.1</span>
-<span class="c">dtype: float64</span>
+<div class="highlight"><pre><span></span><code>b    7.2
+b    6.1
+dtype: float64
+b    7.2
+b    6.1
+dtype: float64
+b    7.2
+b    6.1
+dtype: float64
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="c1"># DataFrame</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># DataFrame</span>
 <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">]</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">one    1.0</span>
-<span class="err">two    1.0</span>
-<span class="c">Name: a, dtype: float64</span>
+<div class="highlight"><pre><span></span><code>one    1.0
+two    1.0
+Name: a, dtype: float64
 </code></pre></div>
 
-
 <h2 id="_2">通过行标签选择多行</h2>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Series</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># Series</span>
 <span class="n">ser</span><span class="p">[[</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">]]</span>
 <span class="n">ser</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">]]</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">b    7.2</span>
-<span class="err">b    6.1</span>
-<span class="err">a   -5.3</span>
-<span class="c">dtype: float64</span>
+<div class="highlight"><pre><span></span><code>b    7.2
+b    6.1
+a   -5.3
+dtype: float64
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="c1"># DataFrame</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># DataFrame</span>
 <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">]]</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">   one  two</span>
-<span class="err">a  1.0    1</span>
-<span class="err">b  2.0    2</span>
+<div class="highlight"><pre><span></span><code>   one  two
+a  1.0    1
+b  2.0    2
 </code></pre></div>
-
 
 <p>不能使用<code>()</code></p>
-<div class="codehilite"><pre><span></span><code><span class="n">ser</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">)]</span>
+<div class="highlight"><pre><span></span><code><span class="n">ser</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">)]</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">---------------------------------------------------------------------------IndexingError</span>
-<span class="err">Traceback (most recent call last)&lt;ipython-input-1-36ce192f3c34&gt; in</span>
-<span class="err">&lt;module&gt;</span>
-<span class="err">----&gt; 1 ser.loc[(&quot;b&quot;, &quot;a&quot;)]</span>
-<span class="c">G:\Installed\Anaconda3\lib\site-packages\pandas\core\indexing.py in</span>
-<span class="err">__getitem__(self, key)</span>
-<span class="err">   1759                 except (KeyError, IndexError, AttributeError):</span>
-<span class="err">   1760                     pass</span>
-<span class="err">-&gt; 1761             return self._getitem_tuple(key)</span>
-<span class="err">   1762         else:</span>
-<span class="err">   1763             # we by definition only have the 0th axis</span>
-<span class="c">G:\Installed\Anaconda3\lib\site-packages\pandas\core\indexing.py in</span>
-<span class="err">_getitem_tuple(self, tup)</span>
-<span class="err">   1274</span>
-<span class="err">   1275         # no multi-index, so validate all of the indexers</span>
-<span class="err">-&gt; 1276         self._has_valid_tuple(tup)</span>
-<span class="err">   1277</span>
-<span class="err">   1278         # ugly hack for GH #836</span>
-<span class="c">G:\Installed\Anaconda3\lib\site-packages\pandas\core\indexing.py in</span>
-<span class="err">_has_valid_tuple(self, key)</span>
-<span class="err">    698         for i, k in enumerate(key):</span>
-<span class="err">    699             if i &gt;= self.ndim:</span>
-<span class="err">--&gt; 700                 raise IndexingError(&quot;Too many indexers&quot;)</span>
-<span class="err">    701             try:</span>
-<span class="err">    702                 self._validate_key(k, i)</span>
-<span class="c">IndexingError: Too many indexers</span>
+<div class="highlight"><pre><span></span><code>---------------------------------------------------------------------------IndexingError
+Traceback (most recent call last)&lt;ipython-input-1-36ce192f3c34&gt; in
+&lt;module&gt;
+----&gt; 1 ser.loc[(&quot;b&quot;, &quot;a&quot;)]
+G:\Installed\Anaconda3\lib\site-packages\pandas\core\indexing.py in
+__getitem__(self, key)
+   1759                 except (KeyError, IndexError, AttributeError):
+   1760                     pass
+-&gt; 1761             return self._getitem_tuple(key)
+   1762         else:
+   1763             # we by definition only have the 0th axis
+G:\Installed\Anaconda3\lib\site-packages\pandas\core\indexing.py in
+_getitem_tuple(self, tup)
+   1274
+   1275         # no multi-index, so validate all of the indexers
+-&gt; 1276         self._has_valid_tuple(tup)
+   1277
+   1278         # ugly hack for GH #836
+G:\Installed\Anaconda3\lib\site-packages\pandas\core\indexing.py in
+_has_valid_tuple(self, key)
+    698         for i, k in enumerate(key):
+    699             if i &gt;= self.ndim:
+--&gt; 700                 raise IndexingError(&quot;Too many indexers&quot;)
+    701             try:
+    702                 self._validate_key(k, i)
+IndexingError: Too many indexers
 </code></pre></div>
-
 
 <h2 id="_3">通过整数选择行</h2>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Series</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># Series</span>
 <span class="n">ser</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 <span class="n">ser</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">7.2</span>
+<div class="highlight"><pre><span></span><code>7.2
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="c1"># DataFrame</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># DataFrame</span>
 <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">one    1.0</span>
-<span class="err">two    1.0</span>
-<span class="c">Name: a, dtype: float64</span>
+<div class="highlight"><pre><span></span><code>one    1.0
+two    1.0
+Name: a, dtype: float64
 </code></pre></div>
 
-
 <h2 id="_4">通过整数选择多行</h2>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Series</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># Series</span>
 <span class="n">ser</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]]</span>
 <span class="n">ser</span><span class="o">.</span><span class="n">iloc</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]]</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">b    7.2</span>
-<span class="err">d    4.5</span>
-<span class="c">dtype: float64</span>
+<div class="highlight"><pre><span></span><code>b    7.2
+d    4.5
+dtype: float64
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="c1"># DataFrame</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># DataFrame</span>
 <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">   one  two</span>
-<span class="err">a  1.0    1</span>
-<span class="err">b  2.0    2</span>
+<div class="highlight"><pre><span></span><code>   one  two
+a  1.0    1
+b  2.0    2
 </code></pre></div>
-
 
 <h2 id="_5">通过切片选择多行</h2>
 <p>切片包括<strong>整数切片</strong>和<strong>标签切片</strong>。</p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Series</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># Series</span>
 <span class="n">ser</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
 <span class="n">ser</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">b    7.2</span>
-<span class="err">a   -5.3</span>
-<span class="c">dtype: float64</span>
+<div class="highlight"><pre><span></span><code>b    7.2
+a   -5.3
+dtype: float64
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="c1"># DataFrame</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># DataFrame</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">:</span><span class="mi">2</span><span class="p">])</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">])</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">   one  two</span>
-<span class="err">a  1.0    1</span>
-<span class="err">c  3.0    3</span>
-<span class="err">   one  two</span>
-<span class="err">a  1.0    1</span>
-<span class="err">b  2.0    2</span>
+<div class="highlight"><pre><span></span><code>   one  two
+a  1.0    1
+c  3.0    3
+   one  two
+a  1.0    1
+b  2.0    2
 </code></pre></div>
 
-
 <p><mark>切片有整数值的普通切片和标签切片。</mark> <strong>利用标签的切片运算与普通的Python切片运算不同，其末端是包含的（inclusive），即封闭区间。</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Series</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># Series</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">ser</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">])</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">ser</span><span class="p">[</span><span class="s2">&quot;d&quot;</span><span class="p">:</span><span class="s2">&quot;a&quot;</span><span class="p">])</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">d    4.5</span>
-<span class="err">b    7.2</span>
-<span class="c">dtype: float64</span>
-<span class="err">d    4.5</span>
-<span class="err">b    7.2</span>
-<span class="err">a   -5.3</span>
-<span class="c">dtype: float64</span>
+<div class="highlight"><pre><span></span><code>d    4.5
+b    7.2
+dtype: float64
+d    4.5
+b    7.2
+a   -5.3
+dtype: float64
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="c1"># DataFrame</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># DataFrame</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">:</span><span class="s2">&quot;c&quot;</span><span class="p">])</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">:</span><span class="mi">2</span><span class="p">])</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">   one  two</span>
-<span class="err">a  1.0    1</span>
-<span class="err">b  2.0    2</span>
-<span class="err">c  3.0    3</span>
-<span class="err">   one  two</span>
-<span class="err">a  1.0    1</span>
-<span class="err">c  3.0    3</span>
+<div class="highlight"><pre><span></span><code>   one  two
+a  1.0    1
+b  2.0    2
+c  3.0    3
+   one  two
+a  1.0    1
+c  3.0    3
 </code></pre></div>
-
 
 <h2 id="_6">通过列标签选择列</h2>
 <p>与Series不同的是，DataFrame还有列选择。但是DataFrame的列选择和行选择不同。</p>
@@ -2346,160 +2326,137 @@
 <li>DataFrame的列在标签赋值后，只能使用标签索引。</li>
 </ol>
 <p>选取DataFrame的列，实际上是获取了一个Series，返回的Series拥有原DataFrame相同的行索引。</p>
-<div class="codehilite"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">one</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">one</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;one&quot;</span><span class="p">])</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">a    1.0</span>
-<span class="err">b    2.0</span>
-<span class="err">c    3.0</span>
-<span class="err">d    NaN</span>
-<span class="err">e    5.0</span>
-<span class="c">Name: one, dtype: float64</span>
-<span class="err">a    1.0</span>
-<span class="err">b    2.0</span>
-<span class="err">c    3.0</span>
-<span class="err">d    NaN</span>
-<span class="err">e    5.0</span>
-<span class="c">Name: one, dtype: float64</span>
+<div class="highlight"><pre><span></span><code>a    1.0
+b    2.0
+c    3.0
+d    NaN
+e    5.0
+Name: one, dtype: float64
+a    1.0
+b    2.0
+c    3.0
+d    NaN
+e    5.0
+Name: one, dtype: float64
 </code></pre></div>
-
 
 <h2 id="_7">通过列标签选择多列</h2>
-<div class="codehilite"><pre><span></span><code><span class="n">df</span><span class="p">[[</span><span class="s2">&quot;one&quot;</span><span class="p">,</span> <span class="s2">&quot;two&quot;</span><span class="p">]]</span>
+<div class="highlight"><pre><span></span><code><span class="n">df</span><span class="p">[[</span><span class="s2">&quot;one&quot;</span><span class="p">,</span> <span class="s2">&quot;two&quot;</span><span class="p">]]</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">   one  two</span>
-<span class="err">a  1.0    1</span>
-<span class="err">b  2.0    2</span>
-<span class="err">c  3.0    3</span>
-<span class="err">d  NaN    4</span>
-<span class="err">e  5.0    5</span>
+<div class="highlight"><pre><span></span><code>   one  two
+a  1.0    1
+b  2.0    2
+c  3.0    3
+d  NaN    4
+e  5.0    5
 </code></pre></div>
-
 
 <p><strong>注意：</strong>通过索引方式返回的列只是相应数据的视图而已，   并不是副本。因此，对返回的Series所做的任何修改全都会反映到原DataFrame上。通过Series的copy方法即可显式地复制列。</p>
-<div class="codehilite"><pre><span></span><code><span class="n">df</span><span class="p">[</span><span class="s2">&quot;one&quot;</span><span class="p">][</span><span class="s2">&quot;a&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+<div class="highlight"><pre><span></span><code><span class="n">df</span><span class="p">[</span><span class="s2">&quot;one&quot;</span><span class="p">][</span><span class="s2">&quot;a&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
 <span class="n">df</span>
 </code></pre></div>
 
+<div class="highlight"><pre><span></span><code>.\setup_m.py:1: SettingWithCopyWarning:
+A value is trying to be set on a copy of a slice from a DataFrame
 
-<div class="codehilite"><pre><span></span><code><span class="o">.</span>\<span class="n">setup_m</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">1</span><span class="p">:</span> <span class="n">SettingWithCopyWarning</span><span class="p">:</span>
-<span class="n">A</span> <span class="n">value</span> <span class="ow">is</span> <span class="n">trying</span> <span class="n">to</span> <span class="n">be</span> <span class="nb">set</span> <span class="n">on</span> <span class="n">a</span> <span class="n">copy</span> <span class="n">of</span> <span class="n">a</span> <span class="nb">slice</span> <span class="kn">from</span> <span class="nn">a</span> <span class="nn">DataFrame</span>
-
-<span class="n">See</span> <span class="n">the</span> <span class="n">caveats</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">documentation</span><span class="p">:</span>
-<span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">pandas</span><span class="o">.</span><span class="n">pydata</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">pandas</span><span class="o">-</span>
-<span class="n">docs</span><span class="o">/</span><span class="n">stable</span><span class="o">/</span><span class="n">user_guide</span><span class="o">/</span><span class="n">indexing</span><span class="o">.</span><span class="n">html</span><span class="c1">#returning-a-view-versus-a-copy</span>
-  <span class="kn">import</span> <span class="nn">os</span>
+See the caveats in the documentation:
+https://pandas.pydata.org/pandas-
+docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  import os
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">   one  two</span>
-<span class="err">a  NaN    1</span>
-<span class="err">b  2.0    2</span>
-<span class="err">c  3.0    3</span>
-<span class="err">d  NaN    4</span>
-<span class="err">e  5.0    5</span>
+<div class="highlight"><pre><span></span><code>   one  two
+a  NaN    1
+b  2.0    2
+c  3.0    3
+d  NaN    4
+e  5.0    5
 </code></pre></div>
-
 
 <h2 id="_8">行列同时索引</h2>
-<div class="codehilite"><pre><span></span><code><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;one&quot;</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;one&quot;</span><span class="p">]</span>
 <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
 
 <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;one&quot;</span><span class="p">,</span> <span class="s2">&quot;two&quot;</span><span class="p">]]</span>
 <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">one    3.0</span>
-<span class="err">two    3.0</span>
-<span class="c">Name: c, dtype: float64</span>
+<div class="highlight"><pre><span></span><code>one    3.0
+two    3.0
+Name: c, dtype: float64
 </code></pre></div>
-
 
 <p>先选择列，在选择行</p>
-<div class="codehilite"><pre><span></span><code><span class="n">df</span><span class="p">[</span><span class="s2">&quot;one&quot;</span><span class="p">][</span><span class="s2">&quot;c&quot;</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span class="n">df</span><span class="p">[</span><span class="s2">&quot;one&quot;</span><span class="p">][</span><span class="s2">&quot;c&quot;</span><span class="p">]</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">3.0</span>
+<div class="highlight"><pre><span></span><code>3.0
 </code></pre></div>
-
 
 <h2 id="_9">关于索引的其它</h2>
 <p>对Series进行运算（布尔索引过滤、标量乘法、数学函数等），都会保留标签和值之间的链接。</p>
 <p>Series的标签可以通过赋值的方式进行修改：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">],</span><span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;d&#39;</span><span class="p">,</span><span class="s1">&#39;e&#39;</span><span class="p">])</span>
+<div class="highlight"><pre><span></span><code><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">],</span><span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;d&#39;</span><span class="p">,</span><span class="s1">&#39;e&#39;</span><span class="p">])</span>
 <span class="n">s</span><span class="o">.</span><span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;f&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;d&#39;</span><span class="p">,</span><span class="s1">&#39;e&#39;</span><span class="p">]</span>
 <span class="n">s</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">f    1</span>
-<span class="err">b    2</span>
-<span class="err">c    3</span>
-<span class="err">d    4</span>
-<span class="err">e    5</span>
-<span class="c">dtype: int64</span>
+<div class="highlight"><pre><span></span><code>f    1
+b    2
+c    3
+d    4
+e    5
+dtype: int64
 </code></pre></div>
 
-
 <p>虽然很多时候都强调轴标签（索引值）要唯一，但这并不是强制性的。来看看下面这个简单的带有重复索引值的Series：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">obj</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">])</span>
+<div class="highlight"><pre><span></span><code><span class="n">obj</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">])</span>
 <span class="n">obj</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">a    0</span>
-<span class="err">a    1</span>
-<span class="err">b    2</span>
-<span class="err">b    3</span>
-<span class="err">c    4</span>
-<span class="c">dtype: int64</span>
+<div class="highlight"><pre><span></span><code>a    0
+a    1
+b    2
+b    3
+c    4
+dtype: int64
 </code></pre></div>
-
 
 <p>索引的is_unique属性可以告诉你它的值是否是唯一的</p>
-<div class="codehilite"><pre><span></span><code><span class="n">obj</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">is_unique</span>
+<div class="highlight"><pre><span></span><code><span class="n">obj</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">is_unique</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">False</span>
+<div class="highlight"><pre><span></span><code>False
 </code></pre></div>
-
 
 <p>对于带有重复值的索引，数据选取的行为将会有些不同。如果某个索引对应多个值，则返回一个Series；而对应单个值的，则返回一个标量值。对DataFrame的行进行索引时也是如此。</p>
 <h2 id="get"><code>get</code>方法</h2>
 <p>Series或DataFrame中的每一个都有一个<code>get</code>可以返回默认值的方法。</p>
-<div class="codehilite"><pre><span></span><code><span class="n">ser</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">ser</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">-5.3</span>
+<div class="highlight"><pre><span></span><code>-5.3
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="n">df</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;onef&quot;</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">df</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;onef&quot;</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">5</span>
+<div class="highlight"><pre><span></span><code>5
 </code></pre></div>
-
 
 <h2 id="lookup"><code>lookup</code>方法</h2>
 <p>给定一系列行标签和列标签的情况下提取一组值：</p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># 返回 (&#39;c&#39;,&#39;one&#39;) 和 (&#39;b&#39;,&#39;two&#39;)</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 返回 (&#39;c&#39;,&#39;one&#39;) 和 (&#39;b&#39;,&#39;two&#39;)</span>
 <span class="n">df</span><span class="o">.</span><span class="n">lookup</span><span class="p">([</span><span class="s2">&quot;c&quot;</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;one&quot;</span><span class="p">,</span><span class="s2">&quot;two&quot;</span><span class="p">])</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">array([3., 2.])</span>
+<div class="highlight"><pre><span></span><code>array([3., 2.])
 </code></pre></div>
-
 
 <h2 id="_10">索引方式总结表</h2>
 <table>

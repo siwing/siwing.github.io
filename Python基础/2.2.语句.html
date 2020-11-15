@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-6.1.4">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.4">
     
     
       
@@ -362,14 +362,14 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    断言
+  <a href="#assert" class="md-nav__link">
+    assert 断言
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     循环
   </a>
   
@@ -378,14 +378,14 @@
         
           <li class="md-nav__item">
   <a href="#for" class="md-nav__link">
-    for语句
+    for 语句
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#while" class="md-nav__link">
-    while语句
+    while 语句
   </a>
   
 </li>
@@ -412,7 +412,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     小结
   </a>
   
@@ -445,7 +445,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     暂未提到的语句
   </a>
   
@@ -950,6 +950,18 @@
   <li class="md-nav__item">
     <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.16.shutil.html" class="md-nav__link">
       6.16.shutil
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.17.test.html" class="md-nav__link">
+      6.17.test
     </a>
   </li>
 
@@ -2008,14 +2020,14 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    断言
+  <a href="#assert" class="md-nav__link">
+    assert 断言
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     循环
   </a>
   
@@ -2024,14 +2036,14 @@
         
           <li class="md-nav__item">
   <a href="#for" class="md-nav__link">
-    for语句
+    for 语句
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#while" class="md-nav__link">
-    while语句
+    while 语句
   </a>
   
 </li>
@@ -2058,7 +2070,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     小结
   </a>
   
@@ -2091,7 +2103,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     暂未提到的语句
   </a>
   
@@ -2114,16 +2126,15 @@
                   </a>
                 
                 
-                <div class="codehilite"><pre><span></span><code><span class="err">Windows 10</span>
-<span class="err">Python 3.7.3 @ MSC v.1915 64 bit (AMD64)</span>
-<span class="err">Latest build date 2020.09.10</span>
+                <div class="highlight"><pre><span></span><code>Windows 10
+Python 3.7.3 @ MSC v.1915 64 bit (AMD64)
+Latest build date 2020.11.15
 </code></pre></div>
-
 
 <h1 id="_1">语句</h1>
 <h2 id="if"><code>if</code> 语句</h2>
 <p><code>if</code>语句的完整形式如下（注意不要少写了冒号<code>:</code>）：</p>
-<div class="codehilite"><pre><span></span><code><span class="k">if</span> <span class="o">&lt;</span><span class="n">condition</span> <span class="mi">1</span><span class="o">&gt;</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="o">&lt;</span><span class="n">condition</span> <span class="mi">1</span><span class="o">&gt;</span><span class="p">:</span>
     <span class="o">&lt;</span><span class="n">statement</span> <span class="mi">1</span><span class="o">&gt;</span>
 <span class="k">elif</span> <span class="o">&lt;</span><span class="n">condition</span> <span class="mi">2</span><span class="o">&gt;</span><span class="p">:</span>
     <span class="o">&lt;</span><span class="n">statement</span> <span class="mi">2</span><span class="o">&gt;</span>
@@ -2131,9 +2142,8 @@
     <span class="o">&lt;</span><span class="n">statement</span> <span class="mi">3</span><span class="o">&gt;</span>
 </code></pre></div>
 
-
 <p><code>elif</code>是<code>else if</code>的缩写，<mark>使用缩写是为了避免过度缩进。</mark> 可以有多个<code>elif</code>。</p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># example</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># example</span>
 <span class="n">age</span> <span class="o">=</span> <span class="mi">3</span>
 <span class="k">if</span> <span class="n">age</span> <span class="o">&gt;=</span> <span class="mi">18</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;adult&#39;</span><span class="p">)</span>
@@ -2143,49 +2153,41 @@
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;kid&#39;</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">kid</span>
+<div class="highlight"><pre><span></span><code>kid
 </code></pre></div>
 
-
 <p><code>if</code>判断条件还可以简写，例如：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">age</span> <span class="o">=</span> <span class="mi">3</span>
+<div class="highlight"><pre><span></span><code><span class="n">age</span> <span class="o">=</span> <span class="mi">3</span>
 <span class="k">if</span> <span class="n">age</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;True&#39;</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">True</span>
+<div class="highlight"><pre><span></span><code>True
 </code></pre></div>
 
-
-<p>在Python中，<code>False</code>、<code>0</code>、<code>''</code>、<code>[]</code>、<code>()</code>、<code>{}</code>都视作False，否则为True。<mark>注意，负值也是被判断为真。</mark>    </p>
-<h2 id="_2">断言</h2>
+<p>在Python中，<code>False</code>、<code>0</code>、<code>''</code>、<code>[]</code>、<code>()</code>、<code>{}</code>都视作False，否则为True。<mark>注意，负值也是被判断为真。</mark></p>
+<h2 id="assert"><code>assert</code> 断言</h2>
 <p>断言语句用来检查条件是否满足，如果不满足，就引发 AssertionError 异常（并可提供错误消息）。语法如下：</p>
-<div class="codehilite"><pre><span></span><code><span class="k">assert</span> <span class="n">condition</span>
+<div class="highlight"><pre><span></span><code><span class="k">assert</span> <span class="n">condition</span>
 </code></pre></div>
-
 
 <p><strong>等价于</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="k">if</span> <span class="ow">not</span> <span class="n">condition</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="ow">not</span> <span class="n">condition</span><span class="p">:</span>
     <span class="n">crash</span> <span class="n">program</span>
 </code></pre></div>
 
-
 <p>例子：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">age</span> <span class="o">=</span> <span class="mi">3</span>
+<div class="highlight"><pre><span></span><code><span class="n">age</span> <span class="o">=</span> <span class="mi">3</span>
 <span class="k">assert</span> <span class="n">age</span> <span class="o">&gt;=</span> <span class="mi">12</span><span class="p">,</span> <span class="s1">&#39;Children under the age of 12 are not allowed&#39;</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">---------------------------------------------------------------------------AssertionError                            Traceback (most recent call last)&lt;ipython-input-1-6fe548f20b1c&gt; in &lt;module&gt;</span>
-<span class="err">      1 age = 3</span>
-<span class="err">----&gt; 2 assert age &gt;= 12, &#39;Children under the age of 12 are not allowed&#39;</span>
-<span class="c">AssertionError: Children under the age of 12 are not allowed</span>
+<div class="highlight"><pre><span></span><code>---------------------------------------------------------------------------AssertionError                            Traceback (most recent call last)&lt;ipython-input-1-6fe548f20b1c&gt; in &lt;module&gt;
+      1 age = 3
+----&gt; 2 assert age &gt;= 12, &#39;Children under the age of 12 are not allowed&#39;
+AssertionError: Children under the age of 12 are not allowed
 </code></pre></div>
 
-
-<h2 id="_3">循环</h2>
+<h2 id="_2">循环</h2>
 <p>Python的循环有两种:</p>
 <ul>
 <li>
@@ -2195,57 +2197,50 @@
 <p>while 循环</p>
 </li>
 </ul>
-<h3 id="for">for语句</h3>
+<h3 id="for"><code>for</code> 语句</h3>
 <p>for 循环，<mark>依次把<strong>可迭代对象</strong>中的每个元素迭代出来</mark>，可包含 else 子句。看例子：</p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># 执行这段代码，会依次打印`names`的每一个元素</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 执行这段代码，会依次打印`names`的每一个元素</span>
 <span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Michael&#39;</span><span class="p">,</span> <span class="s1">&#39;Bob&#39;</span><span class="p">,</span> <span class="s1">&#39;Tracy&#39;</span><span class="p">]</span>
 <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">names</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">Michael</span>
-<span class="err">Bob</span>
-<span class="err">Tracy</span>
+<div class="highlight"><pre><span></span><code>Michael
+Bob
+Tracy
 </code></pre></div>
-
 
 <p>所以<code>for x in ...</code>循环就是把每个元素赋值给变量<code>x</code>，然后执行缩进块的语句。</p>
 <p>很多语言迭代list是通过索引完成的，例如如下java代码：</p>
-<div class="codehilite"><pre><span></span><code><span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">list</span><span class="p">.</span><span class="na">length</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">list</span><span class="p">.</span><span class="na">length</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">n</span> <span class="o">=</span> <span class="n">list</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></div>
 
-
 <p>可以看出，Python的<code>for</code>循环抽象程度要高于Java的<code>for</code>循环，因为Python的<code>for</code>循环不关心多迭代的对象是否支持索引，只要该对象为可迭代对象即可。</p>
 <p>可以通过如下代码判断一个对象是否为可迭代对象：</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Iterable</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Iterable</span>
 
 <span class="nb">isinstance</span><span class="p">(</span><span class="s1">&#39;abc&#39;</span><span class="p">,</span> <span class="n">Iterable</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">True</span>
+<div class="highlight"><pre><span></span><code>True
 </code></pre></div>
 
-
 <p>如果在迭代对象的同时也想迭代对象元素的索引，可以使用<code>enumerate</code>函数：</p>
-<div class="codehilite"><pre><span></span><code><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">]):</span>
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">]):</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">0 A</span>
-<span class="err">1 B</span>
-<span class="err">2 C</span>
+<div class="highlight"><pre><span></span><code>0 A
+1 B
+2 C
 </code></pre></div>
 
-
-<h3 id="while">while语句</h3>
+<h3 id="while"><code>while</code> 语句</h3>
 <p>while 语句用于 <mark>在指定条件为真时反复地执行（循环），条件不满足时退出循环。</mark></p>
 <p>比如要计算100以内所有奇数之和，可以用while循环实现：</p>
-<div class="codehilite"><pre><span></span><code><span class="nb">sum</span> <span class="o">=</span> <span class="mi">0</span>
+<div class="highlight"><pre><span></span><code><span class="nb">sum</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">n</span> <span class="o">=</span> <span class="mi">99</span>
 <span class="c1"># 在循环内部变量 n 不断自减</span>
 <span class="c1"># 直到变为 n=0 时，不再满足while条件，循环退出</span>
@@ -2255,10 +2250,8 @@
 <span class="nb">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">2500</span>
+<div class="highlight"><pre><span></span><code>2500
 </code></pre></div>
-
 
 <h3 id="break">break</h3>
 <p>在循环中，<code>break</code>语句可以提前退出循环。例如</p>
@@ -2266,7 +2259,7 @@
 <p class="admonition-title">注意</p>
 <p>break语句只能用于循环中。</p>
 </div>
-<div class="codehilite"><pre><span></span><code><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
+<div class="highlight"><pre><span></span><code><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">100</span><span class="p">:</span>
     <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;结束循环&quot;</span><span class="p">)</span>
@@ -2274,25 +2267,21 @@
     <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">结束循环</span>
+<div class="highlight"><pre><span></span><code>结束循环
 </code></pre></div>
-
 
 <p><code>break</code>的作用是退出当前循环，<code>print(i)</code>语句不会执行。</p>
 <p>要注意的是，<mark><code>break</code>只是中断当前层的循环，不会中断上一层的循环。</mark> </p>
-<div class="codehilite"><pre><span></span><code><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">]:</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">j</span><span class="p">)</span>
         <span class="k">break</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">a</span>
-<span class="err">a</span>
-<span class="err">a</span>
+<div class="highlight"><pre><span></span><code>a
+a
+a
 </code></pre></div>
-
 
 <p>内层循环打印出一个<code>j</code>值之后，被<code>break</code>语句中断，但外层循环并没有中断，所以代码执行的结果是打印了三次<code>a</code>。</p>
 <h3 id="continue">continue</h3>
@@ -2301,35 +2290,31 @@
 <p class="admonition-title">注意</p>
 <p>continue 语句只能用于循环中。</p>
 </div>
-<div class="codehilite"><pre><span></span><code><span class="n">n</span> <span class="o">=</span> <span class="mi">0</span>
+<div class="highlight"><pre><span></span><code><span class="n">n</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="k">while</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
     <span class="n">n</span> <span class="o">=</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">1 2 3 4 5 6 7 8 9 10</span>
+<div class="highlight"><pre><span></span><code>1 2 3 4 5 6 7 8 9 10
 </code></pre></div>
-
 
 <p>上面的程序可以打印出1～10。但是，如果我们想只打印奇数，可以用<code>continue</code>语句跳过某些循环：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">n</span> <span class="o">=</span> <span class="mi">0</span>
+<div class="highlight"><pre><span></span><code><span class="n">n</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="k">while</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span>
-    <span class="n">n</span> <span class="o">=</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span>
-    <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span> <span class="c1"># 如果n是偶数，执行continue语句</span>
-        <span class="k">continue</span> <span class="c1"># continue语句会直接继续下一轮循环，后续的print()语句不会执行</span>
+    <span class="n">n</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>  <span class="c1"># 如果n是偶数，执行continue语句</span>
+        <span class="k">continue</span>  <span class="c1"># continue语句会直接继续下一轮循环，后续的print()语句不会执行</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">1 3 5 7 9</span>
+<div class="highlight"><pre><span></span><code>1 3 5 7 9
 </code></pre></div>
-
 
 <p>执行上面的代码可以看到，打印的不再是1～10，而是1，3，5，7，9。</p>
 <h3 id="else">循环中的<code>else</code>子句</h3>
 <p><code>else</code>子句不仅可以用在<code>if</code>语句，还可以用在循环语句。循环语句中的<code>else</code>子句在<code>for</code>循环迭代完成时，或者while循环执行条件为 false 时执行，但循环被 break 中止的情况下不会执行。</p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># for循环</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># for循环</span>
 <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
@@ -2337,27 +2322,23 @@
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;i =&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">1 3 5 7 9 i = 9</span>
+<div class="highlight"><pre><span></span><code>1 3 5 7 9 i = 9
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="c1"># while循环</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># while循环</span>
 <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
-    <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;i =&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">1 2 3 4 i = 5</span>
+<div class="highlight"><pre><span></span><code>1 2 3 4 i = 5
 </code></pre></div>
-
 
 <p>当循环被break语句中断，此时else子句不会执行：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
+<div class="highlight"><pre><span></span><code><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
     <span class="k">break</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
@@ -2365,23 +2346,21 @@
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;i =&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
+<div class="highlight"><pre><span></span><code><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">:</span>
     <span class="k">break</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
-    <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;i =&quot;</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
 </code></pre></div>
 
-
-<h3 id="_4">小结</h3>
+<h3 id="_3">小结</h3>
 <p><code>break</code>、<code>continue</code>语句通常都配合<code>if</code>语句使用。</p>
-<p>要特别注意，不要滥用<code>break</code>和<code>continue</code>语句。<code>break</code>和<code>continue</code>会造成代码执行逻辑分叉过多，容易出错。大多数循环并不需要用到<code>break</code>和<code>continue</code>语句，上面的两个例子，都可以通过改写循环条件或者修改循环逻辑，去掉<code>break</code>和<code>continue</code>语句。    </p>
+<p>要特别注意，不要滥用<code>break</code>和<code>continue</code>语句。<code>break</code>和<code>continue</code>会造成代码执行逻辑分叉过多，容易出错。大多数循环并不需要用到<code>break</code>和<code>continue</code>语句，上面的两个例子，都可以通过改写循环条件或者修改循环逻辑，去掉<code>break</code>和<code>continue</code>语句。</p>
 <h2 id="pass">pass 语句</h2>
 <p>pass 语句什么也不做。它用于那些语法上必须要有语句，但程序什么也不做的场合，例如:</p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># 死循环</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 死循环</span>
 <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
     <span class="k">pass</span>  <span class="c1"># Busy-wait for keyboard interrupt (Ctrl+C)</span>
 
@@ -2394,28 +2373,23 @@
     <span class="k">pass</span>
 </code></pre></div>
 
-
 <p>如果你有其他编程语言基础，你可能会疑惑Python为什么要有pass语句。</p>
 <p>一方面，这是为了语法的完备性。例如，要像下面这样定义一个空函数是不行的：</p>
-<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">fun</span><span class="p">():</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">fun</span><span class="p">():</span>
 
 <span class="n">fun</span><span class="p">()</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="n">IndentationError</span><span class="o">:</span> <span class="n">expected</span> <span class="n">an</span> <span class="n">indented</span> <span class="n">block</span>
+<div class="highlight"><pre><span></span><code>IndentationError: expected an indented block
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">fun</span><span class="p">():</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">fun</span><span class="p">():</span>
     <span class="c1"># TODO</span>
 <span class="n">fun</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="n">IndentationError</span><span class="o">:</span> <span class="n">expected</span> <span class="n">an</span> <span class="n">indented</span> <span class="n">block</span>
+<div class="highlight"><pre><span></span><code>IndentationError: expected an indented block
 </code></pre></div>
-
 
 <p>也就是说，缩进代码块中必须包含有语法意义的内容。这是因为 Python 在定义函数时，必须包含函数体，即同时包含<strong>声明</strong>和<strong>定义</strong>两种语义，不像C语言可以只使用声明的语义，即写成<code>void fun();</code> 。同时，又因为Python通过缩进来划分代码块，所以Python无法像C语言一样使用<code>{}</code>定义出空函数，即写成<code>void fun(){}</code>。</p>
 <p>上面两种定义空函数的方式都会报<code>IndentationError: expected an indented block</code>错误。因为什么都不写（即使有缩进），实际上就是空行，空行并不是Python语法的一部分。同理，注释也不是有效的语法。</p>
@@ -2425,9 +2399,9 @@
 <p>return 语句结束函数的执行并返回一个值。如果没有指定值，将返回 None 。示例：</p>
 <div class="admonition warning">
 <p class="admonition-title">注意</p>
-<p>return 语句只能用于函数中。    </p>
+<p>return 语句只能用于函数中。</p>
 </div>
-<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">func1</span><span class="p">():</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">func1</span><span class="p">():</span>
     <span class="k">return</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span>
 
 <span class="k">def</span> <span class="nf">func2</span><span class="p">():</span>
@@ -2437,22 +2411,19 @@
 <span class="nb">print</span><span class="p">(</span><span class="n">func2</span><span class="p">())</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">(4, 2)</span>
-<span class="err">None</span>
+<div class="highlight"><pre><span></span><code>(4, 2)
+None
 </code></pre></div>
-
 
 <h2 id="del">del 语句</h2>
 <p>del 语句用于解除名字和对象的关联以及将数据结构（映射或序列）的一部分（如（位置、切片或存储槽）删除。<mark>不能直接使用它来删除对象，因为对象只能通过垃圾收集来删除。</mark> </p>
-<div class="codehilite"><pre><span></span><code><span class="k">del</span> <span class="n">x</span> <span class="c1"># 解除变量与值的关联</span>
+<div class="highlight"><pre><span></span><code><span class="k">del</span> <span class="n">x</span> <span class="c1"># 解除变量与值的关联</span>
 <span class="k">del</span> <span class="n">seq</span><span class="p">[</span><span class="mi">42</span><span class="p">]</span> <span class="c1"># 删除序列中的一个元素</span>
 <span class="k">del</span> <span class="n">seq</span><span class="p">[</span><span class="mi">42</span><span class="p">:]</span> <span class="c1"># 删除序列中的一个切片</span>
 <span class="k">del</span> <span class="nb">map</span><span class="p">[</span><span class="s1">&#39;foo&#39;</span><span class="p">]</span> <span class="c1"># 删除映射中的一项</span>
 </code></pre></div>
 
-
-<h2 id="_5">暂未提到的语句</h2>
+<h2 id="_4">暂未提到的语句</h2>
 <p>还有一些Python语句在这里没有被提到：</p>
 <ul>
 <li>yield 语句：暂停执行生成器，并返回一个值。</li>

@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-6.1.4">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.4">
     
     
       
@@ -815,6 +815,18 @@
   <li class="md-nav__item">
     <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.16.shutil.html" class="md-nav__link">
       6.16.shutil
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.17.test.html" class="md-nav__link">
+      6.17.test
     </a>
   </li>
 
@@ -1870,7 +1882,7 @@
                 
                   <h1>11.13.缺失值处理</h1>
                 
-                <div class="codehilite"><pre><span></span><code><span class="c1"># -*- coding: utf-8 -*-</span>
+                <div class="highlight"><pre><span></span><code><span class="c1"># -*- coding: utf-8 -*-</span>
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">Created on Mon Jun 29 10:13:47 2020</span>
 
@@ -1883,9 +1895,8 @@
 <span class="kn">from</span> <span class="nn">sklearn.impute</span> <span class="kn">import</span> <span class="n">SimpleImputer</span><span class="p">,</span> <span class="n">MissingIndicator</span><span class="p">,</span> <span class="n">KNNImputer</span>
 </code></pre></div>
 
-
 <p>SimpleImputer</p>
-<div class="codehilite"><pre><span></span><code><span class="n">imp_mean</span> <span class="o">=</span> <span class="n">SimpleImputer</span><span class="p">(</span><span class="n">missing_values</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">strategy</span><span class="o">=</span><span class="s1">&#39;mean&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">imp_mean</span> <span class="o">=</span> <span class="n">SimpleImputer</span><span class="p">(</span><span class="n">missing_values</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">strategy</span><span class="o">=</span><span class="s1">&#39;mean&#39;</span><span class="p">)</span>
 <span class="n">H</span><span class="o">.</span><span class="n">get_param</span><span class="p">(</span><span class="n">MissingIndicator</span><span class="p">)</span>
 
 <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">9</span><span class="p">]])</span>
@@ -1894,17 +1905,15 @@
 <span class="nb">print</span><span class="p">(</span><span class="n">imp_mean</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">X</span><span class="p">))</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">(missing_values=nan, features=&#39;missing-only&#39;, sparse=&#39;auto&#39;,</span>
-<span class="err">error_on_new=True)</span>
-<span class="err">[[ 7.   2.   3. ]</span>
-<span class="err"> [ 4.   3.5  6. ]</span>
-<span class="err"> [10.   5.   9. ]]</span>
+<div class="highlight"><pre><span></span><code>(missing_values=nan, features=&#39;missing-only&#39;, sparse=&#39;auto&#39;,
+error_on_new=True)
+[[ 7.   2.   3. ]
+ [ 4.   3.5  6. ]
+ [10.   5.   9. ]]
 </code></pre></div>
 
-
 <p>MissingIndicator</p>
-<div class="codehilite"><pre><span></span><code><span class="n">X1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+<div class="highlight"><pre><span></span><code><span class="n">X1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
                <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">],</span>
                <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
 
@@ -1919,31 +1928,27 @@
 <span class="n">X2_tr</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">array([[False, False,  True],</span>
-<span class="err">       [ True, False, False],</span>
-<span class="err">       [False, False, False]])</span>
+<div class="highlight"><pre><span></span><code>array([[False, False,  True],
+       [ True, False, False],
+       [False, False, False]])
 </code></pre></div>
 
-
 <p>KNNImputer</p>
-<div class="codehilite"><pre><span></span><code><span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">7</span><span class="p">]])</span>
+<div class="highlight"><pre><span></span><code><span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">7</span><span class="p">]])</span>
 <span class="n">H</span><span class="o">.</span><span class="n">get_param</span><span class="p">(</span><span class="n">KNNImputer</span><span class="p">)</span>
 
 <span class="n">imputer</span> <span class="o">=</span> <span class="n">KNNImputer</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">imputer</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">(missing_values=nan, n_neighbors=5, weights=&#39;uniform&#39;,</span>
-<span class="err">metric=&#39;nan_euclidean&#39;, copy=True, add_indicator=False)</span>
+<div class="highlight"><pre><span></span><code>(missing_values=nan, n_neighbors=5, weights=&#39;uniform&#39;,
+metric=&#39;nan_euclidean&#39;, copy=True, add_indicator=False)
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">array([[1. , 2. , 4. ],</span>
-<span class="err">       [3. , 4. , 3. ],</span>
-<span class="err">       [5.5, 6. , 5. ],</span>
-<span class="err">       [8. , 8. , 7. ]])</span>
+<div class="highlight"><pre><span></span><code>array([[1. , 2. , 4. ],
+       [3. , 4. , 3. ],
+       [5.5, 6. , 5. ],
+       [8. , 8. , 7. ]])
 </code></pre></div>
                 
               

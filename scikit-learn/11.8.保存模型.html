@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-6.1.4">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.4">
     
     
       
@@ -820,6 +820,18 @@
   <li class="md-nav__item">
     <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.16.shutil.html" class="md-nav__link">
       6.16.shutil
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.17.test.html" class="md-nav__link">
+      6.17.test
     </a>
   </li>
 
@@ -1958,14 +1970,13 @@
                 
                   <h1>11.8.保存模型</h1>
                 
-                <div class="codehilite"><pre><span></span><code><span class="err">Windows 10</span>
-<span class="err">Python 3.7.3 @ MSC v.1915 64 bit (AMD64)</span>
-<span class="err">Latest build date 2020.05.10</span>
-<span class="err">sklearn version:  0.22.1</span>
+                <div class="highlight"><pre><span></span><code>Windows 10
+Python 3.7.3 @ MSC v.1915 64 bit (AMD64)
+Latest build date 2020.05.10
+sklearn version:  0.22.1
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">pickle</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pickle</span>
 <span class="kn">import</span> <span class="nn">joblib</span>
 <span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">svm</span>
 <span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span>
@@ -1976,19 +1987,17 @@
 <span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">SVC(C=1.0, break_ties=False, cache_size=200, class_weight=None,</span>
-<span class="err">coef0=0.0,</span>
-<span class="err">    decision_function_shape=&#39;ovr&#39;, degree=3, gamma=&#39;scale&#39;,</span>
-<span class="err">kernel=&#39;rbf&#39;,</span>
-<span class="err">    max_iter=-1, probability=False, random_state=None, shrinking=True,</span>
-<span class="err">    tol=0.001, verbose=False)</span>
+<div class="highlight"><pre><span></span><code>SVC(C=1.0, break_ties=False, cache_size=200, class_weight=None,
+coef0=0.0,
+    decision_function_shape=&#39;ovr&#39;, degree=3, gamma=&#39;scale&#39;,
+kernel=&#39;rbf&#39;,
+    max_iter=-1, probability=False, random_state=None, shrinking=True,
+    tol=0.001, verbose=False)
 </code></pre></div>
-
 
 <h2 id="pickle">pickle</h2>
 <p>可以通过使用 Python 的内置持久化模型将训练好的模型保存在 scikit 中，它名为 <a href="https://docs.python.org/2/library/pickle.html">pickle</a>:</p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># 序列化为 bytes</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 序列化为 bytes</span>
 <span class="n">model</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">clf</span><span class="p">)</span>
 
 <span class="c1"># 从 bytes 加载模型</span>
@@ -2005,15 +2014,13 @@
                    <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;ASCII&#39;</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;strict&#39;</span><span class="p">)</span>
 </code></pre></div>
 
-
 <h2 id="joblib">joblib</h2>
 <p>使用 joblib 来替换 pickle 可能会更有意思，这对于内部带有 numpy 数组的对象来说更为高效， 通常情况下适合 scikit-learn estimators（预估器），但是也只能是使用 pickle 保存模型到硬盘的情况，而不是pickle 保存模型到字符串。</p>
-<div class="codehilite"><pre><span></span><code><span class="n">joblib</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="n">clf</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;svm.model&quot;</span><span class="p">,</span>
+<div class="highlight"><pre><span></span><code><span class="n">joblib</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="n">clf</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;svm.model&quot;</span><span class="p">,</span>
             <span class="n">compress</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">protocol</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">cache_size</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 
 <span class="n">joblib</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s2">&quot;svm.model&quot;</span><span class="p">)</span>
 </code></pre></div>
-
 
 <h2 id="_1">安全性和可维护性的局限性</h2>
 <p>pickle（和通过扩展的 joblib），在安全性和可维护性方面存在一些问题。 有以下原因：</p>

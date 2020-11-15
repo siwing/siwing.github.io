@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-6.1.4">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.4">
     
     
       
@@ -969,6 +969,18 @@
   <li class="md-nav__item">
     <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.16.shutil.html" class="md-nav__link">
       6.16.shutil
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.17.test.html" class="md-nav__link">
+      6.17.test
     </a>
   </li>
 
@@ -2154,7 +2166,7 @@
                 
                 <h1 id="conda">conda</h1>
 <p>conda 的可用命令如下：</p>
-<div class="codehilite"><pre><span></span><code>usage: conda-script.py [-h] [-V] command ...
+<div class="highlight"><pre><span></span><code>usage: conda-script.py [-h] [-V] command ...
 
 conda是用于管理和部署应用程序、环境和程序包的工具
 
@@ -2182,11 +2194,10 @@ optional arguments:
   -V, --version  
 </code></pre></div>
 
-
 <h2 id="conda_1">conda命令</h2>
 <h3 id="conda-info"><code>conda info</code></h3>
 <p>该命令可以查看当前安装的 conda 的详细信息，包括 conda 版本、python 版本、软件包仓库地址、新建环境的存放路径等。</p>
-<div class="codehilite"><pre><span></span><code>usage: conda-script.py info <span class="o">[</span>-h<span class="o">]</span> <span class="o">[</span>--json<span class="o">]</span> <span class="o">[</span>-v<span class="o">]</span> <span class="o">[</span>-q<span class="o">]</span> <span class="o">[</span>-a<span class="o">]</span> <span class="o">[</span>--base<span class="o">]</span> <span class="o">[</span>-e<span class="o">]</span> <span class="o">[</span>-s<span class="o">]</span>
+<div class="highlight"><pre><span></span><code>usage: conda-script.py info <span class="o">[</span>-h<span class="o">]</span> <span class="o">[</span>--json<span class="o">]</span> <span class="o">[</span>-v<span class="o">]</span> <span class="o">[</span>-q<span class="o">]</span> <span class="o">[</span>-a<span class="o">]</span> <span class="o">[</span>--base<span class="o">]</span> <span class="o">[</span>-e<span class="o">]</span> <span class="o">[</span>-s<span class="o">]</span>
                             <span class="o">[</span>--unsafe-channels<span class="o">]</span>
 
 Display information about current conda install.
@@ -2207,9 +2218,8 @@ Output, Prompt, and Flow Control Options:
   -q, --quiet        不显示进度条
 </code></pre></div>
 
-
 <h3 id="conda-create"><code>conda create</code></h3>
-<div class="codehilite"><pre><span></span><code>usage: conda-script.py create <span class="o">[</span>-h<span class="o">]</span> <span class="o">[</span>--clone ENV<span class="o">]</span> <span class="o">[</span>-n ENVIRONMENT <span class="p">|</span> -p PATH<span class="o">]</span>
+<div class="highlight"><pre><span></span><code>usage: conda-script.py create <span class="o">[</span>-h<span class="o">]</span> <span class="o">[</span>--clone ENV<span class="o">]</span> <span class="o">[</span>-n ENVIRONMENT <span class="p">|</span> -p PATH<span class="o">]</span>
                               <span class="o">[</span>-c CHANNEL<span class="o">]</span> <span class="o">[</span>--use-local<span class="o">]</span> <span class="o">[</span>--override-channels<span class="o">]</span>
                               <span class="o">[</span>--repodata-fn REPODATA_FNS<span class="o">]</span>
                               <span class="o">[</span>--strict-channel-priority<span class="o">]</span>
@@ -2284,10 +2294,9 @@ Output, Prompt, and Flow Control Options:
                         覆盖<span class="sb">`</span>conda config --show show_channel_urls<span class="sb">`</span>的值
 </code></pre></div>
 
-
 <h2 id="conda_2">conda常用命令</h2>
 <h3 id="_1">查看信息</h3>
-<div class="codehilite"><pre><span></span><code><span class="c1"># 查看conda的信息</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 查看conda的信息</span>
 <span class="c1">## 该命令可以查看当前安装的 conda 的详细信息</span>
 <span class="c1">## 其中包括 conda 版本、python 版本、软件包仓库地址、新建环境的存放路径等</span>
 conda info
@@ -2297,10 +2306,9 @@ conda -V
 conda --version 
 </code></pre></div>
 
-
 <h3 id="_2">环境管理</h3>
 <h4 id="_3">查看环境信息</h4>
-<div class="codehilite"><pre><span></span><code><span class="c1"># 查看环境信息</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 查看环境信息</span>
 
 <span class="c1">## 查看系统中安装的所有环境：</span>
 <span class="c1">### 这两个命令都可以查看当前 conda 中已经创建的环境列表</span>
@@ -2318,17 +2326,15 @@ conda info --all
 conda info -a
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="c1"># 进入指定环境</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 进入指定环境</span>
 conda activate &lt;env&gt;
 
 <span class="c1"># 退出环境</span>
 conda deactivate
 </code></pre></div>
 
-
 <h4 id="_4">导出环境</h4>
-<div class="codehilite"><pre><span></span><code><span class="c1"># 导出环境</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 导出环境</span>
 
 <span class="c1">## 导出环境之前首先要进入该环境</span>
 conda list -e &gt; package-list.txt
@@ -2339,9 +2345,8 @@ conda list -e &gt; package-list.yml
 conda env <span class="nb">export</span> --name base --file base_bunnies.yml
 </code></pre></div>
 
-
 <h4 id="_5">创建环境</h4>
-<div class="codehilite"><pre><span></span><code><span class="c1"># 创建环境</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 创建环境</span>
 
 <span class="c1">## 新建一个名为 newenv 的环境，并指定新环境中的 python 版本为3.6</span>
 <span class="c1">## 创建出来的环境中只带有最基本的包</span>
@@ -2358,15 +2363,13 @@ conda env create -f package-list.yml
 conda create --name &lt;env&gt; --file &lt;deps file&gt;
 </code></pre></div>
 
-
 <h4 id="_6">更新环境</h4>
-<div class="codehilite"><pre><span></span><code><span class="c1"># 更新环境</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 更新环境</span>
 conda env update --name &lt;env&gt; -file<span class="o">=</span>&lt;deps file&gt;
 </code></pre></div>
 
-
 <h4 id="_7">删除环境</h4>
-<div class="codehilite"><pre><span></span><code><span class="c1"># 删除环境</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 删除环境</span>
 
 <span class="c1">## 删除环境中指定的包：</span>
 conda remove --name &lt;env&gt; ipython biopython
@@ -2375,11 +2378,10 @@ conda remove --name &lt;env&gt; ipython biopython
 conda env remove -name &lt;env&gt;
 </code></pre></div>
 
-
 <h4 id="_8">从指定路径安装环境</h4>
 <p>conda 创建出来的环境默认放在<code>/User/&lt;yourname&gt;/anaconda/env</code>目录下，你可以将其中的某个环境文件夹整体拷贝走，复制到另一台机器上，然后基于此文件夹创建环境。</p>
 <h3 id="_9">包管理</h3>
-<div class="codehilite"><pre><span></span><code>conda list <span class="c1"># 查看已经安装的包</span>
+<div class="highlight"><pre><span></span><code>conda list <span class="c1"># 查看已经安装的包</span>
 conda update conda <span class="c1"># 升级conda自身</span>
 conda search requests <span class="c1"># 查询某个包</span>
 conda install requests <span class="c1"># 安装新包</span>
@@ -2390,14 +2392,12 @@ conda remove requests <span class="c1"># 移除包</span>
 conda remove -n base requests <span class="c1"># 从指定环境中移除包</span>
 </code></pre></div>
 
-
 <p>conda 不提供检查可更新的包的命令，update 所有包时会有提示，列出所有可更新的包，并让用户确认是否全部更新。</p>
 <h3 id="conda_3">为 conda 指定国内镜像源</h3>
-<div class="codehilite"><pre><span></span><code>conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
+<div class="highlight"><pre><span></span><code>conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
 conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/
 conda config --set show_channel_urls yes
 </code></pre></div>
-
 
 <p>使用<code>conda config --show channels</code>命令可以查看当前的源仓库地址。</p>
                 

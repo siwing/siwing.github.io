@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-6.1.4">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.4">
     
     
       
@@ -820,6 +820,18 @@
   <li class="md-nav__item">
     <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.16.shutil.html" class="md-nav__link">
       6.16.shutil
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.17.test.html" class="md-nav__link">
+      6.17.test
     </a>
   </li>
 
@@ -2012,12 +2024,11 @@
                 
                   <h1>16.3.docx</h1>
                 
-                <div class="codehilite"><pre><span></span><code><span class="err">Windows 10</span>
-<span class="err">Python 3.7.7 @ MSC v.1916 64 bit (AMD64)</span>
-<span class="err">Latest build date 2020.09.21</span>
-<span class="err">python-docx version:  0.8.10</span>
+                <div class="highlight"><pre><span></span><code>Windows 10
+Python 3.7.7 @ MSC v.1916 64 bit (AMD64)
+Latest build date 2020.09.21
+python-docx version:  0.8.10
 </code></pre></div>
-
 
 <p><code>python-docx</code>是Python操作word文档时最常用的库。<code>python-docx</code>可以创建一个word文档，往文档中添加文字、表格、图片，并且可以设置样式；也可以从一个word文档中读取文字、表格、内联的图片。</p>
 <p><code>python-docx</code>具有以下特点：</p>
@@ -2028,12 +2039,11 @@
 </ol>
 <p>如果对docx文档的样式设置有较高要求，可以先设置好一个word模板文档，然后用<code>python-docx</code>读入该模板文档，操纵该文档的样式管理器。如果不能用Word自定义样式，又对样式设置有很高要求，只能考虑VBA、win32api等功能齐全的工具了。</p>
 <h2 id="docx">读取docx</h2>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">docx</span> <span class="kn">import</span> <span class="n">Document</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">docx</span> <span class="kn">import</span> <span class="n">Document</span>
 </code></pre></div>
 
-
 <h3 id="_1">读取文本</h3>
-<div class="codehilite"><pre><span></span><code><span class="c1"># 打开 SQL笔记.docx 文档</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 打开 SQL笔记.docx 文档</span>
 <span class="n">doc_path</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;datasets/file/SQL笔记.docx&quot;</span>
 <span class="n">doc</span> <span class="o">=</span> <span class="n">Document</span><span class="p">(</span><span class="n">doc_path</span><span class="p">)</span>
 
@@ -2043,15 +2053,13 @@
 <span class="nb">print</span><span class="p">(</span><span class="n">pl</span><span class="p">[</span><span class="mi">100</span><span class="p">])</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">一共有 835 个paragraph</span>
-<span class="err">1986 年，ANSI 首次制定了 SQL 的标准。修订后的标准以修订年份来命名，例如 SQL:1999、SQL:2003、SQL:2008</span>
-<span class="err">等。</span>
+<div class="highlight"><pre><span></span><code>一共有 835 个paragraph
+1986 年，ANSI 首次制定了 SQL 的标准。修订后的标准以修订年份来命名，例如 SQL:1999、SQL:2003、SQL:2008
+等。
 </code></pre></div>
 
-
 <h3 id="_2">读取表格</h3>
-<div class="codehilite"><pre><span></span><code><span class="c1"># 读取所有表格</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 读取所有表格</span>
 <span class="n">tables</span> <span class="o">=</span> <span class="n">doc</span><span class="o">.</span><span class="n">tables</span>
 
 <span class="c1"># 打印第一个表格的内容</span>
@@ -2061,17 +2069,15 @@
     <span class="nb">print</span><span class="p">()</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">含义       |      运算符      |</span>
-<span class="err">加法运算     |      +        |</span>
-<span class="err">减法运算     |      -        |</span>
-<span class="err">乘法运算     |      *        |</span>
-<span class="err">除法运算     |      /        |</span>
+<div class="highlight"><pre><span></span><code>含义       |      运算符      |
+加法运算     |      +        |
+减法运算     |      -        |
+乘法运算     |      *        |
+除法运算     |      /        |
 </code></pre></div>
 
-
 <h3 id="_3">读取样式</h3>
-<div class="codehilite"><pre><span></span><code><span class="c1"># 获取该文档的所有样式</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 获取该文档的所有样式</span>
 <span class="n">styles</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">doc</span><span class="o">.</span><span class="n">styles</span><span class="p">)</span>
 <span class="c1"># 获取第一个样式的名字</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">styles</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
@@ -2081,17 +2087,15 @@
 <span class="nb">print</span><span class="p">(</span><span class="n">styles</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">font</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">Normal</span>
-<span class="err">Times New Roman</span>
-<span class="err">139700</span>
+<div class="highlight"><pre><span></span><code>Normal
+Times New Roman
+139700
 </code></pre></div>
-
 
 <h3 id="_4">读取内联图片</h3>
 <p><code>python-docx</code> 读取内联图片的方式有点复杂，官方文档好像也没有提及如何提取图片。实际上docx文档是包含了一些xml文件和二进制文件的zip压缩文档。所以，可以通过分析xml的标签或者将doc解压缩来获取图片的信息。实际上，<code>python-docx</code>正是通过解析docx文档中的xml文件来提取其中的信息。</p>
 <p>document.xml 文件包含了docx文件的主要内容，图片的信息也在其中。在 document.xml 中，图片的出现顺序和图片在文件中显示的顺序是一致的。每个图片都有一个<code>r:id</code>的标签？可以迭代<code>Document</code>的<code>inline_shapes</code>对象，从而获得其中的每一个<code>inline_shape</code>对象的<code>riD</code>值。</p>
-<div class="codehilite"><pre><span></span><code><span class="n">rId</span> <span class="o">=</span> <span class="p">[]</span>
+<div class="highlight"><pre><span></span><code><span class="n">rId</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">inline_img</span> <span class="ow">in</span> <span class="n">doc</span><span class="o">.</span><span class="n">inline_shapes</span><span class="p">:</span>
     <span class="c1"># pic.blipFill.blip.embed 这些都是 document.xml 中的标签</span>
     <span class="n">blip</span> <span class="o">=</span> <span class="n">inline_img</span><span class="o">.</span><span class="n">_inline</span><span class="o">.</span><span class="n">graphic</span><span class="o">.</span><span class="n">graphicData</span><span class="o">.</span><span class="n">pic</span><span class="o">.</span><span class="n">blipFill</span><span class="o">.</span><span class="n">blip</span>
@@ -2099,61 +2103,50 @@
 <span class="nb">print</span><span class="p">(</span><span class="n">rId</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">[&#39;rId19&#39;, &#39;rId20&#39;, &#39;rId24&#39;, &#39;rId25&#39;, &#39;rId27&#39;, &#39;rId28&#39;]</span>
+<div class="highlight"><pre><span></span><code>[&#39;rId19&#39;, &#39;rId20&#39;, &#39;rId24&#39;, &#39;rId25&#39;, &#39;rId27&#39;, &#39;rId28&#39;]
 </code></pre></div>
 
-
 <p>通过 <code>Document.part</code> 属性，可以获取储存了<code>document.xml</code>解析结果的<code>DocumentPart</code>对象</p>
-<div class="codehilite"><pre><span></span><code><span class="n">document_part</span> <span class="o">=</span> <span class="n">doc</span><span class="o">.</span><span class="n">part</span>
+<div class="highlight"><pre><span></span><code><span class="n">document_part</span> <span class="o">=</span> <span class="n">doc</span><span class="o">.</span><span class="n">part</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">document_part</span><span class="o">.</span><span class="n">partname</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">/word/document.xml</span>
+<div class="highlight"><pre><span></span><code>/word/document.xml
 </code></pre></div>
 
-
 <p><code>DocumentPart</code>对象的属性<code>related_parts</code>是一个字典，将<code>document.xml</code>中的每一个<code>r:id</code>映射到该<code>r:id</code>所在的部分。因此，可以通过内联图片的<code>r:id</code>从属性<code>related_parts</code>中获取图片的xml原始信息。</p>
-<div class="codehilite"><pre><span></span><code><span class="n">rid</span> <span class="o">=</span> <span class="n">rId</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span class="n">rid</span> <span class="o">=</span> <span class="n">rId</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">image_part</span> <span class="o">=</span> <span class="n">document_part</span><span class="o">.</span><span class="n">related_parts</span><span class="p">[</span><span class="n">rid</span><span class="p">]</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&#39;</span><span class="si">{rid}</span><span class="s2">&#39;对应的图片文件名:&quot;</span><span class="p">,</span> <span class="n">image_part</span><span class="o">.</span><span class="n">filename</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">&#39;rId19&#39;对应的图片文件名: image.png</span>
+<div class="highlight"><pre><span></span><code>&#39;rId19&#39;对应的图片文件名: image.png
 </code></pre></div>
-
 
 <p>然而，通过<code>.filename</code>属性获得的文件名似乎不是完全正确的，完整的图片文件名还带有编号的。通过<code>.partname</code>属性，可以看到图片在docx压缩文件中的真实文件名。</p>
-<div class="codehilite"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&#39;</span><span class="si">{rid}</span><span class="s2">&#39;对应的图片文件名:&quot;</span><span class="p">,</span> <span class="n">image_part</span><span class="o">.</span><span class="n">partname</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&#39;</span><span class="si">{rid}</span><span class="s2">&#39;对应的图片文件名:&quot;</span><span class="p">,</span> <span class="n">image_part</span><span class="o">.</span><span class="n">partname</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">&#39;rId19&#39;对应的图片文件名: /word/media/image1.png</span>
+<div class="highlight"><pre><span></span><code>&#39;rId19&#39;对应的图片文件名: /word/media/image1.png
 </code></pre></div>
-
 
 <p>通过<code>.blob</code>属性（blob在计算机领域中，似乎是binary large object的缩写），可以获得图片的二进制数据。</p>
-<div class="codehilite"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">image_part</span><span class="o">.</span><span class="n">blob</span><span class="p">))</span>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">image_part</span><span class="o">.</span><span class="n">blob</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">image_part</span><span class="o">.</span><span class="n">blob</span><span class="p">))</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">&lt;class &#39;bytes&#39;&gt;</span>
-<span class="err">23329</span>
+<div class="highlight"><pre><span></span><code>&lt;class &#39;bytes&#39;&gt;
+23329
 </code></pre></div>
 
-
 <p>保存图片的二进制数据，可以得到图片文件</p>
-<div class="codehilite"><pre><span></span><code><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;datasets/file/image1.png&quot;</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;datasets/file/image1.png&quot;</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">image_part</span><span class="o">.</span><span class="n">blob</span><span class="p">)</span>
 <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;datasets/file/image1.png&quot;</span><span class="p">)</span>
 </code></pre></div>
 
-
 <p>或者使用<code>cv2</code>库将二进制的图片数据转换为数组，通过matplotlib可以显示出该图片。</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">cv2</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
@@ -2161,25 +2154,20 @@
 <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
 </code></pre></div>
 
-
 <p><img alt="" src="figures/15.3.%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C_docx_figure14_1.png" /></p>
 <p><code>InlineShape</code>对象还带有图片的长宽信息（但好像不太准）：</p>
-<div class="codehilite"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">inline_img</span><span class="o">.</span><span class="n">height</span><span class="o">.</span><span class="n">cm</span><span class="p">,</span> <span class="n">inline_img</span><span class="o">.</span><span class="n">width</span><span class="o">.</span><span class="n">cm</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">inline_img</span><span class="o">.</span><span class="n">height</span><span class="o">.</span><span class="n">cm</span><span class="p">,</span> <span class="n">inline_img</span><span class="o">.</span><span class="n">width</span><span class="o">.</span><span class="n">cm</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">1.7796 10.591322222222223</span>
+<div class="highlight"><pre><span></span><code>1.7796 10.591322222222223
 </code></pre></div>
-
 
 <p><code>InlineShape</code>对象还带有一个<code>name</code>标签，但不知道是什么含义：</p>
-<div class="codehilite"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">inline_img</span><span class="o">.</span><span class="n">_inline</span><span class="o">.</span><span class="n">graphic</span><span class="o">.</span><span class="n">graphicData</span><span class="o">.</span><span class="n">pic</span><span class="o">.</span><span class="n">nvPicPr</span><span class="o">.</span><span class="n">cNvPr</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">inline_img</span><span class="o">.</span><span class="n">_inline</span><span class="o">.</span><span class="n">graphic</span><span class="o">.</span><span class="n">graphicData</span><span class="o">.</span><span class="n">pic</span><span class="o">.</span><span class="n">nvPicPr</span><span class="o">.</span><span class="n">cNvPr</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">Picture 237</span>
+<div class="highlight"><pre><span></span><code>Picture 237
 </code></pre></div>
-
 
 <h2 id="_5">参考</h2>
 <ol>

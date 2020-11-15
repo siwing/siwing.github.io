@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-6.1.4">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.4">
     
     
       
@@ -945,6 +945,18 @@
   <li class="md-nav__item">
     <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.16.shutil.html" class="md-nav__link">
       6.16.shutil
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.17.test.html" class="md-nav__link">
+      6.17.test
     </a>
   </li>
 
@@ -2114,25 +2126,17 @@
 <ul>
 <li>将此代码放置在jupyter单元中：</li>
 </ul>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">IPython.core.interactiveshell</span> <span class="kn">import</span> <span class="n">InteractiveShell</span> 
+<p><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">IPython.core.interactiveshell</span> <span class="kn">import</span> <span class="n">InteractiveShell</span> 
 <span class="n">InteractiveShell</span><span class="o">.</span><span class="n">ast_node_interactivity</span> <span class="o">=</span> <span class="s2">&quot;all&quot;</span> 
 </code></pre></div>
-
-
-<ul>
-<li>修改全局设置</li>
-</ul>
+- 修改全局设置</p>
 <p>在Windows中，以下步骤会使更改永久生效。应该适用于其他操作系统。您可能必须更改路径。</p>
 <p><code>C:\Users\your_profile\\.ipython\profile_default</code></p>
-<p>做一个ipython_config.py文件与下面的代码profile_defaults：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">c</span> <span class="o">=</span> <span class="n">get_config</span><span class="p">()</span> 
+<p>做一个ipython_config.py文件与下面的代码profile_defaults：
+<div class="highlight"><pre><span></span><code><span class="n">c</span> <span class="o">=</span> <span class="n">get_config</span><span class="p">()</span> 
 <span class="n">c</span><span class="o">.</span><span class="n">InteractiveShell</span><span class="o">.</span><span class="n">ast_node_interactivity</span> <span class="o">=</span> <span class="s2">&quot;all&quot;</span> 
 </code></pre></div>
-
-
-<ul>
-<li>使用<code>print</code>函数</li>
-</ul>
+- 使用<code>print</code>函数</p>
 <h2 id="_3">快捷键使用指南</h2>
 <p>Jupyter Notebook 有两种键盘输入模式。即命令模式和编辑模式，这与 <a href="http://www.vim.org/">Vim</a> 有些类似。在编辑模式下，可以往cell中键入代码或文本，此时命令模式下的快捷键不生效。在命令模式下，可以用快捷键命令运行单元格，移动单元格，切换单元格编辑状态等等，此时编辑模式下的快捷键不生效。</p>
 <p>从命令模式进入编辑模式需按 <code>Enter</code> 键，从编辑模式切换到命令模式需按 <code>Esc</code> 键。</p>
@@ -2511,105 +2515,82 @@
 <p>在该目录下：shift + 右键 👉 打开powershell，输入jupter notebook</p>
 <h2 id="_4">自定义主题</h2>
 <p>通过<code>pip</code>安装<code>jupyterthemes</code>package：</p>
-<div class="codehilite"><pre><span></span><code><span class="err"># 安装</span>
-<span class="err">pip install jupyterthemes</span>
-<span class="err"># 更新jupyterthemes</span>
-<span class="err">pip install --upgrade jupyterthemes</span>
+<p><div class="highlight"><pre><span></span><code># 安装
+pip install jupyterthemes
+# 更新jupyterthemes
+pip install --upgrade jupyterthemes
 </code></pre></div>
-
-
-<p>安装好<code>jupyterthemes</code>package之后，就可以在命令行输入<code>jupyterthemes</code>的命令：</p>
-<div class="codehilite"><pre><span></span><code><span class="err"># 列出所有安装好的主题</span>
-<span class="err">jt -l</span>
-<span class="err"># 使用帮助</span>
-<span class="err">jt -h</span>
-</code></pre></div>
-
-
+安装好<code>jupyterthemes</code>package之后，就可以在命令行输入<code>jupyterthemes</code>的命令：
+<div class="highlight"><pre><span></span><code># 列出所有安装好的主题
+jt -l
+# 使用帮助
+jt -h
+</code></pre></div></p>
 <p>具体使用方法参见：<a href="https://github.com/dunovank/jupyter-themes">jupyterthemes官方说明</a></p>
 <h2 id="_5">安装扩展</h2>
 <p>安装<code>jupyter_contrib_nbextensions</code>包。该插件并不是jupyter notebook官方的插件。具体参考<a href="https://jupyter-contrib-nbextensions.readthedocs.io/en/latest/index.html">Unofficial Jupyter Notebook Extensions</a>和<a href="https://zodiac911.github.io/blog/jupyter-nbextensions-configurator.html#安装-jupyter_contrib_nbextensions">为Jupyter Notebook安装扩展并启用Configurator</a>。</p>
-<div class="codehilite"><pre><span></span><code><span class="err"># 安装</span>
-<span class="err">pip install jupyter_contrib_nbextensions</span>
-<span class="err"># 或者通过conda安装</span>
-<span class="err">conda install -c conda-forge jupyter_contrib_nbextensions</span>
-<span class="err"># 激活</span>
-<span class="err">jupyter contrib nbextension install --user</span>
-<span class="err"># 启用</span>
-<span class="err">jupyter nbextensions_configurator enable --user</span>
+<div class="highlight"><pre><span></span><code># 安装
+pip install jupyter_contrib_nbextensions
+# 或者通过conda安装
+conda install -c conda-forge jupyter_contrib_nbextensions
+# 激活
+jupyter contrib nbextension install --user
+# 启用
+jupyter nbextensions_configurator enable --user
 </code></pre></div>
-
 
 <h2 id="pdf">输出带有中文的pdf</h2>
 <p>jupyter notebook本身不能输出pdf，输出pdf依赖于$\LaTeX$引擎。目前，带有中文的ipynb文件输出为pdf会报错，主要原因是jupyter的$\LaTeX$模板设置了$\text{pdf}\LaTeX$引擎，但是Pdf$\LaTeX$不可以直接编译中文文档的。因此，需要把jupyter的$\LaTeX$引擎改为$\text{Xe}\LaTeX$引擎。</p>
 <p>修改模板，模板位置为：...\site-packages\nbconvert\templates\latex\article.tplx，将latex模板类由article改为ctexart。</p>
 <p>原来的代码：</p>
-<div class="codehilite"><pre><span></span><code>((* block docclass *))
+<p><div class="highlight"><pre><span></span><code>((* block docclass *))
 <span class="k">\documentclass</span><span class="na">[11pt]</span><span class="nb">{</span>article<span class="nb">}</span>
 ((* endblock docclass *))
 </code></pre></div>
-
-
-<p>修改后的代码：</p>
-<div class="codehilite"><pre><span></span><code>((* block docclass *))
+修改后的代码：
+<div class="highlight"><pre><span></span><code>((* block docclass *))
 <span class="k">\documentclass</span><span class="na">[13pt]</span><span class="nb">{</span>ctexart<span class="nb">}</span>
 ((* endblock docclass *))
 </code></pre></div>
-
-
-<p>或者，依然使用 PdfLatex引擎，但引入 xeCJK 宏包：</p>
-<div class="codehilite"><pre><span></span><code><span class="k">\documentclass</span><span class="na">[11pt]</span><span class="nb">{</span>article<span class="nb">}</span>
+或者，依然使用 PdfLatex引擎，但引入 xeCJK 宏包：
+<div class="highlight"><pre><span></span><code><span class="k">\documentclass</span><span class="na">[11pt]</span><span class="nb">{</span>article<span class="nb">}</span>
 <span class="k">\usepackage</span><span class="nb">{</span>xeCJK<span class="nb">}</span>
 <span class="c">% 如果设置mainfont，必须设置为已安装的中文字体，例如微软雅黑。</span>
 <span class="c">%\setCJKmainfont{SourceHanSansCN-Light}</span>
 </code></pre></div>
-
-
-<p>想要修改输出pdf的排版，则需要修改其预定义的latex排版模板，即base.tplx文件。例如可以在base.tplx加入如下代码控制输出的pdf的页边距。</p>
-<div class="codehilite"><pre><span></span><code><span class="k">\geometry</span><span class="nb">{</span>a4paper,left=2cm,right=2cm,top=1cm,bottom=1cm<span class="nb">}</span>
+想要修改输出pdf的排版，则需要修改其预定义的latex排版模板，即base.tplx文件。例如可以在base.tplx加入如下代码控制输出的pdf的页边距。
+<div class="highlight"><pre><span></span><code><span class="k">\geometry</span><span class="nb">{</span>a4paper,left=2cm,right=2cm,top=1cm,bottom=1cm<span class="nb">}</span>
 </code></pre></div>
-
-
-<p>但是，可能改了jupyter的latex模板，jupyter notebook输出pdf依然报错。例如下面的报错信息：</p>
-<div class="codehilite"><pre><span></span><code><span class="err">nbconvert failed: PDF creating failed, captured latex output:</span>
-<span class="err">This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018/W32TeX) (preloaded format=xelatex)</span>
-<span class="err"> restricted \write18 enabled.</span>
-<span class="err">entering extended mode</span>
-<span class="err">! Undefined control sequence.</span>
-<span class="err">&lt;*&gt; .\notebook</span>
-<span class="err">              .tex</span>
-<span class="err">? </span>
-<span class="err">! Emergency stop.</span>
-<span class="err">&lt;*&gt; .\notebook</span>
-<span class="err">              .tex</span>
-<span class="err">No pages of output.</span>
-<span class="err">Transcript written on ?.</span>
+但是，可能改了jupyter的latex模板，jupyter notebook输出pdf依然报错。例如下面的报错信息：
+<div class="highlight"><pre><span></span><code>nbconvert failed: PDF creating failed, captured latex output:
+This is XeTeX, Version 3.14159265-2.6-0.99999 (TeX Live 2018/W32TeX) (preloaded format=xelatex)
+ restricted \write18 enabled.
+entering extended mode
+! Undefined control sequence.
+&lt;*&gt; .\notebook
+              .tex
+? 
+! Emergency stop.
+&lt;*&gt; .\notebook
+              .tex
+No pages of output.
+Transcript written on ?.
 </code></pre></div>
-
-
-<p>这是jupyter中控制调用latex引擎的脚本pdf.py有bug，位于66行。</p>
-<p>原来的代码：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">writer</span> <span class="o">=</span> <span class="n">Instance</span><span class="p">(</span><span class="s2">&quot;nbconvert.writers.FilesWriter&quot;</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(),</span> <span class="n">kw</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;build_directory&#39;</span><span class="p">:</span> <span class="s1">&#39;.&#39;</span><span class="p">})</span>
+这是jupyter中控制调用latex引擎的脚本pdf.py有bug，位于66行。</p>
+<p>原来的代码：
+<div class="highlight"><pre><span></span><code><span class="n">writer</span> <span class="o">=</span> <span class="n">Instance</span><span class="p">(</span><span class="s2">&quot;nbconvert.writers.FilesWriter&quot;</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(),</span> <span class="n">kw</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;build_directory&#39;</span><span class="p">:</span> <span class="s1">&#39;.&#39;</span><span class="p">})</span>
 </code></pre></div>
-
-
-<p>正确的代码：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">writer</span> <span class="o">=</span> <span class="n">Instance</span><span class="p">(</span><span class="s2">&quot;nbconvert.writers.FilesWriter&quot;</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(),</span> <span class="n">kw</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;build_directory&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">})</span>
+正确的代码：
+<div class="highlight"><pre><span></span><code><span class="n">writer</span> <span class="o">=</span> <span class="n">Instance</span><span class="p">(</span><span class="s2">&quot;nbconvert.writers.FilesWriter&quot;</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(),</span> <span class="n">kw</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;build_directory&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">})</span>
 </code></pre></div>
-
-
-<p>原来的代码给xelatex引擎发送了错误的文件路径：</p>
-<p>错误的路径：</p>
-<div class="codehilite"><pre><span></span><code><span class="err">xelatex .\notebook.tex</span>
+原来的代码给xelatex引擎发送了错误的文件路径：</p>
+<p>错误的路径：
+<div class="highlight"><pre><span></span><code>xelatex .\notebook.tex
 </code></pre></div>
-
-
-<p>正确的路径：</p>
-<div class="codehilite"><pre><span></span><code><span class="err">xelatex notebook.tex</span>
+正确的路径：
+<div class="highlight"><pre><span></span><code>xelatex notebook.tex
 </code></pre></div>
-
-
-<p>详细内容参考这里<a href="https://github.com/jupyter/jupyter_core/issues/144">Problem in Converting Jupyter notebook to pdf #144</a>。</p>
+详细内容参考这里<a href="https://github.com/jupyter/jupyter_core/issues/144">Problem in Converting Jupyter notebook to pdf #144</a>。</p>
 <h2 id="_6">版本控制</h2>
 <p>Save and CheckPoint 和 Revert to CheckPoint。</p>
 <h2 id="python">使用非Python内核</h2>

@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-6.1.4">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.4">
     
     
       
@@ -815,6 +815,18 @@
   <li class="md-nav__item">
     <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.16.shutil.html" class="md-nav__link">
       6.16.shutil
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.17.test.html" class="md-nav__link">
+      6.17.test
     </a>
   </li>
 
@@ -1870,20 +1882,18 @@
                 
                   <h1>8.5.常量</h1>
                 
-                <div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+                <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">Windows 10</span>
-<span class="err">Python 3.7.3 @ MSC v.1915 64 bit (AMD64)</span>
-<span class="err">Latest build date 2020.03.22</span>
-<span class="err">numpy version:  1.18.1</span>
+<div class="highlight"><pre><span></span><code>Windows 10
+Python 3.7.3 @ MSC v.1915 64 bit (AMD64)
+Latest build date 2020.03.22
+numpy version:  1.18.1
 </code></pre></div>
-
 
 <p>NumPy定义了几个常量（都是IEEE 754 浮点表示）：</p>
 <p><strong>（正）无穷大</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># 使用`inf`是因为`Inf`、`Infinity`、`PINF`和`infty`是`inf`的别名。</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 使用`inf`是因为`Inf`、`Infinity`、`PINF`和`infty`是`inf`的别名。</span>
 <span class="n">np</span><span class="o">.</span><span class="n">inf</span>
 <span class="n">np</span><span class="o">.</span><span class="n">Infinity</span>
 <span class="n">np</span><span class="o">.</span><span class="n">PINF</span>
@@ -1891,82 +1901,66 @@
 <span class="n">np</span><span class="o">.</span><span class="n">infty</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">inf</span>
+<div class="highlight"><pre><span></span><code>inf
 </code></pre></div>
-
 
 <p><strong>负无穷大</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="n">np</span><span class="o">.</span><span class="n">NINF</span>
+<div class="highlight"><pre><span></span><code><span class="n">np</span><span class="o">.</span><span class="n">NINF</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">-inf</span>
+<div class="highlight"><pre><span></span><code>-inf
 </code></pre></div>
-
 
 <p><strong>非数字<code>NaN</code></strong></p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># `NaN`和`NAN`是`nan`的等价定义。请使用`nan而不是`NAN`。</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># `NaN`和`NAN`是`nan`的等价定义。请使用`nan而不是`NAN`。</span>
 <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
 <span class="n">np</span><span class="o">.</span><span class="n">NAN</span>
 <span class="n">np</span><span class="o">.</span><span class="n">NaN</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">nan</span>
+<div class="highlight"><pre><span></span><code>nan
 </code></pre></div>
-
 
 <p><strong>负零</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="n">np</span><span class="o">.</span><span class="n">NZERO</span>
+<div class="highlight"><pre><span></span><code><span class="n">np</span><span class="o">.</span><span class="n">NZERO</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">-0.0</span>
+<div class="highlight"><pre><span></span><code>-0.0
 </code></pre></div>
-
 
 <p><strong>正零</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="n">np</span><span class="o">.</span><span class="n">PZERO</span>
+<div class="highlight"><pre><span></span><code><span class="n">np</span><span class="o">.</span><span class="n">PZERO</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">0.0</span>
+<div class="highlight"><pre><span></span><code>0.0
 </code></pre></div>
-
 
 <p><strong>自然对数的基础，纳皮尔的常数</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="n">np</span><span class="o">.</span><span class="n">e</span>
+<div class="highlight"><pre><span></span><code><span class="n">np</span><span class="o">.</span><span class="n">e</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">2.718281828459045</span>
+<div class="highlight"><pre><span></span><code>2.718281828459045
 </code></pre></div>
-
 
 <p><strong>欧拉常数</strong></p>
 <p>γ = 0.5772156649015328606065120900824024310421...</p>
 <p><a href="https://en.wikipedia.org/wiki/Euler-Mascheroni_constant">参考</a></p>
-<div class="codehilite"><pre><span></span><code><span class="n">np</span><span class="o">.</span><span class="n">euler_gamma</span>
+<div class="highlight"><pre><span></span><code><span class="n">np</span><span class="o">.</span><span class="n">euler_gamma</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">0.5772156649015329</span>
+<div class="highlight"><pre><span></span><code>0.5772156649015329
 </code></pre></div>
-
 
 <p><strong>None的便捷别名</strong></p>
 <p>给数组增加轴，或索引数组时使用。</p>
-<div class="codehilite"><pre><span></span><code><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span>
+<div class="highlight"><pre><span></span><code><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span>
 </code></pre></div>
-
 
 <p><strong>圆周率</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="n">np</span><span class="o">.</span><span class="n">pi</span>
+<div class="highlight"><pre><span></span><code><span class="n">np</span><span class="o">.</span><span class="n">pi</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">3.141592653589793</span>
+<div class="highlight"><pre><span></span><code>3.141592653589793
 </code></pre></div>
                 
               

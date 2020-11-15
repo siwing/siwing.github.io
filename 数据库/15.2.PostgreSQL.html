@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-6.1.4">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.4">
     
     
       
@@ -815,6 +815,18 @@
   <li class="md-nav__item">
     <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.16.shutil.html" class="md-nav__link">
       6.16.shutil
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.17.test.html" class="md-nav__link">
+      6.17.test
     </a>
   </li>
 
@@ -1870,21 +1882,19 @@
                 
                   <h1>15.2.PostgreSQL</h1>
                 
-                <div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">toolkit</span> <span class="kn">import</span> <span class="n">H</span>
+                <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">toolkit</span> <span class="kn">import</span> <span class="n">H</span>
 <span class="kn">import</span> <span class="nn">psycopg2</span>
 </code></pre></div>
 
-
 <p>create a connection</p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Connect to an existing database</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># Connect to an existing database</span>
 <span class="c1"># key parameter format</span>
 <span class="n">conn</span> <span class="o">=</span> <span class="n">psycopg2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s2">&quot;localhost&quot;</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="s2">&quot;5433&quot;</span><span class="p">,</span>
                         <span class="n">user</span><span class="o">=</span><span class="s2">&quot;postgres&quot;</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="n">password</span><span class="p">,</span>
                         <span class="n">database</span><span class="o">=</span><span class="s2">&quot;study&quot;</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="c1"># DATABASE_URL format</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># DATABASE_URL format</span>
 <span class="n">db_url</span> <span class="o">=</span> <span class="s2">&quot;postgresql://username:password@host:port/database_name&quot;</span>
 <span class="n">conn</span> <span class="o">=</span> <span class="n">psycopg2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">db_url</span><span class="p">)</span>
 
@@ -1893,9 +1903,8 @@
 <span class="n">conn</span> <span class="o">=</span> <span class="n">psycopg2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
 </code></pre></div>
 
-
 <p>open a cursor to execute SQL</p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Open a cursor to perform database operations</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># Open a cursor to perform database operations</span>
 <span class="n">cur</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
 
 <span class="c1"># Execute a command</span>
@@ -1907,41 +1916,35 @@
 <span class="c1"># fetchmany</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">[(&#39;PostgreSQL 12.0, compiled by Visual C++ build 1914, 64-bit&#39;,)]</span>
+<div class="highlight"><pre><span></span><code>[(&#39;PostgreSQL 12.0, compiled by Visual C++ build 1914, 64-bit&#39;,)]
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;SELECT current_user;&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;SELECT current_user;&quot;</span><span class="p">)</span>
 <span class="n">cur</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">[(&#39;postgres&#39;,)]</span>
+<div class="highlight"><pre><span></span><code>[(&#39;postgres&#39;,)]
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM product;&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM product;&quot;</span><span class="p">)</span>
 <span class="n">cur</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">[(&#39;0001&#39;, &#39;T恤&#39;, &#39;衣服&#39;, 1000, 500, datetime.date(2009, 9, 20)),</span>
-<span class="err"> (&#39;0002&#39;, &#39;打孔器&#39;, &#39;办公用品&#39;, 500, 320, datetime.date(2009, 9, 11)),</span>
-<span class="err"> (&#39;0003&#39;, &#39;运动T恤&#39;, &#39;衣服&#39;, 4000, 2800, None),</span>
-<span class="err"> (&#39;0004&#39;, &#39;菜刀&#39;, &#39;厨房用具&#39;, 3000, 2800, datetime.date(2009, 9, 20)),</span>
-<span class="err"> (&#39;0005&#39;, &#39;高压锅&#39;, &#39;厨房用具&#39;, 6800, 5000, datetime.date(2009, 1, 15)),</span>
-<span class="err"> (&#39;0006&#39;, &#39;叉子&#39;, &#39;厨房用具&#39;, 500, None, datetime.date(2009, 9, 20)),</span>
-<span class="err"> (&#39;0007&#39;, &#39;擦菜板&#39;, &#39;厨房用具&#39;, 880, 790, datetime.date(2008, 4, 28)),</span>
-<span class="err"> (&#39;0008&#39;, &#39;圆珠笔&#39;, &#39;办公用品&#39;, 100, None, datetime.date(2009, 11, 11)),</span>
-<span class="err"> (&#39;0009&#39;, &#39;平板电脑&#39;, &#39;办公用品&#39;, 4000, 2500, datetime.date(2009, 11, 12)),</span>
-<span class="err"> (&#39;0010&#39;, &#39;kindle&#39;, &#39;办公用品&#39;, 500, 400, datetime.date(2009, 11, 15)),</span>
-<span class="err"> (&#39;0011&#39;, &#39;ipad&#39;, &#39;办公用品&#39;, 6500, 4000, datetime.date(2009, 12, 5))]</span>
+<div class="highlight"><pre><span></span><code>[(&#39;0001&#39;, &#39;T恤&#39;, &#39;衣服&#39;, 1000, 500, datetime.date(2009, 9, 20)),
+ (&#39;0002&#39;, &#39;打孔器&#39;, &#39;办公用品&#39;, 500, 320, datetime.date(2009, 9, 11)),
+ (&#39;0003&#39;, &#39;运动T恤&#39;, &#39;衣服&#39;, 4000, 2800, None),
+ (&#39;0004&#39;, &#39;菜刀&#39;, &#39;厨房用具&#39;, 3000, 2800, datetime.date(2009, 9, 20)),
+ (&#39;0005&#39;, &#39;高压锅&#39;, &#39;厨房用具&#39;, 6800, 5000, datetime.date(2009, 1, 15)),
+ (&#39;0006&#39;, &#39;叉子&#39;, &#39;厨房用具&#39;, 500, None, datetime.date(2009, 9, 20)),
+ (&#39;0007&#39;, &#39;擦菜板&#39;, &#39;厨房用具&#39;, 880, 790, datetime.date(2008, 4, 28)),
+ (&#39;0008&#39;, &#39;圆珠笔&#39;, &#39;办公用品&#39;, 100, None, datetime.date(2009, 11, 11)),
+ (&#39;0009&#39;, &#39;平板电脑&#39;, &#39;办公用品&#39;, 4000, 2500, datetime.date(2009, 11, 12)),
+ (&#39;0010&#39;, &#39;kindle&#39;, &#39;办公用品&#39;, 500, 400, datetime.date(2009, 11, 15)),
+ (&#39;0011&#39;, &#39;ipad&#39;, &#39;办公用品&#39;, 6500, 4000, datetime.date(2009, 12, 5))]
 </code></pre></div>
-
 
 <p>commit and close connection</p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Make the changes to the database persistent</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># Make the changes to the database persistent</span>
 <span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
 
 <span class="c1"># Close communication with the database</span>

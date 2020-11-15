@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-6.1.4">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.4">
     
     
       
@@ -820,6 +820,18 @@
   <li class="md-nav__item">
     <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.16.shutil.html" class="md-nav__link">
       6.16.shutil
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.17.test.html" class="md-nav__link">
+      6.17.test
     </a>
   </li>
 
@@ -2238,18 +2250,16 @@
                   </a>
                 
                 
-                <div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">pprint</span>
+                <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pprint</span>
 <span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
 </code></pre></div>
 
-
 <h1 id="word2vec">Word2Vec 模型</h1>
 <p>本文介绍Gensim的Word2Vec模型，并在Lee Corpus上演示其用法。</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">logging</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">logging</span>
 <span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%(asctime)s</span><span class="s1"> : </span><span class="si">%(levelname)s</span><span class="s1"> : </span><span class="si">%(message)s</span><span class="s1">&#39;</span><span class="p">,</span> 
                     <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
 </code></pre></div>
-
 
 <p>如果你之前错过了令人振奋的算法，那么word2vec现在是深度学习算法的新星之一，因此受到广泛的推荐，尽管它本身的网络层很浅。word2vec可以从大量未注释的纯文本中自动学习单词之间的关系。</p>
 <p>word2vec的输出是具有显著线性关系的向量（每个单词就是一个向量），因此我们可以执行以下操作：</p>
@@ -2304,17 +2314,15 @@
 <p><strong>注意</strong>：该模型大约为2GB，因此你需要一个不错的网络连接才能继续。 否则，请跳至下面的“训练自己的模型”部分。</p>
 </blockquote>
 <p>您也可以查看“<a href="http://radimrehurek.com/2014/02/word2vec-tutorial/#app">在线word2vec演示</a>”，在那里您可以自己尝试使用向量代数。该演示在整个Google新闻数据集 (<strong>约1000亿个单词</strong>) 上运行word2vec。</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">gensim.downloader</span> <span class="k">as</span> <span class="nn">api</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">gensim.downloader</span> <span class="k">as</span> <span class="nn">api</span>
 <span class="n">wv</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;word2vec-google-news-300&#39;</span><span class="p">)</span>
 </code></pre></div>
 
-
 <p>如果你本地已经下载好了<code>GoogleNews-vectors-negative300.bin</code>模型，那么可以这样导入模型：</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">gensim</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">gensim</span>
 <span class="n">model_path</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;C:\Users\two\Desktop\GoogleNews-vectors-negative300.bin&quot;</span>
 <span class="n">wv</span> <span class="o">=</span> <span class="n">gensim</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">KeyedVectors</span><span class="o">.</span><span class="n">load_word2vec_format</span><span class="p">(</span><span class="n">model_path</span><span class="p">,</span> <span class="n">binary</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
-
 
 <div class="codehilite"><pre><span></span><code><span class="c">C:\Users\two\AppData\Roaming\Python\Python36\site-packages\gensim\utils.py:1209: UserWarning: detected Windows; aliasing chunkize to chunkize_serial</span>
 <span class="c">  warnings.warn(&quot;detected Windows; aliasing chunkize to chunkize_serial&quot;)</span>
@@ -2327,14 +2335,13 @@
 
 
 <p>如果加载入完整的模型，可以看到提示：</p>
-<div class="codehilite"><pre><span></span><code><span class="err"> INFO : loaded (3000000, 300) matrix from GoogleNews-vectors-negative300.bin</span>
+<div class="highlight"><pre><span></span><code> INFO : loaded (3000000, 300) matrix from GoogleNews-vectors-negative300.bin
 </code></pre></div>
-
 
 <p>该word2vec模型的词库包含3000000个单词，每个单词的词向量有300维。</p>
 <h3 id="_1">获取词库</h3>
 <p>常见的操作是检索模型的词汇表。 这很简单：</p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># .vocab  return dict {word:class  gensim.models.keyedvectors.Vocab}</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># .vocab  return dict {word:class  gensim.models.keyedvectors.Vocab}</span>
 <span class="c1"># gensim.models.keyedvectors.Vocab: A single vocabulary item, used internally for collecting per-word frequency/sampling info,</span>
 <span class="c1"># and for constructing binary trees (incl. both word leaves and inner nodes).</span>
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">word</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">wv</span><span class="o">.</span><span class="n">vocab</span><span class="p">):</span>
@@ -2344,7 +2351,6 @@
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;当前词库有&quot;</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">wv</span><span class="o">.</span><span class="n">vocab</span><span class="p">),</span><span class="s2">&quot;个单词&quot;</span><span class="p">)</span>
 </code></pre></div>
-
 
 <div class="codehilite"><pre><span></span><code><span class="err">&lt;/s&gt;</span>
 <span class="err">in</span>
@@ -2360,23 +2366,21 @@
 </code></pre></div>
 
 
-<div class="codehilite"><pre><span></span><code><span class="c1"># property </span>
+<div class="highlight"><pre><span></span><code><span class="c1"># property </span>
 <span class="c1"># list of all words</span>
 <span class="n">wv</span><span class="o">.</span><span class="n">index2word</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;当前词库有&quot;</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">wv</span><span class="o">.</span><span class="n">index2word</span><span class="p">),</span><span class="s2">&quot;个单词&quot;</span><span class="p">)</span>
 </code></pre></div>
 
-
 <div class="codehilite"><pre><span></span><code><span class="err">当前词库有 3000000 个单词</span>
 </code></pre></div>
 
 
-<div class="codehilite"><pre><span></span><code><span class="c1"># property </span>
+<div class="highlight"><pre><span></span><code><span class="c1"># property </span>
 <span class="c1"># list of all entities (words)</span>
 <span class="n">wv</span><span class="o">.</span><span class="n">index2entity</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;当前词库有&quot;</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">wv</span><span class="o">.</span><span class="n">index2entity</span><span class="p">),</span><span class="s2">&quot;个单词&quot;</span><span class="p">)</span>
 </code></pre></div>
-
 
 <div class="codehilite"><pre><span></span><code><span class="err">当前词库有 3000000 个单词</span>
 </code></pre></div>
@@ -2384,9 +2388,8 @@
 
 <h3 id="_2">获取词向量</h3>
 <p>获取词向量的维度信息：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">wv</span><span class="o">.</span><span class="n">vector_size</span>
+<div class="highlight"><pre><span></span><code><span class="n">wv</span><span class="o">.</span><span class="n">vector_size</span>
 </code></pre></div>
-
 
 <div class="codehilite"><pre><span></span><code><span class="err">300</span>
 </code></pre></div>
@@ -2394,14 +2397,13 @@
 
 <p>该 word2vec 模型的词向量有300维。</p>
 <p>可以轻松地获取全部词向量：</p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># property</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># property</span>
 <span class="c1"># 全部的词向量</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;完整词向量矩阵的维度信息：&quot;</span><span class="p">,</span><span class="n">wv</span><span class="o">.</span><span class="n">vectors</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 <span class="n">wv</span><span class="o">.</span><span class="n">vectors</span>
 <span class="c1"># 也可以使用 .syn0 属性获取完整的词向量</span>
 <span class="c1"># 但 .syn0 属性在gensim4.0.0版本将会被移除，建议使用 .vectors</span>
 </code></pre></div>
-
 
 <div class="codehilite"><pre><span></span><code><span class="err">完整词向量矩阵的维度信息：</span> <span class="p">(</span><span class="mi">3000000</span><span class="p">,</span> <span class="mi">300</span><span class="p">)</span>
 
@@ -2422,7 +2424,7 @@
 
 
 <p>获取标准化之后的词向量矩阵（但预训练模型没有这个属性，因此会抛出错误）：</p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># wv.vector_size</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># wv.vector_size</span>
 <span class="c1"># property</span>
 <span class="c1"># 全部的词向量</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;完整词向量矩阵的维度信息：&quot;</span><span class="p">,</span><span class="n">wv</span><span class="o">.</span><span class="n">vectors_norm</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
@@ -2431,20 +2433,18 @@
 <span class="c1"># 但 .syn0norm 属性在gensim4.0.0版本将会被移除，建议使用 .vectors_norm</span>
 </code></pre></div>
 
-
 <div class="codehilite"><pre><span></span><code><span class="c">AttributeError: &#39;NoneType&#39; object has no attribute &#39;shape&#39;</span>
 </code></pre></div>
 
 
 <p>对于出现在模型词库中的词，我们可以轻松获得它的向量表示：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">vec_king</span> <span class="o">=</span> <span class="n">wv</span><span class="p">[</span><span class="s1">&#39;king&#39;</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span class="n">vec_king</span> <span class="o">=</span> <span class="n">wv</span><span class="p">[</span><span class="s1">&#39;king&#39;</span><span class="p">]</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;词向量的维度：&quot;</span><span class="p">,</span><span class="n">vec_king</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 <span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">vec_king</span><span class="p">)</span>
 <span class="c1"># 可以这样获取多个单词的词向量</span>
 <span class="c1"># wv[[&#39;king&#39;,&#39;car&#39;]]</span>
 </code></pre></div>
-
 
 <div class="codehilite"><pre><span></span><code><span class="err">词向量的维度： (300,)</span>
 <span class="err">array([ 1.25976562e-01,  2.97851562e-02,  8.60595703e-03,  1.39648438e-01,</span>
@@ -2527,9 +2527,8 @@
 
 
 <p>也可以使用<code>.get_vector()</code>方法获取词向量，但<code>.get_vector()</code>方法每一次只能获取一个词向量：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">wv</span><span class="o">.</span><span class="n">get_vector</span><span class="p">(</span><span class="s2">&quot;king&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">wv</span><span class="o">.</span><span class="n">get_vector</span><span class="p">(</span><span class="s2">&quot;king&quot;</span><span class="p">)</span>
 </code></pre></div>
-
 
 <div class="codehilite"><pre><span></span><code><span class="err">array([ 1.25976562e-01,  2.97851562e-02,  8.60595703e-03,  1.39648438e-01,</span>
 <span class="err">       -2.56347656e-02, -3.61328125e-02,  1.11816406e-01, -1.98242188e-01,</span>
@@ -2611,13 +2610,12 @@
 
 
 <p><code>.get_vector()</code>方法等效于<code>.word_vec(word, use_norm=False)</code>，但<code>.word_vec(word, use_norm=False)</code>方法可以通过<code>use_norm</code>参数控制是否返回L2归一化后的词向量：</p>
-<div class="codehilite"><pre><span></span><code><span class="sd">&quot;&quot;&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">use_norm (bool, optional) – If True - resulting vector will be L2-normalized (unit euclidean length).</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="n">wv</span><span class="o">.</span><span class="n">word_vec</span><span class="p">(</span><span class="s1">&#39;king&#39;</span><span class="p">,</span> <span class="n">use_norm</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </code></pre></div>
-
 
 <div class="codehilite"><pre><span></span><code><span class="err">array([ 1.25976562e-01,  2.97851562e-02,  8.60595703e-03,  1.39648438e-01,</span>
 <span class="err">       -2.56347656e-02, -3.61328125e-02,  1.11816406e-01, -1.98242188e-01,</span>
@@ -2699,12 +2697,11 @@
 
 
 <p>不幸的是，该word2vec模型无法推断出陌生单词的向量。这是Word2Vec的一个局限：如果你需要这个功能，请查看FastText模型。</p>
-<div class="codehilite"><pre><span></span><code><span class="k">try</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="k">try</span><span class="p">:</span>
     <span class="n">vec_cameroon</span> <span class="o">=</span> <span class="n">wv</span><span class="p">[</span><span class="s1">&#39;cameroon&#39;</span><span class="p">]</span>
 <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The word &#39;cameroon&#39; does not appear in this model&quot;</span><span class="p">)</span>
 </code></pre></div>
-
 
 <div class="codehilite"><pre><span></span><code><span class="err">The word &#39;cameroon&#39; does not appear in this model</span>
 </code></pre></div>
@@ -2712,7 +2709,7 @@
 
 <h3 id="_3">相似性任务</h3>
 <p>Word2Vec支持多个单词相似性任务。你可以看到相似度如何随着单词变得越来越少而直观地降低。</p>
-<div class="codehilite"><pre><span></span><code><span class="n">pairs</span> <span class="o">=</span> <span class="p">[</span>
+<div class="highlight"><pre><span></span><code><span class="n">pairs</span> <span class="o">=</span> <span class="p">[</span>
     <span class="p">(</span><span class="s1">&#39;car&#39;</span><span class="p">,</span> <span class="s1">&#39;minivan&#39;</span><span class="p">),</span>   <span class="c1"># a minivan is a kind of car</span>
     <span class="p">(</span><span class="s1">&#39;car&#39;</span><span class="p">,</span> <span class="s1">&#39;bicycle&#39;</span><span class="p">),</span>   <span class="c1"># still a wheeled vehicle</span>
     <span class="p">(</span><span class="s1">&#39;car&#39;</span><span class="p">,</span> <span class="s1">&#39;airplane&#39;</span><span class="p">),</span>  <span class="c1"># ok, no wheels, but still a vehicle</span>
@@ -2723,7 +2720,6 @@
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%r</span><span class="se">\t</span><span class="si">%r</span><span class="se">\t</span><span class="si">%.2f</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">w1</span><span class="p">,</span> <span class="n">w2</span><span class="p">,</span> <span class="n">wv</span><span class="o">.</span><span class="n">similarity</span><span class="p">(</span><span class="n">w1</span><span class="p">,</span> <span class="n">w2</span><span class="p">)))</span>
 </code></pre></div>
 
-
 <div class="codehilite"><pre><span></span><code><span class="err">&#39;car&#39;   &#39;minivan&#39;   0.69</span>
 <span class="err">&#39;car&#39;   &#39;bicycle&#39;   0.54</span>
 <span class="err">&#39;car&#39;   &#39;airplane&#39;  0.42</span>
@@ -2733,7 +2729,7 @@
 
 
 <p>找出5个与car或minivan最相似的词：</p>
-<div class="codehilite"><pre><span></span><code><span class="sd">&quot;&quot;&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">most_similar(positive=None, negative=None, topn=10, restrict_vocab=None, indexer=None)</span>
 <span class="sd">    restrict_vocab: int 用于限制搜索最相似单词的向量范围。</span>
 <span class="sd">                    例如，restrict_vocab=10000将只检查词库顺序中的前10000个词向量。</span>
@@ -2744,7 +2740,6 @@
 <span class="n">wv</span><span class="o">.</span><span class="n">most_similar</span><span class="p">(</span><span class="n">positive</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;car&#39;</span><span class="p">,</span> <span class="s1">&#39;minivan&#39;</span><span class="p">],</span> <span class="n">topn</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 </code></pre></div>
 
-
 <div class="codehilite"><pre><span></span><code><span class="err">[(&#39;SUV&#39;, 0.8532191514968872),</span>
 <span class="err"> (&#39;vehicle&#39;, 0.8175784349441528),</span>
 <span class="err"> (&#39;pickup_truck&#39;, 0.7763689160346985),</span>
@@ -2754,9 +2749,8 @@
 
 
 <p>找出5个与car或minivan最不相似的词：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">wv</span><span class="o">.</span><span class="n">most_similar</span><span class="p">(</span><span class="n">negative</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;car&#39;</span><span class="p">,</span><span class="s1">&#39;minivan&#39;</span><span class="p">],</span> <span class="n">topn</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">wv</span><span class="o">.</span><span class="n">most_similar</span><span class="p">(</span><span class="n">negative</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;car&#39;</span><span class="p">,</span><span class="s1">&#39;minivan&#39;</span><span class="p">],</span> <span class="n">topn</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 </code></pre></div>
-
 
 <div class="codehilite"><pre><span></span><code><span class="err">[(&#39;Philippe_Giaro_P.Geol&#39;, 0.31101420521736145),</span>
 <span class="err"> (&#39;K.Kahne_###-###&#39;, 0.3042159676551819),</span>
@@ -2770,13 +2764,12 @@
 <blockquote>
 <p>multiplicative combination objective计算方法出自 <a href="http://www.aclweb.org/anthology/W14-1618">Omer Levy and Yoav Goldberg “Linguistic Regularities in Sparse and Explicit Word Representations”</a></p>
 </blockquote>
-<div class="codehilite"><pre><span></span><code><span class="sd">&quot;&quot;&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">most_similar_cosmul(positive=None, negative=None, topn=10)</span>
 <span class="sd">找最相似的前n个单词</span>
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="n">wv</span><span class="o">.</span><span class="n">most_similar_cosmul</span><span class="p">(</span><span class="n">positive</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;car&#39;</span><span class="p">,</span> <span class="s1">&#39;minivan&#39;</span><span class="p">],</span> <span class="n">topn</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 </code></pre></div>
-
 
 <div class="codehilite"><pre><span></span><code><span class="err">[(&#39;SUV&#39;, 0.7949184775352478),</span>
 <span class="err"> (&#39;vehicle&#39;, 0.7668868899345398),</span>
@@ -2787,7 +2780,7 @@
 
 
 <p>单词water与列表中哪个单词最相似？</p>
-<div class="codehilite"><pre><span></span><code><span class="sd">&quot;&quot;&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">most_similar_to_given(entity1, entities_list)</span>
 
 <span class="sd">从entities_list获取与entity1最相似的entity。</span>
@@ -2795,15 +2788,13 @@
 <span class="n">wv</span><span class="o">.</span><span class="n">most_similar_to_given</span><span class="p">(</span><span class="n">entity1</span><span class="o">=</span><span class="s1">&#39;air&#39;</span><span class="p">,</span> <span class="n">entities_list</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;car&#39;</span><span class="p">,</span> <span class="s1">&#39;minivan&#39;</span><span class="p">,</span><span class="s1">&#39;fire&#39;</span><span class="p">,</span> <span class="s1">&#39;water&#39;</span><span class="p">,</span> <span class="s1">&#39;land&#39;</span><span class="p">,</span> <span class="s1">&#39;sea&#39;</span><span class="p">])</span>
 </code></pre></div>
 
-
 <div class="codehilite"><pre><span></span><code><span class="err">&#39;water&#39;</span>
 </code></pre></div>
 
 
 <p>以下哪个不属于该序列？</p>
-<div class="codehilite"><pre><span></span><code><span class="n">wv</span><span class="o">.</span><span class="n">doesnt_match</span><span class="p">([</span><span class="s1">&#39;fire&#39;</span><span class="p">,</span> <span class="s1">&#39;water&#39;</span><span class="p">,</span> <span class="s1">&#39;land&#39;</span><span class="p">,</span> <span class="s1">&#39;sea&#39;</span><span class="p">,</span> <span class="s1">&#39;air&#39;</span><span class="p">,</span> <span class="s1">&#39;car&#39;</span><span class="p">])</span>
+<div class="highlight"><pre><span></span><code><span class="n">wv</span><span class="o">.</span><span class="n">doesnt_match</span><span class="p">([</span><span class="s1">&#39;fire&#39;</span><span class="p">,</span> <span class="s1">&#39;water&#39;</span><span class="p">,</span> <span class="s1">&#39;land&#39;</span><span class="p">,</span> <span class="s1">&#39;sea&#39;</span><span class="p">,</span> <span class="s1">&#39;air&#39;</span><span class="p">,</span> <span class="s1">&#39;car&#39;</span><span class="p">])</span>
 </code></pre></div>
-
 
 <div class="codehilite"><pre><span></span><code><span class="k">C</span><span class="p">:</span><span class="err">\</span><span class="n">Users</span><span class="err">\</span><span class="n">two</span><span class="err">\</span><span class="n">AppData</span><span class="err">\</span><span class="n">Roaming</span><span class="err">\</span><span class="n">Python</span><span class="err">\</span><span class="n">Python36</span><span class="err">\</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="err">\</span><span class="n">gensim</span><span class="err">\</span><span class="n">models</span><span class="err">\</span><span class="n">keyedvectors</span><span class="p">.</span><span class="n">py</span><span class="p">:</span><span class="mi">893</span><span class="p">:</span> <span class="n">FutureWarning</span><span class="p">:</span> <span class="n">arrays</span> <span class="k">to</span> <span class="n">stack</span> <span class="n">must</span> <span class="n">be</span> <span class="n">passed</span> <span class="k">as</span> <span class="n">a</span> <span class="ss">&quot;sequence&quot;</span> <span class="k">type</span> <span class="n">such</span> <span class="k">as</span> <span class="n">list</span> <span class="k">or</span> <span class="n">tuple</span><span class="p">.</span> <span class="n">Support</span> <span class="k">for</span> <span class="n">non</span><span class="o">-</span><span class="n">sequence</span> <span class="n">iterables</span> <span class="n">such</span> <span class="k">as</span> <span class="n">generators</span> <span class="k">is</span> <span class="n">deprecated</span> <span class="k">as</span> <span class="k">of</span> <span class="n">NumPy</span> <span class="mi">1</span><span class="p">.</span><span class="mi">16</span> <span class="k">and</span> <span class="n">will</span> <span class="n">raise</span> <span class="n">an</span> <span class="n">error</span> <span class="k">in</span> <span class="n">the</span> <span class="n">future</span><span class="p">.</span>
   <span class="n">vectors</span> <span class="o">=</span> <span class="n">vstack</span><span class="p">(</span><span class="k">self</span><span class="p">.</span><span class="n">word_vec</span><span class="p">(</span><span class="n">word</span><span class="p">,</span> <span class="n">use_norm</span><span class="o">=</span><span class="k">True</span><span class="p">)</span> <span class="k">for</span> <span class="n">word</span> <span class="k">in</span> <span class="n">used_words</span><span class="p">).</span><span class="n">astype</span><span class="p">(</span><span class="nb">REAL</span><span class="p">)</span>
@@ -2813,7 +2804,7 @@
 
 
 <p>在词库中，哪些单词比SUV更接近car？</p>
-<div class="codehilite"><pre><span></span><code><span class="sd">&quot;&quot;&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">words_closer_than(w1, w2)</span>
 <span class="sd">    w1 (str) – Input word.</span>
 <span class="sd">    w2 (str) – Input word.</span>
@@ -2823,12 +2814,11 @@
 <span class="n">wv</span><span class="o">.</span><span class="n">words_closer_than</span><span class="p">(</span><span class="s1">&#39;car&#39;</span><span class="p">,</span><span class="s1">&#39;SUV&#39;</span><span class="p">)</span>
 </code></pre></div>
 
-
 <div class="codehilite"><pre><span></span><code><span class="err">[&#39;vehicle&#39;, &#39;cars&#39;]</span>
 </code></pre></div>
 
 
-<div class="codehilite"><pre><span></span><code><span class="sd">&quot;&quot;&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">closer_than(entity1, entity2)</span>
 
 
@@ -2837,14 +2827,12 @@
 <span class="n">wv</span><span class="o">.</span><span class="n">closer_than</span><span class="p">(</span><span class="s1">&#39;car&#39;</span><span class="p">,</span><span class="s1">&#39;SUV&#39;</span><span class="p">)</span>
 </code></pre></div>
 
-
 <div class="codehilite"><pre><span></span><code><span class="err">[&#39;vehicle&#39;, &#39;cars&#39;]</span>
 </code></pre></div>
 
 
-<div class="codehilite"><pre><span></span><code><span class="n">wv</span><span class="o">.</span><span class="n">get_keras_embedding</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span class="n">wv</span><span class="o">.</span><span class="n">get_keras_embedding</span><span class="p">()</span>
 </code></pre></div>
-
 
 <div class="codehilite"><pre><span></span><code><span class="k">Using</span> <span class="n">TensorFlow</span> <span class="n">backend</span><span class="p">.</span>
 <span class="mi">2020</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">03</span> <span class="mi">11</span><span class="p">:</span><span class="mi">23</span><span class="p">:</span><span class="mi">01</span><span class="p">,</span><span class="mi">818</span> <span class="p">:</span> <span class="n">WARNING</span> <span class="p">:</span> <span class="k">From</span> <span class="k">C</span><span class="p">:</span><span class="err">\</span><span class="n">Users</span><span class="err">\</span><span class="n">two</span><span class="err">\</span><span class="n">Anaconda3</span><span class="err">\</span><span class="n">lib</span><span class="err">\</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="err">\</span><span class="n">keras</span><span class="err">\</span><span class="n">backend</span><span class="err">\</span><span class="n">tensorflow_backend</span><span class="p">.</span><span class="n">py</span><span class="p">:</span><span class="mi">74</span><span class="p">:</span> <span class="n">The</span> <span class="n">name</span> <span class="n">tf</span><span class="p">.</span><span class="n">get_default_graph</span> <span class="k">is</span> <span class="n">deprecated</span><span class="p">.</span> <span class="n">Please</span> <span class="n">use</span> <span class="n">tf</span><span class="p">.</span><span class="n">compat</span><span class="p">.</span><span class="n">v1</span><span class="p">.</span><span class="n">get_default_graph</span> <span class="k">instead</span><span class="p">.</span>
@@ -2854,17 +2842,15 @@
 </code></pre></div>
 
 
-<div class="codehilite"><pre><span></span><code><span class="c1"># wv.wmdistance([&#39;car&#39;,&#39;minivan&#39;], [&#39;car&#39;]) errror:No module named &#39;pyemd&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># wv.wmdistance([&#39;car&#39;,&#39;minivan&#39;], [&#39;car&#39;]) errror:No module named &#39;pyemd&#39;</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="c1"># 查看 word2vec model的全部属性</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 查看 word2vec model的全部属性</span>
 <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="n">wv</span><span class="p">)</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">i</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">)]</span>
 </code></pre></div>
 
-
 <h3 id="_4">获取余弦距离</h3>
-<div class="codehilite"><pre><span></span><code><span class="sd">&quot;&quot;&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">distance(w1, w2) </span>
 <span class="sd">    w1: str – Input word</span>
 <span class="sd">    w2: str – Input word</span>
@@ -2873,12 +2859,11 @@
 <span class="n">wv</span><span class="o">.</span><span class="n">distance</span><span class="p">(</span><span class="s2">&quot;car&quot;</span><span class="p">,</span><span class="s2">&quot;vehicle&quot;</span><span class="p">)</span>
 </code></pre></div>
 
-
 <div class="codehilite"><pre><span></span><code><span class="err">0.21789032220840454</span>
 </code></pre></div>
 
 
-<div class="codehilite"><pre><span></span><code><span class="sd">&quot;&quot;&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">distances(word_or_vector, other_words=())</span>
 <span class="sd">    word_or_vector: str, numpy.ndarray – Word or vector from which distances are to be computed.</span>
 <span class="sd">    other_words: iterable of str – 如果other_words为空，则返回word_or_vectors和vocab中所有单词之间的距离。</span>
@@ -2887,14 +2872,13 @@
 <span class="n">wv</span><span class="o">.</span><span class="n">distances</span><span class="p">(</span><span class="n">word_or_vector</span><span class="o">=</span><span class="s2">&quot;car&quot;</span><span class="p">,</span><span class="n">other_words</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;vehicle&quot;</span><span class="p">,</span><span class="s1">&#39;SUV&#39;</span><span class="p">,</span><span class="s1">&#39;truck&#39;</span><span class="p">,</span><span class="s1">&#39;minivan&#39;</span><span class="p">,</span><span class="s1">&#39;car&#39;</span><span class="p">))</span>
 </code></pre></div>
 
-
 <div class="codehilite"><pre><span></span><code><span class="err">array([0.21789044, 0.28390366, 0.32642102, 0.30929637, 0.        ],</span>
 <span class="err">      dtype=float32)</span>
 </code></pre></div>
 
 
 <h3 id="_5">获取余弦相似度</h3>
-<div class="codehilite"><pre><span></span><code><span class="sd">&quot;&quot;&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">similarity(w1, w2)</span>
 <span class="sd">    w1 (str) – Input word.</span>
 <span class="sd">    w2 (str) – Input word.</span>
@@ -2903,12 +2887,11 @@
 <span class="n">wv</span><span class="o">.</span><span class="n">similarity</span><span class="p">(</span><span class="s2">&quot;car&quot;</span><span class="p">,</span><span class="s2">&quot;car&quot;</span><span class="p">)</span>
 </code></pre></div>
 
-
 <div class="codehilite"><pre><span></span><code><span class="err">1.0</span>
 </code></pre></div>
 
 
-<div class="codehilite"><pre><span></span><code><span class="sd">&quot;&quot;&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">n_similarity(ws1, ws2)</span>
 <span class="sd">    ws1 (list of str) – Sequence of words.</span>
 <span class="sd">    ws2 (list of str) – Sequence of words.</span>
@@ -2917,12 +2900,11 @@
 <span class="n">wv</span><span class="o">.</span><span class="n">n_similarity</span><span class="p">([</span><span class="s1">&#39;car&#39;</span><span class="p">,</span><span class="s1">&#39;minivan&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;car&#39;</span><span class="p">])</span>
 </code></pre></div>
 
-
 <div class="codehilite"><pre><span></span><code><span class="err">0.89490217</span>
 </code></pre></div>
 
 
-<div class="codehilite"><pre><span></span><code><span class="sd">&quot;&quot;&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd"># 静态方法</span>
 <span class="sd">cosine_similarities(vector_1, vectors_all)</span>
 <span class="sd">    vector_1 (numpy.ndarray) shape (dim,).</span>
@@ -2932,7 +2914,6 @@
 <span class="n">wv</span><span class="o">.</span><span class="n">cosine_similarities</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]])</span>
 </code></pre></div>
 
-
 <div class="codehilite"><pre><span></span><code><span class="err">array([1.        , 0.97463185])</span>
 </code></pre></div>
 
@@ -2941,7 +2922,7 @@
 <blockquote>
 <p>计算方法出自 <a href="https://ufal.mff.cuni.cz/pbml/105/art-leeuwenberg-et-al.pdf">Artuur Leeuwenberga, Mihaela Velab , Jon Dehdaribc, Josef van Genabithbc “A Minimally Supervised Approach for Synonym Extraction with Word Embeddings”</a> 的公式(1)。</p>
 </blockquote>
-<div class="codehilite"><pre><span></span><code><span class="sd">&quot;&quot;&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">relative_cosine_similarity(wa, wb, topn=10)</span>
 
 <span class="sd">给定前n个相似的单词，计算两个单词之间的相对余弦相似度。</span>
@@ -2949,13 +2930,12 @@
 <span class="n">wv</span><span class="o">.</span><span class="n">relative_cosine_similarity</span><span class="p">(</span><span class="n">wa</span><span class="o">=</span><span class="s1">&#39;car&#39;</span><span class="p">,</span> <span class="n">wb</span><span class="o">=</span> <span class="s1">&#39;minivan&#39;</span><span class="p">,</span> <span class="n">topn</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 </code></pre></div>
 
-
 <div class="codehilite"><pre><span></span><code><span class="err">0.1001322352889656</span>
 </code></pre></div>
 
 
 <h3 id="_6">获取距离排名</h3>
-<div class="codehilite"><pre><span></span><code><span class="sd">&quot;&quot;&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">rank(entity1, entity2)</span>
 
 <span class="sd">相对于所有entitie到entity1的距离，entity2到entity1的距离的排名。</span>
@@ -2963,7 +2943,6 @@
 <span class="nb">print</span><span class="p">(</span><span class="n">wv</span><span class="o">.</span><span class="n">rank</span><span class="p">(</span><span class="n">entity1</span><span class="o">=</span><span class="s1">&#39;car&#39;</span><span class="p">,</span> <span class="n">entity2</span><span class="o">=</span><span class="s1">&#39;cars&#39;</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">wv</span><span class="o">.</span><span class="n">rank</span><span class="p">(</span><span class="n">entity1</span><span class="o">=</span><span class="s1">&#39;car&#39;</span><span class="p">,</span> <span class="n">entity2</span><span class="o">=</span><span class="s1">&#39;car&#39;</span><span class="p">))</span>
 </code></pre></div>
-
 
 <div class="codehilite"><pre><span></span><code><span class="err">2</span>
 <span class="err">1</span>
@@ -2973,7 +2952,7 @@
 <h2 id="_7">训练自己的模型</h2>
 <p>首先，你需要一些数据来训练模型。 对于以下示例，我们将使用<a href="https://github.com/RaRe-Technologies/gensim/blob/develop/gensim/test/test_data/lee_background.cor"><code>Lee Corpus</code>数据</a>，gensim库已带有该数据集。</p>
 <p>这个语料库足够小，可以完全加载入内存中，但是我们将实现一个对内存友好的迭代器，该迭代器逐行读取它，用来演示gensim如何处理更大的语料库。</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">gensim.test.utils</span> <span class="kn">import</span> <span class="n">datapath</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">gensim.test.utils</span> <span class="kn">import</span> <span class="n">datapath</span>
 <span class="kn">from</span> <span class="nn">gensim</span> <span class="kn">import</span> <span class="n">utils</span>
 
 <span class="k">class</span> <span class="nc">MyCorpus</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
@@ -2986,7 +2965,6 @@
             <span class="k">yield</span> <span class="n">utils</span><span class="o">.</span><span class="n">simple_preprocess</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
 </code></pre></div>
 
-
 <div class="codehilite"><pre><span></span><code><span class="err">2020-01-02 21:16:01,714 : INFO : adding document #0 to Dictionary(0 unique tokens: [])</span>
 <span class="err">2020-01-02 21:16:01,716 : INFO : built Dictionary(12 unique tokens: [&#39;computer&#39;, &#39;human&#39;, &#39;interface&#39;, &#39;response&#39;, &#39;survey&#39;]...) from 9 documents (total 29 corpus positions)</span>
 </code></pre></div>
@@ -2994,12 +2972,11 @@
 
 <p>如果我们想进行任何自定义的预处理，例如：解码非标准编码数据、字母小写化、删除数字、提取命名实体。所有这些都可以在<code>MyCorpus</code>迭代器内完成，而<code>word2vec</code>不需要知道这些处理。<code>word2vec</code>只需输入的迭代器产生一个又一个句子(list of utf-8 words) 。</p>
 <p>让我们继续，在我们的语料库上训练模型。 暂时不必担心训练参数，我们稍后将对其进行讨论。</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">gensim.models</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">gensim.models</span>
 
 <span class="n">sentences</span> <span class="o">=</span> <span class="n">MyCorpus</span><span class="p">()</span>
 <span class="n">model</span> <span class="o">=</span> <span class="n">gensim</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">Word2Vec</span><span class="p">(</span><span class="n">sentences</span><span class="o">=</span><span class="n">sentences</span><span class="p">)</span>
 </code></pre></div>
-
 
 <div class="codehilite"><pre><span></span><code><span class="err">2020-01-02 21:16:05,695 : INFO : collecting all words and their counts</span>
 <span class="err">2020-01-02 21:16:05,698 : INFO : PROGRESS: at sentence #0, processed 0 words, keeping 0 word types</span>
@@ -3039,9 +3016,8 @@
 
 <p>建立模型后，我们可以使用与上面演示相同的方法。</p>
 <p>模型的主要部分是<code>model.wv</code>，其中<code>wv</code>代表word vector。</p>
-<div class="codehilite"><pre><span></span><code><span class="n">vec_king</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">wv</span><span class="p">[</span><span class="s1">&#39;king&#39;</span><span class="p">];</span><span class="n">vec_king</span>
+<div class="highlight"><pre><span></span><code><span class="n">vec_king</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">wv</span><span class="p">[</span><span class="s1">&#39;king&#39;</span><span class="p">];</span><span class="n">vec_king</span>
 </code></pre></div>
-
 
 <div class="codehilite"><pre><span></span><code><span class="err">array([-0.00835394, -0.0045849 ,  0.02337644,  0.06137834,  0.03927568,</span>
 <span class="err">        0.0771808 , -0.00613491,  0.04881869, -0.01778515, -0.05783534,</span>
@@ -3068,12 +3044,11 @@
 
 
 <p>检索词汇的方法相同：</p>
-<div class="codehilite"><pre><span></span><code><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">word</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">wv</span><span class="o">.</span><span class="n">vocab</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">word</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">wv</span><span class="o">.</span><span class="n">vocab</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">10</span><span class="p">:</span>
         <span class="k">break</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
 </code></pre></div>
-
 
 <div class="codehilite"><pre><span></span><code><span class="err">hundreds</span>
 <span class="err">of</span>
@@ -3091,7 +3066,7 @@
 <h2 id="_8">存储和加载模型</h2>
 <p>如果语料库较大，训练模型会花费不少时间。如果训练好的模型按预期工作，可以将其保存到磁盘。 这样一来，不必在以后再花时间进行训练。</p>
 <p>你可以使用 gensim 的标准方法区储存和加载模型：</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">tempfile</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">tempfile</span>
 
 <span class="k">with</span> <span class="n">tempfile</span><span class="o">.</span><span class="n">NamedTemporaryFile</span><span class="p">(</span><span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;gensim-model-&#39;</span><span class="p">,</span> <span class="n">delete</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="k">as</span> <span class="n">tmp</span><span class="p">:</span>
     <span class="n">temporary_filepath</span> <span class="o">=</span> <span class="n">tmp</span><span class="o">.</span><span class="n">name</span>
@@ -3105,50 +3080,43 @@
 <span class="hll">    <span class="n">new_model</span> <span class="o">=</span> <span class="n">gensim</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">Word2Vec</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">temporary_filepath</span><span class="p">)</span>
 </span></code></pre></div>
 
-
 <p>这种做法将保存模型的全部信息，它在内部使用pickle，可以选择将模型的内部大型NumPy矩阵直接从磁盘文件转换到虚拟内存中，以实现进程间内存共享。</p>
 <p>此外，还可以只保存模型的词嵌入层权重：</p>
 <blockquote>
 <p>译者注：这种保存格式应该与原始C工具的保存格式相同</p>
 </blockquote>
-<div class="codehilite"><pre><span></span><code><span class="n">model</span><span class="o">.</span><span class="n">wv</span><span class="o">.</span><span class="n">save_word2vec_format</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span class="n">model</span><span class="o">.</span><span class="n">wv</span><span class="o">.</span><span class="n">save_word2vec_format</span><span class="p">()</span>
 </code></pre></div>
 
-
 <p>您可以使用文本或二进制格式加载由原始C工具创建的模型：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">model</span> <span class="o">=</span> <span class="n">gensim</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">KeyedVectors</span><span class="o">.</span><span class="n">load_word2vec_format</span><span class="p">(</span><span class="s1">&#39;/tmp/vectors.txt&#39;</span><span class="p">,</span> 
+<div class="highlight"><pre><span></span><code><span class="n">model</span> <span class="o">=</span> <span class="n">gensim</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">KeyedVectors</span><span class="o">.</span><span class="n">load_word2vec_format</span><span class="p">(</span><span class="s1">&#39;/tmp/vectors.txt&#39;</span><span class="p">,</span> 
                                                         <span class="n">binary</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </code></pre></div>
 
-
 <h2 id="gzippedbz2">也可以输入gzipped/bz2文件，无需解压缩</h2>
-<div class="codehilite"><pre><span></span><code><span class="n">model</span> <span class="o">=</span> <span class="n">gensim</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">KeyedVectors</span><span class="o">.</span><span class="n">load_word2vec_format</span><span class="p">(</span><span class="s1">&#39;/tmp/vectors.bin.gz&#39;</span><span class="p">,</span> 
+<div class="highlight"><pre><span></span><code><span class="n">model</span> <span class="o">=</span> <span class="n">gensim</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">KeyedVectors</span><span class="o">.</span><span class="n">load_word2vec_format</span><span class="p">(</span><span class="s1">&#39;/tmp/vectors.bin.gz&#39;</span><span class="p">,</span> 
                                                         <span class="n">binary</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
-
 
 <h2 id="_9">训练参数</h2>
 <p><code>Word2Vec</code>接受几个同时影响训练速度和质量的参数。</p>
 <h3 id="min_count">min_count</h3>
 <p><code>min_count</code>用于修剪内部词汇表。在十亿个单词的语料库中仅出现一两次的单词可能是无趣的错别字和垃圾。此外，没有足够的数据来对这些单词进行任何有意义的训练，因此最好忽略它们：</p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># default value of min_count=5</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># default value of min_count=5</span>
 <span class="n">model</span> <span class="o">=</span> <span class="n">gensim</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">Word2Vec</span><span class="p">(</span><span class="n">sentences</span><span class="p">,</span> <span class="n">min_count</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 </code></pre></div>
 
-
 <h3 id="size">size</h3>
 <p><code>size</code>是gensim Word2Vec将单词映射到的N维空间的维数（N）。较大的值需要更多的训练数据，但可以产生更好（更准确）的模型。合理的值在数十到数百之间。</p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># default value of size=100</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># default value of size=100</span>
 <span class="n">model</span> <span class="o">=</span> <span class="n">gensim</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">Word2Vec</span><span class="p">(</span><span class="n">sentences</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
 </code></pre></div>
 
-
 <h3 id="workers">workers</h3>
 <p><code>workers</code> 是最后一个主要的参数（全部参数列表见<a href="https://radimrehurek.com/gensim/models/word2vec.html#gensim.models.word2vec.Word2Vec%3E">这里</a>，它用于并行化训练，加快训练速度：</p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># default value of workers=3 (tutorial says 1...)</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># default value of workers=3 (tutorial says 1...)</span>
 <span class="n">model</span> <span class="o">=</span> <span class="n">gensim</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">Word2Vec</span><span class="p">(</span><span class="n">sentences</span><span class="p">,</span> <span class="n">workers</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
 </code></pre></div>
-
 
 <p><code>workers</code> 只有在使用<a href="http://cython.org/"><code>Cython</code>解析器</a>的时候才生效，如果没有Cython，因为存在<a href="https://wiki.python.org/moin/GlobalInterpreterLock">GIL</a>，所以只能使用一个cpu核心，这样的话，<a href="http://rare-technologies.com/word2vec-in-python-part-two-optimizing/">word2vec的训练速度</a>会变得很慢很慢。</p>
 <h2 id="memory">Memory</h2>
@@ -3165,9 +3133,8 @@ $$
 <p>The semantic questions contain five types of semantic analogies, such as capital cities (Paris:France;Tokyo:?) or family members
 (brother:sister;dad:?).</p>
 <p>Gensim supports the same evaluation set, in exactly the same format:</p>
-<div class="codehilite"><pre><span></span><code><span class="n">model</span><span class="o">.</span><span class="n">accuracy</span><span class="p">(</span><span class="s1">&#39;./datasets/questions-words.txt&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">model</span><span class="o">.</span><span class="n">accuracy</span><span class="p">(</span><span class="s1">&#39;./datasets/questions-words.txt&#39;</span><span class="p">)</span>
 </code></pre></div>
-
 
 <p>This <code>accuracy</code> takes an <code>optional parameter
 &lt;http://radimrehurek.com/gensim/models/word2vec.html#gensim.models.word2vec.Word2Vec.accuracy&gt;</code>_
@@ -3179,9 +3146,8 @@ human-assigned similarity judgments. It measures the relatedness or
 co-occurrence of two words. For example, 'coast' and 'shore' are very similar
 as they appear in the same context. At the same time 'clothes' and 'closet'
 are less similar because they are related but not interchangeable.</p>
-<div class="codehilite"><pre><span></span><code><span class="n">model</span><span class="o">.</span><span class="n">evaluate_word_pairs</span><span class="p">(</span><span class="n">datapath</span><span class="p">(</span><span class="s1">&#39;wordsim353.tsv&#39;</span><span class="p">))</span>
+<div class="highlight"><pre><span></span><code><span class="n">model</span><span class="o">.</span><span class="n">evaluate_word_pairs</span><span class="p">(</span><span class="n">datapath</span><span class="p">(</span><span class="s1">&#39;wordsim353.tsv&#39;</span><span class="p">))</span>
 </code></pre></div>
-
 
 <p>.. Important::
   Good performance on Google's or WS-353 test set doesn’t mean word2vec will
@@ -3191,7 +3157,7 @@ are less similar because they are related but not interchangeable.</p>
   &lt;https://github.com/RaRe-Technologies/movie-plots-by-genre&gt;</code>_.</p>
 <h2 id="_10">在线训练/增量训练</h2>
 <p>高级用户可以加载一个模型，并通过更多的句子来继续训练模型：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">model</span> <span class="o">=</span> <span class="n">gensim</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">Word2Vec</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">temporary_filepath</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">model</span> <span class="o">=</span> <span class="n">gensim</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">Word2Vec</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">temporary_filepath</span><span class="p">)</span>
 <span class="n">more_sentences</span> <span class="o">=</span> <span class="p">[</span>
     <span class="p">[</span><span class="s1">&#39;Advanced&#39;</span><span class="p">,</span> <span class="s1">&#39;users&#39;</span><span class="p">,</span> <span class="s1">&#39;can&#39;</span><span class="p">,</span> <span class="s1">&#39;load&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;model&#39;</span><span class="p">,</span>
      <span class="s1">&#39;and&#39;</span><span class="p">,</span> <span class="s1">&#39;continue&#39;</span><span class="p">,</span> <span class="s1">&#39;training&#39;</span><span class="p">,</span> <span class="s1">&#39;it&#39;</span><span class="p">,</span> <span class="s1">&#39;with&#39;</span><span class="p">,</span> <span class="s1">&#39;more&#39;</span><span class="p">,</span> <span class="s1">&#39;sentences&#39;</span><span class="p">]</span>
@@ -3204,7 +3170,6 @@ are less similar because they are related but not interchangeable.</p>
 <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">temporary_filepath</span><span class="p">)</span>
 </code></pre></div>
 
-
 <p>您可能需要将<code>total_words</code>参数，具体取决于你想要的学习速率衰减。</p>
 <p>请注意，无法增量训练使用C工具<code>KeyedVectors.load_word2vec_format()</code>生成的模型，但可以将它们用于查询/相似性，因为模型丢失了对训练至关重要的信息（vocab tree）。</p>
 <h2 id="training-loss-computation">Training Loss Computation</h2>
@@ -3212,7 +3177,7 @@ are less similar because they are related but not interchangeable.</p>
 while training the Word2Vec model. The computed loss is stored in the model
 attribute <code>running_training_loss</code> and can be retrieved using the function
 <code>get_latest_training_loss</code> as follows :</p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># instantiating and training the Word2Vec model</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># instantiating and training the Word2Vec model</span>
 <span class="n">model_with_loss</span> <span class="o">=</span> <span class="n">gensim</span><span class="o">.</span><span class="n">models</span><span class="o">.</span><span class="n">Word2Vec</span><span class="p">(</span>
     <span class="n">sentences</span><span class="p">,</span>
     <span class="n">min_count</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
@@ -3227,7 +3192,6 @@ attribute <code>running_training_loss</code> and can be retrieved using the func
 <span class="nb">print</span><span class="p">(</span><span class="n">training_loss</span><span class="p">)</span>
 </code></pre></div>
 
-
 <h2 id="benchmarks">Benchmarks</h2>
 <p>Let's run some benchmarks to see effect of the training loss computation code
 on training time.</p>
@@ -3235,7 +3199,7 @@ on training time.</p>
 <h1 id="lee-background-corpus-included-in-gensims-test-data">. Lee Background corpus: included in gensim's test data</h1>
 <h1 id="text8-corpus-to-demonstrate-the-effect-of-corpus-size-well-look-at-the">. Text8 corpus.  To demonstrate the effect of corpus size, we'll look at the</h1>
 <p>first 1MB, 10MB, 50MB of the corpus, as well as the entire thing.</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">io</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">io</span>
 <span class="kn">import</span> <span class="nn">os</span>
 
 <span class="kn">import</span> <span class="nn">gensim.models.word2vec</span>
@@ -3266,12 +3230,11 @@ on training time.</p>
 <span class="n">input_data</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">generate_input_data</span><span class="p">())</span>
 </code></pre></div>
 
-
 <p>We now compare the training time taken for different combinations of input
 data and model training parameters like <code>hs</code> and <code>sg</code>.</p>
 <p>For each combination, we repeat the test several times to obtain the mean and
 standard deviation of the test duration.</p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># Temporarily reduce logging verbosity</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># Temporarily reduce logging verbosity</span>
 <span class="n">logging</span><span class="o">.</span><span class="n">root</span><span class="o">.</span><span class="n">level</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">ERROR</span>
 
 <span class="kn">import</span> <span class="nn">time</span>
@@ -3329,14 +3292,13 @@ standard deviation of the test duration.</p>
 <span class="nb">print</span><span class="p">(</span><span class="n">train_times_table</span><span class="p">)</span>
 </code></pre></div>
 
-
 <h2 id="adding-word2vec-model-to-dict-method-to-production-pipeline">Adding Word2Vec "model to dict" method to production pipeline</h2>
 <p>Suppose, we still want more performance improvement in production.</p>
 <p>One good way is to cache all the similar words in a dictionary.</p>
 <p>So that next time when we get the similar query word, we'll search it first in the dict.</p>
 <p>And if it's a hit then we will show the result directly from the dictionary.</p>
 <p>otherwise we will query the word and then cache it so that it doesn't miss next time.</p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># re-enable logging</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># re-enable logging</span>
 <span class="n">logging</span><span class="o">.</span><span class="n">root</span><span class="o">.</span><span class="n">level</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">INFO</span>
 
 <span class="n">most_similars_precalc</span> <span class="o">=</span> <span class="p">{</span><span class="n">word</span> <span class="p">:</span> <span class="n">model</span><span class="o">.</span><span class="n">wv</span><span class="o">.</span><span class="n">most_similar</span><span class="p">(</span><span class="n">word</span><span class="p">)</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">wv</span><span class="o">.</span><span class="n">index2word</span><span class="p">}</span>
@@ -3346,16 +3308,14 @@ standard deviation of the test duration.</p>
     <span class="nb">print</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
 </code></pre></div>
 
-
 <h2 id="comparison-with-and-without-caching">Comparison with and without caching</h2>
 <p>for time being lets take 4 words randomly</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">time</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">time</span>
 <span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;voted&#39;</span><span class="p">,</span> <span class="s1">&#39;few&#39;</span><span class="p">,</span> <span class="s1">&#39;their&#39;</span><span class="p">,</span> <span class="s1">&#39;around&#39;</span><span class="p">]</span>
 </code></pre></div>
 
-
 <p>Without caching</p>
-<div class="codehilite"><pre><span></span><code><span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
 <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span><span class="p">:</span>
     <span class="n">result</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">wv</span><span class="o">.</span><span class="n">most_similar</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
@@ -3363,9 +3323,8 @@ standard deviation of the test duration.</p>
 <span class="nb">print</span><span class="p">(</span><span class="n">end</span> <span class="o">-</span> <span class="n">start</span><span class="p">)</span>
 </code></pre></div>
 
-
 <p>Now with caching</p>
-<div class="codehilite"><pre><span></span><code><span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
 <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span><span class="p">:</span>
     <span class="k">if</span> <span class="s1">&#39;voted&#39;</span> <span class="ow">in</span> <span class="n">most_similars_precalc</span><span class="p">:</span>
         <span class="n">result</span> <span class="o">=</span> <span class="n">most_similars_precalc</span><span class="p">[</span><span class="n">word</span><span class="p">]</span>
@@ -3378,7 +3337,6 @@ standard deviation of the test duration.</p>
 <span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">end</span> <span class="o">-</span> <span class="n">start</span><span class="p">)</span>
 </code></pre></div>
-
 
 <p>Clearly you can see the improvement but this difference will be even larger
 when we take more words in the consideration.</p>
@@ -3395,7 +3353,7 @@ dimensionality of the words to 2 dimensions using tSNE.</p>
 <p>.. Important::
   The model used for the visualisation is trained on a small corpus. Thus
   some of the relations might not be so clear.</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">IncrementalPCA</span>    <span class="c1"># inital reduction</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">IncrementalPCA</span>    <span class="c1"># inital reduction</span>
 <span class="kn">from</span> <span class="nn">sklearn.manifold</span> <span class="kn">import</span> <span class="n">TSNE</span>                   <span class="c1"># final reduction</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>                                  <span class="c1"># array handling</span>
 
@@ -3465,7 +3423,6 @@ dimensionality of the words to 2 dimensions using tSNE.</p>
 
 <span class="n">plot_function</span><span class="p">(</span><span class="n">x_vals</span><span class="p">,</span> <span class="n">y_vals</span><span class="p">,</span> <span class="n">labels</span><span class="p">)</span>
 </code></pre></div>
-
 
 <h2 id="_11">总结</h2>
 <p>在本教程中，我们学习了如何在自定义数据上训练word2vec模型以及如何对其进行评估。希望您也能在机器学习任务使用这个受欢迎的工具！</p>

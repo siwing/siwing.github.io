@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-6.1.4">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.4">
     
     
       
@@ -820,6 +820,18 @@
   <li class="md-nav__item">
     <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.16.shutil.html" class="md-nav__link">
       6.16.shutil
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.17.test.html" class="md-nav__link">
+      6.17.test
     </a>
   </li>
 
@@ -2088,13 +2100,12 @@
 <p>关联可视为一种特殊类型的依赖， 即一个对象总是拥有访问与其交互的对象的权限， 而简单的依赖关系并不会在对象间建立永久性的联系。</p>
 <p>一般来说， 你可以使用关联关系来表示类似于类成员变量的东西。 这个关系将一直存在， 因此你总能通过 “订单” 来获取其 “顾客”。 但是它并非一定是成员变量。 如果你根据接口来创建类， 它也可以表示为一个可返回 “订单” 的 “顾客” 的方法。</p>
 <h3 id="vs">关联 VS 依赖</h3>
-<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">Professor</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Professor</span><span class="p">:</span>
     <span class="n">student</span> <span class="o">=</span> <span class="n">Student</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="nf">teach</span><span class="p">(</span><span class="n">c</span><span class="p">:</span><span class="n">Course</span><span class="p">):</span>
         <span class="n">student</span><span class="o">.</span><span class="n">remember</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">getKnowledge</span><span class="p">())</span>
 </code></pre></div>
-
 
 <p><code>teach</code> （教授知识）方法接收一个来自<code>Course</code>类的参数。 如果有人修改了<code>Course</code>类的<code>get-Knowledge</code> （获取知识）方法 （修改方法名或添加一些必须的参数等）， 代码将会崩溃。 这就是依赖关系。</p>
 <p>现在， 让我们来看看名为 <code>student</code> 的成员变量， 以及如何在 <code>teach</code>方法中使用该变量。 我们可以肯定 <code>Stu­dent</code> 类是 教授类的依赖： 如果 <code>remember</code>  （记住） 方法被修改，  教授的代码也将崩溃。 <mark>但由于教授的所有方法总能访问<code>student</code>成员变量， 所以 学生类就不仅是依赖， 而也是关联了。</mark> </p>
@@ -2144,7 +2155,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.16.shutil.html" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.17.test.html" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -2153,7 +2164,7 @@
                 <span class="md-footer-nav__direction">
                   上一页
                 </span>
-                6.16.shutil
+                6.17.test
               </div>
             </div>
           </a>

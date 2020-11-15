@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-6.1.4">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.4">
     
     
       
@@ -820,6 +820,18 @@
   <li class="md-nav__item">
     <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.16.shutil.html" class="md-nav__link">
       6.16.shutil
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.17.test.html" class="md-nav__link">
+      6.17.test
     </a>
   </li>
 
@@ -2144,20 +2156,18 @@
                 
                   <h1>11.7.超参数寻优</h1>
                 
-                <div class="codehilite"><pre><span></span><code><span class="err">Windows 10</span>
-<span class="err">Python 3.7.3 @ MSC v.1915 64 bit (AMD64)</span>
-<span class="err">Latest build date 2020.05.10</span>
-<span class="err">sklearn version:  0.22.1</span>
+                <div class="highlight"><pre><span></span><code>Windows 10
+Python 3.7.3 @ MSC v.1915 64 bit (AMD64)
+Latest build date 2020.05.10
+sklearn version:  0.22.1
 </code></pre></div>
 
-
 <h2 id="gridsearchcv">GridSearchCV：网格搜索</h2>
-<div class="codehilite"><pre><span></span><code><span class="n">GridSearchCV</span><span class="p">(</span><span class="n">estimator</span><span class="p">,</span> <span class="n">param_grid</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">fit_params</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
+<div class="highlight"><pre><span></span><code><span class="n">GridSearchCV</span><span class="p">(</span><span class="n">estimator</span><span class="p">,</span> <span class="n">param_grid</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">fit_params</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
              <span class="n">n_jobs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">iid</span><span class="o">=</span><span class="s1">&#39;warn&#39;</span><span class="p">,</span> <span class="n">refit</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="s1">&#39;warn&#39;</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
              <span class="n">pre_dispatch</span><span class="o">=</span><span class="s1">&#39;2*n_jobs&#39;</span><span class="p">,</span> <span class="n">error_score</span><span class="o">=</span><span class="s1">&#39;raise&#39;</span><span class="p">,</span> 
              <span class="n">return_train_score</span><span class="o">=</span><span class="s1">&#39;warn&#39;</span><span class="p">)</span>
 </code></pre></div>
-
 
 <p><strong>参数：</strong></p>
 <ol>
@@ -2167,7 +2177,7 @@
 <li><code>refit</code>：使用最佳参数重新拟合估算器。对于多指标评估，这需要是一个表示scorer的字符串，该scorer将用于查找最佳参数以最终重新拟合估计器。还可以将<code>refit</code>设置为一个函数，该函数在给定<code>cv_results_</code>的情况下返回所选的<code>best_index_</code>。</li>
 </ol>
 <h3 id="_1">例子</h3>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">sklearn.svm</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">sklearn.svm</span>
 <span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="kn">import</span> <span class="n">SVC</span> 
 <span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_iris</span>
 <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">GridSearchCV</span>
@@ -2188,10 +2198,8 @@
 <span class="n">grid_search</span><span class="o">.</span><span class="n">best_params_</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">{&#39;C&#39;: 0.1, &#39;kernel&#39;: &#39;poly&#39;}</span>
+<div class="highlight"><pre><span></span><code>{&#39;C&#39;: 0.1, &#39;kernel&#39;: &#39;poly&#39;}
 </code></pre></div>
-
 
 <h3 id="_2">属性</h3>
 <p><strong><code>cv_results_</code></strong>：<code>cv_results_</code>属性是一个字典，储存了网格搜索的详细结果：</p>
@@ -2268,7 +2276,7 @@
 </table>
 <h2 id="randomizedsearchcv">RandomizedSearchCV：随机搜索</h2>
 <p>与 <code>GridSearchCV</code>不同的是，随机搜索（可能）不会尝试所有的参数组合，而是从指定的分布中采样固定数量的参数组合。 尝试的参数组合的数量是由 <code>n_iter</code>参数指定。</p>
-<div class="codehilite"><pre><span></span><code><span class="n">RandomizedSearchCV</span><span class="p">(</span><span class="n">estimator</span><span class="p">,</span> <span class="n">param_distributions</span><span class="p">,</span> 
+<div class="highlight"><pre><span></span><code><span class="n">RandomizedSearchCV</span><span class="p">(</span><span class="n">estimator</span><span class="p">,</span> <span class="n">param_distributions</span><span class="p">,</span> 
                    <span class="n">n_iter</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">scoring</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
                    <span class="n">iid</span><span class="o">=</span><span class="s1">&#39;deprecated&#39;</span><span class="p">,</span> <span class="n">refit</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
                    <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">pre_dispatch</span><span class="o">=</span><span class="s1">&#39;2*n_jobs&#39;</span><span class="p">,</span> 
@@ -2276,10 +2284,9 @@
                    <span class="n">return_train_score</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </code></pre></div>
 
-
 <p>除了<code>n_iter</code>参数，<code>RandomizedSearchCV</code>与<code>GridSearchCV</code>的参数一致，属性和方法也是一致的。</p>
 <h3 id="_4">例子</h3>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">sklearn.svm</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">sklearn.svm</span>
 <span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="kn">import</span> <span class="n">SVC</span> 
 <span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_iris</span>
 <span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">uniform</span>
@@ -2305,75 +2312,64 @@
 <span class="n">random_search</span><span class="o">.</span><span class="n">best_params_</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">{&#39;C&#39;: 1.2248642986661507, &#39;kernel&#39;: &#39;rbf&#39;}</span>
+<div class="highlight"><pre><span></span><code>{&#39;C&#39;: 1.2248642986661507, &#39;kernel&#39;: &#39;rbf&#39;}
 </code></pre></div>
-
 
 <h2 id="parametergrid">ParameterGrid：参数组合</h2>
 <p><code>ParameterGrid</code>类可以构造出所有的参数组合。</p>
-<div class="codehilite"><pre><span></span><code><span class="n">ParameterGrid</span><span class="p">(</span><span class="n">param_grid</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">ParameterGrid</span><span class="p">(</span><span class="n">param_grid</span><span class="p">)</span>
 </code></pre></div>
 
-
 <h3 id="_5">例子</h3>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">ParameterGrid</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">ParameterGrid</span>
 <span class="n">param_grid</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">]}</span>
 
 <span class="nb">list</span><span class="p">(</span><span class="n">ParameterGrid</span><span class="p">(</span><span class="n">param_grid</span><span class="p">))</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">[{&#39;a&#39;: 1, &#39;b&#39;: True},</span>
-<span class="err"> {&#39;a&#39;: 1, &#39;b&#39;: False},</span>
-<span class="err"> {&#39;a&#39;: 2, &#39;b&#39;: True},</span>
-<span class="err"> {&#39;a&#39;: 2, &#39;b&#39;: False}]</span>
+<div class="highlight"><pre><span></span><code>[{&#39;a&#39;: 1, &#39;b&#39;: True},
+ {&#39;a&#39;: 1, &#39;b&#39;: False},
+ {&#39;a&#39;: 2, &#39;b&#39;: True},
+ {&#39;a&#39;: 2, &#39;b&#39;: False}]
 </code></pre></div>
-
 
 <h2 id="parametersampler">ParameterSampler：参数组合随机抽样</h2>
 <p><code>ParameterSampler</code>类根据给定分布采样的参数生成参数组合。</p>
-<div class="codehilite"><pre><span></span><code><span class="n">ParameterSampler</span><span class="p">(</span><span class="n">param_distributions</span><span class="p">,</span> <span class="n">n_iter</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">ParameterSampler</span><span class="p">(</span><span class="n">param_distributions</span><span class="p">,</span> <span class="n">n_iter</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 </code></pre></div>
 
-
 <h3 id="_6">例子</h3>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">ParameterSampler</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">ParameterSampler</span>
 
 <span class="n">param_grid</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">]}</span>
 <span class="nb">list</span><span class="p">(</span><span class="n">ParameterSampler</span><span class="p">(</span><span class="n">param_grid</span><span class="p">,</span> <span class="n">n_iter</span><span class="o">=</span><span class="mi">3</span><span class="p">))</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">[{&#39;b&#39;: True, &#39;a&#39;: 1}, {&#39;b&#39;: False, &#39;a&#39;: 2}, {&#39;b&#39;: False, &#39;a&#39;: 1}]</span>
+<div class="highlight"><pre><span></span><code>[{&#39;b&#39;: True, &#39;a&#39;: 1}, {&#39;b&#39;: False, &#39;a&#39;: 2}, {&#39;b&#39;: False, &#39;a&#39;: 1}]
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">uniform</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">uniform</span>
 <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">ParameterSampler</span>
 
 <span class="n">param_grid</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="n">uniform</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">4</span><span class="p">),</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">]}</span>
 <span class="nb">list</span><span class="p">(</span><span class="n">ParameterSampler</span><span class="p">(</span><span class="n">param_grid</span><span class="p">,</span> <span class="n">n_iter</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">[{&#39;a&#39;: 0.716982761404827, &#39;b&#39;: True},</span>
-<span class="err"> {&#39;a&#39;: 2.6603500613693383, &#39;b&#39;: False},</span>
-<span class="err"> {&#39;a&#39;: 1.7170489847529042, &#39;b&#39;: False},</span>
-<span class="err"> {&#39;a&#39;: 2.266735701973464, &#39;b&#39;: True}]</span>
+<div class="highlight"><pre><span></span><code>[{&#39;a&#39;: 0.716982761404827, &#39;b&#39;: True},
+ {&#39;a&#39;: 2.6603500613693383, &#39;b&#39;: False},
+ {&#39;a&#39;: 1.7170489847529042, &#39;b&#39;: False},
+ {&#39;a&#39;: 2.266735701973464, &#39;b&#39;: True}]
 </code></pre></div>
-
 
 <h2 id="fit_grid_point">fit_grid_point</h2>
 <p>对一组参数进行拟合，返回这组参数的得分，已经测试样本的数量。</p>
-<div class="codehilite"><pre><span></span><code><span class="n">fit_grid_point</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">estimator</span><span class="p">,</span> <span class="n">parameters</span><span class="p">,</span> 
+<div class="highlight"><pre><span></span><code><span class="n">fit_grid_point</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">estimator</span><span class="p">,</span> <span class="n">parameters</span><span class="p">,</span> 
                <span class="n">train</span><span class="p">,</span> <span class="n">test</span><span class="p">,</span> <span class="n">scorer</span><span class="p">,</span> <span class="n">verbose</span><span class="p">,</span> 
                <span class="n">error_score</span><span class="o">=</span><span class="n">nan</span><span class="p">,</span> <span class="n">fit_params</span><span class="p">)</span>
 </code></pre></div>
 
-
 <h3 id="_7">例子</h3>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="kn">import</span> <span class="n">SVC</span> 
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn.svm</span> <span class="kn">import</span> <span class="n">SVC</span> 
 <span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">load_iris</span>
 <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span><span class="p">,</span> <span class="n">f1_score</span><span class="p">,</span> <span class="n">make_scorer</span>
 <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">fit_grid_point</span>
@@ -2390,8 +2386,7 @@
                <span class="n">scorer</span><span class="o">=</span><span class="n">make_scorer</span><span class="p">(</span><span class="n">f1_score</span><span class="p">),</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">(0.0, {&#39;C&#39;: 1.0, &#39;kernel&#39;: &#39;linear&#39;}, 50)</span>
+<div class="highlight"><pre><span></span><code>(0.0, {&#39;C&#39;: 1.0, &#39;kernel&#39;: &#39;linear&#39;}, 50)
 </code></pre></div>
                 
               

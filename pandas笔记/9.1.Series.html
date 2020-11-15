@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-6.1.4">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.4">
     
     
       
@@ -820,6 +820,18 @@
   <li class="md-nav__item">
     <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.16.shutil.html" class="md-nav__link">
       6.16.shutil
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.17.test.html" class="md-nav__link">
+      6.17.test
     </a>
   </li>
 
@@ -1972,17 +1984,15 @@
                 
                   <h1>9.1.Series</h1>
                 
-                <div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+                <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">from</span> <span class="nn">pandas</span> <span class="kn">import</span> <span class="n">Series</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">Windows 10</span>
-<span class="err">Python 3.7.3 @ MSC v.1915 64 bit (AMD64)</span>
-<span class="err">Latest build date 2020.03.24</span>
-<span class="err">pandas version:  1.0.1</span>
+<div class="highlight"><pre><span></span><code>Windows 10
+Python 3.7.3 @ MSC v.1915 64 bit (AMD64)
+Latest build date 2020.03.24
+pandas version:  1.0.1
 </code></pre></div>
-
 
 <p><strong>Series是能够保存任何类型的数据的一维数组。</strong>Series类似numpy的一维ndarray，但是和ndarray又不同，ndarray的所有元素的类型或结构必须相同<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>，而Series能保存不同类型、结构的数据；另外Series的元素带有索引。Series像一个有序字典，因为它是索引值到数据值的一个映射。它可以用在许多原本需要字典参数的函数中。</p>
 <p>可以通过以下方式创建Series数据结构：</p>
@@ -1993,11 +2003,10 @@
 <li>list、tuple（可以是多层嵌套的list、tuple）</li>
 </ul>
 <h2 id="series">Series类</h2>
-<div class="codehilite"><pre><span></span><code><span class="err">class pandas.Series(data=None, index=None, </span>
-<span class="err">                     dtype=None, name=None,  </span>
-<span class="err">                     copy=False, fastpath=False)</span>
+<div class="highlight"><pre><span></span><code>class pandas.Series(data=None, index=None, 
+                     dtype=None, name=None,  
+                     copy=False, fastpath=False)
 </code></pre></div>
-
 
 <p>参数：</p>
 <ul>
@@ -2015,76 +2024,67 @@
 <li><code>copy</code>：一个布尔值。如果为<code>True</code>，则拷贝输入数据<code>data</code></li>
 </ul>
 <p>还可以通过类方法创建<code>Series</code>：</p>
-<div class="codehilite"><pre><span></span><code><span class="err">Series.from_array(arr, index=None, </span>
-<span class="err">                     name=None, dtype=None, </span>
-<span class="err">                     copy=False, fastpath=False)</span>
+<div class="highlight"><pre><span></span><code>Series.from_array(arr, index=None, 
+                     name=None, dtype=None, 
+                     copy=False, fastpath=False)
 </code></pre></div>
-
 
 <p>但<code>from_array</code>类方法会在未来的版本中被移除。</p>
 <h2 id="dict">从<code>dict</code>来创建</h2>
 <p>如果只传入一个字典，则结果Series中的索引就是原字典的键：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">sdata</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Ohio&#39;</span><span class="p">:</span> <span class="mi">35000</span><span class="p">,</span> <span class="s1">&#39;Texas&#39;</span><span class="p">:</span> <span class="mi">71000</span><span class="p">,</span> <span class="s1">&#39;Oregon&#39;</span><span class="p">:</span> <span class="mi">16000</span><span class="p">,</span> <span class="s1">&#39;Utah&#39;</span><span class="p">:</span> <span class="mi">5000</span><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="n">sdata</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Ohio&#39;</span><span class="p">:</span> <span class="mi">35000</span><span class="p">,</span> <span class="s1">&#39;Texas&#39;</span><span class="p">:</span> <span class="mi">71000</span><span class="p">,</span> <span class="s1">&#39;Oregon&#39;</span><span class="p">:</span> <span class="mi">16000</span><span class="p">,</span> <span class="s1">&#39;Utah&#39;</span><span class="p">:</span> <span class="mi">5000</span><span class="p">}</span>
 <span class="c1"># dict的key是无序的，但series的index是有序的</span>
 <span class="n">Series</span><span class="p">(</span><span class="n">sdata</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">Ohio      35000</span>
-<span class="err">Texas     71000</span>
-<span class="err">Oregon    16000</span>
-<span class="err">Utah       5000</span>
-<span class="c">dtype: int64</span>
+<div class="highlight"><pre><span></span><code>Ohio      35000
+Texas     71000
+Oregon    16000
+Utah       5000
+dtype: int64
 </code></pre></div>
-
 
 <p>也可以指定原字典的key的排列顺序：</p>
 <div class="admonition 注意">
 <p class="admonition-title">注意</p>
 <p>如果传入dict和并指定index，index需要和dict的键匹配，若index不在dict的key中，对应的series值则为NaN。</p>
 </div>
-<div class="codehilite"><pre><span></span><code><span class="n">sdata</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Ohio&#39;</span><span class="p">:</span> <span class="mi">35000</span><span class="p">,</span> <span class="s1">&#39;Texas&#39;</span><span class="p">:</span> <span class="mi">71000</span><span class="p">,</span> <span class="s1">&#39;Oregon&#39;</span><span class="p">:</span> <span class="mi">16000</span><span class="p">,</span> <span class="s1">&#39;Utah&#39;</span><span class="p">:</span> <span class="mi">5000</span><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="n">sdata</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Ohio&#39;</span><span class="p">:</span> <span class="mi">35000</span><span class="p">,</span> <span class="s1">&#39;Texas&#39;</span><span class="p">:</span> <span class="mi">71000</span><span class="p">,</span> <span class="s1">&#39;Oregon&#39;</span><span class="p">:</span> <span class="mi">16000</span><span class="p">,</span> <span class="s1">&#39;Utah&#39;</span><span class="p">:</span> <span class="mi">5000</span><span class="p">}</span>
 <span class="n">states</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;California&#39;</span><span class="p">,</span> <span class="s1">&#39;Ohio&#39;</span><span class="p">,</span> <span class="s1">&#39;Oregon&#39;</span><span class="p">,</span> <span class="s1">&#39;Texas&#39;</span><span class="p">]</span>
 <span class="n">Series</span><span class="p">(</span><span class="n">sdata</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">states</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">California        NaN</span>
-<span class="err">Ohio          35000.0</span>
-<span class="err">Oregon        16000.0</span>
-<span class="err">Texas         71000.0</span>
-<span class="c">dtype: float64</span>
+<div class="highlight"><pre><span></span><code>California        NaN
+Ohio          35000.0
+Oregon        16000.0
+Texas         71000.0
+dtype: float64
 </code></pre></div>
-
 
 <h2 id="numpy">从NumPy数组来创建</h2>
 <p>数组必须是一维的：</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
 <span class="n">Series</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">0    1</span>
-<span class="err">1    2</span>
-<span class="err">2    3</span>
-<span class="c">dtype: int32</span>
+<div class="highlight"><pre><span></span><code>0    1
+1    2
+2    3
+dtype: int32
 </code></pre></div>
-
 
 <h2 id="_1">从标量创建</h2>
 <p>如果提供索引，将重复标量值以匹配索引的长度。</p>
-<div class="codehilite"><pre><span></span><code><span class="n">Series</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<div class="highlight"><pre><span></span><code><span class="n">Series</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">0    5</span>
-<span class="err">1    5</span>
-<span class="err">2    5</span>
-<span class="err">3    5</span>
-<span class="c">dtype: int64</span>
+<div class="highlight"><pre><span></span><code>0    5
+1    5
+2    5
+3    5
+dtype: int64
 </code></pre></div>
-
 
 <div class="footnote">
 <hr />

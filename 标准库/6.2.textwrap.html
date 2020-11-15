@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-6.1.4">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.4">
     
     
       
@@ -891,6 +891,18 @@
   <li class="md-nav__item">
     <a href="6.16.shutil.html" class="md-nav__link">
       6.16.shutil
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="6.17.test.html" class="md-nav__link">
+      6.17.test
     </a>
   </li>
 
@@ -2000,19 +2012,17 @@
                 
                   <h1>6.2.textwrap</h1>
                 
-                <div class="codehilite"><pre><span></span><code><span class="err">Windows 10</span>
-<span class="err">Python 3.7.3 @ MSC v.1915 64 bit (AMD64)</span>
+                <div class="highlight"><pre><span></span><code>Windows 10
+Python 3.7.3 @ MSC v.1915 64 bit (AMD64)
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">textwrap</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">textwrap</span>
 <span class="kn">from</span> <span class="nn">toolkit.Help</span> <span class="kn">import</span> <span class="n">Help</span> <span class="k">as</span> <span class="n">H</span>
 </code></pre></div>
 
-
 <h2 id="_1">删除前导空格和后缀空格</h2>
 <p>删除第一行的前导空格和最后一行的后缀空格，<code>width</code>参数控制每一行的宽度：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">sample_text</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
+<div class="highlight"><pre><span></span><code><span class="n">sample_text</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
 <span class="s1">    The textwrap module can be used to format text for output in</span>
 <span class="s1">    situations where pretty-printing is desired.  It offers</span>
 <span class="s1">    programmatic functionality similar to the paragraph wrapping</span>
@@ -2023,53 +2033,47 @@
 <span class="nb">print</span><span class="p">(</span><span class="n">textwrap</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="n">sample_text</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">))</span>
 </code></pre></div>
 
+<div class="highlight"><pre><span></span><code>    The textwrap module can be used to format text for output in
+    situations where pretty-printing is desired.  It offers
+    programmatic functionality similar to the paragraph wrapping
+    or filling features found in many text editors.
 
-<div class="codehilite"><pre><span></span><code>    <span class="n">The</span> <span class="n">textwrap</span> <span class="n">module</span> <span class="n">can</span> <span class="n">be</span> <span class="n">used</span> <span class="k">to</span> <span class="n">format</span> <span class="nb">text</span> <span class="k">for</span> <span class="k">output</span> <span class="k">in</span>
-    <span class="n">situations</span> <span class="k">where</span> <span class="n">pretty</span><span class="o">-</span><span class="n">printing</span> <span class="k">is</span> <span class="n">desired</span><span class="p">.</span>  <span class="n">It</span> <span class="n">offers</span>
-    <span class="n">programmatic</span> <span class="n">functionality</span> <span class="k">similar</span> <span class="k">to</span> <span class="n">the</span> <span class="n">paragraph</span> <span class="n">wrapping</span>
-    <span class="k">or</span> <span class="n">filling</span> <span class="n">features</span> <span class="k">found</span> <span class="k">in</span> <span class="n">many</span> <span class="nb">text</span> <span class="n">editors</span><span class="p">.</span>
-
-     <span class="n">The</span> <span class="n">textwrap</span> <span class="n">module</span> <span class="n">can</span> <span class="n">be</span> <span class="n">used</span> <span class="k">to</span> <span class="n">format</span>
-<span class="nb">text</span> <span class="k">for</span> <span class="k">output</span> <span class="k">in</span>     <span class="n">situations</span> <span class="k">where</span> <span class="n">pretty</span><span class="o">-</span>
-<span class="n">printing</span> <span class="k">is</span> <span class="n">desired</span><span class="p">.</span>  <span class="n">It</span> <span class="n">offers</span>     <span class="n">programmatic</span>
-<span class="n">functionality</span> <span class="k">similar</span> <span class="k">to</span> <span class="n">the</span> <span class="n">paragraph</span> <span class="n">wrapping</span>
-<span class="k">or</span> <span class="n">filling</span> <span class="n">features</span> <span class="k">found</span> <span class="k">in</span> <span class="n">many</span> <span class="nb">text</span> <span class="n">editors</span><span class="p">.</span>
+     The textwrap module can be used to format
+text for output in     situations where pretty-
+printing is desired.  It offers     programmatic
+functionality similar to the paragraph wrapping
+or filling features found in many text editors.
 </code></pre></div>
-
 
 <p>结果并不尽如人意。文本现在是左对齐的，只有第一行保留了缩进，但是原来的每一行的末尾和下一行的开头之间仍有空格。</p>
 <h2 id="_2">移除所有空格</h2>
 <p>使用 <code>dedent()</code> 函数可以移去所有行中的空格前缀和后缀：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">dedented_text</span> <span class="o">=</span> <span class="n">textwrap</span><span class="o">.</span><span class="n">dedent</span><span class="p">(</span><span class="n">sample_text</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">dedented_text</span> <span class="o">=</span> <span class="n">textwrap</span><span class="o">.</span><span class="n">dedent</span><span class="p">(</span><span class="n">sample_text</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">dedented_text</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">The textwrap module can be used to format text for output in</span>
-<span class="err">situations where pretty-printing is desired.  It offers</span>
-<span class="err">programmatic functionality similar to the paragraph wrapping</span>
-<span class="err">or filling features found in many text editors.</span>
+<div class="highlight"><pre><span></span><code>The textwrap module can be used to format text for output in
+situations where pretty-printing is desired.  It offers
+programmatic functionality similar to the paragraph wrapping
+or filling features found in many text editors.
 </code></pre></div>
 
-
 <p>因为 <code>dedent</code> 是 <code>indent</code> 的反义词， 所以输出结果是一段删除了每一行中都存在的缩进空白的文字。如果某一行比其他行缩进的更多，多出的部分将不会被移除。</p>
-<div class="codehilite"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">textwrap</span><span class="o">.</span><span class="n">dedent</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">textwrap</span><span class="o">.</span><span class="n">dedent</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
 <span class="s2"> Line one.</span>
 <span class="s2">  Line two.</span>
 <span class="s2">   Line three.</span>
 <span class="s2">&quot;&quot;&quot;</span><span class="p">))</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">Line one.</span>
-<span class="err"> Line two.</span>
-<span class="err">  Line three.</span>
+<div class="highlight"><pre><span></span><code>Line one.
+ Line two.
+  Line three.
 </code></pre></div>
-
 
 <h2 id="_3">添加前缀</h2>
 <p>用 <code>indent()</code> 函数在字符串每一行开头加入前缀文本。这个例子非常类似电子邮件回复中被引用的部分，使用 <code>&gt;</code> 符号来做每行文字的前缀。</p>
-<div class="codehilite"><pre><span></span><code><span class="n">dedented_text</span> <span class="o">=</span> <span class="n">textwrap</span><span class="o">.</span><span class="n">dedent</span><span class="p">(</span><span class="n">sample_text</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">dedented_text</span> <span class="o">=</span> <span class="n">textwrap</span><span class="o">.</span><span class="n">dedent</span><span class="p">(</span><span class="n">sample_text</span><span class="p">)</span>
 <span class="n">wrapped</span> <span class="o">=</span> <span class="n">textwrap</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="n">dedented_text</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
 <span class="n">wrapped</span> <span class="o">+=</span> <span class="s1">&#39;</span><span class="se">\n\n</span><span class="s1">Second paragraph after a blank line.&#39;</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">wrapped</span><span class="p">)</span>
@@ -2078,29 +2082,27 @@
 <span class="nb">print</span><span class="p">(</span><span class="n">final</span><span class="p">)</span>
 </code></pre></div>
 
+<div class="highlight"><pre><span></span><code> The textwrap module can be used to format text
+for output in situations where pretty-printing is
+desired.  It offers programmatic functionality
+similar to the paragraph wrapping or filling
+features found in many text editors.
 
-<div class="codehilite"><pre><span></span><code> <span class="n">The</span> <span class="n">textwrap</span> <span class="n">module</span> <span class="n">can</span> <span class="n">be</span> <span class="n">used</span> <span class="k">to</span> <span class="n">format</span> <span class="nb">text</span>
-<span class="k">for</span> <span class="k">output</span> <span class="k">in</span> <span class="n">situations</span> <span class="k">where</span> <span class="n">pretty</span><span class="o">-</span><span class="n">printing</span> <span class="k">is</span>
-<span class="n">desired</span><span class="p">.</span>  <span class="n">It</span> <span class="n">offers</span> <span class="n">programmatic</span> <span class="n">functionality</span>
-<span class="k">similar</span> <span class="k">to</span> <span class="n">the</span> <span class="n">paragraph</span> <span class="n">wrapping</span> <span class="k">or</span> <span class="n">filling</span>
-<span class="n">features</span> <span class="k">found</span> <span class="k">in</span> <span class="n">many</span> <span class="nb">text</span> <span class="n">editors</span><span class="p">.</span>
+Second paragraph after a blank line.
+Quoted block:
 
-<span class="k">Second</span> <span class="n">paragraph</span> <span class="k">after</span> <span class="n">a</span> <span class="n">blank</span> <span class="n">line</span><span class="p">.</span>
-<span class="n">Quoted</span> <span class="n">block</span><span class="p">:</span>
+&gt;  The textwrap module can be used to format text
+&gt; for output in situations where pretty-printing is
+&gt; desired.  It offers programmatic functionality
+&gt; similar to the paragraph wrapping or filling
+&gt; features found in many text editors.
 
-<span class="o">&gt;</span>  <span class="n">The</span> <span class="n">textwrap</span> <span class="n">module</span> <span class="n">can</span> <span class="n">be</span> <span class="n">used</span> <span class="k">to</span> <span class="n">format</span> <span class="nb">text</span>
-<span class="o">&gt;</span> <span class="k">for</span> <span class="k">output</span> <span class="k">in</span> <span class="n">situations</span> <span class="k">where</span> <span class="n">pretty</span><span class="o">-</span><span class="n">printing</span> <span class="k">is</span>
-<span class="o">&gt;</span> <span class="n">desired</span><span class="p">.</span>  <span class="n">It</span> <span class="n">offers</span> <span class="n">programmatic</span> <span class="n">functionality</span>
-<span class="o">&gt;</span> <span class="k">similar</span> <span class="k">to</span> <span class="n">the</span> <span class="n">paragraph</span> <span class="n">wrapping</span> <span class="k">or</span> <span class="n">filling</span>
-<span class="o">&gt;</span> <span class="n">features</span> <span class="k">found</span> <span class="k">in</span> <span class="n">many</span> <span class="nb">text</span> <span class="n">editors</span><span class="p">.</span>
-
-<span class="o">&gt;</span> <span class="k">Second</span> <span class="n">paragraph</span> <span class="k">after</span> <span class="n">a</span> <span class="n">blank</span> <span class="n">line</span><span class="p">.</span>
+&gt; Second paragraph after a blank line.
 </code></pre></div>
-
 
 <p>一段文字被分成了几行，每一行文字前都加了前缀，然后每行文字重新组成整个文字段落并返回。</p>
 <p>要控制特定的一行接受新前缀，给 <code>indent()</code> 的 <code>predicate</code> 参数赋值。该操作会轮流遍历每行的文本，当值为真时将在该行加上前缀。</p>
-<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">should_indent</span><span class="p">(</span><span class="n">line</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">should_indent</span><span class="p">(</span><span class="n">line</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Indent </span><span class="si">{!r}</span><span class="s1">?&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">line</span><span class="p">))</span>
     <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">())</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span>
 
@@ -2113,26 +2115,24 @@
 <span class="nb">print</span><span class="p">(</span><span class="n">final</span><span class="p">)</span>
 </code></pre></div>
 
+<div class="highlight"><pre><span></span><code>Indent &#39; The textwrap module can be used to format text\n&#39;?
+Indent &#39;for output in situations where pretty-printing is\n&#39;?
+Indent &#39;desired.  It offers programmatic functionality\n&#39;?
+Indent &#39;similar to the paragraph wrapping or filling\n&#39;?
+Indent &#39;features found in many text editors.&#39;?
 
-<div class="codehilite"><pre><span></span><code><span class="n">Indent</span> <span class="s1">&#39; The textwrap module can be used to format text\n&#39;</span><span class="o">?</span>
-<span class="n">Indent</span> <span class="s1">&#39;for output in situations where pretty-printing is\n&#39;</span><span class="o">?</span>
-<span class="n">Indent</span> <span class="s1">&#39;desired.  It offers programmatic functionality\n&#39;</span><span class="o">?</span>
-<span class="n">Indent</span> <span class="s1">&#39;similar to the paragraph wrapping or filling\n&#39;</span><span class="o">?</span>
-<span class="n">Indent</span> <span class="s1">&#39;features found in many text editors.&#39;</span><span class="o">?</span>
+Quoted block:
 
-<span class="n">Quoted</span> <span class="n">block</span><span class="p">:</span>
-
-<span class="n">EVEN</span>  <span class="n">The</span> <span class="n">textwrap</span> <span class="n">module</span> <span class="n">can</span> <span class="n">be</span> <span class="n">used</span> <span class="k">to</span> <span class="n">format</span> <span class="nb">text</span>
-<span class="k">for</span> <span class="k">output</span> <span class="k">in</span> <span class="n">situations</span> <span class="k">where</span> <span class="n">pretty</span><span class="o">-</span><span class="n">printing</span> <span class="k">is</span>
-<span class="n">EVEN</span> <span class="n">desired</span><span class="p">.</span>  <span class="n">It</span> <span class="n">offers</span> <span class="n">programmatic</span> <span class="n">functionality</span>
-<span class="n">EVEN</span> <span class="k">similar</span> <span class="k">to</span> <span class="n">the</span> <span class="n">paragraph</span> <span class="n">wrapping</span> <span class="k">or</span> <span class="n">filling</span>
-<span class="n">EVEN</span> <span class="n">features</span> <span class="k">found</span> <span class="k">in</span> <span class="n">many</span> <span class="nb">text</span> <span class="n">editors</span><span class="p">.</span>
+EVEN  The textwrap module can be used to format text
+for output in situations where pretty-printing is
+EVEN desired.  It offers programmatic functionality
+EVEN similar to the paragraph wrapping or filling
+EVEN features found in many text editors.
 </code></pre></div>
-
 
 <h2 id="_4">悬挂缩进</h2>
 <p>同时也可以设置输出段落的宽度，可以单独控制首行的缩进。</p>
-<div class="codehilite"><pre><span></span><code><span class="n">dedented_text</span> <span class="o">=</span> <span class="n">textwrap</span><span class="o">.</span><span class="n">dedent</span><span class="p">(</span><span class="n">sample_text</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span class="n">dedented_text</span> <span class="o">=</span> <span class="n">textwrap</span><span class="o">.</span><span class="n">dedent</span><span class="p">(</span><span class="n">sample_text</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">textwrap</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="n">dedented_text</span><span class="p">,</span>
                     <span class="n">initial_indent</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
                     <span class="n">subsequent_indent</span><span class="o">=</span><span class="s1">&#39; &#39;</span> <span class="o">*</span> <span class="mi">4</span><span class="p">,</span>
@@ -2140,18 +2140,16 @@
                     <span class="p">))</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">The textwrap module can be used to format text for</span>
-<span class="err">    output in situations where pretty-printing is</span>
-<span class="err">    desired.  It offers programmatic functionality</span>
-<span class="err">    similar to the paragraph wrapping or filling</span>
-<span class="err">    features found in many text editors.</span>
+<div class="highlight"><pre><span></span><code>The textwrap module can be used to format text for
+    output in situations where pretty-printing is
+    desired.  It offers programmatic functionality
+    similar to the paragraph wrapping or filling
+    features found in many text editors.
 </code></pre></div>
-
 
 <h2 id="_5">减短长文本</h2>
 <p>为了查看长文本的摘要或预览，可以使用 <code>shorten()</code> 。所有的空格，比如制表符、换行符以及一系列的空格都将标准化为单个空格。然后此文本将减短为要求的长度来显示，在字词边界之间，将不包括不完整的词。</p>
-<div class="codehilite"><pre><span></span><code><span class="n">dedented_text</span> <span class="o">=</span> <span class="n">textwrap</span><span class="o">.</span><span class="n">dedent</span><span class="p">(</span><span class="n">sample_text</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">dedented_text</span> <span class="o">=</span> <span class="n">textwrap</span><span class="o">.</span><span class="n">dedent</span><span class="p">(</span><span class="n">sample_text</span><span class="p">)</span>
 <span class="n">original</span> <span class="o">=</span> <span class="n">textwrap</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="n">dedented_text</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Original:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
@@ -2164,43 +2162,40 @@
 <span class="nb">print</span><span class="p">(</span><span class="n">shortened_wrapped</span><span class="p">)</span>
 </code></pre></div>
 
+<div class="highlight"><pre><span></span><code>Original:
 
-<div class="codehilite"><pre><span></span><code><span class="n">Original</span><span class="o">:</span>
+ The textwrap module can be used to format text
+for output in situations where pretty-printing is
+desired.  It offers programmatic functionality
+similar to the paragraph wrapping or filling
+features found in many text editors.
 
- <span class="n">The</span> <span class="n">textwrap</span> <span class="n">module</span> <span class="n">can</span> <span class="n">be</span> <span class="n">used</span> <span class="n">to</span> <span class="n">format</span> <span class="n">text</span>
-<span class="k">for</span> <span class="n">output</span> <span class="k">in</span> <span class="n">situations</span> <span class="n">where</span> <span class="n">pretty</span><span class="o">-</span><span class="n">printing</span> <span class="k">is</span>
-<span class="n">desired</span><span class="o">.</span>  <span class="n">It</span> <span class="n">offers</span> <span class="n">programmatic</span> <span class="n">functionality</span>
-<span class="n">similar</span> <span class="n">to</span> <span class="n">the</span> <span class="n">paragraph</span> <span class="n">wrapping</span> <span class="n">or</span> <span class="n">filling</span>
-<span class="n">features</span> <span class="n">found</span> <span class="k">in</span> <span class="n">many</span> <span class="n">text</span> <span class="n">editors</span><span class="o">.</span>
+Shortened:
 
-<span class="n">Shortened</span><span class="o">:</span>
-
-<span class="n">The</span> <span class="n">textwrap</span> <span class="n">module</span> <span class="n">can</span> <span class="n">be</span> <span class="n">used</span> <span class="n">to</span> <span class="n">format</span> <span class="n">text</span> <span class="k">for</span>
-<span class="n">output</span> <span class="k">in</span> <span class="n">situations</span> <span class="n">where</span> <span class="n">pretty</span><span class="o">-</span><span class="n">printing</span> <span class="o">[...]</span>
+The textwrap module can be used to format text for
+output in situations where pretty-printing [...]
 </code></pre></div>
-
 
 <p>如果非空字元在原文本中被当作减短的部分被移除，他将替换为占位符。默认值 <code>[...]</code> 可以被替换，在 <code>shorten()</code> 中加入 <code>placeholder</code> 参数。</p>
 <h2 id="_6">强制换行</h2>
 <p>每一行超过20个字符就强制换行（可能会导致单词被拆分）：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">textwrap</span><span class="o">.</span><span class="n">wrap</span><span class="p">(</span><span class="n">sample_text</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">textwrap</span><span class="o">.</span><span class="n">wrap</span><span class="p">(</span><span class="n">sample_text</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">[&#39;     The textwrap&#39;,</span>
-<span class="err"> &#39;module can be used&#39;,</span>
-<span class="err"> &#39;to format text for&#39;,</span>
-<span class="err"> &#39;output in&#39;,</span>
-<span class="err"> &#39;situations where&#39;,</span>
-<span class="err"> &#39;pretty-printing is&#39;,</span>
-<span class="err"> &#39;desired.  It offers&#39;,</span>
-<span class="err"> &#39;programmatic&#39;,</span>
-<span class="err"> &#39;functionality&#39;,</span>
-<span class="err"> &#39;similar to the&#39;,</span>
-<span class="err"> &#39;paragraph wrapping&#39;,</span>
-<span class="err"> &#39;or filling features&#39;,</span>
-<span class="err"> &#39;found in many text&#39;,</span>
-<span class="err"> &#39;editors.&#39;]</span>
+<div class="highlight"><pre><span></span><code>[&#39;     The textwrap&#39;,
+ &#39;module can be used&#39;,
+ &#39;to format text for&#39;,
+ &#39;output in&#39;,
+ &#39;situations where&#39;,
+ &#39;pretty-printing is&#39;,
+ &#39;desired.  It offers&#39;,
+ &#39;programmatic&#39;,
+ &#39;functionality&#39;,
+ &#39;similar to the&#39;,
+ &#39;paragraph wrapping&#39;,
+ &#39;or filling features&#39;,
+ &#39;found in many text&#39;,
+ &#39;editors.&#39;]
 </code></pre></div>
                 
               

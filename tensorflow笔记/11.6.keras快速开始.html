@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-6.1.4">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.4">
     
     
       
@@ -815,6 +815,18 @@
   <li class="md-nav__item">
     <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.16.shutil.html" class="md-nav__link">
       6.16.shutil
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.17.test.html" class="md-nav__link">
+      6.17.test
     </a>
   </li>
 
@@ -1861,7 +1873,7 @@
                 
                   <h1>11.6.keras快速开始</h1>
                 
-                <div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">keras</span>
+                <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">keras</span>
 <span class="kn">from</span> <span class="nn">toolkit</span> <span class="kn">import</span> <span class="n">H</span>
 
 <span class="kn">from</span> <span class="nn">keras</span> <span class="kn">import</span> <span class="n">models</span>
@@ -1874,73 +1886,63 @@
 <span class="kn">from</span> <span class="nn">tensorflow.keras.backend</span> <span class="kn">import</span> <span class="n">K</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="o">---------------------------------------------------------------------------</span><span class="ne">ImportError</span>
-<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">)</span><span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">c87d9f3295c0</span><span class="o">&gt;</span> <span class="ow">in</span>
-<span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-      <span class="mi">9</span> <span class="kn">from</span> <span class="nn">tensorflow.keras.models</span> <span class="kn">import</span> <span class="n">Sequential</span>
-     <span class="mi">10</span> <span class="kn">from</span> <span class="nn">tensorflow.keras.layers</span> <span class="kn">import</span> <span class="n">Dense</span><span class="p">,</span> <span class="n">Activation</span>
-<span class="o">---&gt;</span> <span class="mi">11</span> <span class="kn">from</span> <span class="nn">tensorflow.keras.backend</span> <span class="kn">import</span> <span class="n">K</span>
-<span class="ne">ImportError</span><span class="p">:</span> <span class="n">cannot</span> <span class="kn">import</span> <span class="nn">name</span> <span class="s1">&#39;K&#39;</span> <span class="kn">from</span> <span class="s1">&#39;tensorflow.keras.backend&#39;</span>
-<span class="p">(</span><span class="n">G</span><span class="p">:</span>\<span class="n">Installed</span>\<span class="n">Anaconda3</span>\<span class="n">lib</span>\<span class="n">site</span><span class="o">-</span>
-<span class="n">packages</span>\<span class="n">tensorflow_core</span>\<span class="n">python</span>\<span class="n">keras</span>\<span class="n">api</span>\<span class="n">_v2</span>\<span class="n">keras</span>\<span class="n">backend</span>\<span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code>---------------------------------------------------------------------------ImportError
+Traceback (most recent call last)&lt;ipython-input-1-c87d9f3295c0&gt; in
+&lt;module&gt;
+      9 from tensorflow.keras.models import Sequential
+     10 from tensorflow.keras.layers import Dense, Activation
+---&gt; 11 from tensorflow.keras.backend import K
+ImportError: cannot import name &#39;K&#39; from &#39;tensorflow.keras.backend&#39;
+(G:\Installed\Anaconda3\lib\site-
+packages\tensorflow_core\python\keras\api\_v2\keras\backend\__init__.py)
 </code></pre></div>
 
-
 <p>keras 的顶层api</p>
-<div class="codehilite"><pre><span></span><code><span class="n">h</span> <span class="o">=</span> <span class="n">H</span><span class="p">(</span><span class="n">keras</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">h</span> <span class="o">=</span> <span class="n">H</span><span class="p">(</span><span class="n">keras</span><span class="p">)</span>
 <span class="n">d</span> <span class="o">=</span> <span class="n">h</span><span class="o">.</span><span class="n">dicts</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">module</span>
+<div class="highlight"><pre><span></span><code>module
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="n">d</span><span class="p">[</span><span class="s2">&quot;function&quot;</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span class="n">d</span><span class="p">[</span><span class="s2">&quot;function&quot;</span><span class="p">]</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">[&#39;Input&#39;]</span>
+<div class="highlight"><pre><span></span><code>[&#39;Input&#39;]
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="n">d</span><span class="p">[</span><span class="s2">&quot;class&quot;</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span class="n">d</span><span class="p">[</span><span class="s2">&quot;class&quot;</span><span class="p">]</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">[&#39;Model&#39;, &#39;Sequential&#39;]</span>
+<div class="highlight"><pre><span></span><code>[&#39;Model&#39;, &#39;Sequential&#39;]
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="n">d</span><span class="p">[</span><span class="s2">&quot;module&quot;</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span class="n">d</span><span class="p">[</span><span class="s2">&quot;module&quot;</span><span class="p">]</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">[&#39;activations.py&#39;,</span>
-<span class="err"> &#39;applications&#39;,</span>
-<span class="err"> &#39;backend&#39;,</span>
-<span class="err"> &#39;callbacks.py&#39;,</span>
-<span class="err"> &#39;constraints.py&#39;,</span>
-<span class="err"> &#39;datasets&#39;,</span>
-<span class="err"> &#39;engine&#39;,</span>
-<span class="err"> &#39;initializers.py&#39;,</span>
-<span class="err"> &#39;layers&#39;,</span>
-<span class="err"> &#39;legacy&#39;,</span>
-<span class="err"> &#39;losses.py&#39;,</span>
-<span class="err"> &#39;metrics.py&#39;,</span>
-<span class="err"> &#39;models.py&#39;,</span>
-<span class="err"> &#39;objectives.py&#39;,</span>
-<span class="err"> &#39;optimizers.py&#39;,</span>
-<span class="err"> &#39;preprocessing&#39;,</span>
-<span class="err"> &#39;regularizers.py&#39;,</span>
-<span class="err"> &#39;utils&#39;,</span>
-<span class="err"> &#39;wrappers&#39;]</span>
+<div class="highlight"><pre><span></span><code>[&#39;activations.py&#39;,
+ &#39;applications&#39;,
+ &#39;backend&#39;,
+ &#39;callbacks.py&#39;,
+ &#39;constraints.py&#39;,
+ &#39;datasets&#39;,
+ &#39;engine&#39;,
+ &#39;initializers.py&#39;,
+ &#39;layers&#39;,
+ &#39;legacy&#39;,
+ &#39;losses.py&#39;,
+ &#39;metrics.py&#39;,
+ &#39;models.py&#39;,
+ &#39;objectives.py&#39;,
+ &#39;optimizers.py&#39;,
+ &#39;preprocessing&#39;,
+ &#39;regularizers.py&#39;,
+ &#39;utils&#39;,
+ &#39;wrappers&#39;]
 </code></pre></div>
-
 
 <p>models_l = [i for i in dir(models) if not i.startswith("_")]</p>
-<div class="codehilite"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">models_l</span><span class="p">)</span> 
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">models_l</span><span class="p">)</span> 
 <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">models_l</span><span class="p">))</span> <span class="c1"># 17</span>
 
 <span class="n">layers_l</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="n">layers</span><span class="p">)</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">i</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">)]</span>
@@ -2021,16 +2023,15 @@
 <span class="n">model</span><span class="o">.</span><span class="n">evaluate</span><span class="p">()</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">---------------------------------------------------------------------------NameError</span>
-<span class="err">Traceback (most recent call last)&lt;ipython-input-1-0baaaf5839e6&gt; in</span>
-<span class="err">&lt;module&gt;</span>
-<span class="err">----&gt; 1 print(models_l)</span>
-<span class="err">      2 print(len(models_l)) # 17</span>
-<span class="err">      3</span>
-<span class="err">      4 layers_l = [i for i in dir(layers) if not i.startswith(&quot;_&quot;)]</span>
-<span class="err">      5 print(layers_l)</span>
-<span class="c">NameError: name &#39;models_l&#39; is not defined</span>
+<div class="highlight"><pre><span></span><code>---------------------------------------------------------------------------NameError
+Traceback (most recent call last)&lt;ipython-input-1-0baaaf5839e6&gt; in
+&lt;module&gt;
+----&gt; 1 print(models_l)
+      2 print(len(models_l)) # 17
+      3
+      4 layers_l = [i for i in dir(layers) if not i.startswith(&quot;_&quot;)]
+      5 print(layers_l)
+NameError: name &#39;models_l&#39; is not defined
 </code></pre></div>
                 
               

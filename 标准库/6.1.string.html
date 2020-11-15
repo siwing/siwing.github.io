@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-6.1.4">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.4">
     
     
       
@@ -870,6 +870,18 @@
   <li class="md-nav__item">
     <a href="6.16.shutil.html" class="md-nav__link">
       6.16.shutil
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="6.17.test.html" class="md-nav__link">
+      6.17.test
     </a>
   </li>
 
@@ -1958,15 +1970,14 @@
                 
                   <h1>6.1.string</h1>
                 
-                <div class="codehilite"><pre><span></span><code><span class="err">Windows 10</span>
-<span class="err">Python 3.7.3 @ MSC v.1915 64 bit (AMD64)</span>
+                <div class="highlight"><pre><span></span><code>Windows 10
+Python 3.7.3 @ MSC v.1915 64 bit (AMD64)
 </code></pre></div>
-
 
 <h2 id="template">Template</h2>
 <p>在 <code>string.Template</code> 中，通过前置 <code>$</code> 来识别变量（例如，<code>$var</code>）。另外，<mark>如果有需要，可以通过大括号将它们从周围的文本中分开（例如，<code>${var}</code>）。</mark> </p>
 <p>通过例子来对比下：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">values</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;var&#39;</span><span class="p">:</span> <span class="s1">&#39;foo&#39;</span><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="n">values</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;var&#39;</span><span class="p">:</span> <span class="s1">&#39;foo&#39;</span><span class="p">}</span>
 
 <span class="n">t</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">Template</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">Variable        : $var</span>
@@ -1991,28 +2002,26 @@
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;FORMAT:&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="o">**</span><span class="n">values</span><span class="p">))</span>
 </code></pre></div>
 
+<div class="highlight"><pre><span></span><code>TEMPLATE:
+Variable        : foo
+Escape          : $
+Variable in text: fooiable
 
-<div class="codehilite"><pre><span></span><code><span class="n">TEMPLATE</span><span class="o">:</span>
-<span class="n">Variable</span>        <span class="o">:</span> <span class="n">foo</span>
-<span class="n">Escape</span>          <span class="o">:</span> <span class="n">$</span>
-<span class="n">Variable</span> <span class="k">in</span> <span class="n">text</span><span class="o">:</span> <span class="n">fooiable</span>
+INTERPOLATION:
+Variable        : foo
+Escape          : %
+Variable in text: fooiable
 
-<span class="n">INTERPOLATION</span><span class="o">:</span>
-<span class="n">Variable</span>        <span class="o">:</span> <span class="n">foo</span>
-<span class="n">Escape</span>          <span class="o">:</span> <span class="o">%</span>
-<span class="n">Variable</span> <span class="k">in</span> <span class="n">text</span><span class="o">:</span> <span class="n">fooiable</span>
-
-<span class="n">FORMAT</span><span class="o">:</span>
-<span class="n">Variable</span>        <span class="o">:</span> <span class="n">foo</span>
-<span class="n">Escape</span>          <span class="o">:</span> <span class="o">{}</span>
-<span class="n">Variable</span> <span class="k">in</span> <span class="n">text</span><span class="o">:</span> <span class="n">fooiable</span>
+FORMAT:
+Variable        : foo
+Escape          : {}
+Variable in text: fooiable
 </code></pre></div>
-
 
 <p>前两种情况，触发字符（<code>$</code> 和 <code>%</code>）需要重复两次来转义。对于第三种格式化语法，<code>{</code> 和 <code>}</code> 都需要重复才能转义。</p>
 <p><code>Template</code>没有可用的格式化选项。例如，无法控制用来表示浮点数的数字的个数。</p>
 <p>使用 <code>safe_substitute()</code> 方法可以带来一个好处，那就是如果模板需要的值没有全部作为参数提供给模板的话可以避免发生异常。</p>
-<div class="codehilite"><pre><span></span><code><span class="n">values</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;var&#39;</span><span class="p">:</span> <span class="s1">&#39;foo&#39;</span><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="n">values</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;var&#39;</span><span class="p">:</span> <span class="s1">&#39;foo&#39;</span><span class="p">}</span>
 
 <span class="n">t</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">Template</span><span class="p">(</span><span class="s2">&quot;$var is here but $missing is not provided&quot;</span><span class="p">)</span>
 
@@ -2024,15 +2033,13 @@
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;safe_substitute():&#39;</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">safe_substitute</span><span class="p">(</span><span class="n">values</span><span class="p">))</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="c">ERROR: &#39;missing&#39;</span>
-<span class="err">safe_substitute(): foo is here but $missing is not provided</span>
+<div class="highlight"><pre><span></span><code>ERROR: &#39;missing&#39;
+safe_substitute(): foo is here but $missing is not provided
 </code></pre></div>
-
 
 <p>因为在 values 字典中没有值提供给 <code>missing</code> , 所以 <code>substitute()</code> 会抛出一个 <code>KeyError</code> 异常。而 <code>safe_substitute()</code> 将捕捉这个异常并将变量表达式单独留在文本中而不是抛出异常。</p>
 <p><code>string.Template</code> 缺省语法可以通过改变正则表达式模式来调整，这个正则表达式一般是用来寻找模板内容内变量名字的。 简单的方法是通过改变 <code>delimiter</code> 和 <code>idpattern</code> 的类属性来做调整。</p>
-<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">MyTemplate</span><span class="p">(</span><span class="n">string</span><span class="o">.</span><span class="n">Template</span><span class="p">):</span>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">MyTemplate</span><span class="p">(</span><span class="n">string</span><span class="o">.</span><span class="n">Template</span><span class="p">):</span>
     <span class="n">delimiter</span> <span class="o">=</span> <span class="s1">&#39;%&#39;</span>
     <span class="n">idpattern</span> <span class="o">=</span> <span class="s1">&#39;[a-z]+_[a-z]+&#39;</span>
 
@@ -2052,36 +2059,32 @@
 <span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">safe_substitute</span><span class="p">(</span><span class="n">d</span><span class="p">))</span>
 </code></pre></div>
 
+<div class="highlight"><pre><span></span><code>Modified ID pattern:
 
-<div class="codehilite"><pre><span></span><code><span class="n">Modified</span> <span class="n">ID</span> <span class="n">pattern</span><span class="p">:</span>
-
-  <span class="k">Delimiter</span> <span class="p">:</span> <span class="o">%</span>
-  <span class="n">Replaced</span>  <span class="p">:</span> <span class="n">replaced</span>
-  <span class="n">Ignored</span>   <span class="p">:</span> <span class="o">%</span><span class="n">notunderscored</span>
+  Delimiter : %
+  Replaced  : replaced
+  Ignored   : %notunderscored
 </code></pre></div>
-
 
 <p>在这个示例里，替换规则进行了变更，分隔符用 <code>%</code> 来替代了 <code>$</code> 并且变量名字中必须包含下划线。 <code>%notunderscored</code> 模式并没有被替换，因为它不包括下划线字符。</p>
 <p>对于更复杂的改变，可以通过覆写 <code>pattern</code> 属性和定义一个全新的正则表达式来实现。覆写的模式必须提供四个命名组来获取未识别的分隔符、命名的变量、大括号模式的变量名称、和无效的分隔符模式。</p>
 <p><code>t.pattern</code> 的值是编译好的正则表达式，但是原始字符串可以通过它的 <code>pattern</code> 属性来获取</p>
-<div class="codehilite"><pre><span></span><code><span class="n">t</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">Template</span><span class="p">(</span><span class="s1">&#39;$var&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">t</span> <span class="o">=</span> <span class="n">string</span><span class="o">.</span><span class="n">Template</span><span class="p">(</span><span class="s1">&#39;$var&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">pattern</span><span class="o">.</span><span class="n">pattern</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">    \$(?:</span>
-<span class="err">      (?P&lt;escaped&gt;\$) |   # Escape sequence of two delimiters</span>
-<span class="err">      (?P&lt;named&gt;(?a:[_a-z][_a-z0-9]*))      |   # delimiter and a</span>
-<span class="err">Python identifier</span>
-<span class="err">      {(?P&lt;braced&gt;(?a:[_a-z][_a-z0-9]*))}  |   # delimiter and a</span>
-<span class="err">braced identifier</span>
-<span class="err">      (?P&lt;invalid&gt;)              # Other ill-formed delimiter exprs</span>
-<span class="err">    )</span>
+<div class="highlight"><pre><span></span><code>    \$(?:
+      (?P&lt;escaped&gt;\$) |   # Escape sequence of two delimiters
+      (?P&lt;named&gt;(?a:[_a-z][_a-z0-9]*))      |   # delimiter and a
+Python identifier
+      {(?P&lt;braced&gt;(?a:[_a-z][_a-z0-9]*))}  |   # delimiter and a
+braced identifier
+      (?P&lt;invalid&gt;)              # Other ill-formed delimiter exprs
+    )
 </code></pre></div>
 
-
 <p>下面的示例定义了一个新的模式来生成一种新的模板，使用 <code>{{var}}</code> 作为变量语法。</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">re</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">re</span>
 <span class="kn">import</span> <span class="nn">string</span>
 
 <span class="k">class</span> <span class="nc">MyTemplate</span><span class="p">(</span><span class="n">string</span><span class="o">.</span><span class="n">Template</span><span class="p">):</span>
@@ -2104,20 +2107,18 @@
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;SUBSTITUTED:&#39;</span><span class="p">,</span> <span class="n">t</span><span class="o">.</span><span class="n">safe_substitute</span><span class="p">(</span><span class="n">var</span><span class="o">=</span><span class="s1">&#39;replacement&#39;</span><span class="p">))</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="c">MATCHES: [(&#39;{{&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;), (&#39;&#39;, &#39;var&#39;, &#39;&#39;, &#39;&#39;)]</span>
-<span class="c">SUBSTITUTED:</span>
-<span class="err">{{</span>
-<span class="err">replacement</span>
+<div class="highlight"><pre><span></span><code>MATCHES: [(&#39;{{&#39;, &#39;&#39;, &#39;&#39;, &#39;&#39;), (&#39;&#39;, &#39;var&#39;, &#39;&#39;, &#39;&#39;)]
+SUBSTITUTED:
+{{
+replacement
 </code></pre></div>
-
 
 <p><code>named</code> 和 <code>braced</code> 两个模式都必须单独提供，虽然它们都是一样的。</p>
 <h2 id="formatter">Formatter</h2>
 <p><code>Formatter</code> 类的执行效果与 <code>str</code> 的 <code>format()</code> 方法一致，它的特征包括型态转换，排列，属性以及字段引用，已命名特定位置的模板参数， 以及特定类型的格式化选项。通常 <code>format()</code> 方法对于这些特征是最便捷的接口，但 <code>Formatter</code> 提供了建立子类的方法，在需要多态情况下使用。</p>
 <h2 id="_1">常量</h2>
 <p><code>string</code> 模块包含了与 ASCII 、数字字符相关的一系列常量。这些常量在处理 ASCII 数据时是非常有效的，但是现在大家会越来越多的遇到 Unicode 类型的非 ASCII 文本，在这个情况下的这些常量的作用就很有限了。</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">inspect</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">inspect</span>
 <span class="kn">import</span> <span class="nn">string</span>
 
 <span class="k">def</span> <span class="nf">is_str</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
@@ -2129,25 +2130,24 @@
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">=</span><span class="si">%r</span><span class="se">\n</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">))</span>
 </code></pre></div>
 
+<div class="highlight"><pre><span></span><code>ascii_letters=&#39;abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ&#39;
 
-<div class="codehilite"><pre><span></span><code><span class="n">ascii_letters</span><span class="o">=</span><span class="s1">&#39;abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ&#39;</span>
+ascii_lowercase=&#39;abcdefghijklmnopqrstuvwxyz&#39;
 
-<span class="n">ascii_lowercase</span><span class="o">=</span><span class="s1">&#39;abcdefghijklmnopqrstuvwxyz&#39;</span>
+ascii_uppercase=&#39;ABCDEFGHIJKLMNOPQRSTUVWXYZ&#39;
 
-<span class="n">ascii_uppercase</span><span class="o">=</span><span class="s1">&#39;ABCDEFGHIJKLMNOPQRSTUVWXYZ&#39;</span>
+digits=&#39;0123456789&#39;
 
-<span class="n">digits</span><span class="o">=</span><span class="s1">&#39;0123456789&#39;</span>
+hexdigits=&#39;0123456789abcdefABCDEF&#39;
 
-<span class="n">hexdigits</span><span class="o">=</span><span class="s1">&#39;0123456789abcdefABCDEF&#39;</span>
+octdigits=&#39;01234567&#39;
 
-<span class="n">octdigits</span><span class="o">=</span><span class="s1">&#39;01234567&#39;</span>
+printable=&#39;0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!&quot;#$%&amp;\&#39;()*+,-./:;&lt;=&gt;?@[\\]^_`{|}~
+\t\n\r\x0b\x0c&#39;
 
-<span class="n">printable</span><span class="o">=</span><span class="s1">&#39;0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!&quot;#$%&amp;\&#39;</span><span class="p">()</span><span class="o">*+</span><span class="p">,</span><span class="o">-</span><span class="p">.</span><span class="o">/</span><span class="p">:;</span><span class="o">&lt;=&gt;?@</span><span class="p">[</span><span class="err">\\</span><span class="p">]</span><span class="o">^</span><span class="n">_</span><span class="o">`</span><span class="err">{</span><span class="o">|</span><span class="err">}</span><span class="o">~</span>
-<span class="err">\</span><span class="n">t</span><span class="err">\</span><span class="n">n</span><span class="err">\</span><span class="n">r</span><span class="err">\</span><span class="n">x0b</span><span class="err">\</span><span class="n">x0c</span><span class="s1">&#39;</span>
+punctuation=&#39;!&quot;#$%&amp;\&#39;()*+,-./:;&lt;=&gt;?@[\\]^_`{|}~&#39;
 
-<span class="s1">punctuation=&#39;</span><span class="o">!</span><span class="err">&quot;</span><span class="o">#</span><span class="err">$</span><span class="o">%&amp;</span><span class="err">\</span><span class="s1">&#39;()*+,-./:;&lt;=&gt;?@[\\]^_`{|}~&#39;</span>
-
-<span class="n">whitespace</span><span class="o">=</span><span class="s1">&#39; \t\n\r\x0b\x0c&#39;</span>
+whitespace=&#39; \t\n\r\x0b\x0c&#39;
 </code></pre></div>
                 
               

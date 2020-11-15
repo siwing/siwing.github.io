@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-6.1.4">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.4">
     
     
       
@@ -946,6 +946,18 @@
   <li class="md-nav__item">
     <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.16.shutil.html" class="md-nav__link">
       6.16.shutil
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.17.test.html" class="md-nav__link">
+      6.17.test
     </a>
   </li>
 
@@ -2110,11 +2122,10 @@
                 
                   <h1>2.4.List</h1>
                 
-                <div class="codehilite"><pre><span></span><code><span class="err">Windows 10</span>
-<span class="err">Python 3.7.7 @ MSC v.1916 64 bit (AMD64)</span>
-<span class="err">Latest build date 2020.09.21</span>
+                <div class="highlight"><pre><span></span><code>Windows 10
+Python 3.7.7 @ MSC v.1916 64 bit (AMD64)
+Latest build date 2020.09.21
 </code></pre></div>
-
 
 <table>
 <thead>
@@ -2172,62 +2183,54 @@
 </table>
 <h2 id="list">list的方法</h2>
 <p>创建一个list</p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># 查看list的方法、属性</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 查看list的方法、属性</span>
 <span class="p">[</span><span class="n">method</span> <span class="k">for</span> <span class="n">method</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="nb">list</span><span class="p">())</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">method</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">)]</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">[&#39;append&#39;,</span>
-<span class="err"> &#39;clear&#39;,</span>
-<span class="err"> &#39;copy&#39;,</span>
-<span class="err"> &#39;count&#39;,</span>
-<span class="err"> &#39;extend&#39;,</span>
-<span class="err"> &#39;index&#39;,</span>
-<span class="err"> &#39;insert&#39;,</span>
-<span class="err"> &#39;pop&#39;,</span>
-<span class="err"> &#39;remove&#39;,</span>
-<span class="err"> &#39;reverse&#39;,</span>
-<span class="err"> &#39;sort&#39;]</span>
+<div class="highlight"><pre><span></span><code>[&#39;append&#39;,
+ &#39;clear&#39;,
+ &#39;copy&#39;,
+ &#39;count&#39;,
+ &#39;extend&#39;,
+ &#39;index&#39;,
+ &#39;insert&#39;,
+ &#39;pop&#39;,
+ &#39;remove&#39;,
+ &#39;reverse&#39;,
+ &#39;sort&#39;]
 </code></pre></div>
-
 
 <h3 id="list_1">修改list元素的值</h3>
 <p>修改现有list的值，通过索引、切片来完成。</p>
-<div class="codehilite"><pre><span></span><code><span class="n">list_1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span class="n">list_1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
 <span class="c1"># 修改某个索引对应元素的值</span>
 <span class="n">list_1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span> <span class="n">list_1</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">[100, 10, 20, 30]</span>
+<div class="highlight"><pre><span></span><code>[100, 10, 20, 30]
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="c1"># 修改某个连续区域的值</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 修改某个连续区域的值</span>
 <span class="c1"># 切片的长度 和 用于赋值的列表长度 可以不同，如下：</span>
 <span class="n">list_1</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">];</span> <span class="n">list_1</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">[11, 12, 13, 14, 20, 30]</span>
+<div class="highlight"><pre><span></span><code>[11, 12, 13, 14, 20, 30]
 </code></pre></div>
-
 
 <h3 id="_1">添加一个新元素到末尾</h3>
 <p><code>append</code>方法每次只能添加一个新元素</p>
-<div class="codehilite"><pre><span></span><code><span class="n">list_1</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">));</span> <span class="nb">print</span><span class="p">(</span><span class="n">list_1</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">list_1</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">));</span> <span class="nb">print</span><span class="p">(</span><span class="n">list_1</span><span class="p">)</span>
 <span class="n">list_1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">12</span><span class="p">);</span> <span class="nb">print</span><span class="p">(</span><span class="n">list_1</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="k">[0, 1, 2, 3]</span>
-<span class="k">[0, 1, 2, 3, 12]</span>
+<div class="highlight"><pre><span></span><code>[0, 1, 2, 3]
+[0, 1, 2, 3, 12]
 </code></pre></div>
-
 
 <h3 id="_2">添加任意个新元素到末尾</h3>
 <p><code>extend</code>方法允许我们通过另一个list来扩充当前的list。实际上，这看起来像是用<code>+</code>拼接list，但<code>extend</code>方法会直接修改原列表，不返回副本。</p>
-<div class="codehilite"><pre><span></span><code><span class="n">list_1</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
+<div class="highlight"><pre><span></span><code><span class="n">list_1</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
 <span class="n">list_2</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;0&#39;</span><span class="p">,</span><span class="s1">&#39;00&#39;</span><span class="p">,</span><span class="s1">&#39;000&#39;</span><span class="p">]</span>
 <span class="n">list_1</span> <span class="o">+</span> <span class="n">list_2</span>
 <span class="c1"># 此时list_1没有被修改</span>
@@ -2238,151 +2241,125 @@
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;使用extend方法：&quot;</span><span class="p">,</span><span class="n">list_1</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">使用+运算符： [0, 1, 2, 3]</span>
-<span class="err">使用extend方法： [0, 1, 2, 3, &#39;0&#39;, &#39;00&#39;, &#39;000&#39;]</span>
+<div class="highlight"><pre><span></span><code>使用+运算符： [0, 1, 2, 3]
+使用extend方法： [0, 1, 2, 3, &#39;0&#39;, &#39;00&#39;, &#39;000&#39;]
 </code></pre></div>
-
 
 <p>可以看出，使用<code>+</code>拼接list会创建一个新对象，显然拼接的效率回比<code>extend</code>方法的效率低。</p>
 <p>还可以借助切片来扩充list，像这样：</p>
-<div class="codehilite"><pre><span></span><code><span class="n">list_1</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
+<div class="highlight"><pre><span></span><code><span class="n">list_1</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
 <span class="n">list_2</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;0&#39;</span><span class="p">,</span><span class="s1">&#39;00&#39;</span><span class="p">,</span><span class="s1">&#39;000&#39;</span><span class="p">]</span>
 <span class="c1"># 这样做可读性不高</span>
 <span class="n">list_1</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">list_1</span><span class="p">):]</span> <span class="o">=</span> <span class="n">list_2</span>
 <span class="n">list_1</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">[0, 1, 2, 3, &#39;0&#39;, &#39;00&#39;, &#39;000&#39;]</span>
+<div class="highlight"><pre><span></span><code>[0, 1, 2, 3, &#39;0&#39;, &#39;00&#39;, &#39;000&#39;]
 </code></pre></div>
-
 
 <h3 id="_3">在任意位置插入新元素</h3>
 <p><code>insert</code>方法将一个对象插入指定位置</p>
-<div class="codehilite"><pre><span></span><code><span class="n">list_1</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">));</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;原列表：&quot;</span><span class="p">,</span><span class="n">list_1</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">list_1</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">));</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;原列表：&quot;</span><span class="p">,</span><span class="n">list_1</span><span class="p">)</span>
 <span class="n">list_1</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;新元素&quot;</span><span class="p">);</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;新列表：&quot;</span><span class="p">,</span><span class="n">list_1</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">原列表： [0, 1, 2, 3]</span>
-<span class="err">新列表： [&#39;新元素&#39;, 0, 1, 2, 3]</span>
+<div class="highlight"><pre><span></span><code>原列表： [0, 1, 2, 3]
+新列表： [&#39;新元素&#39;, 0, 1, 2, 3]
 </code></pre></div>
 
-
 <p>当然，也可以借助切片在任意位置插入元素。注意的是，对一个list使用切片，必定会得到一个list，这就需要用一个list对切片赋值。</p>
-<div class="codehilite"><pre><span></span><code><span class="c1"># 这样虽然巧妙，但是可读性比不上insert。</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 这样虽然巧妙，但是可读性比不上insert。</span>
 <span class="n">list_1</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">));</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;原列表：&quot;</span><span class="p">,</span> <span class="n">list_1</span><span class="p">)</span>
 <span class="n">list_1</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;新元素&quot;</span><span class="p">];</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;新列表：&quot;</span><span class="p">,</span> <span class="n">list_1</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">原列表： [0, 1, 2, 3]</span>
-<span class="err">新列表： [&#39;新元素&#39;, 0, 1, 2, 3]</span>
+<div class="highlight"><pre><span></span><code>原列表： [0, 1, 2, 3]
+新列表： [&#39;新元素&#39;, 0, 1, 2, 3]
 </code></pre></div>
-
 
 <h3 id="_4">删除\取出最后一个（任意位置的）元素</h3>
 <p>注意，pop是list中唯一一个修改原列表，并且有返回值的方法</p>
-<div class="codehilite"><pre><span></span><code><span class="n">list_2</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;0&#39;</span><span class="p">,</span> <span class="s1">&#39;00&#39;</span><span class="p">,</span> <span class="s1">&#39;000&#39;</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span class="n">list_2</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;0&#39;</span><span class="p">,</span> <span class="s1">&#39;00&#39;</span><span class="p">,</span> <span class="s1">&#39;000&#39;</span><span class="p">]</span>
 <span class="n">list_2</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">&#39;000&#39;</span>
+<div class="highlight"><pre><span></span><code>&#39;000&#39;
 </code></pre></div>
 
-
 <p>pop默认删除最后一个元素，但是也可以输入索引值，指定删除元素的位置</p>
-<div class="codehilite"><pre><span></span><code><span class="n">list_2</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;0&#39;</span><span class="p">,</span> <span class="s1">&#39;00&#39;</span><span class="p">,</span> <span class="s1">&#39;000&#39;</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span class="n">list_2</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;0&#39;</span><span class="p">,</span> <span class="s1">&#39;00&#39;</span><span class="p">,</span> <span class="s1">&#39;000&#39;</span><span class="p">]</span>
 <span class="n">list_2</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">list_2</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">[&#39;00&#39;, &#39;000&#39;]</span>
+<div class="highlight"><pre><span></span><code>[&#39;00&#39;, &#39;000&#39;]
 </code></pre></div>
 
-
 <h3 id="_5">删除第一次出现的元素</h3>
-<div class="codehilite"><pre><span></span><code><span class="n">list_1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span class="n">list_1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
 <span class="n">list_1</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">list_1</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">[2, 3, 1]</span>
+<div class="highlight"><pre><span></span><code>[2, 3, 1]
 </code></pre></div>
 
-
 <h3 id="_6">反序排序</h3>
-<div class="codehilite"><pre><span></span><code><span class="n">list_1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span class="n">list_1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 <span class="n">list_1</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
 <span class="n">list_1</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">[3, 2, 1]</span>
+<div class="highlight"><pre><span></span><code>[3, 2, 1]
 </code></pre></div>
-
 
 <h3 id="_7">排序</h3>
 <p>方法<code>sort</code>接受两个可选参数：<code>key</code>和<code>reverse</code>。将<code>key</code>设置为一个用于排序的**函数。然而，不会直接使用这个函数来判断一个元素是否比另一个元素小，而是使用它来为每个元素创建一个键，再根据这些键对元素进行排序。对于另一个关键字参数<code>reverse</code>，只需将其指定为<code>True</code>或<code>False</code>，以指出是否要按相反的顺序对列表进行排序。</p>
-<div class="codehilite"><pre><span></span><code><span class="n">list_3</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;aardvark&#39;</span><span class="p">,</span> <span class="s1">&#39;abalone&#39;</span><span class="p">,</span> <span class="s1">&#39;acme&#39;</span><span class="p">,</span> <span class="s1">&#39;add&#39;</span><span class="p">,</span> <span class="s1">&#39;aerate&#39;</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span class="n">list_3</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;aardvark&#39;</span><span class="p">,</span> <span class="s1">&#39;abalone&#39;</span><span class="p">,</span> <span class="s1">&#39;acme&#39;</span><span class="p">,</span> <span class="s1">&#39;add&#39;</span><span class="p">,</span> <span class="s1">&#39;aerate&#39;</span><span class="p">]</span>
 <span class="n">list_3</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="nb">len</span><span class="p">)</span>
 <span class="n">list_3</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">[&#39;add&#39;, &#39;acme&#39;, &#39;aerate&#39;, &#39;abalone&#39;, &#39;aardvark&#39;]</span>
+<div class="highlight"><pre><span></span><code>[&#39;add&#39;, &#39;acme&#39;, &#39;aerate&#39;, &#39;abalone&#39;, &#39;aardvark&#39;]
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="c1"># 按照长度降序排序</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 按照长度降序排序</span>
 <span class="n">list_3</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="nb">len</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">list_3</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">[&#39;aardvark&#39;, &#39;abalone&#39;, &#39;aerate&#39;, &#39;acme&#39;, &#39;add&#39;]</span>
+<div class="highlight"><pre><span></span><code>[&#39;aardvark&#39;, &#39;abalone&#39;, &#39;aerate&#39;, &#39;acme&#39;, &#39;add&#39;]
 </code></pre></div>
 
-
 <h3 id="_8">统计元素出现的次数</h3>
-<div class="codehilite"><pre><span></span><code><span class="n">list_1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span class="n">list_1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
 <span class="n">list_1</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">2</span>
+<div class="highlight"><pre><span></span><code>2
 </code></pre></div>
 
-
 <h3 id="_9">得到某个值第一次出现时对应的索引值</h3>
-<div class="codehilite"><pre><span></span><code><span class="n">list_1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span class="n">list_1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
 <span class="n">list_1</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">0</span>
+<div class="highlight"><pre><span></span><code>0
 </code></pre></div>
 
-
 <h3 id="_10">浅拷贝列表</h3>
-<div class="codehilite"><pre><span></span><code><span class="n">list_1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span class="n">list_1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 <span class="n">list_4</span> <span class="o">=</span> <span class="n">list_1</span>
 <span class="n">list_1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;修改了&quot;</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;list_1：&quot;</span><span class="p">,</span> <span class="n">list_1</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;list_4：&quot;</span><span class="p">,</span> <span class="n">list_4</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">list_1： [&#39;修改了&#39;, 2, 3]</span>
-<span class="err">list_4： [&#39;修改了&#39;, 2, 3]</span>
+<div class="highlight"><pre><span></span><code>list_1： [&#39;修改了&#39;, 2, 3]
+list_4： [&#39;修改了&#39;, 2, 3]
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="c1"># 浅拷贝</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 浅拷贝</span>
 <span class="n">list_1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]]</span>
 <span class="n">list_5</span> <span class="o">=</span> <span class="n">list_1</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 <span class="n">list_1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;修改了&quot;</span>
@@ -2391,19 +2368,16 @@
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;list_5：&quot;</span><span class="p">,</span> <span class="n">list_5</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">list_1： [&#39;修改了&#39;, 2, [&#39;修改了&#39;, 4]]</span>
-<span class="err">list_5： [1, 2, [&#39;修改了&#39;, 4]]</span>
+<div class="highlight"><pre><span></span><code>list_1： [&#39;修改了&#39;, 2, [&#39;修改了&#39;, 4]]
+list_5： [1, 2, [&#39;修改了&#39;, 4]]
 </code></pre></div>
 
-
 <h3 id="_11">清空列表</h3>
-<div class="codehilite"><pre><span></span><code><span class="n">list_1</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span class="n">list_1</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
 <span class="n">list_1</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">[]</span>
+<div class="highlight"><pre><span></span><code>[]
 </code></pre></div>
                 
               

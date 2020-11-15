@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-6.1.4">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.4">
     
     
       
@@ -680,6 +680,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#pip_1" class="md-nav__link">
+    更新 pip
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -925,6 +932,18 @@
   <li class="md-nav__item">
     <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.16.shutil.html" class="md-nav__link">
       6.16.shutil
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.17.test.html" class="md-nav__link">
+      6.17.test
     </a>
   </li>
 
@@ -2049,6 +2068,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#pip_1" class="md-nav__link">
+    更新 pip
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2071,25 +2097,22 @@
                 <h2 id="pip">为 pip指定清华镜像源</h2>
 <p>清华 pypi 镜像每 5 分钟同步一次。</p>
 <h3 id="_1">临时使用</h3>
-<div class="codehilite"><pre><span></span><code>pip install -i https://pypi.tuna.tsinghua.edu.cn/simple some-package
+<div class="highlight"><pre><span></span><code>pip install -i https://pypi.tuna.tsinghua.edu.cn/simple some-package
 </code></pre></div>
-
 
 <p>注意，<code>simple</code> 不能少, 是 <code>https</code> 而不是 <code>http</code></p>
 <h3 id="_2">设为默认</h3>
 <p>升级 pip 到最新的版本 (&gt;=10.0.0) 后进行配置：</p>
-<div class="codehilite"><pre><span></span><code>pip install pip -U
+<div class="highlight"><pre><span></span><code>pip install pip -U
 pip config <span class="nb">set</span> global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
 </code></pre></div>
 
-
 <p>临时使用清华镜像站来升级 pip：</p>
-<div class="codehilite"><pre><span></span><code>pip install -i https://pypi.tuna.tsinghua.edu.cn/simple pip -U
+<div class="highlight"><pre><span></span><code>pip install -i https://pypi.tuna.tsinghua.edu.cn/simple pip -U
 </code></pre></div>
 
-
 <h2 id="package">安装 package</h2>
-<div class="codehilite"><pre><span></span><code><span class="c1"># 从指定的requirements文件安装需要的package</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 从指定的requirements文件安装需要的package</span>
 pip install -r
 pip install --requirement
 
@@ -2113,41 +2136,35 @@ pip install -i https://pypi.tuna.tsinghua.edu.cn/simple
 pip install -r &lt;file&gt; --no-index --find-links &lt;<span class="nb">local</span> path&gt;
 </code></pre></div>
 
-
 <h2 id="package-index">关于 Package Index 的设置</h2>
-<div class="codehilite"><pre><span></span><code>-i, --index-url &lt;url&gt;      指定 Package Index URL
+<div class="highlight"><pre><span></span><code>-i, --index-url &lt;url&gt;      指定 Package Index URL
 --extra-index-url &lt;url&gt;    除了使用 --index-url 指定的 URL
                            还使用 --extra-index-url 指定的 URL
 --no-index                 忽略package index (仅在 --find-links 指定的URL中查找包)
 -f, --find-links &lt;url&gt;     可以是一个网址，或者储存了package的本地目录
 </code></pre></div>
 
-
 <h2 id="package_1">下载 package</h2>
-<div class="codehilite"><pre><span></span><code><span class="c1"># 从清华镜像下载requirements文件指定的package到当前目录</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 从清华镜像下载requirements文件指定的package到当前目录</span>
 pip download -r &lt;file&gt; -d . -i https://pypi.tuna.tsinghua.edu.cn/simple
 </code></pre></div>
 
-
 <h2 id="_3">检查依赖是否满足</h2>
-<div class="codehilite"><pre><span></span><code><span class="c1"># 检查numpy的依赖是否满足</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 检查numpy的依赖是否满足</span>
 pip check numpy
 </code></pre></div>
 
-
 <h2 id="package_2">显示已安装的 package 的信息</h2>
-<div class="codehilite"><pre><span></span><code><span class="c1"># 可以显示 版本信息、安装位置、依赖该package的packages 等等</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 可以显示 版本信息、安装位置、依赖该package的packages 等等</span>
 pip show numpy
 </code></pre></div>
 
-
 <h2 id="pypi-package">在 PyPi 搜索 package</h2>
-<div class="codehilite"><pre><span></span><code>pip search numpy
+<div class="highlight"><pre><span></span><code>pip search numpy
 </code></pre></div>
 
-
 <h2 id="package_3">输出安装的 package 列表</h2>
-<div class="codehilite"><pre><span></span><code><span class="c1"># 默认为 columns 格式</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 默认为 columns 格式</span>
 pip list
 <span class="c1"># 以freeze格式输出</span>
 pip list --format freeze
@@ -2159,6 +2176,42 @@ pip freeze
 <span class="c1"># 输出到文件</span>
 pip freeze &gt; &lt;file&gt;
 </code></pre></div>
+
+<h2 id="pip_1">更新 pip</h2>
+<div class="highlight"><pre><span></span><code>python.exe -m pip install --upgrade pip -i https://pypi.tuna.tsinghua.edu.cn/simple
+</code></pre></div>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod
+nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor
+massa, nec semper lorem quam in massa.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla et euismod</p>
+</div>
+<p>nulla. Curabitur feugiat, tortor non consequat finibus, justo purus auctor
+massa, nec semper lorem quam in massa.</p>
+</div>
+<div class="highlight"><pre><span></span><code>graph TB
+    c1--&gt;a2
+    subgraph one
+    a1--&gt;a2
+    end
+    subgraph two
+    b1--&gt;b2
+    end
+    subgraph three
+    c1--&gt;c2
+    end
+</code></pre></div>
+
+<blockquote>
+<div class="codehilite"><pre><span></span><code><span class="err">         夫是德国岁的法国当时法国对方是个分割十三个</span>
+</code></pre></div>
+
+
+</blockquote>
                 
               
               

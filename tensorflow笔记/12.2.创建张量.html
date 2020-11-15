@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-6.1.4">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.4">
     
     
       
@@ -820,6 +820,18 @@
   <li class="md-nav__item">
     <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.16.shutil.html" class="md-nav__link">
       6.16.shutil
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.17.test.html" class="md-nav__link">
+      6.17.test
     </a>
   </li>
 
@@ -2238,22 +2250,20 @@
                   </a>
                 
                 
-                <div class="codehilite"><pre><span></span><code><span class="err">Windows 10</span>
-<span class="err">Python 3.6.9 @ MSC v.1915 64 bit (AMD64)</span>
-<span class="err">Latest build date 2020.05.28</span>
-<span class="err">tensorflow version:  2.1.0</span>
+                <div class="highlight"><pre><span></span><code>Windows 10
+Python 3.6.9 @ MSC v.1915 64 bit (AMD64)
+Latest build date 2020.05.28
+tensorflow version:  2.1.0
 </code></pre></div>
 
-
 <h1 id="_1">创建张量</h1>
-<div class="codehilite"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Const&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Const&#39;</span><span class="p">)</span>
 <span class="n">tf</span><span class="o">.</span><span class="n">range</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">delta</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;range&#39;</span><span class="p">)</span>
 </code></pre></div>
 
-
 <h2 id="_2">标量</h2>
 <p>传入标量，在tf中创建一个标量</p>
-<div class="codehilite"><pre><span></span><code><span class="n">scalar</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="mf">1.2</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">scalar</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="mf">1.2</span><span class="p">)</span>
 <span class="c1"># 查看 scalar 的类型</span>
 <span class="n">P</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">scalar</span><span class="p">))</span>
 <span class="c1"># 判断是否为 tensor</span>
@@ -2265,79 +2275,67 @@
 <span class="c1"># dtype 张量的数据类型</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">&lt;class &#39;tensorflow.python.framework.ops.EagerTensor&#39;&gt;</span>
-<span class="err">True</span>
-<span class="err">&lt;tf.Tensor: shape=(), dtype=float32, numpy=1.2&gt;</span>
+<div class="highlight"><pre><span></span><code>&lt;class &#39;tensorflow.python.framework.ops.EagerTensor&#39;&gt;
+True
+&lt;tf.Tensor: shape=(), dtype=float32, numpy=1.2&gt;
 </code></pre></div>
-
 
 <p>返回numpy定义的数据类型的数据</p>
-<div class="codehilite"><pre><span></span><code><span class="n">scalar</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span class="n">scalar</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">1.2</span>
+<div class="highlight"><pre><span></span><code>1.2
 </code></pre></div>
-
 
 <p>获取张量的形状</p>
-<div class="codehilite"><pre><span></span><code><span class="n">P</span><span class="p">(</span><span class="n">scalar</span><span class="o">.</span><span class="n">get_shape</span><span class="p">())</span>
+<div class="highlight"><pre><span></span><code><span class="n">P</span><span class="p">(</span><span class="n">scalar</span><span class="o">.</span><span class="n">get_shape</span><span class="p">())</span>
 <span class="n">P</span><span class="p">(</span><span class="n">scalar</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 <span class="n">P</span><span class="p">(</span><span class="n">scalar</span><span class="o">.</span><span class="n">ndim</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">TensorShape([])</span>
-<span class="err">TensorShape([])</span>
-<span class="err">0</span>
+<div class="highlight"><pre><span></span><code>TensorShape([])
+TensorShape([])
+0
 </code></pre></div>
-
 
 <h2 id="_3">向量</h2>
 <p>创建向量必须传入 array-like</p>
-<div class="codehilite"><pre><span></span><code><span class="n">vector</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">([</span><span class="mf">1.2</span><span class="p">])</span>
+<div class="highlight"><pre><span></span><code><span class="n">vector</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">([</span><span class="mf">1.2</span><span class="p">])</span>
 <span class="n">vector</span><span class="o">.</span><span class="n">get_shape</span><span class="p">()</span>
 <span class="n">vector</span><span class="o">.</span><span class="n">ndim</span>
 
 <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">([</span><span class="mf">1.2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">&lt;tf.Tensor: shape=(3,), dtype=float32, numpy=array([1.2, 1. , 2. ],</span>
-<span class="err">dtype=float32)&gt;</span>
+<div class="highlight"><pre><span></span><code>&lt;tf.Tensor: shape=(3,), dtype=float32, numpy=array([1.2, 1. , 2. ],
+dtype=float32)&gt;
 </code></pre></div>
-
 
 <p>创建序列</p>
-<div class="codehilite"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">range</span><span class="p">(</span><span class="n">start</span><span class="o">=-</span><span class="mi">10</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">delta</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;test&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">range</span><span class="p">(</span><span class="n">start</span><span class="o">=-</span><span class="mi">10</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">delta</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;test&#39;</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">&lt;tf.Tensor: shape=(10,), dtype=int32, numpy=array([-10,  -8,  -6,  -4,</span>
-<span class="err">-2,   0,   2,   4,   6,   8])&gt;</span>
+<div class="highlight"><pre><span></span><code>&lt;tf.Tensor: shape=(10,), dtype=int32, numpy=array([-10,  -8,  -6,  -4,
+-2,   0,   2,   4,   6,   8])&gt;
 </code></pre></div>
-
 
 <h2 id="_4">矩阵</h2>
-<div class="codehilite"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]])</span>
+<div class="highlight"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]])</span>
 <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
 
 <span class="c1"># 定义三维张量</span>
 <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">([[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]]])</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">&lt;tf.Tensor: shape=(1, 2, 2), dtype=int32, numpy=</span>
-<span class="err">array([[[1, 2],</span>
-<span class="err">        [3, 4]]])&gt;</span>
+<div class="highlight"><pre><span></span><code>&lt;tf.Tensor: shape=(1, 2, 2), dtype=int32, numpy=
+array([[[1, 2],
+        [3, 4]]])&gt;
 </code></pre></div>
-
 
 <h2 id="numpy">类似numpy的创建张量方式</h2>
 <p>在 TensorFlow 中，可以通过多种方式创建张量，如从 Python 列表对象创建，从Numpy 数组创建，或者创建采样自某种已知分布的张量等。</p>
 <p>创建全为 0 或全为 1 的张量</p>
-<div class="codehilite"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
 <span class="n">tf</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">8</span><span class="p">))</span>
 <span class="n">tf</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">8</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
 <span class="n">tf</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">8</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
@@ -2347,146 +2345,120 @@
 <span class="n">tf</span><span class="o">.</span><span class="n">ones_like</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">&lt;tf.Tensor: shape=(2,), dtype=int32, numpy=array([1, 1])&gt;</span>
+<div class="highlight"><pre><span></span><code>&lt;tf.Tensor: shape=(2,), dtype=int32, numpy=array([1, 1])&gt;
 </code></pre></div>
 
-
 <p>创建自定义数值张量</p>
-<div class="codehilite"><pre><span></span><code><span class="c1">## 创建标量</span>
+<div class="highlight"><pre><span></span><code><span class="c1">## 创建标量</span>
 <span class="n">tf</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="n">dims</span><span class="o">=</span><span class="p">[],</span><span class="n">value</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
 
 <span class="n">tf</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="n">dims</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span><span class="n">value</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
 <span class="n">tf</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="n">dims</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">8</span><span class="p">),</span><span class="n">value</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">&lt;tf.Tensor: shape=(1, 8), dtype=int32, numpy=array([[8, 8, 8, 8, 8, 8,</span>
-<span class="err">8, 8]])&gt;</span>
+<div class="highlight"><pre><span></span><code>&lt;tf.Tensor: shape=(1, 8), dtype=int32, numpy=array([[8, 8, 8, 8, 8, 8,
+8, 8]])&gt;
 </code></pre></div>
-
 
 <p>创建单位矩阵</p>
-<div class="codehilite"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">&lt;tf.Tensor: shape=(8, 8), dtype=float32, numpy=</span>
-<span class="err">array([[1., 0., 0., 0., 0., 0., 0., 0.],</span>
-<span class="err">       [0., 1., 0., 0., 0., 0., 0., 0.],</span>
-<span class="err">       [0., 0., 1., 0., 0., 0., 0., 0.],</span>
-<span class="err">       [0., 0., 0., 1., 0., 0., 0., 0.],</span>
-<span class="err">       [0., 0., 0., 0., 1., 0., 0., 0.],</span>
-<span class="err">       [0., 0., 0., 0., 0., 1., 0., 0.],</span>
-<span class="err">       [0., 0., 0., 0., 0., 0., 1., 0.],</span>
-<span class="err">       [0., 0., 0., 0., 0., 0., 0., 1.]], dtype=float32)&gt;</span>
+<div class="highlight"><pre><span></span><code>&lt;tf.Tensor: shape=(8, 8), dtype=float32, numpy=
+array([[1., 0., 0., 0., 0., 0., 0., 0.],
+       [0., 1., 0., 0., 0., 0., 0., 0.],
+       [0., 0., 1., 0., 0., 0., 0., 0.],
+       [0., 0., 0., 1., 0., 0., 0., 0.],
+       [0., 0., 0., 0., 1., 0., 0., 0.],
+       [0., 0., 0., 0., 0., 1., 0., 0.],
+       [0., 0., 0., 0., 0., 0., 1., 0.],
+       [0., 0., 0., 0., 0., 0., 0., 1.]], dtype=float32)&gt;
 </code></pre></div>
-
 
 <h2 id="_5">创建字符串</h2>
-<div class="codehilite"><pre><span></span><code><span class="n">string</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="s2">&quot;Hello,tensorflow.&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">string</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="s2">&quot;Hello,tensorflow.&quot;</span><span class="p">)</span>
 <span class="n">string</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">&lt;tf.Tensor: shape=(), dtype=string, numpy=b&#39;Hello,tensorflow.&#39;&gt;</span>
+<div class="highlight"><pre><span></span><code>&lt;tf.Tensor: shape=(), dtype=string, numpy=b&#39;Hello,tensorflow.&#39;&gt;
 </code></pre></div>
-
 
 <h3 id="_6">字符串的长度</h3>
-<div class="codehilite"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">strings</span><span class="o">.</span><span class="n">length</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">strings</span><span class="o">.</span><span class="n">length</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">&lt;tf.Tensor: shape=(), dtype=int32, numpy=17&gt;</span>
+<div class="highlight"><pre><span></span><code>&lt;tf.Tensor: shape=(), dtype=int32, numpy=17&gt;
 </code></pre></div>
-
 
 <h3 id="_7">大小写转换</h3>
 <p>将每个字符串的字母都转换为小写</p>
-<div class="codehilite"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">strings</span><span class="o">.</span><span class="n">lower</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">strings</span><span class="o">.</span><span class="n">lower</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">&lt;tf.Tensor: shape=(), dtype=string, numpy=b&#39;hello,tensorflow.&#39;&gt;</span>
+<div class="highlight"><pre><span></span><code>&lt;tf.Tensor: shape=(), dtype=string, numpy=b&#39;hello,tensorflow.&#39;&gt;
 </code></pre></div>
-
 
 <p>将每个字符串的字母都转换为大写</p>
-<div class="codehilite"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">strings</span><span class="o">.</span><span class="n">upper</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">strings</span><span class="o">.</span><span class="n">upper</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">&lt;tf.Tensor: shape=(), dtype=string, numpy=b&#39;HELLO,TENSORFLOW.&#39;&gt;</span>
+<div class="highlight"><pre><span></span><code>&lt;tf.Tensor: shape=(), dtype=string, numpy=b&#39;HELLO,TENSORFLOW.&#39;&gt;
 </code></pre></div>
-
 
 <h3 id="_8">拆分字符串</h3>
-<div class="codehilite"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">strings</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">string</span><span class="p">,</span> <span class="s1">&#39;,&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">strings</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">string</span><span class="p">,</span> <span class="s1">&#39;,&#39;</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">&lt;tf.Tensor: shape=(2,), dtype=string, numpy=array([b&#39;Hello&#39;,</span>
-<span class="err">b&#39;tensorflow.&#39;], dtype=object)&gt;</span>
+<div class="highlight"><pre><span></span><code>&lt;tf.Tensor: shape=(2,), dtype=string, numpy=array([b&#39;Hello&#39;,
+b&#39;tensorflow.&#39;], dtype=object)&gt;
 </code></pre></div>
-
 
 <h3 id="_9">转换为字符串</h3>
-<div class="codehilite"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">strings</span><span class="o">.</span><span class="n">as_string</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
+<div class="highlight"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">strings</span><span class="o">.</span><span class="n">as_string</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">&lt;tf.Tensor: shape=(4,), dtype=string, numpy=array([b&#39;1&#39;, b&#39;2&#39;, b&#39;3&#39;,</span>
-<span class="err">b&#39;4&#39;], dtype=object)&gt;</span>
+<div class="highlight"><pre><span></span><code>&lt;tf.Tensor: shape=(4,), dtype=string, numpy=array([b&#39;1&#39;, b&#39;2&#39;, b&#39;3&#39;,
+b&#39;4&#39;], dtype=object)&gt;
 </code></pre></div>
-
 
 <h3 id="_10">字符串合并</h3>
-<div class="codehilite"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">strings</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">inputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;I&quot;</span><span class="p">,</span> <span class="s2">&quot;Tiananmen Square&quot;</span><span class="p">],</span> <span class="n">separator</span><span class="o">=</span><span class="s2">&quot; love &quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">strings</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">inputs</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;I&quot;</span><span class="p">,</span> <span class="s2">&quot;Tiananmen Square&quot;</span><span class="p">],</span> <span class="n">separator</span><span class="o">=</span><span class="s2">&quot; love &quot;</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">&lt;tf.Tensor: shape=(), dtype=string, numpy=b&#39;I love Tiananmen Square&#39;&gt;</span>
+<div class="highlight"><pre><span></span><code>&lt;tf.Tensor: shape=(), dtype=string, numpy=b&#39;I love Tiananmen Square&#39;&gt;
 </code></pre></div>
-
 
 <p><code>tf.strings.reduce_join</code>类似于<code>tf.strings.join</code>。</p>
-<div class="codehilite"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">strings</span><span class="o">.</span><span class="n">reduce_join</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> 
+<div class="highlight"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">strings</span><span class="o">.</span><span class="n">reduce_join</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> 
                         <span class="n">separator</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 </code></pre></div>
 
-
 <h3 id="n-grams">创建n-grams的张量</h3>
-<div class="codehilite"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">strings</span><span class="o">.</span><span class="n">ngrams</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">ngram_width</span><span class="p">,</span> <span class="n">separator</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">pad_values</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
+<div class="highlight"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">strings</span><span class="o">.</span><span class="n">ngrams</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">ngram_width</span><span class="p">,</span> <span class="n">separator</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">pad_values</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
                   <span class="n">padding_width</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">preserve_short_sequences</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 </code></pre></div>
-
 
 <ul>
 <li><code>ngram_width</code>：要创建的ngram的宽度</li>
 <li><code>separator</code>：间隔字符 ngram_width&gt;1时使用</li>
 </ul>
-<div class="codehilite"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">strings</span><span class="o">.</span><span class="n">ngrams</span><span class="p">([</span><span class="s2">&quot;I&quot;</span><span class="p">,</span><span class="s2">&quot;love&quot;</span><span class="p">,</span><span class="s2">&quot;love&quot;</span><span class="p">,</span><span class="s2">&quot;you&quot;</span><span class="p">,</span><span class="s2">&quot;and&quot;</span><span class="p">],</span> <span class="n">ngram_width</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">strings</span><span class="o">.</span><span class="n">ngrams</span><span class="p">([</span><span class="s2">&quot;I&quot;</span><span class="p">,</span><span class="s2">&quot;love&quot;</span><span class="p">,</span><span class="s2">&quot;love&quot;</span><span class="p">,</span><span class="s2">&quot;you&quot;</span><span class="p">,</span><span class="s2">&quot;and&quot;</span><span class="p">],</span> <span class="n">ngram_width</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">array([b&#39;I&#39;, b&#39;love&#39;, b&#39;love&#39;, b&#39;you&#39;, b&#39;and&#39;], dtype=object)</span>
+<div class="highlight"><pre><span></span><code>array([b&#39;I&#39;, b&#39;love&#39;, b&#39;love&#39;, b&#39;you&#39;, b&#39;and&#39;], dtype=object)
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">strings</span><span class="o">.</span><span class="n">ngrams</span><span class="p">([</span><span class="s2">&quot;I&quot;</span><span class="p">,</span><span class="s2">&quot;love&quot;</span><span class="p">,</span><span class="s2">&quot;love&quot;</span><span class="p">,</span><span class="s2">&quot;you&quot;</span><span class="p">,</span><span class="s2">&quot;and&quot;</span><span class="p">],</span> <span class="n">ngram_width</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+<div class="highlight"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">strings</span><span class="o">.</span><span class="n">ngrams</span><span class="p">([</span><span class="s2">&quot;I&quot;</span><span class="p">,</span><span class="s2">&quot;love&quot;</span><span class="p">,</span><span class="s2">&quot;love&quot;</span><span class="p">,</span><span class="s2">&quot;you&quot;</span><span class="p">,</span><span class="s2">&quot;and&quot;</span><span class="p">],</span> <span class="n">ngram_width</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
                   <span class="n">separator</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">array([b&#39;I-love&#39;, b&#39;love-love&#39;, b&#39;love-you&#39;, b&#39;you-and&#39;],</span>
-<span class="err">dtype=object)</span>
+<div class="highlight"><pre><span></span><code>array([b&#39;I-love&#39;, b&#39;love-love&#39;, b&#39;love-you&#39;, b&#39;you-and&#39;],
+dtype=object)
 </code></pre></div>
-
 
 <h3 id="_11">正则表达式相关</h3>
 <p>检查输入是否与正则表达式模式匹配</p>
-<div class="codehilite"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">strings</span><span class="o">.</span><span class="n">regex_full_match</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">pattern</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">strings</span><span class="o">.</span><span class="n">regex_full_match</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">pattern</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 <span class="err">``</span>
 
 <span class="n">用</span> <span class="n">rewrite</span> <span class="n">替换</span> <span class="nb">input</span> <span class="n">中与正则表达式</span> <span class="n">pattern</span> <span class="n">匹配的元素</span>
@@ -2496,164 +2468,140 @@
                          <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 </code></pre></div>
 
-
 <h3 id="_12">去除前后空格</h3>
-<div class="codehilite"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">strings</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">&quot; I love &quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">strings</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">&quot; I love &quot;</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">&lt;tf.Tensor: shape=(), dtype=string, numpy=b&#39;I love&#39;&gt;</span>
+<div class="highlight"><pre><span></span><code>&lt;tf.Tensor: shape=(), dtype=string, numpy=b&#39;I love&#39;&gt;
 </code></pre></div>
-
 
 <h3 id="_13">返回子字符串</h3>
-<div class="codehilite"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">strings</span><span class="o">.</span><span class="n">substr</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="nb">len</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s1">&#39;BYTE&#39;</span><span class="p">,</span> <span class="n">ame</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">strings</span><span class="o">.</span><span class="n">substr</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="nb">len</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="s1">&#39;BYTE&#39;</span><span class="p">,</span> <span class="n">ame</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 </code></pre></div>
-
 
 <p><a href="https://www.tensorflow.org/api_docs/python/tf/strings/substr?version=stable">参考</a></p>
 <p>将字符串数字转换为数值型数字，可以指定类型</p>
-<div class="codehilite"><pre><span></span><code><span class="n">tmp_str</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">([</span><span class="s2">&quot;1&quot;</span><span class="p">,</span><span class="s2">&quot;2&quot;</span><span class="p">,</span><span class="s2">&quot;3&quot;</span><span class="p">,</span><span class="s2">&quot;4&quot;</span><span class="p">],</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<div class="highlight"><pre><span></span><code><span class="n">tmp_str</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">([</span><span class="s2">&quot;1&quot;</span><span class="p">,</span><span class="s2">&quot;2&quot;</span><span class="p">,</span><span class="s2">&quot;3&quot;</span><span class="p">,</span><span class="s2">&quot;4&quot;</span><span class="p">],</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
 <span class="n">tf</span><span class="o">.</span><span class="n">strings</span><span class="o">.</span><span class="n">to_number</span><span class="p">(</span><span class="n">tmp_str</span><span class="p">,</span><span class="n">out_type</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">dtypes</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">&lt;tf.Tensor: shape=(2, 2), dtype=float32, numpy=</span>
-<span class="err">array([[1., 2.],</span>
-<span class="err">       [3., 4.]], dtype=float32)&gt;</span>
+<div class="highlight"><pre><span></span><code>&lt;tf.Tensor: shape=(2, 2), dtype=float32, numpy=
+array([[1., 2.],
+       [3., 4.]], dtype=float32)&gt;
 </code></pre></div>
 
-
 <h2 id="boolean">boolean 类型</h2>
-<div class="codehilite"><pre><span></span><code><span class="n">bool_tmp</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">bool_tmp</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">P</span><span class="p">(</span><span class="n">bool_tmp</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">)</span> <span class="c1"># is 在python中用于判断对象是否一致</span>
 <span class="n">P</span><span class="p">(</span><span class="n">bool_tmp</span> <span class="o">==</span> <span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">False</span>
-<span class="err">&lt;tf.Tensor: shape=(), dtype=bool, numpy=True&gt;</span>
+<div class="highlight"><pre><span></span><code>False
+&lt;tf.Tensor: shape=(), dtype=bool, numpy=True&gt;
 </code></pre></div>
-
 
 <h2 id="_14">数值精度</h2>
 <p>列举tensorflow所有类型</p>
-<div class="codehilite"><pre><span></span><code><span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">dtypes</span><span class="p">)</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">i</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">)]</span>
+<div class="highlight"><pre><span></span><code><span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">dtypes</span><span class="p">)</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">i</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">)]</span>
 
 <span class="c1"># tf.int8 tf.int16 tf.int32 tf.int64 </span>
 <span class="c1"># tf.float16 tf.float32 tf.float64(tf.double)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">[&#39;DType&#39;,</span>
-<span class="err"> &#39;QUANTIZED_DTYPES&#39;,</span>
-<span class="err"> &#39;as_dtype&#39;,</span>
-<span class="err"> &#39;bfloat16&#39;,</span>
-<span class="err"> &#39;bool&#39;,</span>
-<span class="err"> &#39;cast&#39;,</span>
-<span class="err"> &#39;complex&#39;,</span>
-<span class="err"> &#39;complex128&#39;,</span>
-<span class="err"> &#39;complex64&#39;,</span>
-<span class="err"> &#39;double&#39;,</span>
-<span class="err"> &#39;float16&#39;,</span>
-<span class="err"> &#39;float32&#39;,</span>
-<span class="err"> &#39;float64&#39;,</span>
-<span class="err"> &#39;half&#39;,</span>
-<span class="err"> &#39;int16&#39;,</span>
-<span class="err"> &#39;int32&#39;,</span>
-<span class="err"> &#39;int64&#39;,</span>
-<span class="err"> &#39;int8&#39;,</span>
-<span class="err"> &#39;qint16&#39;,</span>
-<span class="err"> &#39;qint32&#39;,</span>
-<span class="err"> &#39;qint8&#39;,</span>
-<span class="err"> &#39;quint16&#39;,</span>
-<span class="err"> &#39;quint8&#39;,</span>
-<span class="err"> &#39;resource&#39;,</span>
-<span class="err"> &#39;saturate_cast&#39;,</span>
-<span class="err"> &#39;string&#39;,</span>
-<span class="err"> &#39;uint16&#39;,</span>
-<span class="err"> &#39;uint32&#39;,</span>
-<span class="err"> &#39;uint64&#39;,</span>
-<span class="err"> &#39;uint8&#39;,</span>
-<span class="err"> &#39;variant&#39;]</span>
+<div class="highlight"><pre><span></span><code>[&#39;DType&#39;,
+ &#39;QUANTIZED_DTYPES&#39;,
+ &#39;as_dtype&#39;,
+ &#39;bfloat16&#39;,
+ &#39;bool&#39;,
+ &#39;cast&#39;,
+ &#39;complex&#39;,
+ &#39;complex128&#39;,
+ &#39;complex64&#39;,
+ &#39;double&#39;,
+ &#39;float16&#39;,
+ &#39;float32&#39;,
+ &#39;float64&#39;,
+ &#39;half&#39;,
+ &#39;int16&#39;,
+ &#39;int32&#39;,
+ &#39;int64&#39;,
+ &#39;int8&#39;,
+ &#39;qint16&#39;,
+ &#39;qint32&#39;,
+ &#39;qint8&#39;,
+ &#39;quint16&#39;,
+ &#39;quint8&#39;,
+ &#39;resource&#39;,
+ &#39;saturate_cast&#39;,
+ &#39;string&#39;,
+ &#39;uint16&#39;,
+ &#39;uint32&#39;,
+ &#39;uint64&#39;,
+ &#39;uint8&#39;,
+ &#39;variant&#39;]
 </code></pre></div>
 
-
 <p>保存精度过低，溢出</p>
-<div class="codehilite"><pre><span></span><code><span class="n">P</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="mi">123456789</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">int16</span><span class="p">))</span>
+<div class="highlight"><pre><span></span><code><span class="n">P</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="mi">123456789</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">int16</span><span class="p">))</span>
 <span class="n">P</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="mi">123456789</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">int32</span><span class="p">))</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">&lt;tf.Tensor: shape=(), dtype=int16, numpy=-13035&gt;</span>
-<span class="err">&lt;tf.Tensor: shape=(), dtype=int32, numpy=123456789&gt;</span>
+<div class="highlight"><pre><span></span><code>&lt;tf.Tensor: shape=(), dtype=int16, numpy=-13035&gt;
+&lt;tf.Tensor: shape=(), dtype=int32, numpy=123456789&gt;
 </code></pre></div>
 
-
 <p>保存的精度低，小数位四舍五入</p>
-<div class="codehilite"><pre><span></span><code><span class="n">P</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">P</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
 <span class="n">P</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">dtype</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">))</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">3.141592653589793</span>
-<span class="err">&lt;tf.Tensor: shape=(), dtype=float32, numpy=3.1415927&gt;</span>
+<div class="highlight"><pre><span></span><code>3.141592653589793
+&lt;tf.Tensor: shape=(), dtype=float32, numpy=3.1415927&gt;
 </code></pre></div>
-
 
 <p>高精度保存</p>
-<div class="codehilite"><pre><span></span><code><span class="n">P</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">dtype</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">float64</span><span class="p">))</span>
+<div class="highlight"><pre><span></span><code><span class="n">P</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">dtype</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">float64</span><span class="p">))</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">&lt;tf.Tensor: shape=(), dtype=float64, numpy=3.141592653589793&gt;</span>
+<div class="highlight"><pre><span></span><code>&lt;tf.Tensor: shape=(), dtype=float64, numpy=3.141592653589793&gt;
 </code></pre></div>
-
 
 <p>获取数据类型信息</p>
-<div class="codehilite"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">dtype</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">dtype</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
 <span class="n">a</span><span class="o">.</span><span class="n">dtype</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">tf.float64</span>
+<div class="highlight"><pre><span></span><code>tf.float64
 </code></pre></div>
 
-
 <p>改变数据类型 返回新的对象</p>
-<div class="codehilite"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
 <span class="n">tf</span><span class="o">.</span><span class="n">dtypes</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">&lt;tf.Tensor: shape=(), dtype=float32, numpy=3.1415927&gt;</span>
+<div class="highlight"><pre><span></span><code>&lt;tf.Tensor: shape=(), dtype=float32, numpy=3.1415927&gt;
 </code></pre></div>
 
-
 <h2 id="_15">待优化张量</h2>
-<div class="codehilite"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
 <span class="n">b</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </code></pre></div>
 
-
 <p><code>nametrainable</code> 是 <code>Variable</code> 特有的属性。<code>name</code>属性用于命名计算图中的变量。<code>trainable</code> 属性表示当前张量是都需要被优化，创建<code>Variable</code>默认开启优化。</p>
-<div class="codehilite"><pre><span></span><code><span class="n">b</span><span class="o">.</span><span class="n">trainable</span>
+<div class="highlight"><pre><span></span><code><span class="n">b</span><span class="o">.</span><span class="n">trainable</span>
 <span class="n">b</span><span class="o">.</span><span class="n">name</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">&#39;Variable:0&#39;</span>
+<div class="highlight"><pre><span></span><code>&#39;Variable:0&#39;
 </code></pre></div>
-
 
 <h2 id="_16">创建已知分布的张量</h2>
 <h3 id="_17">正态分布</h3>
-<div class="codehilite"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">mean</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">stddev</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=&lt;</span><span class="n">dtype</span><span class="p">:</span> <span class="s1">&#39;float32&#39;</span><span class="o">&gt;</span><span class="p">,</span> 
+<div class="highlight"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">mean</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">stddev</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=&lt;</span><span class="n">dtype</span><span class="p">:</span> <span class="s1">&#39;float32&#39;</span><span class="o">&gt;</span><span class="p">,</span> 
                  <span class="n">seed</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="c1">## 均值为0 标准差为1</span>
+<div class="highlight"><pre><span></span><code><span class="c1">## 均值为0 标准差为1</span>
 <span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
 <span class="c1">## 均值为1 标准差为10</span>
 <span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span><span class="n">mean</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">stddev</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span>
@@ -2661,20 +2609,17 @@
 <span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span><span class="n">mean</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="n">stddev</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">])</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">&lt;tf.Tensor: shape=(2, 2), dtype=float32, numpy=</span>
-<span class="err">array([[ -2.001318, -10.7297  ],</span>
-<span class="err">       [ -4.083525, -39.828648]], dtype=float32)&gt;</span>
+<div class="highlight"><pre><span></span><code>&lt;tf.Tensor: shape=(2, 2), dtype=float32, numpy=
+array([[ -2.001318, -10.7297  ],
+       [ -4.083525, -39.828648]], dtype=float32)&gt;
 </code></pre></div>
 
-
 <h3 id="_18">均匀分布</h3>
-<div class="codehilite"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">minval</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">maxval</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=&lt;</span><span class="n">dtype</span><span class="p">:</span> <span class="s1">&#39;float32&#39;</span><span class="o">&gt;</span><span class="p">,</span> 
+<div class="highlight"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">minval</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">maxval</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=&lt;</span><span class="n">dtype</span><span class="p">:</span> <span class="s1">&#39;float32&#39;</span><span class="o">&gt;</span><span class="p">,</span> 
                   <span class="n">seed</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="c1">## 区间[0,1]的均匀分布</span>
+<div class="highlight"><pre><span></span><code><span class="c1">## 区间[0,1]的均匀分布</span>
 <span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
 <span class="c1">## 区间[-1,1]的均匀分布</span>
 <span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span><span class="n">minval</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span><span class="n">maxval</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -2682,46 +2627,39 @@
 <span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span><span class="n">minval</span><span class="o">=-</span><span class="mi">10</span><span class="p">,</span> <span class="n">maxval</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">&lt;tf.Tensor: shape=(2, 2), dtype=int32, numpy=</span>
-<span class="err">array([[85, 43],</span>
-<span class="err">       [52, 99]])&gt;</span>
+<div class="highlight"><pre><span></span><code>&lt;tf.Tensor: shape=(2, 2), dtype=int32, numpy=
+array([[85, 43],
+       [52, 99]])&gt;
 </code></pre></div>
 
-
 <h3 id="gamma">gamma分布</h3>
-<div class="codehilite"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">gamma</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=&lt;</span><span class="n">dtype</span><span class="p">:</span> <span class="s1">&#39;float32&#39;</span><span class="o">&gt;</span><span class="p">,</span> 
+<div class="highlight"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">gamma</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=&lt;</span><span class="n">dtype</span><span class="p">:</span> <span class="s1">&#39;float32&#39;</span><span class="o">&gt;</span><span class="p">,</span> 
                 <span class="n">seed</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">gamma</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span><span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">beta</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">gamma</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span><span class="n">alpha</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">beta</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 
 <span class="c1">## poisson分布</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">&lt;tf.Tensor: shape=(2, 2), dtype=float32, numpy=</span>
-<span class="err">array([[0.19365284, 0.02967193],</span>
-<span class="err">       [0.12193497, 0.33496195]], dtype=float32)&gt;</span>
+<div class="highlight"><pre><span></span><code>&lt;tf.Tensor: shape=(2, 2), dtype=float32, numpy=
+array([[0.19365284, 0.02967193],
+       [0.12193497, 0.33496195]], dtype=float32)&gt;
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">poisson</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">lam</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=&lt;</span><span class="n">dtype</span><span class="p">:</span> <span class="s1">&#39;float32&#39;</span><span class="o">&gt;</span><span class="p">,</span> 
+<div class="highlight"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">poisson</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">lam</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=&lt;</span><span class="n">dtype</span><span class="p">:</span> <span class="s1">&#39;float32&#39;</span><span class="o">&gt;</span><span class="p">,</span> 
                   <span class="n">seed</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">poisson</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span><span class="n">lam</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+<div class="highlight"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">poisson</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span><span class="n">lam</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
 </code></pre></div>
 
+<div class="highlight"><pre><span></span><code>&lt;tf.Tensor: shape=(2, 2, 2), dtype=float32, numpy=
+array([[[5., 3.],
+        [5., 3.]],
 
-<div class="codehilite"><pre><span></span><code><span class="o">&lt;</span><span class="n">tf</span><span class="p">.</span><span class="n">Tensor</span><span class="p">:</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">float32</span><span class="p">,</span> <span class="n">numpy</span><span class="o">=</span>
-<span class="nb">array</span><span class="p">([[[</span><span class="mi">5</span><span class="p">.,</span> <span class="mi">3</span><span class="p">.],</span>
-        <span class="p">[</span><span class="mi">5</span><span class="p">.,</span> <span class="mi">3</span><span class="p">.]],</span>
-
-       <span class="p">[[</span><span class="mi">2</span><span class="p">.,</span> <span class="mi">1</span><span class="p">.],</span>
-        <span class="p">[</span><span class="mi">1</span><span class="p">.,</span> <span class="mi">3</span><span class="p">.]]],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">float32</span><span class="p">)</span><span class="o">&gt;</span>
+       [[2., 1.],
+        [1., 3.]]], dtype=float32)&gt;
 </code></pre></div>
                 
               

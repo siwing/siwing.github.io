@@ -10,7 +10,7 @@
       
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-6.1.4">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.4">
     
     
       
@@ -820,6 +820,18 @@
   <li class="md-nav__item">
     <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.16.shutil.html" class="md-nav__link">
       6.16.shutil
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.17.test.html" class="md-nav__link">
+      6.17.test
     </a>
   </li>
 
@@ -1944,54 +1956,48 @@
                 
                   <h1>12.5.可用性测试</h1>
                 
-                <div class="codehilite"><pre><span></span><code><span class="err">Windows 10</span>
-<span class="err">Python 3.7.3 @ MSC v.1915 64 bit (AMD64)</span>
-<span class="err">Latest build date 2020.07.05</span>
-<span class="err">tensorflow version:  2.1.0</span>
+                <div class="highlight"><pre><span></span><code>Windows 10
+Python 3.7.3 @ MSC v.1915 64 bit (AMD64)
+Latest build date 2020.07.05
+tensorflow version:  2.1.0
 </code></pre></div>
-
 
 <h2 id="gpu">GPU 可用性</h2>
-<div class="codehilite"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">test</span><span class="o">.</span><span class="n">is_gpu_available</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">test</span><span class="o">.</span><span class="n">is_gpu_available</span><span class="p">()</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">True</span>
+<div class="highlight"><pre><span></span><code>True
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">list_physical_devices</span><span class="p">(</span><span class="s1">&#39;GPU&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">list_physical_devices</span><span class="p">(</span><span class="s1">&#39;GPU&#39;</span><span class="p">)</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">[PhysicalDevice(name=&#39;/physical_device:GPU:0&#39;, device_type=&#39;GPU&#39;)]</span>
+<div class="highlight"><pre><span></span><code>[PhysicalDevice(name=&#39;/physical_device:GPU:0&#39;, device_type=&#39;GPU&#39;)]
 </code></pre></div>
-
 
 <h2 id="_1">列出机器的设备</h2>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">tensorflow.python.client</span> <span class="kn">import</span> <span class="n">device_lib</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">tensorflow.python.client</span> <span class="kn">import</span> <span class="n">device_lib</span>
 
 <span class="n">device_lib</span><span class="o">.</span><span class="n">list_local_devices</span><span class="p">()</span>
 </code></pre></div>
 
-
-<div class="codehilite"><pre><span></span><code><span class="err">[name: &quot;/device:CPU:0&quot;</span>
-<span class="err"> device_type: &quot;CPU&quot;</span>
-<span class="err"> memory_limit: 268435456</span>
-<span class="err"> locality {</span>
-<span class="err"> }</span>
-<span class="err"> incarnation: 7710546385867792167,</span>
-<span class="err"> name: &quot;/device:GPU:0&quot;</span>
-<span class="err"> device_type: &quot;GPU&quot;</span>
-<span class="err"> memory_limit: 1476660428</span>
-<span class="err"> locality {</span>
-<span class="err">   bus_id: 1</span>
-<span class="err">   links {</span>
-<span class="err">   }</span>
-<span class="err"> }</span>
-<span class="err"> incarnation: 1747881584002689909</span>
-<span class="err"> physical_device_desc: &quot;device: 0, name: GeForce 920M, pci bus id:</span>
-<span class="c">0000:04:00.0, compute capability: 3.5&quot;]</span>
+<div class="highlight"><pre><span></span><code>[name: &quot;/device:CPU:0&quot;
+ device_type: &quot;CPU&quot;
+ memory_limit: 268435456
+ locality {
+ }
+ incarnation: 7710546385867792167,
+ name: &quot;/device:GPU:0&quot;
+ device_type: &quot;GPU&quot;
+ memory_limit: 1476660428
+ locality {
+   bus_id: 1
+   links {
+   }
+ }
+ incarnation: 1747881584002689909
+ physical_device_desc: &quot;device: 0, name: GeForce 920M, pci bus id:
+0000:04:00.0, compute capability: 3.5&quot;]
 </code></pre></div>
                 
               
