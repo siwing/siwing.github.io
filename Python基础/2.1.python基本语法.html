@@ -14,7 +14,7 @@
     
     
       
-        <title>2.1.python基本语法 - Python笔记</title>
+        <title>2.1.Python基本语法 - Python笔记</title>
       
     
     
@@ -89,7 +89,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              2.1.python基本语法
+              2.1.Python基本语法
             
           </span>
         </div>
@@ -319,12 +319,12 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        2.1.python基本语法
+        2.1.Python基本语法
         <span class="md-nav__icon md-icon"></span>
       </label>
     
-    <a href="2.1.python%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95.html" class="md-nav__link md-nav__link--active">
-      2.1.python基本语法
+    <a href="2.1.Python%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95.html" class="md-nav__link md-nav__link--active">
+      2.1.Python基本语法
     </a>
     
       
@@ -382,7 +382,7 @@
       
         <li class="md-nav__item">
   <a href="#_7" class="md-nav__link">
-    代码续行
+    续行符
   </a>
   
 </li>
@@ -410,7 +410,7 @@
       
         <li class="md-nav__item">
   <a href="#_10" class="md-nav__link">
-    转义符：\
+    字符转义
   </a>
   
 </li>
@@ -2099,7 +2099,7 @@
       
         <li class="md-nav__item">
   <a href="#_7" class="md-nav__link">
-    代码续行
+    续行符
   </a>
   
 </li>
@@ -2127,7 +2127,7 @@
       
         <li class="md-nav__item">
   <a href="#_10" class="md-nav__link">
-    转义符：\
+    字符转义
   </a>
   
 </li>
@@ -2213,18 +2213,72 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/siwing/siwing.github.io/edit/master/docs/Python基础/2.1.python基本语法.md" title="编辑此页" class="md-content__button md-icon">
+                  <a href="https://github.com/siwing/siwing.github.io/edit/master/docs/Python基础/2.1.Python基本语法.md" title="编辑此页" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                  <h1>2.1.python基本语法</h1>
+                  <h1>2.1.Python基本语法</h1>
                 
                 <div class="highlight"><pre><span></span><code>Windows 10
 Python 3.7.3 @ MSC v.1915 64 bit (AMD64)
-Latest build date 2020.11.15
+Latest build date 2020.11.17
 </code></pre></div>
 
+<details class="note"><summary>Python简史</summary><p>1982年，Guido 从阿姆斯特丹大学 (University of Amsterdam) 获得了数学和计算机硕士学位。那时，他就已经接触并使用过 Fortran、Pascal、C 等高级语言，但 Guido 还没找到一门易用性强、生产效率高的语言。个人计算机在那时才刚开始发展，相较于现在，当时个人计算机的配置还很低。于1981年问世的第一台个人计算机 IBM5150 就只具有 4.77MHz 主频的 CPU 和 16KB 的 RAM。而当时懂得编程的人往往都精通计算机，所以他们一般更关心程序的性能，而不是编程的效率和语言的易用性。为了提高程序的性能，语言不得不逼迫程序员像计算机一样思考，这让 Guido 感到苦恼，即使他已经准确知道如何用 C 语言实现一个功能，但他仍然不得不花大量时间去编写代码。</p>
+<p>当时一个可用的选择是 shell，Bourne shell 作为 Unix 系统的命令解释器在 1978 年就已经发布。shell 可以像胶水一样，将 Unix 的许多功能连接在一起。许多需要 C 语言写上百行代码才能实现的功能，在 shell 中输入几行命令就可以完成。但 shell 本质上是调用其他程序执行命令，它并不是一个真正的编程语言。因此，shell 并不能全面调用操作系统的接口。</p>
+<p>Guido 希望有一种语言，这种语言能够像 C 语言那样，能够全面调用计算机的资源，又可以像 shell 一样轻松地编程。当时的 ABC 语言让 Guido 看到希望。ABC 由荷兰的 CWI (Centrum Wiskunde &amp; Informatica, 数学和计算机研究所) 开发，于 1987 年发布第一个版本。80年代中期，Guido 曾在 CWI 工作，并参与了 ABC 语言的开发。</p>
+<p>与当时的大部分语言不同，ABC是交互式的，其重点是语言的友好性。它的一些主要设计让语言变得容易阅读、容易使用：</p>
+<ul>
+<li>语句按缩进分组。</li>
+<li>只有五种基本数据类型。</li>
+<li>强动态类型系统。</li>
+<li>拥有交互式解释器（使用<code>&gt;&gt;&gt;</code>提示）。</li>
+</ul>
+<p>语法示例：</p>
+<div class="highlight"><pre><span></span><code>&gt;&gt;&gt; WRITE 2**1000
+1071....
+&gt;&gt;&gt; PUT 1/(2*1000) in x
+&gt;&gt;&gt; WRITE 1 + 1/x
+</code></pre></div>
+
+<p>然而 ABC 主要目的是用于教学或语言研究，而不是作为系统编程语言。相对于其他系统编程语言，ABC 过于严格、纯净，存在一些严重的设计缺陷：</p>
+<ul>
+<li>只能通过 STDIN/STDOUT 输出文本，没有与外界的接口，即没有文件 I/O，这是致命的。</li>
+<li>不能与外部设备交互。</li>
+<li>可拓展性差。ABC不是模块化的语言，如果想在ABC中添加新功能，则需要改动很多地方。</li>
+<li>只具有一个单一的命名空间，而不是每个函数或模块可以具有单独的命名空间。</li>
+<li>过度创新。ABC 使用自然语言来表达程序的含义，例如使用 <code>HOW TO</code> 定义函数，使用 <code>PUT</code> 为变量赋值。但因为 Fortran 和 C 语言的流行，大家更习惯于使用 function 或 define 定义函数，使用等号赋值。尽管这让ABC变得特别，但实际上增加了程序员的学习难度。</li>
+</ul>
+<p>虽然 ABC 并不是一门成功的语言，但这给了 Guido 设计 Python 的灵感。1989 年左右，Guido 参加了 CWI 一项开发新操作系统的工作。Guido 他们需要为用户写很多应用程序，这些程序一般只是偶尔运行一小段时间，但可能使用复杂的逻辑，用 C 语言完成这些工作效率极低。这让 Guido 想使用 ABC 之类的语言。ABC 的生产力要比 C 高得多，但代价是运行时的性能损失。虽然，ABC 语言面世时，个人计算机的性能还很低，但计算机行业以惊人的速度发展。90 年代初，个人计算机开始走进普通家庭，个人计算机的性能越来越高。因此，Guido 认为以性能换效率已经是可以接受的折衷方案。Guido 认为他可以设计一种类似 ABC，但与之又不一样的语言，这种语言可以保留 ABC 高效的生产力，并且克服 ABC 的缺陷。</p>
+<p>于是，在 1989 年的圣诞节前后，Guido 开始使用 C 语言开发 Python 语言的编译器/解释器，并在 1991 年初发布了第一个开源版本。Python 的名字来源于 Guido 所挚爱的电视剧 Monty Python's Flying Circus，Python 的文献资料中也经常引用该电视剧的台词。而 Python 与巨蟒的关联则是出版商强加的，因为他们不想为书籍封面购买 Monty-Python 插画的许可。</p>
+<p>Python 受到 ABC 的强烈影响，与 ABC 具有一些相似之处：</p>
+<ol>
+<li>使用冒号 <code>:</code> 作为代码块的起点</li>
+<li>使用缩进划分代码块</li>
+<li>无需声明变量类型</li>
+<li>支持交互式编程，也使用 <code>&gt;&gt;&gt;</code> 作为提示符</li>
+<li>提供可以组合的高级数据结构（list、dictionary）</li>
+<li>自动垃圾收集（GC）</li>
+<li>重视可读性，使用简洁的语法</li>
+<li>由 C 语言实现字节码的编译，字节码由更高级的VM进行解释。</li>
+</ol>
+<p>另一方面，Python抛弃了 ABC 的原教旨主义：</p>
+<ol>
+<li>
+<p>使用类似 C 语言的术语和符号。例如使用 <code>=</code> 表示赋值，使用 <code>def</code> 定义函数。Guido 认为如果一些东西已经成为一种常识，则没有必要过度纠正<sup id="fnref:10"><a class="footnote-ref" href="#fn:10">1</a></sup>。</p>
+</li>
+<li>
+<p>以模块为基础的拓展机制。Guido 认为 ABC 语言没有成功的一个重要原因是缺乏扩展性，因此 Python 从一开始就特别在意可拓展性。Python 可以在多个层次上拓展。在高层，可以导入 <code>.py</code> 文件（即 import 模块，这个灵感来自 Modula-3 语言）。在底层，可以导入C语言的库。因此，当需要注重性能时，Python 程序员可以编写 C 程序，并编译为 <code>.so</code> 文件，将其导入 Python 中使用。</p>
+</li>
+<li>使用类似 Modula-3 语言的异常处理机制，只是添加了 else 子句。</li>
+<li>支持 OO（Smalltalk）</li>
+<li>支持文件 I/O</li>
+</ol>
+<p>Python 成功地从其他语言中借鉴了很多东西，除了以已列出的 ABC、C等，还包括了许多未列出的语言。正如 Tim Peters 在Python 所说：</p>
+<p><center> “在许多方面，它是一种枯燥的语言，它从许多其他语言和样式中借鉴了固有的概念： </center><center> 无聊的语法，毫不奇怪的语义，很少的隐式转换等，但这就是我喜欢它的原因之一。”</center></p>
+<p>可以说 Python 的成功代表了它借用的所有语言的成功。同样，Ruby 借鉴了 Python，它的成功也代表了 Python 某些方面的成功。每种语言都是混合语言，它们具有一些优越的方面，但是也存在各种缺陷。对语言 “好与坏” 的判断通常受平台、硬件和时间等外部因素的影响。程序员遇到了许多关于语言的争议，但实际上很多争论都在浪费时间，使用开放的思想和客观的分析来区分每种语言的特定优缺点，以区分内部和外部因素，能更好地帮我们看清本质。</p>
+</details>
 <p>由于数据科学的兴起，Python变得更加流行，可能您刚听说Python这种语言，但实际上Python并不是一个年轻的语言，Python的第一个版本发布于1991年，由Guido von Rossum设计。</p>
 <p>1990年代初，个人计算机开始进入普通家庭，计算机的性能大大提高。程序员开始关注计算机的易用性。诞生于该时代背景下的 Python 正是一门极具易用性的编程语言。</p>
 <p>在语法方面，Python沿用了C语言的很多惯例，例如使用等号赋值，使用<code>def</code>定义函数，同时又受到了ABC 语言的强烈影响。来自 ABC 语言的一些规定时至今日还富有争议，例如强制缩进。但这些语法规定确实让 Python 容易读。</p>
@@ -2252,7 +2306,6 @@ Latest build date 2020.11.15
 <h2 id="_2">保留字</h2>
 <p>保留字（又称为关键字），<strong>不能把它们用作任何标识符名称</strong>。Python的标准库提供了一个keyword模块，可以输出当前版本的所有关键字：</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">keyword</span>
-<span class="n">keyword</span><span class="o">.</span><span class="n">kwlist</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">keyword</span><span class="o">.</span><span class="n">kwlist</span><span class="p">)</span>
 </code></pre></div>
 
@@ -2265,9 +2318,19 @@ Latest build date 2020.11.15
 
 <h2 id="_3">变量命名规则</h2>
 <p>Python 的标识符是大小写敏感的，由字母、下划线和数字组成，且开头不能是数字。</p>
+<div class="admonition info">
+<p class="admonition-title">哪些字母可用作标识符？</p>
+<p>对于 Python 3 来说，这里的字母实际上不限于英文字母，也可以是非ASCII码的字母，例如希腊字母、西里尔字母、汉字等等，参见 PEP 3131。但 Python 2 只支持英文字母，至少 Python 2 的 CPython 实现是这样。其他的 Python 2 实现有可能也支持非ASCII字符作为标识符，例如 IronPython。</p>
+</div>
+<details class="info"><summary>为什么标识符不能以数字开头？</summary><ol>
+<li>如果标识符以数字开头，那么像"0o10"、"1e5"这样的代码就会带来歧义，甚至对于"123"这样的代码，机器也无法确定这到底是数字还是标识符。当然可以通过追加规则来消除歧义，例如规定变量赋值时，等号左边的是标志符。但如果真的这样做的话，代码必定会存在安全性问题，例如"1e5"在前面已经用作变量名了，在后面又想使用"1e5"这个数字。另一方面，既然需要通过追加规则来消除歧义，那直接规定数字不能用于开头不就好了，毕竟数字作为标识符的开头好像没什么必要。</li>
+<li>这会让编译器的词法分析更加复杂，从而降低编译器的性能。如果一个变量以数字开头，那么词法分析器就必须在遇到第一个或第二个英文字符的时候进行回溯，以确定是否为数字。</li>
+<li>实际上，有些语言允许标识符以数字开头，但有一些限制，例如 Common Lisp。</li>
+</ol>
+</details>
 <p>Python 习惯于使用<strong>蛇形命名法</strong>（snake case）。具体来说，类名推荐使用驼峰命名法，而对于普通变量名、函数名、模块名、包名，则推荐使用蛇形命名法。</p>
-<p>至于Python为什么偏爱蛇形命名法，最可能是出于历史原因。蛇形命名方式起源于 1960 年代，那时它还没有特定的名称。Python 从 C 语言中借鉴过来后，给它起名为“lower_case_with_underscores”，即带下划线的小写命名。直到 21 世纪初，在 Intel 和 Ruby 社区中，才有人开始以“snake_case”即蛇形命名来称呼它。</p>
-<p>现今有不少编程语言在某些场景下会推荐使用蛇形命名法，而 Python 则是最早这么做的其中之一，并且是使用 snake case 场景最多的语言之一。</p>
+<p>至于 Python 为什么偏爱蛇形命名法，最可能的原因是借鉴了 C 语言的规范。蛇形命名法起源于 1960 年代后期，它与 C 语言关系密切，<em>The C Programming Language</em> 的 2.1 节中就有提到使用下划线可以提高长变量名的可读性。一开始，蛇形命名法并没有如今特定的名称。Python 从 C 语言中借鉴过来后，在 PEP 8 中将其简称为 "lower_case_with_underscores"。直到 21 世纪初，在 Intel 和 Ruby 社区中，才有人开始以 "snake case" 来称呼它。</p>
+<p>现今有不少编程语言在某些场景下会推荐使用蛇形命名法，包括R语言，而 Python 则是最早这么做的其中之一，并且是使用 snake case 场景最多的语言之一。</p>
 <h2 id="_4">注释</h2>
 <p>编程语言的注释符一般有两种：行注释与块注释（inline/block）。由于历史原因，C语言家族选择<code>\\</code>作为行注释符，而解释型语言（如shell）大多使用<code>#</code>作为行注释符。Python沿用了解释型语言的传统，单行注释以<code>#</code>开头，而块注释则使用<code>'''</code>或者<code>"""</code>。实际上python只有行注释符。块注释的本质是字符串对象。</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># 这是单行注释</span>
@@ -2301,24 +2364,22 @@ Latest build date 2020.11.15
 <p>另外，因为缩进是Python的语法，所以当一段代码丢失缩进格式时，无法自动还原代码。</p>
 <h2 id="_6">语句分隔符</h2>
 <p>Python可以在同一行中书写多条语句，语句之间使用半角分号<code>;</code>分隔。但这样的做法一般不推荐，因为会使代码的可读性变差。</p>
-<h2 id="_7">代码续行</h2>
-<p>虽然Python将<code>;</code>作为语句分隔符（一行多句），但使用换行符作为语句终止符（多句一行）。因此，换行是Python语法的一部分。</p>
+<h2 id="_7">续行符</h2>
+<p>虽然Python将<code>;</code>作为语句分隔符（一行多句），但使用换行符<code>\n</code>作为语句终止符（多行一句）。因此，换行是Python语法的一部分。</p>
 <p>如果语句很长，可以使用反斜杠<code>\</code>来续行，例如：</p>
-<blockquote>
-<p>反斜杠<code>\</code>在Python中也是转义符，<code>\</code>用于续行可以理解为对换行符<code>\n</code>进行转义。</p>
-</blockquote>
-<div class="highlight"><pre><span></span><code><span class="n">a</span><span class="o">=</span> <span class="mi">3</span><span class="o">+</span>\
-   <span class="mi">4</span><span class="o">+</span>\
-   <span class="mi">5</span>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="mi">3</span> <span class="o">+</span> \
+    <span class="mi">4</span> <span class="o">+</span> \
+    <span class="mi">5</span>
 <span class="n">a</span>
 </code></pre></div>
 
 <div class="highlight"><pre><span></span><code>12
 </code></pre></div>
 
-<p>在<code>[]</code>,<code>{}</code>, 或<code>()</code>中的多行语句<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>，不需要使用反斜杠<code>\</code>，例如：</p>
+<p>实际上，反斜杠<code>\</code>在Python中是转义符，<code>\</code>用于续行本质上是对换行符<code>\n</code>进行转义。因此，<code>\</code>用于代码续行时，反斜杠后面不能带有注释，或其他字符（除非<code>\</code>位于string literal之中）。</p>
+<p>在<code>[]</code>,<code>{}</code>, 或<code>()</code>中的多行语句<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">2</a></sup>，不需要使用反斜杠<code>\</code>，例如：</p>
 <div class="highlight"><pre><span></span><code><span class="n">total</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;item_one&#39;</span><span class="p">,</span> <span class="s1">&#39;item_two&#39;</span><span class="p">,</span> <span class="s1">&#39;item_three&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;item_four&#39;</span><span class="p">,</span> <span class="s1">&#39;item_five&#39;</span><span class="p">]</span>
+         <span class="s1">&#39;item_four&#39;</span><span class="p">,</span> <span class="s1">&#39;item_five&#39;</span><span class="p">]</span>
 <span class="n">total</span>
 </code></pre></div>
 
@@ -2326,9 +2387,17 @@ Latest build date 2020.11.15
 </code></pre></div>
 
 <h2 id="_8">空行</h2>
-<p>函数、类方法之间用空行分隔，表示一段新的代码的开始。类和函数入口之间也用一行空行分隔，以突出函数入口的开始。空行与代码缩进不同，<strong>空行并不是Python语法的一部分。</strong>书写时不插入空行，Python解释器运行也不会出错。但是空行的作用在于分隔两段不同功能或含义的代码，便于日后代码的维护或重构。空行也是程序代码的一部分。</p>
+<p>空行与缩进不同，<strong>空行并不是Python语法的一部分。</strong> 仅包含空格、制表符、换页符和注释的行将被忽略，代码文件中不存在空行，Python解释器运行也不会出错。但空行可用于分隔两段不同功能或含义的代码，让代码结构看起来更清晰，便于维护或重构。根据 <abbr title="Python Enhancement Proposal">PEP8</abbr> 规范，类方法之间用 1 行空行分隔，顶级函数、类之间用 2 行空行分隔。</p>
+<p>但在交互式解释器中，由于需要实现 read-eval-print loop，空行的处理可能有所不同。在交互式解释器输入代码块时，一个完全空白的空行用于终止多行语句。</p>
+<div class="highlight"><pre><span></span><code><span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
+  <span class="o">...</span><span class="p">:</span>     <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+  <span class="o">...</span><span class="p">:</span>
+<span class="mi">0</span>
+<span class="mi">1</span>
+</code></pre></div>
+
 <h2 id="print">Print 输出</h2>
-<p><code>print</code>函数默认输出是换行的，如果要实现不换行打印，需要更改print函数的<code>end</code>参数：</p>
+<p><code>print</code>函数默认输出是换行的，如果要实现不换行打印，需要更改<code>print</code>函数的<code>end</code>参数：</p>
 <div class="tabbed-set" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">换行打印</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;b&quot;</span><span class="p">)</span>
@@ -2350,91 +2419,94 @@ b
 </div>
 </div>
 <h2 id="_9">导入模块</h2>
-<p>在 python 用 <code>import</code> 或者 <code>from...import</code> 来导入相应的模块（module）。</p>
-<div class="highlight"><pre><span></span><code>导入整个模块             import somemodule
-导入某个模块的某个函数    from somemodule import somefunction
-导入某个模块的多个函数    from somemodule import firstfunc, secondfunc, thirdfunc
-导入某个模块的全部函数    from somemodule import *
+<p>Python 使用 <code>import</code> 或者 <code>from...import</code> 来导入相应的模块（module）。</p>
+<div class="highlight"><pre><span></span><code>import somemodule                                 导入整个模块
+from somemodule import somefunction               导入某个模块的某个函数
+from somemodule import func_1, func_2, class_1    导入某个模块的多个函数或类
+from somemodule import *                          导入某个模块的全部定义
 </code></pre></div>
 
-<h2 id="_10">转义符：<code>\</code></h2>
+<h2 id="_10">字符转义</h2>
 <p>如果要在字符串中输入一些特殊的字符（这些字符特殊之处在于不能通过键盘直接输入），这就需要“转义符”。所谓转义，就是不采用符号原先的含义（字面含义），而采用另外一含义。在Pyhton中，<code>\</code>代表转义符。</p>
-<p>下面表格中列出常用的转义符：</p>
+<p>除非存在 <code>r</code> 前缀，否则将根据类似于标准C的规则来解释 string literals 和 bytes literals 中的转义序列。以下是Python可识别的转义序列：</p>
 <table>
 <thead>
 <tr>
-<th align="center">转义字符</th>
+<th>转义序列</th>
+<th>描述</th>
+<th>转义序列</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>\newline</code></td>
+<td>反斜杠和换行符将被忽略</td>
+<td><code>\v</code></td>
+<td>纵向制表符</td>
+</tr>
+<tr>
+<td><code>\\</code></td>
+<td>反斜杠</td>
+<td><code>\t</code></td>
+<td>横向制表符</td>
+</tr>
+<tr>
+<td><code>\'</code></td>
+<td>单引号</td>
+<td><code>\r</code></td>
+<td>回车符</td>
+</tr>
+<tr>
+<td><code>\"</code></td>
+<td>双引号</td>
+<td><code>\f</code></td>
+<td>换页符</td>
+</tr>
+<tr>
+<td><code>\a</code></td>
+<td>蜂鸣器响铃<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup></td>
+<td><code>\ooo</code></td>
+<td>八进制值为<code>ooo</code>的字符，如 <code>\012</code> 表示换行，<code>\000</code> 为空字符</td>
+</tr>
+<tr>
+<td><code>\b</code></td>
+<td>退格</td>
+<td><code>\xhh</code></td>
+<td>十六进制值为<code>hh</code>字符，如 <code>\x0a</code> 表示换行</td>
+</tr>
+<tr>
+<td><code>\n</code></td>
+<td>换行符</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>仅在 string literals 中才能被识别的转义序列为：</p>
+<table>
+<thead>
+<tr>
+<th align="left">转义序列</th>
 <th align="left">描述</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center"><code>\</code></td>
-<td align="left">在字符串行尾的续行符</td>
+<td align="left"><code>\N{name}</code></td>
+<td align="left">Character named <em>name</em> in the Unicode database</td>
 </tr>
 <tr>
-<td align="center"><code>\\</code></td>
-<td align="left">反斜杠符号</td>
+<td align="left"><code>\uxxxx</code></td>
+<td align="left">Character with 16-bit hex value <em>xxxx</em></td>
 </tr>
 <tr>
-<td align="center"><code>\'</code></td>
-<td align="left">单引号</td>
-</tr>
-<tr>
-<td align="center"><code>\"</code></td>
-<td align="left">双引号</td>
-</tr>
-<tr>
-<td align="center"><code>\a</code></td>
-<td align="left">蜂鸣器响铃（不是喇叭发声），现在的计算机很多都不带蜂鸣器了，所以响铃不一定有效</td>
-</tr>
-<tr>
-<td align="center"><code>\b</code></td>
-<td align="left">退格（Backspace），将光标位置移到前一列</td>
-</tr>
-<tr>
-<td align="center"><code>\e</code></td>
-<td align="left">转义</td>
-</tr>
-<tr>
-<td align="center"><code>\000</code></td>
-<td align="left">空</td>
-</tr>
-<tr>
-<td align="center"><code>\n</code></td>
-<td align="left">换行符</td>
-</tr>
-<tr>
-<td align="center"><code>\v</code></td>
-<td align="left">纵向制表符</td>
-</tr>
-<tr>
-<td align="center"><code>\t</code></td>
-<td align="left">横向制表符，即 Tab 键，一般相当于四个空格</td>
-</tr>
-<tr>
-<td align="center"><code>\r</code></td>
-<td align="left">回车符</td>
-</tr>
-<tr>
-<td align="center"><code>\f</code></td>
-<td align="left">换页</td>
-</tr>
-<tr>
-<td align="center"><code>\oyy</code></td>
-<td align="left">八进制数，yy代表字符，例如：<code>\o12</code>代表换行</td>
-</tr>
-<tr>
-<td align="center"><code>\xyy</code></td>
-<td align="left">十六进制数，yy代表字符，例如：<code>\x0a</code>代表换行</td>
-</tr>
-<tr>
-<td align="center"><code>\other</code></td>
-<td align="left">其它的字符以普通格式输出</td>
+<td align="left"><code>\Uxxxxxxxx</code></td>
+<td align="left">Character with 32-bit hex value <em>xxxxxxxx</em></td>
 </tr>
 </tbody>
 </table>
-<p>有时候，字符串包含了很多反斜杠<code>\</code>，Python默认将<code>\</code>作为转义符处理，但实际上我们想输入的是反斜杠符号<code>\</code>，例如输入 windows 系统的文件路径。此时，自然可以在反斜杠前加上转义符<code>\</code>，即<code>\\</code>表示一个反斜杠符号。但是这样比较麻烦，Python提供了一个简化的操作，Pyhon允许用 <code>r'字符串内容'</code> 表示 <code>'字符串内容'</code> 内部的字符默认不转义：</p>
+<p>Python默认将<code>\</code>作为转义符处理，但有时候我们想输入的是反斜杠符号<code>\</code>，例如输入 windows 系统的文件路径。此时，可以在反斜杠前加上转义符<code>\</code>，即<code>\\</code>表示一个反斜杠符号。如果字符串包含了很多反斜杠<code>\</code>，这样做就比较麻烦。Python提供了一个简化的操作，Pyhon允许用 <code>r"字符串内容"</code> 表示 <code>"字符串内容"</code> 内部的字符默认不转义：</p>
 <div class="tabbed-set" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">Normal String Literal</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\\\t\\</span><span class="s1">&#39;</span><span class="p">)</span>
 </code></pre></div>
@@ -2453,16 +2525,16 @@ b
 </div>
 </div>
 <h2 id="_11">变量与对象</h2>
-<p>学习编程语言，常常会提到变量这个概念，但在Python中，Python官方文档似乎更喜欢把变量称为name（名字）。有观点认为Python不存在变量这个概念，也有观点认为Python存在变量的概念（即name），只不过Python的变量的行为和C、C++、Java这类编程语言有所区别。本文认同第二个观点，这里不对此作深入探究。对于此问题的具体讨论可以参考《<a href="../%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/1.3.%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5.html">1.3.基本概念</a>》的<a href="../%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/1.3.%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5.html#_4">第3节</a>。在本系列的文章中，<strong>变量</strong>和<strong>名字（name）</strong>具有等同的内涵；<strong>变量值（变量的值）</strong>和<strong>对象（object）</strong>具有等同的内涵。</p>
+<p>学习编程语言，常常会提到变量这个概念，但在 Python 中，Python 官方文档似乎更喜欢把变量称为 name（名字）。同时，又因为 Python 中的变量名对应的变量类型是可以随时改变的，因此有观点认为 Python 不存在变量这个概念。但这样的观点是荒谬的，就像在说因为熊猫叫做熊猫，所以它不是熊，因为鸵鸟不会飞，所以它不是鸟。Python 的 name 就是变量，只不过 Python 变量的行为和 C、C++、Java 这些编程语言有所区别而已。对于此问题的具体讨论可以参考《<a href="../%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/1.3.%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5.html">1.3.基本概念</a>》的<a href="../%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/1.3.%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5.html#_4">第3节</a>。在本系列的文章中，<strong>变量</strong>和<strong>名字（name）</strong>具有等同的内涵；<strong>变量值（变量的值）</strong>和<strong>对象（object）</strong>具有等同的内涵。</p>
 <p>Python的变量不需要声明、定义和初始化，变量会在赋值时被创建。编译器或解析器不会静态检查变量的类型，变量类型在运行时检查，例如使用<code>isinstance</code>函数。</p>
 <h3 id="objects">Objects</h3>
 <p>所有Python对象都有:</p>
 <ul>
 <li>
-<p>一个惟一的 identity (即“内存地址”)（由id(x)返回的一个整数，注意：identity 不是 identifier）</p>
+<p>一个惟一的 <abbr title="CPython使用对象的内存地址作为identity">identity</abbr>（由<code>id(x)</code>返回的一个整数，注意：<abbr title="CPython使用对象的内存地址作为identity">identity</abbr> 不是 identifier）</p>
 </li>
 <li>
-<p>一个类型（由type(x)返回）</p>
+<p>一个类型（由<code>type(x)</code>返回）</p>
 </li>
 <li>
 <p>一些值</p>
@@ -2474,7 +2546,7 @@ b
 </blockquote>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>在CPython2.2及更新的版本中，你可以在相当有限的情况下更改对象的类型。</p>
+<p>CPython2.2及更新的版本允许在相当有限的情况下更改对象的类型。</p>
 </div>
 <p>一些对象允许你改变它们的值（在不改变它们的identity和type的情况下），这种对象被称为<strong>mutable object</strong>；而一些对象并不允许你改变它们的值，它们被称为<strong>immutable object</strong>。</p>
 <p>类型由<a href="" title="type object">类对象</a>表示（类对象往往知道类的对象要占多少内存，有什么方法等等）。</p>
@@ -2512,7 +2584,7 @@ b
 <div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="mi">10</span>
 </code></pre></div>
 
-<p>这个assignment语句表示将名称<code>a</code>添加到namespace，并且namespace的<code>a</code>键<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>所对应的value为10。</p>
+<p>这个assignment语句表示将名称<code>a</code>添加到namespace，并且namespace的<code>a</code>键<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">3</a></sup>所对应的value为10。</p>
 <p>如果名称已经存在，assignment语句将替换原始名称：</p>
 <div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="n">a</span> <span class="o">=</span> <span class="mi">20</span>
@@ -2596,9 +2668,9 @@ b
 <p>正常创建函数（使用<code>def</code>）会自动将函数对象与<code>def</code>后面的名字进行绑定，这与创建其他对象（例如字符串和整数）不同，后者可以动态创建，而无需将它们分配给名字。但只要使用lambda语法创建函数，函数也可以这样做，以这种方式创建的函数称为匿名（anonymous）函数。将简单函数作为参数传递给另一个函数时，最常使用此方法。语法如下：</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># my_func是正常创建的函数（named function）</span>
 <span class="k">def</span> <span class="nf">my_func</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">arg</span><span class="p">):</span>
-  <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span>
 
-<span class="n">my_func</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">my_func</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">x</span> <span class="o">*</span> <span class="n">x</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
 </code></pre></div>
 
 <div class="highlight"><pre><span></span><code>50
@@ -3004,11 +3076,17 @@ b
 <div class="footnote">
 <hr />
 <ol>
+<li id="fn:10">
+<p><em>If something</em> is <em>established</em> on "<em>common sense</em>," <em>there</em> is <em>no need</em> to <em>over</em>-<em>entangle</em>.&#160;<a class="footnote-backref" href="#fnref:10" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
 <li id="fn:1">
-<p>包括函数、类的定义。&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<p>包括函数、类的定义。&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
 <li id="fn:2">
-<p>目前Python的命名空间使用字典实现，但日后可能会改变。&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+<p>目前Python的命名空间使用字典实现，但日后可能会改变。&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:4">
+<p>现在的计算机很多都不带蜂鸣器了，所以响铃不一定有效。&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>
