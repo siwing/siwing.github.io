@@ -14,7 +14,7 @@
     
     
       
-        <title>9.3.索引 - Python笔记</title>
+        <title>2.9.赋值、immutable、深拷贝 - Python笔记</title>
       
     
     
@@ -89,7 +89,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              9.3.索引
+              2.9.赋值、immutable、深拷贝
             
           </span>
         </div>
@@ -287,10 +287,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
     
     <label class="md-nav__link" for="nav-3">
       Python基础
@@ -310,7 +312,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../Python%E5%9F%BA%E7%A1%80/2.1.Python%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95.html" class="md-nav__link">
+    <a href="2.1.Python%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95.html" class="md-nav__link">
       2.1.Python基本语法
     </a>
   </li>
@@ -322,7 +324,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../Python%E5%9F%BA%E7%A1%80/2.2.%E8%AF%AD%E5%8F%A5.html" class="md-nav__link">
+    <a href="2.2.%E8%AF%AD%E5%8F%A5.html" class="md-nav__link">
       2.2.语句
     </a>
   </li>
@@ -334,7 +336,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../Python%E5%9F%BA%E7%A1%80/2.3.Number.html" class="md-nav__link">
+    <a href="2.3.Number.html" class="md-nav__link">
       2.3.Number
     </a>
   </li>
@@ -346,7 +348,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../Python%E5%9F%BA%E7%A1%80/2.4.String.html" class="md-nav__link">
+    <a href="2.4.String.html" class="md-nav__link">
       2.4.String
     </a>
   </li>
@@ -358,7 +360,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../Python%E5%9F%BA%E7%A1%80/2.5.List.html" class="md-nav__link">
+    <a href="2.5.List.html" class="md-nav__link">
       2.5.List
     </a>
   </li>
@@ -370,7 +372,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../Python%E5%9F%BA%E7%A1%80/2.6.Tuple.html" class="md-nav__link">
+    <a href="2.6.Tuple.html" class="md-nav__link">
       2.6.Tuple
     </a>
   </li>
@@ -382,7 +384,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../Python%E5%9F%BA%E7%A1%80/2.7.Dict.html" class="md-nav__link">
+    <a href="2.7.Dict.html" class="md-nav__link">
       2.7.Dict
     </a>
   </li>
@@ -394,7 +396,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../Python%E5%9F%BA%E7%A1%80/2.8.%E7%AE%80%E6%B4%81%E7%9A%84Python.html" class="md-nav__link">
+    <a href="2.8.%E7%AE%80%E6%B4%81%E7%9A%84Python.html" class="md-nav__link">
       2.8.简洁的Python
     </a>
   </li>
@@ -404,11 +406,80 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../Python%E5%9F%BA%E7%A1%80/2.9.%E8%B5%8B%E5%80%BC%E3%80%81immutable%E3%80%81%E6%B7%B1%E6%8B%B7%E8%B4%9D.html" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        2.9.赋值、immutable、深拷贝
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="2.9.%E8%B5%8B%E5%80%BC%E3%80%81immutable%E3%80%81%E6%B7%B1%E6%8B%B7%E8%B4%9D.html" class="md-nav__link md-nav__link--active">
       2.9.赋值、immutable、深拷贝
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    赋值
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mutable-immutable" class="md-nav__link">
+    mutable 和 immutable
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#immutable" class="md-nav__link">
+    immutable的本质
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    赋值陷阱——浅拷贝和深拷贝
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    赋值陷阱——引用不仅仅限于名称
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    名称和值的一些细节
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -418,7 +489,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../Python%E5%9F%BA%E7%A1%80/2.10.%E5%87%BD%E6%95%B0.html" class="md-nav__link">
+    <a href="2.10.%E5%87%BD%E6%95%B0.html" class="md-nav__link">
       2.10.函数
     </a>
   </li>
@@ -430,7 +501,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../Python%E5%9F%BA%E7%A1%80/2.11.%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0.html" class="md-nav__link">
+    <a href="2.11.%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0.html" class="md-nav__link">
       2.11.内置函数
     </a>
   </li>
@@ -442,7 +513,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../Python%E5%9F%BA%E7%A1%80/2.12.%E7%AE%80%E6%B4%81%E7%9A%84Python.html" class="md-nav__link">
+    <a href="2.12.%E7%AE%80%E6%B4%81%E7%9A%84Python.html" class="md-nav__link">
       2.12.简洁的Python
     </a>
   </li>
@@ -454,7 +525,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../Python%E5%9F%BA%E7%A1%80/3.1.%E5%BC%82%E5%B8%B8.html" class="md-nav__link">
+    <a href="3.1.%E5%BC%82%E5%B8%B8.html" class="md-nav__link">
       3.1.异常
     </a>
   </li>
@@ -466,7 +537,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../Python%E5%9F%BA%E7%A1%80/3.2.%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4%E5%92%8C%E4%BD%9C%E7%94%A8%E5%9F%9F.html" class="md-nav__link">
+    <a href="3.2.%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4%E5%92%8C%E4%BD%9C%E7%94%A8%E5%9F%9F.html" class="md-nav__link">
       3.2.命名空间和作用域
     </a>
   </li>
@@ -478,7 +549,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../Python%E5%9F%BA%E7%A1%80/3.3.%E9%97%AD%E5%8C%85.html" class="md-nav__link">
+    <a href="3.3.%E9%97%AD%E5%8C%85.html" class="md-nav__link">
       3.3.闭包
     </a>
   </li>
@@ -490,7 +561,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../Python%E5%9F%BA%E7%A1%80/3.4.%E8%A3%85%E9%A5%B0%E5%99%A8.html" class="md-nav__link">
+    <a href="3.4.%E8%A3%85%E9%A5%B0%E5%99%A8.html" class="md-nav__link">
       3.4.装饰器
     </a>
   </li>
@@ -502,7 +573,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../Python%E5%9F%BA%E7%A1%80/4.1.%E7%B1%BB.html" class="md-nav__link">
+    <a href="4.1.%E7%B1%BB.html" class="md-nav__link">
       4.1.类
     </a>
   </li>
@@ -514,7 +585,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../Python%E5%9F%BA%E7%A1%80/4.2.%E5%A4%9A%E9%87%8D%E7%BB%A7%E6%89%BF%E5%92%8CMRO.html" class="md-nav__link">
+    <a href="4.2.%E5%A4%9A%E9%87%8D%E7%BB%A7%E6%89%BF%E5%92%8CMRO.html" class="md-nav__link">
       4.2.多重继承和MRO
     </a>
   </li>
@@ -526,7 +597,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../Python%E5%9F%BA%E7%A1%80/4.3.%E6%A8%A1%E5%9D%97.html" class="md-nav__link">
+    <a href="4.3.%E6%A8%A1%E5%9D%97.html" class="md-nav__link">
       4.3.模块
     </a>
   </li>
@@ -538,7 +609,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../Python%E5%9F%BA%E7%A1%80/4.4.%E9%AD%94%E6%9C%AF%E6%96%B9%E6%B3%95.html" class="md-nav__link">
+    <a href="4.4.%E9%AD%94%E6%9C%AF%E6%96%B9%E6%B3%95.html" class="md-nav__link">
       4.4.魔术方法
     </a>
   </li>
@@ -1113,12 +1184,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8" checked>
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
     
     <label class="md-nav__link" for="nav-8">
       pandas笔记
@@ -1138,7 +1207,7 @@
 
 
   <li class="md-nav__item">
-    <a href="9.1.Series.html" class="md-nav__link">
+    <a href="../pandas%E7%AC%94%E8%AE%B0/9.1.Series.html" class="md-nav__link">
       9.1.Series
     </a>
   </li>
@@ -1150,7 +1219,7 @@
 
 
   <li class="md-nav__item">
-    <a href="9.2.DataFrame.html" class="md-nav__link">
+    <a href="../pandas%E7%AC%94%E8%AE%B0/9.2.DataFrame.html" class="md-nav__link">
       9.2.DataFrame
     </a>
   </li>
@@ -1160,122 +1229,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        9.3.索引
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-    
-    <a href="9.3.%E7%B4%A2%E5%BC%95.html" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../pandas%E7%AC%94%E8%AE%B0/9.3.%E7%B4%A2%E5%BC%95.html" class="md-nav__link">
       9.3.索引
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    通过行标签选择行
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    通过行标签选择多行
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    通过整数选择行
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    通过整数选择多行
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    通过切片选择多行
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    通过列标签选择列
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    通过列标签选择多列
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    行列同时索引
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    关于索引的其它
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#get" class="md-nav__link">
-    get方法
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#lookup" class="md-nav__link">
-    lookup方法
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
-    索引方式总结表
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -1285,7 +1243,7 @@
 
 
   <li class="md-nav__item">
-    <a href="9.4.%E7%B4%A2%E5%BC%95%E5%AF%B9%E8%B1%A1.html" class="md-nav__link">
+    <a href="../pandas%E7%AC%94%E8%AE%B0/9.4.%E7%B4%A2%E5%BC%95%E5%AF%B9%E8%B1%A1.html" class="md-nav__link">
       9.4.索引对象
     </a>
   </li>
@@ -1297,7 +1255,7 @@
 
 
   <li class="md-nav__item">
-    <a href="9.5.%E7%B4%A2%E5%BC%95%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C.html" class="md-nav__link">
+    <a href="../pandas%E7%AC%94%E8%AE%B0/9.5.%E7%B4%A2%E5%BC%95%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C.html" class="md-nav__link">
       9.5.索引的基本操作
     </a>
   </li>
@@ -1309,7 +1267,7 @@
 
 
   <li class="md-nav__item">
-    <a href="9.6.%E6%8B%BC%E6%8E%A5.html" class="md-nav__link">
+    <a href="../pandas%E7%AC%94%E8%AE%B0/9.6.%E6%8B%BC%E6%8E%A5.html" class="md-nav__link">
       9.6.拼接
     </a>
   </li>
@@ -1321,7 +1279,7 @@
 
 
   <li class="md-nav__item">
-    <a href="9.7.%E5%8F%98%E6%8D%A2%E7%B4%A2%E5%BC%95.html" class="md-nav__link">
+    <a href="../pandas%E7%AC%94%E8%AE%B0/9.7.%E5%8F%98%E6%8D%A2%E7%B4%A2%E5%BC%95.html" class="md-nav__link">
       9.7.变换索引
     </a>
   </li>
@@ -1333,7 +1291,7 @@
 
 
   <li class="md-nav__item">
-    <a href="9.8.%E5%88%86%E7%BB%84%E4%B8%8E%E8%81%9A%E5%90%88.html" class="md-nav__link">
+    <a href="../pandas%E7%AC%94%E8%AE%B0/9.8.%E5%88%86%E7%BB%84%E4%B8%8E%E8%81%9A%E5%90%88.html" class="md-nav__link">
       9.8.分组与聚合
     </a>
   </li>
@@ -1345,7 +1303,7 @@
 
 
   <li class="md-nav__item">
-    <a href="9.9.%E7%BB%98%E5%9B%BE.html" class="md-nav__link">
+    <a href="../pandas%E7%AC%94%E8%AE%B0/9.9.%E7%BB%98%E5%9B%BE.html" class="md-nav__link">
       9.9.绘图
     </a>
   </li>
@@ -1357,7 +1315,7 @@
 
 
   <li class="md-nav__item">
-    <a href="9.11.%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86.html" class="md-nav__link">
+    <a href="../pandas%E7%AC%94%E8%AE%B0/9.11.%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86.html" class="md-nav__link">
       9.11.数据处理
     </a>
   </li>
@@ -2007,84 +1965,42 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    通过行标签选择行
+    赋值
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mutable-immutable" class="md-nav__link">
+    mutable 和 immutable
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#immutable" class="md-nav__link">
+    immutable的本质
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    通过行标签选择多行
+    赋值陷阱——浅拷贝和深拷贝
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
-    通过整数选择行
+    赋值陷阱——引用不仅仅限于名称
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
-    通过整数选择多行
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    通过切片选择多行
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    通过列标签选择列
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    通过列标签选择多列
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    行列同时索引
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    关于索引的其它
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#get" class="md-nav__link">
-    get方法
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#lookup" class="md-nav__link">
-    lookup方法
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
-    索引方式总结表
+    名称和值的一些细节
   </a>
   
 </li>
@@ -2101,430 +2017,291 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/siwing/siwing.github.io/edit/master/docs/pandas笔记/9.3.索引.md" title="编辑此页" class="md-content__button md-icon">
+                  <a href="https://github.com/siwing/siwing.github.io/edit/master/docs/Python基础/2.9.赋值、immutable、深拷贝.md" title="编辑此页" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                  <h1>9.3.索引</h1>
+                  <h1>2.9.赋值、immutable、深拷贝</h1>
                 
-                <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">toolkit.Help</span> <span class="kn">import</span> <span class="n">Help</span> <span class="k">as</span> <span class="n">H</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+                <h2 id="_1">赋值</h2>
+<blockquote>
+<p><strong>引用（reference）</strong>：一个可以让程式间接存取于电脑记忆体或其他储存装置中一特定资料的值。</p>
+<p>一般而言，引用会是资料储存于记忆体或储存装置中的实体位址 。因此，引用亦常被称为该资料的指标或位址。</p>
+</blockquote>
+<p><mark><strong>Python的赋值都是传引用，即name是value的引用。</strong></mark> </p>
+<p>在python里面，一个变量保存的值是某个对象的引用。Python赋值语句将左侧的符号名称与右侧的值<strong>相关联</strong>。在Python中，我们说名称引用值，或者名称是对值的引用。</p>
+<p>下次我们使用这个名称时，便得到与名称相关联的值。</p>
+<p><mark><strong>assignment永远不会复制数据，并且多个name可以引用同一个value。</strong></mark></p>
+<p>当值具有多个名称时，很容易混淆并将其视为两个名称和两个值。：</p>
+<div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="mi">23</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">x</span>
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code>Windows 10
-Python 3.7.3 @ MSC v.1915 64 bit (AMD64)
-Latest build date 2020.04.11
-pandas version:  1.0.1
-numpy version:  1.18.1
+<p><img alt="" src="figures/snipaste_20190811_174817.png" /></p>
+<p>实际上，将已有的变量赋值给新变量时，Python永远不会复制值。分配只是使左侧的名称引用右侧的值。在这种情况下，我们只有一个23，<code>x</code>和<code>y</code>都引用它，就像我们在上图中看到的那样。</p>
+<p><mark><strong>名称是独立于其他名称重新分配的。</strong></mark></p>
+<p>如果两个名称引用相同的值，则不会链接这两个名称。重新分配其中一个不会导致另一个也被重新分配：</p>
+<div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="mi">23</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">x</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">12</span>
 </code></pre></div>
 
-<p>Series和DataFrame的索引方式很相似：</p>
+<iframe width="800" height="270" frameborder="0" src="http://pythontutor.com/iframe-embed.html#code=x%20%3D%2023%0Ay%20%3D%20x%0Ax%20%3D%2012&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=true&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>
+
+<p>如果上面嵌入的网页失效，可以参考以下动图：</p>
+<p><img alt="" src="figures/20200126.gif" /></p>
+<p><mark><strong>值一直存在，直到没有名称引用它。</strong></mark></p>
+<p>Python会跟踪每个值有多少引用，并自动清除没有引用的值。这被称为“垃圾收集”，意味着你不必清楚值，当它们不再需要时它们会自行消失。</p>
+<h2 id="mutable-immutable">mutable 和 immutable</h2>
+<p>Python的数据类型可以分为原子类型和容器类器：</p>
+<p>原子类型：string、number</p>
+<p>容器类型：list、tuple、dict、set</p>
+<p>原子类型只能保存一个值；容器类型则可以保存多个值。</p>
+<blockquote>
+<p>虽然string可以包含多个字符，但Python中没有字符类型，因此字符串也属于原子类型。</p>
+</blockquote>
+<p>Python对原子类型和容器类型的赋值方式都是一样的：</p>
+<ul>
+<li>对于原子类型，name直接指向object</li>
+</ul>
+<p><img src="figures/20200126.png" alt="20200126" style="zoom: 18%;" /></p>
+<ul>
+<li>对于容器类器，name指向容器类型对象，容器的每一个元素指向各个元素对象</li>
+</ul>
+<p><img src="figures/20200126_2.png" alt="20200126" style="zoom:18%;" /></p>
+<p>Python的数据类型还可以分为<a href="" title="不可变">immutable</a>和<a href="" title="可变">mutable</a>：</p>
+<ul>
+<li>immutable object : string、tuple、number</li>
+<li>mutable object : list、dict、set</li>
+</ul>
+<p>所谓的mutable、immutable是指name指向的object可不可以在原地址被修改。如果不可以在原地址修改，就只能在新地址创建新对象，name指向新对象（旧对象若没有引用，则会被内存回收机制销毁）：</p>
+<p><img src="figures/20200126_4.png" alt="20200126_4" style="zoom:18%;" /></p>
+<div class="highlight"><pre><span></span><code><span class="n">name</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;name的id：&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
+<span class="n">name</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;name的id：&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>name的id： 140728401826912
+name的id： 140728401827232
+</code></pre></div>
+
+<p>如果可以在原地址被修改，那么name的指向就不会改变（容器类型的对象实际上保存的是元素的引用）：</p>
+<p><img src="figures/20200126_3.png" alt="20200126_3" style="zoom:18%;" /></p>
+<div class="highlight"><pre><span></span><code><span class="n">name</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;name的值:&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="s2">&quot;  &quot;</span><span class="p">,</span> <span class="s2">&quot;name的id：&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">num</span><span class="p">,</span><span class="n">i</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;第</span><span class="si">{num}</span><span class="s2">个元素的id&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+
+<span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;name的值:&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="s2">&quot;  &quot;</span><span class="p">,</span> <span class="s2">&quot;name的id：&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">num</span><span class="p">,</span><span class="n">i</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;第</span><span class="si">{num}</span><span class="s2">个元素的id&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>name的值: [1, 2, 3, 4, 5]    name的id： 1694876445512
+第0个元素的id 140728401826624
+第1个元素的id 140728401826656
+第2个元素的id 140728401826688
+第3个元素的id 140728401826720
+第4个元素的id 140728401826752
+name的值: [20, 2, 3, 4, 5]    name的id： 1694876445512
+第0个元素的id 140728401827232
+第1个元素的id 140728401826656
+第2个元素的id 140728401826688
+第3个元素的id 140728401826720
+第4个元素的id 140728401826752
+</code></pre></div>
+
+<h2 id="immutable">immutable的本质</h2>
+<p><strong><mark>神话：Python以不同的方式分配可变和不可变的值。</mark></strong></p>
+<p>因为mutable对象是可变的，immutable对象不可变，人们可能会觉得mutable对象和immutable对象的值分配方式不一样。但事实上，mutable对象和immutable对象所有的赋值的方式都是一样的。</p>
+<p><mark>mutable、immutable只是python语言的一个规定。</mark> 从硬件角度说，硬件提供给用户的接口是按照规定设定好的。比如说，操作内存的方式是固定的，不存在可变和不可变。实现python的mutable、immutable就是调用了不同的底层API，或者是不同底层API相互组合来实现的。python将这些规定以python语法的形式提供给用户使用，最后还是编译成0、1去让计算机执行。对于用户来说，可变和不可变对象是语言提供的一个特性，可以完成一些功能，但是对于计算机其实是没区别的。</p>
+<p><mark>因此，mutable和immutable的本质区别是Python有没有提供修改值的方法。</mark> 不管是可变对象还是不可变对象，Python的赋值方式都是一样的，都是将对象绑定到名字（参见上面的图示和示例代码）。</p>
+<h2 id="_2">赋值陷阱——浅拷贝和深拷贝</h2>
+<p><strong><mark>神话：值是有范围的。</mark></strong></p>
+<p>在python中存在作用域这样的概念，人们可能会觉得作用域指的是值（对象）的作用范围，但事实上，<strong>值是没有范围的，作用域指的是名称的作用范围。</strong></p>
+<p>我们可以定义一个简单的函数与验证这点。</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">check_name_space_range</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;x的内存地址是：&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span>
+
+<span class="c1"># 先在最外层的作用域赋值，并打印地址</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a的内存地址是：&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">)))</span>
+<span class="n">check_name_space_range</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>a的内存地址是：140728401826912
+x的内存地址是：140728401826912
+</code></pre></div>
+
+<p>很明显，在内外层作用域的值都是同一个。</p>
+<p><strong><mark>陷阱：因为值没有范围，并且赋值不会复制值，这就可能出现可变对象被意外地改变：</mark></strong> </p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">variable_change</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span>
+    <span class="k">return</span> <span class="n">x</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<span class="n">a_other</span> <span class="o">=</span> <span class="n">variable_change</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a_other</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>[10, 2, 3]
+[10, 2, 3]
+</code></pre></div>
+
+<p>可以看到，<code>a</code>、<code>a_other</code>都被改变了，因为<code>a</code>、<code>a_other</code>都是同一个对象。</p>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a的内存地址是：&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a_other的内存地址是：&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">a_other</span><span class="p">)))</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>a的内存地址是：1694877001032
+a_other的内存地址是：1694877001032
+</code></pre></div>
+
+<p>因此，如果要在函数里面更改可变对象参数的值，最好复制一个副本。</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">variable_change_shallow</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="nb">list</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">pass</span>
+    <span class="k">return</span> <span class="n">x</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<span class="n">a_other</span> <span class="o">=</span> <span class="n">variable_change_shallow</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a_other</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a的内存地址是：&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a_other的内存地址是：&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">a_other</span><span class="p">)))</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>[1, 2, 3]
+[10, 2, 3]
+a的内存地址是：1694876642120
+a_other的内存地址是：1694876641288
+</code></pre></div>
+
+<p><code>a</code>的值并没有改变，上面的结果看似是没问题的，但还是会有新的”惊喜“。</p>
+<p>我们来修改一下<code>variable_change_shallow</code>函数</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">variable_change_shallow</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="nb">list</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span> <span class="mi">10</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">pass</span>
+    <span class="k">return</span> <span class="n">x</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<span class="n">a_other</span> <span class="o">=</span> <span class="n">variable_change_shallow</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a_other</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a的内存地址是：&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a_other的内存地址是：&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">a_other</span><span class="p">)))</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>[[10, 2], 2, 3]
+[[10, 2], 2, 3]
+a的内存地址是：1694877003720
+a_other的内存地址是：1694876445576
+</code></pre></div>
+
+<p>”惊喜“就是<code>a</code>的值也改变了。因为<code>x.copy()</code>只是浅拷贝。</p>
+<p>在python里面有三种方式去引用某个值：</p>
 <ol>
-<li>都可以通过<code>.loc[]</code>使用<strong>标签</strong>选择行</li>
-<li>都可以通过<code>.iloc[]</code>使用<strong>整数</strong>选择行</li>
-<li>都可以通过<code>[]</code>使用<strong>切片</strong>选择行</li>
+<li>引用另一个变量</li>
+<li>浅拷贝</li>
+<li>深拷贝</li>
 </ol>
-<p>但他们的索引方式也有一些不同点：</p>
-<ol>
-<li>Series可以通过<strong>属性访问</strong>的方式，使用<strong>标签</strong>选择行<code>.row_index</code>；DataFrame通过属性访问的方式选择列<code>.column_index</code></li>
-<li>Series可以通过<strong><code>[]</code></strong>使用<strong>整数</strong>、<strong>标签</strong>选择行<code>[row_index]</code>；DataFrame只能通过<code>[column_index]</code>使用<strong>列标签</strong>选择列</li>
-</ol>
-<p>创建示例Series和DataFrame：</p>
-<div class="highlight"><pre><span></span><code><span class="n">ser</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mf">4.5</span><span class="p">,</span> <span class="mf">7.2</span><span class="p">,</span> <span class="o">-</span><span class="mf">5.3</span><span class="p">,</span> <span class="mf">3.6</span><span class="p">,</span> <span class="mf">6.1</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">ser</span><span class="p">)</span>
+<p>这三种方式是有区别的。</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">copy</span>
+<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]]</span>
+<span class="n">a_reference</span> <span class="o">=</span> <span class="n">a</span>
+<span class="n">a_shallow</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="n">a_deep_copy</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code>d    4.5
-b    7.2
-a   -5.3
-c    3.6
-b    6.1
-dtype: float64
+<p>变量<code>a</code>和<code>a_reference</code>都是同一个对象的名称。</p>
+<p><img alt="" src="figures/snipaste_20190811_232331.png" /></p>
+<p>浅拷贝得到变量<code>a_shallow</code>，它是一个新对象，但<code>a_shallow</code>的第三个元素<code>a_shallow[2]</code>却是一个已经存在的对象，这和<code>a</code>、<code>a_reference</code>一样。</p>
+<p><img alt="" src="figures/snipaste_20190811_232710.png" /></p>
+<p>深拷贝得到变量<code>a_deep_copy</code>，它是一个新对象，并且它的每一个元素也是新的对象。</p>
+<p><img alt="" src="figures/snipaste_20190811_232750.png" /></p>
+<p><mark>如果浅拷贝的对象包含了mutable对象，则mutable对象不会拷贝；而深拷贝则会完整拷贝对象。</mark></p>
+<h2 id="_3">赋值陷阱——引用不仅仅限于名称</h2>
+<p>以上所有示例都使用名称作为值的引用，但引用也可以是其他东西。<strong>Python有许多复合数据结构，每个结构都包含对值的引用：列表元素，字典键和值，对象属性等。</strong>其中每一个都可以在赋值符号的左侧使用，以上所有细节都适用于它们。<strong>任何可以出现在赋值语句左侧的内容都是引用</strong>，在本文中说“名称”的任何地方都可以用“引用”替换。</p>
+<p>在上面的示意图中，数字被显示为元素，但实际上，每个元素都是对数字的引用，因此它应该像这样绘制：</p>
+<div class="highlight"><pre><span></span><code><span class="n">nums</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;one&#39;</span> <span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">]),</span>
-     <span class="s1">&#39;two&#39;</span> <span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">])}</span>
-
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<p><img alt="" src="figures/snipaste_20190811_234253.png" /></p>
+<p>但这很快变得复杂，所以上面的绘图用了视觉速记：</p>
+<p><img alt="" src="figures/snipaste_20190811_234356.png" /></p>
+<p>如果你有列表元素引用其他可变值，例如子列表，请务必记住列表元素只是对值的引用。</p>
+<p>这是一些其他assignment的例子。这些左侧中的每一个都是引用（reference）：</p>
+<div class="highlight"><pre><span></span><code><span class="n">my_obj</span><span class="o">.</span><span class="n">attr</span> <span class="o">=</span> <span class="mi">23</span>  <span class="c1"># 类属性</span>
+<span class="n">my_dict</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="mi">24</span> <span class="c1"># 字典</span>
+<span class="n">my_list</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="mi">25</span> <span class="c1"># 列表</span>
+<span class="n">my_obj</span><span class="o">.</span><span class="n">attr</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="n">index</span><span class="p">]</span><span class="o">.</span><span class="n">attr</span> <span class="o">=</span> <span class="s2">&quot;etc, etc&quot;</span> <span class="c1"># 多个对象嵌套</span>
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code>   one  two
-a  1.0    1
-b  2.0    2
-c  3.0    3
-d  NaN    4
-e  5.0    5
+<p><strong><code>i = x</code> 指定了名称<code>i</code>，但<code>i[0] = x</code>并不是指定名称<code>i</code>，而是指定了<code>i</code>的值的第一个元素。</strong></p>
+<p><strong><mark>很多东西都是Assignment。</mark></strong></p>
+<p>正如上面所说，许多东西都可以作为引用，python里面有很多东西可以作为assignments。</p>
+<p>这些行中的每一行都是名称<code>X</code>的赋值：</p>
+<div class="highlight"><pre><span></span><code><span class="n">X</span> <span class="o">=</span> <span class="o">...</span>
+<span class="k">for</span> <span class="n">X</span> <span class="ow">in</span> <span class="o">...</span>
+<span class="p">[</span><span class="o">...</span> <span class="k">for</span> <span class="n">X</span> <span class="ow">in</span> <span class="o">...</span><span class="p">]</span>
+<span class="p">(</span><span class="o">...</span> <span class="k">for</span> <span class="n">X</span> <span class="ow">in</span> <span class="o">...</span><span class="p">)</span>
+<span class="p">{</span><span class="o">...</span> <span class="k">for</span> <span class="n">X</span> <span class="ow">in</span> <span class="o">...</span><span class="p">}</span>
+<span class="k">class</span> <span class="nc">X</span><span class="p">(</span><span class="o">...</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">X</span><span class="p">(</span><span class="o">...</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">fn</span><span class="p">(</span><span class="n">X</span><span class="p">):</span> <span class="o">...</span> <span class="p">;</span> <span class="n">fn</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
+<span class="k">with</span> <span class="o">...</span> <span class="k">as</span> <span class="n">X</span><span class="p">:</span>
+<span class="k">except</span> <span class="o">...</span> <span class="k">as</span> <span class="n">X</span><span class="p">:</span>
+<span class="kn">import</span> <span class="nn">X</span>
+<span class="kn">from</span> <span class="nn">...</span> <span class="kn">import</span> <span class="n">X</span>
+<span class="kn">import</span> <span class="nn">...</span> <span class="k">as</span> <span class="nn">X</span>
+<span class="kn">from</span> <span class="nn">...</span> <span class="kn">import</span> <span class="o">...</span> <span class="k">as</span> <span class="n">X</span>
 </code></pre></div>
 
-<h2 id="_1">通过行标签选择行</h2>
-<div class="highlight"><pre><span></span><code><span class="c1"># Series</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">ser</span><span class="o">.</span><span class="n">b</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">ser</span><span class="p">[</span><span class="s2">&quot;b&quot;</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">ser</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;b&quot;</span><span class="p">])</span>
+<p>注意，我并不是说这些语句像assignments，我的意思是这些语句都是赋值。它们都使名称<code>X</code>引用某个值。上面所说的关于赋值的所有内容都适用于所有这些赋值。</p>
+<p>在大多数情况下，这些语句将<code>X</code>定义在与语句相同的作用域内。Python 2和Python 3之间的细节略有不同。但它们都是真正的赋值，而且每个事实都是关于赋值适用于所有这些。</p>
+<p><strong><mark>Python通过赋值来传递函数参数。</mark></strong></p>
+<p>让我们来看看这些上面assignment列表中最有趣的一个：调用一个函数。当我定义一个函数时，我将其参数命名为：</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">my_func</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span>
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code>b    7.2
-b    6.1
-dtype: float64
-b    7.2
-b    6.1
-dtype: float64
-b    7.2
-b    6.1
-dtype: float64
+<p>这里<code>x</code>和<code>y</code>是函数<code>my_func</code>的参数。当我调用<code>my_func</code>时，我提供了实际值作为函数的参数。这些值分配给<strong>参数名称</strong>，就像使用了赋值语句一样：</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">my_func</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">my_func</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code><span class="c1"># DataFrame</span>
-<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code>17
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code>one    1.0
-two    1.0
-Name: a, dtype: float64
+<p>调用<code>my_func</code>时，8被赋值给名称<code>x</code>，9被赋值给名称<code>y</code>。该赋值与我们一直在讨论的简单赋值语句完全相同。名称<code>x</code>和<code>y</code>是函数的本地名称（local），因此当函数返回时，这些名称就会消失。但是，如果它们引用的值仍然被其他名称引用，则值仍然存在。</p>
+<p>就像所有其他赋值一样，可变值可以传递给函数，并且通过其所有名称可以看到对值的更改。</p>
+<h2 id="_4">名称和值的一些细节</h2>
+<p><strong><mark>任何名称都可以随时引用任何值。</mark></strong></p>
+<p>Python是动态类型的，这意味着名称没有类型。任何名称都可以随时引用任何值。名称可以引用整数，然后引用字符串，然后引用函数，然后引用模块。当然，这可能是一个非常混乱的程序，你不应该这样做，但Python语言不会介意。</p>
+<p><strong><mark>名称没有类型，值没有范围。</mark></strong></p>
+<p>正如名称没有类型一样，值也没有范围。当我们说一个函数有一个局部变量时，我们的意思是该名称的作用域是函数：你不能在函数外部使用该名称，当函数返回时，名称将被销毁。但是正如我们所看到的，如果名称的值具有其他引用，它将继续在函数调用之外。它是本地名称，而不是本地值。</p>
+<p><strong><mark>值不能删除，只有名称可以删除。</mark></strong></p>
+<p>Python的内存管理对其行为至关重要，你不仅不必删除值，而且无法删除值。</p>
+<div class="highlight"><pre><span></span><code><span class="n">nums</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="k">del</span> <span class="n">nums</span>
 </code></pre></div>
 
-<h2 id="_2">通过行标签选择多行</h2>
-<div class="highlight"><pre><span></span><code><span class="c1"># Series</span>
-<span class="n">ser</span><span class="p">[[</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">]]</span>
-<span class="n">ser</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">]]</span>
-</code></pre></div>
-
-<div class="highlight"><pre><span></span><code>b    7.2
-b    6.1
-a   -5.3
-dtype: float64
-</code></pre></div>
-
-<div class="highlight"><pre><span></span><code><span class="c1"># DataFrame</span>
-<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">]]</span>
-</code></pre></div>
-
-<div class="highlight"><pre><span></span><code>   one  two
-a  1.0    1
-b  2.0    2
-</code></pre></div>
-
-<p>不能使用<code>()</code></p>
-<div class="highlight"><pre><span></span><code><span class="n">ser</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">)]</span>
-</code></pre></div>
-
-<div class="highlight"><pre><span></span><code>---------------------------------------------------------------------------IndexingError
-Traceback (most recent call last)&lt;ipython-input-1-36ce192f3c34&gt; in
-&lt;module&gt;
-----&gt; 1 ser.loc[(&quot;b&quot;, &quot;a&quot;)]
-G:\Installed\Anaconda3\lib\site-packages\pandas\core\indexing.py in
-__getitem__(self, key)
-   1759                 except (KeyError, IndexError, AttributeError):
-   1760                     pass
--&gt; 1761             return self._getitem_tuple(key)
-   1762         else:
-   1763             # we by definition only have the 0th axis
-G:\Installed\Anaconda3\lib\site-packages\pandas\core\indexing.py in
-_getitem_tuple(self, tup)
-   1274
-   1275         # no multi-index, so validate all of the indexers
--&gt; 1276         self._has_valid_tuple(tup)
-   1277
-   1278         # ugly hack for GH #836
-G:\Installed\Anaconda3\lib\site-packages\pandas\core\indexing.py in
-_has_valid_tuple(self, key)
-    698         for i, k in enumerate(key):
-    699             if i &gt;= self.ndim:
---&gt; 700                 raise IndexingError(&quot;Too many indexers&quot;)
-    701             try:
-    702                 self._validate_key(k, i)
-IndexingError: Too many indexers
-</code></pre></div>
-
-<h2 id="_3">通过整数选择行</h2>
-<div class="highlight"><pre><span></span><code><span class="c1"># Series</span>
-<span class="n">ser</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-<span class="n">ser</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-</code></pre></div>
-
-<div class="highlight"><pre><span></span><code>7.2
-</code></pre></div>
-
-<div class="highlight"><pre><span></span><code><span class="c1"># DataFrame</span>
-<span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-</code></pre></div>
-
-<div class="highlight"><pre><span></span><code>one    1.0
-two    1.0
-Name: a, dtype: float64
-</code></pre></div>
-
-<h2 id="_4">通过整数选择多行</h2>
-<div class="highlight"><pre><span></span><code><span class="c1"># Series</span>
-<span class="n">ser</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]]</span>
-<span class="n">ser</span><span class="o">.</span><span class="n">iloc</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]]</span>
-</code></pre></div>
-
-<div class="highlight"><pre><span></span><code>b    7.2
-d    4.5
-dtype: float64
-</code></pre></div>
-
-<div class="highlight"><pre><span></span><code><span class="c1"># DataFrame</span>
-<span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]</span>
-</code></pre></div>
-
-<div class="highlight"><pre><span></span><code>   one  two
-a  1.0    1
-b  2.0    2
-</code></pre></div>
-
-<h2 id="_5">通过切片选择多行</h2>
-<p>切片包括<strong>整数切片</strong>和<strong>标签切片</strong>。</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Series</span>
-<span class="n">ser</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
-<span class="n">ser</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
-</code></pre></div>
-
-<div class="highlight"><pre><span></span><code>b    7.2
-a   -5.3
-dtype: float64
-</code></pre></div>
-
-<div class="highlight"><pre><span></span><code><span class="c1"># DataFrame</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">:</span><span class="mi">2</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">])</span>
-</code></pre></div>
-
-<div class="highlight"><pre><span></span><code>   one  two
-a  1.0    1
-c  3.0    3
-   one  two
-a  1.0    1
-b  2.0    2
-</code></pre></div>
-
-<p><mark>切片有整数值的普通切片和标签切片。</mark> <strong>利用标签的切片运算与普通的Python切片运算不同，其末端是包含的（inclusive），即封闭区间。</strong></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># Series</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">ser</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">ser</span><span class="p">[</span><span class="s2">&quot;d&quot;</span><span class="p">:</span><span class="s2">&quot;a&quot;</span><span class="p">])</span>
-</code></pre></div>
-
-<div class="highlight"><pre><span></span><code>d    4.5
-b    7.2
-dtype: float64
-d    4.5
-b    7.2
-a   -5.3
-dtype: float64
-</code></pre></div>
-
-<div class="highlight"><pre><span></span><code><span class="c1"># DataFrame</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">:</span><span class="s2">&quot;c&quot;</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">:</span><span class="mi">2</span><span class="p">])</span>
-</code></pre></div>
-
-<div class="highlight"><pre><span></span><code>   one  two
-a  1.0    1
-b  2.0    2
-c  3.0    3
-   one  two
-a  1.0    1
-c  3.0    3
-</code></pre></div>
-
-<h2 id="_6">通过列标签选择列</h2>
-<p>与Series不同的是，DataFrame还有列选择。但是DataFrame的列选择和行选择不同。</p>
-<ol>
-<li>DataFrame的行可以同时有<strong>整数索引</strong>和<strong>标签索引</strong>，如果没有给标签赋值，则只有整数值索引。</li>
-<li>DataFrame的列在标签赋值后，只能使用标签索引。</li>
-</ol>
-<p>选取DataFrame的列，实际上是获取了一个Series，返回的Series拥有原DataFrame相同的行索引。</p>
-<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">one</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;one&quot;</span><span class="p">])</span>
-</code></pre></div>
-
-<div class="highlight"><pre><span></span><code>a    1.0
-b    2.0
-c    3.0
-d    NaN
-e    5.0
-Name: one, dtype: float64
-a    1.0
-b    2.0
-c    3.0
-d    NaN
-e    5.0
-Name: one, dtype: float64
-</code></pre></div>
-
-<h2 id="_7">通过列标签选择多列</h2>
-<div class="highlight"><pre><span></span><code><span class="n">df</span><span class="p">[[</span><span class="s2">&quot;one&quot;</span><span class="p">,</span> <span class="s2">&quot;two&quot;</span><span class="p">]]</span>
-</code></pre></div>
-
-<div class="highlight"><pre><span></span><code>   one  two
-a  1.0    1
-b  2.0    2
-c  3.0    3
-d  NaN    4
-e  5.0    5
-</code></pre></div>
-
-<p><strong>注意：</strong>通过索引方式返回的列只是相应数据的视图而已，   并不是副本。因此，对返回的Series所做的任何修改全都会反映到原DataFrame上。通过Series的copy方法即可显式地复制列。</p>
-<div class="highlight"><pre><span></span><code><span class="n">df</span><span class="p">[</span><span class="s2">&quot;one&quot;</span><span class="p">][</span><span class="s2">&quot;a&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
-<span class="n">df</span>
-</code></pre></div>
-
-<div class="highlight"><pre><span></span><code>.\setup_m.py:1: SettingWithCopyWarning:
-A value is trying to be set on a copy of a slice from a DataFrame
-
-See the caveats in the documentation:
-https://pandas.pydata.org/pandas-
-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
-  import os
-</code></pre></div>
-
-<div class="highlight"><pre><span></span><code>   one  two
-a  NaN    1
-b  2.0    2
-c  3.0    3
-d  NaN    4
-e  5.0    5
-</code></pre></div>
-
-<h2 id="_8">行列同时索引</h2>
-<div class="highlight"><pre><span></span><code><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;one&quot;</span><span class="p">]</span>
-<span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
-
-<span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;one&quot;</span><span class="p">,</span> <span class="s2">&quot;two&quot;</span><span class="p">]]</span>
-<span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]</span>
-</code></pre></div>
-
-<div class="highlight"><pre><span></span><code>one    3.0
-two    3.0
-Name: c, dtype: float64
-</code></pre></div>
-
-<p>先选择列，在选择行</p>
-<div class="highlight"><pre><span></span><code><span class="n">df</span><span class="p">[</span><span class="s2">&quot;one&quot;</span><span class="p">][</span><span class="s2">&quot;c&quot;</span><span class="p">]</span>
-</code></pre></div>
-
-<div class="highlight"><pre><span></span><code>3.0
-</code></pre></div>
-
-<h2 id="_9">关于索引的其它</h2>
-<p>对Series进行运算（布尔索引过滤、标量乘法、数学函数等），都会保留标签和值之间的链接。</p>
-<p>Series的标签可以通过赋值的方式进行修改：</p>
-<div class="highlight"><pre><span></span><code><span class="n">s</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">],</span><span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;d&#39;</span><span class="p">,</span><span class="s1">&#39;e&#39;</span><span class="p">])</span>
-<span class="n">s</span><span class="o">.</span><span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;f&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;d&#39;</span><span class="p">,</span><span class="s1">&#39;e&#39;</span><span class="p">]</span>
-<span class="n">s</span>
-</code></pre></div>
-
-<div class="highlight"><pre><span></span><code>f    1
-b    2
-c    3
-d    4
-e    5
-dtype: int64
-</code></pre></div>
-
-<p>虽然很多时候都强调轴标签（索引值）要唯一，但这并不是强制性的。来看看下面这个简单的带有重复索引值的Series：</p>
-<div class="highlight"><pre><span></span><code><span class="n">obj</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">])</span>
-<span class="n">obj</span>
-</code></pre></div>
-
-<div class="highlight"><pre><span></span><code>a    0
-a    1
-b    2
-b    3
-c    4
-dtype: int64
-</code></pre></div>
-
-<p>索引的is_unique属性可以告诉你它的值是否是唯一的</p>
-<div class="highlight"><pre><span></span><code><span class="n">obj</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">is_unique</span>
-</code></pre></div>
-
-<div class="highlight"><pre><span></span><code>False
-</code></pre></div>
-
-<p>对于带有重复值的索引，数据选取的行为将会有些不同。如果某个索引对应多个值，则返回一个Series；而对应单个值的，则返回一个标量值。对DataFrame的行进行索引时也是如此。</p>
-<h2 id="get"><code>get</code>方法</h2>
-<p>Series或DataFrame中的每一个都有一个<code>get</code>可以返回默认值的方法。</p>
-<div class="highlight"><pre><span></span><code><span class="n">ser</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">)</span>
-</code></pre></div>
-
-<div class="highlight"><pre><span></span><code>-5.3
-</code></pre></div>
-
-<div class="highlight"><pre><span></span><code><span class="n">df</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;onef&quot;</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-</code></pre></div>
-
-<div class="highlight"><pre><span></span><code>5
-</code></pre></div>
-
-<h2 id="lookup"><code>lookup</code>方法</h2>
-<p>给定一系列行标签和列标签的情况下提取一组值：</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># 返回 (&#39;c&#39;,&#39;one&#39;) 和 (&#39;b&#39;,&#39;two&#39;)</span>
-<span class="n">df</span><span class="o">.</span><span class="n">lookup</span><span class="p">([</span><span class="s2">&quot;c&quot;</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;one&quot;</span><span class="p">,</span><span class="s2">&quot;two&quot;</span><span class="p">])</span>
-</code></pre></div>
-
-<div class="highlight"><pre><span></span><code>array([3., 2.])
-</code></pre></div>
-
-<h2 id="_10">索引方式总结表</h2>
-<table>
-<thead>
-<tr>
-<th>类型</th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>df[val]</code></td>
-<td>从DataFrame选取单列或一组列；<br />在特殊情况下比较便利：布尔型数组（过滤行）、切片（行切片）、或布尔型DataFrame (根据条件设置值）</td>
-</tr>
-<tr>
-<td><code>df.loc[val]</code></td>
-<td>通过标签，选取DataFrame的单个行或一组行</td>
-</tr>
-<tr>
-<td><code>df.loc[:, val]</code></td>
-<td>通过标签，选取单列或列子集</td>
-</tr>
-<tr>
-<td><code>df.loc[val1, val2]</code></td>
-<td>通过标签，同时选取行和列</td>
-</tr>
-<tr>
-<td><code>df.iloc[where]</code></td>
-<td>通过整数位置，从DataFrame选取单个行或行子集</td>
-</tr>
-<tr>
-<td><code>df.iloc[:, where]</code></td>
-<td>通过整数位置，从DataFrame选取单个列或列子集</td>
-</tr>
-<tr>
-<td><code>df.iloc[where_i, where_j]</code></td>
-<td>通过整数位置，同时选取行和列</td>
-</tr>
-<tr>
-<td><code>df.at [label_i, label_j]</code></td>
-<td>通过行和列标签，选取单一的标量</td>
-</tr>
-<tr>
-<td><code>df.iat[i, j]</code></td>
-<td>通过行和列的位置（整数），选取单一的标量</td>
-</tr>
-<tr>
-<td><code>reindex</code></td>
-<td>通过标签选取行或列</td>
-</tr>
-<tr>
-<td><code>get _value, set_value</code></td>
-<td>通过行和列标签选取单一值</td>
-</tr>
-</tbody>
-</table>
+<p>这不会删除值<code>nums</code>，它会删除名称<code>nums</code>。该名称将从其范围中删除，然后通常的引用计数开始执行：如果<code>nums</code>的值只有一个引用，则将回收该值。但如果它有其他引用，那么它不会被回收。</p>
+<p><strong><mark>神话：Python没有变量。</mark></strong></p>
+<p>有些人喜欢说，“Python没有变量，它有名字。”这个口号具有误导性。事实是Python有变量，它们的工作方式与C中的变量不同。</p>
+<p>名称是Python的变量：它们引用值，并且这些值可以在程序的过程中发生变化（变化）。仅仅因为另一种语言（尽管是一种重要的语言）表现不同，没有理由将Python描述为没有变量。</p>
                 
               
               
@@ -2543,7 +2320,7 @@ dtype: int64
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="9.2.DataFrame.html" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="2.8.%E7%AE%80%E6%B4%81%E7%9A%84Python.html" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -2552,19 +2329,19 @@ dtype: int64
                 <span class="md-footer-nav__direction">
                   上一页
                 </span>
-                9.2.DataFrame
+                2.8.简洁的Python
               </div>
             </div>
           </a>
         
         
-          <a href="9.4.%E7%B4%A2%E5%BC%95%E5%AF%B9%E8%B1%A1.html" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="2.10.%E5%87%BD%E6%95%B0.html" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   下一页
                 </span>
-                9.4.索引对象
+                2.10.函数
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">

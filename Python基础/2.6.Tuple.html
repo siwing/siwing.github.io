@@ -14,7 +14,7 @@
     
     
       
-        <title>2.4.List - Python笔记</title>
+        <title>2.6.Tuple - Python笔记</title>
       
     
     
@@ -57,7 +57,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#list" class="md-skip">
+        <a href="#tuple1tuple" class="md-skip">
           跳转至
         </a>
       
@@ -89,7 +89,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              2.4.List
+              2.6.Tuple
             
           </span>
         </div>
@@ -336,8 +336,32 @@
 
 
   <li class="md-nav__item">
-    <a href="2.3.String.html" class="md-nav__link">
-      2.3.String
+    <a href="2.3.Number.html" class="md-nav__link">
+      2.3.Number
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="2.4.String.html" class="md-nav__link">
+      2.4.String
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="2.5.List.html" class="md-nav__link">
+      2.5.List
     </a>
   </li>
 
@@ -355,12 +379,12 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        2.4.List
+        2.6.Tuple
         <span class="md-nav__icon md-icon"></span>
       </label>
     
-    <a href="2.4.List.html" class="md-nav__link md-nav__link--active">
-      2.4.List
+    <a href="2.6.Tuple.html" class="md-nav__link md-nav__link--active">
+      2.6.Tuple
     </a>
     
       
@@ -375,93 +399,37 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#list" class="md-nav__link">
-    list的方法
+  <a href="#tuple1tuple" class="md-nav__link">
+    Tuple陷阱——1个元素的Tuple
   </a>
   
-    <nav class="md-nav" aria-label="list的方法">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tupletuple" class="md-nav__link">
+    Tuple陷阱——“可变的”Tuple
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tuple" class="md-nav__link">
+    Tuple的方法
+  </a>
+  
+    <nav class="md-nav" aria-label="Tuple的方法">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#list_1" class="md-nav__link">
-    修改list元素的值
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    添加一个新元素到末尾
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    添加任意个新元素到末尾
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    在任意位置插入新元素
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    删除\取出最后一个（任意位置的）元素
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    删除第一次出现的元素
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    反序排序
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    排序
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
     统计元素出现的次数
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    得到某个值第一次出现时对应的索引值
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
-    浅拷贝列表
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
-    清空列表
+  <a href="#_2" class="md-nav__link">
+    元素第一次出现时对应的索引值
   </a>
   
 </li>
@@ -484,8 +452,8 @@
 
 
   <li class="md-nav__item">
-    <a href="2.5.Tuple.html" class="md-nav__link">
-      2.5.Tuple
+    <a href="2.7.Dict.html" class="md-nav__link">
+      2.7.Dict
     </a>
   </li>
 
@@ -496,8 +464,8 @@
 
 
   <li class="md-nav__item">
-    <a href="2.6.Dict.html" class="md-nav__link">
-      2.6.Dict
+    <a href="2.8.%E7%AE%80%E6%B4%81%E7%9A%84Python.html" class="md-nav__link">
+      2.8.简洁的Python
     </a>
   </li>
 
@@ -508,8 +476,8 @@
 
 
   <li class="md-nav__item">
-    <a href="2.7.%E7%AE%80%E6%B4%81%E7%9A%84Python.html" class="md-nav__link">
-      2.7.简洁的Python
+    <a href="2.9.%E8%B5%8B%E5%80%BC%E3%80%81immutable%E3%80%81%E6%B7%B1%E6%8B%B7%E8%B4%9D.html" class="md-nav__link">
+      2.9.赋值、immutable、深拷贝
     </a>
   </li>
 
@@ -520,8 +488,8 @@
 
 
   <li class="md-nav__item">
-    <a href="2.8.%E8%B5%8B%E5%80%BC%E3%80%81immutable%E3%80%81%E6%B7%B1%E6%8B%B7%E8%B4%9D.html" class="md-nav__link">
-      2.8.赋值、immutable、深拷贝
+    <a href="2.10.%E5%87%BD%E6%95%B0.html" class="md-nav__link">
+      2.10.函数
     </a>
   </li>
 
@@ -532,8 +500,8 @@
 
 
   <li class="md-nav__item">
-    <a href="2.9.%E5%87%BD%E6%95%B0.html" class="md-nav__link">
-      2.9.函数
+    <a href="2.11.%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0.html" class="md-nav__link">
+      2.11.内置函数
     </a>
   </li>
 
@@ -544,20 +512,8 @@
 
 
   <li class="md-nav__item">
-    <a href="2.10.%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0.html" class="md-nav__link">
-      2.10.内置函数
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="2.11.%E7%AE%80%E6%B4%81%E7%9A%84Python.html" class="md-nav__link">
-      2.11.简洁的Python
+    <a href="2.12.%E7%AE%80%E6%B4%81%E7%9A%84Python.html" class="md-nav__link">
+      2.12.简洁的Python
     </a>
   </li>
 
@@ -2007,93 +1963,37 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#list" class="md-nav__link">
-    list的方法
+  <a href="#tuple1tuple" class="md-nav__link">
+    Tuple陷阱——1个元素的Tuple
   </a>
   
-    <nav class="md-nav" aria-label="list的方法">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tupletuple" class="md-nav__link">
+    Tuple陷阱——“可变的”Tuple
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tuple" class="md-nav__link">
+    Tuple的方法
+  </a>
+  
+    <nav class="md-nav" aria-label="Tuple的方法">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#list_1" class="md-nav__link">
-    修改list元素的值
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    添加一个新元素到末尾
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    添加任意个新元素到末尾
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    在任意位置插入新元素
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    删除\取出最后一个（任意位置的）元素
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    删除第一次出现的元素
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    反序排序
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    排序
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
     统计元素出现的次数
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    得到某个值第一次出现时对应的索引值
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
-    浅拷贝列表
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
-    清空列表
+  <a href="#_2" class="md-nav__link">
+    元素第一次出现时对应的索引值
   </a>
   
 </li>
@@ -2115,269 +2015,111 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/siwing/siwing.github.io/edit/master/docs/Python基础/2.4.List.md" title="编辑此页" class="md-content__button md-icon">
+                  <a href="https://github.com/siwing/siwing.github.io/edit/master/docs/Python基础/2.6.Tuple.md" title="编辑此页" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                  <h1>2.4.List</h1>
+                  <h1>2.6.Tuple</h1>
                 
                 <div class="highlight"><pre><span></span><code>Windows 10
-Python 3.7.7 @ MSC v.1916 64 bit (AMD64)
-Latest build date 2020.09.21
+Python 3.7.3 @ MSC v.1915 64 bit (AMD64)
+Latest build date 2020.06.24
 </code></pre></div>
 
-<table>
-<thead>
-<tr>
-<th align="left">列表的方 法</th>
-<th align="left">描 述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td align="left">aList.append(obj)</td>
-<td align="left">等同于aList[len(aList):len(aList)] = [obj]</td>
-</tr>
-<tr>
-<td align="left">aList.clear()</td>
-<td align="left">删除aList的所有元素</td>
-</tr>
-<tr>
-<td align="left">aList.count(obj)</td>
-<td align="left">返回aList中与obj相等的元素个数</td>
-</tr>
-<tr>
-<td align="left">aList.copy()</td>
-<td align="left">返回aList的副本。请注意，这是浅复制，即不会复制元素</td>
-</tr>
-<tr>
-<td align="left">aList.extend(sequence)</td>
-<td align="left">等同于aList[len(aList):len(aList)] = sequence</td>
-</tr>
-<tr>
-<td align="left">aList.index(obj)</td>
-<td align="left">返回aList中第一个与obj相等的元素的索引；如果没有这样的元素，就引发 ValueError异常</td>
-</tr>
-<tr>
-<td align="left">aList.insert(index, obj)</td>
-<td align="left">如果index &gt;= 0，就等同于aList[index:index] = [obj]；如果index &lt; 0，就 将指定的对象加入到列表开头</td>
-</tr>
-<tr>
-<td align="left">aList.pop([index])</td>
-<td align="left">删除并返回指定索引（默认为-1 )处的元素</td>
-</tr>
-<tr>
-<td align="left">aList.remove(obj)</td>
-<td align="left">等同于del aList[aList.index(obj)]</td>
-</tr>
-<tr>
-<td align="left">aList.reverse</td>
-<td align="left">就地按相反的顺序排列列表的元素</td>
-</tr>
-<tr>
-<td align="left">aList.sort([cmp][,key][,reverse])</td>
-<td align="left">就地对aList的元素进行排序（稳定排序）。可通过提供比较函数cmp、键函数 key (创建用户排序的键）和降序标志reverse (—个布尔值）进行定制</td>
-</tr>
-</tbody>
-</table>
-<h2 id="list">list的方法</h2>
-<p>创建一个list</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># 查看list的方法、属性</span>
-<span class="p">[</span><span class="n">method</span> <span class="k">for</span> <span class="n">method</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="nb">list</span><span class="p">())</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">method</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">)]</span>
+<p>tuple是一种一维的、不可变的Python对象序列，元素写在小括号 <code>()</code> 里，元素之间用逗号隔开，元组中的元素类型可以不相同。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>不可变是指Tuple对象创建之后，该Tuple对象不能被修改，例如无法增加或删除tuple对象中的元素。</p>
+</div>
+<details class="question"><summary>不可变的tuple有什么意义？</summary><p>因为tuple不可变，所以代码更安全。如果可能，能用tuple代替list就尽量用tuple。</p>
+</details>
+<p>虽然 tuple 是不可变对象，但它可以包含可变的对象，比如一个tuple对象包含一个list序列。</p>
+<h2 id="tuple1tuple">Tuple陷阱——1个元素的Tuple</h2>
+<p>定义个一个Tuple，需要传入一个iterable对象。</p>
+<div class="highlight"><pre><span></span><code><span class="nb">tuple</span><span class="p">(</span><span class="s2">&quot;123&quot;</span><span class="p">)</span>
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code>[&#39;append&#39;,
- &#39;clear&#39;,
- &#39;copy&#39;,
- &#39;count&#39;,
- &#39;extend&#39;,
- &#39;index&#39;,
- &#39;insert&#39;,
- &#39;pop&#39;,
- &#39;remove&#39;,
- &#39;reverse&#39;,
- &#39;sort&#39;]
+<div class="highlight"><pre><span></span><code>(&#39;1&#39;, &#39;2&#39;, &#39;3&#39;)
 </code></pre></div>
 
-<h3 id="list_1">修改list元素的值</h3>
-<p>修改现有list的值，通过索引、切片来完成。</p>
-<div class="highlight"><pre><span></span><code><span class="n">list_1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
-<span class="c1"># 修改某个索引对应元素的值</span>
-<span class="n">list_1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span> <span class="n">list_1</span>
+<p>如果需要定义一个空的Tuple，可以通过tuple类来定义：</p>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">()</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code>[100, 10, 20, 30]
+<div class="highlight"><pre><span></span><code>tuple
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code><span class="c1"># 修改某个连续区域的值</span>
-<span class="c1"># 切片的长度 和 用于赋值的列表长度 可以不同，如下：</span>
-<span class="n">list_1</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">];</span> <span class="n">list_1</span>
+<p>或者用 <code>()</code> 定义：</p>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="p">()</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code>[11, 12, 13, 14, 20, 30]
+<div class="highlight"><pre><span></span><code>tuple
 </code></pre></div>
 
-<h3 id="_1">添加一个新元素到末尾</h3>
-<p><code>append</code>方法每次只能添加一个新元素</p>
-<div class="highlight"><pre><span></span><code><span class="n">list_1</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">));</span> <span class="nb">print</span><span class="p">(</span><span class="n">list_1</span><span class="p">)</span>
-<span class="n">list_1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">12</span><span class="p">);</span> <span class="nb">print</span><span class="p">(</span><span class="n">list_1</span><span class="p">)</span>
+<p>但是如果要定义一个只有一个元素的tuple，就得要注意了。如果我们这样定义，则是错误的：</p>
+<div class="highlight"><pre><span></span><code><span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;123&quot;</span><span class="p">)</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code>[0, 1, 2, 3]
-[0, 1, 2, 3, 12]
+<div class="highlight"><pre><span></span><code>str
 </code></pre></div>
 
-<h3 id="_2">添加任意个新元素到末尾</h3>
-<p><code>extend</code>方法允许我们通过另一个list来扩充当前的list。实际上，这看起来像是用<code>+</code>拼接list，但<code>extend</code>方法会直接修改原列表，不返回副本。</p>
-<div class="highlight"><pre><span></span><code><span class="n">list_1</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
-<span class="n">list_2</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;0&#39;</span><span class="p">,</span><span class="s1">&#39;00&#39;</span><span class="p">,</span><span class="s1">&#39;000&#39;</span><span class="p">]</span>
-<span class="n">list_1</span> <span class="o">+</span> <span class="n">list_2</span>
-<span class="c1"># 此时list_1没有被修改</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;使用+运算符：&quot;</span><span class="p">,</span><span class="n">list_1</span><span class="p">)</span>
-
-<span class="n">list_1</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">list_2</span><span class="p">)</span>
-<span class="c1"># 此时list_1被修改</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;使用extend方法：&quot;</span><span class="p">,</span><span class="n">list_1</span><span class="p">)</span>
+<p>定义只有一个元素的tuple，需要这样定义：</p>
+<div class="highlight"><pre><span></span><code><span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;123&quot;</span><span class="p">,)</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code>使用+运算符： [0, 1, 2, 3]
-使用extend方法： [0, 1, 2, 3, &#39;0&#39;, &#39;00&#39;, &#39;000&#39;]
+<div class="highlight"><pre><span></span><code>tuple
 </code></pre></div>
 
-<p>可以看出，使用<code>+</code>拼接list会创建一个新对象，显然拼接的效率回比<code>extend</code>方法的效率低。</p>
-<p>还可以借助切片来扩充list，像这样：</p>
-<div class="highlight"><pre><span></span><code><span class="n">list_1</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
-<span class="n">list_2</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;0&#39;</span><span class="p">,</span><span class="s1">&#39;00&#39;</span><span class="p">,</span><span class="s1">&#39;000&#39;</span><span class="p">]</span>
-<span class="c1"># 这样做可读性不高</span>
-<span class="n">list_1</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">list_1</span><span class="p">):]</span> <span class="o">=</span> <span class="n">list_2</span>
-<span class="n">list_1</span>
+<p>或者这样定义：</p>
+<div class="highlight"><pre><span></span><code><span class="n">b</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">([</span><span class="s2">&quot;123&quot;</span><span class="p">])</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code>[0, 1, 2, 3, &#39;0&#39;, &#39;00&#39;, &#39;000&#39;]
+<div class="highlight"><pre><span></span><code>tuple
 </code></pre></div>
 
-<h3 id="_3">在任意位置插入新元素</h3>
-<p><code>insert</code>方法将一个对象插入指定位置</p>
-<div class="highlight"><pre><span></span><code><span class="n">list_1</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">));</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;原列表：&quot;</span><span class="p">,</span><span class="n">list_1</span><span class="p">)</span>
-<span class="n">list_1</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;新元素&quot;</span><span class="p">);</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;新列表：&quot;</span><span class="p">,</span><span class="n">list_1</span><span class="p">)</span>
+<p>为什么会这样呢？因为<code>()</code>在python中可以表示运算符的<code>()</code>，也可以表示Tuple。这就不可避免地产生了歧义，为了消除歧义，Python规定括号里面只有一个元素时，按运算符的<code>()</code>进行解析。</p>
+<h2 id="tupletuple">Tuple陷阱——“可变的”Tuple</h2>
+<p>前面说过，Tuple是一种不可变的对象。但是有时我们又会发现Tuple是“可变的”。</p>
+<div class="highlight"><pre><span></span><code><span class="n">c</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;原始的Tuple：&quot;</span><span class="p">,</span><span class="n">c</span><span class="p">)</span>
+<span class="n">c</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;X&#39;</span>
+<span class="n">c</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Y&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;修改后的Tuple：&quot;</span><span class="p">,</span><span class="n">c</span><span class="p">)</span>
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code>原列表： [0, 1, 2, 3]
-新列表： [&#39;新元素&#39;, 0, 1, 2, 3]
+<div class="highlight"><pre><span></span><code>原始的Tuple： (&#39;a&#39;, &#39;b&#39;, [&#39;A&#39;, &#39;B&#39;])
+修改后的Tuple： (&#39;a&#39;, &#39;b&#39;, [&#39;X&#39;, &#39;Y&#39;])
 </code></pre></div>
 
-<p>当然，也可以借助切片在任意位置插入元素。注意的是，对一个list使用切片，必定会得到一个list，这就需要用一个list对切片赋值。</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># 这样虽然巧妙，但是可读性比不上insert。</span>
-<span class="n">list_1</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">));</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;原列表：&quot;</span><span class="p">,</span> <span class="n">list_1</span><span class="p">)</span>
-<span class="n">list_1</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;新元素&quot;</span><span class="p">];</span> <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;新列表：&quot;</span><span class="p">,</span> <span class="n">list_1</span><span class="p">)</span>
+<p>前面说过tuple一旦定义后就不可变，那上面的c怎么就改变了呢？其实，c的元素并没有改变，改变的只是list中的元素，tuple一开始指向的list并没有改成别的list，所以，tuple所谓的“不变”是说，tuple的每个元素的指向永远不变。即指向<code>a</code>，就不能改成指向<code>b</code>，指向一个list，就不能改成指向其他对象，但指向的这个list本身是可变的！</p>
+<p>所以要创建一个内容也不变的tuple，那就必须保证tuple的每一个元素本身也不能变。</p>
+<h2 id="tuple">Tuple的方法</h2>
+<p>因为Tuple是一个不可变的列表，没有用于修改列表的方法，所以Tuple对象的方法很少。</p>
+<div class="highlight"><pre><span></span><code><span class="n">d</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="p">[</span><span class="n">method</span> <span class="k">for</span> <span class="n">method</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="n">d</span><span class="p">)</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">method</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">)]</span>
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code>原列表： [0, 1, 2, 3]
-新列表： [&#39;新元素&#39;, 0, 1, 2, 3]
+<div class="highlight"><pre><span></span><code>[&#39;count&#39;, &#39;index&#39;]
 </code></pre></div>
 
-<h3 id="_4">删除\取出最后一个（任意位置的）元素</h3>
-<p>注意，pop是list中唯一一个修改原列表，并且有返回值的方法</p>
-<div class="highlight"><pre><span></span><code><span class="n">list_2</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;0&#39;</span><span class="p">,</span> <span class="s1">&#39;00&#39;</span><span class="p">,</span> <span class="s1">&#39;000&#39;</span><span class="p">]</span>
-<span class="n">list_2</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
-</code></pre></div>
-
-<div class="highlight"><pre><span></span><code>&#39;000&#39;
-</code></pre></div>
-
-<p>pop默认删除最后一个元素，但是也可以输入索引值，指定删除元素的位置</p>
-<div class="highlight"><pre><span></span><code><span class="n">list_2</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;0&#39;</span><span class="p">,</span> <span class="s1">&#39;00&#39;</span><span class="p">,</span> <span class="s1">&#39;000&#39;</span><span class="p">]</span>
-<span class="n">list_2</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">list_2</span>
-</code></pre></div>
-
-<div class="highlight"><pre><span></span><code>[&#39;00&#39;, &#39;000&#39;]
-</code></pre></div>
-
-<h3 id="_5">删除第一次出现的元素</h3>
-<div class="highlight"><pre><span></span><code><span class="n">list_1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
-<span class="n">list_1</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">list_1</span>
-</code></pre></div>
-
-<div class="highlight"><pre><span></span><code>[2, 3, 1]
-</code></pre></div>
-
-<h3 id="_6">反序排序</h3>
-<div class="highlight"><pre><span></span><code><span class="n">list_1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
-<span class="n">list_1</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
-<span class="n">list_1</span>
-</code></pre></div>
-
-<div class="highlight"><pre><span></span><code>[3, 2, 1]
-</code></pre></div>
-
-<h3 id="_7">排序</h3>
-<p>方法<code>sort</code>接受两个可选参数：<code>key</code>和<code>reverse</code>。将<code>key</code>设置为一个用于排序的**函数。然而，不会直接使用这个函数来判断一个元素是否比另一个元素小，而是使用它来为每个元素创建一个键，再根据这些键对元素进行排序。对于另一个关键字参数<code>reverse</code>，只需将其指定为<code>True</code>或<code>False</code>，以指出是否要按相反的顺序对列表进行排序。</p>
-<div class="highlight"><pre><span></span><code><span class="n">list_3</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;aardvark&#39;</span><span class="p">,</span> <span class="s1">&#39;abalone&#39;</span><span class="p">,</span> <span class="s1">&#39;acme&#39;</span><span class="p">,</span> <span class="s1">&#39;add&#39;</span><span class="p">,</span> <span class="s1">&#39;aerate&#39;</span><span class="p">]</span>
-<span class="n">list_3</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="nb">len</span><span class="p">)</span>
-<span class="n">list_3</span>
-</code></pre></div>
-
-<div class="highlight"><pre><span></span><code>[&#39;add&#39;, &#39;acme&#39;, &#39;aerate&#39;, &#39;abalone&#39;, &#39;aardvark&#39;]
-</code></pre></div>
-
-<div class="highlight"><pre><span></span><code><span class="c1"># 按照长度降序排序</span>
-<span class="n">list_3</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="nb">len</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">list_3</span>
-</code></pre></div>
-
-<div class="highlight"><pre><span></span><code>[&#39;aardvark&#39;, &#39;abalone&#39;, &#39;aerate&#39;, &#39;acme&#39;, &#39;add&#39;]
-</code></pre></div>
-
-<h3 id="_8">统计元素出现的次数</h3>
-<div class="highlight"><pre><span></span><code><span class="n">list_1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
-<span class="n">list_1</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<h3 id="_1">统计元素出现的次数</h3>
+<div class="highlight"><pre><span></span><code><span class="n">d</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 </code></pre></div>
 
 <div class="highlight"><pre><span></span><code>2
 </code></pre></div>
 
-<h3 id="_9">得到某个值第一次出现时对应的索引值</h3>
-<div class="highlight"><pre><span></span><code><span class="n">list_1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
-<span class="n">list_1</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<h3 id="_2">元素第一次出现时对应的索引值</h3>
+<div class="highlight"><pre><span></span><code><span class="n">d</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code>0
-</code></pre></div>
-
-<h3 id="_10">浅拷贝列表</h3>
-<div class="highlight"><pre><span></span><code><span class="n">list_1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
-<span class="n">list_4</span> <span class="o">=</span> <span class="n">list_1</span>
-<span class="n">list_1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;修改了&quot;</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;list_1：&quot;</span><span class="p">,</span> <span class="n">list_1</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;list_4：&quot;</span><span class="p">,</span> <span class="n">list_4</span><span class="p">)</span>
-</code></pre></div>
-
-<div class="highlight"><pre><span></span><code>list_1： [&#39;修改了&#39;, 2, 3]
-list_4： [&#39;修改了&#39;, 2, 3]
-</code></pre></div>
-
-<div class="highlight"><pre><span></span><code><span class="c1"># 浅拷贝</span>
-<span class="n">list_1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]]</span>
-<span class="n">list_5</span> <span class="o">=</span> <span class="n">list_1</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="n">list_1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;修改了&quot;</span>
-<span class="n">list_1</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;修改了&quot;</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;list_1：&quot;</span><span class="p">,</span> <span class="n">list_1</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;list_5：&quot;</span><span class="p">,</span> <span class="n">list_5</span><span class="p">)</span>
-</code></pre></div>
-
-<div class="highlight"><pre><span></span><code>list_1： [&#39;修改了&#39;, 2, [&#39;修改了&#39;, 4]]
-list_5： [1, 2, [&#39;修改了&#39;, 4]]
-</code></pre></div>
-
-<h3 id="_11">清空列表</h3>
-<div class="highlight"><pre><span></span><code><span class="n">list_1</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
-<span class="n">list_1</span>
-</code></pre></div>
-
-<div class="highlight"><pre><span></span><code>[]
+<div class="highlight"><pre><span></span><code>4
 </code></pre></div>
                 
               
@@ -2397,7 +2139,7 @@ list_5： [1, 2, [&#39;修改了&#39;, 4]]
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="2.3.String.html" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="2.5.List.html" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -2406,19 +2148,19 @@ list_5： [1, 2, [&#39;修改了&#39;, 4]]
                 <span class="md-footer-nav__direction">
                   上一页
                 </span>
-                2.3.String
+                2.5.List
               </div>
             </div>
           </a>
         
         
-          <a href="2.5.Tuple.html" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="2.7.Dict.html" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   下一页
                 </span>
-                2.5.Tuple
+                2.7.Dict
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">

@@ -368,7 +368,7 @@
       
         <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
-    代码块
+    缩进
   </a>
   
 </li>
@@ -509,8 +509,8 @@
 
 
   <li class="md-nav__item">
-    <a href="2.3.String.html" class="md-nav__link">
-      2.3.String
+    <a href="2.3.Number.html" class="md-nav__link">
+      2.3.Number
     </a>
   </li>
 
@@ -521,8 +521,8 @@
 
 
   <li class="md-nav__item">
-    <a href="2.4.List.html" class="md-nav__link">
-      2.4.List
+    <a href="2.4.String.html" class="md-nav__link">
+      2.4.String
     </a>
   </li>
 
@@ -533,8 +533,8 @@
 
 
   <li class="md-nav__item">
-    <a href="2.5.Tuple.html" class="md-nav__link">
-      2.5.Tuple
+    <a href="2.5.List.html" class="md-nav__link">
+      2.5.List
     </a>
   </li>
 
@@ -545,8 +545,8 @@
 
 
   <li class="md-nav__item">
-    <a href="2.6.Dict.html" class="md-nav__link">
-      2.6.Dict
+    <a href="2.6.Tuple.html" class="md-nav__link">
+      2.6.Tuple
     </a>
   </li>
 
@@ -557,8 +557,8 @@
 
 
   <li class="md-nav__item">
-    <a href="2.7.%E7%AE%80%E6%B4%81%E7%9A%84Python.html" class="md-nav__link">
-      2.7.简洁的Python
+    <a href="2.7.Dict.html" class="md-nav__link">
+      2.7.Dict
     </a>
   </li>
 
@@ -569,8 +569,8 @@
 
 
   <li class="md-nav__item">
-    <a href="2.8.%E8%B5%8B%E5%80%BC%E3%80%81immutable%E3%80%81%E6%B7%B1%E6%8B%B7%E8%B4%9D.html" class="md-nav__link">
-      2.8.赋值、immutable、深拷贝
+    <a href="2.8.%E7%AE%80%E6%B4%81%E7%9A%84Python.html" class="md-nav__link">
+      2.8.简洁的Python
     </a>
   </li>
 
@@ -581,8 +581,8 @@
 
 
   <li class="md-nav__item">
-    <a href="2.9.%E5%87%BD%E6%95%B0.html" class="md-nav__link">
-      2.9.函数
+    <a href="2.9.%E8%B5%8B%E5%80%BC%E3%80%81immutable%E3%80%81%E6%B7%B1%E6%8B%B7%E8%B4%9D.html" class="md-nav__link">
+      2.9.赋值、immutable、深拷贝
     </a>
   </li>
 
@@ -593,8 +593,8 @@
 
 
   <li class="md-nav__item">
-    <a href="2.10.%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0.html" class="md-nav__link">
-      2.10.内置函数
+    <a href="2.10.%E5%87%BD%E6%95%B0.html" class="md-nav__link">
+      2.10.函数
     </a>
   </li>
 
@@ -605,8 +605,20 @@
 
 
   <li class="md-nav__item">
-    <a href="2.11.%E7%AE%80%E6%B4%81%E7%9A%84Python.html" class="md-nav__link">
-      2.11.简洁的Python
+    <a href="2.11.%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0.html" class="md-nav__link">
+      2.11.内置函数
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="2.12.%E7%AE%80%E6%B4%81%E7%9A%84Python.html" class="md-nav__link">
+      2.12.简洁的Python
     </a>
   </li>
 
@@ -2085,7 +2097,7 @@
       
         <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
-    代码块
+    缩进
   </a>
   
 </li>
@@ -2222,7 +2234,7 @@
                 
                 <div class="highlight"><pre><span></span><code>Windows 10
 Python 3.7.3 @ MSC v.1915 64 bit (AMD64)
-Latest build date 2020.11.17
+Latest build date 2020.11.20
 </code></pre></div>
 
 <details class="note"><summary>Python简史</summary><p>1982年，Guido 从阿姆斯特丹大学 (University of Amsterdam) 获得了数学和计算机硕士学位。那时，他就已经接触并使用过 Fortran、Pascal、C 等高级语言，但 Guido 还没找到一门易用性强、生产效率高的语言。个人计算机在那时才刚开始发展，相较于现在，当时个人计算机的配置还很低。于1981年问世的第一台个人计算机 IBM5150 就只具有 4.77MHz 主频的 CPU 和 16KB 的 RAM。而当时懂得编程的人往往都精通计算机，所以他们一般更关心程序的性能，而不是编程的效率和语言的易用性。为了提高程序的性能，语言不得不逼迫程序员像计算机一样思考，这让 Guido 感到苦恼，即使他已经准确知道如何用 C 语言实现一个功能，但他仍然不得不花大量时间去编写代码。</p>
@@ -2332,20 +2344,24 @@ Latest build date 2020.11.17
 <p>至于 Python 为什么偏爱蛇形命名法，最可能的原因是借鉴了 C 语言的规范。蛇形命名法起源于 1960 年代后期，它与 C 语言关系密切，<em>The C Programming Language</em> 的 2.1 节中就有提到使用下划线可以提高长变量名的可读性。一开始，蛇形命名法并没有如今特定的名称。Python 从 C 语言中借鉴过来后，在 PEP 8 中将其简称为 "lower_case_with_underscores"。直到 21 世纪初，在 Intel 和 Ruby 社区中，才有人开始以 "snake case" 来称呼它。</p>
 <p>现今有不少编程语言在某些场景下会推荐使用蛇形命名法，包括R语言，而 Python 则是最早这么做的其中之一，并且是使用 snake case 场景最多的语言之一。</p>
 <h2 id="_4">注释</h2>
-<p>编程语言的注释符一般有两种：行注释与块注释（inline/block）。由于历史原因，C语言家族选择<code>\\</code>作为行注释符，而解释型语言（如shell）大多使用<code>#</code>作为行注释符。Python沿用了解释型语言的传统，单行注释以<code>#</code>开头，而块注释则使用<code>'''</code>或者<code>"""</code>。实际上python只有行注释符。块注释的本质是字符串对象。</p>
+<p>编程语言的注释符一般有两种：行注释与块注释（inline/block）。由于历史原因，C语言家族选择<code>\\</code>作为行注释符，而脚本语言（如shell）大多使用<code>#</code>作为行注释符。Python 沿用了脚本语言的传统，单行注释以<code>#</code>开头，并以物理行的末尾结束。</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># 这是单行注释</span>
-<span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">这是多行注释</span>
-<span class="sd">这是多行注释</span>
-<span class="sd">&#39;&#39;&#39;</span>
 </code></pre></div>
 
-<p>虽然多行字符串用于多行注释时，Python解释器并不会为此生成代码（多行注释作为文档字符串时除外），也没有负作用（negative effects），但这却是一种副作用（side effects）。基于此，PEP-8 建议多行注释均以<code>#</code>号和空格开头：</p>
+<p>Python 并没有块注释符，因此，有时多行字符串会被用作块注释。</p>
+<div class="highlight"><pre><span></span><code><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">这是多行注释</span>
+<span class="sd">这是多行注释</span>
+<span class="sd">&quot;&quot;&quot;</span>
+</code></pre></div>
+
+<p>虽然多行字符串用于多行注释时，Python 解释器并不会为此生成代码（多行注释作为文档字符串时除外），也没有负作用（negative effects），但这却是一种副作用（side effects）。基于此，PEP-8 建议多行注释均以<code>#</code>号和空格开头：</p>
 <blockquote>
 <p>Each line of a block comment starts with a # and a single space (unless it is indented text inside the comment).</p>
 </blockquote>
-<h2 id="_5">代码块</h2>
-<p>python最具特色的就是使用缩进来表示代码块，而不是使用大括号{}。冒号表示一段缩进代码块的开始，<mark>其后所有相同层次的代码必须保持相同的缩进量，</mark> 缩进量则可以随意，直至代码块结束。<strong>一般约定俗成使用4个空格的缩进。</strong></p>
+<h2 id="_5">缩进</h2>
+<p>位于逻辑行开始前的空白（空格和制表符）用于计算行的缩进层次，该层次用于语句的分组。不能使用<code>\</code>连接两个物理行的缩进。</p>
+<p>相同层次的代码必须保持相同的缩进量，缩进量则可以随意。<mark>当源码文件混用制表符和空格时，运行时会触发 <code>TabError</code>。</mark> 由于非Unix平台的文本编辑器的特性，最好<strong>不要用制表符表示缩进</strong>。<strong>一般约定俗成使用4个空格的缩进。</strong></p>
 <div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">input</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="kc">True</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;True&quot;</span><span class="p">)</span>
@@ -2360,13 +2376,14 @@ Latest build date 2020.11.17
 
 </div>
 </div>
-<p>Python的缩进有时会被诟病，因为当代码很长的时候，代码的层级关系可能会显得混乱。但实际上，很长的代码块本身就有坏代码的味道，这是要尽量避免的。另一方面，错误的缩进有时候的确会导致莫名其妙的bug，例如循环语句中末尾的代码缩进错误，程序刚运行时可能不会产生错误，运行一段时间后，却出现意想不到的情况。</p>
-<p>另外，因为缩进是Python的语法，所以当一段代码丢失缩进格式时，无法自动还原代码。</p>
+<p>使用缩进划分代码块，而不是使用大括号<code>{}</code>，是 Python 最具特色的地方，但这也是 Python 时常被诟病的地方。</p>
+<p>一方面，当代码很长的时候，可能会不小心弄错部分行的缩进层级。但很长的代码块本身就有坏代码的味道，这降低了可读性，并暗示了代码可能存在过度的耦合，这是要尽量避免的。</p>
+<p>另一方面，如果代码是从网上复制的，粘贴到源文件中可能会导致制表符和空格混用，或者丢失缩进格式。如果大家都不适用制表符表示缩进，第一个问题就可以解决，但丢失缩进格式确实无法自动还原代码。</p>
 <h2 id="_6">语句分隔符</h2>
-<p>Python可以在同一行中书写多条语句，语句之间使用半角分号<code>;</code>分隔。但这样的做法一般不推荐，因为会使代码的可读性变差。</p>
+<p>非正式地，简单语句必须在单个逻辑行上完成。多条简单语句可以存在同一逻辑行内，并以半角分号<code>;</code>分隔。一般不推荐这样的做法，因为可能会降低代码的可读性。</p>
 <h2 id="_7">续行符</h2>
-<p>虽然Python将<code>;</code>作为语句分隔符（一行多句），但使用换行符<code>\n</code>作为语句终止符（多行一句）。因此，换行是Python语法的一部分。</p>
-<p>如果语句很长，可以使用反斜杠<code>\</code>来续行，例如：</p>
+<p>虽然 Python 将<code>;</code>作为语句分隔符，但使用 <code>\newline</code> token 作为语句终止符。<code>\newline</code> token 可以理解为各个系统合法的序列终止符（例如 <code>\n</code>、<code>\r\n</code>等），严格来说，还包括终止符前面的空格。另外，注释也表示逻辑行的结束。因此，换行是Python语法的一部分。</p>
+<p>另外，<code>\newline</code> 也是逻辑行的结尾标记，简单语句不能越过逻辑行的边界，即不能将 <code>\newline</code> 包含其中。因此，当简单语句需要跨越多个物理行时，需要使用转义符<code>\</code>对其中的 <code>\newline</code>进行转义，这称为<strong>显式行连接（Explicit line joining）</strong>：</p>
 <div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="mi">3</span> <span class="o">+</span> \
     <span class="mi">4</span> <span class="o">+</span> \
     <span class="mi">5</span>
@@ -2376,9 +2393,9 @@ Latest build date 2020.11.17
 <div class="highlight"><pre><span></span><code>12
 </code></pre></div>
 
-<p>实际上，反斜杠<code>\</code>在Python中是转义符，<code>\</code>用于续行本质上是对换行符<code>\n</code>进行转义。因此，<code>\</code>用于代码续行时，反斜杠后面不能带有注释，或其他字符（除非<code>\</code>位于string literal之中）。</p>
-<p>在<code>[]</code>,<code>{}</code>, 或<code>()</code>中的多行语句<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">2</a></sup>，不需要使用反斜杠<code>\</code>，例如：</p>
-<div class="highlight"><pre><span></span><code><span class="n">total</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;item_one&#39;</span><span class="p">,</span> <span class="s1">&#39;item_two&#39;</span><span class="p">,</span> <span class="s1">&#39;item_three&#39;</span><span class="p">,</span>
+<p>当<code>\</code>用于续行时，可能会被称为续行符，但如上所述，<code>\</code>本质上是转义符。因此，<code>\</code>用于代码续行时，反斜杠后面不能带有注释，或其他字符（除非<code>\</code>位于string literal之中）。</p>
+<p><code>[]</code>,<code>{}</code>, 或<code>()</code><sup id="fnref:1"><a class="footnote-ref" href="#fn:1">2</a></sup>之中的表达式可以跨越多个物理行，不需要使用转义符<code>\</code>，这称为<strong>隐式行连接（Implicit  line joining）</strong>。例如：</p>
+<div class="highlight"><pre><span></span><code><span class="n">total</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;item_one&#39;</span><span class="p">,</span> <span class="s1">&#39;item_two&#39;</span><span class="p">,</span> <span class="s1">&#39;item_three&#39;</span><span class="p">,</span>  <span class="c1"># comment</span>
          <span class="s1">&#39;item_four&#39;</span><span class="p">,</span> <span class="s1">&#39;item_five&#39;</span><span class="p">]</span>
 <span class="n">total</span>
 </code></pre></div>
@@ -2386,9 +2403,10 @@ Latest build date 2020.11.17
 <div class="highlight"><pre><span></span><code>[&#39;item_one&#39;, &#39;item_two&#39;, &#39;item_three&#39;, &#39;item_four&#39;, &#39;item_five&#39;]
 </code></pre></div>
 
+<p>隐式的连续行可以带有带有注释，代码的缩进也不是语法上必须的，还允许其中包括空行。虽然隐式连续行存在换行，但其中并不包括 <code>\newline</code> token。另外，隐式行连接也可以出现在多行字符串之中，此时不能带有注释。</p>
 <h2 id="_8">空行</h2>
-<p>空行与缩进不同，<strong>空行并不是Python语法的一部分。</strong> 仅包含空格、制表符、换页符和注释的行将被忽略，代码文件中不存在空行，Python解释器运行也不会出错。但空行可用于分隔两段不同功能或含义的代码，让代码结构看起来更清晰，便于维护或重构。根据 <abbr title="Python Enhancement Proposal">PEP8</abbr> 规范，类方法之间用 1 行空行分隔，顶级函数、类之间用 2 行空行分隔。</p>
-<p>但在交互式解释器中，由于需要实现 read-eval-print loop，空行的处理可能有所不同。在交互式解释器输入代码块时，一个完全空白的空行用于终止多行语句。</p>
+<p>空行与缩进不同，<strong>空行并不是Python语法的一部分。</strong> 仅包含空格、制表符、换页符和注释的逻辑行将被忽略，即不生成 <code>\newline</code> token。代码文件中不存在空行，运行时也不会出错。但空行可用于分隔两段不同功能或含义的代码，让代码结构看起来更清晰，便于维护或重构。根据 <abbr title="Python Enhancement Proposal">PEP8</abbr> 规范，类方法之间用 1 行空行分隔，顶级函数、类之间用 2 行空行分隔。</p>
+<p>在交互式解释器中，由于需要实现 read-eval-print loop，空行的处理可能有所不同。在交互式解释器输入代码块时，一个完全空白的空行用于终止多行语句。</p>
 <div class="highlight"><pre><span></span><code><span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
   <span class="o">...</span><span class="p">:</span>     <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
   <span class="o">...</span><span class="p">:</span>
@@ -2397,7 +2415,7 @@ Latest build date 2020.11.17
 </code></pre></div>
 
 <h2 id="print">Print 输出</h2>
-<p><code>print</code>函数默认输出是换行的，如果要实现不换行打印，需要更改<code>print</code>函数的<code>end</code>参数：</p>
+<p><code>print</code>函数将对象转换为字符串，默认将这些字符串输出到 STDOUT，并且默认在字符串末尾添加换行符。如果不想换行打印，需要更改<code>print</code>函数的<code>end</code>参数：</p>
 <div class="tabbed-set" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">换行打印</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;b&quot;</span><span class="p">)</span>
@@ -2418,6 +2436,12 @@ b
 
 </div>
 </div>
+<p>程序可能会产生多种输出。虽然 <code>print</code> 函数是一个方便的方式，但通常我们会使用更高级的技术来代替它：</p>
+<ul>
+<li>基于文本格式的文件。通常使用 <code>print</code> 函数也可以完成。</li>
+<li>PDF 或其他格式的输出文件。这将需要使用其他 Python 库来生成这些格式。</li>
+<li>错误消息、调式消息和日志文件。通常使用 <code>logging</code> 模块，偶尔使用 <code>print</code> 函数。</li>
+</ul>
 <h2 id="_9">导入模块</h2>
 <p>Python 使用 <code>import</code> 或者 <code>from...import</code> 来导入相应的模块（module）。</p>
 <div class="highlight"><pre><span></span><code>import somemodule                                 导入整个模块

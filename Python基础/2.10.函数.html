@@ -14,7 +14,7 @@
     
     
       
-        <title>2.6.Dict - Python笔记</title>
+        <title>2.10.函数 - Python笔记</title>
       
     
     
@@ -57,7 +57,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#dict" class="md-skip">
+        <a href="#_1" class="md-skip">
           跳转至
         </a>
       
@@ -89,7 +89,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              2.6.Dict
+              2.10.函数
             
           </span>
         </div>
@@ -336,8 +336,8 @@
 
 
   <li class="md-nav__item">
-    <a href="2.3.String.html" class="md-nav__link">
-      2.3.String
+    <a href="2.3.Number.html" class="md-nav__link">
+      2.3.Number
     </a>
   </li>
 
@@ -348,8 +348,8 @@
 
 
   <li class="md-nav__item">
-    <a href="2.4.List.html" class="md-nav__link">
-      2.4.List
+    <a href="2.4.String.html" class="md-nav__link">
+      2.4.String
     </a>
   </li>
 
@@ -360,8 +360,56 @@
 
 
   <li class="md-nav__item">
-    <a href="2.5.Tuple.html" class="md-nav__link">
-      2.5.Tuple
+    <a href="2.5.List.html" class="md-nav__link">
+      2.5.List
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="2.6.Tuple.html" class="md-nav__link">
+      2.6.Tuple
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="2.7.Dict.html" class="md-nav__link">
+      2.7.Dict
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="2.8.%E7%AE%80%E6%B4%81%E7%9A%84Python.html" class="md-nav__link">
+      2.8.简洁的Python
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="2.9.%E8%B5%8B%E5%80%BC%E3%80%81immutable%E3%80%81%E6%B7%B1%E6%8B%B7%E8%B4%9D.html" class="md-nav__link">
+      2.9.赋值、immutable、深拷贝
     </a>
   </li>
 
@@ -379,12 +427,12 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        2.6.Dict
+        2.10.函数
         <span class="md-nav__icon md-icon"></span>
       </label>
     
-    <a href="2.6.Dict.html" class="md-nav__link md-nav__link--active">
-      2.6.Dict
+    <a href="2.10.%E5%87%BD%E6%95%B0.html" class="md-nav__link md-nav__link--active">
+      2.10.函数
     </a>
     
       
@@ -399,86 +447,92 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#dict" class="md-nav__link">
-    创建dict
+  <a href="#_1" class="md-nav__link">
+    函数
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#dict_1" class="md-nav__link">
-    Dict的方法
+  <a href="#_2" class="md-nav__link">
+    函数传参
   </a>
   
-    <nav class="md-nav" aria-label="Dict的方法">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    函数作为参数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    参数
+  </a>
+  
+    <nav class="md-nav" aria-label="参数">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#clear" class="md-nav__link">
-    clear删除所有的字典项
+  <a href="#_5" class="md-nav__link">
+    位置参数
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#copy" class="md-nav__link">
-    copy浅拷贝
+  <a href="#_6" class="md-nav__link">
+    关键字参数
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#fromkeys" class="md-nav__link">
-    fromkeys
+  <a href="#_7" class="md-nav__link">
+    默认参数
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#get" class="md-nav__link">
-    get
+  <a href="#_8" class="md-nav__link">
+    可变参数
+  </a>
+  
+    <nav class="md-nav" aria-label="可变参数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    包裹位置传递
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#items" class="md-nav__link">
-    items
+  <a href="#_10" class="md-nav__link">
+    包裹关键字传递
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    解包裹参数
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#keysvalues" class="md-nav__link">
-    keys和values
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pop" class="md-nav__link">
-    pop
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#popitem" class="md-nav__link">
-    popitem
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#setdefault" class="md-nav__link">
-    setdefault
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#update" class="md-nav__link">
-    update
+  <a href="#_12" class="md-nav__link">
+    位置参数、默认参数、可变参数的混合使用
   </a>
   
 </li>
@@ -501,8 +555,8 @@
 
 
   <li class="md-nav__item">
-    <a href="2.7.%E7%AE%80%E6%B4%81%E7%9A%84Python.html" class="md-nav__link">
-      2.7.简洁的Python
+    <a href="2.11.%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0.html" class="md-nav__link">
+      2.11.内置函数
     </a>
   </li>
 
@@ -513,44 +567,8 @@
 
 
   <li class="md-nav__item">
-    <a href="2.8.%E8%B5%8B%E5%80%BC%E3%80%81immutable%E3%80%81%E6%B7%B1%E6%8B%B7%E8%B4%9D.html" class="md-nav__link">
-      2.8.赋值、immutable、深拷贝
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="2.9.%E5%87%BD%E6%95%B0.html" class="md-nav__link">
-      2.9.函数
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="2.10.%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0.html" class="md-nav__link">
-      2.10.内置函数
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="2.11.%E7%AE%80%E6%B4%81%E7%9A%84Python.html" class="md-nav__link">
-      2.11.简洁的Python
+    <a href="2.12.%E7%AE%80%E6%B4%81%E7%9A%84Python.html" class="md-nav__link">
+      2.12.简洁的Python
     </a>
   </li>
 
@@ -2000,86 +2018,92 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#dict" class="md-nav__link">
-    创建dict
+  <a href="#_1" class="md-nav__link">
+    函数
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#dict_1" class="md-nav__link">
-    Dict的方法
+  <a href="#_2" class="md-nav__link">
+    函数传参
   </a>
   
-    <nav class="md-nav" aria-label="Dict的方法">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    函数作为参数
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    参数
+  </a>
+  
+    <nav class="md-nav" aria-label="参数">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#clear" class="md-nav__link">
-    clear删除所有的字典项
+  <a href="#_5" class="md-nav__link">
+    位置参数
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#copy" class="md-nav__link">
-    copy浅拷贝
+  <a href="#_6" class="md-nav__link">
+    关键字参数
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#fromkeys" class="md-nav__link">
-    fromkeys
+  <a href="#_7" class="md-nav__link">
+    默认参数
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#get" class="md-nav__link">
-    get
+  <a href="#_8" class="md-nav__link">
+    可变参数
+  </a>
+  
+    <nav class="md-nav" aria-label="可变参数">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    包裹位置传递
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#items" class="md-nav__link">
-    items
+  <a href="#_10" class="md-nav__link">
+    包裹关键字传递
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    解包裹参数
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#keysvalues" class="md-nav__link">
-    keys和values
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pop" class="md-nav__link">
-    pop
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#popitem" class="md-nav__link">
-    popitem
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#setdefault" class="md-nav__link">
-    setdefault
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#update" class="md-nav__link">
-    update
+  <a href="#_12" class="md-nav__link">
+    位置参数、默认参数、可变参数的混合使用
   </a>
   
 </li>
@@ -2101,245 +2125,178 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/siwing/siwing.github.io/edit/master/docs/Python基础/2.6.Dict.md" title="编辑此页" class="md-content__button md-icon">
+                  <a href="https://github.com/siwing/siwing.github.io/edit/master/docs/Python基础/2.10.函数.md" title="编辑此页" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                  <h1>2.6.Dict</h1>
+                  <h1>2.10.函数</h1>
                 
-                <div class="highlight"><pre><span></span><code>Windows 10
-Python 3.7.3 @ MSC v.1915 64 bit (AMD64)
-Latest build date 2020.06.21
+                <h2 id="_1">函数</h2>
+<p>关键字 def 引入了一个函数定义。后面必须跟上函数名和在圆括号里的参数序列。函数体从第一行开始，并且一定要缩进。</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">func</span><span class="p">():</span>
+    <span class="k">pass</span>
 </code></pre></div>
 
-<p>映射（mapping）是通过名称来访问其各个值的数据结构。字典是Python中唯一的内置映射类型，其中的值不按顺序排列，而是存储在键下。键可能是数、字符串或元组。 </p>
-<h2 id="dict">创建dict</h2>
-<p>字典以类似于下面的方式表示： </p>
-<div class="highlight"><pre><span></span><code><span class="n">phonebook</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Alice&#39;</span><span class="p">:</span> <span class="s1">&#39;2341&#39;</span><span class="p">,</span> <span class="s1">&#39;Beth&#39;</span><span class="p">:</span> <span class="s1">&#39;9102&#39;</span><span class="p">,</span> <span class="s1">&#39;Cecil&#39;</span><span class="p">:</span> <span class="s1">&#39;3258&#39;</span><span class="p">}</span>
-</code></pre></div>
-
-<p>字典由键及其相应的值组成，这种键--值对称为项（item）。每个键与其值之间都用冒号<code>:</code>分隔，item之间用逗号分隔，而整个字典放在花括号内。空字典（没有任何项）用两个花括号<code>{}</code>表示。 </p>
-<div class="admonition note">
-<p class="admonition-title">注意</p>
-<p>在字典（以及其他映射类型）中，键必须是独一无二的，而字典中的值无需如此。 </p>
-</div>
-<p>可使用dict类从其他映射（如其他字典）或键–值对序列创建字典。 </p>
-<div class="highlight"><pre><span></span><code><span class="n">items</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;Gumby&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="mi">42</span><span class="p">)]</span> 
-<span class="nb">dict</span><span class="p">(</span><span class="n">items</span><span class="p">)</span>
-</code></pre></div>
-
-<div class="highlight"><pre><span></span><code>{&#39;name&#39;: &#39;Gumby&#39;, &#39;age&#39;: 42}
-</code></pre></div>
-
-<p>还可使用关键参数，如下所示： </p>
-<div class="highlight"><pre><span></span><code><span class="nb">dict</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Gumby&#39;</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
-</code></pre></div>
-
-<div class="highlight"><pre><span></span><code>{&#39;name&#39;: &#39;Gumby&#39;, &#39;age&#39;: 42}
-</code></pre></div>
-
-<h2 id="dict_1">Dict的方法</h2>
-<p>字典的基本行为在很多方面都类似于序列。 </p>
+<p>函式体的第一个语句可以是字符串。这个字符串就是函数的文档字符串（docstring）。有很多能将文档字串自动转换为在线或可打印文档的工具，或让用户在代码中交互地浏览它的工具。</p>
+<p>执行函数会引入局部命名空间。所有在函数中被赋值的变量和值都将存储在局部命名空间中。</p>
+<p>变量引用会首先在函数的局部命名空间里寻找，然后才是闭包函数的局部命名空间，再然后是全局命名空间，最后是内置命名空间。在函数中可以引用全局变量，但是不可直接赋值 (除非用 global 语句进行声明)。</p>
+<blockquote>
+<p>具体细节参考<a href="3.2.%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4%E5%92%8C%E4%BD%9C%E7%94%A8%E5%9F%9F.html">《3.2命名空间和作用域》</a>。</p>
+</blockquote>
+<p>根据其它语言的经验，你可能会指出<code>func</code>不是一个函数，而是一个程序，因为它不返回值。事实上，即使没有写 return 语句的函数也会返回一个值——<code>None</code>。如果要唯一输出的值是 None，那么解释器会正当的抑制这次返回。如你实在想看看这个值，可以使用 <code>print()</code> 函数。</p>
+<h2 id="_2">函数传参</h2>
+<p>刚学Python的人可能会疑惑，Python函数传参，到底是传值，还是传引用，甚至是传指针？可以确定的是，最后一种情况（即传指针）是不可能的，因为Python没有明显使用指针的地方，可以说Python本身不支持使用指针（除非通过导入ctypes模块来使用指针）。</p>
+<p>排除了传指针的情况，这个问题依然有很多争论，有人认为是传值，有人认为是传引用，有人认为是两者都有，也有人认为两者都不是，而是传赋值。</p>
+<p>这个问题的答案实际上取决于传值和传引用的定义。归根结底，对此的争论归结为对定义的分歧。在计算机领域中，人们争论某种东西往往是因为他们对术语的含义有不同的看法，人们往往会使用模糊且不一致的术语来定义一个概念。</p>
+<p>如果根据C++中基于语义的定义：</p>
 <ul>
-<li>len(d)返回字典d包含的项（键--值对）数。</li>
-<li>d[k]返回与键k相关联的值。</li>
-<li>d[k] = v将值v关联到键k。</li>
-<li>del d[k]删除键为k的项。</li>
-<li>k in d检查字典d是否包含键为k的项。</li>
+<li>如果将变量传递给函数，则<code>=</code>对函数内部的参数进行简单赋值的效果与对函数外部的传递变量进行简单赋值的效果相同，即为<strong>按引用传参</strong>。</li>
+<li>如果将变量传递给函数，<code>=</code>对函数内部的参数进行简单赋值对函数外部的传递变量没有影响，则为<strong>按值传参</strong>。</li>
 </ul>
-<p>虽然字典和列表有多个相同之处，但也有一些重要的不同之处。</p>
+<p>那么，Python的函数传参可以认为是传引用和传值都有。</p>
+<p>如果根据上述定义，并且对Python的内置类型按原子类型（值类型）和引用类型分类的话，那么Python的函数传参可以认为是传值。</p>
+<p>如果基于以下事实：</p>
 <ul>
-<li>
-<p><strong>自动添加。</strong>dict可以给不存在的项赋值，即是字典中原本没有的键，也可以给它赋值。而如果不使用append或其他类似的方法，就不能给列表中没有的元素赋值。</p>
-</li>
-<li>
-<p><strong>成员资格。</strong>表达式k in d (其中d是一个字典）査找的是键而不是值；而表达式v in 1 (其中1是一个列表）查找的是值而不是索引。这看似不太一致，但你习惯后就会觉得相当自然。毕竟如果字典包含指定的键，检查相应的值就很容易。</p>
-</li>
+<li>Python赋值的本质是创建别名</li>
+<li>引用即是别名</li>
 </ul>
-<h3 id="clear"><code>clear</code>删除所有的字典项</h3>
-<p>要注意的是，clear是清除了一个字典对象，而不是解除了名称与字典对象的绑定。</p>
-<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span><span class="s2">&quot;c&quot;</span><span class="p">:</span><span class="mi">3</span><span class="p">}</span>
-<span class="n">b</span> <span class="o">=</span> <span class="n">a</span>
-<span class="n">a</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
-<span class="c1"># 可以看到，a、b都变成了字典</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a的值:&quot;</span><span class="p">,</span><span class="n">a</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;b的值:&quot;</span><span class="p">,</span><span class="n">a</span><span class="p">)</span>
+<p>则可以认为，Python的函数传参是传引用，也可以认为Python的函数传参是传赋值。</p>
+<p>在这里，我们没必要关心使用哪个传参术语，<mark>只需要知道Python传参的本质是assignment即可。</mark> 传参的行为和赋值的行为是一样的，具体细节可以参考《<a href="../Python基础/2.8.赋值、immutable、深拷贝.md">2.8.赋值、immutable、深拷贝</a>》。</p>
+<p>在对可变对象的参数进行操作前，最好先深拷贝参数的值，否则可能会影响全局变量。</p>
+<details class="note"><summary>参考</summary><p><a href="https://www.quora.com/Are-arguments-passed-by-value-or-by-reference-in-Python">Are arguments passed by value or by reference in Python?</a></p>
+<p><a href="https://stackoverflow.com/questions/52685928/in-python-if-i-type-a-1-b-2-c-a-c-b-what-is-the-value-of-c-what-does-c-point">In Python, if I type a=1 b=2 c=a c=b, what is the value of c? What does c point to?</a></p>
+<p><a href="https://blog.csdn.net/easion_zms/article/details/46309657">从符号表来理解指针和引用</a></p>
+<p><a href="https://blog.csdn.net/edward_zcl/article/details/88697763">C以及Python中的引用，指针的区别</a></p>
+<p><a href="https://realpython.com/pointers-in-python/">Pointers in Python: What's the Point?</a></p>
+</details>
+<h2 id="_3">函数作为参数</h2>
+<p>在Python中，函数是可以直接作为参数传入另一个函数的。这似乎没什么特别的，如果您在学习C、C++、Python等这些语言之前，就已经在使用R语言，您可能更会觉得这是很符合直觉的事情。但实际上，有一些语言是不支持直接将一个函数作为参数的，例如C、C++、C#等。</p>
+<p><mark>Python之所以可以直接将函数作为参数，是因为在Python中，函数也是一个对象</mark>。如果在一个编程语言中，函数也是一个对象，我们可以说这个语言它具有 <strong>first-class function</strong>。这意味着，这门编程语言将函数视作 <strong>first-class citizen</strong>。first-class citizen 这个概念最早由英国计算机科学家 <a href="http://wikipedia.org/wiki/Christopher_Strachey">Christopher Strachey</a> 在20世纪60年代提出。和大多计算机术语一样，first-class citizen 并不是一个明确的概念。first-class citizen最著名的定义可能是Gerald Jay Sussman 和 Harry Abelson 在《<a href="https://mitpress.mit.edu/sites/default/files/sicp/full-text/book/book-Z-H-12.html#footnote_Temp_121">Structure and Interpretation of Computer Programs</a>》中提出的：</p>
+<p>如果一个编程元素具有如下特征，称之为 first-class citizen</p>
+<ul>
+<li>它可以赋值给变量。</li>
+<li>它可以作为参数传递给程序。</li>
+<li>它可以作为程序的返回值。</li>
+<li>它可以被包含在数据结构之中。</li>
+</ul>
+<p>基本上，这意味着您可以使用此编程语言元素来完成您可以使用该编程语言中的所有其他元素来进行的所有操作。</p>
+<details class="note"><summary>参考</summary><p><a href="https://stackoverflow.com/questions/1599176/what-are-first-class-objects-in-java-and-c">What are first-class objects in Java and C#?</a></p>
+<p><a href="https://stackoverflow.com/questions/27392402/what-is-first-class-function-in-python">What is first class function in Python</a></p>
+<p><a href="https://stackoverflow.com/questions/23037519/are-functions-first-class-objects-in-python">Are functions first class objects in python?</a></p>
+<p><a href="https://en.wikipedia.org/wiki/First-class_citizen">头等公民</a></p>
+<p><a href="http://python-history.blogspot.com/2009/02/first-class-everything.html">First-class Everything</a></p>
+</details>
+<p>为什么在一些编程语言中，函数不是对象呢？本文无法对此问题进行深入的探究，但可以给出一个简短的解释。函数与对象的区别归结于指向函数的指针和指向对象的指针是严格区分的，这与计算机的设计方式有关。</p>
+<details class="note"><summary>参考</summary><p><a href="https://stackoverflow.com/questions/43971298/why-is-a-function-not-an-object">Why is a function not an object?</a></p>
+</details>
+<h2 id="_4">参数</h2>
+<p>函数有四种参数概念：位置参数、默认参数、关键字参数、可变参数。</p>
+<p>其中，位置参数、关键字参数是传入函数参数时的概念；默认参数、可变参数是定义函数参数时的概念。</p>
+<p>函数有三种合法调用形式：</p>
+<ol>
+<li>仅给出强制参数</li>
+<li>给出所有强制参数和部分可选参数</li>
+<li>给出所有参数</li>
+</ol>
+<h3 id="_5">位置参数</h3>
+<p>调用函数时可以省略形参名字，根据函数定义的参数位置来传递参数。传入的参数顺序必须和定义参数的顺序一致，且少一个参数都不可以。</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">print_hello</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">sex</span><span class="p">):</span>
+    <span class="n">sex_dict</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;先生&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="sa">u</span><span class="s1">&#39;女士&#39;</span><span class="p">}</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;hello </span><span class="si">%s</span><span class="s1"> </span><span class="si">%s</span><span class="s1">, welcome to python world!&#39;</span> \
+          <span class="o">%</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">sex_dict</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">sex</span><span class="p">,</span> <span class="s1">&#39;先生&#39;</span><span class="p">)))</span>
+
+<span class="n">print_hello</span><span class="p">(</span><span class="s1">&#39;Jack&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code>a的值: {}
-b的值: {}
+<div class="highlight"><pre><span></span><code>hello Jack 先生, welcome to python world!
 </code></pre></div>
 
-<h3 id="copy"><code>copy</code>浅拷贝</h3>
-<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span><span class="s2">&quot;c&quot;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]}</span>
-<span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="n">b</span><span class="p">[</span><span class="s2">&quot;c&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a的值:&quot;</span><span class="p">,</span><span class="n">a</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;b的值:&quot;</span><span class="p">,</span><span class="n">a</span><span class="p">)</span>
+<h3 id="_6">关键字参数</h3>
+<p>函数调用时，可以通过“键=值”形式指定。这可以让函数更加清晰、容易使用，同时关键字参数不需要按顺序指定。</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># 以下是用关键字参数正确调用函数的实例</span>
+<span class="n">print_hello</span><span class="p">(</span><span class="s1">&#39;tanggu&#39;</span><span class="p">,</span> <span class="n">sex</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">print_hello</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;tanggu&#39;</span><span class="p">,</span> <span class="n">sex</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">print_hello</span><span class="p">(</span><span class="n">sex</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;tanggu&#39;</span><span class="p">)</span>
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code>a的值: {&#39;a&#39;: 1, &#39;b&#39;: 2, &#39;c&#39;: [10, 2]}
-b的值: {&#39;a&#39;: 1, &#39;b&#39;: 2, &#39;c&#39;: [10, 2]}
+<div class="highlight"><pre><span></span><code>hello tanggu 先生, welcome to python world!
+hello tanggu 先生, welcome to python world!
+hello tanggu 先生, welcome to python world!
 </code></pre></div>
 
-<h3 id="fromkeys"><code>fromkeys</code></h3>
-<div class="highlight"><pre><span></span><code><span class="nb">dict</span><span class="o">.</span><span class="n">fromkeys</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 以下是错误的调用方式</span>
+<span class="n">print_hello</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;tanggu&#39;</span><span class="p">)</span>
+<span class="n">print_hello</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;tanggu&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">print_hello</span><span class="p">(</span><span class="n">sex</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;tanggu&#39;</span><span class="p">)</span>
 </code></pre></div>
 
-<p>方法<code>fromkeys</code>创建一个新字典，其中包含指定的键，且每个键对应的值都是None，也可以指定值，</p>
-<div class="highlight"><pre><span></span><code><span class="nb">dict</span><span class="o">.</span><span class="n">fromkeys</span><span class="p">([</span><span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">])</span>
+<p>通过上面的代码可以发现：<strong>有位置参数时，位置参数必须在关键字参数的前面，但关键字参数之间不存在先后顺序的</strong>。</p>
+<h3 id="_7">默认参数</h3>
+<p>用于定义函数，为参数提供默认值，调用函数时可传可不传该默认参数的值。<mark>注意：所有位置参数必须出现在默认参数前，包括函数定义和调用。</mark></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># 正确的默认参数定义方式--&gt; 位置参数在前，默认参数在后</span>
+<span class="k">def</span> <span class="nf">print_hello</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">sex</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="o">....</span>
+
+<span class="c1"># 错误的定义方式</span>
+<span class="k">def</span> <span class="nf">print_hello</span><span class="p">(</span><span class="n">sex</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+    <span class="o">....</span>
+
+<span class="c1"># 调用时不传sex的值，则使用默认值1</span>
+<span class="c1"># print_hello(&#39;tanggu&#39;)</span>
+
+<span class="c1"># 调用时传入sex的值，并指定为2</span>
+<span class="c1"># print_hello(&#39;tanggu&#39;, 2)</span>
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code>{&#39;a&#39;: None, &#39;b&#39;: None}
+<h3 id="_8">可变参数</h3>
+<p>定义函数时，有时候我们不确定调用的时候会传递多少个参数（不传参也可以）。此时，可用包裹（packing）位置参数，或者包裹关键字参数，来进行参数传递，会显得非常方便。</p>
+<h4 id="_9">包裹位置传递</h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="o">....</span>
+     <span class="err">↓</span>
+<span class="c1"># func()</span>
+<span class="c1"># func(a)</span>
+<span class="c1"># func(a, b, c)</span>
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code><span class="nb">dict</span><span class="o">.</span><span class="n">fromkeys</span><span class="p">([</span><span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">],</span><span class="mi">10</span><span class="p">)</span>
+<p>我们传进的所有参数都会被<code>args</code>变量收集，它会根据传进参数的位置合并为一个元组(tuple)，<code>args</code>是元组类型，这就是包裹位置传递。</p>
+<h4 id="_10">包裹关键字传递</h4>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="o">**</span><span class="n">kargs</span><span class="p">):</span>
+    <span class="o">....</span>
+     <span class="err">↓</span>
+<span class="c1"># func(a=1)</span>
+<span class="c1"># func(a=1, b=2, c=3)</span>
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code>{&#39;a&#39;: 10, &#39;b&#39;: 10}
+<p>kargs是一个字典(dict)，收集所有关键字参数</p>
+<h3 id="_11">解包裹参数</h3>
+<p><code>*</code>和<code>**</code>，也可以在函数调用的时候使用，称之为解包裹(unpacking)</p>
+<p>在传递元组时，让元组的每一个元素对应一个位置参数</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">print_hello</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">sex</span><span class="p">):</span>
+    <span class="nb">print</span> <span class="n">name</span><span class="p">,</span> <span class="n">sex</span>
+
+<span class="c1"># args = (&#39;tanggu&#39;, &#39;男&#39;)</span>
+<span class="c1"># print_hello(*args)</span>
+<span class="c1"># tanggu 男</span>
 </code></pre></div>
 
-<h3 id="get"><code>get</code></h3>
-<p>方法<code>get</code>为访问字典项提供了宽松的环境。通常，如果你试图访问字典中没有的项，将引发错误。</p>
-<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span><span class="s2">&quot;c&quot;</span><span class="p">:</span><span class="mi">3</span><span class="p">}</span>
+<p>在传递字典时，让字典的每个键值对作为一个关键字参数传递给函数</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">print_hello</span><span class="p">(</span><span class="n">kargs</span><span class="p">):</span>
+    <span class="nb">print</span> <span class="n">kargs</span>
 
-<span class="k">try</span><span class="p">:</span>
-    <span class="n">a</span><span class="p">[</span><span class="s2">&quot;d&quot;</span><span class="p">]</span>
-<span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;KeyError: &quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
+<span class="c1"># kargs = {&#39;name&#39;: &#39;tanggu&#39;, &#39;sex&#39;, u&#39;男&#39;}</span>
+<span class="c1"># print_hello(**kargs)</span>
+<span class="c1"># {&#39;name&#39;: &#39;tanggu&#39;, &#39;sex&#39;, u&#39;男&#39;}</span>
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code>KeyError:  &#39;d&#39;
-</code></pre></div>
+<h3 id="_12">位置参数、默认参数、可变参数的混合使用</h3>
+<p>顺序是：位置参数、默认参数、包裹位置、包裹关键字，定义和调用都应遵循这个顺序。</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">sex</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kargs</span><span class="p">):</span>
+    <span class="nb">print</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">sex</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">kargs</span>
 
-<p>而使用<code>get</code>不会这样</p>
-<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span><span class="s2">&quot;c&quot;</span><span class="p">:</span><span class="mi">3</span><span class="p">}</span>
-<span class="n">a</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;d&quot;</span><span class="p">)</span>
-<span class="c1"># 默认返回None，也可以指定返回值</span>
-<span class="n">a</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;d&quot;</span><span class="p">,</span><span class="s2">&quot;N/A&quot;</span><span class="p">)</span>
-</code></pre></div>
-
-<div class="highlight"><pre><span></span><code>&#39;N/A&#39;
-</code></pre></div>
-
-<h3 id="items"><code>items</code></h3>
-<p>方法<code>items</code>返回一个包含所有字典项的列表，其中每个元素都为<code>(key, value)</code>的形式。字典项在列表中的排列顺序不确定。返回值属于一种名为字典视图的特殊类型。字典视图可用于迭代。另外，你还可确定其长度以及对其执行成员资格检查。</p>
-<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span><span class="s2">&quot;c&quot;</span><span class="p">:</span><span class="mi">3</span><span class="p">}</span>
-<span class="n">a</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
-</code></pre></div>
-
-<div class="highlight"><pre><span></span><code>dict_items([(&#39;a&#39;, 1), (&#39;b&#39;, 2), (&#39;c&#39;, 3)])
-</code></pre></div>
-
-<div class="highlight"><pre><span></span><code><span class="c1"># dict_items类型</span>
-<span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
-</code></pre></div>
-
-<div class="highlight"><pre><span></span><code>dict_items
-</code></pre></div>
-
-<div class="highlight"><pre><span></span><code><span class="c1"># 迭代</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">a</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-</code></pre></div>
-
-<div class="highlight"><pre><span></span><code>(&#39;a&#39;, 1)
-(&#39;b&#39;, 2)
-(&#39;c&#39;, 3)
-</code></pre></div>
-
-<div class="highlight"><pre><span></span><code><span class="c1"># 迭代</span>
-<span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">a</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
-</code></pre></div>
-
-<div class="highlight"><pre><span></span><code>a 1
-b 2
-c 3
-</code></pre></div>
-
-<div class="highlight"><pre><span></span><code><span class="c1"># 检查成员资格</span>
-<span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="ow">in</span> <span class="n">a</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
-</code></pre></div>
-
-<div class="highlight"><pre><span></span><code>True
-</code></pre></div>
-
-<h3 id="keysvalues"><code>keys</code>和<code>values</code></h3>
-<p>方法<code>keys</code>返回一个字典视图，其中包含字典中的键。</p>
-<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span><span class="s2">&quot;c&quot;</span><span class="p">:</span><span class="mi">3</span><span class="p">}</span>
-<span class="n">a</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
-</code></pre></div>
-
-<div class="highlight"><pre><span></span><code>dict_keys([&#39;a&#39;, &#39;b&#39;, &#39;c&#39;])
-</code></pre></div>
-
-<p>方法<code>values</code>返回一个字典视图，其中包含字典中的键。</p>
-<div class="highlight"><pre><span></span><code><span class="n">a</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
-</code></pre></div>
-
-<div class="highlight"><pre><span></span><code>dict_values([1, 2, 3])
-</code></pre></div>
-
-<h3 id="pop"><code>pop</code></h3>
-<p>方法pop可用于获取与指定键相关联的值，并将该键-值对从字典中删除。</p>
-<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span><span class="s2">&quot;c&quot;</span><span class="p">:</span><span class="mi">3</span><span class="p">}</span>
-<span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;b的值&quot;</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a的值&quot;</span><span class="p">,</span><span class="n">a</span><span class="p">)</span>
-</code></pre></div>
-
-<div class="highlight"><pre><span></span><code>b的值 1
-a的值 {&#39;b&#39;: 2, &#39;c&#39;: 3}
-</code></pre></div>
-
-<h3 id="popitem"><code>popitem</code></h3>
-<p>方法<code>popitem</code>类似于<code>list.pop</code>，但<code>list.pop</code>弹出列表中的最后一个元素，而<code>popitem</code>随机地弹出一个字典项，因为字典项的顺序是不确定的，没有“最后一个元素”的概念。如果你要以高效地方式<strong>逐个</strong>删除并处理所有字典项，这可能很有用，因为这样无需先获取键列表。</p>
-<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span><span class="s2">&quot;c&quot;</span><span class="p">:</span><span class="mi">3</span><span class="p">}</span>
-<span class="n">a</span><span class="o">.</span><span class="n">popitem</span><span class="p">()</span>
-</code></pre></div>
-
-<div class="highlight"><pre><span></span><code>(&#39;c&#39;, 3)
-</code></pre></div>
-
-<div class="highlight"><pre><span></span><code><span class="n">a</span>
-</code></pre></div>
-
-<div class="highlight"><pre><span></span><code>{&#39;a&#39;: 1, &#39;b&#39;: 2}
-</code></pre></div>
-
-<h3 id="setdefault"><code>setdefault</code></h3>
-<p>方法<code>setdefault</code>有点像get，因为它也获取与指定键相关联的值，但除此之外，setdefault还在字典不包含指定的键时，在字典中添加指定的键-值对。</p>
-<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span><span class="s2">&quot;c&quot;</span><span class="p">:</span><span class="mi">3</span><span class="p">}</span>
-<span class="n">a</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">)</span>
-<span class="n">a</span>
-
-<span class="n">a</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s2">&quot;d&quot;</span><span class="p">)</span>
-<span class="n">a</span>
-</code></pre></div>
-
-<div class="highlight"><pre><span></span><code>{&#39;a&#39;: 1, &#39;b&#39;: 2, &#39;c&#39;: 3, &#39;d&#39;: None}
-</code></pre></div>
-
-<p>如你所见，指定的键不存在时，setdefault返回指定的值并相应地更新字典。如果指定的键存在，就返回其值，并保持字典不变。与<code>get</code>一样，值是可选的，如果没有指定，默认为None。</p>
-<h3 id="update"><code>update</code></h3>
-<p>方法update使用一个字典中的项来更新另一个字典。对于通过参数提供的字典，将其项添加到当前字典中。如果当前字典包含键相同的项，就替换它。</p>
-<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span><span class="s2">&quot;c&quot;</span><span class="p">:</span><span class="mi">3</span><span class="p">}</span>
-<span class="n">a</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;d&quot;</span><span class="p">:</span><span class="mi">4</span><span class="p">})</span>
-<span class="n">a</span>
-</code></pre></div>
-
-<div class="highlight"><pre><span></span><code>{&#39;a&#39;: 1, &#39;b&#39;: 2, &#39;c&#39;: 3, &#39;d&#39;: 4}
-</code></pre></div>
-
-<p>可像调用本章前面讨论的函数dict（类型构造函数）那样调用方法update。这意味着调用update时，可向它提供一个映射、一个由键-值对组成的序列（或其他可迭代对象）或关键字参数。</p>
-<div class="highlight"><pre><span></span><code><span class="n">a</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="nb">zip</span><span class="p">([</span><span class="s2">&quot;e&quot;</span><span class="p">,</span><span class="s2">&quot;f&quot;</span><span class="p">],[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]))</span>
-<span class="n">a</span>
-</code></pre></div>
-
-<div class="highlight"><pre><span></span><code>{&#39;a&#39;: 1, &#39;b&#39;: 2, &#39;c&#39;: 3, &#39;d&#39;: 4, &#39;e&#39;: 5, &#39;f&#39;: 6}
+<span class="c1"># func(&#39;tanggu&#39;, 25, 2, &#39;music&#39;, &#39;sport&#39;, class=2)</span>
+<span class="c1"># tanggu 25 1 (&#39;music&#39;, &#39;sport&#39;) {&#39;class&#39;=2}    </span>
 </code></pre></div>
                 
               
@@ -2359,7 +2316,7 @@ a的值 {&#39;b&#39;: 2, &#39;c&#39;: 3}
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="2.5.Tuple.html" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="2.9.%E8%B5%8B%E5%80%BC%E3%80%81immutable%E3%80%81%E6%B7%B1%E6%8B%B7%E8%B4%9D.html" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -2368,19 +2325,19 @@ a的值 {&#39;b&#39;: 2, &#39;c&#39;: 3}
                 <span class="md-footer-nav__direction">
                   上一页
                 </span>
-                2.5.Tuple
+                2.9.赋值、immutable、深拷贝
               </div>
             </div>
           </a>
         
         
-          <a href="2.7.%E7%AE%80%E6%B4%81%E7%9A%84Python.html" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="2.11.%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0.html" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   下一页
                 </span>
-                2.7.简洁的Python
+                2.11.内置函数
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">

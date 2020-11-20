@@ -14,7 +14,7 @@
     
     
       
-        <title>2.8.赋值、immutable、深拷贝 - Python笔记</title>
+        <title>2.7.Dict - Python笔记</title>
       
     
     
@@ -57,7 +57,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#dict" class="md-skip">
           跳转至
         </a>
       
@@ -89,7 +89,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              2.8.赋值、immutable、深拷贝
+              2.7.Dict
             
           </span>
         </div>
@@ -336,8 +336,8 @@
 
 
   <li class="md-nav__item">
-    <a href="2.3.String.html" class="md-nav__link">
-      2.3.String
+    <a href="2.3.Number.html" class="md-nav__link">
+      2.3.Number
     </a>
   </li>
 
@@ -348,8 +348,8 @@
 
 
   <li class="md-nav__item">
-    <a href="2.4.List.html" class="md-nav__link">
-      2.4.List
+    <a href="2.4.String.html" class="md-nav__link">
+      2.4.String
     </a>
   </li>
 
@@ -360,8 +360,8 @@
 
 
   <li class="md-nav__item">
-    <a href="2.5.Tuple.html" class="md-nav__link">
-      2.5.Tuple
+    <a href="2.5.List.html" class="md-nav__link">
+      2.5.List
     </a>
   </li>
 
@@ -372,20 +372,8 @@
 
 
   <li class="md-nav__item">
-    <a href="2.6.Dict.html" class="md-nav__link">
-      2.6.Dict
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="2.7.%E7%AE%80%E6%B4%81%E7%9A%84Python.html" class="md-nav__link">
-      2.7.简洁的Python
+    <a href="2.6.Tuple.html" class="md-nav__link">
+      2.6.Tuple
     </a>
   </li>
 
@@ -403,12 +391,12 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        2.8.赋值、immutable、深拷贝
+        2.7.Dict
         <span class="md-nav__icon md-icon"></span>
       </label>
     
-    <a href="2.8.%E8%B5%8B%E5%80%BC%E3%80%81immutable%E3%80%81%E6%B7%B1%E6%8B%B7%E8%B4%9D.html" class="md-nav__link md-nav__link--active">
-      2.8.赋值、immutable、深拷贝
+    <a href="2.7.Dict.html" class="md-nav__link md-nav__link--active">
+      2.7.Dict
     </a>
     
       
@@ -423,44 +411,92 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    赋值
+  <a href="#dict" class="md-nav__link">
+    创建dict
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#mutable-immutable" class="md-nav__link">
-    mutable 和 immutable
+  <a href="#dict_1" class="md-nav__link">
+    Dict的方法
+  </a>
+  
+    <nav class="md-nav" aria-label="Dict的方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#clear" class="md-nav__link">
+    clear删除所有的字典项
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#immutable" class="md-nav__link">
-    immutable的本质
+        
+          <li class="md-nav__item">
+  <a href="#copy" class="md-nav__link">
+    copy浅拷贝
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    赋值陷阱——浅拷贝和深拷贝
+        
+          <li class="md-nav__item">
+  <a href="#fromkeys" class="md-nav__link">
+    fromkeys
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    赋值陷阱——引用不仅仅限于名称
+        
+          <li class="md-nav__item">
+  <a href="#get" class="md-nav__link">
+    get
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    名称和值的一些细节
+        
+          <li class="md-nav__item">
+  <a href="#items" class="md-nav__link">
+    items
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keysvalues" class="md-nav__link">
+    keys和values
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pop" class="md-nav__link">
+    pop
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#popitem" class="md-nav__link">
+    popitem
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setdefault" class="md-nav__link">
+    setdefault
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update" class="md-nav__link">
+    update
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -477,8 +513,8 @@
 
 
   <li class="md-nav__item">
-    <a href="2.9.%E5%87%BD%E6%95%B0.html" class="md-nav__link">
-      2.9.函数
+    <a href="2.8.%E7%AE%80%E6%B4%81%E7%9A%84Python.html" class="md-nav__link">
+      2.8.简洁的Python
     </a>
   </li>
 
@@ -489,8 +525,8 @@
 
 
   <li class="md-nav__item">
-    <a href="2.10.%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0.html" class="md-nav__link">
-      2.10.内置函数
+    <a href="2.9.%E8%B5%8B%E5%80%BC%E3%80%81immutable%E3%80%81%E6%B7%B1%E6%8B%B7%E8%B4%9D.html" class="md-nav__link">
+      2.9.赋值、immutable、深拷贝
     </a>
   </li>
 
@@ -501,8 +537,32 @@
 
 
   <li class="md-nav__item">
-    <a href="2.11.%E7%AE%80%E6%B4%81%E7%9A%84Python.html" class="md-nav__link">
-      2.11.简洁的Python
+    <a href="2.10.%E5%87%BD%E6%95%B0.html" class="md-nav__link">
+      2.10.函数
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="2.11.%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0.html" class="md-nav__link">
+      2.11.内置函数
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="2.12.%E7%AE%80%E6%B4%81%E7%9A%84Python.html" class="md-nav__link">
+      2.12.简洁的Python
     </a>
   </li>
 
@@ -1952,44 +2012,92 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    赋值
+  <a href="#dict" class="md-nav__link">
+    创建dict
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#mutable-immutable" class="md-nav__link">
-    mutable 和 immutable
+  <a href="#dict_1" class="md-nav__link">
+    Dict的方法
+  </a>
+  
+    <nav class="md-nav" aria-label="Dict的方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#clear" class="md-nav__link">
+    clear删除所有的字典项
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#immutable" class="md-nav__link">
-    immutable的本质
+        
+          <li class="md-nav__item">
+  <a href="#copy" class="md-nav__link">
+    copy浅拷贝
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    赋值陷阱——浅拷贝和深拷贝
+        
+          <li class="md-nav__item">
+  <a href="#fromkeys" class="md-nav__link">
+    fromkeys
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    赋值陷阱——引用不仅仅限于名称
+        
+          <li class="md-nav__item">
+  <a href="#get" class="md-nav__link">
+    get
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    名称和值的一些细节
+        
+          <li class="md-nav__item">
+  <a href="#items" class="md-nav__link">
+    items
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keysvalues" class="md-nav__link">
+    keys和values
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pop" class="md-nav__link">
+    pop
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#popitem" class="md-nav__link">
+    popitem
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setdefault" class="md-nav__link">
+    setdefault
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update" class="md-nav__link">
+    update
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2005,291 +2113,246 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/siwing/siwing.github.io/edit/master/docs/Python基础/2.8.赋值、immutable、深拷贝.md" title="编辑此页" class="md-content__button md-icon">
+                  <a href="https://github.com/siwing/siwing.github.io/edit/master/docs/Python基础/2.7.Dict.md" title="编辑此页" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                  <h1>2.8.赋值、immutable、深拷贝</h1>
+                  <h1>2.7.Dict</h1>
                 
-                <h2 id="_1">赋值</h2>
-<blockquote>
-<p><strong>引用（reference）</strong>：一个可以让程式间接存取于电脑记忆体或其他储存装置中一特定资料的值。</p>
-<p>一般而言，引用会是资料储存于记忆体或储存装置中的实体位址 。因此，引用亦常被称为该资料的指标或位址。</p>
-</blockquote>
-<p><mark><strong>Python的赋值都是传引用，即name是value的引用。</strong></mark> </p>
-<p>在python里面，一个变量保存的值是某个对象的引用。Python赋值语句将左侧的符号名称与右侧的值<strong>相关联</strong>。在Python中，我们说名称引用值，或者名称是对值的引用。</p>
-<p>下次我们使用这个名称时，便得到与名称相关联的值。</p>
-<p><mark><strong>assignment永远不会复制数据，并且多个name可以引用同一个value。</strong></mark></p>
-<p>当值具有多个名称时，很容易混淆并将其视为两个名称和两个值。：</p>
-<div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="mi">23</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">x</span>
+                <div class="highlight"><pre><span></span><code>Windows 10
+Python 3.7.3 @ MSC v.1915 64 bit (AMD64)
+Latest build date 2020.06.21
 </code></pre></div>
 
-<p><img alt="" src="figures/snipaste_20190811_174817.png" /></p>
-<p>实际上，将已有的变量赋值给新变量时，Python永远不会复制值。分配只是使左侧的名称引用右侧的值。在这种情况下，我们只有一个23，<code>x</code>和<code>y</code>都引用它，就像我们在上图中看到的那样。</p>
-<p><mark><strong>名称是独立于其他名称重新分配的。</strong></mark></p>
-<p>如果两个名称引用相同的值，则不会链接这两个名称。重新分配其中一个不会导致另一个也被重新分配：</p>
-<div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="mi">23</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">x</span>
-<span class="n">x</span> <span class="o">=</span> <span class="mi">12</span>
+<p>映射（mapping）是通过名称来访问其各个值的数据结构。字典是Python中唯一的内置映射类型，其中的值不按顺序排列，而是存储在键下。键可能是数、字符串或元组。 </p>
+<h2 id="dict">创建dict</h2>
+<p>字典以类似于下面的方式表示： </p>
+<div class="highlight"><pre><span></span><code><span class="n">phonebook</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Alice&#39;</span><span class="p">:</span> <span class="s1">&#39;2341&#39;</span><span class="p">,</span> <span class="s1">&#39;Beth&#39;</span><span class="p">:</span> <span class="s1">&#39;9102&#39;</span><span class="p">,</span> <span class="s1">&#39;Cecil&#39;</span><span class="p">:</span> <span class="s1">&#39;3258&#39;</span><span class="p">}</span>
 </code></pre></div>
 
-<iframe width="800" height="270" frameborder="0" src="http://pythontutor.com/iframe-embed.html#code=x%20%3D%2023%0Ay%20%3D%20x%0Ax%20%3D%2012&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=3&heapPrimitives=true&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>
+<p>字典由键及其相应的值组成，这种键--值对称为项（item）。每个键与其值之间都用冒号<code>:</code>分隔，item之间用逗号分隔，而整个字典放在花括号内。空字典（没有任何项）用两个花括号<code>{}</code>表示。 </p>
+<div class="admonition note">
+<p class="admonition-title">注意</p>
+<p>在字典（以及其他映射类型）中，键必须是独一无二的，而字典中的值无需如此。 </p>
+</div>
+<p>可使用dict类从其他映射（如其他字典）或键–值对序列创建字典。 </p>
+<div class="highlight"><pre><span></span><code><span class="n">items</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;Gumby&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="mi">42</span><span class="p">)]</span> 
+<span class="nb">dict</span><span class="p">(</span><span class="n">items</span><span class="p">)</span>
+</code></pre></div>
 
-<p>如果上面嵌入的网页失效，可以参考以下动图：</p>
-<p><img alt="" src="figures/20200126.gif" /></p>
-<p><mark><strong>值一直存在，直到没有名称引用它。</strong></mark></p>
-<p>Python会跟踪每个值有多少引用，并自动清除没有引用的值。这被称为“垃圾收集”，意味着你不必清楚值，当它们不再需要时它们会自行消失。</p>
-<h2 id="mutable-immutable">mutable 和 immutable</h2>
-<p>Python的数据类型可以分为原子类型和容器类器：</p>
-<p>原子类型：string、number</p>
-<p>容器类型：list、tuple、dict、set</p>
-<p>原子类型只能保存一个值；容器类型则可以保存多个值。</p>
-<blockquote>
-<p>虽然string可以包含多个字符，但Python中没有字符类型，因此字符串也属于原子类型。</p>
-</blockquote>
-<p>Python对原子类型和容器类型的赋值方式都是一样的：</p>
+<div class="highlight"><pre><span></span><code>{&#39;name&#39;: &#39;Gumby&#39;, &#39;age&#39;: 42}
+</code></pre></div>
+
+<p>还可使用关键参数，如下所示： </p>
+<div class="highlight"><pre><span></span><code><span class="nb">dict</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Gumby&#39;</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>{&#39;name&#39;: &#39;Gumby&#39;, &#39;age&#39;: 42}
+</code></pre></div>
+
+<h2 id="dict_1">Dict的方法</h2>
+<p>字典的基本行为在很多方面都类似于序列。 </p>
 <ul>
-<li>对于原子类型，name直接指向object</li>
+<li>len(d)返回字典d包含的项（键--值对）数。</li>
+<li>d[k]返回与键k相关联的值。</li>
+<li>d[k] = v将值v关联到键k。</li>
+<li>del d[k]删除键为k的项。</li>
+<li>k in d检查字典d是否包含键为k的项。</li>
 </ul>
-<p><img src="figures/20200126.png" alt="20200126" style="zoom: 18%;" /></p>
+<p>虽然字典和列表有多个相同之处，但也有一些重要的不同之处。</p>
 <ul>
-<li>对于容器类器，name指向容器类型对象，容器的每一个元素指向各个元素对象</li>
+<li>
+<p><strong>自动添加。</strong>dict可以给不存在的项赋值，即是字典中原本没有的键，也可以给它赋值。而如果不使用append或其他类似的方法，就不能给列表中没有的元素赋值。</p>
+</li>
+<li>
+<p><strong>成员资格。</strong>表达式k in d (其中d是一个字典）査找的是键而不是值；而表达式v in 1 (其中1是一个列表）查找的是值而不是索引。这看似不太一致，但你习惯后就会觉得相当自然。毕竟如果字典包含指定的键，检查相应的值就很容易。</p>
+</li>
 </ul>
-<p><img src="figures/20200126_2.png" alt="20200126" style="zoom:18%;" /></p>
-<p>Python的数据类型还可以分为<a href="" title="不可变">immutable</a>和<a href="" title="可变">mutable</a>：</p>
-<ul>
-<li>immutable object : string、tuple、number</li>
-<li>mutable object : list、dict、set</li>
-</ul>
-<p>所谓的mutable、immutable是指name指向的object可不可以在原地址被修改。如果不可以在原地址修改，就只能在新地址创建新对象，name指向新对象（旧对象若没有引用，则会被内存回收机制销毁）：</p>
-<p><img src="figures/20200126_4.png" alt="20200126_4" style="zoom:18%;" /></p>
-<div class="highlight"><pre><span></span><code><span class="n">name</span> <span class="o">=</span> <span class="mi">10</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;name的id：&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
-<span class="n">name</span> <span class="o">=</span> <span class="mi">20</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;name的id：&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
+<h3 id="clear"><code>clear</code>删除所有的字典项</h3>
+<p>要注意的是，clear是清除了一个字典对象，而不是解除了名称与字典对象的绑定。</p>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span><span class="s2">&quot;c&quot;</span><span class="p">:</span><span class="mi">3</span><span class="p">}</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">a</span>
+<span class="n">a</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+<span class="c1"># 可以看到，a、b都变成了字典</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a的值:&quot;</span><span class="p">,</span><span class="n">a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;b的值:&quot;</span><span class="p">,</span><span class="n">a</span><span class="p">)</span>
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code>name的id： 140728401826912
-name的id： 140728401827232
+<div class="highlight"><pre><span></span><code>a的值: {}
+b的值: {}
 </code></pre></div>
 
-<p>如果可以在原地址被修改，那么name的指向就不会改变（容器类型的对象实际上保存的是元素的引用）：</p>
-<p><img src="figures/20200126_3.png" alt="20200126_3" style="zoom:18%;" /></p>
-<div class="highlight"><pre><span></span><code><span class="n">name</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;name的值:&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="s2">&quot;  &quot;</span><span class="p">,</span> <span class="s2">&quot;name的id：&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
-<span class="k">for</span> <span class="n">num</span><span class="p">,</span><span class="n">i</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;第</span><span class="si">{num}</span><span class="s2">个元素的id&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
-
-<span class="n">name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">20</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;name的值:&quot;</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="s2">&quot;  &quot;</span><span class="p">,</span> <span class="s2">&quot;name的id：&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="p">(</span><span class="n">name</span><span class="p">))</span>
-<span class="k">for</span> <span class="n">num</span><span class="p">,</span><span class="n">i</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;第</span><span class="si">{num}</span><span class="s2">个元素的id&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+<h3 id="copy"><code>copy</code>浅拷贝</h3>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span><span class="s2">&quot;c&quot;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]}</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">b</span><span class="p">[</span><span class="s2">&quot;c&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a的值:&quot;</span><span class="p">,</span><span class="n">a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;b的值:&quot;</span><span class="p">,</span><span class="n">a</span><span class="p">)</span>
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code>name的值: [1, 2, 3, 4, 5]    name的id： 1694876445512
-第0个元素的id 140728401826624
-第1个元素的id 140728401826656
-第2个元素的id 140728401826688
-第3个元素的id 140728401826720
-第4个元素的id 140728401826752
-name的值: [20, 2, 3, 4, 5]    name的id： 1694876445512
-第0个元素的id 140728401827232
-第1个元素的id 140728401826656
-第2个元素的id 140728401826688
-第3个元素的id 140728401826720
-第4个元素的id 140728401826752
+<div class="highlight"><pre><span></span><code>a的值: {&#39;a&#39;: 1, &#39;b&#39;: 2, &#39;c&#39;: [10, 2]}
+b的值: {&#39;a&#39;: 1, &#39;b&#39;: 2, &#39;c&#39;: [10, 2]}
 </code></pre></div>
 
-<h2 id="immutable">immutable的本质</h2>
-<p><strong><mark>神话：Python以不同的方式分配可变和不可变的值。</mark></strong></p>
-<p>因为mutable对象是可变的，immutable对象不可变，人们可能会觉得mutable对象和immutable对象的值分配方式不一样。但事实上，mutable对象和immutable对象所有的赋值的方式都是一样的。</p>
-<p><mark>mutable、immutable只是python语言的一个规定。</mark> 从硬件角度说，硬件提供给用户的接口是按照规定设定好的。比如说，操作内存的方式是固定的，不存在可变和不可变。实现python的mutable、immutable就是调用了不同的底层API，或者是不同底层API相互组合来实现的。python将这些规定以python语法的形式提供给用户使用，最后还是编译成0、1去让计算机执行。对于用户来说，可变和不可变对象是语言提供的一个特性，可以完成一些功能，但是对于计算机其实是没区别的。</p>
-<p><mark>因此，mutable和immutable的本质区别是Python有没有提供修改值的方法。</mark> 不管是可变对象还是不可变对象，Python的赋值方式都是一样的，都是将对象绑定到名字（参见上面的图示和示例代码）。</p>
-<h2 id="_2">赋值陷阱——浅拷贝和深拷贝</h2>
-<p><strong><mark>神话：值是有范围的。</mark></strong></p>
-<p>在python中存在作用域这样的概念，人们可能会觉得作用域指的是值（对象）的作用范围，但事实上，<strong>值是没有范围的，作用域指的是名称的作用范围。</strong></p>
-<p>我们可以定义一个简单的函数与验证这点。</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">check_name_space_range</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;x的内存地址是：&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">x</span><span class="p">)))</span>
-
-<span class="c1"># 先在最外层的作用域赋值，并打印地址</span>
-<span class="n">a</span> <span class="o">=</span> <span class="mi">10</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a的内存地址是：&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">)))</span>
-<span class="n">check_name_space_range</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<h3 id="fromkeys"><code>fromkeys</code></h3>
+<div class="highlight"><pre><span></span><code><span class="nb">dict</span><span class="o">.</span><span class="n">fromkeys</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code>a的内存地址是：140728401826912
-x的内存地址是：140728401826912
+<p>方法<code>fromkeys</code>创建一个新字典，其中包含指定的键，且每个键对应的值都是None，也可以指定值，</p>
+<div class="highlight"><pre><span></span><code><span class="nb">dict</span><span class="o">.</span><span class="n">fromkeys</span><span class="p">([</span><span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">])</span>
 </code></pre></div>
 
-<p>很明显，在内外层作用域的值都是同一个。</p>
-<p><strong><mark>陷阱：因为值没有范围，并且赋值不会复制值，这就可能出现可变对象被意外地改变：</mark></strong> </p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">variable_change</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span>
-    <span class="k">return</span> <span class="n">x</span>
-
-<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
-<span class="n">a_other</span> <span class="o">=</span> <span class="n">variable_change</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">a_other</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code>{&#39;a&#39;: None, &#39;b&#39;: None}
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code>[10, 2, 3]
-[10, 2, 3]
+<div class="highlight"><pre><span></span><code><span class="nb">dict</span><span class="o">.</span><span class="n">fromkeys</span><span class="p">([</span><span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">],</span><span class="mi">10</span><span class="p">)</span>
 </code></pre></div>
 
-<p>可以看到，<code>a</code>、<code>a_other</code>都被改变了，因为<code>a</code>、<code>a_other</code>都是同一个对象。</p>
-<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a的内存地址是：&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">)))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a_other的内存地址是：&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">a_other</span><span class="p">)))</span>
+<div class="highlight"><pre><span></span><code>{&#39;a&#39;: 10, &#39;b&#39;: 10}
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code>a的内存地址是：1694877001032
-a_other的内存地址是：1694877001032
+<h3 id="get"><code>get</code></h3>
+<p>方法<code>get</code>为访问字典项提供了宽松的环境。通常，如果你试图访问字典中没有的项，将引发错误。</p>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span><span class="s2">&quot;c&quot;</span><span class="p">:</span><span class="mi">3</span><span class="p">}</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">a</span><span class="p">[</span><span class="s2">&quot;d&quot;</span><span class="p">]</span>
+<span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;KeyError: &quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
 </code></pre></div>
 
-<p>因此，如果要在函数里面更改可变对象参数的值，最好复制一个副本。</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">variable_change_shallow</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="nb">list</span><span class="p">):</span>
-        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-        <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">pass</span>
-    <span class="k">return</span> <span class="n">x</span>
-
-<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
-<span class="n">a_other</span> <span class="o">=</span> <span class="n">variable_change_shallow</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">a_other</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a的内存地址是：&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">)))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a_other的内存地址是：&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">a_other</span><span class="p">)))</span>
+<div class="highlight"><pre><span></span><code>KeyError:  &#39;d&#39;
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code>[1, 2, 3]
-[10, 2, 3]
-a的内存地址是：1694876642120
-a_other的内存地址是：1694876641288
+<p>而使用<code>get</code>不会这样</p>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span><span class="s2">&quot;c&quot;</span><span class="p">:</span><span class="mi">3</span><span class="p">}</span>
+<span class="n">a</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;d&quot;</span><span class="p">)</span>
+<span class="c1"># 默认返回None，也可以指定返回值</span>
+<span class="n">a</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;d&quot;</span><span class="p">,</span><span class="s2">&quot;N/A&quot;</span><span class="p">)</span>
 </code></pre></div>
 
-<p><code>a</code>的值并没有改变，上面的结果看似是没问题的，但还是会有新的”惊喜“。</p>
-<p>我们来修改一下<code>variable_change_shallow</code>函数</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">variable_change_shallow</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="nb">list</span><span class="p">):</span>
-        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-        <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span> <span class="mi">10</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">pass</span>
-    <span class="k">return</span> <span class="n">x</span>
-
-<span class="n">a</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
-<span class="n">a_other</span> <span class="o">=</span> <span class="n">variable_change_shallow</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">a_other</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a的内存地址是：&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">a</span><span class="p">)))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a_other的内存地址是：&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">id</span><span class="p">(</span><span class="n">a_other</span><span class="p">)))</span>
+<div class="highlight"><pre><span></span><code>&#39;N/A&#39;
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code>[[10, 2], 2, 3]
-[[10, 2], 2, 3]
-a的内存地址是：1694877003720
-a_other的内存地址是：1694876445576
+<h3 id="items"><code>items</code></h3>
+<p>方法<code>items</code>返回一个包含所有字典项的列表，其中每个元素都为<code>(key, value)</code>的形式。字典项在列表中的排列顺序不确定。返回值属于一种名为字典视图的特殊类型。字典视图可用于迭代。另外，你还可确定其长度以及对其执行成员资格检查。</p>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span><span class="s2">&quot;c&quot;</span><span class="p">:</span><span class="mi">3</span><span class="p">}</span>
+<span class="n">a</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
 </code></pre></div>
 
-<p>”惊喜“就是<code>a</code>的值也改变了。因为<code>x.copy()</code>只是浅拷贝。</p>
-<p>在python里面有三种方式去引用某个值：</p>
-<ol>
-<li>引用另一个变量</li>
-<li>浅拷贝</li>
-<li>深拷贝</li>
-</ol>
-<p>这三种方式是有区别的。</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">copy</span>
-<span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]]</span>
-<span class="n">a_reference</span> <span class="o">=</span> <span class="n">a</span>
-<span class="n">a_shallow</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="n">a_deep_copy</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code>dict_items([(&#39;a&#39;, 1), (&#39;b&#39;, 2), (&#39;c&#39;, 3)])
 </code></pre></div>
 
-<p>变量<code>a</code>和<code>a_reference</code>都是同一个对象的名称。</p>
-<p><img alt="" src="figures/snipaste_20190811_232331.png" /></p>
-<p>浅拷贝得到变量<code>a_shallow</code>，它是一个新对象，但<code>a_shallow</code>的第三个元素<code>a_shallow[2]</code>却是一个已经存在的对象，这和<code>a</code>、<code>a_reference</code>一样。</p>
-<p><img alt="" src="figures/snipaste_20190811_232710.png" /></p>
-<p>深拷贝得到变量<code>a_deep_copy</code>，它是一个新对象，并且它的每一个元素也是新的对象。</p>
-<p><img alt="" src="figures/snipaste_20190811_232750.png" /></p>
-<p><mark>如果浅拷贝的对象包含了mutable对象，则mutable对象不会拷贝；而深拷贝则会完整拷贝对象。</mark></p>
-<h2 id="_3">赋值陷阱——引用不仅仅限于名称</h2>
-<p>以上所有示例都使用名称作为值的引用，但引用也可以是其他东西。<strong>Python有许多复合数据结构，每个结构都包含对值的引用：列表元素，字典键和值，对象属性等。</strong>其中每一个都可以在赋值符号的左侧使用，以上所有细节都适用于它们。<strong>任何可以出现在赋值语句左侧的内容都是引用</strong>，在本文中说“名称”的任何地方都可以用“引用”替换。</p>
-<p>在上面的示意图中，数字被显示为元素，但实际上，每个元素都是对数字的引用，因此它应该像这样绘制：</p>
-<div class="highlight"><pre><span></span><code><span class="n">nums</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># dict_items类型</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
 </code></pre></div>
 
-<p><img alt="" src="figures/snipaste_20190811_234253.png" /></p>
-<p>但这很快变得复杂，所以上面的绘图用了视觉速记：</p>
-<p><img alt="" src="figures/snipaste_20190811_234356.png" /></p>
-<p>如果你有列表元素引用其他可变值，例如子列表，请务必记住列表元素只是对值的引用。</p>
-<p>这是一些其他assignment的例子。这些左侧中的每一个都是引用（reference）：</p>
-<div class="highlight"><pre><span></span><code><span class="n">my_obj</span><span class="o">.</span><span class="n">attr</span> <span class="o">=</span> <span class="mi">23</span>  <span class="c1"># 类属性</span>
-<span class="n">my_dict</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="mi">24</span> <span class="c1"># 字典</span>
-<span class="n">my_list</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="mi">25</span> <span class="c1"># 列表</span>
-<span class="n">my_obj</span><span class="o">.</span><span class="n">attr</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="n">index</span><span class="p">]</span><span class="o">.</span><span class="n">attr</span> <span class="o">=</span> <span class="s2">&quot;etc, etc&quot;</span> <span class="c1"># 多个对象嵌套</span>
+<div class="highlight"><pre><span></span><code>dict_items
 </code></pre></div>
 
-<p><strong><code>i = x</code> 指定了名称<code>i</code>，但<code>i[0] = x</code>并不是指定名称<code>i</code>，而是指定了<code>i</code>的值的第一个元素。</strong></p>
-<p><strong><mark>很多东西都是Assignment。</mark></strong></p>
-<p>正如上面所说，许多东西都可以作为引用，python里面有很多东西可以作为assignments。</p>
-<p>这些行中的每一行都是名称<code>X</code>的赋值：</p>
-<div class="highlight"><pre><span></span><code><span class="n">X</span> <span class="o">=</span> <span class="o">...</span>
-<span class="k">for</span> <span class="n">X</span> <span class="ow">in</span> <span class="o">...</span>
-<span class="p">[</span><span class="o">...</span> <span class="k">for</span> <span class="n">X</span> <span class="ow">in</span> <span class="o">...</span><span class="p">]</span>
-<span class="p">(</span><span class="o">...</span> <span class="k">for</span> <span class="n">X</span> <span class="ow">in</span> <span class="o">...</span><span class="p">)</span>
-<span class="p">{</span><span class="o">...</span> <span class="k">for</span> <span class="n">X</span> <span class="ow">in</span> <span class="o">...</span><span class="p">}</span>
-<span class="k">class</span> <span class="nc">X</span><span class="p">(</span><span class="o">...</span><span class="p">):</span>
-<span class="k">def</span> <span class="nf">X</span><span class="p">(</span><span class="o">...</span><span class="p">):</span>
-<span class="k">def</span> <span class="nf">fn</span><span class="p">(</span><span class="n">X</span><span class="p">):</span> <span class="o">...</span> <span class="p">;</span> <span class="n">fn</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
-<span class="k">with</span> <span class="o">...</span> <span class="k">as</span> <span class="n">X</span><span class="p">:</span>
-<span class="k">except</span> <span class="o">...</span> <span class="k">as</span> <span class="n">X</span><span class="p">:</span>
-<span class="kn">import</span> <span class="nn">X</span>
-<span class="kn">from</span> <span class="nn">...</span> <span class="kn">import</span> <span class="n">X</span>
-<span class="kn">import</span> <span class="nn">...</span> <span class="k">as</span> <span class="nn">X</span>
-<span class="kn">from</span> <span class="nn">...</span> <span class="kn">import</span> <span class="o">...</span> <span class="k">as</span> <span class="n">X</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 迭代</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">a</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 </code></pre></div>
 
-<p>注意，我并不是说这些语句像assignments，我的意思是这些语句都是赋值。它们都使名称<code>X</code>引用某个值。上面所说的关于赋值的所有内容都适用于所有这些赋值。</p>
-<p>在大多数情况下，这些语句将<code>X</code>定义在与语句相同的作用域内。Python 2和Python 3之间的细节略有不同。但它们都是真正的赋值，而且每个事实都是关于赋值适用于所有这些。</p>
-<p><strong><mark>Python通过赋值来传递函数参数。</mark></strong></p>
-<p>让我们来看看这些上面assignment列表中最有趣的一个：调用一个函数。当我定义一个函数时，我将其参数命名为：</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">my_func</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span>
+<div class="highlight"><pre><span></span><code>(&#39;a&#39;, 1)
+(&#39;b&#39;, 2)
+(&#39;c&#39;, 3)
 </code></pre></div>
 
-<p>这里<code>x</code>和<code>y</code>是函数<code>my_func</code>的参数。当我调用<code>my_func</code>时，我提供了实际值作为函数的参数。这些值分配给<strong>参数名称</strong>，就像使用了赋值语句一样：</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">my_func</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">my_func</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">))</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 迭代</span>
+<span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">a</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code>17
+<div class="highlight"><pre><span></span><code>a 1
+b 2
+c 3
 </code></pre></div>
 
-<p>调用<code>my_func</code>时，8被赋值给名称<code>x</code>，9被赋值给名称<code>y</code>。该赋值与我们一直在讨论的简单赋值语句完全相同。名称<code>x</code>和<code>y</code>是函数的本地名称（local），因此当函数返回时，这些名称就会消失。但是，如果它们引用的值仍然被其他名称引用，则值仍然存在。</p>
-<p>就像所有其他赋值一样，可变值可以传递给函数，并且通过其所有名称可以看到对值的更改。</p>
-<h2 id="_4">名称和值的一些细节</h2>
-<p><strong><mark>任何名称都可以随时引用任何值。</mark></strong></p>
-<p>Python是动态类型的，这意味着名称没有类型。任何名称都可以随时引用任何值。名称可以引用整数，然后引用字符串，然后引用函数，然后引用模块。当然，这可能是一个非常混乱的程序，你不应该这样做，但Python语言不会介意。</p>
-<p><strong><mark>名称没有类型，值没有范围。</mark></strong></p>
-<p>正如名称没有类型一样，值也没有范围。当我们说一个函数有一个局部变量时，我们的意思是该名称的作用域是函数：你不能在函数外部使用该名称，当函数返回时，名称将被销毁。但是正如我们所看到的，如果名称的值具有其他引用，它将继续在函数调用之外。它是本地名称，而不是本地值。</p>
-<p><strong><mark>值不能删除，只有名称可以删除。</mark></strong></p>
-<p>Python的内存管理对其行为至关重要，你不仅不必删除值，而且无法删除值。</p>
-<div class="highlight"><pre><span></span><code><span class="n">nums</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
-<span class="k">del</span> <span class="n">nums</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 检查成员资格</span>
+<span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="ow">in</span> <span class="n">a</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
 </code></pre></div>
 
-<p>这不会删除值<code>nums</code>，它会删除名称<code>nums</code>。该名称将从其范围中删除，然后通常的引用计数开始执行：如果<code>nums</code>的值只有一个引用，则将回收该值。但如果它有其他引用，那么它不会被回收。</p>
-<p><strong><mark>神话：Python没有变量。</mark></strong></p>
-<p>有些人喜欢说，“Python没有变量，它有名字。”这个口号具有误导性。事实是Python有变量，它们的工作方式与C中的变量不同。</p>
-<p>名称是Python的变量：它们引用值，并且这些值可以在程序的过程中发生变化（变化）。仅仅因为另一种语言（尽管是一种重要的语言）表现不同，没有理由将Python描述为没有变量。</p>
+<div class="highlight"><pre><span></span><code>True
+</code></pre></div>
+
+<h3 id="keysvalues"><code>keys</code>和<code>values</code></h3>
+<p>方法<code>keys</code>返回一个字典视图，其中包含字典中的键。</p>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span><span class="s2">&quot;c&quot;</span><span class="p">:</span><span class="mi">3</span><span class="p">}</span>
+<span class="n">a</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>dict_keys([&#39;a&#39;, &#39;b&#39;, &#39;c&#39;])
+</code></pre></div>
+
+<p>方法<code>values</code>返回一个字典视图，其中包含字典中的键。</p>
+<div class="highlight"><pre><span></span><code><span class="n">a</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>dict_values([1, 2, 3])
+</code></pre></div>
+
+<h3 id="pop"><code>pop</code></h3>
+<p>方法pop可用于获取与指定键相关联的值，并将该键-值对从字典中删除。</p>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span><span class="s2">&quot;c&quot;</span><span class="p">:</span><span class="mi">3</span><span class="p">}</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;b的值&quot;</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a的值&quot;</span><span class="p">,</span><span class="n">a</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>b的值 1
+a的值 {&#39;b&#39;: 2, &#39;c&#39;: 3}
+</code></pre></div>
+
+<h3 id="popitem"><code>popitem</code></h3>
+<p>方法<code>popitem</code>类似于<code>list.pop</code>，但<code>list.pop</code>弹出列表中的最后一个元素，而<code>popitem</code>随机地弹出一个字典项，因为字典项的顺序是不确定的，没有“最后一个元素”的概念。如果你要以高效地方式<strong>逐个</strong>删除并处理所有字典项，这可能很有用，因为这样无需先获取键列表。</p>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span><span class="s2">&quot;c&quot;</span><span class="p">:</span><span class="mi">3</span><span class="p">}</span>
+<span class="n">a</span><span class="o">.</span><span class="n">popitem</span><span class="p">()</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>(&#39;c&#39;, 3)
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">a</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>{&#39;a&#39;: 1, &#39;b&#39;: 2}
+</code></pre></div>
+
+<h3 id="setdefault"><code>setdefault</code></h3>
+<p>方法<code>setdefault</code>有点像get，因为它也获取与指定键相关联的值，但除此之外，setdefault还在字典不包含指定的键时，在字典中添加指定的键-值对。</p>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span><span class="s2">&quot;c&quot;</span><span class="p">:</span><span class="mi">3</span><span class="p">}</span>
+<span class="n">a</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">)</span>
+<span class="n">a</span>
+
+<span class="n">a</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s2">&quot;d&quot;</span><span class="p">)</span>
+<span class="n">a</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>{&#39;a&#39;: 1, &#39;b&#39;: 2, &#39;c&#39;: 3, &#39;d&#39;: None}
+</code></pre></div>
+
+<p>如你所见，指定的键不存在时，setdefault返回指定的值并相应地更新字典。如果指定的键存在，就返回其值，并保持字典不变。与<code>get</code>一样，值是可选的，如果没有指定，默认为None。</p>
+<h3 id="update"><code>update</code></h3>
+<p>方法update使用一个字典中的项来更新另一个字典。对于通过参数提供的字典，将其项添加到当前字典中。如果当前字典包含键相同的项，就替换它。</p>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span><span class="s2">&quot;c&quot;</span><span class="p">:</span><span class="mi">3</span><span class="p">}</span>
+<span class="n">a</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;d&quot;</span><span class="p">:</span><span class="mi">4</span><span class="p">})</span>
+<span class="n">a</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>{&#39;a&#39;: 1, &#39;b&#39;: 2, &#39;c&#39;: 3, &#39;d&#39;: 4}
+</code></pre></div>
+
+<p>可像调用本章前面讨论的函数dict（类型构造函数）那样调用方法update。这意味着调用update时，可向它提供一个映射、一个由键-值对组成的序列（或其他可迭代对象）或关键字参数。</p>
+<div class="highlight"><pre><span></span><code><span class="n">a</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="nb">zip</span><span class="p">([</span><span class="s2">&quot;e&quot;</span><span class="p">,</span><span class="s2">&quot;f&quot;</span><span class="p">],[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]))</span>
+<span class="n">a</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>{&#39;a&#39;: 1, &#39;b&#39;: 2, &#39;c&#39;: 3, &#39;d&#39;: 4, &#39;e&#39;: 5, &#39;f&#39;: 6}
+</code></pre></div>
                 
               
               
@@ -2308,7 +2371,7 @@ a_other的内存地址是：1694876445576
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="2.7.%E7%AE%80%E6%B4%81%E7%9A%84Python.html" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="2.6.Tuple.html" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -2317,19 +2380,19 @@ a_other的内存地址是：1694876445576
                 <span class="md-footer-nav__direction">
                   上一页
                 </span>
-                2.7.简洁的Python
+                2.6.Tuple
               </div>
             </div>
           </a>
         
         
-          <a href="2.9.%E5%87%BD%E6%95%B0.html" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="2.8.%E7%AE%80%E6%B4%81%E7%9A%84Python.html" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   下一页
                 </span>
-                2.9.函数
+                2.8.简洁的Python
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">
