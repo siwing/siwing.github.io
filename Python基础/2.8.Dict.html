@@ -14,7 +14,7 @@
     
     
       
-        <title>2.6.Tuple - Python笔记</title>
+        <title>2.8.Dict - Python笔记</title>
       
     
     
@@ -57,7 +57,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#tuple1tuple" class="md-skip">
+        <a href="#dict" class="md-skip">
           跳转至
         </a>
       
@@ -89,7 +89,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              2.6.Tuple
+              2.8.Dict
             
           </span>
         </div>
@@ -336,8 +336,8 @@
 
 
   <li class="md-nav__item">
-    <a href="2.3.Number.html" class="md-nav__link">
-      2.3.Number
+    <a href="2.3.%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.html" class="md-nav__link">
+      2.3.数据类型
     </a>
   </li>
 
@@ -348,8 +348,8 @@
 
 
   <li class="md-nav__item">
-    <a href="2.4.String.html" class="md-nav__link">
-      2.4.String
+    <a href="2.4.Number.html" class="md-nav__link">
+      2.4.Number
     </a>
   </li>
 
@@ -360,8 +360,32 @@
 
 
   <li class="md-nav__item">
-    <a href="2.5.List.html" class="md-nav__link">
-      2.5.List
+    <a href="2.5.String.html" class="md-nav__link">
+      2.5.String
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="2.6.List.html" class="md-nav__link">
+      2.6.List
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="2.7.Tuple.html" class="md-nav__link">
+      2.7.Tuple
     </a>
   </li>
 
@@ -379,12 +403,12 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        2.6.Tuple
+        2.8.Dict
         <span class="md-nav__icon md-icon"></span>
       </label>
     
-    <a href="2.6.Tuple.html" class="md-nav__link md-nav__link--active">
-      2.6.Tuple
+    <a href="2.8.Dict.html" class="md-nav__link md-nav__link--active">
+      2.8.Dict
     </a>
     
       
@@ -399,37 +423,86 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#tuple1tuple" class="md-nav__link">
-    Tuple陷阱——1个元素的Tuple
+  <a href="#dict" class="md-nav__link">
+    创建dict
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#tupletuple" class="md-nav__link">
-    Tuple陷阱——“可变的”Tuple
+  <a href="#dict_1" class="md-nav__link">
+    Dict的方法
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tuple" class="md-nav__link">
-    Tuple的方法
-  </a>
-  
-    <nav class="md-nav" aria-label="Tuple的方法">
+    <nav class="md-nav" aria-label="Dict的方法">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    统计元素出现的次数
+  <a href="#clear" class="md-nav__link">
+    clear删除所有的字典项
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    元素第一次出现时对应的索引值
+  <a href="#copy" class="md-nav__link">
+    copy浅拷贝
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fromkeys" class="md-nav__link">
+    fromkeys
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get" class="md-nav__link">
+    get
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#items" class="md-nav__link">
+    items
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keysvalues" class="md-nav__link">
+    keys和values
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pop" class="md-nav__link">
+    pop
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#popitem" class="md-nav__link">
+    popitem
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setdefault" class="md-nav__link">
+    setdefault
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update" class="md-nav__link">
+    update
   </a>
   
 </li>
@@ -452,8 +525,8 @@
 
 
   <li class="md-nav__item">
-    <a href="2.7.Dict.html" class="md-nav__link">
-      2.7.Dict
+    <a href="2.9.%E7%AE%80%E6%B4%81%E7%9A%84Python.html" class="md-nav__link">
+      2.9.简洁的Python
     </a>
   </li>
 
@@ -464,8 +537,8 @@
 
 
   <li class="md-nav__item">
-    <a href="2.8.%E7%AE%80%E6%B4%81%E7%9A%84Python.html" class="md-nav__link">
-      2.8.简洁的Python
+    <a href="2.10.%E8%B5%8B%E5%80%BC%E3%80%81immutable%E3%80%81%E6%B7%B1%E6%8B%B7%E8%B4%9D.html" class="md-nav__link">
+      2.10.赋值、immutable、深拷贝
     </a>
   </li>
 
@@ -476,8 +549,8 @@
 
 
   <li class="md-nav__item">
-    <a href="2.9.%E8%B5%8B%E5%80%BC%E3%80%81immutable%E3%80%81%E6%B7%B1%E6%8B%B7%E8%B4%9D.html" class="md-nav__link">
-      2.9.赋值、immutable、深拷贝
+    <a href="2.11.%E5%87%BD%E6%95%B0.html" class="md-nav__link">
+      2.11.函数
     </a>
   </li>
 
@@ -488,8 +561,8 @@
 
 
   <li class="md-nav__item">
-    <a href="2.10.%E5%87%BD%E6%95%B0.html" class="md-nav__link">
-      2.10.函数
+    <a href="2.12.%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0.html" class="md-nav__link">
+      2.12.内置函数
     </a>
   </li>
 
@@ -500,20 +573,8 @@
 
 
   <li class="md-nav__item">
-    <a href="2.11.%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0.html" class="md-nav__link">
-      2.11.内置函数
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="2.12.%E7%AE%80%E6%B4%81%E7%9A%84Python.html" class="md-nav__link">
-      2.12.简洁的Python
+    <a href="2.13.%E7%AE%80%E6%B4%81%E7%9A%84Python.html" class="md-nav__link">
+      2.13.简洁的Python
     </a>
   </li>
 
@@ -1963,37 +2024,86 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#tuple1tuple" class="md-nav__link">
-    Tuple陷阱——1个元素的Tuple
+  <a href="#dict" class="md-nav__link">
+    创建dict
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#tupletuple" class="md-nav__link">
-    Tuple陷阱——“可变的”Tuple
+  <a href="#dict_1" class="md-nav__link">
+    Dict的方法
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tuple" class="md-nav__link">
-    Tuple的方法
-  </a>
-  
-    <nav class="md-nav" aria-label="Tuple的方法">
+    <nav class="md-nav" aria-label="Dict的方法">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    统计元素出现的次数
+  <a href="#clear" class="md-nav__link">
+    clear删除所有的字典项
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    元素第一次出现时对应的索引值
+  <a href="#copy" class="md-nav__link">
+    copy浅拷贝
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fromkeys" class="md-nav__link">
+    fromkeys
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get" class="md-nav__link">
+    get
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#items" class="md-nav__link">
+    items
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keysvalues" class="md-nav__link">
+    keys和values
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pop" class="md-nav__link">
+    pop
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#popitem" class="md-nav__link">
+    popitem
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setdefault" class="md-nav__link">
+    setdefault
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#update" class="md-nav__link">
+    update
   </a>
   
 </li>
@@ -2015,111 +2125,245 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/siwing/siwing.github.io/edit/master/docs/Python基础/2.6.Tuple.md" title="编辑此页" class="md-content__button md-icon">
+                  <a href="https://github.com/siwing/siwing.github.io/edit/master/docs/Python基础/2.8.Dict.md" title="编辑此页" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                  <h1>2.6.Tuple</h1>
+                  <h1>2.8.Dict</h1>
                 
                 <div class="highlight"><pre><span></span><code>Windows 10
 Python 3.7.3 @ MSC v.1915 64 bit (AMD64)
-Latest build date 2020.06.24
+Latest build date 2020.06.21
 </code></pre></div>
 
-<p>tuple是一种一维的、不可变的Python对象序列，元素写在小括号 <code>()</code> 里，元素之间用逗号隔开，元组中的元素类型可以不相同。</p>
+<p>映射（mapping）是通过名称来访问其各个值的数据结构。字典是Python中唯一的内置映射类型，其中的值不按顺序排列，而是存储在键下。键可能是数、字符串或元组。 </p>
+<h2 id="dict">创建dict</h2>
+<p>字典以类似于下面的方式表示： </p>
+<div class="highlight"><pre><span></span><code><span class="n">phonebook</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Alice&#39;</span><span class="p">:</span> <span class="s1">&#39;2341&#39;</span><span class="p">,</span> <span class="s1">&#39;Beth&#39;</span><span class="p">:</span> <span class="s1">&#39;9102&#39;</span><span class="p">,</span> <span class="s1">&#39;Cecil&#39;</span><span class="p">:</span> <span class="s1">&#39;3258&#39;</span><span class="p">}</span>
+</code></pre></div>
+
+<p>字典由键及其相应的值组成，这种键--值对称为项（item）。每个键与其值之间都用冒号<code>:</code>分隔，item之间用逗号分隔，而整个字典放在花括号内。空字典（没有任何项）用两个花括号<code>{}</code>表示。 </p>
 <div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>不可变是指Tuple对象创建之后，该Tuple对象不能被修改，例如无法增加或删除tuple对象中的元素。</p>
+<p class="admonition-title">注意</p>
+<p>在字典（以及其他映射类型）中，键必须是独一无二的，而字典中的值无需如此。 </p>
 </div>
-<details class="question"><summary>不可变的tuple有什么意义？</summary><p>因为tuple不可变，所以代码更安全。如果可能，能用tuple代替list就尽量用tuple。</p>
-</details>
-<p>虽然 tuple 是不可变对象，但它可以包含可变的对象，比如一个tuple对象包含一个list序列。</p>
-<h2 id="tuple1tuple">Tuple陷阱——1个元素的Tuple</h2>
-<p>定义个一个Tuple，需要传入一个iterable对象。</p>
-<div class="highlight"><pre><span></span><code><span class="nb">tuple</span><span class="p">(</span><span class="s2">&quot;123&quot;</span><span class="p">)</span>
+<p>可使用dict类从其他映射（如其他字典）或键–值对序列创建字典。 </p>
+<div class="highlight"><pre><span></span><code><span class="n">items</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;Gumby&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="mi">42</span><span class="p">)]</span> 
+<span class="nb">dict</span><span class="p">(</span><span class="n">items</span><span class="p">)</span>
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code>(&#39;1&#39;, &#39;2&#39;, &#39;3&#39;)
+<div class="highlight"><pre><span></span><code>{&#39;name&#39;: &#39;Gumby&#39;, &#39;age&#39;: 42}
 </code></pre></div>
 
-<p>如果需要定义一个空的Tuple，可以通过tuple类来定义：</p>
-<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">()</span>
-<span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<p>还可使用关键参数，如下所示： </p>
+<div class="highlight"><pre><span></span><code><span class="nb">dict</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;Gumby&#39;</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code>tuple
+<div class="highlight"><pre><span></span><code>{&#39;name&#39;: &#39;Gumby&#39;, &#39;age&#39;: 42}
 </code></pre></div>
 
-<p>或者用 <code>()</code> 定义：</p>
-<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="p">()</span>
-<span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<h2 id="dict_1">Dict的方法</h2>
+<p>字典的基本行为在很多方面都类似于序列。 </p>
+<ul>
+<li>len(d)返回字典d包含的项（键--值对）数。</li>
+<li>d[k]返回与键k相关联的值。</li>
+<li>d[k] = v将值v关联到键k。</li>
+<li>del d[k]删除键为k的项。</li>
+<li>k in d检查字典d是否包含键为k的项。</li>
+</ul>
+<p>虽然字典和列表有多个相同之处，但也有一些重要的不同之处。</p>
+<ul>
+<li>
+<p><strong>自动添加。</strong>dict可以给不存在的项赋值，即是字典中原本没有的键，也可以给它赋值。而如果不使用append或其他类似的方法，就不能给列表中没有的元素赋值。</p>
+</li>
+<li>
+<p><strong>成员资格。</strong>表达式k in d (其中d是一个字典）査找的是键而不是值；而表达式v in 1 (其中1是一个列表）查找的是值而不是索引。这看似不太一致，但你习惯后就会觉得相当自然。毕竟如果字典包含指定的键，检查相应的值就很容易。</p>
+</li>
+</ul>
+<h3 id="clear"><code>clear</code>删除所有的字典项</h3>
+<p>要注意的是，clear是清除了一个字典对象，而不是解除了名称与字典对象的绑定。</p>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span><span class="s2">&quot;c&quot;</span><span class="p">:</span><span class="mi">3</span><span class="p">}</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">a</span>
+<span class="n">a</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+<span class="c1"># 可以看到，a、b都变成了字典</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a的值:&quot;</span><span class="p">,</span><span class="n">a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;b的值:&quot;</span><span class="p">,</span><span class="n">a</span><span class="p">)</span>
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code>tuple
+<div class="highlight"><pre><span></span><code>a的值: {}
+b的值: {}
 </code></pre></div>
 
-<p>但是如果要定义一个只有一个元素的tuple，就得要注意了。如果我们这样定义，则是错误的：</p>
-<div class="highlight"><pre><span></span><code><span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;123&quot;</span><span class="p">)</span>
-<span class="nb">type</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<h3 id="copy"><code>copy</code>浅拷贝</h3>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span><span class="s2">&quot;c&quot;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]}</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">b</span><span class="p">[</span><span class="s2">&quot;c&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a的值:&quot;</span><span class="p">,</span><span class="n">a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;b的值:&quot;</span><span class="p">,</span><span class="n">a</span><span class="p">)</span>
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code>str
+<div class="highlight"><pre><span></span><code>a的值: {&#39;a&#39;: 1, &#39;b&#39;: 2, &#39;c&#39;: [10, 2]}
+b的值: {&#39;a&#39;: 1, &#39;b&#39;: 2, &#39;c&#39;: [10, 2]}
 </code></pre></div>
 
-<p>定义只有一个元素的tuple，需要这样定义：</p>
-<div class="highlight"><pre><span></span><code><span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;123&quot;</span><span class="p">,)</span>
-<span class="nb">type</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<h3 id="fromkeys"><code>fromkeys</code></h3>
+<div class="highlight"><pre><span></span><code><span class="nb">dict</span><span class="o">.</span><span class="n">fromkeys</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code>tuple
+<p>方法<code>fromkeys</code>创建一个新字典，其中包含指定的键，且每个键对应的值都是None，也可以指定值，</p>
+<div class="highlight"><pre><span></span><code><span class="nb">dict</span><span class="o">.</span><span class="n">fromkeys</span><span class="p">([</span><span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">])</span>
 </code></pre></div>
 
-<p>或者这样定义：</p>
-<div class="highlight"><pre><span></span><code><span class="n">b</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">([</span><span class="s2">&quot;123&quot;</span><span class="p">])</span>
-<span class="nb">type</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code>{&#39;a&#39;: None, &#39;b&#39;: None}
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code>tuple
+<div class="highlight"><pre><span></span><code><span class="nb">dict</span><span class="o">.</span><span class="n">fromkeys</span><span class="p">([</span><span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">],</span><span class="mi">10</span><span class="p">)</span>
 </code></pre></div>
 
-<p>为什么会这样呢？因为<code>()</code>在python中可以表示运算符的<code>()</code>，也可以表示Tuple。这就不可避免地产生了歧义，为了消除歧义，Python规定括号里面只有一个元素时，按运算符的<code>()</code>进行解析。</p>
-<h2 id="tupletuple">Tuple陷阱——“可变的”Tuple</h2>
-<p>前面说过，Tuple是一种不可变的对象。但是有时我们又会发现Tuple是“可变的”。</p>
-<div class="highlight"><pre><span></span><code><span class="n">c</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;原始的Tuple：&quot;</span><span class="p">,</span><span class="n">c</span><span class="p">)</span>
-<span class="n">c</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;X&#39;</span>
-<span class="n">c</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Y&#39;</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;修改后的Tuple：&quot;</span><span class="p">,</span><span class="n">c</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code>{&#39;a&#39;: 10, &#39;b&#39;: 10}
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code>原始的Tuple： (&#39;a&#39;, &#39;b&#39;, [&#39;A&#39;, &#39;B&#39;])
-修改后的Tuple： (&#39;a&#39;, &#39;b&#39;, [&#39;X&#39;, &#39;Y&#39;])
+<h3 id="get"><code>get</code></h3>
+<p>方法<code>get</code>为访问字典项提供了宽松的环境。通常，如果你试图访问字典中没有的项，将引发错误。</p>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span><span class="s2">&quot;c&quot;</span><span class="p">:</span><span class="mi">3</span><span class="p">}</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">a</span><span class="p">[</span><span class="s2">&quot;d&quot;</span><span class="p">]</span>
+<span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;KeyError: &quot;</span><span class="p">,</span> <span class="n">e</span><span class="p">)</span>
 </code></pre></div>
 
-<p>前面说过tuple一旦定义后就不可变，那上面的c怎么就改变了呢？其实，c的元素并没有改变，改变的只是list中的元素，tuple一开始指向的list并没有改成别的list，所以，tuple所谓的“不变”是说，tuple的每个元素的指向永远不变。即指向<code>a</code>，就不能改成指向<code>b</code>，指向一个list，就不能改成指向其他对象，但指向的这个list本身是可变的！</p>
-<p>所以要创建一个内容也不变的tuple，那就必须保证tuple的每一个元素本身也不能变。</p>
-<h2 id="tuple">Tuple的方法</h2>
-<p>因为Tuple是一个不可变的列表，没有用于修改列表的方法，所以Tuple对象的方法很少。</p>
-<div class="highlight"><pre><span></span><code><span class="n">d</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
-<span class="p">[</span><span class="n">method</span> <span class="k">for</span> <span class="n">method</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="n">d</span><span class="p">)</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">method</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">)]</span>
+<div class="highlight"><pre><span></span><code>KeyError:  &#39;d&#39;
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code>[&#39;count&#39;, &#39;index&#39;]
+<p>而使用<code>get</code>不会这样</p>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span><span class="s2">&quot;c&quot;</span><span class="p">:</span><span class="mi">3</span><span class="p">}</span>
+<span class="n">a</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;d&quot;</span><span class="p">)</span>
+<span class="c1"># 默认返回None，也可以指定返回值</span>
+<span class="n">a</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;d&quot;</span><span class="p">,</span><span class="s2">&quot;N/A&quot;</span><span class="p">)</span>
 </code></pre></div>
 
-<h3 id="_1">统计元素出现的次数</h3>
-<div class="highlight"><pre><span></span><code><span class="n">d</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code>&#39;N/A&#39;
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code>2
+<h3 id="items"><code>items</code></h3>
+<p>方法<code>items</code>返回一个包含所有字典项的列表，其中每个元素都为<code>(key, value)</code>的形式。字典项在列表中的排列顺序不确定。返回值属于一种名为字典视图的特殊类型。字典视图可用于迭代。另外，你还可确定其长度以及对其执行成员资格检查。</p>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span><span class="s2">&quot;c&quot;</span><span class="p">:</span><span class="mi">3</span><span class="p">}</span>
+<span class="n">a</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
 </code></pre></div>
 
-<h3 id="_2">元素第一次出现时对应的索引值</h3>
-<div class="highlight"><pre><span></span><code><span class="n">d</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code>dict_items([(&#39;a&#39;, 1), (&#39;b&#39;, 2), (&#39;c&#39;, 3)])
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code>4
+<div class="highlight"><pre><span></span><code><span class="c1"># dict_items类型</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>dict_items
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="c1"># 迭代</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">a</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>(&#39;a&#39;, 1)
+(&#39;b&#39;, 2)
+(&#39;c&#39;, 3)
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="c1"># 迭代</span>
+<span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">a</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>a 1
+b 2
+c 3
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="c1"># 检查成员资格</span>
+<span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="ow">in</span> <span class="n">a</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>True
+</code></pre></div>
+
+<h3 id="keysvalues"><code>keys</code>和<code>values</code></h3>
+<p>方法<code>keys</code>返回一个字典视图，其中包含字典中的键。</p>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span><span class="s2">&quot;c&quot;</span><span class="p">:</span><span class="mi">3</span><span class="p">}</span>
+<span class="n">a</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>dict_keys([&#39;a&#39;, &#39;b&#39;, &#39;c&#39;])
+</code></pre></div>
+
+<p>方法<code>values</code>返回一个字典视图，其中包含字典中的键。</p>
+<div class="highlight"><pre><span></span><code><span class="n">a</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>dict_values([1, 2, 3])
+</code></pre></div>
+
+<h3 id="pop"><code>pop</code></h3>
+<p>方法pop可用于获取与指定键相关联的值，并将该键-值对从字典中删除。</p>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span><span class="s2">&quot;c&quot;</span><span class="p">:</span><span class="mi">3</span><span class="p">}</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;b的值&quot;</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a的值&quot;</span><span class="p">,</span><span class="n">a</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>b的值 1
+a的值 {&#39;b&#39;: 2, &#39;c&#39;: 3}
+</code></pre></div>
+
+<h3 id="popitem"><code>popitem</code></h3>
+<p>方法<code>popitem</code>类似于<code>list.pop</code>，但<code>list.pop</code>弹出列表中的最后一个元素，而<code>popitem</code>随机地弹出一个字典项，因为字典项的顺序是不确定的，没有“最后一个元素”的概念。如果你要以高效地方式<strong>逐个</strong>删除并处理所有字典项，这可能很有用，因为这样无需先获取键列表。</p>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span><span class="s2">&quot;c&quot;</span><span class="p">:</span><span class="mi">3</span><span class="p">}</span>
+<span class="n">a</span><span class="o">.</span><span class="n">popitem</span><span class="p">()</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>(&#39;c&#39;, 3)
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="n">a</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>{&#39;a&#39;: 1, &#39;b&#39;: 2}
+</code></pre></div>
+
+<h3 id="setdefault"><code>setdefault</code></h3>
+<p>方法<code>setdefault</code>有点像get，因为它也获取与指定键相关联的值，但除此之外，setdefault还在字典不包含指定的键时，在字典中添加指定的键-值对。</p>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span><span class="s2">&quot;c&quot;</span><span class="p">:</span><span class="mi">3</span><span class="p">}</span>
+<span class="n">a</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">)</span>
+<span class="n">a</span>
+
+<span class="n">a</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s2">&quot;d&quot;</span><span class="p">)</span>
+<span class="n">a</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>{&#39;a&#39;: 1, &#39;b&#39;: 2, &#39;c&#39;: 3, &#39;d&#39;: None}
+</code></pre></div>
+
+<p>如你所见，指定的键不存在时，setdefault返回指定的值并相应地更新字典。如果指定的键存在，就返回其值，并保持字典不变。与<code>get</code>一样，值是可选的，如果没有指定，默认为None。</p>
+<h3 id="update"><code>update</code></h3>
+<p>方法update使用一个字典中的项来更新另一个字典。对于通过参数提供的字典，将其项添加到当前字典中。如果当前字典包含键相同的项，就替换它。</p>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;a&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span><span class="s2">&quot;c&quot;</span><span class="p">:</span><span class="mi">3</span><span class="p">}</span>
+<span class="n">a</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">&quot;d&quot;</span><span class="p">:</span><span class="mi">4</span><span class="p">})</span>
+<span class="n">a</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>{&#39;a&#39;: 1, &#39;b&#39;: 2, &#39;c&#39;: 3, &#39;d&#39;: 4}
+</code></pre></div>
+
+<p>可像调用本章前面讨论的函数dict（类型构造函数）那样调用方法update。这意味着调用update时，可向它提供一个映射、一个由键-值对组成的序列（或其他可迭代对象）或关键字参数。</p>
+<div class="highlight"><pre><span></span><code><span class="n">a</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="nb">zip</span><span class="p">([</span><span class="s2">&quot;e&quot;</span><span class="p">,</span><span class="s2">&quot;f&quot;</span><span class="p">],[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]))</span>
+<span class="n">a</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>{&#39;a&#39;: 1, &#39;b&#39;: 2, &#39;c&#39;: 3, &#39;d&#39;: 4, &#39;e&#39;: 5, &#39;f&#39;: 6}
 </code></pre></div>
                 
               
@@ -2139,7 +2383,7 @@ Latest build date 2020.06.24
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="2.5.List.html" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="2.7.Tuple.html" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -2148,19 +2392,19 @@ Latest build date 2020.06.24
                 <span class="md-footer-nav__direction">
                   上一页
                 </span>
-                2.5.List
+                2.7.Tuple
               </div>
             </div>
           </a>
         
         
-          <a href="2.7.Dict.html" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="2.9.%E7%AE%80%E6%B4%81%E7%9A%84Python.html" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   下一页
                 </span>
-                2.7.Dict
+                2.9.简洁的Python
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">

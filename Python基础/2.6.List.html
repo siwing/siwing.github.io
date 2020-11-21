@@ -14,7 +14,7 @@
     
     
       
-        <title>2.3.Number - Python笔记</title>
+        <title>2.6.List - Python笔记</title>
       
     
     
@@ -57,7 +57,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#list" class="md-skip">
           跳转至
         </a>
       
@@ -89,7 +89,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              2.3.Number
+              2.6.List
             
           </span>
         </div>
@@ -334,6 +334,42 @@
           
           
 
+
+  <li class="md-nav__item">
+    <a href="2.3.%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.html" class="md-nav__link">
+      2.3.数据类型
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="2.4.Number.html" class="md-nav__link">
+      2.4.Number
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="2.5.String.html" class="md-nav__link">
+      2.5.String
+    </a>
+  </li>
+
+        
+          
+          
+          
+
   
 
 
@@ -343,12 +379,12 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        2.3.Number
+        2.6.List
         <span class="md-nav__icon md-icon"></span>
       </label>
     
-    <a href="2.3.Number.html" class="md-nav__link md-nav__link--active">
-      2.3.Number
+    <a href="2.6.List.html" class="md-nav__link md-nav__link--active">
+      2.6.List
     </a>
     
       
@@ -363,22 +399,105 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#list" class="md-nav__link">
+    list的方法
+  </a>
+  
+    <nav class="md-nav" aria-label="list的方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#list_1" class="md-nav__link">
+    修改list元素的值
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    整数
+    添加一个新元素到末尾
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    浮点数
+    添加任意个新元素到末尾
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    在任意位置插入新元素
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    删除\取出最后一个（任意位置的）元素
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    删除第一次出现的元素
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    反序排序
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    排序
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    统计元素出现的次数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    得到某个值第一次出现时对应的索引值
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    浅拷贝列表
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    清空列表
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    复数
+  <a href="#_12" class="md-nav__link">
+    逻辑运算
   </a>
   
 </li>
@@ -396,8 +515,8 @@
 
 
   <li class="md-nav__item">
-    <a href="2.4.String.html" class="md-nav__link">
-      2.4.String
+    <a href="2.7.Tuple.html" class="md-nav__link">
+      2.7.Tuple
     </a>
   </li>
 
@@ -408,8 +527,8 @@
 
 
   <li class="md-nav__item">
-    <a href="2.5.List.html" class="md-nav__link">
-      2.5.List
+    <a href="2.8.Dict.html" class="md-nav__link">
+      2.8.Dict
     </a>
   </li>
 
@@ -420,8 +539,8 @@
 
 
   <li class="md-nav__item">
-    <a href="2.6.Tuple.html" class="md-nav__link">
-      2.6.Tuple
+    <a href="2.9.%E7%AE%80%E6%B4%81%E7%9A%84Python.html" class="md-nav__link">
+      2.9.简洁的Python
     </a>
   </li>
 
@@ -432,8 +551,8 @@
 
 
   <li class="md-nav__item">
-    <a href="2.7.Dict.html" class="md-nav__link">
-      2.7.Dict
+    <a href="2.10.%E8%B5%8B%E5%80%BC%E3%80%81immutable%E3%80%81%E6%B7%B1%E6%8B%B7%E8%B4%9D.html" class="md-nav__link">
+      2.10.赋值、immutable、深拷贝
     </a>
   </li>
 
@@ -444,8 +563,8 @@
 
 
   <li class="md-nav__item">
-    <a href="2.8.%E7%AE%80%E6%B4%81%E7%9A%84Python.html" class="md-nav__link">
-      2.8.简洁的Python
+    <a href="2.11.%E5%87%BD%E6%95%B0.html" class="md-nav__link">
+      2.11.函数
     </a>
   </li>
 
@@ -456,8 +575,8 @@
 
 
   <li class="md-nav__item">
-    <a href="2.9.%E8%B5%8B%E5%80%BC%E3%80%81immutable%E3%80%81%E6%B7%B1%E6%8B%B7%E8%B4%9D.html" class="md-nav__link">
-      2.9.赋值、immutable、深拷贝
+    <a href="2.12.%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0.html" class="md-nav__link">
+      2.12.内置函数
     </a>
   </li>
 
@@ -468,32 +587,8 @@
 
 
   <li class="md-nav__item">
-    <a href="2.10.%E5%87%BD%E6%95%B0.html" class="md-nav__link">
-      2.10.函数
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="2.11.%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0.html" class="md-nav__link">
-      2.11.内置函数
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="2.12.%E7%AE%80%E6%B4%81%E7%9A%84Python.html" class="md-nav__link">
-      2.12.简洁的Python
+    <a href="2.13.%E7%AE%80%E6%B4%81%E7%9A%84Python.html" class="md-nav__link">
+      2.13.简洁的Python
     </a>
   </li>
 
@@ -1943,22 +2038,105 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#list" class="md-nav__link">
+    list的方法
+  </a>
+  
+    <nav class="md-nav" aria-label="list的方法">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#list_1" class="md-nav__link">
+    修改list元素的值
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    整数
+    添加一个新元素到末尾
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    浮点数
+    添加任意个新元素到末尾
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    在任意位置插入新元素
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    删除\取出最后一个（任意位置的）元素
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    删除第一次出现的元素
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    反序排序
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    排序
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    统计元素出现的次数
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    得到某个值第一次出现时对应的索引值
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    浅拷贝列表
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    清空列表
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    复数
+  <a href="#_12" class="md-nav__link">
+    逻辑运算
   </a>
   
 </li>
@@ -1975,96 +2153,290 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/siwing/siwing.github.io/edit/master/docs/Python基础/2.3.Number.md" title="编辑此页" class="md-content__button md-icon">
+                  <a href="https://github.com/siwing/siwing.github.io/edit/master/docs/Python基础/2.6.List.md" title="编辑此页" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                  <h1>2.3.Number</h1>
+                  <h1>2.6.List</h1>
                 
                 <div class="highlight"><pre><span></span><code>Windows 10
 Python 3.7.3 @ MSC v.1915 64 bit (AMD64)
-Latest build date 2020.11.20
+Latest build date 2020.11.21
 </code></pre></div>
 
-<p>Python 只有三种数值类型：整数、浮点数、复数。</p>
-<h2 id="_1">整数</h2>
-<p><code>numbers.Integral</code> 描述了数学上的整数集（正数和负数）。</p>
-<p>Python 有 2 种整数类型：</p>
-<ul>
-<li>
-<p>数值型整数 <code>numbers.Integral</code> ，<code>int</code> 类型实现了该抽象接口。数值型整数的表示范围在语言上是无限制的，只受限于计算机的内存（虚拟内存）。对于以移位和屏蔽运算，数值型正数被认为是二进制的形式，如果是负数，那么就被转换成二进制补码形式，符号位向左扩展。</p>
-</li>
-<li>
-<p>布尔型整数 <code>bool</code>。布尔类型是<code>int</code>的子类型，分别用数值 0 和 1 来表示假和真，但是当返回值的类型是字符时，其分别用 <code>"False"</code> 或者 <code>“True”</code> 表示。</p>
-</li>
-</ul>
-<p>返回该整数对应的二进制形式所需要的位数</p>
-<div class="highlight"><pre><span></span><code><span class="n">int_num</span> <span class="o">=</span> <span class="mi">10</span>
-<span class="n">int_num</span><span class="o">.</span><span class="n">bit_length</span>
+<table>
+<thead>
+<tr>
+<th align="left">列表的方 法</th>
+<th align="left">描 述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">aList.append(obj)</td>
+<td align="left">等同于aList[len(aList):len(aList)] = [obj]</td>
+</tr>
+<tr>
+<td align="left">aList.clear()</td>
+<td align="left">删除aList的所有元素</td>
+</tr>
+<tr>
+<td align="left">aList.count(obj)</td>
+<td align="left">返回aList中与obj相等的元素个数</td>
+</tr>
+<tr>
+<td align="left">aList.copy()</td>
+<td align="left">返回aList的副本。请注意，这是浅复制，即不会复制元素</td>
+</tr>
+<tr>
+<td align="left">aList.extend(sequence)</td>
+<td align="left">等同于aList[len(aList):len(aList)] = sequence</td>
+</tr>
+<tr>
+<td align="left">aList.index(obj)</td>
+<td align="left">返回aList中第一个与obj相等的元素的索引；如果没有这样的元素，就引发 ValueError异常</td>
+</tr>
+<tr>
+<td align="left">aList.insert(index, obj)</td>
+<td align="left">如果index &gt;= 0，就等同于aList[index:index] = [obj]；如果index &lt; 0，就 将指定的对象加入到列表开头</td>
+</tr>
+<tr>
+<td align="left">aList.pop([index])</td>
+<td align="left">删除并返回指定索引（默认为-1 )处的元素</td>
+</tr>
+<tr>
+<td align="left">aList.remove(obj)</td>
+<td align="left">等同于del aList[aList.index(obj)]</td>
+</tr>
+<tr>
+<td align="left">aList.reverse</td>
+<td align="left">就地按相反的顺序排列列表的元素</td>
+</tr>
+<tr>
+<td align="left">aList.sort([cmp][,key][,reverse])</td>
+<td align="left">就地对aList的元素进行排序（稳定排序）。可通过提供比较函数cmp、键函数 key (创建用户排序的键）和降序标志reverse (—个布尔值）进行定制</td>
+</tr>
+</tbody>
+</table>
+<h2 id="list">list的方法</h2>
+<p>创建一个list</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># 查看list的方法、属性</span>
+<span class="p">[</span><span class="n">method</span> <span class="k">for</span> <span class="n">method</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="nb">list</span><span class="p">())</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">method</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">)]</span>
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code>&lt;function int.bit_length()&gt;
+<div class="highlight"><pre><span></span><code>[&#39;append&#39;,
+ &#39;clear&#39;,
+ &#39;copy&#39;,
+ &#39;count&#39;,
+ &#39;extend&#39;,
+ &#39;index&#39;,
+ &#39;insert&#39;,
+ &#39;pop&#39;,
+ &#39;remove&#39;,
+ &#39;reverse&#39;,
+ &#39;sort&#39;]
 </code></pre></div>
 
-<h2 id="_2">浮点数</h2>
-<p>浮点数 <code>numbers.Real</code> 表示机器级的双精度浮点数，<code>float</code> 类型实现了该抽象接口。其表示范围和溢出处理受限于 机器体系结构 和 编译器/解释器 的具体实现。</p>
-<p>Python 不支持单精度浮点数，使用它的原因通常是减少CPU负荷和节省内存，但这些节省的开销与在 Python 中使用对象的开销相比要小得多，因此没有必要支持两种浮点数使语言变得复杂。</p>
-<p>关于运行程序的机器的浮点数的精度和内部表示的信息可以在 <code>sys.float_info</code> 中找到。</p>
-<div class="highlight"><pre><span></span><code><span class="n">float_num</span> <span class="o">=</span> <span class="mf">10.5</span>
+<h3 id="list_1">修改list元素的值</h3>
+<p>修改现有list的值，通过索引、切片来完成。</p>
+<div class="highlight"><pre><span></span><code><span class="n">list_1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="c1"># 修改某个索引对应元素的值</span>
+<span class="n">list_1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;item&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">list_1</span><span class="p">)</span>
 </code></pre></div>
 
-<p>获取浮点数的十六进制表示。</p>
-<div class="highlight"><pre><span></span><code><span class="n">float_num</span><span class="o">.</span><span class="n">hex</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code>[&#39;item&#39;, 1, 2, 3]
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code>&#39;0x1.5000000000000p+3&#39;
+<p>通过切片修改某个连续区域的值，切片的长度和用于赋值的序列长度可以不同。</p>
+<div class="highlight"><pre><span></span><code><span class="n">list_1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">list_1</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;item_1&quot;</span><span class="p">,</span> <span class="s2">&quot;item_2&quot;</span><span class="p">,</span> <span class="s2">&quot;item_3&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">list_1</span><span class="p">)</span>
 </code></pre></div>
 
-<p>该浮点数是否为整数。</p>
-<div class="highlight"><pre><span></span><code><span class="n">float_num</span><span class="o">.</span><span class="n">is_integer</span><span class="p">()</span>
-<span class="n">float_num</span><span class="o">.</span><span class="n">as_integer_ratio</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code>[&#39;item_1&#39;, &#39;item_2&#39;, &#39;item_3&#39;, 2, 3]
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code>(21, 2)
+<h3 id="_1">添加一个新元素到末尾</h3>
+<p><code>append</code>方法每次只能添加一个新元素</p>
+<div class="highlight"><pre><span></span><code><span class="n">list_1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">list_1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;item&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">list_1</span><span class="p">)</span>
 </code></pre></div>
 
-<p>从十六进制小数的字符串创建浮点数。</p>
-<div class="highlight"><pre><span></span><code><span class="nb">float</span><span class="o">.</span><span class="n">fromhex</span><span class="p">(</span><span class="s1">&#39;0x1.ffffp10&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code>[0, 1, 2, 3, &#39;item&#39;]
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code>2047.984375
+<h3 id="_2">添加任意个新元素到末尾</h3>
+<p><code>extend</code>方法允许我们通过另一个list来扩充当前的list。实际上，这看起来像是用<code>+</code>拼接list，但<code>extend</code>方法会直接修改原列表，不返回副本。</p>
+<div class="highlight"><pre><span></span><code><span class="n">list_1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">list_2</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;item_1&quot;</span><span class="p">,</span> <span class="s2">&quot;item_2&quot;</span><span class="p">,</span> <span class="s2">&quot;item_3&quot;</span><span class="p">]</span>
+<span class="n">list_1</span> <span class="o">+</span> <span class="n">list_2</span>
+<span class="c1"># 此时 list_1 没有被修改</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Use + operator: </span><span class="si">{list_1}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">list_1</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">list_2</span><span class="p">)</span>
+<span class="c1"># 此时list_1被修改</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Use extend method: </span><span class="si">{list_1}</span><span class="s2">&quot;</span><span class="p">)</span>
 </code></pre></div>
 
-<p>返回一对整数，其比率等于该浮点数，分子永远为正整数，如果原浮点数为 NaN，将引发 <code>OverflowError</code>。</p>
-<div class="highlight"><pre><span></span><code><span class="n">float_num</span> <span class="o">=</span> <span class="o">-</span><span class="mf">10.5</span>
-<span class="n">float_num</span><span class="o">.</span><span class="n">as_integer_ratio</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code>Use + operator: [0, 1, 2, 3]
+Use extend method: [0, 1, 2, 3, &#39;item_1&#39;, &#39;item_2&#39;, &#39;item_3&#39;]
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code>(-21, 2)
+<p>可以看出，使用<code>+</code>拼接list会创建一个新对象，显然拼接的效率回比<code>extend</code>方法的效率低。</p>
+<p>还可以借助切片来扩充list，像这样：</p>
+<div class="highlight"><pre><span></span><code><span class="n">list_1</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">list_2</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;item_1&quot;</span><span class="p">,</span> <span class="s2">&quot;item_2&quot;</span><span class="p">,</span> <span class="s2">&quot;item_3&quot;</span><span class="p">]</span>
+<span class="c1"># 这样做可读性不高</span>
+<span class="n">list_1</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">list_1</span><span class="p">):]</span> <span class="o">=</span> <span class="n">list_2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">list_1</span><span class="p">)</span>
 </code></pre></div>
 
-<h2 id="_3">复数</h2>
-<p>复数 <code>numbers.Complex</code>  描述了一对机器级的双精度浮点数，<code>complex</code> 类型实现了该抽象接口。复数 <code>z</code> 的实部和虚部可以通过属性 <code>z.real</code> 和 <code>z.imag</code> 获得。</p>
-<p>Python 完全支持数值类型的混合计算。当不同数值类型的操作数被用于计算时，表示范围小的操作数将被扩大到另一个操作数的类型。其中，整数比浮点数范围窄，浮点数比复数窄。</p>
-<div class="highlight"><pre><span></span><code><span class="n">complex_num</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">+</span> <span class="mi">5</span><span class="n">j</span>
+<div class="highlight"><pre><span></span><code>[0, 1, 2, 3, &#39;item_1&#39;, &#39;item_2&#39;, &#39;item_3&#39;]
 </code></pre></div>
 
-<p>获取共轭复数</p>
-<div class="highlight"><pre><span></span><code><span class="n">complex_num</span><span class="o">.</span><span class="n">conjugate</span><span class="p">()</span>
+<h3 id="_3">在任意位置插入新元素</h3>
+<p><code>insert</code>方法将一个对象插入指定位置</p>
+<div class="highlight"><pre><span></span><code><span class="n">list_1</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Original list: </span><span class="si">{list_1}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">list_1</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;item&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;New list: </span><span class="si">{list_1}</span><span class="s2">&quot;</span><span class="p">)</span>
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code>(10-5j)
+<div class="highlight"><pre><span></span><code>Original list: [0, 1, 2, 3]
+New list: [&#39;item&#39;, 0, 1, 2, 3]
 </code></pre></div>
 
-<p>获取 实部 和 虚部</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># tag = &quot;input&quot;</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">complex_num</span><span class="o">.</span><span class="n">real</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">complex_num</span><span class="o">.</span><span class="n">imag</span><span class="p">)</span>
+<p>当然，也可以借助切片在任意位置插入元素。注意的是，对一个list使用切片，必定会得到一个list，这就需要用一个list对切片赋值。</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># 这样虽然巧妙，但是可读性比不上insert。</span>
+<span class="n">list_1</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Original list: </span><span class="si">{list_1}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">list_1</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;item&quot;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;New list: </span><span class="si">{list_1}</span><span class="s2">&quot;</span><span class="p">)</span>
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code>10.0
-5.0
+<div class="highlight"><pre><span></span><code>Original list: [0, 1, 2, 3]
+New list: [&#39;item&#39;, 0, 1, 2, 3]
+</code></pre></div>
+
+<h3 id="_4">删除\取出最后一个（任意位置的）元素</h3>
+<p>注意，pop是list中唯一一个修改原列表，并且有返回值的方法</p>
+<div class="highlight"><pre><span></span><code><span class="n">list_2</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;0&#39;</span><span class="p">,</span> <span class="s1">&#39;00&#39;</span><span class="p">,</span> <span class="s1">&#39;000&#39;</span><span class="p">]</span>
+<span class="n">list_2</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>&#39;000&#39;
+</code></pre></div>
+
+<p>pop默认删除最后一个元素，但是也可以输入索引值，指定删除元素的位置</p>
+<div class="highlight"><pre><span></span><code><span class="n">list_2</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;0&#39;</span><span class="p">,</span> <span class="s1">&#39;00&#39;</span><span class="p">,</span> <span class="s1">&#39;000&#39;</span><span class="p">]</span>
+<span class="n">list_2</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">list_2</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>[&#39;00&#39;, &#39;000&#39;]
+</code></pre></div>
+
+<h3 id="_5">删除第一次出现的元素</h3>
+<div class="highlight"><pre><span></span><code><span class="n">list_1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">list_1</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">list_1</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>[2, 3, 1]
+</code></pre></div>
+
+<h3 id="_6">反序排序</h3>
+<div class="highlight"><pre><span></span><code><span class="n">list_1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">list_1</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
+<span class="n">list_1</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>[3, 2, 1, 0]
+</code></pre></div>
+
+<h3 id="_7">排序</h3>
+<p>方法<code>sort</code>接受两个可选参数：<code>key</code>和<code>reverse</code>。将<code>key</code>设置为一个用于排序的**函数。然而，不会直接使用这个函数来判断一个元素是否比另一个元素小，而是使用它来为每个元素创建一个键，再根据这些键对元素进行排序。对于另一个关键字参数<code>reverse</code>，只需将其指定为<code>True</code>或<code>False</code>，以指出是否要按相反的顺序对列表进行排序。</p>
+<div class="highlight"><pre><span></span><code><span class="n">list_3</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;aardvark&#39;</span><span class="p">,</span> <span class="s1">&#39;abalone&#39;</span><span class="p">,</span> <span class="s1">&#39;acme&#39;</span><span class="p">,</span> <span class="s1">&#39;add&#39;</span><span class="p">,</span> <span class="s1">&#39;aerate&#39;</span><span class="p">]</span>
+<span class="n">list_3</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="nb">len</span><span class="p">)</span>
+<span class="n">list_3</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>[&#39;add&#39;, &#39;acme&#39;, &#39;aerate&#39;, &#39;abalone&#39;, &#39;aardvark&#39;]
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="c1"># 按照长度降序排序</span>
+<span class="n">list_3</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="nb">len</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">list_3</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>[&#39;aardvark&#39;, &#39;abalone&#39;, &#39;aerate&#39;, &#39;acme&#39;, &#39;add&#39;]
+</code></pre></div>
+
+<h3 id="_8">统计元素出现的次数</h3>
+<div class="highlight"><pre><span></span><code><span class="n">list_1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">list_1</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>2
+</code></pre></div>
+
+<h3 id="_9">得到某个值第一次出现时对应的索引值</h3>
+<div class="highlight"><pre><span></span><code><span class="n">list_1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">list_1</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>0
+</code></pre></div>
+
+<h3 id="_10">浅拷贝列表</h3>
+<div class="highlight"><pre><span></span><code><span class="n">list_1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">list_4</span> <span class="o">=</span> <span class="n">list_1</span>
+<span class="n">list_1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;修改了&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;list_1：&quot;</span><span class="p">,</span> <span class="n">list_1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;list_4：&quot;</span><span class="p">,</span> <span class="n">list_4</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>list_1： [&#39;修改了&#39;, 2, 3]
+list_4： [&#39;修改了&#39;, 2, 3]
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code><span class="c1"># 浅拷贝</span>
+<span class="n">list_1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]]</span>
+<span class="n">list_5</span> <span class="o">=</span> <span class="n">list_1</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">list_1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;修改了&quot;</span>
+<span class="n">list_1</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;修改了&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;list_1：&quot;</span><span class="p">,</span> <span class="n">list_1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;list_5：&quot;</span><span class="p">,</span> <span class="n">list_5</span><span class="p">)</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>list_1： [&#39;修改了&#39;, 2, [&#39;修改了&#39;, 4]]
+list_5： [1, 2, [&#39;修改了&#39;, 4]]
+</code></pre></div>
+
+<h3 id="_11">清空列表</h3>
+<div class="highlight"><pre><span></span><code><span class="n">list_1</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+<span class="n">list_1</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>[]
+</code></pre></div>
+
+<h2 id="_12">逻辑运算</h2>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">&gt;</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">==</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">any</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">all</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]))</span>
+</code></pre></div>
+
+<div class="highlight"><pre><span></span><code>True
+True
+True
+True
+False
 </code></pre></div>
                 
               
@@ -2084,7 +2456,7 @@ Latest build date 2020.11.20
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="2.2.%E8%AF%AD%E5%8F%A5.html" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="2.5.String.html" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -2093,19 +2465,19 @@ Latest build date 2020.11.20
                 <span class="md-footer-nav__direction">
                   上一页
                 </span>
-                2.2.语句
+                2.5.String
               </div>
             </div>
           </a>
         
         
-          <a href="2.4.String.html" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="2.7.Tuple.html" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   下一页
                 </span>
-                2.4.String
+                2.7.Tuple
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">
