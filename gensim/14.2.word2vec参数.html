@@ -1912,7 +1912,7 @@
 <li><strong>workers</strong> (<code>int</code>, optional)：训练使用的线程数。</li>
 <li><strong>sg</strong> (<code>{0, 1}</code>, optional)：选择训练算法：1代表skip-gram，否则为 CBOW。</li>
 <li><strong>hs</strong> (<code>{0, 1}</code>, optional)：hs = 0时采用Negative Sampling，hs = 1时采用 Hierarchical  Softmax。</li>
-<li><strong>negative</strong> (<code>int</code>, optional)：如果大于0，将使用Negative Sampling，整数值指定应该绘制多少“噪音字”(通常在5-20之间)。 如果为0，则不使用Negative Sampling。5\~20适合小数据，2~5适合大数据。</li>
+<li><strong>negative</strong> (<code>int</code>, optional)：如果大于0，将使用Negative Sampling，整数值指定应该绘制多少“噪音字”(通常在5-20之间)。 如果为0，则不使用Negative Sampling。5~20适合小数据，2~5适合大数据。</li>
 <li><strong>ns_exponent</strong> (<code>float</code>, optional)：exponent用来形成negative sampling的分布.A value of 1.0 samples exactly in proportion to the frequencies, 0.0 samples all words equally, while a negative value samples low-frequency words more than high-frequency words. 默认值0.75是由原始Word2Vec论文选择的。而最近的<a href="https://arxiv.org/abs/1804.04212">论文</a> 指出在推荐系统的应用中，设置其他值也许会得到更好的性能。</li>
 <li><strong>cbow_mean</strong> (<code>{0, 1}</code>, optional)：cbow_mean=0：使用上下文单词向量之和。cbow_mean=1：使用平均值。只有当使用 cbow 时才适用。</li>
 <li><strong>alpha</strong> (<code>float</code>, optional)：初始学习率。</li>

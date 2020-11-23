@@ -2133,10 +2133,10 @@ $$</p>
 <p>$$
 \begin{aligned}
 L[X] &amp;= X + merge\left[ L[A], L[B], A, B \right]
-\\ &amp;= X + [[A, O], \ [B,O],\ A,\ B]
-\\ &amp;= [X, A] + [[O], \ [B,O],\ B]
-\\ &amp;= [X, A, B] + [[O], \ [O]]
-\\ &amp;= [X, A, B, O] + [\ ]
+\\ &amp;= X + [[A, O],  [B,O], A, B]
+\\ &amp;= [X, A] + [[O],  [B,O], B]
+\\ &amp;= [X, A, B] + [[O],  [O]]
+\\ &amp;= [X, A, B, O] + [ ]
 \\ &amp;= [X, A, B, O]
 \end{aligned} \tag{3}
 $$</p>
@@ -2148,9 +2148,9 @@ $$</p>
 <p>$$
 \begin{aligned}
 L[Z] &amp;= Z + merge\left[ L[X], L[Y], X, Y \right]
-\\ &amp;= Z + [[X, A, B, O], \ [Y, B,A, O],\ X,\ Y]
-\\ &amp;= [Z,X] + [[A, B, O], \ [Y, B,A, O],\ Y]
-\\ &amp;= [Z,X,Y] + [[A, B, O], \ [B,A, O]]
+\\ &amp;= Z + [[X, A, B, O],  [Y, B,A, O], X, Y]
+\\ &amp;= [Z,X] + [[A, B, O],  [Y, B,A, O], Y]
+\\ &amp;= [Z,X,Y] + [[A, B, O],  [B,A, O]]
 \end{aligned} \tag{5}
 $$</p>
 <p>最后产生冲突，Python会抛出<code>TypeError</code>异常。</p>

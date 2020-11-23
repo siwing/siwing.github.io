@@ -2006,76 +2006,80 @@
                   <h1>8.1.创建数组</h1>
                 
                 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">toolkit</span> <span class="kn">import</span> <span class="n">H</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>Windows 10
-Python 3.7.3 @ MSC v.1915 64 bit (AMD64)
-Latest build date 2020.03.27
-numpy version:  1.18.1
+Python 3.8.5 @ MSC v.1916 64 bit (AMD64)
+Latest build date 2020.11.23
+numpy version:  1.19.4
 </code></pre></div>
 <h2 id="_1">共同的参数</h2>
 <p>这里有几个共同的参数：</p>
 <ul>
 <li>
-<p><code>a</code>：一个<code>array-like</code>类型的实例，它不一定是数组，可以为<code>list</code>、<code>tuple</code>、<code>list of tuple</code>、<code>list of list</code>、<code>tuple of list</code>、<code>tuple of tuple</code>等等。</p>
+<p><strong><code>a</code></strong>：一个 <code>array-like</code> 类型的对象，它不一定是数组，可以为<code>list</code>、<code>tuple</code>、<code>list of tuple</code>、<code>list of list</code>、<code>tuple of list</code>、<code>tuple of tuple</code>等等。</p>
 </li>
 <li>
-<p><code>dtype</code>：数组的值类型，默认为<code>float</code>。你可以指定Python的标准数值类型，也可以使用<code>numpy</code>的数值类型如：<code>numpy.int32</code>或者<code>numpy.float64</code>等等。</p>
+<p><strong><code>dtype</code></strong>：数组的值类型，默认为<code>float</code>。可以指定为 Python 的内置的值类型，也可以使用 numpy 的数值类型，如<code>numpy.int32</code>、<code>numpy.float64</code>等等。</p>
 </li>
 <li>
-<p><code>order</code>：指定存储多维数据的方式。</p>
+<p><strong><code>order</code></strong>：指定数组的内存布局，如果 object 是一个数组，则<code>'C'</code>、<code>'F'</code>参数可用，如果 object 不是数组，则以下四个参数都可用，默认值为<code>'C'</code>。</p>
 <ul>
-<li>
-<p><code>'C'</code>，表示按行优先存储（C风格）；</p>
-</li>
-<li>
-<p><code>'F'</code>，表示按列优先存储（Fortran风格）。</p>
-</li>
-<li>
-<p>对于<code>**_like()</code>函数，<code>order</code>可以为：<code>'C'</code>，<code>'F'</code>，<code>'A'</code>（表示结果的order与a相同），<code>'K'</code>（表示结果的<code>order</code>与<code>a</code>尽可能相似）</p>
-</li>
+<li><code>'C'</code>：按行存储（C风格）</li>
+<li><code>'F'</code>：按列存储（Fortran风格）</li>
+<li><code>'A'</code>：内存布局与 object 相同</li>
+<li><code>'K'</code>：内存布局与 object 尽可能相似</li>
 </ul>
 </li>
 <li>
-<p><code>subok</code>：<code>bool</code>值。如果为<code>True</code>则：如果<code>a</code>为<code>ndarray</code>的子类（如<code>matrix</code>类），则结果类型与<code>a</code>类型相同。如果为<code>False</code>则：结果类型始终为<code>ndarray</code>。默认为True。</p>
+<p><strong><code>subok</code></strong>：<code>bool</code>. 当<code>subok=True</code>，如果<code>a</code>为<code>ndarray</code>的子类（如<code>matrix</code>类），则新创建的数组与<code>a</code>类型相同。当<code>subok=False</code>，新创建的数组的类型始终为<code>ndarray</code>。默认为<code>False</code>。</p>
 </li>
 </ul>
 <h2 id="_2">从现有的数据创建</h2>
-<p>1 <strong><code>np.array(object[, dtype, copy, order, subok, ndmin])</code></strong>：从<code>object</code>创建。</p>
+<details class="abstract" open="open"><summary><strong><code>np.array(object, dtype=None, *, copy=True, order='K', subok=False, ndmin=0)</code></strong></summary><p><strong>从 <code>object</code> 创建 array。</strong></p>
 <ul>
-<li>
-<p><code>object</code>可以是一个<code>ndarray</code>，也可以是一个<code>array_like</code>的对象，也可以是一个含有返回一个序列或者<code>ndarray</code>的<code>__array__</code>方法的对象，或者一个序列。</p>
-</li>
-<li>
-<p><code>copy</code>：默认为<code>True</code>，表示拷贝对象</p>
-</li>
-<li>
-<p><code>order</code>可以为<code>'C'、'F'、'A'</code>。默认为<code>'K'</code>。</p>
-</li>
-<li>
-<p><code>subok</code>默认为<code>False</code></p>
-</li>
-<li>
-<p><code>ndmin</code>：指定结果<code>ndarray</code>最少有多少个维度。</p>
-</li>
+<li><code>object</code>：可以是数组对象、嵌套序列、一个有<code>__array__</code>方法的对象，该方法返回 array 或者 array-like 对象。</li>
+<li><code>copy</code>：默认为<code>True</code>，表示拷贝对象，若为<code>False</code>，则仅当传入非 array 对象、<code>__array__</code>方法返回副本、需要满足<code>dtype</code>、<code>order</code>参数时才会拷贝。</li>
+<li><code>ndmin</code>：指定结果<code>ndarray</code>最少有多少个维度。</li>
 </ul>
-<p>2 <strong><code>np.asarray(a[, dtype, order])</code></strong>：将<code>a</code>转换成一个<code>ndarray</code>。其中<code>a</code>是<code>array_like</code>的对象， 可以是<code>list</code>、<code>list of tuple</code>、<code>tuple</code>、<code>tuple of list</code>、<code>ndarray</code>类型。<code>order</code>默认为<code>C</code>。</p>
-<p>3 <strong><code>np.asanyarray(a[, dtype, order])</code></strong>：将<code>a</code>转换成<code>ndarray</code>。</p>
-<p>4 <strong><code>np.ascontiguousarray(a[, dtype])</code></strong> ：返回C风格的连续<code>ndarray</code>。</p>
-<p>5 <strong><code>np.copy(a[, order])</code></strong>：返回<code>ndarray</code>的一份深拷贝。</p>
-<blockquote>
-<p>以上5个方法实际上都是调用了<code>array()</code>的接口。</p>
-</blockquote>
-<div class="highlight"><pre><span></span><code><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">()</span>
-<span class="c1"># array(a, dtype, copy=False, order=order)</span>
-<span class="n">np</span><span class="o">.</span><span class="n">asanyarray</span><span class="p">()</span>
-<span class="c1"># array(a, dtype, copy=False, order=order, subok=True)</span>
-<span class="n">np</span><span class="o">.</span><span class="n">ascontiguousarray</span><span class="p">()</span>
-<span class="c1"># array(a, dtype, copy=False, order=&#39;C&#39;, ndmin=1)</span>
-<span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="c1"># array(a, order=order, copy=True)</span>
+</details>
+<div class="admonition abstract">
+<p class="admonition-title"><strong><code>np.asarray(a, dtype=None, order=None)</code></strong> - 将 <code>a</code> 转换为 <code>ndarray</code></p>
+<div class="highlight"><pre><span></span><code><span class="k">return</span> <span class="n">array</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">dtype</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="n">order</span><span class="p">)</span>
 </code></pre></div>
-<p>6 <strong><code>np.asmatrix(data[, dtype])</code></strong>：返回<code>matrix</code> 。</p>
-<p>7 <strong><code>np.frombuffer(buffer[, dtype, count, offset])</code></strong>：从输入数据中返回一维<code>ndarray</code>。<code>count</code>指定读取的数量，<code>-1</code>表示全部读取；<code>offset</code>指定从哪里开始读取，默认为0。<mark>创建的数组与<code>buffer</code>共享内存。</mark><code>buffer</code>是一个提供了<code>buffer</code>接口的对象（<strong>内置的<code>bytes/bytearray/array.array</code>类型提供了该接口</strong>）。</p>
+</div>
+<div class="admonition abstract">
+<p class="admonition-title"><strong><code>np.asanyarray(a, dtype=None, order=None)</code></strong> - 将 <code>a</code> 转换为 <code>ndarray</code></p>
+<div class="highlight"><pre><span></span><code><span class="k">return</span> <span class="n">array</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">dtype</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="n">order</span><span class="p">,</span> <span class="n">subok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
+<p><code>np.asanyarray</code>与<code>np.asarray</code>的区别在于 <code>subok</code> 参数。</p>
+</div>
+<div class="admonition abstract">
+<p class="admonition-title"><strong><code>np.ascontiguousarray(a, dtype=None)</code></strong> - 返回 C 风格的连续 <code>ndarray</code></p>
+<div class="highlight"><pre><span></span><code><span class="k">return</span> <span class="n">array</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">dtype</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="n">ndmin</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div>
+<p>返回的数组的 <code>ndim</code> 至少是1维的，即对于标量，不保留 0-d 数组。</p>
+</div>
+<div class="admonition abstract">
+<p class="admonition-title"><strong><code>np.copy(a, order='K', subok=False)</code></strong> - 返回 <code>a</code> 的深拷贝</p>
+<div class="highlight"><pre><span></span><code><span class="k">return</span> <span class="n">array</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="n">order</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="admonition abstract">
+<p class="admonition-title"><strong><code>np.asmatrix(data, dtype=None)</code></strong> - 返回 <code>matrix</code></p>
+<p>等价于以下代码
+<div class="highlight"><pre><span></span><code><span class="n">matrix</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</code></pre></div></p>
+</div>
+<div class="admonition abstract">
+<p class="admonition-title"><strong><code>np.frombuffer(buffer, dtype=float, count=-1, offset=0)</code></strong></p>
+<p><strong>从 buffer 中返回一维的 <code>ndarray</code></strong>，创建的数组与 buffer 对象共享内存。</p>
+<ul>
+<li><code>buffer</code>：一个有 buffer 接口的对象。内置的 <code>bytes/bytearray/array.array</code> 类型提供了该接口。</li>
+<li><code>count</code>：指定读取的数量，<code>-1</code>表示读取 buffer 的全部数据。</li>
+<li><code>offset</code>：指定从哪里开始读取，以 bytes 为单位，默认为 0。</li>
+</ul>
+</div>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">array</span> <span class="kn">import</span> <span class="n">array</span>
 <span class="c1"># array.array 提供了类似list对象的内存机制</span>
 
@@ -2093,25 +2097,41 @@ na: [1. 2. 3. 4.]
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>array(&#39;d&#39;, [1.0, 20.0, 3.0, 4.0])
 </code></pre></div>
-<p>8 <strong><code>np.fromfile(file[, dtype, count, sep])</code></strong> ：从二进制文件或者文本文件中读取数据返回<code>ndarray</code>。<code>sep</code>：当从文本文件中读取时，数值之间的分隔字符串，如果<code>sep</code>是空字符串则表示文件应该作为二进制文件读取；如果<code>sep</code>为<code>" "</code>表示可以匹配0个或者多个空白字符。</p>
-<p>9 <strong><code>np.fromfunction(function, shape, \**kwargs)</code></strong>：返回一个<code>ndarray</code>。function会获取每一个坐标点的数据，作为输入参数。假设<code>shape</code>的维度为N，那么<code>function</code>带有<code>N</code>个参数，<code>fn(x1,x2,...x_N)</code>，其返回值就是该坐标点的值。</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">fun</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span>
+<div class="admonition abstract">
+<p class="admonition-title"><strong><code>np.fromfile(file, dtype=float, count=-1, sep='', offset=0)</code></strong></p>
+<p><strong>从二进制文件或者文本文件中的数据构造 <code>ndarray</code>。</strong></p>
+<ul>
+<li><code>sep</code>：当从文本文件中读取时，数值之间的分隔符。如果<code>sep</code>是空字符串则表示文件应该作为二进制文件读取；如果<code>sep</code>为<code>" "</code>表示可以匹配0个或者多个空白字符。</li>
+</ul>
+</div>
+<div class="admonition abstract">
+<p class="admonition-title"><strong><code>np.fromfunction(function, shape, *, dtype=float, **kwargs)</code></strong></p>
+<p><code>function</code> 会获取每一个坐标点的数据，作为输入参数。假设 <code>shape</code> 的维度为 <code>N</code>，那么 <code>function</code> 将有 <code>N</code> 个参数，<code>function(x1,x2,...x_N)</code>作为该坐标点的值。</p>
+</div>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">fun</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>
 
-<span class="n">np</span><span class="o">.</span><span class="n">fromfunction</span><span class="p">(</span><span class="n">fun</span><span class="p">,</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">np</span><span class="o">.</span><span class="n">fromfunction</span><span class="p">(</span><span class="n">fun</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>array([[0., 1., 2.],
        [1., 2., 3.],
        [2., 3., 4.]])
 </code></pre></div>
-<p>10 <strong><code>np.fromiter(iterable, dtype[, count])</code></strong>：从可迭代对象中迭代获取数据创建一维<code>ndarray</code>。</p>
-<div class="highlight"><pre><span></span><code><span class="n">np</span><span class="o">.</span><span class="n">fromiter</span><span class="p">(</span><span class="s2">&quot;123&quot;</span><span class="p">,</span><span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;int64&quot;</span><span class="p">)</span>
+<div class="admonition abstract">
+<p class="admonition-title"><strong><code>np.fromiter(iterable, dtype, count=-1)</code></strong> - 从可迭代对象创建 1-d 的数组</p>
+</div>
+<div class="highlight"><pre><span></span><code><span class="n">np</span><span class="o">.</span><span class="n">fromiter</span><span class="p">(</span><span class="s2">&quot;123&quot;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">&quot;int64&quot;</span><span class="p">)</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>array([1, 2, 3], dtype=int64)
 </code></pre></div>
-<p>11 <strong><code>np.fromstring(string[, dtype, count, sep])</code></strong>：从字符串或者<code>raw binary</code>中创建一维<code>ndarray</code>。如果<code>sep</code>为空字符串则<code>string</code>将按照二进制数据解释（即每个字符作为<code>ASCII</code>码值对待）。创建的数组有自己的数据存储区。</p>
+<div class="admonition abstract">
+<p class="admonition-title"><strong><code>np.fromiter(string, dtype=float, count=-1, sep='')</code></strong> - 从字符串或者<code>raw binary</code>中创建 1-d 数组</p>
+<ul>
+<li><code>sep</code>：如果<code>sep=""</code>，则 <code>string</code> 将按照二进制数据解释（即每个字符作为<code>ASCII</code>码值对待），<ins>不建议</ins> 触发二进制模式。创建的数组有自己的数据存储区。</li>
+</ul>
+</div>
 <div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="s2">&quot;abcdefg&quot;</span>
-<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fromstring</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int8</span><span class="p">)</span> <span class="c1"># 将每个字符的ASCII编码解释为整数</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fromstring</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int8</span><span class="p">)</span>  <span class="c1"># 将每个字符的ASCII编码解释为整数</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 
 <span class="n">a</span> <span class="o">=</span> <span class="s2">&quot;1;2;3;4;5&quot;</span>
@@ -2120,41 +2140,100 @@ na: [1. 2. 3. 4.]
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>[ 97  98  99 100 101 102 103]
 [1 2 3 4 5]
-.\setup_m.py:2: DeprecationWarning: The binary mode of fromstring is
-deprecated, as it behaves surprisingly on unicode inputs. Use
-frombuffer instead
-  from datetime import datetime
+&lt;ipython-input-1-83e435a96de1&gt;:2: DeprecationWarning: The binary mode
+of fromstring is deprecated, as it behaves surprisingly on unicode
+inputs. Use frombuffer instead
+  a = np.fromstring(a, dtype=np.int8)  # 将每个字符的ASCII编码解释为整数
 </code></pre></div>
-<p>12 <strong><code>np.loadtxt(fname[, dtype, comments, delimiter, ...])</code></strong>:从文本文件中加载数据创建<code>ndarray</code>，要求文本文件每一行都有相同数量的数值。<code>comments</code>：指示注释行的起始字符，可以为单个字符或者字符列表（默认为<code>#</code>）。<code>delimiter</code>:指定数值之间的分隔字符串，默认为空白符。<code>converters</code>：将指定列号(0,1,2...)的列数据执行转换，是一个<code>map</code>，如<code>{0:func1}</code>表示对第一列数据执行<code>func1(val_0)</code>。<code>skiprows</code>：指定跳过开头的多少行。<code>usecols</code>：指定读取那些列（0表示第一列）。</p>
-<h2 id="_3">从数值区间创建</h2>
-<p>1 <strong><code>np.arange([start,] stop[, step,][, dtype])</code></strong>:返回均匀间隔的值组成的一维<code>ndarray</code>。区间是半闭半开的<code>[start,stop)</code>，其采样行为类似Python的<code>range</code>函数。<code>start</code>为开始点，<code>stop</code>为终止点，<code>step</code>为步长，默认为1。这几个数可以为整数可以为浮点数。<mark>注意如果<code>step</code>为浮点数，则结果可能有误差，因为浮点数相等比较不准确（计算机精度有限）。</mark></p>
-<p>2 <strong><code>np.linspace(start, stop[, num, endpoint, ...])</code></strong> ：返回<code>num</code>个均匀采样的数值组成的一维<code>ndarray</code>（默认为50）。区间是闭区间<code>[start,stop]</code>。<code>endpoint</code>为布尔值，如果为真则表示<code>stop</code>是最后采样的值（默认为<code>True</code>），否则结果不包含<code>stop</code>。<code>retstep</code>如果为<code>True</code>则返回结果包含采样步长<code>step</code>，默认为<code>True</code>。</p>
-<p>3 <strong><code>np.logspace(start, stop[, num, endpoint, base, ...])</code></strong>：返回对数级别上均匀采样的数值组成的一维<code>ndarray</code>。采样点开始于<code>base^start</code>，结束于<code>base^stop</code>。<code>base</code>为对数的基，默认为 10。</p>
+<div class="admonition abstract">
+<p class="admonition-title"><strong><code>np.loadtxt</code></strong> - 从文本文件中加载数组</p>
+<div class="highlight"><pre><span></span><code><span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=&lt;</span><span class="k">class</span> <span class="err">&#39;</span><span class="nc">float</span><span class="s1">&#39;&gt;, comments=&#39;</span><span class="c1">#&#39;, delimiter=None,</span>
+           <span class="n">converters</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">unpack</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ndmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+           <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;bytes&#39;</span><span class="p">,</span> <span class="n">max_rows</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</code></pre></div>
+<p>要求文本文件每一行都有相同数量的数值</p>
 <ul>
-<li>它逻辑上相当于先执行<code>arange</code>获取数组<code>array</code>，然后再执行<code>base^array[i]</code>获取采样点</li>
-<li>它没有<code>retstep</code> 关键字参数</li>
+<li><code>comments</code>：指示注释行的起始字符，可以为单个字符或者字符列表（默认为<code>#</code>）。</li>
+<li><code>delimiter</code>：指定数值之间的分隔字符串，默认为空白符。</li>
+<li><code>converters</code>：将指定列号 (0,1,2...) 的列数据执行转换，是一个<code>map</code>，如<code>{0:func1}</code>表示对第一列数据执行<code>func1(val_0)</code>。</li>
+<li><code>skiprows</code>：指定跳过开头的多少行。</li>
+<li><code>usecols</code>：指定读取那些列（0表示第一列。</li>
 </ul>
+</div>
+<h2 id="_3">从数值区间创建</h2>
+<div class="admonition abstract">
+<p class="admonition-title"><strong><code>np.arange([start,] stop[, step,], dtype=None)</code></strong> - 返回均匀间隔的值组成的 1-d 数组</p>
+<p>区间是半闭半开的 <code>[start,stop)</code>，其行为类似 <code>range</code> 函数。<code>start</code>为开始点，<code>stop</code>为终止点，<code>step</code>为步长，默认为1。这三个参数可以是整数或浮点数。<mark>如果<code>step</code>为浮点数，结果可能有误差，因为浮点数相等比较不准确（计算机精度有限）。</mark></p>
+</div>
+<div class="admonition abstract">
+<p class="admonition-title"><strong><code>np.linspace(start, stop, num=50, endpoint=True, retstep=False, dtype=None, axis=0)</code></strong></p>
+<p><strong>返回<code>num</code>个均匀采样的数值组成的 1-d 数组</strong>，区间是闭区间<code>[start,stop]</code>。</p>
+<ul>
+<li><code>endpoint</code>：是否包含<code>stop</code>。</li>
+<li><code>retstep</code>：如果为<code>True</code>，则返回的结果包含采样步长 <code>step</code>。</li>
+<li><code>axis</code>：用于储存采样点的 axis，默认为 0，仅当 <code>start</code> 和 <code>stop</code> 是 array-like 时生效。于 1.9.0 版本加入。</li>
+</ul>
+</div>
+<div class="admonition abstract">
+<p class="admonition-title"><strong><code>np.logspace(start, stop, num=50, endpoint=True, base=10.0, dtype=None, axis=0)</code></strong></p>
+<p><strong>返回<code>num</code>个均匀采样的对数数值组成的 1-d 数组</strong>，采样点开始于<code>base^start</code>，结束于<code>base^stop</code>。辑上相当于先执行<code>arange</code>获取数组<code>array</code>，然后再执行<code>base^array[i]</code>获取采样点。</p>
+<ul>
+<li><code>base</code>：对数的底数。</li>
+<li><code>axis</code>：用于储存采样点的 axis，默认为 0，仅当 <code>start</code> 和 <code>stop</code> 是 array-like 时生效。</li>
+</ul>
+</div>
 <h2 id="_4">以填充的方式创建</h2>
-<p>1 <strong><code>np.empty(shape[,dtype,order])</code></strong>：返回一个新的<code>ndarray</code>，指定了<code>shape</code>和<code>dtype</code>，但是没有初始化元素。因此其内容是随机的。</p>
-<p>2 <strong><code>np.empty_like(a[,dtype,order,subok])</code></strong>：返回一个新的<code>ndarray</code>，<code>shape</code>与<code>a</code>相同，但是没有初始化元素。因此其内容是随机的。</p>
+<div class="admonition abstract">
+<p class="admonition-title"><strong><code>np.empty(shape, dtype=numpy.float64, order='C')</code></strong></p>
+<p><strong>根据指定的 <code>shape</code> 和 <code>dtype</code> 创建 array，但不初始化，其元素的值是随机的。</strong></p>
+</div>
+<div class="admonition abstract">
+<p class="admonition-title"><strong><code>np.empty_like(a, dtype=None, order='K', subok=True, shape=None)</code></strong></p>
+<p><strong>根据 <code>a</code> 的 <code>shape</code> 和 <code>dtype</code> 创建 array，但不初始化，其元素的值是随机的。</strong></p>
+</div>
+<div class="admonition abstract">
+<p class="admonition-title"><strong><code>np.zeros(shape, ...)</code></strong> - 类似 <code>np.empty</code>，但元素的初始值为 0</p>
+</div>
+<div class="admonition abstract">
+<p class="admonition-title"><strong><code>np.ones(shape, ...)</code></strong> - 类似 <code>np.empty</code>，但元素的初始值为 1</p>
+</div>
+<div class="admonition abstract">
+<p class="admonition-title"><strong><code>np.full(shape, fill_value, ...)</code></strong> - 类似 <code>np.empty</code>，但元素的初始值为 <code>fill_value</code></p>
+</div>
+<div class="admonition abstract">
+<p class="admonition-title"><strong><code>np.zeros_like(a, ...)</code></strong> - 类似 <code>np.empty_like</code>，但元素的初始值为 0</p>
+</div>
+<div class="admonition abstract">
+<p class="admonition-title"><strong><code>np.ones_like(a, ...)</code></strong> - 类似 <code>np.empty_like</code>，但元素的初始值为 1</p>
+</div>
+<div class="admonition abstract">
+<p class="admonition-title"><strong><code>np.full_like(a, fill_value, ...)</code></strong> - 类似 <code>np.empty_like</code>，但元素的初始值为 <code>fill_value</code></p>
+</div>
 <div class="highlight"><pre><span></span><code><span class="c1"># 内存未初始化</span>
-<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="n">order</span><span class="o">=</span><span class="s2">&quot;C&quot;</span><span class="p">)</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">order</span><span class="o">=</span><span class="s2">&quot;C&quot;</span><span class="p">)</span>
 
 <span class="c1"># 内存未初始化</span>
 <span class="n">np</span><span class="o">.</span><span class="n">empty_like</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>array([[0., 1.],
-       [2., 3.],
-       [4., 5.]])
+<div class="highlight"><pre><span></span><code>array([[0., 0.],
+       [0., 0.],
+       [0., 0.]])
 </code></pre></div>
-<p>3 <strong><code>np.eye(N[, M, k, dtype])</code></strong>：返回一个==二维数组==，对角线元素为1，其余元素为0。<code>M</code>默认等于<code>N</code>。<code>k</code>默认为0表示对角线元素为1，如为正数则表示对角线上方一格的元素为1，如为负数表示对角线下方一格的元素为1。</p>
-<p>4 <strong><code>np.identity(n[, dtype])</code></strong> ：返回一个单位矩阵。</p>
+<details class="abstract" open="open"><summary><strong><code>np.eye(N, M=None, k=0, dtype=float, order='C')</code></strong> - 返回一个 2-D 数组，对角线元素1，其余元素为0</summary><ul>
+<li><code>N</code>：行数</li>
+<li><code>M</code>：列数，若不传入<code>M</code>，则<code>N=M</code></li>
+<li><code>k</code>：<code>k=0</code>，主对角线元素为1；<code>k</code>为正整数，对应的上对角线元素为1；<code>k</code>为负整数，对应的下对角线元素为1</li>
+</ul>
+</details>
+<div class="admonition abstract">
+<p class="admonition-title"><strong><code>np.identity(n, dtype=None)</code></strong> - 返回一个单位矩阵</p>
+</div>
 <div class="highlight"><pre><span></span><code><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">N</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">M</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 
-<span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">N</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">M</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">k</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">N</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">M</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 
 <span class="c1"># 参数k是可以超出范围的</span>
-<span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">N</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span><span class="n">M</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span><span class="n">k</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">N</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">M</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="c1"># 返回n阶单位矩阵</span>
 <span class="n">np</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
@@ -2163,17 +2242,6 @@ frombuffer instead
        [0., 1., 0., 0.],
        [0., 0., 1., 0.],
        [0., 0., 0., 1.]])
-</code></pre></div>
-<p>5 <strong><code>np.ones(shape[, dtype, order])</code></strong>：返回一个新的<code>ndarray</code>，指定了<code>shape</code>和<code>type</code>，每个元素初始化为1.</p>
-<p>6 <strong><code>np.ones_like(a[, dtype, order, subok])</code></strong> ：返回一个新的<code>ndarray</code>，<code>shape</code>与<code>a</code>相同，每个元素初始化为1。</p>
-<p>7 <strong><code>np.zeros(shape[, dtype, order])</code></strong>：返回一个新的<code>ndarray</code>，指定了<code>shape</code>和<code>type</code>，每个元素初始化为0.</p>
-<p>8 <strong><code>np.zeros_like(a[, dtype, order, subok])</code></strong>：返回一个新的<code>ndarray</code>，<code>shape</code>与<code>a</code>（另一个数组）相同，每个元素初始化为0。</p>
-<p>9 <strong><code>np.full(shape, fill_value[, dtype, order])</code></strong>：返回一个新的<code>ndarray</code>，指定了<code>shape</code>和<code>type</code>，每个元素初始化为<code>fill_value</code>。</p>
-<p>10 <strong><code>np.full_like(a, fill_value[, dtype, order, subok])</code></strong>：返回一个新的<code>ndarray</code>，<code>shape</code>与<code>a</code>相同，每个元素初始化为<code>fill_value</code>。</p>
-<div class="highlight"><pre><span></span><code><span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span><span class="n">fill_value</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>array([[2, 2, 2],
-       [2, 2, 2]])
 </code></pre></div>
                 
               
