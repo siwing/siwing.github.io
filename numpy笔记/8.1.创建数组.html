@@ -2006,12 +2006,13 @@
                   <h1>8.1.创建数组</h1>
                 
                 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pprint</span>
 <span class="kn">from</span> <span class="nn">toolkit</span> <span class="kn">import</span> <span class="n">H</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>Windows 10
 Python 3.8.5 @ MSC v.1916 64 bit (AMD64)
-Latest build date 2020.11.23
-numpy version:  1.19.4
+Latest build date 2020.11.24
+numpy version:  1.18.5
 </code></pre></div>
 <h2 id="_1">共同的参数</h2>
 <p>这里有几个共同的参数：</p>
@@ -2081,27 +2082,27 @@ numpy version:  1.19.4
 </ul>
 </div>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">array</span> <span class="kn">import</span> <span class="n">array</span>
-<span class="c1"># array.array 提供了类似list对象的内存机制</span>
 
+<span class="c1"># array.array 提供了类似list对象的内存机制</span>
 <span class="c1"># 创建一个array数组</span>
-<span class="n">a</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span><span class="s2">&quot;d&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
-<span class="c1"># 通过np.frombuffer()创建一个和a共享内存的NumPy数组</span>
-<span class="n">na</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">frombuffer</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float</span><span class="p">)</span> 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a:&quot;</span><span class="p">,</span><span class="n">a</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;na:&quot;</span><span class="p">,</span><span class="n">na</span><span class="p">)</span>
-<span class="n">na</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">20</span> <span class="c1"># 修改NumPy数组中的第一个元素</span>
-<span class="n">a</span> <span class="c1"># array数组中的第一个元素也同时改变</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">array</span><span class="p">(</span><span class="s2">&quot;d&quot;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="c1"># 通过 np.frombuffer 创建一个和 a 共享内存的 NumPy 数组</span>
+<span class="n">na</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">frombuffer</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a:&quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;na:&quot;</span><span class="p">,</span> <span class="n">na</span><span class="p">)</span>
+<span class="n">na</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">20</span>      <span class="c1"># 修改NumPy数组中的第一个元素</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a:&quot;</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>  <span class="c1"># array数组中的第一个元素也同时改变</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>a: array(&#39;d&#39;, [1.0, 2.0, 3.0, 4.0])
 na: [1. 2. 3. 4.]
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>array(&#39;d&#39;, [1.0, 20.0, 3.0, 4.0])
+a: array(&#39;d&#39;, [1.0, 20.0, 3.0, 4.0])
 </code></pre></div>
 <div class="admonition abstract">
 <p class="admonition-title"><strong><code>np.fromfile(file, dtype=float, count=-1, sep='', offset=0)</code></strong></p>
 <p><strong>从二进制文件或者文本文件中的数据构造 <code>ndarray</code>。</strong></p>
 <ul>
-<li><code>sep</code>：当从文本文件中读取时，数值之间的分隔符。如果<code>sep</code>是空字符串则表示文件应该作为二进制文件读取；如果<code>sep</code>为<code>" "</code>表示可以匹配0个或者多个空白字符。</li>
+<li><code>sep</code>：当从文本文件中读取时，数值之间的分隔符。
+  如果<code>sep</code>是空字符串则表示文件应该作为二进制文件读取；如果<code>sep</code>为<code>" "</code>表示可以匹配0个或者多个空白字符。</li>
 </ul>
 </div>
 <div class="admonition abstract">
@@ -2125,13 +2126,17 @@ na: [1. 2. 3. 4.]
 <div class="highlight"><pre><span></span><code>array([1, 2, 3], dtype=int64)
 </code></pre></div>
 <div class="admonition abstract">
-<p class="admonition-title"><strong><code>np.fromiter(string, dtype=float, count=-1, sep='')</code></strong> - 从字符串或者<code>raw binary</code>中创建 1-d 数组</p>
+<p class="admonition-title"><strong><code>np.fromstring(string, dtype=float, count=-1, sep='')</code></strong> - 从字符串或者<code>raw binary</code>中创建 1-d 数组</p>
 <ul>
-<li><code>sep</code>：如果<code>sep=""</code>，则 <code>string</code> 将按照二进制数据解释（即每个字符作为<code>ASCII</code>码值对待），<ins>不建议</ins> 触发二进制模式。创建的数组有自己的数据存储区。</li>
+<li><code>sep</code>：如果<code>sep=""</code>，则 <code>string</code> 将按照二进制数据解释（即每个字符作为<code>ASCII</code>码值对待），</li>
 </ul>
 </div>
-<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="s2">&quot;abcdefg&quot;</span>
-<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fromstring</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int8</span><span class="p">)</span>  <span class="c1"># 将每个字符的ASCII编码解释为整数</span>
+<div class="highlight"><pre><span></span><code><span class="c1">#      ^^不建议^^ 触发二进制模式。创建的数组有自己的数据存储区。</span>
+
+
+<span class="n">a</span> <span class="o">=</span> <span class="s2">&quot;abcdefg&quot;</span>
+<span class="c1"># 触发二进制模式, 每个字符的ASCII编码被解释为整数</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fromstring</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int8</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 
 <span class="n">a</span> <span class="o">=</span> <span class="s2">&quot;1;2;3;4;5&quot;</span>
@@ -2140,10 +2145,10 @@ na: [1. 2. 3. 4.]
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>[ 97  98  99 100 101 102 103]
 [1 2 3 4 5]
-&lt;ipython-input-1-83e435a96de1&gt;:2: DeprecationWarning: The binary mode
+&lt;ipython-input-1-8ceafa637bdf&gt;:6: DeprecationWarning: The binary mode
 of fromstring is deprecated, as it behaves surprisingly on unicode
 inputs. Use frombuffer instead
-  a = np.fromstring(a, dtype=np.int8)  # 将每个字符的ASCII编码解释为整数
+  a = np.fromstring(a, dtype=np.int8)
 </code></pre></div>
 <div class="admonition abstract">
 <p class="admonition-title"><strong><code>np.loadtxt</code></strong> - 从文本文件中加载数组</p>
@@ -2171,7 +2176,7 @@ inputs. Use frombuffer instead
 <ul>
 <li><code>endpoint</code>：是否包含<code>stop</code>。</li>
 <li><code>retstep</code>：如果为<code>True</code>，则返回的结果包含采样步长 <code>step</code>。</li>
-<li><code>axis</code>：用于储存采样点的 axis，默认为 0，仅当 <code>start</code> 和 <code>stop</code> 是 array-like 时生效。于 1.9.0 版本加入。</li>
+<li><code>axis</code>：用于储存采样点的 axis，默认为 0，仅当 <code>start</code> 和 <code>stop</code> 是 array-like 时生效。于 1.16.0 版本加入。</li>
 </ul>
 </div>
 <div class="admonition abstract">
@@ -2215,9 +2220,9 @@ inputs. Use frombuffer instead
 <span class="c1"># 内存未初始化</span>
 <span class="n">np</span><span class="o">.</span><span class="n">empty_like</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>array([[0., 0.],
+<div class="highlight"><pre><span></span><code>array([[0., 1.],
        [0., 0.],
-       [0., 0.]])
+       [0., 1.]])
 </code></pre></div>
 <details class="abstract" open="open"><summary><strong><code>np.eye(N, M=None, k=0, dtype=float, order='C')</code></strong> - 返回一个 2-D 数组，对角线元素1，其余元素为0</summary><ul>
 <li><code>N</code>：行数</li>
@@ -2225,24 +2230,20 @@ inputs. Use frombuffer instead
 <li><code>k</code>：<code>k=0</code>，主对角线元素为1；<code>k</code>为正整数，对应的上对角线元素为1；<code>k</code>为负整数，对应的下对角线元素为1</li>
 </ul>
 </details>
+<div class="highlight"><pre><span></span><code><span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">N</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">M</span><span class="o">=</span><span class="mi">3</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="c1"># 参数 k 是可以超出范围的</span>
+<span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">N</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">M</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>array([[1., 0., 0.],
+       [0., 1., 0.]])
+
+array([[0., 1., 0.],
+       [0., 0., 1.]])
+</code></pre></div>
 <div class="admonition abstract">
 <p class="admonition-title"><strong><code>np.identity(n, dtype=None)</code></strong> - 返回一个单位矩阵</p>
 </div>
-<div class="highlight"><pre><span></span><code><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">N</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">M</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-
-<span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">N</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">M</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-
-<span class="c1"># 参数k是可以超出范围的</span>
-<span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">N</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">M</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-
-<span class="c1"># 返回n阶单位矩阵</span>
-<span class="n">np</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>array([[1., 0., 0., 0.],
-       [0., 1., 0., 0.],
-       [0., 0., 1., 0.],
-       [0., 0., 0., 1.]])
-</code></pre></div>
                 
               
               
