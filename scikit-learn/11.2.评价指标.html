@@ -2939,7 +2939,7 @@ $$</p>
 </code></pre></div>
 <p>Brier分数最常见的表述是</p>
 <p>$$
-B S=\frac{1}{N} \sum_{t=1}<sup>{N}\left(f_{t}-o_{t}\right)</sup>{2}
+B S=\frac{1}{N} \sum_{t=1}<sup 2="2">{N}\left(f_{t}-o_{t}\right)</sup>
 $$</p>
 <p>其中，$f_{t}$是被预测的概率，$o_{t}$是事件在$t$时刻的实际结果（$o_{t}=0$ 事件没有发生，$o_{t}=1$ 事件发生），$N$是预测实例数。实际上，<mark>Brier分数就是所有样本的<strong>预测概率</strong>与<strong>实际结果</strong>之间的均方差。</mark> Brier分数越小越好，因此命名为“ loss”。Brier分数的取值范围在0到1之间。此公式主要用于二分类任务，但 Brier 分数的<a href="https://en.wikipedia.org/wiki/Brier_score">原始定义</a>是适用于多分类任务的。</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">brier_score_loss</span>

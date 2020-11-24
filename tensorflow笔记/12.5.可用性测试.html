@@ -1978,18 +1978,18 @@
                   <h1>12.5.可用性测试</h1>
                 
                 <div class="highlight"><pre><span></span><code>Windows 10
-Python 3.7.3 @ MSC v.1915 64 bit (AMD64)
-Latest build date 2020.07.05
-tensorflow version:  2.1.0
+Python 3.7.7 @ MSC v.1916 64 bit (AMD64)
+Latest build date 2020.11.24
+tensorflow version:  2.3.0
 </code></pre></div>
 <h2 id="gpu">GPU 可用性</h2>
 <div class="highlight"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">test</span><span class="o">.</span><span class="n">is_gpu_available</span><span class="p">()</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>True
+<div class="highlight"><pre><span></span><code>False
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">list_physical_devices</span><span class="p">(</span><span class="s1">&#39;GPU&#39;</span><span class="p">)</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>[PhysicalDevice(name=&#39;/physical_device:GPU:0&#39;, device_type=&#39;GPU&#39;)]
+<div class="highlight"><pre><span></span><code>[]
 </code></pre></div>
 <h2 id="_1">列出机器的设备</h2>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">tensorflow.python.client</span> <span class="kn">import</span> <span class="n">device_lib</span>
@@ -2001,18 +2001,14 @@ tensorflow version:  2.1.0
  memory_limit: 268435456
  locality {
  }
- incarnation: 7710546385867792167,
- name: &quot;/device:GPU:0&quot;
- device_type: &quot;GPU&quot;
- memory_limit: 1476660428
+ incarnation: 4080453835617195724,
+ name: &quot;/device:XLA_CPU:0&quot;
+ device_type: &quot;XLA_CPU&quot;
+ memory_limit: 17179869184
  locality {
-   bus_id: 1
-   links {
-   }
  }
- incarnation: 1747881584002689909
- physical_device_desc: &quot;device: 0, name: GeForce 920M, pci bus id:
-0000:04:00.0, compute capability: 3.5&quot;]
+ incarnation: 8714737271474518214
+ physical_device_desc: &quot;device: XLA_CPU device&quot;]
 </code></pre></div>
                 
               
