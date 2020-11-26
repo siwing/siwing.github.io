@@ -56,11 +56,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#_1" class="md-skip">
-          跳转至
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -980,57 +975,9 @@
     <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
     
     
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        8.2.索引
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-    
     <a href="8.2.%E7%B4%A2%E5%BC%95.html" class="md-nav__link md-nav__link--active">
       8.2.索引
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    一维数组的索引
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    多维数组的索引
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    进阶说明
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    索引的维度变换
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
     
   </li>
 
@@ -1944,55 +1891,6 @@
               </div>
             
             
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-<nav class="md-nav md-nav--secondary" aria-label="目录">
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      目录
-    </label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    一维数组的索引
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    多维数组的索引
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    进阶说明
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    索引的维度变换
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-                  </div>
-                </div>
-              </div>
-            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
@@ -2007,210 +1905,268 @@
                 
                 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">copy</span>
+<span class="kn">import</span> <span class="nn">pprint</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>Windows 10
-Python 3.7.3 @ MSC v.1915 64 bit (AMD64)
-Latest build date 2020.03.28
-numpy version:  1.18.1
+Python 3.8.5 @ MSC v.1916 64 bit (AMD64)
+Latest build date 2020.11.26
+numpy version:  1.18.5
 </code></pre></div>
-<p><code>ndarrays</code>可以使用标准<code>Python x[obj]</code>语法对其进行索引 ，其中<code>x</code>是数组，<code>obj</code>是索引。有三种可用的索引，哪一个发生取决于<code>obj</code>：</p>
+<p>Numpy 数组的索引功能很强大，但多样的索引也带来了复杂性和混乱性。新手可以很快地开始使用 Numpy 索引，但可能难以区分各种索引的情况。虽然，网上有很多关于 Numpy 数组索的资料，也有很多代码示例，但几乎都是比较简单的说明，大部分代码示例只会让人在简单与混乱之间徘徊。Numpy 索引的官方用户指南当然是很好的资料，但大多都是必要或细节性的说明。这里尝试对所有情况做一个简单但不失全面性的总结。</p>
+<p>可以使用 Python 的 <code>array[index]</code> 语法对 ndarray 进行索引。假设 ndarray 是 N 维数组，其索引的形式为 <code>array[idx1, idx2, ..., idxN]</code>，即每个轴都有一个索引。</p>
+<div class="admonition note">
+<p class="admonition-title">在 Python 中，<code>x[(exp1, exp2, ..., EXPN)]</code> 等同于 <code>x[exp1, exp2, ..., EXPN]</code>。后者只是前者的语法糖。</p>
+</div>
+<p>这里将 <code>(idx1，idx2，.，idxN)</code> 称为索引元组，<code>idxN</code>直接称为索引或索引对象。Numpy 数组的索引 <code>idxN</code> 可以是以下 7 种对象（形式）：</p>
 <ol>
-<li>字段访问（结构数组）</li>
-<li>基本切片</li>
-<li>高级索引（整数索引、布尔索引）</li>
+<li>整数</li>
+<li>切片（<code>slice</code>、<code>:</code>）</li>
+<li>整数序列</li>
+<li>整数数组</li>
+<li>布尔数组</li>
+<li><code>None</code>、<code>np.newaxis</code></li>
+<li>Ellipsis（<code>...</code>）</li>
 </ol>
-<p><mark><strong>在 Python 中，<code>x[(exp1，exp2，.，EXPN)]</code> 等同于 <code>x[exp1，exp2，.，EXPN]</code>。后者只是前者的语法糖。</strong></mark></p>
-<div class="highlight"><pre><span></span><code><span class="c1"># 创建一个一维数组</span>
-<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
-<span class="c1"># 创建一个二维数组 </span>
-<span class="n">b</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">5</span><span class="p">)))</span>
-<span class="c1"># 创建一个三维数组</span>
-<span class="n">c</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">10</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)))</span>
-
-
-<span class="c1"># x = np.array([[1,2,3],[4,5,6]], dtype=[(&#39;a&#39;, np.int32), (&#39;b&#39;, np.float64)])</span>
-
-<span class="c1"># x = np.zeros((2,2), dtype=[(&#39;a&#39;, np.int32), (&#39;b&#39;, np.float64, (3,3))])</span>
-</code></pre></div>
-<h2 id="_1">一维数组的索引</h2>
-<p>一维数组的索引和列表相同。假设<code>A</code>是一维数组，那么有以下5种使用索引的情况：</p>
-<ul>
-<li>
-<p>可以指定一个<strong>整数</strong><code>i</code>作为索引下标，如<code>A[i]</code>。</p>
-</li>
-<li>
-<p>可以指定一个<strong>切片</strong>作为索引下标，如<code>A[i:j]</code>，等价于<code>A[slice(i,j)]</code>。</p>
-</li>
-<li>
-<p>可以指定一个<strong>整数list</strong>对数组进行存取，如<code>A[[i,j,z]]</code>。此时会将列表中的每个整数作为下标<code>(i/j/z)</code>，使用列表作为下标得到的数组为 <code>np.array([A[i],A[j],A[z]])</code>，它不和原始数组共享内存。</p>
-</li>
-<li>
-<p>可以指定一个<strong>整数数组</strong>作为数组下标，如<code>A[B]</code>此时会得到一个形状和下标数组<code>B</code>相同的新数组。新数组的每个元素都是下标数组中对应位置的值作为下标从原始数组中获得的值。新数组不和原始数组共享数据。</p>
-</li>
-<li>
-<p>可以指定一个<strong>布尔数组</strong>作为数组下标，如<code>A[B]</code>。此时将获得数组<code>A</code>中与数组<code>B</code>中的<code>True</code>对应的元素。新数组不和原始数组共享数据。</p>
-</li>
-</ul>
-<div class="highlight"><pre><span></span><code><span class="c1"># 指定一个整数</span>
-<span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># OWNDATA : True</span>
-<span class="c1">## 等价于</span>
-<span class="n">a</span><span class="p">[(</span><span class="mi">1</span><span class="p">)]</span> <span class="c1"># OWNDATA : True</span>
-
-<span class="c1"># 指定切片</span>
-<span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">20</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="c1"># 返回视图</span>
-<span class="n">a</span><span class="p">[</span><span class="nb">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">2</span><span class="p">)]</span> <span class="c1"># 返回视图</span>
-
-<span class="c1"># 指定一个整数列表</span>
-<span class="n">a</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]]</span> <span class="c1"># OWNDATA : True</span>
-
-<span class="c1"># 指定一个整数数组</span>
-<span class="c1">## index是一维数组</span>
-<span class="n">index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
-<span class="n">a</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="c1"># OWNDATA : True</span>
-<span class="c1">## index是二维数组</span>
-<span class="n">index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">index</span><span class="p">])</span> <span class="c1"># OWNDATA : True</span>
-
-<span class="c1"># 指定一个布尔数组</span>
-<span class="c1">## 布尔数组的ndim需要和原数组相同</span>
-<span class="n">bool_a</span> <span class="o">=</span> <span class="n">a</span><span class="o">&gt;</span><span class="mi">50</span>
-<span class="n">bool_a</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">bool_a</span><span class="p">)</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>[[0 1 2]
- [3 4 5]]
-</code></pre></div>
-<h2 id="_2">多维数组的索引</h2>
-<p>多维数组使用<strong>元组</strong>作为数组的下标，如<code>A[1,2]</code>，当然你也可以添加圆括号为<code>A[(1,2)]</code>。实际上，一维数组也是如此，只是一维数组只有第 0 轴。</p>
-<p><mark><strong>下标元组</strong>中每个元素和数组的每个轴对应。</mark> 下标元组的第 0 个元素对应数组第 0 轴，第 1 个元素对应数组第 1 轴，第 2 个元素对应数组第 2 轴···</p>
-<p><mark>多维数组的下标必须是一个长度和数组的维度ndim相等的元组。</mark> </p>
+<blockquote>
+<p>序列索引和数组索引的标量元素只能为整数，因此下面将它们简称为序列索引和数组索引。</p>
+</blockquote>
+<p>假设 <code>A</code> 是一个 <code>N</code> 维数组，不同的索引对象具有不同的规则：</p>
 <ol>
+<li>整数索引意味着从对应的轴取出 1 个元素，因此，每多 1 个整数索引，索引结果就减少 1 个维度。</li>
+<li>N 维数组最多可以指定 N 个索引对象，但 <code>None</code> 可以突破这个限制；允许最多省略 N-1 个索引对象，即至少指定 1 个索引，省略的索引默认为切片 <code>:</code>。</li>
+<li>索引元组最多只能包含一个 <code>...</code>，<code>...</code> 代表其余轴的索引都为切片 <code>:</code>，这是 Numpy 的一个快捷方式。</li>
 <li>
-<p>如果下标元组的长度大于数组的维度ndim，则抛出<code>IndexError</code>。</p>
+<p><code>np.newaxis</code> 是 <code>None</code> 的别名，索引结果会在索引元组中出现 <code>None</code> 的地方创建一个新轴，该轴长度为 1。<code>None</code> 的数量不受 <code>N</code> 的限制，但不能无限多，因为 Numpy 数组最多只能有 32 个维度。</p>
 </li>
 <li>
-<p>如果下标元组的长度小于数组的维度ndim，则自动在元组的后面补<code>:</code>，使得下标元组的长度等于数组维度ndim。</p>
+<p>序列索引基于整数索引：</p>
+<ul>
+<li>给 <code>A</code> 指定 1 个整数序列索引，即 <code>A[[i, j, z]]</code>，这相当于 <code>np.array([A[i], A[j], A[z]])</code>；</li>
+<li>给 <code>A</code> 指定 2 个整数序列索引，即使<code>A[[a, b, c], [i, j, z]]</code>，这相当于 <code>np.array([A[a, i], A[b, j], A[c, z]])</code>；</li>
+<li>以此类推 n 个序列索引的情况。可以看出，指定 n 个序列索引会导致索引结果减少 n-1 个维度。</li>
+</ul>
 </li>
 <li>
-<p>如果下标对象不是元组，则Numpy会首先将其转换为元组。</p>
+<p>切片类似于序列索引，但切片不会改变结果数组的维度，因为多个序列索引之间是内积，而多个切片之间是笛卡儿积。<code>A[0:2:1]</code> 相当于 <code>A[[0, 1]]</code>；<code>A[0:2:1, 0:2:1]</code> 相当于 <code>np.array([[A[0, 0], A[0, 1]], [A[1, 0], A[1, 1]]])</code>。</p>
+</li>
+<li>
+<p>数组索引基于序列索引，假设 <code>A.shape=(s1, s2, ..., sN)</code>：</p>
+<ul>
+<li>给 <code>A</code> 指定 1 个整数数组索引，即 <code>A[I]</code>，并且 <code>I.shape=(a, b)</code>，
+这相当于 <code>A[I.flatten()].reshape(a, b, s2, ..., sN)</code>，<code>I.flatten()</code>是整数序列；</li>
+<li>给 <code>A</code> 指定 2 个整数数组索引，即 <code>A[I, J]</code>，<ul>
+<li>如果 <code>I.shape=J.shape=(a, b)</code>，这相当于 <code>A[I.flatten(), J.flatten()].reshape(a, b, s3, ..., sN)</code>，两个序列索引导致原数组减少 1 个维度；</li>
+<li>如果 <code>I.shape=(a, b)</code>、<code>J.shape=(c, d)</code>，那么 <code>I</code> 和 <code>J</code> 会进行广播，得到 <code>shape=(e, f)</code> 新的数组索引 <code>I2</code> 和 <code>J2</code>，
+这相当于 <code>A[I2.flatten(), J2.flatten()].reshape(e, f, s3, ..., sN)</code>；</li>
+</ul>
+</li>
+<li>以此类推 n 个数组索引的情况。可以看出，数组索引首先会得到和序列索引一致的结果，但结果数组的第一个维度会被替换为索引数组的 <code>shape</code>。</li>
+</ul>
+</li>
+<li>
+<p>布尔数组索引的 <code>shape</code> 必须和原数组的 <code>shape</code> 一致。</p>
 </li>
 </ol>
-<p>有以下7种使用索引的情况：</p>
-<ul>
-<li>
-<p><strong>整数元组</strong></p>
-</li>
-<li>
-<p><strong>切片</strong></p>
-</li>
-<li>
-<p><strong>整数元组搭配切片</strong></p>
-</li>
-<li>
-<p><strong>整数list</strong></p>
-</li>
-<li>
-<p><strong>整数数组</strong></p>
-</li>
-<li>
-<p><strong>布尔数组</strong></p>
-</li>
-<li>
-<p><strong>整数数组、切片、整数元组混搭</strong></p>
-</li>
-</ul>
-<div class="highlight"><pre><span></span><code><span class="c1"># 指定一个整数元组</span>
-<span class="n">b</span><span class="p">[(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)]</span> <span class="c1"># OWNDATA : Trues</span>
-<span class="c1">## 等价于</span>
-<span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]</span> <span class="c1"># OWNDATA : Trues</span>
-<span class="c1">## 元组的维度超过多维数组的维度:IndexError</span>
-<span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">b[(1,2,3)]</span>
-<span class="sd">&#39;&#39;&#39;</span>
-<span class="c1">## 元组的维度超少于维数组的维度</span>
-<span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># 返回视图 等价于 b[1,:]</span>
+<div class="tabbed-set" data-tabs="1:6"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">创建示例数组</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="n">A</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">10</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;A shape = </span><span class="si">{</span><span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>A shape = (10, 3, 3)
+array([[[ 0,  1,  2],
+        [ 3,  4,  5],
+        [ 6,  7,  8]],
 
-<span class="c1"># 切片</span>
-<span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="c1"># 返回视图</span>
-<span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">::</span><span class="mi">2</span><span class="p">]</span> <span class="c1"># 返回视图</span>
-<span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="nb">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="kc">None</span><span class="p">,</span><span class="mi">2</span><span class="p">)]</span> <span class="c1"># 返回视图</span>
-<span class="c1">## SyntaxError b[0,slice(0,,2)]</span>
-<span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">10</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="c1"># 返回视图</span>
-<span class="c1">## 第二列</span>
-<span class="n">b</span><span class="p">[:,</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># 返回视图</span>
-<span class="n">b</span><span class="p">[</span><span class="o">...</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="c1"># 返回视图</span>
-<span class="c1">## IndexError: an index can only have a single ellipsis (&#39;...&#39;)</span>
-<span class="sd">&#39;&#39;&#39;</span>
-<span class="sd">b[...,...] IndexError</span>
-<span class="sd">&#39;&#39;&#39;</span>
-<span class="n">b</span><span class="p">[</span><span class="o">...</span><span class="p">,:]</span> <span class="c1"># 返回视图</span>
-<span class="n">b</span><span class="p">[:,:]</span> <span class="c1"># 返回视图</span>
+       [[ 9, 10, 11],
+        [12, 13, 14],
+        [15, 16, 17]],
 
-<span class="c1"># 整数数组</span>
-<span class="c1">## arrays used as indices must be of integer (or boolean) type</span>
-<span class="n">index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
-<span class="n">b</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="c1"># OWNDATA : True</span>
+       [[18, 19, 20],
+        [21, 22, 23],
+        [24, 25, 26]],
 
-<span class="n">index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]])</span>
-<span class="n">b</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="c1"># OWNDATA : True</span>
+       [[27, 28, 29],
+        [30, 31, 32],
+        [33, 34, 35]],
 
-<span class="c1">## 如果下标整数数组的维度不一致，会进行广播</span>
-<span class="n">rows</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]])</span>
-<span class="n">columns</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">]])</span>
-<span class="n">index</span> <span class="o">=</span> <span class="p">(</span><span class="n">rows</span><span class="p">,</span> <span class="n">columns</span><span class="p">)</span>
-<span class="n">b</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+       [[36, 37, 38],
+        [39, 40, 41],
+        [42, 43, 44]],
+
+       [[45, 46, 47],
+        [48, 49, 50],
+        [51, 52, 53]],
+
+       [[54, 55, 56],
+        [57, 58, 59],
+        [60, 61, 62]],
+
+       [[63, 64, 65],
+        [66, 67, 68],
+        [69, 70, 71]],
+
+       [[72, 73, 74],
+        [75, 76, 77],
+        [78, 79, 80]],
+
+       [[81, 82, 83],
+        [84, 85, 86],
+        [87, 88, 89]]])
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>array([[ 0,  6, 12],
-       [ 3,  9, 14]])
+</div>
+<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">整数索引</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">...</span><span class="p">])</span>
 </code></pre></div>
-<p>多维数组的下标是布尔数组或者下标元组中包含了布尔数组，则相当于将布尔数组通过<code>np.nonzero()</code>将布尔数组转换成一个整数数组的元组，然后使用整数数组进行下标运行。</p>
-<p><code>np.nonzero(a)</code>返回数组<code>a</code>中，值非零的元素的<strong>下标</strong>。它返回值是一个长度为<code>a.ndim</code>的元组，元组的每个元素都是一个一维的整数数组，其值为非零元素的下标在对应轴上的值。如：第 0 个元素为a中的非零值元素在0轴的下标、第 1 个元素为a中的非零值元素在1轴的下标...</p>
-<div class="highlight"><pre><span></span><code><span class="n">np</span><span class="o">.</span><span class="n">nonzero</span><span class="p">(</span><span class="n">bool_a</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code>5
+5
+5
+array([[0, 1, 2],
+       [3, 4, 5],
+       [6, 7, 8]])
+array([[0, 1, 2],
+       [3, 4, 5],
+       [6, 7, 8]])
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>(array([51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65,
-66, 67,
-        68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82,
-83, 84,
-        85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99],
-       dtype=int64),)
+</div>
+<input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><label for="__tabbed_1_3">序列索引</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">A</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
+<span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">]]))</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">A</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
+<span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]))</span>
 </code></pre></div>
-<h2 id="_3">进阶说明</h2>
-<p><strong>使用切片返回视图的原因：</strong></p>
-<p>当下标使用切片时，所取得的数据在数据存储区域中是等间隔分布的。因为只需要修改数组的ndim/shape/strides等属性以及指向数据存储区域的data指针就能够实现整数和切片下标的索引。所以新数组和原始数组能够共享数据存储区域。</p>
-<p>当使用整数数组（整数元组，整数列表页转换成整数数组），布尔数组时，不能保证所取得的数据在数据存储区中是等间隔的，因此无法和原始数组共享数据，只能对数据进行复制。</p>
-<p>通过整数元组获取的数组元素的类型为数组的dtype类型 。如果想获取标准Python类型，可以使用数组的<code>item()</code>方法。</p>
-<h2 id="_4">索引的维度变换</h2>
-<p>索引的下标元组中：</p>
-<ul>
-<li>
-<p>如果下标元组都是切片，则索引结果的数组与原始数组的维度相同（轴的数量相等）</p>
-</li>
-<li>
-<p><mark>每多一个整数下标，则索引结果的数组就少一个维度（少一个轴）</mark> </p>
-</li>
-<li>
-<p>如果所有的下标都是整数，则索引结果的维度为 0</p>
-</li>
-<li>
-<p>如果下标元组中存在数组，则还需要考虑该下标数组广播后的维度</p>
-</li>
-</ul>
-<p>多维数组的下标必须是一个长度和数组的维度 ndim 相等的元组。但是如果下标中包含None，则可以突破这一限制。<mark>每多一个None，则索引结构维度升 1 。</mark> </p>
-<ul>
-<li>
-<p>当数组的下标元组的长度小于等于数组的维度ndim时，元组中出现的None等价于切片<code>:</code>。</p>
-</li>
-<li>
-<p>当数组的下标元组的长度大于数组的维度ndim时，元组中哪里出现None，索引结果就在哪里创建一个新轴，该轴长度为 1。</p>
-</li>
-</ul>
-<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="kc">None</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">])</span>
+<div class="highlight"><pre><span></span><code>array([[[ 0,  1,  2],
+        [ 3,  4,  5],
+        [ 6,  7,  8]],
+
+       [[ 9, 10, 11],
+        [12, 13, 14],
+        [15, 16, 17]]])
+array([[[ 0,  1,  2],
+        [ 3,  4,  5],
+        [ 6,  7,  8]],
+
+       [[ 9, 10, 11],
+        [12, 13, 14],
+        [15, 16, 17]]])
+
+array([[ 0,  1,  2],
+       [12, 13, 14]])
+array([[ 0,  1,  2],
+       [12, 13, 14]])
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>7
-[7]
-[7]
+</div>
+<input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><label for="__tabbed_1_4">切片</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="p">:])</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="nb">slice</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">:</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">pprint</span><span class="o">.</span><span class="n">pp</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]],</span> <span class="p">[</span><span class="n">A</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">A</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]]]))</span>
+<span class="c1"># 与序列索引的区别</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">A</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">]])</span>
 </code></pre></div>
+<div class="highlight"><pre><span></span><code>array([[ 9, 10, 11],
+       [12, 13, 14],
+       [15, 16, 17]])
+
+array([[[ 0,  1,  2],
+        [ 6,  7,  8]],
+
+       [[18, 19, 20],
+        [24, 25, 26]]])
+array([[[ 0,  1,  2],
+        [ 6,  7,  8]],
+
+       [[18, 19, 20],
+        [24, 25, 26]]])
+
+array([[ 0,  1,  2],
+       [24, 25, 26]])
+</code></pre></div>
+</div>
+<input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><label for="__tabbed_1_5">数组索引</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;A shape = </span><span class="si">{</span><span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;index shape = </span><span class="si">{</span><span class="n">index</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">index</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;result shape = </span><span class="si">{</span><span class="n">A</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;A shape = </span><span class="si">{</span><span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;index shape = </span><span class="si">{</span><span class="n">index</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="n">index</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;result shape = </span><span class="si">{</span><span class="n">A</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>A shape = (10, 3, 3)
+index shape = (3,)
+array([[[ 0,  1,  2],
+        [ 3,  4,  5],
+        [ 6,  7,  8]],
+
+       [[ 9, 10, 11],
+        [12, 13, 14],
+        [15, 16, 17]],
+
+       [[18, 19, 20],
+        [21, 22, 23],
+        [24, 25, 26]]])
+result shape = (3, 3, 3)
+
+A shape = (10, 3, 3)
+index shape = (1, 3, 2)
+array([[[[[ 0,  1,  2],
+          [ 3,  4,  5],
+          [ 6,  7,  8]],
+
+         [[ 9, 10, 11],
+          [12, 13, 14],
+          [15, 16, 17]]],
+
+
+        [[[ 0,  1,  2],
+          [ 3,  4,  5],
+          [ 6,  7,  8]],
+
+         [[ 9, 10, 11],
+          [12, 13, 14],
+          [15, 16, 17]]],
+
+
+        [[[ 0,  1,  2],
+          [ 3,  4,  5],
+          [ 6,  7,  8]],
+
+         [[ 9, 10, 11],
+          [12, 13, 14],
+          [15, 16, 17]]]]])
+result shape = (1, 3, 2, 3, 3)
+</code></pre></div>
+</div>
+<input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><label for="__tabbed_1_6">布尔数组</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="n">B</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">bool_index</span> <span class="o">=</span> <span class="n">B</span> <span class="o">&gt;</span> <span class="mi">10</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;B shape = </span><span class="si">{</span><span class="n">B</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;bool index shape = </span><span class="si">{</span><span class="n">bool_index</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">bool_index</span><span class="p">)</span>
+<span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">B</span><span class="p">[</span><span class="n">bool_index</span><span class="p">])</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>B shape = (2, 3, 3)
+bool index shape = (2, 3, 3)
+array([[[False, False, False],
+        [False, False, False],
+        [False, False, False]],
+
+       [[False, False,  True],
+        [ True,  True,  True],
+        [ True,  True,  True]]])
+array([11, 12, 13, 14, 15, 16, 17])
+</code></pre></div>
+</div>
+</div>
                 
               
               
