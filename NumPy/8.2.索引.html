@@ -2125,9 +2125,9 @@
 <span class="kn">import</span> <span class="nn">pprint</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>Windows 10
-Python 3.8.5 @ MSC v.1916 64 bit (AMD64)
-Latest build date 2020.11.28
-numpy version:  1.18.5
+Python 3.8.8 @ MSC v.1928 64 bit (AMD64)
+Latest build date 2021.03.03
+numpy version:  1.20.1
 </code></pre></div>
 <h2 id="_1">索引规则</h2>
 <p>NumPy 数组的索引功能很强大，但多样的索引也带来了复杂性和混乱性。新手可以很快地开始使用 NumPy 索引，但可能难以区分各种索引的情况。虽然，网上有很多关于 NumPy 数组索的资料，也有很多代码示例，但几乎都是比较简单的说明，大部分代码示例只会让人在简单与混乱之间徘徊。NumPy 索引的官方用户指南当然是很好的资料，但大多都是必要或细节性的说明。这里尝试对所有情况做一个简单但不失全面性的总结。</p>
@@ -2173,12 +2173,14 @@ numpy version:  1.18.5
 <li>给 <code>A</code> 指定 1 个整数数组索引，即 <code>A[I]</code>，并且 <code>I.shape=(a, b)</code>，
 这相当于 <code>A[I.flatten()].reshape(a, b, s2, ..., sN)</code>，<code>I.flatten()</code>是整数序列；</li>
 <li>给 <code>A</code> 指定 2 个整数数组索引，即 <code>A[I, J]</code>，<ul>
-<li>如果 <code>I.shape=J.shape=(a, b)</code>，这相当于 <code>A[I.flatten(), J.flatten()].reshape(a, b, s3, ..., sN)</code>，两个序列索引导致原数组减少 1 个维度；</li>
+<li>如果 <code>I.shape=J.shape=(a, b)</code>，这相当于 <code>A[I.flatten(), J.flatten()].reshape(a, b, s3, ..., sN)</code>，
+两个序列索引首先会导致原数组减少 1 个维度；</li>
 <li>如果 <code>I.shape=(a, b)</code>、<code>J.shape=(c, d)</code>，那么 <code>I</code> 和 <code>J</code> 会进行广播，得到 <code>shape=(e, f)</code> 新的数组索引 <code>I2</code> 和 <code>J2</code>，
 这相当于 <code>A[I2.flatten(), J2.flatten()].reshape(e, f, s3, ..., sN)</code>；</li>
 </ul>
 </li>
 <li>以此类推 n 个数组索引的情况。可以看出，数组索引首先会得到和序列索引一致的结果，但结果数组的第一个维度会被替换为索引数组的 <code>shape</code>。</li>
+<li>假设原数组的维度数为 n，有 m 整数数组索引，其广播后的维度数为 y，则结果数组的维度数为 n - (m-1) + (y-1)。</li>
 </ul>
 </li>
 <li>

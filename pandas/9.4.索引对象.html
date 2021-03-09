@@ -1274,22 +1274,22 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#tuplemultiindex" class="md-nav__link">
-    从tuple创建MultiIndex
+  <a href="#from_tuples" class="md-nav__link">
+    from_tuples
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#iterablesmultiindex" class="md-nav__link">
-    从iterables创建MultiIndex
+  <a href="#from_product" class="md-nav__link">
+    from_product
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#dataframemultiindex" class="md-nav__link">
-    从DataFrame创建MultiIndex
+  <a href="#from_frame" class="md-nav__link">
+    from_frame
   </a>
   
 </li>
@@ -2219,22 +2219,22 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#tuplemultiindex" class="md-nav__link">
-    从tuple创建MultiIndex
+  <a href="#from_tuples" class="md-nav__link">
+    from_tuples
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#iterablesmultiindex" class="md-nav__link">
-    从iterables创建MultiIndex
+  <a href="#from_product" class="md-nav__link">
+    from_product
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#dataframemultiindex" class="md-nav__link">
-    从DataFrame创建MultiIndex
+  <a href="#from_frame" class="md-nav__link">
+    from_frame
   </a>
   
 </li>
@@ -2345,7 +2345,7 @@
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>Windows 10
 Python 3.8.8 @ MSC v.1928 64 bit (AMD64)
-Latest build date 2021.02.28
+Latest build date 2021.03.02
 pandas version:  1.2.2
 numpy version:  1.20.1
 </code></pre></div>
@@ -2452,8 +2452,8 @@ numpy version:  1.20.1
 </tbody>
 </table>
 <h2 id="index">Index</h2>
-<div class="highlight"><pre><span></span><code>pd.Index(data=None, dtype=None, copy=False, name=None,
-         tupleize_cols=True, kwargs)
+<div class="highlight"><pre><span></span><code>pd.Index(data=None, dtype=None, copy=False, name=None, tupleize_cols=True,
+         kwargs)
 </code></pre></div>
 <p>参数：</p>
 <ul>
@@ -2510,20 +2510,21 @@ numpy version:  1.20.1
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>               0  1  2
 class1 class2
-A      x1      5  2  4
-       x2      2  4  9
-B      y1      8  5  6
-       y2      5  7  6
-       y3      6  1  7
+A      x1      8  1  7
+       x2      7  2  1
+B      y1      4  7  8
+       y2      2  6  5
+       y3      2  8  3
 </code></pre></div>
-<p>一般使用如下替代构建方法来创建<code>MultiIndex</code>：</p>
+<p>一般使用如下替代构造方法来创建<code>MultiIndex</code>：</p>
 <ul>
-<li><code>MultiIndex.from_arrays(arrays, sortorder, names)</code>：将二维序列转换为<code>MultiIndex</code>。其中<code>arrays</code>为<code>array-like</code>的序列，每个<code>array-like</code>按顺序的给出了一列<code>label</code>（一个级别）</li>
-<li><code>MultiIndex.from_tuples(tuples, sortorder, names)</code> ：将元组序列转换为<code>MultiIndex</code>。其中<code>tuples</code>为<code>tuple-like</code>的序列，每个<code>array-like</code>按顺序的给出了一行<code>label</code>对（不同级别的一对）</li>
-<li><code>MultiIndex.from_product(iterables, sortorder, names)</code>：根据多个可迭代对象生成一个<code>MultiIndex</code>，其中使用笛卡尔积的算法。其中<code>iterables</code>为可迭代对象的序列</li>
+<li><code>MultiIndex.from_arrays(arrays, sortorder, names)</code>：将<code>list of array-likes</code>转换为<code>MultiIndex</code>。每个<code>array-like</code>对象给出对应层级的所有数据点的索引。</li>
+<li><code>MultiIndex.from_tuples(tuples, sortorder, names)</code> ：将<code>list of tuple-likes</code>转换为<code>MultiIndex</code>。每个<code>tuple-likes</code>都是行/列索引。</li>
+<li><code>MultiIndex.from_product(iterables, sortorder, names)</code>：将<code>list of iterables</code>转换为<code>MultiIndex</code>。各个iterable对象按顺序指明了不同层级的索引标签，每个数据点的索引根据笛卡尔积算法生成。</li>
+<li><code>MultiIndex.from_frame(df, sortorder, names)</code>：将<code>DataFrame</code>转换为<code>MultiIndex</code>。<code>DataFrame</code>的每一列给出了对应层级的所有数据点的索引。</li>
 </ul>
 <p>也可以通过传递一个元组列表给<code>Index()</code>，并且将<code>tupleize_cols</code>设置为<code>True</code>来创建<code>MultiIndex</code></p>
-<h3 id="tuplemultiindex">从tuple创建MultiIndex</h3>
+<h3 id="from_tuples"><code>from_tuples</code></h3>
 <div class="highlight"><pre><span></span><code><span class="n">arrays</span> <span class="o">=</span> <span class="p">[</span>
     <span class="p">[</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;baz&#39;</span><span class="p">,</span> <span class="s1">&#39;baz&#39;</span><span class="p">,</span> <span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;qux&#39;</span><span class="p">,</span> <span class="s1">&#39;qux&#39;</span><span class="p">],</span>
     <span class="p">[</span><span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">,</span> <span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">,</span> <span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">,</span> <span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">]]</span>
@@ -2554,7 +2555,7 @@ MultiIndex([(&#39;bar&#39;, &#39;one&#39;),
             (&#39;qux&#39;, &#39;two&#39;)],
            names=[&#39;first&#39;, &#39;second&#39;])
 </code></pre></div>
-<h3 id="iterablesmultiindex">从iterables创建MultiIndex</h3>
+<h3 id="from_product"><code>from_product</code></h3>
 <div class="highlight"><pre><span></span><code><span class="n">iterables</span> <span class="o">=</span> <span class="p">[[</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;baz&#39;</span><span class="p">,</span> <span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;qux&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">]]</span>
 <span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">iterables</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
@@ -2573,10 +2574,10 @@ MultiIndex([(&#39;bar&#39;, &#39;one&#39;),
             (&#39;qux&#39;, &#39;two&#39;)],
            names=[&#39;first&#39;, &#39;second&#39;])
 </code></pre></div>
-<h3 id="dataframemultiindex">从DataFrame创建MultiIndex</h3>
+<h3 id="from_frame"><code>from_frame</code></h3>
 <div class="highlight"><pre><span></span><code><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([[</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;one&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">],</span>
-                    <span class="p">[</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;one&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">]],</span>
-                   <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;first&#39;</span><span class="p">,</span> <span class="s1">&#39;second&#39;</span><span class="p">])</span>
+                   <span class="p">[</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;one&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">]],</span>
+                  <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;first&#39;</span><span class="p">,</span> <span class="s1">&#39;second&#39;</span><span class="p">])</span>
 <span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span> 
 <span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">MultiIndex</span><span class="o">.</span><span class="n">from_frame</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
@@ -2596,8 +2597,8 @@ MultiIndex([(&#39;bar&#39;, &#39;one&#39;),
 </code></pre></div>
 <h3 id="list-likemultiindex">从list-like创建MultiIndex</h3>
 <div class="highlight"><pre><span></span><code><span class="n">arrays</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;baz&#39;</span><span class="p">,</span> <span class="s1">&#39;baz&#39;</span><span class="p">,</span> <span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;qux&#39;</span><span class="p">,</span><span class="s1">&#39;qux&#39;</span><span class="p">]),</span>
-    <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">,</span> <span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">,</span> <span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">,</span> <span class="s1">&#39;one&#39;</span><span class="p">,</span><span class="s1">&#39;two&#39;</span><span class="p">])]</span> 
+    <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;baz&#39;</span><span class="p">,</span> <span class="s1">&#39;baz&#39;</span><span class="p">,</span> <span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;qux&#39;</span><span class="p">,</span> <span class="s1">&#39;qux&#39;</span><span class="p">]),</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">,</span> <span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">,</span> <span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">,</span> <span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">])]</span>
 <span class="n">pprint</span><span class="o">.</span><span class="n">pprint</span><span class="p">(</span><span class="n">arrays</span><span class="p">)</span>
 
 <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="n">arrays</span><span class="p">)</span>
@@ -2608,14 +2609,14 @@ MultiIndex([(&#39;bar&#39;, &#39;one&#39;),
       dtype=&#39;&lt;U3&#39;)]
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>                0         1         2         3
-bar one  0.295602 -0.185928  1.275799  0.211286
-    two  1.081593 -1.302783  0.649109 -0.988854
-baz one  0.081642  1.701788 -0.215744 -0.505817
-    two -1.192345 -0.761474  0.143588 -1.335934
-foo one  1.060648 -0.622353  1.842039 -0.843779
-    two -0.160890 -0.781429 -1.498803  1.180676
-qux one -0.313122  0.472334  0.423182 -0.132774
-    two  0.867852 -1.447770  0.219152  0.728055
+bar one  1.438074  0.851745 -0.263231  0.285984
+    two  0.830161 -1.887687  0.175476  1.057429
+baz one -1.066494 -0.282858  0.760714  0.069183
+    two  0.333587 -0.724593 -0.215265 -1.637538
+foo one  0.050430 -1.658196 -0.409160  0.692135
+    two  0.397801 -0.158865  1.922566  0.529642
+qux one -1.022481  0.214911  0.513812  0.727262
+    two -1.325092 -2.795077  0.403388 -1.136477
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="c1"># pd.Series(np.random.randn(8), index=arrays)</span>
 </code></pre></div>
@@ -2623,13 +2624,13 @@ qux one -0.313122  0.472334  0.423182 -0.132774
 <h4 id="_3">列索引是多级索引</h4>
 <p>创建示例dataframe： </p>
 <div class="highlight"><pre><span></span><code><span class="n">tuples</span> <span class="o">=</span> <span class="p">[(</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;one&#39;</span><span class="p">),</span>
-         <span class="p">(</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">),</span>
-         <span class="p">(</span><span class="s1">&#39;baz&#39;</span><span class="p">,</span> <span class="s1">&#39;one&#39;</span><span class="p">),</span>
-         <span class="p">(</span><span class="s1">&#39;baz&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">),</span>
-         <span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;one&#39;</span><span class="p">),</span>
-         <span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">),</span>
-         <span class="p">(</span><span class="s1">&#39;qux&#39;</span><span class="p">,</span> <span class="s1">&#39;one&#39;</span><span class="p">),</span>
-         <span class="p">(</span><span class="s1">&#39;qux&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">)]</span>
+          <span class="p">(</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">),</span>
+          <span class="p">(</span><span class="s1">&#39;baz&#39;</span><span class="p">,</span> <span class="s1">&#39;one&#39;</span><span class="p">),</span>
+          <span class="p">(</span><span class="s1">&#39;baz&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">),</span>
+          <span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;one&#39;</span><span class="p">),</span>
+          <span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">),</span>
+          <span class="p">(</span><span class="s1">&#39;qux&#39;</span><span class="p">,</span> <span class="s1">&#39;one&#39;</span><span class="p">),</span>
+          <span class="p">(</span><span class="s1">&#39;qux&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">)]</span>
 <span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">MultiIndex</span><span class="o">.</span><span class="n">from_tuples</span><span class="p">(</span><span class="n">tuples</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;first&#39;</span><span class="p">,</span> <span class="s1">&#39;second&#39;</span><span class="p">])</span>
 
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="s1">&#39;C&#39;</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="n">index</span><span class="p">)</span>
@@ -2637,9 +2638,9 @@ qux one -0.313122  0.472334  0.423182 -0.132774
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>first        bar                 baz  ...       foo       qux          
 second       one       two       one  ...       two       one       two
-A      -0.961365  0.177972  1.411186  ... -2.048764  0.778991  0.830117
-B      -0.171793  0.793813 -0.530862  ... -1.937681 -1.006947 -0.767701
-C      -1.590160 -2.923568 -0.597164  ... -0.744643 -0.834910 -0.687680
+A      -0.936493  1.624851  0.381365  ...  0.510066 -0.079910 -0.659817
+B      -1.170663 -0.427186  1.827135  ... -0.489893  0.119415  0.853525
+C       0.358102 -1.269896  0.434656  ... -0.628121  0.234735 -0.563489
 
 [3 rows x 8 columns]
 </code></pre></div>
@@ -2647,17 +2648,17 @@ C      -1.590160 -2.923568 -0.597164  ... -0.744643 -0.834910 -0.687680
 <div class="highlight"><pre><span></span><code><span class="n">df</span><span class="p">[</span><span class="s1">&#39;bar&#39;</span><span class="p">]</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>second       one       two
-A      -0.961365  0.177972
-B      -0.171793  0.793813
-C      -1.590160 -2.923568
+A      -0.936493  1.624851
+B      -1.170663 -0.427186
+C       0.358102 -1.269896
 </code></pre></div>
 <p><code>[]</code>使用多级索引：</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># 实际上与 df[(&#39;bar&#39;, &#39;one&#39;)] 等价</span>
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;one&#39;</span><span class="p">]</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>A   -0.961365
-B   -0.171793
-C   -1.590160
+<div class="highlight"><pre><span></span><code>A   -0.936493
+B   -1.170663
+C    0.358102
 Name: (bar, one), dtype: float64
 </code></pre></div>
 <p><code>[[]]</code>选择多列：</p>
@@ -2665,18 +2666,18 @@ Name: (bar, one), dtype: float64
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>first        bar                 baz                 foo
 second       one       two       one       two       one       two
-A      -0.961365  0.177972  1.411186 -0.847607 -0.499810 -2.048764
-B      -0.171793  0.793813 -0.530862 -0.093655  1.969350 -1.937681
-C      -1.590160 -2.923568 -0.597164 -0.070372  1.247993 -0.744643
+A      -0.936493  1.624851  0.381365 -2.307657  0.144425  0.510066
+B      -1.170663 -0.427186  1.827135 -0.303377  0.037561 -0.489893
+C       0.358102 -1.269896  0.434656 -1.654805 -0.907289 -0.628121
 </code></pre></div>
 <p><mark><code>()</code>用于同一轴的多级索引：</mark></p>
 <div class="highlight"><pre><span></span><code><span class="n">df</span><span class="p">[[(</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;one&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;baz&#39;</span><span class="p">,</span><span class="s1">&#39;one&#39;</span><span class="p">)]]</span> <span class="c1"># list of tuples</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>first        bar       baz
 second       one       one
-A      -0.961365  1.411186
-B      -0.171793 -0.530862
-C      -1.590160 -0.597164
+A      -0.936493  0.381365
+B      -1.170663  1.827135
+C       0.358102  0.434656
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="c1"># 行列索引</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">],</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
@@ -2690,27 +2691,27 @@ C      -1.590160 -0.597164
 <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;bar&#39;</span><span class="p">]],</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>second
-one   -0.961365
-two    0.177972
+one   -0.936493
+two    1.624851
 Name: A, dtype: float64
 
--0.9613648172273448
+-0.9364927994329391
 
 first  second
-bar    one      -0.961365
-Name: A, dtype: float64
-
-first  second
-bar    one      -0.961365
+bar    one      -0.936493
 Name: A, dtype: float64
 
 first  second
-bar    one      -0.961365
+bar    one      -0.936493
 Name: A, dtype: float64
 
 first  second
-bar    one      -0.961365
-       two       0.177972
+bar    one      -0.936493
+Name: A, dtype: float64
+
+first  second
+bar    one      -0.936493
+       two       1.624851
 Name: A, dtype: float64
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="c1"># tuple of lists</span>
@@ -2719,15 +2720,15 @@ Name: A, dtype: float64
 <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="p">[(</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="s1">&#39;one&#39;</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">)]],</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>first  second
-bar    one      -0.961365
-       two       0.177972
-foo    one      -0.499810
-       two      -2.048764
+bar    one      -0.936493
+       two       1.624851
+foo    one       0.144425
+       two       0.510066
 Name: A, dtype: float64
 
 first  second
-bar    one      -0.961365
-foo    two      -2.048764
+bar    one      -0.936493
+foo    two       0.510066
 Name: A, dtype: float64
 </code></pre></div>
 <h4 id="_4">行索引是多级索引</h4>
@@ -2735,30 +2736,31 @@ Name: A, dtype: float64
 <span class="n">df</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>                0         1         2         3
-bar one -0.290142  1.845871  0.391368  1.494154
-    two -1.133943 -0.205357  0.655615  0.136004
-baz one -1.092132  1.543840  1.324847 -1.250835
-    two  0.517954  0.634885 -1.054950 -1.362589
-foo one -0.780578  0.526009 -0.400635 -0.671711
-    two -0.840659 -1.761449 -0.319861 -0.977393
-qux one  0.995792 -1.812975  0.548431 -0.857028
-    two -0.243271  0.922128  0.052473  0.420014
+bar one  1.027278 -0.180081 -0.110635  0.724393
+    two -0.189482 -0.946654  0.910129 -0.504019
+baz one -1.099056  1.757185 -0.422867  1.919558
+    two  0.066132  1.711503  0.033937 -0.691720
+foo one -2.470554  0.587912 -2.073973 -0.550532
+    two -2.011376  0.480204 -1.050221  1.501428
+qux one -0.117892  2.151013  0.962524 -0.183576
+    two  0.319457 -0.230228  1.655544 -0.364321
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>            0         1
-one -0.290142  1.845871
-two -1.133943 -0.205357
+one  1.027278 -0.180081
+two -0.189482 -0.946654
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[([</span><span class="s1">&#39;bar&#39;</span><span class="p">],</span> <span class="s1">&#39;one&#39;</span><span class="p">),</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]</span>
 <span class="c1"># df.loc[([&#39;bar&#39;], &#39;one&#39;), (0, 1)]</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>                0         1
-bar one -0.290142  1.845871
+bar one  1.027278 -0.180081
 </code></pre></div>
 <h2 id="_5">分类索引</h2>
 <p><mark><a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.CategoricalIndex.html#pandas.CategoricalIndex"><code>CategoricalIndex</code></a>分类索引非常适合有重复的索引。</mark> 这是一个围绕<a href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.Categorical.html#pandas.Categorical"><code>Categorical</code></a> 而创建的容器。<mark>这可以非常高效地存储和索引的具有大量重复元素的索引。</mark></p>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">pandas.api.types</span> <span class="kn">import</span> <span class="n">CategoricalDtype</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># H.get_param(&quot;pd.CategoricalIndex&quot;, globals())</span>
+<span class="kn">from</span> <span class="nn">pandas.api.types</span> <span class="kn">import</span> <span class="n">CategoricalDtype</span>
 
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;A&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">6</span><span class="p">),</span>
                    <span class="s1">&#39;B&#39;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="s1">&#39;aabbca&#39;</span><span class="p">)})</span>

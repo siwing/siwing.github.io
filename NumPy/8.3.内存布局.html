@@ -1082,8 +1082,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#ndarray_1" class="md-nav__link">
-    ndarray 数据类型
+  <a href="#numpy_1" class="md-nav__link">
+    NumPy 数据类型
   </a>
   
 </li>
@@ -2137,8 +2137,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#ndarray_1" class="md-nav__link">
-    ndarray 数据类型
+  <a href="#numpy_1" class="md-nav__link">
+    NumPy 数据类型
   </a>
   
 </li>
@@ -2167,9 +2167,9 @@
 <span class="kn">import</span> <span class="nn">copy</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>Windows 10
-Python 3.8.5 @ MSC v.1916 64 bit (AMD64)
-Latest build date 2020.11.28
-numpy version:  1.18.5
+Python 3.8.8 @ MSC v.1928 64 bit (AMD64)
+Latest build date 2021.03.02
+numpy version:  1.20.1
 </code></pre></div>
 <h2 id="ndarray">ndarray 对象</h2>
 <p>NumPy 提供了一个 N 维数组对象 ndarray，它描述了同一类型的元素的集合。</p>
@@ -2490,8 +2490,8 @@ Z2 has no view: True
 <div class="highlight"><pre><span></span><code>ValueError: When changing to a larger dtype, its size must be a
 divisor of the total size in bytes of the last axis of the array.
 </code></pre></div>
-<h2 id="ndarray_1">ndarray 数据类型</h2>
-<p>因为 NumPy 是用 C 语言构建的，所以 C、Fortran 和其他相关语言的用户都很熟悉这些类型。但对于新手来说，记不住这些 NumPy 的 dtype 也没关系。通常只需要知道所处理的数据的大致类型是浮点数、复数、整数、布尔值、字符串，还是普通的Python对象即可。如果需要控制数据在内存和磁盘中的存储方式（尤其是对大数据集），那就得了解如何控制存储类型。详细信息参考 <a href="https://numpy.org/doc/stable/user/basics.types.html">Data types</a>。</p>
+<h2 id="numpy_1">NumPy 数据类型</h2>
+<p>NumPy 比 Python 支持更多种类的数值类型。因为 NumPy 是用 C 语言构建的，其基本类型与 C 语言中的基本类型紧密相连。C、Fortran 和其他相关语言的用户都很熟悉这些类型。但对于新手来说，记不住这些 NumPy 的 dtype 也没关系。通常只需要知道所处理的数据的大致类型是整数、浮点数、复数、布尔值、字符串，还是普通的Python对象即可。如果需要控制数据在内存和磁盘中的存储方式（尤其是对大数据集），那就得了解如何控制存储类型。详细信息参考 <a href="https://numpy.org/doc/stable/user/basics.types.html">Data types</a>。</p>
 <table>
 <thead>
 <tr>
