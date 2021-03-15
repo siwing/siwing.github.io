@@ -1254,6 +1254,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#atiat" class="md-nav__link">
+    at和iat特性——快速访问标量
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     重复的索引
   </a>
@@ -1275,8 +1282,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#atiat" class="md-nav__link">
-    at和iat特性——快速访问标量
+  <a href="#_6" class="md-nav__link">
+    重新赋值
   </a>
   
 </li>
@@ -1303,35 +1310,28 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#lociloc" class="md-nav__link">
-    给loc/iloc指定轴参数
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     相关术语
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     视图和副本
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     链式赋值
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     索引方式总结表
   </a>
   
@@ -2186,6 +2186,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#atiat" class="md-nav__link">
+    at和iat特性——快速访问标量
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     重复的索引
   </a>
@@ -2207,8 +2214,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#atiat" class="md-nav__link">
-    at和iat特性——快速访问标量
+  <a href="#_6" class="md-nav__link">
+    重新赋值
   </a>
   
 </li>
@@ -2235,35 +2242,28 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#lociloc" class="md-nav__link">
-    给loc/iloc指定轴参数
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     相关术语
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     视图和副本
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     链式赋值
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     索引方式总结表
   </a>
   
@@ -2295,7 +2295,7 @@
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>Windows 10
 Python 3.8.8 @ MSC v.1928 64 bit (AMD64)
-Latest build date 2021.03.09
+Latest build date 2021.03.15
 pandas version:  1.2.2
 numpy version:  1.20.1
 </code></pre></div>
@@ -2306,8 +2306,7 @@ numpy version:  1.20.1
 <p>pandas 提供了两种主要的数据结构：Series 和 DataFrame。Series 类似一维的 ndarray，而 DataFrame 类似二维的 ndarray。与 ndarray 不同的是，Series 和 DataFrame 可以有标签索引，而 ndarray 只有整数索引（除了结构数组）。Series 可以有行标签索引，DataFrame 则可以有行列标签索引。</p>
 <p>pandas 支持如下索引种类：</p>
 <ol>
-<li>整数</li>
-<li>标签</li>
+<li>标量：整数、标签</li>
 <li><code>1-D array-like</code>：整数序列、标签序列</li>
 <li>切片：整数切片、标签切片</li>
 <li>布尔数组</li>
@@ -2317,8 +2316,7 @@ numpy version:  1.20.1
 <li>索引操作符<code>[]</code></li>
 <li>特性<code>.loc\iloc</code></li>
 <li>特性<code>.at\iat</code></li>
-<li>方法<code>take</code></li>
-<li>方法<code>get</code></li>
+<li>方法<code>take\get</code></li>
 </ol>
 <p>索引规则：</p>
 <ul>
@@ -2672,6 +2670,21 @@ c  3.0    3
 </code></pre></div>
 </div>
 </div>
+<h2 id="atiat"><code>at</code>和<code>iat</code>特性——快速访问标量</h2>
+<p>因为索引<code>[]</code>必须处理很多情况（标签列表，切片，布尔索引等），所以它有一些开销。如果只想访问标量值，最快的方法是使用<code>at</code>和<code>iat</code>方法。</p>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">ser</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="s2">&quot;b&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ser</span><span class="o">.</span><span class="n">iat</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;one&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">iat</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>b    7.2
+b    6.1
+dtype: float64
+4.5
+1.0
+1
+</code></pre></div>
+<p><code>at\iat</code>与<code>loc\iloc</code>相似，但<code>at\iat</code>不支持切片和布尔索引。</p>
 <h2 id="_3">重复的索引</h2>
 <p>虽然很多时候都强调轴标签（索引值）要唯一，但这并不是强制性的。来看看下面这个简单的带有重复索引值的DataFrame：</p>
 <div class="highlight"><pre><span></span><code><span class="n">obj</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">)),</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">],</span>
@@ -2697,23 +2710,43 @@ a  2.0  1.0
 b  4.0  3.0
 </code></pre></div>
 <h2 id="_5">存在缺失标签的索引</h2>
-<p>在旧版本的pandas中，<code>.loc[list-of-labels]</code>只要有一个<code>label</code>存在，代码就可以正常工作，否则将引发<code>KeyError</code>。但从0.21版本开始，不推荐此行为。推荐的代替方案是使用<code>.reindex()</code>。在较新的pandas版本，只要索引中存在缺失的标签，将引发<code>KeyError</code>。</p>
-<p>如果使用切片索引，即使切片超出范围，也不会引发错误。如果整个切片都不在索引范围，则返回空Series，或空DataFrame。</p>
-<h2 id="atiat"><code>at</code>和<code>iat</code>特性——快速访问标量</h2>
-<p>因为索引<code>[]</code>必须处理很多情况（标签列表，切片，布尔索引等），所以它有一些开销。如果只想访问标量值，最快的方法是使用<code>at</code>和<code>iat</code>方法。</p>
-<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">ser</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="s2">&quot;b&quot;</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">ser</span><span class="o">.</span><span class="n">iat</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;one&quot;</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">iat</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<p>在旧版本的pandas中，<code>.loc[list-of-labels]</code>只要有一个<code>label</code>存在，代码就可以正常工作，否则将引发<code>KeyError</code>。但从0.21版本开始，不推荐此行为。推荐的代替方案是使用<code>.reindex()</code>方法。在较新的pandas版本，只要索引中存在缺失的标签，将引发<code>KeyError</code>。</p>
+<div class="highlight"><pre><span></span><code><span class="n">df</span><span class="o">.</span><span class="n">reindex</span><span class="p">([</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="s2">&quot;z&quot;</span><span class="p">])</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>b    7.2
-b    6.1
-dtype: float64
-4.5
-1.0
-1
+<div class="highlight"><pre><span></span><code>   one  two
+a  1.0  1.0
+b  2.0  2.0
+y  NaN  NaN
+z  NaN  NaN
 </code></pre></div>
-<p><code>at\iat</code>与<code>loc\iloc</code>相似，但<code>at\iat</code>不支持切片和布尔索引。</p>
+<p>如果<code>df</code>中存在重复的索引，<code>reindex</code>将引发<code>ValueError</code>：</p>
+<div class="highlight"><pre><span></span><code><span class="n">df_tmp</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;one&#39;</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">]),</span>
+                       <span class="s1">&#39;two&#39;</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;e&#39;</span><span class="p">])})</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">df_tmp</span><span class="o">.</span><span class="n">reindex</span><span class="p">([</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">])</span>
+<span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>cannot reindex from a duplicate axis
+</code></pre></div>
+<p>如果使用切片索引（整数/标签切片），即使切片超出范围，也不会引发错误。如果整个切片都不在索引范围，则返回空Series，或空DataFrame。</p>
+<h2 id="_6">重新赋值</h2>
+<p><code>[]/iloc/loc/iat/at</code>不仅可以返回所选数据，还可以给所选数据赋值：</p>
+<div class="highlight"><pre><span></span><code><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;two&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
+</code></pre></div>
+<p>使用<code>[]/loc/at</code>为不存在的标签赋值时，可以给DataFrame添加新的标签行或标签列，即对目标对象执行放大操作（enlargement）。</p>
+<div class="highlight"><pre><span></span><code><span class="n">df</span><span class="p">[</span><span class="s2">&quot;three&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>     one  two  three
+a    1.0    1     30
+b    2.0    2     30
+c    3.0    3     30
+d    NaN    4     30
+e    5.0    5     30
+two  2.0    2     30
+</code></pre></div>
+<p>使用数值索引的<code>iloc/iat</code>则不支持放大操作。<code>xs\take\lookup</code>方法只能用于获取值，不能用于赋值。</p>
 <h2 id="get"><code>get</code>方法——返回默认值</h2>
 <div class="highlight"><pre><span></span><code>df.get(key, default=None)
 </code></pre></div>
@@ -2723,13 +2756,20 @@ dtype: float64
 <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">get</span><span class="p">([</span><span class="s2">&quot;one&quot;</span><span class="p">,</span> <span class="s2">&quot;three&quot;</span><span class="p">],</span> <span class="mi">5</span><span class="p">))</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>-5.3
-   one  two
-a  1.0    1
-b  2.0    2
-c  3.0    3
-d  NaN    4
-e  5.0    5 5
-5
+     one  two
+a    1.0    1
+b    2.0    2
+c    3.0    3
+d    NaN    4
+e    5.0    5
+two  2.0    2 5
+     one  three
+a    1.0     30
+b    2.0     30
+c    3.0     30
+d    NaN     30
+e    5.0     30
+two  2.0     30
 </code></pre></div>
 <h2 id="lookup"><code>lookup</code>方法</h2>
 <p>给定一系列行标签和列标签的情况下提取一组值，返回NumPy数组：</p>
@@ -2759,22 +2799,22 @@ DataFrame.melt and DataFrame.locas a substitute.
 <span class="nb">print</span><span class="p">(</span><span class="n">index</span><span class="p">[</span><span class="n">positions</span><span class="p">])</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">index</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="n">positions</span><span class="p">))</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>Int64Index([765, 611, 387, 230, 152, 235, 328, 195, 639, 591], dtype=&#39;int64&#39;)
-Int64Index([765, 591, 230], dtype=&#39;int64&#39;)
-Int64Index([765, 591, 230], dtype=&#39;int64&#39;)
+<div class="highlight"><pre><span></span><code>Int64Index([700, 922, 341, 534, 648, 885, 0, 215, 882, 889], dtype=&#39;int64&#39;)
+Int64Index([700, 889, 534], dtype=&#39;int64&#39;)
+Int64Index([700, 889, 534], dtype=&#39;int64&#39;)
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="c1"># Series</span>
 <span class="n">ser</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">ser</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">positions</span><span class="p">])</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">ser</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="n">positions</span><span class="p">))</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>0    1.829997
-9   -0.506567
-3   -0.144520
+<div class="highlight"><pre><span></span><code>0    0.759892
+9    2.094738
+3   -0.599890
 dtype: float64
-0    1.829997
-9   -0.506567
-3   -0.144520
+0    0.759892
+9    2.094738
+3   -0.599890
 dtype: float64
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="c1"># DataFrame</span>
@@ -2785,21 +2825,21 @@ dtype: float64
 <span class="nb">print</span><span class="p">(</span><span class="n">frm</span><span class="o">.</span><span class="n">take</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>          0         1         2
-0  0.370939  1.245718 -1.313839
-1  2.284499  0.638133  1.304246
-2  0.631135  0.016014 -0.983383
-3  0.792763 -0.066756  0.901281
-4  1.007372  0.315739 -2.313226
+0 -0.578601  1.044800  1.194279
+1 -1.600242  1.506052  1.185538
+2  1.027127 -0.723504 -2.328613
+3  0.285260 -1.157831  0.564503
+4  1.219048  0.374449  0.014576
           0         1         2
-1  2.284499  0.638133  1.304246
-4  1.007372  0.315739 -2.313226
-3  0.792763 -0.066756  0.901281
+1 -1.600242  1.506052  1.185538
+4  1.219048  0.374449  0.014576
+3  0.285260 -1.157831  0.564503
           0         2
-0  0.370939 -1.313839
-1  2.284499  1.304246
-2  0.631135 -0.983383
-3  0.792763  0.901281
-4  1.007372 -2.313226
+0 -0.578601  1.194279
+1 -1.600242  1.185538
+2  1.027127 -2.328613
+3  0.285260  0.564503
+4  1.219048  0.014576
 </code></pre></div>
 <p>需要注意的是，pandas对象的<code>take</code>方法并不会正常地工作在布尔索引上，并且有可能会返回一切意外的结果。</p>
 <div class="highlight"><pre><span></span><code><span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
@@ -2824,18 +2864,17 @@ dtype: int32
 <span class="o">%</span><span class="n">timeit</span> <span class="n">arr</span><span class="p">[</span><span class="n">indexer</span><span class="p">]</span>
 <span class="o">%</span><span class="n">timeit</span> <span class="n">arr</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="n">indexer</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>318 µs ± 36.9 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)
-142 µs ± 18.7 µs per loop (mean ± std. dev. of 7 runs, 10000 loops each)
+<div class="highlight"><pre><span></span><code>492 µs ± 148 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)
+196 µs ± 31.5 µs per loop (mean ± std. dev. of 7 runs, 10000 loops each)
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="n">ser</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">arr</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">])</span>
 <span class="o">%</span><span class="n">timeit</span> <span class="n">ser</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">indexer</span><span class="p">]</span>
 <span class="o">%</span><span class="n">timeit</span> <span class="n">ser</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="n">indexer</span><span class="p">)</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>281 µs ± 54.6 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)
-259 µs ± 34 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)
+<div class="highlight"><pre><span></span><code>519 µs ± 175 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)
+441 µs ± 234 µs per loop (mean ± std. dev. of 7 runs, 1000 loops each)
 </code></pre></div>
-<h2 id="lociloc">给<code>loc/iloc</code>指定轴参数</h2>
-<h2 id="_6">相关术语</h2>
+<h2 id="_7">相关术语</h2>
 <p>为了深入了解 pandas 的索引，我们先定义一些下面会用到的术语：</p>
 <ul>
 <li>赋值/分配/设置（Assignment/set）：设置某对象的值的操作。</li>
@@ -2845,7 +2884,7 @@ dtype: int32
 <li>链式赋值（chained assignment）：通过背靠背地使用多个索引操作进行赋值，例如<code>df['one']['second']=10</code>。</li>
 </ul>
 <p>padnas 的索引操作包含了获取（indexing-get）和赋值（indexing-set）两个功能，而链式赋值是链式索引和赋值操作的结合。</p>
-<h2 id="_7">视图和副本</h2>
+<h2 id="_8">视图和副本</h2>
 <p>熟悉 NumPy 的用户都会知道，ndarray 数组的索引结果有视图和副本之分。副本是原数据的完整拷贝，其物理内存和原数据的内存在同一个位置。视图是原数据的别称或引用，其物理内存和原数据的内存位于相同的物理位置。对副本进行修改，不会影响原数据，而修改视图则会影响原数据。</p>
 <p>pandas 的索引结果也分为视图和副本。因为 pandas 的底层操作基于 NumPy，其索引结果返回视图还是副本的逻辑也是来自于 NumPy。</p>
 <p>ndarray 所有元素都是同质的，即都具有相同的<code>dtype</code>。但 DataFrame 并非总是如此。如果一个 DataFrame 的所有列都是相同的<code>dtype</code>，那么它是 single-dtyped object；如果一个 DataFrame 的列不是全部具有相同的 dtype，那么它是 multi-dtyped object，或者称为 mixed-type。</p>
@@ -2879,8 +2918,8 @@ Is single-dtyped? False
 Is view? False
 Is mixed-type? False
 Is single-dtyped? True
-mixed_df 内存地址: 0X211805FB190
-single_df 内存地址: 0X211805FB490
+mixed_df 内存地址: 0X293C66A4850
+single_df 内存地址: 0X293C6648640
 </code></pre></div>
 </div>
 <input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><label for="__tabbed_6_2">定义<code>get_df_info</code>函数</label><div class="tabbed-content">
@@ -2939,7 +2978,7 @@ single_df 内存地址: 0X211805FB490
   Is view? False
   Is &#39;values.base&#39; None? True
   Is mixed-type? False
-  Is copy? &lt;weakref at 0x21180617DB0; to &#39;DataFrame&#39; at 0x211805FB190&gt;
+  Is copy? &lt;weakref at 0x293C669A4F0; to &#39;DataFrame&#39; at 0x293C66A4850&gt;
   Result type: object
   Is original dataframe modified? False
 * SettingWithCopyError
@@ -2983,7 +3022,7 @@ single column from a single-typed DataFrame:
   Is view? False
   Is &#39;values.base&#39; None? True
   Is mixed-type? False
-  Is copy? &lt;weakref at 0x21180510BD0; to &#39;DataFrame&#39; at 0x211805FB490&gt;
+  Is copy? &lt;weakref at 0x293C669AE50; to &#39;DataFrame&#39; at 0x293C6648640&gt;
   Result type: object
   Is original dataframe modified? False
 * SettingWithCopyError
@@ -3028,7 +3067,7 @@ single column from a single-typed DataFrame:
   Is view? False
 * Is &#39;values.base&#39; None? False
   Is mixed-type? True
-  Is copy? &lt;weakref at 0x2118062DE00; to &#39;DataFrame&#39; at 0x21180610FA0&gt;
+  Is copy? &lt;weakref at 0x293C66A50E0; to &#39;DataFrame&#39; at 0x293C66A4AF0&gt;
   Result type: [dtype(&#39;int64&#39;), dtype(&#39;int64&#39;), dtype(&#39;O&#39;)]
   Is original dataframe modified? False
 * SettingWithCopyError
@@ -3036,7 +3075,7 @@ multi-rows from a single-typed DataFrame:
   Is view? False
 * Is &#39;values.base&#39; None? False
   Is mixed-type? False
-  Is copy? &lt;weakref at 0x2118062D4A0; to &#39;DataFrame&#39; at 0x211805BD040&gt;
+  Is copy? &lt;weakref at 0x293C669AE50; to &#39;DataFrame&#39; at 0x293C66A43A0&gt;
   Result type: [dtype(&#39;int64&#39;), dtype(&#39;int64&#39;)]
   Is original dataframe modified? False
 * SettingWithCopyError
@@ -3044,7 +3083,7 @@ multi-columns from a mixed-type DataFrame:
   Is view? False
 * Is &#39;values.base&#39; None? False
   Is mixed-type? False
-  Is copy? &lt;weakref at 0x211806172C0; to &#39;DataFrame&#39; at 0x21180610C10&gt;
+  Is copy? &lt;weakref at 0x293C66A3180; to &#39;DataFrame&#39; at 0x293C6698D00&gt;
   Result type: [dtype(&#39;int64&#39;), dtype(&#39;int64&#39;)]
   Is original dataframe modified? False
 multi-columns from a single-typed DataFrame:
@@ -3072,7 +3111,7 @@ multi-columns from a single-typed DataFrame:
   Is view? False
 * Is &#39;values.base&#39; None? False
   Is mixed-type? True
-  Is copy? &lt;weakref at 0x21180617310; to &#39;DataFrame&#39; at 0x21180610430&gt;
+  Is copy? &lt;weakref at 0x293C66A5450; to &#39;DataFrame&#39; at 0x293C6635C40&gt;
   Result type: [dtype(&#39;int64&#39;), dtype(&#39;int64&#39;), dtype(&#39;O&#39;)]
   Is original dataframe modified? False
 * SettingWithCopyError
@@ -3080,7 +3119,7 @@ multi-rows from a single-typed DataFrame:
   Is view? True
   Is &#39;values.base&#39; None? False
   Is mixed-type? False
-  Is copy? &lt;weakref at 0x2118062D090; to &#39;DataFrame&#39; at 0x211805F0160&gt;
+  Is copy? &lt;weakref at 0x293C664AC70; to &#39;DataFrame&#39; at 0x293C668CA90&gt;
   Result type: [dtype(&#39;int64&#39;), dtype(&#39;int64&#39;)]
   Is original dataframe modified? False
 * SettingWithCopyError
@@ -3095,7 +3134,7 @@ multi-columns from a single-typed DataFrame:
   Is view? True
   Is &#39;values.base&#39; None? False
   Is mixed-type? False
-  Is copy? &lt;weakref at 0x211805C2270; to &#39;DataFrame&#39; at 0x21180610430&gt;
+  Is copy? &lt;weakref at 0x293C669D2C0; to &#39;DataFrame&#39; at 0x293C666C460&gt;
   Result type: [dtype(&#39;int64&#39;)]
   Is original dataframe modified? False
 </code></pre></div>
@@ -3139,7 +3178,7 @@ False
 </code></pre></div>
 <p>因为 NumPy 是可以预测地返回视图或副本，有人可能会困惑于基于 NumPy 的 pandas 为何不能预测地返回。NumPy 的索引规则虽然较复杂，但其索引种类和索引方式是比较单一的。而 pandas 为了实现功能更加强大且通用的索引，其索引并没有完全与与底层 NumPy 数组的功能相结合。随着时间的推移，pandas 索引的设计和底层 NumPy 功能之间的相互作用导致了一套复杂的规则，这些规则决定了是否可以返回视图或副本。</p>
 <p>最终，只有一个简单的笨方法可以完全确定索引操作<code>x=df[]/df.loc[]/df.iloc[]</code>返回的结果是否为原DataFrame的视图，只需查看更改<code>x</code>中的值是否会影响<code>x</code>。如果是，则<code>x</code>为视图；如果不是，则<code>x</code>为副本。</p>
-<h2 id="_8">链式赋值</h2>
+<h2 id="_9">链式赋值</h2>
 <p>pandas 所有的 indexing-set 操作都会修改<code>df</code>本身。</p>
 <div class="highlight"><pre><span></span><code><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;one&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>
         <span class="s2">&quot;two&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">]}</span>
@@ -3240,7 +3279,7 @@ False
     <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="o">.</span><span class="n">bidder</span> <span class="o">==</span> <span class="s1">&#39;parakeet2004&#39;</span><span class="p">][</span><span class="s1">&#39;bidderrate&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">100</span>
 </code></pre></div>
 <p>这种方法支持细粒度的警告控制，而不是不加选择地影响整个环境。</p>
-<h2 id="_9">索引方式总结表</h2>
+<h2 id="_10">索引方式总结表</h2>
 <table>
 <thead>
 <tr>

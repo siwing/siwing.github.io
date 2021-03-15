@@ -1265,20 +1265,13 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    创建索引
+    创建索引和示例数据
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    创建示例数据
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
     使用切片
   </a>
   
@@ -1312,8 +1305,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#mask" class="md-nav__link">
-    使用 mask 索引——布尔索引
+  <a href="#_3" class="md-nav__link">
+    布尔索引
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wheremask" class="md-nav__link">
+    where/mask方法
   </a>
   
 </li>
@@ -1321,13 +1321,6 @@
         <li class="md-nav__item">
   <a href="#isin" class="md-nav__link">
     isin方法
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    重新赋值
   </a>
   
 </li>
@@ -2151,20 +2144,13 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    创建索引
+    创建索引和示例数据
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
-    创建示例数据
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
     使用切片
   </a>
   
@@ -2198,8 +2184,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#mask" class="md-nav__link">
-    使用 mask 索引——布尔索引
+  <a href="#_3" class="md-nav__link">
+    布尔索引
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#wheremask" class="md-nav__link">
+    where/mask方法
   </a>
   
 </li>
@@ -2207,13 +2200,6 @@
         <li class="md-nav__item">
   <a href="#isin" class="md-nav__link">
     isin方法
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    重新赋值
   </a>
   
 </li>
@@ -2251,12 +2237,13 @@
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>Windows 10
 Python 3.8.8 @ MSC v.1928 64 bit (AMD64)
-Latest build date 2021.03.04
+Latest build date 2021.03.15
 pandas version:  1.2.2
 numpy version:  1.20.1
 </code></pre></div>
-<h2 id="_1">创建索引</h2>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">mklbl</span><span class="p">(</span><span class="n">prefix</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span> 
+<h2 id="_1">创建索引和示例数据</h2>
+<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Create index</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">mklbl</span><span class="p">(</span><span class="n">prefix</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
     <span class="k">return</span> <span class="p">[</span><span class="s1">&#39;</span><span class="si">%s%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">prefix</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
 
 
@@ -2265,15 +2252,17 @@ numpy version:  1.20.1
                                       <span class="n">mklbl</span><span class="p">(</span><span class="s1">&#39;C&#39;</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
                                       <span class="n">mklbl</span><span class="p">(</span><span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)])</span>
 
-<span class="n">micolumns</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">MultiIndex</span><span class="o">.</span><span class="n">from_tuples</span><span class="p">([(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;foo&#39;</span><span class="p">),</span> 
+<span class="n">micolumns</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">MultiIndex</span><span class="o">.</span><span class="n">from_tuples</span><span class="p">([(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;foo&#39;</span><span class="p">),</span>
                                        <span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;bar&#39;</span><span class="p">),</span>
-                                       <span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;foo&#39;</span><span class="p">),</span> 
+                                       <span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;foo&#39;</span><span class="p">),</span>
                                        <span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;bah&#39;</span><span class="p">)],</span>
                                       <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;lvl0&#39;</span><span class="p">,</span> <span class="s1">&#39;lvl1&#39;</span><span class="p">])</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">miindex</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">micolumns</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
 </code></pre></div>
+</div>
+<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">output</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code>MultiIndex([(&#39;A0&#39;, &#39;B0&#39;, &#39;C0&#39;, &#39;D0&#39;),
             (&#39;A0&#39;, &#39;B0&#39;, &#39;C0&#39;, &#39;D1&#39;),
             (&#39;A0&#39;, &#39;B0&#39;, &#39;C1&#39;, &#39;D0&#39;),
@@ -2346,13 +2335,14 @@ MultiIndex([(&#39;a&#39;, &#39;foo&#39;),
             (&#39;b&#39;, &#39;bah&#39;)],
            names=[&#39;lvl0&#39;, &#39;lvl1&#39;])
 </code></pre></div>
-<h2 id="_2">创建示例数据</h2>
-<div class="highlight"><pre><span></span><code><span class="n">dfmi</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">miindex</span><span class="p">)</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">micolumns</span><span class="p">))</span><span class="o">.</span>
+</div>
+</div>
+<div class="highlight"><pre><span></span><code><span class="c1"># Create DataFrame</span>
+<span class="n">dfmi</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">miindex</span><span class="p">)</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">micolumns</span><span class="p">))</span><span class="o">.</span>
                     <span class="n">reshape</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">miindex</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">micolumns</span><span class="p">))),</span>
                     <span class="n">index</span><span class="o">=</span><span class="n">miindex</span><span class="p">,</span>
                     <span class="n">columns</span><span class="o">=</span><span class="n">micolumns</span><span class="p">)</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span><span class="o">.</span><span class="n">sort_index</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-
-<span class="n">dfmi</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dfmi</span><span class="p">)</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>lvl0           a         b
 lvl1         bar  foo  bah  foo
@@ -2370,11 +2360,142 @@ A3 B1 C1 D1  237  236  239  238
 
 [64 rows x 4 columns]
 </code></pre></div>
-<h2 id="_3">使用切片</h2>
+<p>只有标签值索引具有多层级结构，即整数值索引没有多级结构，<code>iloc/iat</code>不支持多级索引。多级索引的使用让索引语法变得复杂，但总的来说，其索引种类可以分为如下几种：</p>
+<ol>
+<li>标量：单个标签元组：<ul>
+<li>省略靠后层级：<code>("A0", "B1")</code></li>
+<li>包含完整层级：<code>("A0", "B1", "C1", "D0")</code></li>
+</ul>
+</li>
+<li>
+<p>序列</p>
+<ul>
+<li>非重复的第一层级标签序列：<ul>
+<li><code>["A0", "A1", "A2"]</code></li>
+<li><code>np.array(["A0", "A1", "A2"])</code></li>
+</ul>
+</li>
+<li>完整层级的标签元组序列：<ul>
+<li><code>[("A0", "B1", "C1", "D0"), ("A0", "B0", "C0", "D1")]</code></li>
+<li><code>[["A0", "B1", "C1", "D0"], ["A0", "B0", "C0", "D1"]]</code></li>
+<li><code>[np.array(["A0", "B1", "C1", "D0"]), np.array(["A0", "B0", "C0", "D1"])]</code></li>
+</ul>
+</li>
+<li>嵌套在单个标签元组内的单层级标签序列：<code>("A0", ["B0", "B1"], ["C0", "C1"])</code></li>
+</ul>
+</li>
+<li>
+<p>切片</p>
+</li>
+</ol>
+<p><mark>同一轴的多级索使用运算符<code>()</code>括起来，这表示一个元组。</mark></p>
+<div class="highlight"><pre><span></span><code><span class="n">dfmi</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="s2">&quot;A0&quot;</span><span class="p">,</span> <span class="s2">&quot;B1&quot;</span><span class="p">,</span> <span class="s2">&quot;C1&quot;</span><span class="p">)]</span>  <span class="c1"># 省略第四层索引</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>lvl0   a       b
+lvl1 bar foo bah foo
+D0    41  40  43  42
+D1    45  44  47  46
+</code></pre></div>
+<p>实际上，<code>loc</code>默认选择行，可以省略列索引，而索引运算符<code>[]</code>只能选择行或列，因此，如果只使用“单个标签元组”，则<code>loc/[]</code>可以省略括号<code>()</code>；若列索引不省略，<code>loc</code>的多级行索引不能省略括号<code>()</code>：</p>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">dfmi</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;A0&quot;</span><span class="p">,</span> <span class="s2">&quot;B1&quot;</span><span class="p">,</span> <span class="s2">&quot;C1&quot;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">dfmi</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;A0&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;B0&quot;</span><span class="p">,</span> <span class="s2">&quot;B1&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;C0&quot;</span><span class="p">],</span> <span class="s2">&quot;a&quot;</span><span class="p">]</span>
+<span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;KeyError: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>lvl0   a       b
+lvl1 bar foo bah foo
+D0    41  40  43  42
+D1    45  44  47  46
+
+KeyError: &#39;a&#39;
+</code></pre></div>
+<p><code>at</code>用于选择标量，虽然其返回的不一定是标量，但必须使用完整的多级索引：</p>
+<div class="highlight"><pre><span></span><code><span class="n">dfmi</span><span class="o">.</span><span class="n">at</span><span class="p">[(</span><span class="s2">&quot;A0&quot;</span><span class="p">,</span> <span class="s2">&quot;B1&quot;</span><span class="p">,</span> <span class="s2">&quot;C0&quot;</span><span class="p">,</span> <span class="s2">&quot;D0&quot;</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;foo&quot;</span><span class="p">)]</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>32
+</code></pre></div>
+<p>使用“单个标签元组”时，<code>loc/[]</code>只能省略靠后层级的索引，不能省略前面层级的索引，例如下面前 4 行代码都是错误的：</p>
+<div class="highlight"><pre><span></span><code><span class="n">dfmi</span><span class="o">.</span><span class="n">loc</span><span class="p">[,</span> <span class="s2">&quot;B1&quot;</span><span class="p">,</span> <span class="s2">&quot;C1&quot;</span><span class="p">]</span>              <span class="c1"># SyntaxError</span>
+<span class="n">dfmi</span><span class="o">.</span><span class="n">loc</span><span class="p">[(:,</span> <span class="s2">&quot;B1&quot;</span><span class="p">,</span> <span class="s2">&quot;C1&quot;</span><span class="p">)]</span>           <span class="c1"># SyntaxError</span>
+<span class="n">dfmi</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;B1&quot;</span><span class="p">,</span> <span class="s2">&quot;C1&quot;</span><span class="p">]</span>                <span class="c1"># KeyError: &#39;B1&#39;</span>
+<span class="n">dfmi</span><span class="p">[</span><span class="s2">&quot;foo&quot;</span><span class="p">]</span>                         <span class="c1"># KeyError: &#39;foo&#39;</span>
+<span class="n">dfmi</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">),</span> <span class="s2">&quot;B1&quot;</span><span class="p">,</span> <span class="s2">&quot;C1&quot;</span><span class="p">]</span>   <span class="c1"># √</span>
+<span class="n">dfmi</span><span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">]</span>                           <span class="c1"># √</span>
+</code></pre></div>
+<p>对于<code>loc</code>，如果“单个标签元组”内嵌序列索引，且省略列索引，在如下特殊情况中，不能省略括号<code>()</code>：</p>
+<div class="tabbed-set" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">input</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="c1"># Is actually interpreted as dfmi.loc[&quot;A0&quot;, [&quot;B0&quot;, &quot;B1&quot;]]</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">dfmi</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="s2">&quot;A0&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;B0&quot;</span><span class="p">,</span> <span class="s2">&quot;B1&quot;</span><span class="p">])]</span>
+<span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+
+<span class="c1"># The correct syntax is as follows</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dfmi</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="s2">&quot;A0&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;B0&quot;</span><span class="p">,</span> <span class="s2">&quot;B1&quot;</span><span class="p">]),</span> <span class="p">])</span>
+<span class="c1"># If the used index level more than 2, can omit `()`</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dfmi</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;A0&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;B0&quot;</span><span class="p">,</span> <span class="s2">&quot;B1&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;C0&quot;</span><span class="p">]])</span>
+</code></pre></div>
+</div>
+<input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><label for="__tabbed_2_2">output</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code>&quot;[&#39;B0&#39; &#39;B1&#39;] not in index&quot;
+lvl0          a       b
+lvl1        bar foo bah foo
+A0 B0 C0 D0   1   0   3   2
+         D1   5   4   7   6
+      C1 D0   9   8  11  10
+         D1  13  12  15  14
+      C2 D0  17  16  19  18
+         D1  21  20  23  22
+      C3 D0  25  24  27  26
+         D1  29  28  31  30
+   B1 C0 D0  33  32  35  34
+         D1  37  36  39  38
+      C1 D0  41  40  43  42
+         D1  45  44  47  46
+      C2 D0  49  48  51  50
+         D1  53  52  55  54
+      C3 D0  57  56  59  58
+         D1  61  60  63  62
+lvl0          a       b
+lvl1        bar foo bah foo
+A0 B0 C0 D0   1   0   3   2
+         D1   5   4   7   6
+   B1 C0 D0  33  32  35  34
+         D1  37  36  39  38
+</code></pre></div>
+</div>
+</div>
+<p>如果“序列索引”非嵌套在“单个标签元组”内，其元素要么是 <mark>同一层级且非重复的标签标量</mark>，要么是完整的多级索引。</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Label scalar</span>
+<span class="n">dfmi</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="s2">&quot;A0&quot;</span><span class="p">,</span> <span class="s2">&quot;B1&quot;</span><span class="p">])]</span>  <span class="c1"># KeyError: &quot;[&#39;B1&#39;] not in index&quot;</span>
+<span class="n">dfmi</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;foo&quot;</span><span class="p">])]</span>      <span class="c1"># KeyError: &quot;[&#39;foo&#39;] not in index&quot;</span>
+<span class="n">dfmi</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="s2">&quot;A0&quot;</span><span class="p">,</span> <span class="s2">&quot;A1&quot;</span><span class="p">]]</span>            <span class="c1"># √</span>
+<span class="n">dfmi</span><span class="p">[[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">]]</span>                  <span class="c1"># √</span>
+</code></pre></div>
+<p>在“序列索引”中使用层级索引时，完整的层级索引可以包裹在序列<code>()/[]/array</code>之中。</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Full multi-level index</span>
+<span class="n">dfmi</span><span class="p">[[</span> <span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;foo&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;bar&quot;</span><span class="p">]</span> <span class="p">]]</span>                      <span class="c1"># √</span>
+<span class="n">dfmi</span><span class="p">[[</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;foo&quot;</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;bar&quot;</span><span class="p">])</span> <span class="p">]]</span>  <span class="c1"># √</span>
+<span class="n">dfmi</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span> <span class="p">[</span><span class="s2">&quot;A0&quot;</span><span class="p">,</span> <span class="s2">&quot;B0&quot;</span><span class="p">,</span> <span class="s2">&quot;C0&quot;</span><span class="p">,</span> <span class="s2">&quot;D0&quot;</span><span class="p">]</span> <span class="p">]]</span>                    <span class="c1"># √</span>
+<span class="n">dfmi</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span> <span class="p">(</span><span class="s2">&quot;A0&quot;</span><span class="p">,</span> <span class="s2">&quot;B0&quot;</span><span class="p">,</span> <span class="s2">&quot;C0&quot;</span><span class="p">,</span> <span class="s2">&quot;D0&quot;</span><span class="p">)</span> <span class="p">]]</span>                    <span class="c1"># √</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">dfmi</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span> <span class="p">(</span><span class="s2">&quot;A0&quot;</span><span class="p">,</span> <span class="s2">&quot;B0&quot;</span><span class="p">,</span> <span class="s2">&quot;C0&quot;</span><span class="p">)</span> <span class="p">]]</span>
+<span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>operands could not be broadcast together with shapes (1,3) (4,) (1,3)
+</code></pre></div>
+<h2 id="_2">使用切片</h2>
 <h3 id="slice">slice</h3>
+<div class="tabbed-set" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">input</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code><span class="n">dfmi</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="nb">slice</span><span class="p">(</span><span class="s1">&#39;A1&#39;</span><span class="p">,</span> <span class="s1">&#39;A3&#39;</span><span class="p">),</span> <span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">),</span> <span class="p">[</span><span class="s1">&#39;C1&#39;</span><span class="p">,</span> <span class="s1">&#39;C3&#39;</span><span class="p">]),</span> <span class="p">:]</span>
 <span class="n">dfmi</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;A1&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">),</span> <span class="s1">&#39;foo&#39;</span><span class="p">)]</span>
 </code></pre></div>
+</div>
+<input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><label for="__tabbed_3_2">output</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code>lvl0        a    b
 lvl1      foo  foo
 B0 C0 D0   64   66
@@ -2394,10 +2515,15 @@ B1 C0 D0   96   98
    C3 D0  120  122
       D1  124  126
 </code></pre></div>
+</div>
+</div>
 <h3 id="indexslice">IndexSlice</h3>
+<div class="tabbed-set" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><label for="__tabbed_4_1">input</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code><span class="n">idx</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">IndexSlice</span>
 <span class="n">dfmi</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">[:,</span> <span class="p">:,</span> <span class="p">[</span><span class="s1">&#39;C1&#39;</span><span class="p">,</span> <span class="s1">&#39;C3&#39;</span><span class="p">]],</span> <span class="n">idx</span><span class="p">[:,</span> <span class="s1">&#39;foo&#39;</span><span class="p">]]</span>
 </code></pre></div>
+</div>
+<input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><label for="__tabbed_4_2">output</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code>lvl0           a    b
 lvl1         foo  foo
 A0 B0 C1 D0    8   10
@@ -2433,10 +2559,16 @@ A3 B0 C1 D0  200  202
       C3 D0  248  250
          D1  252  254
 </code></pre></div>
+</div>
+</div>
 <h2 id="lociloc">给 <code>loc</code>或<code>iloc</code> 指定轴参数</h2>
-<p><code>loc</code>默认对行进行索引：</p>
-<div class="highlight"><pre><span></span><code><span class="n">dfmi</span><span class="o">.</span><span class="n">loc</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)[:,</span> <span class="p">:,</span> <span class="p">[</span><span class="s1">&#39;C1&#39;</span><span class="p">,</span> <span class="s1">&#39;C3&#39;</span><span class="p">]]</span>
+<p><code>loc</code>默认对行进行索引，但也可以对其指定<code>axis</code>参数，指定需要索引的轴。当存在多级索引，或者想显式指定需要索引的轴时比较有用。</p>
+<div class="tabbed-set" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><label for="__tabbed_5_1">input</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">dfmi</span><span class="o">.</span><span class="n">loc</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)[:,</span> <span class="p">:,</span> <span class="p">[</span><span class="s1">&#39;C1&#39;</span><span class="p">,</span> <span class="s1">&#39;C3&#39;</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dfmi</span><span class="o">.</span><span class="n">loc</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)[</span><span class="s1">&#39;a&#39;</span><span class="p">])</span>
 </code></pre></div>
+</div>
+<input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><label for="__tabbed_5_2">output</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code>lvl0           a         b
 lvl1         bar  foo  bah  foo
 A0 B0 C1 D0    9    8   11   10
@@ -2471,11 +2603,7 @@ A3 B0 C1 D0  201  200  203  202
          D1  237  236  239  238
       C3 D0  249  248  251  250
          D1  253  252  255  254
-</code></pre></div>
-<p>可以指定<code>axis</code>参数，指定需要索引的轴：</p>
-<div class="highlight"><pre><span></span><code><span class="n">dfmi</span><span class="o">.</span><span class="n">loc</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)[</span><span class="s1">&#39;a&#39;</span><span class="p">]</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>lvl1         bar  foo
+lvl1         bar  foo
 A0 B0 C0 D0    1    0
          D1    5    4
       C1 D0    9    8
@@ -2490,7 +2618,9 @@ A3 B1 C1 D1  237  236
 
 [64 rows x 2 columns]
 </code></pre></div>
-<h2 id="mask">使用 mask 索引——布尔索引</h2>
+</div>
+</div>
+<h2 id="_3">布尔索引</h2>
 <p>布尔索引经常会用到，例如想找出DataFrame中大于、小于或等于某值的所有元素：</p>
 <div class="highlight"><pre><span></span><code><span class="n">mask</span> <span class="o">=</span> <span class="n">dfmi</span><span class="p">[(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;foo&#39;</span><span class="p">)]</span> <span class="o">&gt;</span> <span class="mi">200</span>
 <span class="n">dfmi</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">[</span><span class="n">mask</span><span class="p">,</span> <span class="p">:,</span> <span class="p">[</span><span class="s1">&#39;C1&#39;</span><span class="p">,</span> <span class="s1">&#39;C3&#39;</span><span class="p">]],</span> <span class="n">idx</span><span class="p">[:,</span> <span class="s1">&#39;foo&#39;</span><span class="p">]]</span>
@@ -2536,18 +2666,59 @@ dtype: int64
 <span class="nb">print</span><span class="p">(</span><span class="n">df2</span><span class="p">[</span><span class="n">criterion</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df2</span><span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;x&#39;</span><span class="p">)])</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>       a  b         c
-2    two  y  0.155803
-3  three  x  2.060299
-4    two  y  1.369488
+2    two  y -0.477400
+3  three  x -0.747526
+4    two  y -0.842448
        a  b         c
-2    two  y  0.155803
-3  three  x  2.060299
-4    two  y  1.369488
+2    two  y -0.477400
+3  three  x -0.747526
+4    two  y -0.842448
        a  b         c
-3  three  x  2.060299
+3  three  x -0.747526
+</code></pre></div>
+<h2 id="wheremask"><code>where/mask</code>方法</h2>
+<p>布尔索引返回的结果通常是数据的子集：</p>
+<div class="highlight"><pre><span></span><code><span class="n">ser</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ser</span><span class="p">[</span><span class="n">ser</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">])</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>2    3
+dtype: int64
+</code></pre></div>
+<p>现在布尔索引在DataFrame上返回的结果和原始数据具有相同的形状：</p>
+<div class="highlight"><pre><span></span><code><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;a&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+                   <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">]})</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">df</span> <span class="o">&gt;=</span> <span class="mi">4</span><span class="p">])</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>     a    b
+0  4.0  4.0
+1  NaN  NaN
+2  NaN  NaN
+</code></pre></div>
+<p>这是通过<code>where</code>方法实现的，实际上等效于<code>df.where[df &gt;= 4]</code>。为了确保布尔索引的输出与原始数据具有相同的形状，可以使用<code>where</code>方法：</p>
+<div class="highlight"><pre><span></span><code><span class="n">ser</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">ser</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>0    NaN
+1    NaN
+2    3.0
+dtype: float64
+</code></pre></div>
+<p><code>where</code>方法还有几个可选参数：</p>
+<div class="highlight"><pre><span></span><code>df.where(cond, other=nan, inplace=False, axis=None, level=None,
+         errors=&#39;raise&#39;, try_cast=False)
+</code></pre></div>
+<ul>
+<li><code>other</code>：<code>cond</code>为<code>False</code>的条目将被替换为<code>other</code>。如果<code>other</code>是可调用的，则在DataFrame上对其进行计算，并应返回标量或DataFrame。可调用对象不得更改DataFrame（尽管pandas不会对其进行检查）。</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="c1"># `mask`方法是的`where`的逆布尔运算，它和`where`方法具有相同的参数。</span>
+
+<span class="n">ser</span><span class="o">.</span><span class="n">mask</span><span class="p">(</span><span class="n">ser</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>0    2.0
+1    2.0
+2    NaN
+dtype: float64
 </code></pre></div>
 <h2 id="isin"><code>isin</code>方法</h2>
-<p>Series、DataFrame、Index都有<code>.isin</code>方法。<code>.isin</code>方法接受数组或字典作为参数。如果参数是一个数组，则<code>isin</code>返回与原始DataFrame形状相同的布尔DataFrame。</p>
 <p>Series、DataFrame、Index都有<code>.isin</code>方法。<code>.isin</code>方法接受数组或字典作为参数。如果参数是一个数组，则<code>isin</code>返回与原始DataFrame形状相同的布尔DataFrame。</p>
 <div class="highlight"><pre><span></span><code><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;vals&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
                    <span class="s1">&#39;ids&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;f&#39;</span><span class="p">,</span> <span class="s1">&#39;n&#39;</span><span class="p">],</span>
@@ -2572,62 +2743,6 @@ dtype: int64
 2   True  False  False
 3  False  False  False
 </code></pre></div>
-<h2 id="_4">重新赋值</h2>
-<div class="highlight"><pre><span></span><code><span class="n">df2</span> <span class="o">=</span> <span class="n">dfmi</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-
-<span class="n">df2</span><span class="o">.</span><span class="n">loc</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)[:,</span> <span class="p">:,</span> <span class="p">[</span><span class="s1">&#39;C1&#39;</span><span class="p">,</span> <span class="s1">&#39;C3&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">10</span>
-<span class="n">df2</span>
-
-
-<span class="n">df2</span> <span class="o">=</span> <span class="n">dfmi</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="n">df2</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">[:,</span> <span class="p">:,</span> <span class="p">[</span><span class="s1">&#39;C1&#39;</span><span class="p">,</span> <span class="s1">&#39;C3&#39;</span><span class="p">]],</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">df2</span> <span class="o">*</span> <span class="mi">1000</span>
-<span class="n">df2</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>lvl0              a               b
-lvl1            bar     foo     bah     foo
-A0 B0 C0 D0       1       0       3       2
-         D1       5       4       7       6
-      C1 D0    9000    8000   11000   10000
-         D1   13000   12000   15000   14000
-      C2 D0      17      16      19      18
-...             ...     ...     ...     ...
-A3 B1 C1 D1  237000  236000  239000  238000
-      C2 D0     241     240     243     242
-         D1     245     244     247     246
-      C3 D0  249000  248000  251000  250000
-         D1  253000  252000  255000  254000
-
-[64 rows x 4 columns]
-</code></pre></div>
-<p>使用 <code>.loc/[]</code> 为该轴不存在的标签赋值时，可以给Series或DataFrame添加新的标签行或标签列，即对目标对象进行放大操作。</p>
-<div class="highlight"><pre><span></span><code><span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">,</span> <span class="s1">&#39;d&#39;</span><span class="p">])</span>
-<span class="n">df2</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
-<span class="n">df2</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s1">&#39;y&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
-<span class="n">df2</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>   a  b   c   d  z  y
-0  0  1   2   3  0  0
-1  4  5   6   7  0  0
-2  8  9  10  11  0  0
-</code></pre></div>
-<p><code>.iloc</code>也可以重新赋值，但不能执行放大操作。</p>
-<div class="highlight"><pre><span></span><code><span class="k">try</span><span class="p">:</span>
-    <span class="n">df2</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="mi">10</span>
-<span class="k">except</span> <span class="ne">IndexError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>iloc cannot enlarge its target object
-</code></pre></div>
-<p><code>at\iat</code>方法不仅可以用于获取标量，也可以用于重新赋值。与<code>loc\iloc</code>类似，<code>at</code>支持放大操作，<code>iat</code>则不支持。</p>
-<div class="highlight"><pre><span></span><code><span class="n">df2</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;x&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">40</span>
-<span class="n">df2</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>   a  b   c   d  z  y     x
-0  0  1   2   3  0  0  40.0
-1  4  5   6   7  0  0   NaN
-2  8  9  10  11  0  0   NaN
-</code></pre></div>
-<p><code>xs\take</code>方法则只能用于获取值，不能用于重新赋值。</p>
 <h2 id="xs">选取横截面数据——<code>xs</code>方法</h2>
 <div class="highlight"><pre><span></span><code>pd.DataFrame.xs(self, key, axis=0, level=None, drop_level=True)
 </code></pre></div>
