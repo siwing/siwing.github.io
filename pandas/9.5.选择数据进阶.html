@@ -1327,8 +1327,63 @@
       
         <li class="md-nav__item">
   <a href="#xs" class="md-nav__link">
-    选取横截面数据——xs方法
+    xs方法：选取横截面数据
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryquery-the-columns-with-boolean-expression" class="md-nav__link">
+    query方法：Query the columns with boolean expression
+  </a>
+  
+    <nav class="md-nav" aria-label="query方法：Query the columns with boolean expression">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#multiindexquery" class="md-nav__link">
+    MultiIndex中的query语法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#query" class="md-nav__link">
+    query用例
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#innot-in" class="md-nav__link">
+    in\not in操作符
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list" class="md-nav__link">
+    与list共用的==操作符
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    布尔运算符
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#query_1" class="md-nav__link">
+    query的性能
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2206,8 +2261,63 @@
       
         <li class="md-nav__item">
   <a href="#xs" class="md-nav__link">
-    选取横截面数据——xs方法
+    xs方法：选取横截面数据
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queryquery-the-columns-with-boolean-expression" class="md-nav__link">
+    query方法：Query the columns with boolean expression
+  </a>
+  
+    <nav class="md-nav" aria-label="query方法：Query the columns with boolean expression">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#multiindexquery" class="md-nav__link">
+    MultiIndex中的query语法
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#query" class="md-nav__link">
+    query用例
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#innot-in" class="md-nav__link">
+    in\not in操作符
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list" class="md-nav__link">
+    与list共用的==操作符
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    布尔运算符
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#query_1" class="md-nav__link">
+    query的性能
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2237,7 +2347,7 @@
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>Windows 10
 Python 3.8.8 @ MSC v.1928 64 bit (AMD64)
-Latest build date 2021.03.15
+Latest build date 2021.03.17
 pandas version:  1.2.2
 numpy version:  1.20.1
 </code></pre></div>
@@ -2666,15 +2776,15 @@ dtype: int64
 <span class="nb">print</span><span class="p">(</span><span class="n">df2</span><span class="p">[</span><span class="n">criterion</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df2</span><span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;x&#39;</span><span class="p">)])</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>       a  b         c
-2    two  y -0.477400
-3  three  x -0.747526
-4    two  y -0.842448
+2    two  y  0.340555
+3  three  x  0.764463
+4    two  y  0.127939
        a  b         c
-2    two  y -0.477400
-3  three  x -0.747526
-4    two  y -0.842448
+2    two  y  0.340555
+3  three  x  0.764463
+4    two  y  0.127939
        a  b         c
-3  three  x -0.747526
+3  three  x  0.764463
 </code></pre></div>
 <h2 id="wheremask"><code>where/mask</code>方法</h2>
 <p>布尔索引返回的结果通常是数据的子集：</p>
@@ -2709,9 +2819,8 @@ dtype: float64
 <ul>
 <li><code>other</code>：<code>cond</code>为<code>False</code>的条目将被替换为<code>other</code>。如果<code>other</code>是可调用的，则在DataFrame上对其进行计算，并应返回标量或DataFrame。可调用对象不得更改DataFrame（尽管pandas不会对其进行检查）。</li>
 </ul>
-<div class="highlight"><pre><span></span><code><span class="c1"># `mask`方法是的`where`的逆布尔运算，它和`where`方法具有相同的参数。</span>
-
-<span class="n">ser</span><span class="o">.</span><span class="n">mask</span><span class="p">(</span><span class="n">ser</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">)</span>
+<p><code>mask</code>方法是的<code>where</code>的逆布尔运算，它和<code>where</code>方法具有相同的参数。</p>
+<div class="highlight"><pre><span></span><code><span class="n">ser</span><span class="o">.</span><span class="n">mask</span><span class="p">(</span><span class="n">ser</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">)</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>0    2.0
 1    2.0
@@ -2743,7 +2852,7 @@ dtype: float64
 2   True  False  False
 3  False  False  False
 </code></pre></div>
-<h2 id="xs">选取横截面数据——<code>xs</code>方法</h2>
+<h2 id="xs"><code>xs</code>方法：选取横截面数据</h2>
 <div class="highlight"><pre><span></span><code>pd.DataFrame.xs(self, key, axis=0, level=None, drop_level=True)
 </code></pre></div>
 <p><code>DataFrame</code> 的<code>xs()</code>方法可以方便地在0轴或1轴的多级索引中的某一个层级进行数据的选取。<code>xs</code>方法实际上也可以作用与单层索引，但一般不会这样使用。与<code>loc</code>、<code>iloc</code>方法不同，<code>xs</code>方法只返回值，不能用于赋值。</p>
@@ -2793,6 +2902,181 @@ A0 B0 C0 D0    1    0
       C1 D0    9    8
          D1   13   12
 </code></pre></div>
+<h2 id="queryquery-the-columns-with-boolean-expression"><code>query</code>方法：Query the columns with boolean expression</h2>
+<p><code>query</code>方法允许DataFrame对象具有使用表达式选择列数据。<code>query</code>方法目前使用两种后端执行表达式：纯Python、numexpr。</p>
+<div class="highlight"><pre><span></span><code>df.query(expr, inplace=False, kwargs)
+</code></pre></div>
+<div class="tabbed-set" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><label for="__tabbed_6_1">query</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="s1">&#39;abc&#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">])</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;c&#39;</span><span class="p">])])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;(a &lt; b) &amp; (b &lt; c)&#39;</span><span class="p">))</span>
+</code></pre></div>
+</div>
+<input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><label for="__tabbed_6_2">result</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code>          a         b         c
+1  0.190680  0.434779  0.814870
+3  0.319295  0.441366  0.529379
+5  0.555171  0.742678  0.834157
+          a         b         c
+1  0.190680  0.434779  0.814870
+3  0.319295  0.441366  0.529379
+5  0.555171  0.742678  0.834157
+</code></pre></div>
+</div>
+</div>
+<p>如果没有名称为<code>a</code>的列，则使用命名行索引：</p>
+<div class="tabbed-set" data-tabs="7:2"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><label for="__tabbed_7_1">query</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">)),</span> <span class="n">columns</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="s1">&#39;bc&#39;</span><span class="p">))</span>
+<span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;a&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;a &lt; b and b &lt; c&#39;</span><span class="p">))</span>
+</code></pre></div>
+</div>
+<input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><label for="__tabbed_7_2">result</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code>   b  c
+a
+0  1  2
+</code></pre></div>
+</div>
+</div>
+<p>如果行索引名称与列名重叠，则列名优先。如果您不想或无法命名行索引，则可以在查询表达式中使用<code>"index"</code>：</p>
+<div class="tabbed-set" data-tabs="8:2"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><label for="__tabbed_8_1">query</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">)),</span> <span class="n">columns</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="s1">&#39;bc&#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;index &lt; b &lt; c&#39;</span><span class="p">))</span>
+</code></pre></div>
+</div>
+<input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><label for="__tabbed_8_2">result</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code>Empty DataFrame
+Columns: [b, c]
+Index: []
+</code></pre></div>
+</div>
+</div>
+<p>不管行索引是否被命名，都可以通过使用特殊标识符<code>'index'</code>在查询表达式中使用行索引。如果已经有一个名为<code>'index'</code>的列，那么也可以通过<code>'ilevel_0'</code>引用行索引，<code>'ilevel_0'</code>表示行索引的第0层级。但此时，您应该考虑将列重命名为不太模糊的名称。</p>
+<h3 id="multiindexquery"><code>MultiIndex</code>中的<code>query</code>语法</h3>
+<p>如果行索引是<code>MultiIndex</code>的，你可以像使用列数据一样使用行索引。</p>
+<div class="highlight"><pre><span></span><code><span class="n">level_0</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="s1">&#39;green&#39;</span><span class="p">]</span>
+<span class="n">level_1</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;ham&#39;</span><span class="p">,</span> <span class="s1">&#39;ham&#39;</span><span class="p">,</span> <span class="s1">&#39;eggs&#39;</span><span class="p">,</span> <span class="s1">&#39;eggs&#39;</span><span class="p">,</span> <span class="s1">&#39;eggs&#39;</span><span class="p">,</span>
+           <span class="s1">&#39;ham&#39;</span><span class="p">,</span> <span class="s1">&#39;ham&#39;</span><span class="p">,</span> <span class="s1">&#39;eggs&#39;</span><span class="p">,</span> <span class="s1">&#39;eggs&#39;</span><span class="p">,</span> <span class="s1">&#39;eggs&#39;</span><span class="p">]</span>
+<span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">MultiIndex</span><span class="o">.</span><span class="n">from_tuples</span><span class="p">(</span><span class="nb">tuple</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">level_0</span><span class="p">,</span> <span class="n">level_1</span><span class="p">)),</span>
+                                  <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;color&#39;</span><span class="p">,</span> <span class="s1">&#39;food&#39;</span><span class="p">])</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">index</span><span class="o">=</span><span class="n">index</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;color == &quot;red&quot;&#39;</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>                   0         1
+color food
+red   ham  -0.257810 -1.153861
+      ham   0.725566  1.809191
+      eggs -1.047197 -1.061928
+green eggs  1.427036  0.313970
+      eggs -0.282235  2.236536
+      ham   1.375284 -1.349781
+      ham  -0.995490  0.999974
+      eggs -0.104760  1.076976
+      eggs -0.459151 -0.000035
+      eggs  0.806551 -2.031023
+                   0         1
+color food
+red   ham  -0.257810 -1.153861
+      ham   0.725566  1.809191
+      eggs -1.047197 -1.061928
+</code></pre></div>
+<p>如果<code>MultiIndex</code>的级别未命名，可以使用特殊名称引用它们：</p>
+<div class="highlight"><pre><span></span><code><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;ilevel_0 == &quot;red&quot;&#39;</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>                   0         1
+red   ham  -0.257810 -1.153861
+      ham   0.725566  1.809191
+      eggs -1.047197 -1.061928
+green eggs  1.427036  0.313970
+      eggs -0.282235  2.236536
+      ham   1.375284 -1.349781
+      ham  -0.995490  0.999974
+      eggs -0.104760  1.076976
+      eggs -0.459151 -0.000035
+      eggs  0.806551 -2.031023
+                 0         1
+red ham  -0.257810 -1.153861
+    ham   0.725566  1.809191
+    eggs -1.047197 -1.061928
+</code></pre></div>
+<h3 id="query"><code>query</code>用例</h3>
+<p>当你拥有一组 DataFrame 对象，它们具有共同的列名子集(或索引层级名称)，那么你可以将相同的查询传递给这两个 DataFrame ，而不必指定要查询的 DataFrame。</p>
+<div class="highlight"><pre><span></span><code><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="s1">&#39;abc&#39;</span><span class="p">))</span>
+<span class="n">df2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+<span class="n">expr</span> <span class="o">=</span> <span class="s1">&#39;0.0 &lt;= a &lt;= c &lt;= 0.5&#39;</span>
+<span class="nb">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">frame</span><span class="p">:</span> <span class="n">frame</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">expr</span><span class="p">),</span> <span class="p">[</span><span class="n">df</span><span class="p">,</span> <span class="n">df2</span><span class="p">])</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>&lt;map at 0x293c8473970&gt;
+</code></pre></div>
+<h3 id="innot-in"><code>in\not in</code>操作符</h3>
+<div class="highlight"><pre><span></span><code><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="s1">&#39;aabbccddeeff&#39;</span><span class="p">),</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="nb">list</span><span class="p">(</span><span class="s1">&#39;aaaabbbbcccc&#39;</span><span class="p">),</span>
+                   <span class="s1">&#39;c&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">12</span><span class="p">),</span>
+                   <span class="s1">&#39;d&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">12</span><span class="p">)})</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;a in b&#39;</span><span class="p">)</span>
+<span class="c1"># How you&#39;d do it in pure Python</span>
+<span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">])]</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;a not in b&#39;</span><span class="p">)</span>
+<span class="c1"># pure Python</span>
+<span class="n">df</span><span class="p">[</span><span class="o">~</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">])]</span>
+</code></pre></div>
+<p><code>in\not in</code>是在 vanilla Python 中计算的，因为 numexpr 没有此等效操作。通常，可以由 numexpr 执行的操作都是由 numexpr 计算的。例如，<code>(b + c + d)</code>由 numexpr 计算，然后在 Python 中计算 <code>in</code> 操作。</p>
+<div class="highlight"><pre><span></span><code><span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;a in b + c + d&#39;</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="list">与list共用的<code>==</code>操作符</h3>
+<p>使用<code>==/!=</code>与包含列名的列表进行比较，类似于<code>in/not in</code>。</p>
+<div class="highlight"><pre><span></span><code><span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;b == [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;]&#39;</span><span class="p">)</span>
+<span class="c1"># pure Python</span>
+<span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">])]</span>
+<span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;c == [1, 2]&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;c != [1, 2]&#39;</span><span class="p">)</span>
+<span class="c1"># using in/not in</span>
+<span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;[1, 2] in c&#39;</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;[1, 2] not in c&#39;</span><span class="p">)</span>
+<span class="c1"># pure Python</span>
+<span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;c&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])]</span>
+</code></pre></div>
+<h3 id="_4">布尔运算符</h3>
+<p>可以使用<code>not</code>或<code>~</code>运算符对布尔表达式求反。</p>
+<div class="tabbed-set" data-tabs="9:2"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio" /><label for="__tabbed_9_1">query</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="s1">&#39;abc&#39;</span><span class="p">))</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;bools&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">))</span> <span class="o">&gt;</span> <span class="mf">0.5</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;~bools&#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;not bools&#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;not bools&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="n">df</span><span class="p">[</span><span class="o">~</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;bools&#39;</span><span class="p">]])</span>
+</code></pre></div>
+</div>
+<input id="__tabbed_9_2" name="__tabbed_9" type="radio" /><label for="__tabbed_9_2">result</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code>          a         b         c  bools
+1  0.333927  0.896457  0.445474  False
+          a         b         c  bools
+1  0.333927  0.896457  0.445474  False
+      a     b     c  bools
+1  True  True  True   True
+</code></pre></div>
+</div>
+</div>
+<p>当然，表达式也可以任意复杂:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># short query syntax</span>
+<span class="n">shorter</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;a &lt; b &lt; c and (not bools) or bools &gt; 2&#39;</span><span class="p">)</span>
+<span class="c1"># equivalent in pure Python</span>
+<span class="n">longer</span> <span class="o">=</span> <span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">])</span>
+            <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;c&#39;</span><span class="p">])</span>
+            <span class="o">&amp;</span> <span class="p">(</span><span class="o">~</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;bools&#39;</span><span class="p">])</span>
+            <span class="o">|</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;bools&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">)]</span>
+</code></pre></div>
+<h3 id="query_1"><code>query</code>的性能</h3>
+<p>如果 DataFrame 有大约 200,000 行以上，使用 numexpr 后端才能看到性能优势。</p>
+<div align=center><img src="https://pandas.pydata.org/docs/_images/query-perf-small.png";"></div>
+
+<p>对于 big DataFrame，使用 numexpr 后端的<code>DataFrame.query()</code>比纯 Python 稍快一些。</p>
+<div align=center><img src="https://pandas.pydata.org/docs/_images/query-perf.png";"></div>
                 
               
               
