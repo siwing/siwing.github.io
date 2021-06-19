@@ -868,18 +868,6 @@
   
 
           
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.17.test.html" class="md-nav__link">
-        6.17.test
-      </a>
-    </li>
-  
-
-          
         </ul>
       </nav>
     </li>
@@ -1133,21 +1121,35 @@
       
         <li class="md-nav__item">
   <a href="#npy" class="md-nav__link">
-    npy
+    保存为 npy 格式
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#npz" class="md-nav__link">
-    npz
+    保存为 npz 格式
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#npy-npz" class="md-nav__link">
+    读入 .npy 或 .npz 文件
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    文本文件
+    保存为文本文件
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    读入文本文件
   </a>
   
 </li>
@@ -2091,21 +2093,35 @@
       
         <li class="md-nav__item">
   <a href="#npy" class="md-nav__link">
-    npy
+    保存为 npy 格式
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#npz" class="md-nav__link">
-    npz
+    保存为 npz 格式
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#npy-npz" class="md-nav__link">
+    读入 .npy 或 .npz 文件
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    文本文件
+    保存为文本文件
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    读入文本文件
   </a>
   
 </li>
@@ -2132,39 +2148,62 @@
                 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">os</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>Windows 10
-Python 3.7.3 @ MSC v.1915 64 bit (AMD64)
-Latest build date 2020.03.22
-numpy version:  1.18.1
+<div class="highlight"><pre><span></span><code>Linux 5.4.0-74-generic
+Python 3.9.5 @ GCC 7.3.0
+Latest build date 2021.06.18
+numpy version:  1.20.3
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
-<span class="n">x</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
-</code></pre></div>
-<h2 id="npy"><code>npy</code></h2>
-<p><strong><code>ny.save(file, arr, allow_pickle=True, fix_imports=True)</code></strong>：将<strong>一个</strong>numpy数组储存为一个<code>.npy</code>格式的二进制文件。</p>
-<ol>
-<li><code>file</code>：文件名或者文件对象。如果是个文件名，则会自动添加后缀<code>.npy</code>如果没有该后缀的话</li>
-<li><code>arr</code>：被存储的数组</li>
-<li><code>allow_pickle</code>：一个布尔值，如果为True，则使用Python pickle。有时候为了安全性和可移植性而不使用pickle</li>
-<li><code>fix_imports</code>：用于python3的数组import到python2的情形</li>
-</ol>
-<div class="highlight"><pre><span></span><code><span class="n">save_path</span> <span class="o">=</span> <span class="s2">&quot;array&quot;</span>
+<h2 id="npy">保存为 <code>npy</code> 格式</h2>
+<div class="admonition abstract">
+<p class="admonition-title"><strong><code>np.save(file, arr, allow_pickle=True, fix_imports=True)</code></strong></p>
+<p>将<strong>一个</strong>numpy数组储存为一个<code>.npy</code>格式的二进制文件。</p>
+<ul>
+<li><code>file</code>：文件名或者文件对象。如果是文件名且没有后缀，则会自动添加后缀<code>.npy</code>。</li>
+<li><code>arr</code>：被存储的数组。</li>
+<li><code>allow_pickle</code>：布尔值，如果为<code>True</code>，则使用Python pickle。有时候为了安全性和可移植性而不使用pickle。</li>
+<li><code>fix_imports</code>：用于 Python 3 的数组导入到 Python 2 的情形。</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">save_path</span> <span class="o">=</span> <span class="s2">&quot;array&quot;</span>
 <span class="c1"># 保存时会自动添加.npy后缀</span>
 <span class="n">np</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">save_path</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
-<span class="c1"># npy文件被保存在工作目录</span>
+<span class="c1"># npy文件被保存在当前工作目录</span>
 <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span>  <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">()</span> <span class="k">if</span> <span class="n">i</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;npy&quot;</span><span class="p">)]</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>[&#39;array.npy&#39;]
 </code></pre></div>
-<p>读入<code>.npy</code> 文件</p>
-<p><strong><code>ny.load(file, mmap_mode=None, allow_pickle=True, fix_imports=True, encoding='ASCII')</code></strong>：从二进制文件中读取数组。返回一个数组，元组，或者字典（当二进制文件是<code>savez</code>生成时）</p>
-<ol>
-<li><code>file</code>：一个文件名或者文件对象。</li>
-<li><code>mmap_mode</code>：如果不是None，则memory-map该文件。此时对数组的修改会同步到文件上。当读取大文件的一小部分时很有用，因为它不必一次读取整个文件。可选值为None/'r+'/'r'/'w+'/'c'</li>
-<li><code>allow_pickle</code>：一个布尔值，如果为True，则使用Python pickle。有时候为了安全性和可移植性而不使用pickle</li>
-<li><code>fix_imports</code>：用于python3的数组import到python2的情形</li>
-<li><code>encoding</code>：只用于python2，读取python2字符串。</li>
-</ol>
+</div>
+<h2 id="npz">保存为 <code>npz</code> 格式</h2>
+<div class="admonition abstract">
+<p class="admonition-title"><strong><code>np.savez(file, *args, **kwds)</code></strong></p>
+<p>将<strong>多个numpy数组</strong>储存为一个<code>.npz</code>格式的二进制文件。</p>
+<ul>
+<li><code>file</code>：文件名或者文件对象。如果是文件名且没有后缀，则会自动添加后缀<code>.npz</code>。</li>
+<li><code>args</code>：被存储的数组。这些数组的名字将被自动命名为<code>arr_0/arr_1/...</code>。如果没有名字，则完全无法知晓这些数组的区别。</li>
+<li><code>kwds</code>：将被存储的数组，这些关键字参数就是键的名字。</li>
+</ul>
+<p>保存 .npz 文件</p>
+<div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">save_path</span> <span class="o">=</span> <span class="s2">&quot;array&quot;</span>
+<span class="n">np</span><span class="o">.</span><span class="n">savez</span><span class="p">(</span><span class="n">save_path</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="admonition abstract">
+<p class="admonition-title"><strong><code>np.savez_compressed(file, *args, **kwds)</code></strong></p>
+<p>将多个 NumPy 数组<strong>压缩</strong>储存为一个<code>.npz</code>格式的文件。</p>
+</div>
+<h2 id="npy-npz">读入 <code>.npy</code> 或 <code>.npz</code> 文件</h2>
+<div class="admonition abstract">
+<p class="admonition-title"><strong><code>np.load(file, mmap_mode=None, allow_pickle=False, fix_imports=True, encoding='ASCII')</code></strong></p>
+<p>从二进制文件中读取数组，返回一个数组、元组或者字典（当二进制文件是<code>savez</code>生成时）。</p>
+<ul>
+<li><code>file</code>：存放数组的文件路径或者文件对象。</li>
+<li><code>mmap_mode</code>：如果不是<code>None</code>，则memory-map该文件。此时对数组的修改会同步到文件上。当读取大文件的一小部分时很有用，因为它不必一次读取整个文件。可选值为 <code>None</code> / <code>'r+'</code> / <code>'r'</code> / <code>'w+'</code> / <code>'c'</code>。</li>
+<li><code>allow_pickle</code>：布尔值，如果为<code>True</code>，·则使用Python pickle。有时候为了安全性和可移植性而不使用pickle。</li>
+<li><code>fix_imports</code>：用于 Python 3 的数组导入到 Python 2 的情形。</li>
+<li><code>encoding</code>：只用于 Python 2，读取 Python 2 字符串。</li>
+</ul>
+<p>读入 .npy 文件</p>
 <div class="highlight"><pre><span></span><code><span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;array.npy&quot;</span><span class="p">,</span> <span class="n">allow_pickle</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>array([[ 0,  1,  2,  3,  4],
@@ -2172,24 +2211,41 @@ numpy version:  1.18.1
        [10, 11, 12, 13, 14],
        [15, 16, 17, 18, 19]])
 </code></pre></div>
-<h2 id="npz"><code>npz</code></h2>
-<p><strong>ny.savez(file, *args, **kwds)</strong>：将<strong>多个numpy数组</strong>储存为一个<code>.npz</code>格式的二进制文件。</p>
-<ol>
-<li><code>file</code>：文件名或者文件对象。如果是个文件名，则会自动添加后缀<code>.npz</code>，如果没有该后缀的话</li>
-<li><code>args</code>：被存储的数组。这些数组的名字将被自动命名为<code>arr_0/arr_1/...</code></li>
-<li><code>kwds</code>：将被存储的数组，这些关键字参数就是键的名字</li>
-</ol>
-<div class="highlight"><pre><span></span><code><span class="n">np</span><span class="o">.</span><span class="n">savez</span><span class="p">(</span><span class="n">save_path</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
-</code></pre></div>
-<p>读入<code>.npyz</code> 文件</p>
+<p>读入 .npz 文件</p>
 <div class="highlight"><pre><span></span><code><span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;array.npz&quot;</span><span class="p">,</span> <span class="n">allow_pickle</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>&lt;numpy.lib.npyio.NpzFile at 0x1d934ea1be0&gt;
+<div class="highlight"><pre><span></span><code>&lt;numpy.lib.npyio.NpzFile at 0x7f4c44651eb0&gt;
 </code></pre></div>
-<p>另外，<code>np.savez_compressed</code>将<strong>多个numpy数组</strong>储存为一个<code>.npz</code>格式的压缩文件。</p>
-<h2 id="_1">文本文件</h2>
-<p><code>np.savetxt()</code>将一个numpy数组储存为一个文本文件：</p>
-<div class="highlight"><pre><span></span><code><span class="n">np</span><span class="o">.</span><span class="n">savetxt</span><span class="p">(</span><span class="n">save_path</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+</div>
+<h2 id="_1">保存为文本文件</h2>
+<div class="admonition abstract">
+<p class="admonition-title"><strong><code>np.savetxt(fname, X, ...)</code></strong></p>
+<p>将一个 NumPy 数组储存为一个文本文件。</p>
+<div class="highlight"><pre><span></span><code><span class="n">np</span><span class="o">.</span><span class="n">savetxt</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%.18e</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
+           <span class="n">footer</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">comments</span><span class="o">=</span><span class="s1">&#39;# &#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</code></pre></div>
+<p>保存文本文件</p>
+<div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">save_path</span> <span class="o">=</span> <span class="s2">&quot;array&quot;</span>
+<span class="n">np</span><span class="o">.</span><span class="n">savetxt</span><span class="p">(</span><span class="n">save_path</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="admonition abstract">
+<p class="admonition-title"><strong><code>ndarray.tofile(fid, sep="", format="%s")</code></strong></p>
+<p>将数组保存为文本文件或二进制文件。</p>
+<ul>
+<li><code>fid</code>：一个 file 对象或者文件名。</li>
+<li><code>sep</code>：一个字符串，指定分隔符。如果为空或者空字符串，则按照二进制的方式写入，等价于<code>file.write(a.tobytes())</code>。</li>
+<li><code>format</code>：一个字符串，指定了数值的格式化方式。</li>
+</ul>
+</div>
+<h2 id="_2">读入文本文件</h2>
+<div class="admonition abstract">
+<p class="admonition-title"><strong><code>np.loadtxt(fname, dtype, ...)</code></strong></p>
+<p>从文本文件加载 NumPy 数组。</p>
+<div class="highlight"><pre><span></span><code><span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">comments</span><span class="o">=</span><span class="s1">&#39;#&#39;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+           <span class="n">converters</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">unpack</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ndmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+           <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;bytes&#39;</span><span class="p">,</span> <span class="n">max_rows</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">like</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 </code></pre></div>
 <p>读入文本文件</p>
 <div class="highlight"><pre><span></span><code><span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="s2">&quot;array&quot;</span><span class="p">)</span>
@@ -2199,14 +2255,7 @@ numpy version:  1.18.1
        [10., 11., 12., 13., 14.],
        [15., 16., 17., 18., 19.]])
 </code></pre></div>
-<p>清除文件 </p>
-<div class="highlight"><pre><span></span><code><span class="k">try</span><span class="p">:</span>
-    <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;array&quot;</span><span class="p">)</span>
-    <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;array.npy&quot;</span><span class="p">)</span>
-    <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;array.npz&quot;</span><span class="p">)</span>
-<span class="k">except</span><span class="p">:</span>
-    <span class="k">pass</span>
-</code></pre></div>
+</div>
                 
               
               

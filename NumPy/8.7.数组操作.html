@@ -868,18 +868,6 @@
   
 
           
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.17.test.html" class="md-nav__link">
-        6.17.test
-      </a>
-    </li>
-  
-
-          
         </ul>
       </nav>
     </li>
@@ -1110,6 +1098,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#axis" class="md-nav__link">
+    轴操作(axis)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     拼接数组
   </a>
@@ -1126,6 +1121,13 @@
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     添加和删除数组元素
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    重排列元素
   </a>
   
 </li>
@@ -2118,6 +2120,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#axis" class="md-nav__link">
+    轴操作(axis)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     拼接数组
   </a>
@@ -2134,6 +2143,13 @@
         <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     添加和删除数组元素
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    重排列元素
   </a>
   
 </li>
@@ -2162,7 +2178,7 @@
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>Linux 5.4.0-74-generic
 Python 3.9.5 @ GCC 7.3.0
-Latest build date 2021.06.09
+Latest build date 2021.06.16
 numpy version:  1.20.3
 </code></pre></div>
 <p>创建示例数据</p>
@@ -2290,6 +2306,7 @@ True
 (10, 1, 5)
 </code></pre></div>
 </details>
+<h2 id="axis">轴操作(<code>axis</code>)</h2>
 <details class="abstract"><summary><strong><code>np.swapaxes(a, axis1, axis2)</code></strong> / <strong><code>array.swapaxes()</code></strong></summary><p>交换指定的两个轴（<code>axis1</code>和<code>axis2</code>），返回视图：</p>
 <div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">swapaxes</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
@@ -2575,6 +2592,160 @@ ValueError all the input array dimensions for the concatenation axis must match 
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>(array([[1, 2],
        [2, 3]]), array([2, 1]))
+</code></pre></div>
+</details>
+<h2 id="_4">重排列元素</h2>
+<details class="abstract"><summary><strong><code>np.flip(m, axis=None)</code></strong></summary><p>沿给定轴反转数组中元素的顺序，数组的 shape 不变。</p>
+<ul>
+<li><code>axis</code>：指定需要反转元素顺序的轴，可以是整数或整数序列。</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>array([[[0, 1], [2, 3]], [[4, 5], [6, 7]]])
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">np</span><span class="o">.</span><span class="n">flip</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>array([[[4, 5], [6, 7]], [[0, 1], [2, 3]]])
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">np</span><span class="o">.</span><span class="n">flip</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>array([[[2, 3], [0, 1]], [[6, 7], [4, 5]]])
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">np</span><span class="o">.</span><span class="n">flip</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>array([[[1, 0], [3, 2]], [[5, 4], [7, 6]]])
+</code></pre></div>
+<p>默认反转所有轴的元素顺序：</p>
+<div class="highlight"><pre><span></span><code><span class="n">np</span><span class="o">.</span><span class="n">flip</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>array([[[7, 6], [5, 4]], [[3, 2], [1, 0]]])
+</code></pre></div>
+<p>同时指定反转多个轴的元素顺序：</p>
+<div class="highlight"><pre><span></span><code><span class="n">np</span><span class="o">.</span><span class="n">flip</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>array([[[5, 4], [7, 6]], [[1, 0], [3, 2]]])
+</code></pre></div>
+</details>
+<details class="abstract"><summary><strong><code>np.fliplr(m)</code></strong></summary><p>左右方向翻转数组，输入数组至少是2维的。</p>
+<div class="highlight"><pre><span></span><code><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">([</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">------&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">fliplr</span><span class="p">(</span><span class="n">A</span><span class="p">))</span>
+<span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">fliplr</span><span class="p">(</span><span class="n">A</span><span class="p">)</span> <span class="o">==</span> <span class="n">A</span><span class="p">[:,</span> <span class="p">::</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">...</span><span class="p">])</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>[[1. 0. 0.]
+ [0. 2. 0.]
+ [0. 0. 3.]]
+------
+[[0. 0. 1.]
+ [0. 2. 0.]
+ [3. 0. 0.]]
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>True
+</code></pre></div>
+</details>
+<details class="abstract"><summary><strong><code>np.flipud(m)</code></strong></summary><p>上下方向翻转数组。</p>
+<div class="highlight"><pre><span></span><code><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">([</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">------&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">flipud</span><span class="p">(</span><span class="n">A</span><span class="p">))</span>
+<span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">flipud</span><span class="p">(</span><span class="n">A</span><span class="p">)</span> <span class="o">==</span> <span class="n">A</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">...</span><span class="p">])</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>[[1. 0. 0.]
+ [0. 2. 0.]
+ [0. 0. 3.]]
+------
+[[0. 0. 3.]
+ [0. 2. 0.]
+ [1. 0. 0.]]
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>True
+</code></pre></div>
+</details>
+<details class="abstract"><summary><strong><code>np.rot90(m, k=1, axes=(0, 1))</code></strong></summary><p>在轴指定的平面中将数组旋转 90 度。的旋转方向是从 0 轴到 1 轴。</p>
+<div class="highlight"><pre><span></span><code><span class="n">m</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]],</span> <span class="nb">int</span><span class="p">)</span>
+<span class="n">m</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>array([[1, 2],
+       [3, 4]])
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">rot90</span><span class="p">(</span><span class="n">m</span><span class="p">),</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">-----&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">rot90</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>[[2 4]
+ [1 3]]
+-----
+[[4 3]
+ [2 1]]
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">rot90</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">axes</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)),</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">-----&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">rot90</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">k</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">axes</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>[[3 1]
+ [4 2]]
+-----
+[[3 1]
+ [4 2]]
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">m</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+<span class="n">np</span><span class="o">.</span><span class="n">rot90</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>[[[0 1]
+  [2 3]]
+
+ [[4 5]
+  [6 7]]]
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>array([[[1, 3],
+        [0, 2]],
+
+       [[5, 7],
+        [4, 6]]])
+</code></pre></div>
+</details>
+<details class="abstract"><summary><strong><code>np.roll(a, shift, axis=None)</code></strong></summary><p>沿给定轴滚动数组元素。</p>
+<div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>[8 9 0 1 2 3 4 5 6 7]
+[2 3 4 5 6 7 8 9 0 1]
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">x2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">x2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>[[0 1 2 3 4]
+ [5 6 7 8 9]]
+
+[[9 0 1 2 3]
+ [4 5 6 7 8]]
+
+[[1 2 3 4 5]
+ [6 7 8 9 0]]
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>[[5 6 7 8 9]
+ [0 1 2 3 4]]
+
+[[5 6 7 8 9]
+ [0 1 2 3 4]]
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>[[4 0 1 2 3]
+ [9 5 6 7 8]]
+
+[[1 2 3 4 0]
+ [6 7 8 9 5]]
 </code></pre></div>
 </details>
                 

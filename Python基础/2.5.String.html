@@ -428,13 +428,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#bytes" class="md-nav__link">
-    bytes字符
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
     格式化
   </a>
@@ -1025,18 +1018,6 @@
     <li class="md-nav__item">
       <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.16.shutil.html" class="md-nav__link">
         6.16.shutil
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.17.test.html" class="md-nav__link">
-        6.17.test
       </a>
     </li>
   
@@ -2228,13 +2209,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#bytes" class="md-nav__link">
-    bytes字符
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#_5" class="md-nav__link">
     格式化
   </a>
@@ -2349,13 +2323,13 @@
                 
                   <h1>2.5.String</h1>
                 
-                <div class="highlight"><pre><span></span><code>Windows 10
-Python 3.7.3 @ MSC v.1915 64 bit (AMD64)
-Latest build date 2020.11.20
+                <div class="highlight"><pre><span></span><code>Linux 5.4.0-74-generic
+Python 3.9.5 @ GCC 7.3.0
+Latest build date 2021.06.19
 </code></pre></div>
 <h2 id="_1">多行字符串</h2>
-<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">input</label><div class="tabbed-content">
-<div class="highlight"><pre><span></span><code><span class="n">str_1</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># tab = &quot;input&quot;</span>
+<span class="n">str_1</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">This is a multi-line string</span>
 <span class="s2">This is the second line</span>
 <span class="s2">&quot;&quot;&quot;</span>
@@ -2366,8 +2340,6 @@ Latest build date 2020.11.20
 
 <span class="nb">print</span><span class="p">(</span><span class="n">str_1</span> <span class="o">==</span> <span class="n">str_2</span><span class="p">)</span>
 </code></pre></div>
-</div>
-<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">output</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code>This is a multi-line string
 This is the second line
 
@@ -2377,26 +2349,28 @@ This is the second line
 
 True
 </code></pre></div>
-</div>
-</div>
 <h2 id="_2">转义</h2>
 <p>如果要在字符串里面输入特殊字符，需要使用转义符<code>\</code>，例如输入转义符本身：</p>
-<div class="highlight"><pre><span></span><code><span class="n">str_3</span> <span class="o">=</span> <span class="s2">&quot;12</span><span class="se">\\</span><span class="s2">14&quot;</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">str_3</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;12</span><span class="se">\\</span><span class="s2">14&quot;</span><span class="p">)</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>12\14
 </code></pre></div>
+<p>如果不是特殊字符，则转义符不会生效：</p>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;\g&quot;</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>\g
+</code></pre></div>
 <h2 id="_3">前缀</h2>
-<p>在 Python 中，字符串可以添加以下前缀：</p>
+<p>在 Python 3 中，字符串可以添加以下前缀：</p>
 <ul>
 <li>
 <p><code>r</code> / <code>R</code>：表示非转义的原始字符串，常用于正则表达式、路径字符串。</p>
 </li>
 <li>
-<p><code>b</code> / <code>B</code>：表示Python3的bytes，Python2的字符串默认就是bytes。Python2的b前缀只是为了兼容Python3的这种写法。</p>
+<p><code>b</code> / <code>B</code>：表示 Python 3 的 bytes，Python 2 的字符串默认就是 bytes。Python2的b前缀只是为了兼容Python3的这种写法。</p>
 </li>
 <li>
-<p><code>u</code> / <code>U</code>：表示Python2的unicode字符串，代表是对字符串进行unicode编码。Python3里默认的str就是(Python2的)unicode。Python3的u前缀只是为了兼容Python2的这种写法。建议统一采用UTF-8编码。</p>
+<p><code>u</code> / <code>U</code>：表示 Python 2 的 unicode 字符串，即对字符串进行 unicode 编码。Python 3 里默认的 str 就是 Python 2 的 unicode。Python 3 的<code>u</code>前缀只是为了兼容 Python 2 的这种写法。建议统一采用UTF-8编码。</p>
 </li>
 <li>
 <p><code>f</code> / <code>F</code>：表示<code>f</code>格式字符串。</p>
@@ -2405,8 +2379,8 @@ True
 <h2 id="_4">字符编码</h2>
 <p>Python 3有两种不同的字符串：</p>
 <ul>
-<li>str：文本字符串类型，使用Unicode码储存字符串的文本。相当于Python 2的<code>unicode</code>类型。str可以通过编码，转换为bytes。</li>
-<li>bytes：字节字符串类型，直接储存字符串的二进制数据。字面值用16进制或者ASCII码显示。相当于Python 2的<code>str</code>类型。bytes可以通过解码，转换为str。</li>
+<li>str：文本字符串类型，默认使用 USC-4 编码储存字符串。相当于 Python 2 的<code>unicode</code>类型，但 Python 2 的<code>unicode</code>默认使用 USC-2 编码储存字符串。str 可以通过编码，转换为 bytes。</li>
+<li>bytes：字节字符串类型，默认使用 UTF-8 编码储存字符串。字面值用 16 进制或者 ASCII 码显示。相当于 Python 2 的<code>str</code>类型。bytes 可以通过解码转换为 str。</li>
 </ul>
 <p>$$
 \begin{array}{}
@@ -2415,52 +2389,38 @@ True
 \text{Python 3} \mathbf{bytes} &amp;\Longleftrightarrow \text{Python 2} \mathbf{str}
 \end{array}
 $$</p>
-<p>在python3中实例化一个字符串</p>
+<p>Python的文档说 Python 3 的<code>str</code>类型储存Unicode编码或Unicode字符串，而<code>bytes</code>类型储存字符串的二进制字节流。实际上，这相当有误导性，无论<code>str</code>还是<code>bytes</code>，其本质都是整型，只是 Python 3的<code>str</code>使用定长编码储存字符串，而<code>betys</code>使用变长编码储存字符串。</p>
+<p>在 Python 3 中实例化一个字符串</p>
 <div class="highlight"><pre><span></span><code><span class="n">str_1</span> <span class="o">=</span> <span class="s2">&quot;中国&quot;</span>
-<span class="c1"># 编码</span>
-<span class="n">str_1</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span>
+<span class="c1"># 默认使用 UTF-8 编码</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">str_1</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">str_1</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">))</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>b&#39;\xe4\xb8\xad\xe5\x9b\xbd&#39;
+b&#39;\xe4\xb8\xad\xe5\x9b\xbd&#39;
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="c1"># 创建一个二进制字符串</span>
 <span class="n">str_2</span> <span class="o">=</span> <span class="sa">b</span><span class="s1">&#39;</span><span class="se">\xe4\xb8\xad\xe5\x9b\xbd</span><span class="s1">&#39;</span>
-<span class="c1"># 解码</span>
-<span class="n">str_2</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
+<span class="c1"># 默认使用 UTF-8 解码</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">str_2</span><span class="o">.</span><span class="n">decode</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">str_2</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">))</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>&#39;中国&#39;
+<div class="highlight"><pre><span></span><code>中国
+中国
 </code></pre></div>
-<p>如果对字符编码不了解，可以参考<a href="../计算机基础/1.4.字符编码.md">1.4字符编码</a>。</p>
-<h2 id="bytes">bytes字符</h2>
-<p>文本字符类型在内存中以二进制的形式表示，默认为Unicode码，一个字符对应若干个字节。如果要在网络上传输，或者保存到磁盘上，就需要把<code>str</code>变为以字节为单位的<code>bytes</code>。</p>
-<p>Python3对<code>bytes</code>类型的数据用带<code>b</code>前缀的单引号或双引号表示。</p>
-<div class="highlight"><pre><span></span><code><span class="n">bytes_8</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">&quot;ABC&quot;</span>
-<span class="n">bytes_8</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>b&#39;ABC&#39;
-</code></pre></div>
-<p>要注意的是：bytes字面值中只允许ASCII字符（无论源代码声明的编码为何）。任何超出127的二进制值以16进制的形式显示。</p>
-<p>可以对str（unicode类型）对象使用<code>encode()</code>方法，编码为bytes的形式。</p>
-<div class="highlight"><pre><span></span><code><span class="s1">&#39;中文&#39;</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>b&#39;\xe4\xb8\xad\xe6\x96\x87&#39;
-</code></pre></div>
-<p>要注意的是，使用<code>encode</code>方法时，不能超出指定编码的范围，例如不能对中文字符使用<code>.encode("ascii")</code>，因为中文不在ascii码的范围内。</p>
+<p>Python 3 的<code>str</code>类型在处理或运算字符串时使用，而<code>bytes</code>类型一般在网络传输字符串或将字符串保存到硬盘时使用。使用 <code>encode</code> / <code>decode</code> 方法时，不能超出指定编码的范围，例如不能对中文字符使用<code>.encode("ascii")</code>，因为中文不在ascii码的范围内。</p>
 <div class="highlight"><pre><span></span><code><span class="k">try</span><span class="p">:</span>
     <span class="s1">&#39;中文&#39;</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;ascii&#39;</span><span class="p">)</span>
 <span class="k">except</span> <span class="ne">UnicodeEncodeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="sa">b</span><span class="s1">&#39;</span><span class="se">\xe4\xb8\xad\xe6\x96\x87</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;ascii&#39;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">UnicodeDecodeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>&#39;ascii&#39; codec can&#39;t encode characters in position 0-1: ordinal not in
-range(128)
-</code></pre></div>
-<p>反过来，如果我们从网络或磁盘上读取了字节流，那么读到的数据就是bytes。要把bytes变为str，就需要用<code>decode()</code>方法：</p>
-<div class="highlight"><pre><span></span><code><span class="sa">b</span><span class="s1">&#39;ABC&#39;</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;ascii&#39;</span><span class="p">)</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>&#39;ABC&#39;
-</code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="sa">b</span><span class="s1">&#39;</span><span class="se">\xe4\xb8\xad\xe6\x96\x87</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>&#39;中文&#39;
+<div class="highlight"><pre><span></span><code>&#39;ascii&#39; codec can&#39;t encode characters in position 0-1: ordinal not in range(128)
+&#39;ascii&#39; codec can&#39;t decode byte 0xe4 in position 0: ordinal not in range(128)
 </code></pre></div>
 <p>如果bytes中包含无法解码的字节，<code>decode()</code>方法会报错：</p>
 <div class="highlight"><pre><span></span><code><span class="k">try</span><span class="p">:</span>
@@ -2476,27 +2436,50 @@ range(128)
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>&#39;中&#39;
 </code></pre></div>
-<p><strong>在对str和bytes互相转换时，为了避免乱码问题，应该使用UTF-8编码对str和bytes进行转换。</strong></p>
-<p>由于Python源代码也是一个文本文件，所以，当你的源代码中包含中文的时候，在保存源代码时，就需要务必指定保存为UTF-8 编码。当Python解释器读取源代码时，为了让它按UTF-8编码读取，我们通常在文件开头写上这两行：</p>
+<p>如果代码会在多个运行环境中使用，在对<code>str</code>和<code>bytes</code>互相转换时，为了避免乱码问题，应该使用 UTF-8 编码对<code>str</code>和<code>bytes</code>进行转换。因为 Python 3 在 encode 和 decode 字符串时默认使用 <code>UTF-8</code> 编码，所以使用 Python 3 会较少遇到字符编码问题。但 Python 2 的<code>str</code>类型储存的可能是ASCII、UTF-8、GBK、gb2312、cp437 或 big5 等等，这往往取决于当前系统或终端所用的默认编码。如果你没有显式指定 UTF-8 编码，或者不知道当前使用的是什么编码，就可以遇到乱码。</p>
+<p>如果对字符编码不了解，可以参考<a href="../%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/1.5.%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81.html">1.5字符编码</a>。</p>
+<p>可以通过以下代码输出Python、当前系统、系统标准输入、系统标准输出、系统文件名所使用的编码：</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">locale</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">getdefaultencoding</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">locale</span><span class="o">.</span><span class="n">getdefaultlocale</span><span class="p">())</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">stdin</span><span class="o">.</span><span class="n">encoding</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">encoding</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">getfilesystemencoding</span><span class="p">())</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>utf-8
+(&#39;zh_CN&#39;, &#39;UTF-8&#39;)
+utf-8
+UTF-8
+utf-8
+</code></pre></div>
+<p>可以通过以下代码判断 Python 3 的<code>str</code>类型或 Pyhon 2 的 <code>unicode</code> 类型使用的编码是 UCS-2 还是 UCS-4：</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="c1"># 如果是 1114111 则是 USC-4</span>
+<span class="c1"># 如果是 65535 则是 USC-4</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">maxunicode</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>1114111
+</code></pre></div>
+<p>由于 Python 源代码也是一个文本文件，所以，当你的源代码中包含中文的时候，最好使用UTF-8编码保存源代码文件。当 Python 解释器读取源代码时，为了让它按 UTF-8 编码读取，我们通常在文件开头写上这两行：</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># !/usr/bin/env python3</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 </code></pre></div>
-<p>第一行注释是为了告诉Linux/OS X系统，这是一个Python可执行程序，Windows系统会忽略这个注释。第二行注释是为了告诉Python解释器，按照UTF-8编码读取源代码，否则，在源代码中写的中文输出可能会有乱码。</p>
+<p>第一行注释是为了告诉 Linux/OS X系统，这是一个 Python可执行程序，Windows 系统会忽略这个注释。第二行注释是为了告诉 Python 解释器，按照 UTF-8 编码读取源代码，否则，在源代码中写的中文输出可能会有乱码。</p>
 <p><strong>UTF-8编码注释只是让Python解释器按UTF-8的编码规则读取源代码，并不意味着源代码一定是使用UT8-8编码保存的，必须并且要确保文本编辑器正在使用UTF-8编码。</strong></p>
 <h2 id="_5">格式化</h2>
 <h3 id="c-printf">C printf 样式的格式化</h3>
 <p>字符串具有一种特殊的内置操作：使用 % (取模)运算符，可以格式化字符串，此时<code>%</code>也被称为字符串的格式化运算符或插值运算符。对于format % values(其中format为一个字符串)，在format中的 % 转换标记符将被替换为零个或多个values条目。 其效果类似于在C语言中使用<code>sprintf()</code>。</p>
-<div class="tabbed-set" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">input</label><div class="tabbed-content">
-<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hello, </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="s1">&#39;world&#39;</span><span class="p">)</span>  <span class="c1"># 省略括号</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># tab = &quot;input&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hello, </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="s1">&#39;world&#39;</span><span class="p">)</span>  <span class="c1"># 省略括号</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Hi, </span><span class="si">%s</span><span class="s1">, you have $</span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="s1">&#39;Michael&#39;</span><span class="p">,</span> <span class="mf">10000.58</span><span class="p">))</span>
 </code></pre></div>
-</div>
-<input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><label for="__tabbed_2_2">output</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code>Hello, world
 Hi, Michael, you have $10000
 </code></pre></div>
-</div>
-</div>
 <p><strong>转换标记符</strong>包含两个或更多字符，由以下元素组成，且必须遵循此处规定的顺序：</p>
 <ol>
 <li>
