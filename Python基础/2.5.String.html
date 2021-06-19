@@ -2521,74 +2521,60 @@ Hi, Michael, you have $10000
 <table>
 <thead>
 <tr>
-<th align="center">Conversion</th>
-<th align="center">Meaning</th>
+<th>Conversion</th>
+<th>Meaning</th>
+<th>Conversion</th>
+<th>Meaning</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center"><code>d</code></td>
-<td align="center">格式化整数</td>
+<td><code>d</code></td>
+<td>格式化整数</td>
+<td><code>f</code></td>
+<td>浮点数</td>
 </tr>
 <tr>
-<td align="center"><code>i</code></td>
-<td align="center">格式化整数</td>
+<td><code>i</code></td>
+<td>格式化整数</td>
+<td><code>F</code></td>
+<td>浮点数</td>
 </tr>
 <tr>
-<td align="center"><code>o</code></td>
-<td align="center">8 进制</td>
+<td><code>o</code></td>
+<td>8 进制</td>
+<td><code>g</code></td>
+<td>浮点数， 如果指数小于 -4 或小于精度， 则使用小写指数格式， 否则使用小数格式</td>
 </tr>
 <tr>
-<td align="center"><code>u</code></td>
-<td align="center">格式化无符号整型(已过时)</td>
+<td><code>u</code></td>
+<td>格式化无符号整型(已过时)</td>
+<td><code>G</code></td>
+<td>浮点数， 类似 <code>g</code>, 使用大写指数</td>
 </tr>
 <tr>
-<td align="center"><code>x</code></td>
-<td align="center">16 进制， 小写字母</td>
+<td><code>x</code></td>
+<td>16 进制， 小写字母</td>
+<td><code>c</code></td>
+<td>单个字符， 格式化字符及其 ASCII 码</td>
 </tr>
 <tr>
-<td align="center"><code>X</code></td>
-<td align="center">16 进制， 大写字母</td>
+<td><code>X</code></td>
+<td>16 进制， 大写字母</td>
+<td><code>r</code></td>
+<td>字符串， 使用 repr() 转换任何 Python 对象</td>
 </tr>
 <tr>
-<td align="center"><code>e</code></td>
-<td align="center">浮点指数格式， 小写字母</td>
+<td><code>e</code></td>
+<td>浮点指数格式， 小写字母</td>
+<td><code>s</code></td>
+<td>字符串， 使用 str() 转换任何 Python 对象</td>
 </tr>
 <tr>
-<td align="center"><code>E</code></td>
-<td align="center">浮点指数格式， 大写字母</td>
-</tr>
-<tr>
-<td align="center"><code>f</code></td>
-<td align="center">浮点数</td>
-</tr>
-<tr>
-<td align="center"><code>F</code></td>
-<td align="center">浮点数</td>
-</tr>
-<tr>
-<td align="center"><code>g</code></td>
-<td align="center">浮点数， 如果指数小于 -4 或小于精度， 则使用小写指数格式， 否则使用小数格式</td>
-</tr>
-<tr>
-<td align="center"><code>G</code></td>
-<td align="center">浮点数， 类似 <code>g</code>, 使用大写指数</td>
-</tr>
-<tr>
-<td align="center"><code>c</code></td>
-<td align="center">单个字符， 格式化字符及其 ASCII 码</td>
-</tr>
-<tr>
-<td align="center"><code>r</code></td>
-<td align="center">字符串， 使用 repr() 转换任何 Python 对象</td>
-</tr>
-<tr>
-<td align="center"><code>s</code></td>
-<td align="center">字符串， 使用 str() 转换任何 Python 对象</td>
-</tr>
-<tr>
-<td align="center"><code>%</code></td>
-<td align="center">% 字符</td>
+<td><code>E</code></td>
+<td>浮点指数格式， 大写字母</td>
+<td><code>%</code></td>
+<td>% 字符</td>
 </tr>
 </tbody>
 </table>
