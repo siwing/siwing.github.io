@@ -1542,13 +1542,13 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" type="checkbox" id="__nav_11" >
       
       <label class="md-nav__link" for="__nav_11">
-        tensorflow笔记
+        TensorFlow
         <span class="md-nav__icon md-icon"></span>
       </label>
-      <nav class="md-nav" aria-label="tensorflow笔记" data-md-level="1">
+      <nav class="md-nav" aria-label="TensorFlow" data-md-level="1">
         <label class="md-nav__title" for="__nav_11">
           <span class="md-nav__icon md-icon"></span>
-          tensorflow笔记
+          TensorFlow
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
           
@@ -1557,7 +1557,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tensorflow%E7%AC%94%E8%AE%B0/12.1.keras%E6%95%B0%E6%8D%AE%E9%9B%86.html" class="md-nav__link">
+      <a href="../TensorFlow/12.1.keras%E6%95%B0%E6%8D%AE%E9%9B%86.html" class="md-nav__link">
         12.1.keras数据集
       </a>
     </li>
@@ -1569,7 +1569,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tensorflow%E7%AC%94%E8%AE%B0/12.2.%E5%88%9B%E5%BB%BA%E5%BC%A0%E9%87%8F.html" class="md-nav__link">
+      <a href="../TensorFlow/12.2.create%20tensor.html" class="md-nav__link">
         12.2.创建张量
       </a>
     </li>
@@ -1581,7 +1581,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tensorflow%E7%AC%94%E8%AE%B0/12.3.%E5%BC%A0%E9%87%8F%E8%BF%9B%E9%98%B6%E6%93%8D%E4%BD%9C.html" class="md-nav__link">
+      <a href="../TensorFlow/12.3.%E5%BC%A0%E9%87%8F%E8%BF%9B%E9%98%B6%E6%93%8D%E4%BD%9C.html" class="md-nav__link">
         12.3.张量进阶操作
       </a>
     </li>
@@ -1593,7 +1593,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tensorflow%E7%AC%94%E8%AE%B0/12.4.%E6%B1%82%E5%AF%BC.html" class="md-nav__link">
+      <a href="../TensorFlow/12.4.%E6%B1%82%E5%AF%BC.html" class="md-nav__link">
         12.4.求导
       </a>
     </li>
@@ -1605,7 +1605,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tensorflow%E7%AC%94%E8%AE%B0/12.5.%E5%8F%AF%E7%94%A8%E6%80%A7%E6%B5%8B%E8%AF%95.html" class="md-nav__link">
+      <a href="../TensorFlow/12.5.%E5%8F%AF%E7%94%A8%E6%80%A7%E6%B5%8B%E8%AF%95.html" class="md-nav__link">
         12.5.可用性测试
       </a>
     </li>
@@ -1617,7 +1617,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tensorflow%E7%AC%94%E8%AE%B0/12.6.Perceptron.html" class="md-nav__link">
+      <a href="../TensorFlow/12.6.Perceptron.html" class="md-nav__link">
         12.6.Perceptron
       </a>
     </li>
@@ -1629,7 +1629,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../tensorflow%E7%AC%94%E8%AE%B0/12.7.keras%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B.html" class="md-nav__link">
+      <a href="../TensorFlow/12.7.keras%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B.html" class="md-nav__link">
         12.7.keras快速开始
       </a>
     </li>
@@ -2169,20 +2169,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#tfsysconfig" class="md-nav__link">
-    tf.sysconfig 模块
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#tfversion" class="md-nav__link">
-    tf.version 模块
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -2204,34 +2190,12 @@
                 
                 <div class="highlight"><pre><span></span><code>Linux 5.4.0-74-generic
 Python 3.9.5 @ GCC 7.3.0
-Latest build date 2021.06.16
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>---------------------------------------------------------------------------NameError
-Traceback (most recent call last)&lt;ipython-input-1-4b0a8002c5bb&gt; in
-&lt;module&gt;
-      4 import time
-      5 print(&quot;Latest build date&quot;, time.strftime(&quot;%Y.%m.%d&quot;,
-time.localtime()))
-----&gt; 6 print(&quot;tensorflow version: &quot;, tf.__version__)
-      7 import sys
-      8 sys.path.append(&quot;/home/allen/tmp/pycharm_project_762&quot;)
-NameError: name &#39;tf&#39; is not defined
+Latest build date 2021.06.20
+tensorflow version:  2.5.0
 </code></pre></div>
 <h2 id="_1">创建张量</h2>
-<div class="highlight"><pre><span></span><code>---------------------------------------------------------------------------NameError
-Traceback (most recent call last)&lt;ipython-input-1-5aff92c2c458&gt; in
-&lt;module&gt;
-----&gt; 1 _ = H.get_param(&quot;tf.constant&quot;, globals())
-      2 _ = H.get_param(&quot;tf.range&quot;, globals())
-~/文档/04.Python/toolkit/Help.py in get_param(obj, global_dict, width,
-is_print)
-    438         if isinstance(obj, str) and global_dict is not None:
-    439             obj_str = obj
---&gt; 440             obj = eval(obj, global_dict)
-    441         elif isinstance(obj, str) and global_dict is None:
-    442             raise ValueError(&quot;global_dict is None!&quot;)
-&lt;string&gt; in &lt;module&gt;
-NameError: name &#39;tf&#39; is not defined
+<div class="highlight"><pre><span></span><code>tf.constant(value, dtype=None, shape=None, name=&#39;Const&#39;)
+tf.range(start, limit=None, delta=1, dtype=None, name=&#39;range&#39;)
 </code></pre></div>
 <h2 id="_2">标量</h2>
 <p>在 tensorflow 中创建一个标量</p>
@@ -2242,15 +2206,9 @@ NameError: name &#39;tf&#39; is not defined
 <span class="n">pprint</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">is_tensor</span><span class="p">(</span><span class="n">scalar</span><span class="p">))</span>
 <span class="n">pprint</span><span class="p">(</span><span class="n">scalar</span><span class="p">)</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>---------------------------------------------------------------------------NameError
-Traceback (most recent call last)&lt;ipython-input-1-b4884470efaa&gt; in
-&lt;module&gt;
-----&gt; 1 scalar = tf.constant(1.2)
-      2 # 查看 scalar 的类型
-      3 pprint(type(scalar))
-      4 # 判断是否为 tensor
-      5 pprint(tf.is_tensor(scalar))
-NameError: name &#39;tf&#39; is not defined
+<div class="highlight"><pre><span></span><code>&lt;class &#39;tensorflow.python.framework.ops.EagerTensor&#39;&gt;
+True
+&lt;tf.Tensor: shape=(), dtype=float32, numpy=1.2&gt;
 </code></pre></div>
 <h2 id="_3">向量</h2>
 <p>传入 array-like 对象用于创建向量：</p>
@@ -2258,11 +2216,10 @@ NameError: name &#39;tf&#39; is not defined
 <span class="n">pprint</span><span class="p">(</span><span class="n">vector</span><span class="p">)</span>
 <span class="n">pprint</span><span class="p">(</span><span class="n">vector</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>---------------------------------------------------------------------------NameError                                 Traceback (most recent call last)&lt;ipython-input-1-849010e42a9b&gt; in &lt;module&gt;
-----&gt; 1 vector = tf.constant([[1.2, 1, 2], [4, 5, 6]], name=&quot;vanilla&quot;)
-      2 pprint(vector)
-      3 pprint(vector.dtype)
-NameError: name &#39;tf&#39; is not defined
+<div class="highlight"><pre><span></span><code>&lt;tf.Tensor: shape=(2, 3), dtype=float32, numpy=
+array([[1.2, 1. , 2. ],
+       [4. , 5. , 6. ]], dtype=float32)&gt;
+tf.float32
 </code></pre></div>
 <p>查看张量的维度信息：</p>
 <div class="highlight"><pre><span></span><code><span class="n">pprint</span><span class="p">(</span><span class="n">vector</span><span class="o">.</span><span class="n">get_shape</span><span class="p">())</span>
@@ -2276,26 +2233,18 @@ NameError: name &#39;tf&#39; is not defined
 <span class="c1"># It is recommended to use `tf.ensure_shape` instead of `Tensor.set_shape`</span>
 <span class="c1"># Updates the shape of a tensor and checks at runtime that the shape holds.</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>---------------------------------------------------------------------------NameError
-Traceback (most recent call last)&lt;ipython-input-1-bf9bea990d85&gt; in
-&lt;module&gt;
-----&gt; 1 pprint(vector.get_shape())
-      2 pprint(vector.shape)
-      3 pprint(tf.shape(vector))
-      4 pprint(vector.ndim)
-      5 pprint(tf.size(vector))
-NameError: name &#39;vector&#39; is not defined
+<div class="highlight"><pre><span></span><code>TensorShape([2, 3])
+TensorShape([2, 3])
+&lt;tf.Tensor: shape=(2,), dtype=int32, numpy=array([2, 3], dtype=int32)&gt;
+2
+&lt;tf.Tensor: shape=(), dtype=int32, numpy=6&gt;
 </code></pre></div>
 <p>查看张量位于哪个物理设备中：</p>
 <div class="highlight"><pre><span></span><code><span class="n">pprint</span><span class="p">(</span><span class="n">vector</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
 <span class="n">pprint</span><span class="p">(</span><span class="n">vector</span><span class="o">.</span><span class="n">backing_device</span><span class="p">)</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>---------------------------------------------------------------------------NameError
-Traceback (most recent call last)&lt;ipython-input-1-bd1c258a9f16&gt; in
-&lt;module&gt;
-----&gt; 1 pprint(vector.device)
-      2 pprint(vector.backing_device)
-NameError: name &#39;vector&#39; is not defined
+<div class="highlight"><pre><span></span><code>&#39;/job:localhost/replica:0/task:0/device:CPU:0&#39;
+&#39;/job:localhost/replica:0/task:0/device:CPU:0&#39;
 </code></pre></div>
 <p>在 CPU 或 GPU 中创建相同的张量：</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Return a copy of this Tensor with contents backed by memory on the GPU.</span>
@@ -2305,7 +2254,7 @@ NameError: name &#39;vector&#39; is not defined
 <span class="n">vector</span> <span class="o">=</span> <span class="n">vector</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span>
 <span class="n">pprint</span><span class="p">(</span><span class="n">vector</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>---------------------------------------------------------------------------NameError
+<div class="highlight"><pre><span></span><code>---------------------------------------------------------------------------RuntimeError
 Traceback (most recent call last)&lt;ipython-input-1-2179804df233&gt; in
 &lt;module&gt;
       1 # Return a copy of this Tensor with contents backed by memory
@@ -2315,7 +2264,42 @@ on the GPU.
       4 # Return a copy of this Tensor with contents backed by host
 memory.
       5 vector = vector.cpu()
-NameError: name &#39;vector&#39; is not defined
+~/Installed/miniconda3/envs/blog/lib/python3.9/site-
+packages/tensorflow/python/util/deprecation.py in new_func(*args,
+**kwargs)
+    335               &#39;in a future version&#39; if date is None else
+(&#39;after %s&#39; % date),
+    336               instructions)
+--&gt; 337       return func(*args, **kwargs)
+    338
+    339     doc_controls.set_deprecated(new_func)
+~/Installed/miniconda3/envs/blog/lib/python3.9/site-
+packages/tensorflow/python/framework/ops.py in gpu(self, gpu_index)
+   1232       as this Tensor.
+   1233     &quot;&quot;&quot;
+-&gt; 1234     return self._copy(context.context(), &quot;GPU:&quot; +
+str(gpu_index))
+   1235
+   1236   def set_shape(self, shape):
+~/Installed/miniconda3/envs/blog/lib/python3.9/site-
+packages/tensorflow/python/framework/ops.py in _copy(self, ctx,
+device_name)
+   1174   def _copy(self, ctx=None, device_name=None):
+   1175     &quot;&quot;&quot;Copies tensor to dest device.&quot;&quot;&quot;
+-&gt; 1176     new_tensor = self._copy_nograd(ctx, device_name)
+   1177     # Record the copy on tape and define backprop copy as
+well.
+   1178     if context.executing_eagerly():
+~/Installed/miniconda3/envs/blog/lib/python3.9/site-
+packages/tensorflow/python/framework/ops.py in _copy_nograd(self, ctx,
+device_name)
+   1167     try:
+   1168       ctx.ensure_initialized()
+-&gt; 1169       new_tensor = self._copy_to_device(device_name)
+   1170     except core._NotOkStatusException as e:
+   1171       six.raise_from(core._status_to_exception(e.code,
+e.message), None)
+RuntimeError: GPU:0 unknown device.
 </code></pre></div>
 <p>获取张量的可散列对象：</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Returns a hashable reference object to this Tensor.</span>
@@ -2327,36 +2311,23 @@ NameError: name &#39;vector&#39; is not defined
 
 <span class="nb">print</span><span class="p">(</span><span class="nb">hash</span><span class="p">(</span><span class="n">vector</span><span class="o">.</span><span class="n">ref</span><span class="p">()))</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>---------------------------------------------------------------------------NameError
-Traceback (most recent call last)&lt;ipython-input-1-6134a57cf941&gt; in
-&lt;module&gt;
-      1 # Returns a hashable reference object to this Tensor.
-----&gt; 2 vector.ref()
-      3 try:
-      4     hash(vector)
-      5 except TypeError as e:
-NameError: name &#39;vector&#39; is not defined
+<div class="highlight"><pre><span></span><code>Tensor is unhashable. Instead, use tensor.ref() as the key.
+140021237826832
 </code></pre></div>
 <p>将张量转换为 NumPy 的数据类型：</p>
 <div class="highlight"><pre><span></span><code><span class="n">pprint</span><span class="p">(</span><span class="n">vector</span><span class="o">.</span><span class="n">numpy</span><span class="p">())</span>
 <span class="n">pprint</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">vector</span><span class="p">))</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>---------------------------------------------------------------------------NameError
-Traceback (most recent call last)&lt;ipython-input-1-49f058ac49ca&gt; in
-&lt;module&gt;
-----&gt; 1 pprint(vector.numpy())
-      2 pprint(np.array(vector))
-NameError: name &#39;vector&#39; is not defined
+<div class="highlight"><pre><span></span><code>array([[1.2, 1. , 2. ],
+       [4. , 5. , 6. ]], dtype=float32)
+array([[1.2, 1. , 2. ],
+       [4. , 5. , 6. ]], dtype=float32)
 </code></pre></div>
 <p>创建序列</p>
 <div class="highlight"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">range</span><span class="p">(</span><span class="n">start</span><span class="o">=-</span><span class="mi">10</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">delta</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;test&#39;</span><span class="p">)</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>---------------------------------------------------------------------------NameError
-Traceback (most recent call last)&lt;ipython-input-1-32577fa82605&gt; in
-&lt;module&gt;
-----&gt; 1 tf.range(start=-10, limit=10, delta=2, dtype=None,
-name=&#39;test&#39;)
-NameError: name &#39;tf&#39; is not defined
+<div class="highlight"><pre><span></span><code>&lt;tf.Tensor: shape=(10,), dtype=int32, numpy=array([-10,  -8,  -6,  -4,
+-2,   0,   2,   4,   6,   8], dtype=int32)&gt;
 </code></pre></div>
 <h2 id="_4">矩阵</h2>
 <div class="highlight"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]])</span>
@@ -2365,34 +2336,16 @@ NameError: name &#39;tf&#39; is not defined
 <span class="c1"># 定义三维张量</span>
 <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">([[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]]])</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>---------------------------------------------------------------------------NameError
-Traceback (most recent call last)&lt;ipython-input-1-ef1dae576602&gt; in
-&lt;module&gt;
-----&gt; 1 tf.constant([[1, 2], [3, 4]])
-      2 tf.constant([1, 2, 3, 4], shape=(2, 2))
-      3
-      4 # 定义三维张量
-      5 tf.constant([[[1, 2], [3, 4]]])
-NameError: name &#39;tf&#39; is not defined
+<div class="highlight"><pre><span></span><code>&lt;tf.Tensor: shape=(1, 2, 2), dtype=int32, numpy=
+array([[[1, 2],
+        [3, 4]]], dtype=int32)&gt;
 </code></pre></div>
 <h2 id="_5">以填充的方式创建张量</h2>
 <p>在 TensorFlow 中，可以通过多种方式创建张量，如从 Python 列表对象创建，从 NumPy 数组创建，或者创建采样自某种已知分布的张量等。</p>
-<div class="highlight"><pre><span></span><code>---------------------------------------------------------------------------NameError
-Traceback (most recent call last)&lt;ipython-input-1-c3e285f4c024&gt; in
-&lt;module&gt;
-----&gt; 1 _ = H.get_param(&quot;tf.zeros&quot;, globals())
-      2 _ = H.get_param(&quot;tf.ones&quot;, globals())
-      3 _ = H.get_param(&quot;tf.zeros_like&quot;, globals())
-      4 _ = H.get_param(&quot;tf.ones_like&quot;, globals())
-~/文档/04.Python/toolkit/Help.py in get_param(obj, global_dict, width,
-is_print)
-    438         if isinstance(obj, str) and global_dict is not None:
-    439             obj_str = obj
---&gt; 440             obj = eval(obj, global_dict)
-    441         elif isinstance(obj, str) and global_dict is None:
-    442             raise ValueError(&quot;global_dict is None!&quot;)
-&lt;string&gt; in &lt;module&gt;
-NameError: name &#39;tf&#39; is not defined
+<div class="highlight"><pre><span></span><code>tf.zeros(shape, dtype=&lt;dtype: &#39;float32&#39;&gt;, name=None)
+tf.ones(shape, dtype=&lt;dtype: &#39;float32&#39;&gt;, name=None)
+tf.zeros_like(input, dtype=None, name=None)
+tf.ones_like(input, dtype=None, name=None)
 </code></pre></div>
 <p>创建全为 0 或全为 1 的张量</p>
 <div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)))</span>
@@ -2401,68 +2354,49 @@ NameError: name &#39;tf&#39; is not defined
 <span class="nb">print</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">8</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">ones_like</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)))</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>---------------------------------------------------------------------------NameError
-Traceback (most recent call last)&lt;ipython-input-1-3a4d9fbf1d0b&gt; in
-&lt;module&gt;
-----&gt; 1 print(tf.zeros((2, 2)))
-      2 print(tf.zeros_like(np.arange(8).reshape((2, 4))))
-      3
-      4 print(tf.ones(8))
-      5 print(tf.ones_like((2, 2)))
-NameError: name &#39;tf&#39; is not defined
+<div class="highlight"><pre><span></span><code>tf.Tensor(
+[[0. 0.]
+ [0. 0.]], shape=(2, 2), dtype=float32)
+tf.Tensor(
+[[0 0 0 0]
+ [0 0 0 0]], shape=(2, 4), dtype=int64)
+tf.Tensor([1. 1. 1. 1. 1. 1. 1. 1.], shape=(8,), dtype=float32)
+tf.Tensor([1 1], shape=(2,), dtype=int32)
 </code></pre></div>
 <p>创建用指定标量填充的张量</p>
-<div class="highlight"><pre><span></span><code>---------------------------------------------------------------------------NameError
-Traceback (most recent call last)&lt;ipython-input-1-c4d92a4981c6&gt; in
-&lt;module&gt;
-----&gt; 1 _ = H.get_param(&quot;tf.fill&quot;, globals())
-~/文档/04.Python/toolkit/Help.py in get_param(obj, global_dict, width,
-is_print)
-    438         if isinstance(obj, str) and global_dict is not None:
-    439             obj_str = obj
---&gt; 440             obj = eval(obj, global_dict)
-    441         elif isinstance(obj, str) and global_dict is None:
-    442             raise ValueError(&quot;global_dict is None!&quot;)
-&lt;string&gt; in &lt;module&gt;
-NameError: name &#39;tf&#39; is not defined
+<div class="highlight"><pre><span></span><code>tf.fill(dims, value, name=None)
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="n">pprint</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="n">dims</span><span class="o">=</span><span class="p">[],</span> <span class="n">value</span><span class="o">=</span><span class="mi">8</span><span class="p">))</span>  <span class="c1"># 标量</span>
 <span class="n">pprint</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="n">dims</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">value</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>---------------------------------------------------------------------------NameError
-Traceback (most recent call last)&lt;ipython-input-1-4011674fcda2&gt; in
-&lt;module&gt;
-----&gt; 1 pprint(tf.fill(dims=[], value=8))  # 标量
-      2 pprint(tf.fill(dims=(2, 4), value=2))
-NameError: name &#39;tf&#39; is not defined
+<div class="highlight"><pre><span></span><code>&lt;tf.Tensor: shape=(), dtype=int32, numpy=8&gt;
+&lt;tf.Tensor: shape=(2, 4), dtype=int32, numpy=
+array([[2, 2, 2, 2],
+       [2, 2, 2, 2]], dtype=int32)&gt;
 </code></pre></div>
 <p>创建单位矩阵</p>
 <div class="highlight"><pre><span></span><code><span class="n">pprint</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>---------------------------------------------------------------------------NameError
-Traceback (most recent call last)&lt;ipython-input-1-6601c5dd795d&gt; in
-&lt;module&gt;
-----&gt; 1 pprint(tf.eye(4))
-NameError: name &#39;tf&#39; is not defined
+<div class="highlight"><pre><span></span><code>&lt;tf.Tensor: shape=(4, 4), dtype=float32, numpy=
+array([[1., 0., 0., 0.],
+       [0., 1., 0., 0.],
+       [0., 0., 1., 0.],
+       [0., 0., 0., 1.]], dtype=float32)&gt;
 </code></pre></div>
 <h2 id="_6">其他内容</h2>
 <p>复制一个张量：</p>
 <div class="highlight"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">identity</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>---------------------------------------------------------------------------NameError
-Traceback (most recent call last)&lt;ipython-input-1-ef5b33506450&gt; in
-&lt;module&gt;
-----&gt; 1 tf.identity([[1, 2, 3], [4, 5, 6]])
-NameError: name &#39;tf&#39; is not defined
+<div class="highlight"><pre><span></span><code>&lt;tf.Tensor: shape=(2, 3), dtype=int32, numpy=
+array([[1, 2, 3],
+       [4, 5, 6]], dtype=int32)&gt;
 </code></pre></div>
 <p>改变张量的形状：</p>
 <div class="highlight"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>---------------------------------------------------------------------------NameError
-Traceback (most recent call last)&lt;ipython-input-1-c4abd8a785c1&gt; in
-&lt;module&gt;
-----&gt; 1 tf.reshape(tf.ones(8), shape=(2, 4), name=None)
-NameError: name &#39;tf&#39; is not defined
+<div class="highlight"><pre><span></span><code>&lt;tf.Tensor: shape=(2, 4), dtype=float32, numpy=
+array([[1., 1., 1., 1.],
+       [1., 1., 1., 1.]], dtype=float32)&gt;
 </code></pre></div>
 <p>获取一些列张量的<code>shape</code>信息：</p>
 <div class="highlight"><pre><span></span><code><span class="n">tensor</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span>
@@ -2479,15 +2413,8 @@ NameError: name &#39;tf&#39; is not defined
 <span class="c1"># 暂时忽略</span>
 <span class="n">tf</span><span class="o">.</span><span class="n">one_hot</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>---------------------------------------------------------------------------NameError
-Traceback (most recent call last)&lt;ipython-input-1-1e6b4ba62d06&gt; in
-&lt;module&gt;
-----&gt; 1 tensor = tf.constant([[1, 2, 3], [4, 5, 6]])
-      2 tf.shape_n([tensor, tensor])
-      3
-      4 tf.repeat([[1,2], [3,4]], repeats=2)
-      5 y, idx = tf.unique(tf.repeat([[1, 2], [3, 4]], repeats=2))
-NameError: name &#39;tf&#39; is not defined
+<div class="highlight"><pre><span></span><code>&lt;tf.Tensor: shape=(5,), dtype=float32, numpy=array([0., 0., 0., 0.,
+0.], dtype=float32)&gt;
 </code></pre></div>
 <p>索引方法</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># https://zhuanlan.zhihu.com/p/45673869</span>
@@ -2504,45 +2431,30 @@ NameError: name &#39;tf&#39; is not defined
 <span class="c1"># tf.strided_slice</span>
 <span class="c1"># tf.slice</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>---------------------------------------------------------------------------NameError
-Traceback (most recent call last)&lt;ipython-input-1-9ee904adc3db&gt; in
-&lt;module&gt;
-      1 # https://zhuanlan.zhihu.com/p/45673869
-----&gt; 2 H.get_param(tf.gather)
-      3 H.get_param(tf.gather_nd)
-      4 H.get_param(tf.where)
-      5
-NameError: name &#39;tf&#39; is not defined
+<div class="highlight"><pre><span></span><code>gather_v2(params, indices, validate_indices=None, axis=None,
+batch_dims=0,
+          name=None)
+gather_nd_v2(params, indices, batch_dims=0, name=None)
+where_v2(condition, x=None, y=None, name=None)
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>b&#39;p3&#39;
 </code></pre></div>
 <h2 id="_7">拼接张量</h2>
-<div class="highlight"><pre><span></span><code>---------------------------------------------------------------------------NameError
-Traceback (most recent call last)&lt;ipython-input-1-67173b2c48b4&gt; in
-&lt;module&gt;
-----&gt; 1 _ = H.get_param(&quot;tf.stack&quot;, globals())
-      2 _ = H.get_param(&quot;tf.unstack&quot;, globals())
-      3 _ = H.get_param(&quot;tf.concat&quot;, globals())
-~/文档/04.Python/toolkit/Help.py in get_param(obj, global_dict, width,
-is_print)
-    438         if isinstance(obj, str) and global_dict is not None:
-    439             obj_str = obj
---&gt; 440             obj = eval(obj, global_dict)
-    441         elif isinstance(obj, str) and global_dict is None:
-    442             raise ValueError(&quot;global_dict is None!&quot;)
-&lt;string&gt; in &lt;module&gt;
-NameError: name &#39;tf&#39; is not defined
+<div class="highlight"><pre><span></span><code>tf.stack(values, axis=0, name=&#39;stack&#39;)
+tf.unstack(value, num=None, axis=0, name=&#39;unstack&#39;)
+tf.concat(values, axis, name=&#39;concat&#39;)
 </code></pre></div>
 <p>沿着“新轴”拼接数据，相当于<code>np.stack</code>的效果：</p>
 <div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]])</span>
 <span class="n">b</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">([[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">],</span> <span class="p">[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">]])</span>
 <span class="n">tf</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>---------------------------------------------------------------------------NameError
-Traceback (most recent call last)&lt;ipython-input-1-f927af765d13&gt; in
-&lt;module&gt;
-----&gt; 1 a = tf.constant([[0, 1, 2], [3, 4, 5]])
-      2 b = tf.constant([[6, 7, 8], [9, 10, 11]])
-      3 tf.stack([a, b], axis=0)
-NameError: name &#39;tf&#39; is not defined
+<div class="highlight"><pre><span></span><code>&lt;tf.Tensor: shape=(2, 2, 3), dtype=int32, numpy=
+array([[[ 0,  1,  2],
+        [ 3,  4,  5]],
+
+       [[ 6,  7,  8],
+        [ 9, 10, 11]]], dtype=int32)&gt;
 </code></pre></div>
 <p>沿着指定轴拆分张量：</p>
 <div class="highlight"><pre><span></span><code><span class="n">c</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
@@ -2552,16 +2464,28 @@ NameError: name &#39;tf&#39; is not defined
 <span class="n">d</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">],</span> <span class="p">[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">]])</span>
 <span class="n">pprint</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">unstack</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">num</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>---------------------------------------------------------------------------NameError
-Traceback (most recent call last)&lt;ipython-input-1-9f1656287331&gt; in
-&lt;module&gt;
-----&gt; 1 c = tf.stack([a, b], axis=0)
-      2 print(tf.unstack(c, axis=0), &quot;\n&quot;)
-      3 print(tf.unstack(c, axis=1), &quot;\n&quot;)
-      4
-      5 d = tf.constant([[0, 1, 2], [3, 4, 5], [6, 7, 8], [9, 10,
-11]])
-NameError: name &#39;tf&#39; is not defined
+<div class="highlight"><pre><span></span><code>[&lt;tf.Tensor: shape=(2, 3), dtype=int32, numpy=
+array([[0, 1, 2],
+       [3, 4, 5]], dtype=int32)&gt;, &lt;tf.Tensor: shape=(2, 3),
+dtype=int32, numpy=
+array([[ 6,  7,  8],
+       [ 9, 10, 11]], dtype=int32)&gt;]
+
+[&lt;tf.Tensor: shape=(2, 3), dtype=int32, numpy=
+array([[0, 1, 2],
+       [6, 7, 8]], dtype=int32)&gt;, &lt;tf.Tensor: shape=(2, 3),
+dtype=int32, numpy=
+array([[ 3,  4,  5],
+       [ 9, 10, 11]], dtype=int32)&gt;]
+
+[&lt;tf.Tensor: shape=(3,), dtype=int32, numpy=array([0, 1, 2],
+dtype=int32)&gt;,
+ &lt;tf.Tensor: shape=(3,), dtype=int32, numpy=array([3, 4, 5],
+dtype=int32)&gt;,
+ &lt;tf.Tensor: shape=(3,), dtype=int32, numpy=array([6, 7, 8],
+dtype=int32)&gt;,
+ &lt;tf.Tensor: shape=(3,), dtype=int32, numpy=array([ 9, 10, 11],
+dtype=int32)&gt;]
 </code></pre></div>
 <p>沿着一个已存在的轴拼接张量：</p>
 <div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">]])</span>
@@ -2570,81 +2494,52 @@ NameError: name &#39;tf&#39; is not defined
 <span class="nb">print</span><span class="p">()</span>
 <span class="n">pprint</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;concat&quot;</span><span class="p">))</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>---------------------------------------------------------------------------NameError
-Traceback (most recent call last)&lt;ipython-input-1-91dc15caab65&gt; in
-&lt;module&gt;
-----&gt; 1 a = tf.constant([[0, 1, 2], [3, 4, 5]])
-      2 b = tf.constant([[6, 7, 8], [9, 10, 11]])
-      3 pprint(tf.concat([a, b], axis=0, name=&quot;concat&quot;))
-      4 print()
-      5 pprint(tf.concat([a, b], axis=1, name=&quot;concat&quot;))
-NameError: name &#39;tf&#39; is not defined
+<div class="highlight"><pre><span></span><code>&lt;tf.Tensor: shape=(4, 3), dtype=int32, numpy=
+array([[ 0,  1,  2],
+       [ 3,  4,  5],
+       [ 6,  7,  8],
+       [ 9, 10, 11]], dtype=int32)&gt;
+
+&lt;tf.Tensor: shape=(2, 6), dtype=int32, numpy=
+array([[ 0,  1,  2,  6,  7,  8],
+       [ 3,  4,  5,  9, 10, 11]], dtype=int32)&gt;
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>---------------------------------------------------------------------------NameError
-Traceback (most recent call last)&lt;ipython-input-1-5650646cf2ec&gt; in
-&lt;module&gt;
-----&gt; 1 _ = H.get_param(&quot;tf.split&quot;, globals())
-~/文档/04.Python/toolkit/Help.py in get_param(obj, global_dict, width,
-is_print)
-    438         if isinstance(obj, str) and global_dict is not None:
-    439             obj_str = obj
---&gt; 440             obj = eval(obj, global_dict)
-    441         elif isinstance(obj, str) and global_dict is None:
-    442             raise ValueError(&quot;global_dict is None!&quot;)
-&lt;string&gt; in &lt;module&gt;
-NameError: name &#39;tf&#39; is not defined
+<div class="highlight"><pre><span></span><code>tf.split(value, num_or_size_splits, axis=0, num=None, name=&#39;split&#39;)
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="c1"># https://www.tensorflow.org/api_docs/python/tf/split?hl=zh-cn</span>
 <span class="n">tf</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]]),</span> <span class="n">num_or_size_splits</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>---------------------------------------------------------------------------NameError
-Traceback (most recent call last)&lt;ipython-input-1-8912ed8adfa2&gt; in
-&lt;module&gt;
-      1 # https://www.tensorflow.org/api_docs/python/tf/split?hl=zh-cn
-----&gt; 2 tf.split(tf.constant([[1, 2, 3], [4, 5, 6]]),
-num_or_size_splits=2)
-NameError: name &#39;tf&#39; is not defined
+<div class="highlight"><pre><span></span><code>[&lt;tf.Tensor: shape=(1, 3), dtype=int32, numpy=array([[1, 2, 3]],
+dtype=int32)&gt;,
+ &lt;tf.Tensor: shape=(1, 3), dtype=int32, numpy=array([[4, 5, 6]],
+dtype=int32)&gt;]
 </code></pre></div>
 <h2 id="_8">创建字符串</h2>
 <div class="highlight"><pre><span></span><code><span class="n">string</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="s2">&quot;Hello, tensorflow.&quot;</span><span class="p">)</span>
 <span class="n">pprint</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>---------------------------------------------------------------------------NameError
-Traceback (most recent call last)&lt;ipython-input-1-ae38ca156a42&gt; in
-&lt;module&gt;
-----&gt; 1 string = tf.constant(&quot;Hello, tensorflow.&quot;)
-      2 pprint(string)
-NameError: name &#39;tf&#39; is not defined
+<div class="highlight"><pre><span></span><code>&lt;tf.Tensor: shape=(), dtype=string, numpy=b&#39;Hello, tensorflow.&#39;&gt;
 </code></pre></div>
 <h2 id="strings"><code>strings</code>模块的函数</h2>
 <p>一些示例：</p>
 <div class="highlight"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">strings</span><span class="o">.</span><span class="n">as_string</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>---------------------------------------------------------------------------NameError
-Traceback (most recent call last)&lt;ipython-input-1-a0c32e7d95e1&gt; in
-&lt;module&gt;
-----&gt; 1 tf.strings.as_string([1, 2, 3, 4])
-NameError: name &#39;tf&#39; is not defined
+<div class="highlight"><pre><span></span><code>&lt;tf.Tensor: shape=(4,), dtype=string, numpy=array([b&#39;1&#39;, b&#39;2&#39;, b&#39;3&#39;,
+b&#39;4&#39;], dtype=object)&gt;
 </code></pre></div>
 <p>将字符串数字转换为数值型数字，可以指定类型</p>
 <div class="highlight"><pre><span></span><code><span class="n">tmp_str</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">([</span><span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span> <span class="s2">&quot;3&quot;</span><span class="p">,</span> <span class="s2">&quot;4&quot;</span><span class="p">],</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
 <span class="n">tf</span><span class="o">.</span><span class="n">strings</span><span class="o">.</span><span class="n">to_number</span><span class="p">(</span><span class="n">tmp_str</span><span class="p">,</span> <span class="n">out_type</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">dtypes</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>---------------------------------------------------------------------------NameError
-Traceback (most recent call last)&lt;ipython-input-1-6032dfc2e874&gt; in
-&lt;module&gt;
-----&gt; 1 tmp_str = tf.constant([&quot;1&quot;, &quot;2&quot;, &quot;3&quot;, &quot;4&quot;], shape=(2, 2))
-      2 tf.strings.to_number(tmp_str, out_type=tf.dtypes.float32)
-NameError: name &#39;tf&#39; is not defined
+<div class="highlight"><pre><span></span><code>&lt;tf.Tensor: shape=(2, 2), dtype=float32, numpy=
+array([[1., 2.],
+       [3., 4.]], dtype=float32)&gt;
 </code></pre></div>
 <p><a href="https://www.tensorflow.org/api_docs/python/tf/strings/substr?version=stable">参考</a></p>
 <div class="highlight"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">strings</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;Hello, Python&quot;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>---------------------------------------------------------------------------NameError
-Traceback (most recent call last)&lt;ipython-input-1-e69e63863cc4&gt; in
-&lt;module&gt;
-----&gt; 1 tf.strings.split(&quot;Hello, Python&quot;, sep=&quot;,&quot;)
-NameError: name &#39;tf&#39; is not defined
+<div class="highlight"><pre><span></span><code>&lt;tf.Tensor: shape=(2,), dtype=string, numpy=array([b&#39;Hello&#39;, b&#39;
+Python&#39;], dtype=object)&gt;
 </code></pre></div>
 <h3 id="n-grams">创建n-grams的张量</h3>
 <div class="highlight"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">strings</span><span class="o">.</span><span class="n">ngrams</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">ngram_width</span><span class="p">,</span> <span class="n">separator</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">pad_values</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
@@ -2656,36 +2551,21 @@ NameError: name &#39;tf&#39; is not defined
 </ul>
 <div class="highlight"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">strings</span><span class="o">.</span><span class="n">ngrams</span><span class="p">([</span><span class="s2">&quot;I&quot;</span><span class="p">,</span> <span class="s2">&quot;love&quot;</span><span class="p">,</span> <span class="s2">&quot;love&quot;</span><span class="p">,</span> <span class="s2">&quot;you&quot;</span><span class="p">,</span> <span class="s2">&quot;and&quot;</span><span class="p">],</span> <span class="n">ngram_width</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>---------------------------------------------------------------------------NameError
-Traceback (most recent call last)&lt;ipython-input-1-24c10bd4d606&gt; in
-&lt;module&gt;
-----&gt; 1 tf.strings.ngrams([&quot;I&quot;, &quot;love&quot;, &quot;love&quot;, &quot;you&quot;, &quot;and&quot;],
-ngram_width=1).numpy()
-NameError: name &#39;tf&#39; is not defined
+<div class="highlight"><pre><span></span><code>array([b&#39;I&#39;, b&#39;love&#39;, b&#39;love&#39;, b&#39;you&#39;, b&#39;and&#39;], dtype=object)
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">strings</span><span class="o">.</span><span class="n">ngrams</span><span class="p">([</span><span class="s2">&quot;I&quot;</span><span class="p">,</span> <span class="s2">&quot;love&quot;</span><span class="p">,</span> <span class="s2">&quot;love&quot;</span><span class="p">,</span> <span class="s2">&quot;you&quot;</span><span class="p">,</span> <span class="s2">&quot;and&quot;</span><span class="p">],</span> <span class="n">ngram_width</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
                   <span class="n">separator</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>---------------------------------------------------------------------------NameError
-Traceback (most recent call last)&lt;ipython-input-1-47ce9e2f42e8&gt; in
-&lt;module&gt;
-----&gt; 1 tf.strings.ngrams([&quot;I&quot;, &quot;love&quot;, &quot;love&quot;, &quot;you&quot;, &quot;and&quot;],
-ngram_width=2,
-      2                   separator=&#39;-&#39;).numpy()
-NameError: name &#39;tf&#39; is not defined
+<div class="highlight"><pre><span></span><code>array([b&#39;I-love&#39;, b&#39;love-love&#39;, b&#39;love-you&#39;, b&#39;you-and&#39;],
+dtype=object)
 </code></pre></div>
 <h2 id="boolean">boolean 类型</h2>
 <div class="highlight"><pre><span></span><code><span class="n">bool_tensor</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">pprint</span><span class="p">(</span><span class="n">bool_tensor</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">)</span>
 <span class="n">pprint</span><span class="p">(</span><span class="n">bool_tensor</span> <span class="o">==</span> <span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>---------------------------------------------------------------------------NameError
-Traceback (most recent call last)&lt;ipython-input-1-a42ad3306272&gt; in
-&lt;module&gt;
-----&gt; 1 bool_tensor = tf.constant(True)
-      2 pprint(bool_tensor is True)
-      3 pprint(bool_tensor == True)
-NameError: name &#39;tf&#39; is not defined
+<div class="highlight"><pre><span></span><code>False
+&lt;tf.Tensor: shape=(), dtype=bool, numpy=True&gt;
 </code></pre></div>
 <h2 id="tfdtypes">数值精度 tf.dtypes 模块</h2>
 <p>列举 Tensorflow 所有类型</p>
@@ -2694,69 +2574,68 @@ NameError: name &#39;tf&#39; is not defined
 <span class="c1"># tf.int8 tf.int16 tf.int32 tf.int64</span>
 <span class="c1"># tf.float16 tf.float32 tf.float64(tf.double)</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>---------------------------------------------------------------------------NameError
-Traceback (most recent call last)&lt;ipython-input-1-0936610857ac&gt; in
-&lt;module&gt;
-----&gt; 1 [i for i in dir(tf.dtypes) if not i.startswith(&quot;_&quot;)]
-      2
-      3 # tf.int8 tf.int16 tf.int32 tf.int64
-      4 # tf.float16 tf.float32 tf.float64(tf.double)
-NameError: name &#39;tf&#39; is not defined
+<div class="highlight"><pre><span></span><code>[&#39;DType&#39;,
+ &#39;QUANTIZED_DTYPES&#39;,
+ &#39;as_dtype&#39;,
+ &#39;bfloat16&#39;,
+ &#39;bool&#39;,
+ &#39;cast&#39;,
+ &#39;complex&#39;,
+ &#39;complex128&#39;,
+ &#39;complex64&#39;,
+ &#39;double&#39;,
+ &#39;float16&#39;,
+ &#39;float32&#39;,
+ &#39;float64&#39;,
+ &#39;half&#39;,
+ &#39;int16&#39;,
+ &#39;int32&#39;,
+ &#39;int64&#39;,
+ &#39;int8&#39;,
+ &#39;qint16&#39;,
+ &#39;qint32&#39;,
+ &#39;qint8&#39;,
+ &#39;quint16&#39;,
+ &#39;quint8&#39;,
+ &#39;resource&#39;,
+ &#39;saturate_cast&#39;,
+ &#39;string&#39;,
+ &#39;uint16&#39;,
+ &#39;uint32&#39;,
+ &#39;uint64&#39;,
+ &#39;uint8&#39;,
+ &#39;variant&#39;]
 </code></pre></div>
 <p>保存精度过低，溢出</p>
 <div class="highlight"><pre><span></span><code><span class="n">pprint</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="mi">123456789</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">int16</span><span class="p">))</span>
 <span class="n">pprint</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="mi">123456789</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">int32</span><span class="p">))</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>---------------------------------------------------------------------------NameError
-Traceback (most recent call last)&lt;ipython-input-1-9510008208ec&gt; in
-&lt;module&gt;
-----&gt; 1 pprint(tf.constant(123456789, dtype=tf.int16))
-      2 pprint(tf.constant(123456789, dtype=tf.int32))
-NameError: name &#39;tf&#39; is not defined
+<div class="highlight"><pre><span></span><code>&lt;tf.Tensor: shape=(), dtype=int16, numpy=-13035&gt;
+&lt;tf.Tensor: shape=(), dtype=int32, numpy=123456789&gt;
 </code></pre></div>
 <p>保存的精度低，小数位四舍五入</p>
 <div class="highlight"><pre><span></span><code><span class="n">pprint</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
 <span class="n">pprint</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">))</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>3.141592653589793
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>---------------------------------------------------------------------------NameError
-Traceback (most recent call last)&lt;ipython-input-1-cd65e3c662fc&gt; in
-&lt;module&gt;
-      1 pprint(np.pi)
-----&gt; 2 pprint(tf.constant(np.pi, dtype=tf.float32))
-NameError: name &#39;tf&#39; is not defined
+&lt;tf.Tensor: shape=(), dtype=float32, numpy=3.1415927&gt;
 </code></pre></div>
 <p>高精度保存</p>
 <div class="highlight"><pre><span></span><code><span class="n">pprint</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">float64</span><span class="p">))</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>---------------------------------------------------------------------------NameError
-Traceback (most recent call last)&lt;ipython-input-1-f06c56041885&gt; in
-&lt;module&gt;
-----&gt; 1 pprint(tf.constant(np.pi, dtype=tf.float64))
-NameError: name &#39;tf&#39; is not defined
+<div class="highlight"><pre><span></span><code>&lt;tf.Tensor: shape=(), dtype=float64, numpy=3.141592653589793&gt;
 </code></pre></div>
 <p>获取数据类型信息</p>
 <div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
 <span class="n">a</span><span class="o">.</span><span class="n">dtype</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>---------------------------------------------------------------------------NameError
-Traceback (most recent call last)&lt;ipython-input-1-71c0054634d9&gt; in
-&lt;module&gt;
-----&gt; 1 a = tf.constant(np.pi, dtype=tf.float64)
-      2 a.dtype
-NameError: name &#39;tf&#39; is not defined
+<div class="highlight"><pre><span></span><code>tf.float64
 </code></pre></div>
 <p>改变数据类型 返回新的对象</p>
 <div class="highlight"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
 <span class="n">tf</span><span class="o">.</span><span class="n">dtypes</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>---------------------------------------------------------------------------NameError
-Traceback (most recent call last)&lt;ipython-input-1-1d92330df2cd&gt; in
-&lt;module&gt;
-----&gt; 1 tf.cast(a, tf.float32)
-      2 tf.dtypes.cast(a, tf.float32)
-NameError: name &#39;tf&#39; is not defined
+<div class="highlight"><pre><span></span><code>&lt;tf.Tensor: shape=(), dtype=float32, numpy=3.1415927&gt;
 </code></pre></div>
 <h3 id="tfdtypes_1">tf.dtypes 模块的函数</h3>
 <div class="highlight"><pre><span></span><code><span class="c1"># https://www.tensorflow.org/api_docs/python/tf/dtypes</span>
@@ -2765,23 +2644,11 @@ NameError: name &#39;tf&#39; is not defined
 <div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
 <span class="n">b</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>---------------------------------------------------------------------------NameError
-Traceback (most recent call last)&lt;ipython-input-1-da43930b7c41&gt; in
-&lt;module&gt;
-----&gt; 1 a = tf.constant([1, 2])
-      2 b = tf.Variable(a)
-NameError: name &#39;tf&#39; is not defined
-</code></pre></div>
 <p><code>nametrainable</code> 是 <code>Variable</code> 特有的属性。<code>name</code>属性用于命名计算图中的变量。<code>trainable</code> 属性表示当前张量是都需要被优化，创建<code>Variable</code>默认开启优化。</p>
 <div class="highlight"><pre><span></span><code><span class="n">b</span><span class="o">.</span><span class="n">trainable</span>
 <span class="n">b</span><span class="o">.</span><span class="n">name</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>---------------------------------------------------------------------------AttributeError
-Traceback (most recent call last)&lt;ipython-input-1-cfae1120cb50&gt; in
-&lt;module&gt;
-----&gt; 1 b.trainable
-      2 b.name
-AttributeError: &#39;numpy.ndarray&#39; object has no attribute &#39;trainable&#39;
+<div class="highlight"><pre><span></span><code>&#39;Variable:0&#39;
 </code></pre></div>
 <h2 id="_10">创建已知分布的张量</h2>
 <h3 id="_11">正态分布</h3>
@@ -2795,15 +2662,9 @@ AttributeError: &#39;numpy.ndarray&#39; object has no attribute &#39;trainable&#
 
 <span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">mean</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">stddev</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">])</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>---------------------------------------------------------------------------NameError
-Traceback (most recent call last)&lt;ipython-input-1-ddb564d961c4&gt; in
-&lt;module&gt;
-      1 ## 均值为0 标准差为1
-----&gt; 2 tf.random.normal((2, 2))
-      3 ## 均值为1 标准差为10
-      4 tf.random.normal((2, 2), mean=1, stddev=10)
-      5
-NameError: name &#39;tf&#39; is not defined
+<div class="highlight"><pre><span></span><code>&lt;tf.Tensor: shape=(2, 2), dtype=float32, numpy=
+array([[ 7.343336, 31.604218],
+       [ 1.216535,  9.457108]], dtype=float32)&gt;
 </code></pre></div>
 <h3 id="_12">均匀分布</h3>
 <div class="highlight"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">minval</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">maxval</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=&lt;</span><span class="n">dtype</span><span class="p">:</span> <span class="s1">&#39;float32&#39;</span><span class="o">&gt;</span><span class="p">,</span>
@@ -2816,15 +2677,9 @@ NameError: name &#39;tf&#39; is not defined
 <span class="c1">## 均匀采样int型数据</span>
 <span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">minval</span><span class="o">=-</span><span class="mi">10</span><span class="p">,</span> <span class="n">maxval</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>---------------------------------------------------------------------------NameError
-Traceback (most recent call last)&lt;ipython-input-1-afb3428670a9&gt; in
-&lt;module&gt;
-      1 ## 区间[0,1]的均匀分布
-----&gt; 2 tf.random.uniform((2, 2))
-      3 ## 区间[-1,1]的均匀分布
-      4 tf.random.uniform((2, 2), minval=-1, maxval=1)
-      5 ## 均匀采样int型数据
-NameError: name &#39;tf&#39; is not defined
+<div class="highlight"><pre><span></span><code>&lt;tf.Tensor: shape=(2, 2), dtype=int32, numpy=
+array([[-5, 63],
+       [10, 80]], dtype=int32)&gt;
 </code></pre></div>
 <h3 id="gamma">gamma分布</h3>
 <div class="highlight"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">gamma</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=&lt;</span><span class="n">dtype</span><span class="p">:</span> <span class="s1">&#39;float32&#39;</span><span class="o">&gt;</span><span class="p">,</span>
@@ -2834,47 +2689,21 @@ NameError: name &#39;tf&#39; is not defined
 
 <span class="c1">## poisson分布</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>---------------------------------------------------------------------------NameError
-Traceback (most recent call last)&lt;ipython-input-1-34167fab1c4f&gt; in
-&lt;module&gt;
-----&gt; 1 tf.random.gamma((2, 2), alpha=1, beta=2)
-      2
-      3 ## poisson分布
-NameError: name &#39;tf&#39; is not defined
+<div class="highlight"><pre><span></span><code>&lt;tf.Tensor: shape=(2, 2), dtype=float32, numpy=
+array([[0.3690009 , 0.6148905 ],
+       [0.26223135, 0.04579793]], dtype=float32)&gt;
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">poisson</span><span class="p">(</span><span class="n">shape</span><span class="p">,</span> <span class="n">lam</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=&lt;</span><span class="n">dtype</span><span class="p">:</span> <span class="s1">&#39;float32&#39;</span><span class="o">&gt;</span><span class="p">,</span>
                   <span class="n">seed</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">poisson</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">lam</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>---------------------------------------------------------------------------NameError
-Traceback (most recent call last)&lt;ipython-input-1-941bac21ff7b&gt; in
-&lt;module&gt;
-----&gt; 1 tf.random.poisson((2, 2), lam=[2, 3])
-NameError: name &#39;tf&#39; is not defined
-</code></pre></div>
-<h2 id="tfsysconfig">tf.sysconfig 模块</h2>
-<div class="highlight"><pre><span></span><code><span class="c1"># 获取tensorflow构建环境的信息</span>
-<span class="n">tf</span><span class="o">.</span><span class="n">sysconfig</span><span class="o">.</span><span class="n">get_build_info</span><span class="p">()</span>
-<span class="c1"># Get the compilation flags for custom operators.</span>
-<span class="n">tf</span><span class="o">.</span><span class="n">sysconfig</span><span class="o">.</span><span class="n">get_compile_flags</span><span class="p">()</span>
-<span class="c1"># 获取包含 TensorFlow C++ header 文件的目录</span>
-<span class="n">tf</span><span class="o">.</span><span class="n">sysconfig</span><span class="o">.</span><span class="n">get_include</span><span class="p">()</span>
-<span class="c1"># tensorflow library 的位置</span>
-<span class="n">tf</span><span class="o">.</span><span class="n">sysconfig</span><span class="o">.</span><span class="n">get_lib</span><span class="p">()</span>
-<span class="c1"># Get the link flags for custom operators.</span>
-<span class="n">tf</span><span class="o">.</span><span class="n">sysconfig</span><span class="o">.</span><span class="n">get_link_flags</span><span class="p">()</span>
-</code></pre></div>
-<h2 id="tfversion">tf.version 模块</h2>
-<div class="highlight"><pre><span></span><code><span class="c1"># GCC 或其他编译器的版本</span>
-<span class="n">tf</span><span class="o">.</span><span class="n">version</span><span class="o">.</span><span class="n">COMPILER_VERSION</span>
-<span class="n">tf</span><span class="o">.</span><span class="n">version</span><span class="o">.</span><span class="n">GIT_VERSION</span>
-<span class="c1"># tensorflow的版本</span>
-<span class="n">tf</span><span class="o">.</span><span class="n">version</span><span class="o">.</span><span class="n">VERSION</span>
-<span class="c1"># tensorflow GraphDef 的版本</span>
-<span class="n">tf</span><span class="o">.</span><span class="n">version</span><span class="o">.</span><span class="n">GRAPH_DEF_VERSION</span>
-<span class="n">tf</span><span class="o">.</span><span class="n">version</span><span class="o">.</span><span class="n">GRAPH_DEF_VERSION_MIN_CONSUMER</span>
-<span class="n">tf</span><span class="o">.</span><span class="n">version</span><span class="o">.</span><span class="n">GRAPH_DEF_VERSION_MIN_PRODUCER</span>
+<div class="highlight"><pre><span></span><code>&lt;tf.Tensor: shape=(2, 2, 2), dtype=float32, numpy=
+array([[[0., 3.],
+        [4., 2.]],
+
+       [[4., 4.],
+        [1., 7.]]], dtype=float32)&gt;
 </code></pre></div>
                 
               

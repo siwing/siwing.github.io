@@ -14,7 +14,7 @@
     
     
       
-        <title>12.3.张量进阶操作 - Python笔记</title>
+        <title>12.1.keras数据集 - Python笔记</title>
       
     
     
@@ -59,7 +59,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#boston_housing" class="md-skip">
           跳转至
         </a>
       
@@ -89,7 +89,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              12.3.张量进阶操作
+              12.1.keras数据集
             
           </span>
         </div>
@@ -1544,39 +1544,15 @@
         <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_11" type="checkbox" id="__nav_11" checked>
       
       <label class="md-nav__link" for="__nav_11">
-        tensorflow笔记
+        TensorFlow
         <span class="md-nav__icon md-icon"></span>
       </label>
-      <nav class="md-nav" aria-label="tensorflow笔记" data-md-level="1">
+      <nav class="md-nav" aria-label="TensorFlow" data-md-level="1">
         <label class="md-nav__title" for="__nav_11">
           <span class="md-nav__icon md-icon"></span>
-          tensorflow笔记
+          TensorFlow
         </label>
         <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="12.1.keras%E6%95%B0%E6%8D%AE%E9%9B%86.html" class="md-nav__link">
-        12.1.keras数据集
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="12.2.%E5%88%9B%E5%BB%BA%E5%BC%A0%E9%87%8F.html" class="md-nav__link">
-        12.2.创建张量
-      </a>
-    </li>
-  
-
           
             
   
@@ -1591,12 +1567,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          12.3.张量进阶操作
+          12.1.keras数据集
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <a href="12.3.%E5%BC%A0%E9%87%8F%E8%BF%9B%E9%98%B6%E6%93%8D%E4%BD%9C.html" class="md-nav__link md-nav__link--active">
-        12.3.张量进阶操作
+      <a href="12.1.keras%E6%95%B0%E6%8D%AE%E9%9B%86.html" class="md-nav__link md-nav__link--active">
+        12.1.keras数据集
       </a>
       
         
@@ -1612,132 +1588,50 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    索引与切片
+  <a href="#boston_housing" class="md-nav__link">
+    boston_housing 回归数据集
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    维度操纵
-  </a>
-  
-    <nav class="md-nav" aria-label="维度操纵">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    插入维度
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    删除长度为1的轴
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    交换维度
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    复制数据
+  <a href="#imdb" class="md-nav__link">
+    imdb 情感分类数据集
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    广播
+  <a href="#mnist" class="md-nav__link">
+    mnist 手写数字分类数据集
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    算术运算
+  <a href="#cifar10" class="md-nav__link">
+    cifar10 图像分类数据集
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    合并
+  <a href="#cifar100" class="md-nav__link">
+    cifar100 图像分类数据集
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    堆叠
+  <a href="#fashion_mnist" class="md-nav__link">
+    fashion_mnist 图像分类数据集
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
-    拆分
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
-    统计计算
-  </a>
-  
-    <nav class="md-nav" aria-label="统计计算">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
-    范数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
-    最值、均值、和
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_14" class="md-nav__link">
-    张量比较
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_15" class="md-nav__link">
-    填充与复制
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_16" class="md-nav__link">
-    数据限幅运算
+  <a href="#reuters" class="md-nav__link">
+    reuters 路透社新闻主题分类数据集
   </a>
   
 </li>
@@ -1746,6 +1640,30 @@
   
 </nav>
       
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="12.2.create%20tensor.html" class="md-nav__link">
+        12.2.创建张量
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="12.3.%E5%BC%A0%E9%87%8F%E8%BF%9B%E9%98%B6%E6%93%8D%E4%BD%9C.html" class="md-nav__link">
+        12.3.张量进阶操作
+      </a>
     </li>
   
 
@@ -2188,132 +2106,50 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    索引与切片
+  <a href="#boston_housing" class="md-nav__link">
+    boston_housing 回归数据集
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    维度操纵
-  </a>
-  
-    <nav class="md-nav" aria-label="维度操纵">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    插入维度
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#1" class="md-nav__link">
-    删除长度为1的轴
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    交换维度
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    复制数据
+  <a href="#imdb" class="md-nav__link">
+    imdb 情感分类数据集
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    广播
+  <a href="#mnist" class="md-nav__link">
+    mnist 手写数字分类数据集
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
-    算术运算
+  <a href="#cifar10" class="md-nav__link">
+    cifar10 图像分类数据集
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
-    合并
+  <a href="#cifar100" class="md-nav__link">
+    cifar100 图像分类数据集
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    堆叠
+  <a href="#fashion_mnist" class="md-nav__link">
+    fashion_mnist 图像分类数据集
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
-    拆分
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
-    统计计算
-  </a>
-  
-    <nav class="md-nav" aria-label="统计计算">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
-    范数
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
-    最值、均值、和
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_14" class="md-nav__link">
-    张量比较
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_15" class="md-nav__link">
-    填充与复制
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_16" class="md-nav__link">
-    数据限幅运算
+  <a href="#reuters" class="md-nav__link">
+    reuters 路透社新闻主题分类数据集
   </a>
   
 </li>
@@ -2330,289 +2166,241 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/siwing/siwing.github.io/edit/master/docs/tensorflow笔记/12.3.张量进阶操作.md" title="编辑此页" class="md-content__button md-icon">
+                  <a href="https://github.com/siwing/siwing.github.io/edit/master/docs/TensorFlow/12.1.keras数据集.md" title="编辑此页" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
                 
-                  <h1>12.3.张量进阶操作</h1>
+                  <h1>12.1.keras数据集</h1>
                 
                 <div class="highlight"><pre><span></span><code>Windows 10
 Python 3.7.3 @ MSC v.1915 64 bit (AMD64)
-Latest build date 2020.05.28
+Latest build date 2020.03.09
 tensorflow version:  2.1.0
 </code></pre></div>
-<h2 id="_1">索引与切片</h2>
-<p>tensorflow 的索引操作比较简单，就是Python常用的整数索引和切片。</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># 一共有4张图片</span>
-<span class="c1"># 每张图片的大小为 32*32</span>
-<span class="c1"># 每一个像素点由 3个 rgb值组成</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">tensorflow</span> <span class="kn">import</span> <span class="n">keras</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.datasets</span> <span class="kn">import</span> <span class="n">boston_housing</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.datasets</span> <span class="kn">import</span> <span class="n">imdb</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.datasets</span> <span class="kn">import</span> <span class="n">reuters</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.datasets</span> <span class="kn">import</span> <span class="n">mnist</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.datasets</span> <span class="kn">import</span> <span class="n">cifar10</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.datasets</span> <span class="kn">import</span> <span class="n">cifar100</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.datasets</span> <span class="kn">import</span> <span class="n">fashion_mnist</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</code></pre></div>
+<p>tensorflow 中可以快速调用的数据集（还是要先下载的）：</p>
+<div class="highlight"><pre><span></span><code>[&#39;cifar10&#39;, &#39;cifar100&#39;, &#39;imdb&#39;, &#39;mnist&#39;, &#39;reuters&#39;]
+</code></pre></div>
+<h2 id="boston_housing">boston_housing 回归数据集</h2>
+<p>数据集来自卡内基梅隆大学维护的 StatLib 库。样本包含 1970 年代的在波士顿郊区不同位置的房屋信息，总共有 13 种房屋属性。目标值是一个位置的房屋价格的中值（单位：k$）。 </p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">),</span> <span class="p">(</span><span class="n">x_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span> <span class="o">=</span> <span class="n">boston_housing</span><span class="o">.</span><span class="n">load_data</span><span class="p">()</span>
+</code></pre></div>
+<p>参数：</p>
+<ul>
+<li>path: 缓存本地数据集的位置 (相对路径 ~/.keras/datasets)。</li>
+<li>seed: 在计算测试分割之前对数据进行混洗的随机种子。</li>
+<li>test_split: 需要保留作为测试数据的比例。</li>
+</ul>
+<div class="highlight"><pre><span></span><code>x_train.shape: (404, 13)
+y_train.shape: (404,)
+x_test.shape : (102, 13)
+y_test.shape : (102,)
+</code></pre></div>
+<h2 id="imdb">imdb 情感分类数据集</h2>
+<p>数据集来自 IMDB 的 25,000 条电影评论，以情绪（正面/负面）标记。评论已经过预处理，并编码为词索引（整数）的序列表示。为了方便起见，将词按数据集中出现的频率进行索引，例如整数 3 编码数据中第三个最频繁的词。这允许快速筛选操作，例如：「只考虑前 10,000 个最常用的词，但排除前 20 个最常见的词」。</p>
+<p>作为惯例，0 不代表特定的单词，而是被用于编码任何未知单词。 </p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">),</span> <span class="p">(</span><span class="n">x_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span> <span class="o">=</span> <span class="n">imdb</span><span class="o">.</span><span class="n">load_data</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="s2">&quot;imdb.npz&quot;</span><span class="p">,</span>
+                                                        <span class="n">num_words</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                                                        <span class="n">skip_top</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                                                        <span class="n">maxlen</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                                                        <span class="n">seed</span><span class="o">=</span><span class="mi">113</span><span class="p">,</span>
+                                                        <span class="n">start_char</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                                                        <span class="n">oov_char</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+                                                        <span class="n">index_from</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>x_train.shape: (25000,)
+y_train.shape: (25000,)
+x_test.shape : (25000,)
+y_test.shape : (25000,)
+</code></pre></div>
+<p><code>x_train</code>是不等长的list组成的array，所以只显示了第一个维度的大小。<code>y_train</code>是分类标签，只有一个维度，所以也只显示了第一个维度的大小。</p>
+<p>同时，也可以获取词库：</p>
+<div class="highlight"><pre><span></span><code><span class="n">word_index</span> <span class="o">=</span> <span class="n">imdb</span><span class="o">.</span><span class="n">get_word_index</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">word_index</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>88584
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">word_index</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">:</span><span class="si">{</span><span class="n">v</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;</span><span class="mi">5</span><span class="p">:</span> <span class="k">break</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>fawn:34701
+tsukino:52006
+nunnery:52007
+sonja:16816
+vani:63951
+woods:1408
+</code></pre></div>
+<h2 id="mnist">mnist 手写数字分类数据集</h2>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">),</span> <span class="p">(</span><span class="n">x_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span> <span class="o">=</span> <span class="n">mnist</span><span class="o">.</span><span class="n">load_data</span><span class="p">()</span>
+</code></pre></div>
+<p>x_train, x_test: uint8 数组表示的灰度图像，尺寸为 <code>(num_samples, 28, 28)</code>。</p>
+<p>y_train, y_test: uint8 数组表示的数字标签（范围在 0-9 之间的整数），尺寸为 <code>(num_samples,)</code>。</p>
+<div class="highlight"><pre><span></span><code>x_train.shape: (60000, 28, 28)
+y_train.shape: (60000,)
+x_test.shape : (10000, 28, 28)
+y_test.shape : (10000,)
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">mnist_plot_img</span><span class="p">(</span><span class="n">img</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">gray</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
-<span class="c1"># 第一张图片 第二行 第二列的像素</span>
-<span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">mnist_plot_img</span><span class="p">(</span><span class="n">x_train</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>&lt;tf.Tensor: shape=(3,), dtype=float32, numpy=array([0.13605669,
-0.43695715, 0.85433054], dtype=float32)&gt;
+<p><img src="figures/12.1.tensorflowb笔记_keras数据集_figure13_1.png" style="zoom: 33%;" /></p>
+<h2 id="cifar10">cifar10 图像分类数据集</h2>
+<p>50,000 张 32x32 彩色训练图像数据，以及 10,000 张测试图像数据，总共分为 10 个类别。</p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">),</span> <span class="p">(</span><span class="n">x_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span> <span class="o">=</span> <span class="n">cifar10</span><span class="o">.</span><span class="n">load_data</span><span class="p">()</span>
 </code></pre></div>
-<h2 id="_2">维度操纵</h2>
-<div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">range</span><span class="p">(</span><span class="mi">96</span><span class="p">)</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<p>x_train, x_test: uint8 数组表示的 RGB 图像数据，尺寸为 <code>(num_samples, 3, 32, 32)</code> 或 <code>(num_samples, 32, 32, 3)</code>，基于 image_data_format 后端设定的 channels_first 或 channels_last。</p>
+<p>y_train, y_test: uint8 数组表示的类别标签（范围在 0-9 之间的整数），尺寸为<code>(num_samples,)</code>。</p>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;x_train.shape: (</span><span class="si">%d</span><span class="s2">, </span><span class="si">%d</span><span class="s2">, </span><span class="si">%d</span><span class="s2">, </span><span class="si">%d</span><span class="s2">)&quot;</span> <span class="o">%</span> <span class="n">x_train</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;y_train.shape: (</span><span class="si">%d</span><span class="s2">, </span><span class="si">%d</span><span class="s2">)&quot;</span> <span class="o">%</span> <span class="n">y_train</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;x_test.shape : (</span><span class="si">%d</span><span class="s2">, </span><span class="si">%d</span><span class="s2">, </span><span class="si">%d</span><span class="s2">, </span><span class="si">%d</span><span class="s2">)&quot;</span> <span class="o">%</span> <span class="n">x_test</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;y_test.shape : (</span><span class="si">%d</span><span class="s2">, </span><span class="si">%d</span><span class="s2">)&quot;</span> <span class="o">%</span> <span class="n">y_test</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 </code></pre></div>
-<h3 id="_3">插入维度</h3>
-<p>在第x个轴之前插入一个轴</p>
-<div class="highlight"><pre><span></span><code><span class="n">y</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">y</span><span class="o">.</span><span class="n">shape</span>
+<div class="highlight"><pre><span></span><code>x_train.shape: (50000, 32, 32, 3)
+y_train.shape: (50000, 1)
+x_test.shape : (10000, 32, 32, 3)
+y_test.shape : (10000, 1)
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>TensorShape([48, 1, 2])
+<div class="highlight"><pre><span></span><code><span class="n">mnist_plot_img</span><span class="p">(</span><span class="n">x_train</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 </code></pre></div>
-<h3 id="1">删除长度为1的轴</h3>
-<p>不指定axis 则默认删除所有长度为1的轴</p>
-<div class="highlight"><pre><span></span><code><span class="n">y</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">y</span><span class="o">.</span><span class="n">shape</span>
+<p><img src="figures/12.1.tensorflowb笔记_keras数据集_figure16_1.png" style="zoom:33%;" /></p>
+<h2 id="cifar100">cifar100 图像分类数据集</h2>
+<p>50,000 张 32x32 彩色训练图像数据，以及 10,000 张测试图像数据，总共分为 100 个类别。 </p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">),</span> <span class="p">(</span><span class="n">x_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span> <span class="o">=</span> <span class="n">cifar100</span><span class="o">.</span><span class="n">load_data</span><span class="p">()</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>TensorShape([48, 2])
+<p>x_train, x_test: uint8 数组表示的 RGB 图像数据，尺寸为 <code>(num_samples, 3, 32, 32)</code> 或 <code>(num_samples, 32, 32, 3)</code>，基于 image_data_format 后端设定的 channels_first 或 channels_last。</p>
+<p>y_train, y_test: uint8 数组表示的类别标签（范围在 0-9 之间的整数），尺寸为<code>(num_samples,)</code>。</p>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;x_train.shape: (</span><span class="si">%d</span><span class="s2">, </span><span class="si">%d</span><span class="s2">, </span><span class="si">%d</span><span class="s2">, </span><span class="si">%d</span><span class="s2">)&quot;</span> <span class="o">%</span> <span class="n">x_train</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;y_train.shape: (</span><span class="si">%d</span><span class="s2">, </span><span class="si">%d</span><span class="s2">)&quot;</span> <span class="o">%</span> <span class="n">y_train</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;x_test.shape : (</span><span class="si">%d</span><span class="s2">, </span><span class="si">%d</span><span class="s2">, </span><span class="si">%d</span><span class="s2">, </span><span class="si">%d</span><span class="s2">)&quot;</span> <span class="o">%</span> <span class="n">x_test</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;y_test.shape : (</span><span class="si">%d</span><span class="s2">, </span><span class="si">%d</span><span class="s2">)&quot;</span> <span class="o">%</span> <span class="n">y_test</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 </code></pre></div>
-<h3 id="_4">交换维度</h3>
-<p>交换维度之后，内存中元素的储存顺序改变，因此交换维度的计算代价比改变视图形状要高。</p>
-<div class="highlight"><pre><span></span><code><span class="n">z</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">perm</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
-<span class="n">z</span><span class="o">.</span><span class="n">shape</span>
+<div class="highlight"><pre><span></span><code>x_train.shape: (50000, 32, 32, 3)
+y_train.shape: (50000, 1)
+x_test.shape : (10000, 32, 32, 3)
+y_test.shape : (10000, 1)
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>TensorShape([2, 48])
+<div class="highlight"><pre><span></span><code><span class="n">mnist_plot_img</span><span class="p">(</span><span class="n">x_train</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 </code></pre></div>
-<h2 id="_5">复制数据</h2>
-<div class="highlight"><pre><span></span><code><span class="n">b</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
-<span class="n">P</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<span class="n">b</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">P</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<span class="n">b</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">multiples</span><span class="o">=</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
-<span class="n">P</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<p><img src="figures/12.1.tensorflowb笔记_keras数据集_figure19_1.png" style="zoom:33%;" /></p>
+<h2 id="fashion_mnist">fashion_mnist 图像分类数据集</h2>
+<p>Fashion-MNIST是Zalando文章图片的数据集，包含60,000个示例的训练集和10,000个示例的测试集。每个示例都是一个28x28灰度图像，与来自10个类别的标签相关联。类别标签是：</p>
+<table>
+<thead>
+<tr>
+<th>类别</th>
+<th>描述</th>
+<th>中文</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>T-shirt/top</td>
+<td>T恤/上衣</td>
+</tr>
+<tr>
+<td>1</td>
+<td>Trouser</td>
+<td>裤子</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Pullover</td>
+<td>套头衫</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Dress</td>
+<td>连衣裙</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Coat</td>
+<td>外套</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Sandal</td>
+<td>凉鞋</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Shirt</td>
+<td>衬衫</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Sneaker</td>
+<td>运动鞋</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Bag</td>
+<td>背包</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Ankle boot</td>
+<td>短靴</td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">),</span> <span class="p">(</span><span class="n">x_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span> <span class="o">=</span> <span class="n">fashion_mnist</span><span class="o">.</span><span class="n">load_data</span><span class="p">()</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>TensorShape([2])
-TensorShape([1, 2])
-TensorShape([2, 2])
+<p>x_train, x_test: uint8 数组表示的灰度图像，尺寸为 <code>(num_samples, 28, 28)</code>。</p>
+<p>y_train, y_test: uint8 数组表示的数字标签（范围在 0-9 之间的整数），尺寸为 <code>(num_samples,)</code>。</p>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;x_train.shape: (</span><span class="si">%d</span><span class="s2">, </span><span class="si">%d</span><span class="s2">, </span><span class="si">%d</span><span class="s2">)&quot;</span> <span class="o">%</span> <span class="n">x_train</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;y_train.shape: (</span><span class="si">%d</span><span class="s2">,)&quot;</span> <span class="o">%</span> <span class="n">y_train</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;x_test.shape : (</span><span class="si">%d</span><span class="s2">, </span><span class="si">%d</span><span class="s2">, </span><span class="si">%d</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">x_test</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;y_test.shape : (</span><span class="si">%d</span><span class="s2">,)&quot;</span> <span class="o">%</span> <span class="n">y_test</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 </code></pre></div>
-<p><code>multiples</code> 分别指定了每个维度上面的复制倍数，对应位置为<code>1</code>表明不复制，为<code>2</code>表明新长度为原来长度的2 倍，即数据复制一份，以此类推。</p>
-<h2 id="_6">广播</h2>
-<p>broadcasting 的效果和 <code>tf.tile</code> 一样。</p>
-<h2 id="_7">算术运算</h2>
-<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">range</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-<span class="n">b</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code>x_train.shape: (60000, 28, 28)
+y_train.shape: (60000,)
+x_test.shape : (10000, 28, 28
+y_test.shape : (10000,)
 </code></pre></div>
-<p>除</p>
-<div class="highlight"><pre><span></span><code><span class="n">a</span><span class="o">/</span><span class="n">b</span>
-<span class="n">tf</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">mnist_plot_img</span><span class="p">(</span><span class="n">x_train</span><span class="p">[</span><span class="mi">100</span><span class="p">])</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>&lt;tf.Tensor: shape=(4,), dtype=float64, numpy=array([0. , 0.5, 1. ,
-1.5])&gt;
+<p><img src="figures/12.1.tensorflowb笔记_keras数据集_figure22_1.png" style="zoom:33%;" /></p>
+<h2 id="reuters">reuters 路透社新闻主题分类数据集</h2>
+<p>数据集来源于路透社的 11,228 条新闻文本，总共分为 46 个主题。与 IMDB 数据集一样，每条新闻都被编码为一个词索引的序列。</p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">),</span> <span class="p">(</span><span class="n">x_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span> <span class="o">=</span> <span class="n">reuters</span><span class="o">.</span><span class="n">load_data</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="s2">&quot;reuters.npz&quot;</span><span class="p">,</span>
+                                                         <span class="n">num_words</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                                                         <span class="n">skip_top</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                                                         <span class="n">maxlen</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                                                          <span class="n">test_split</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span>
+                                                         <span class="n">seed</span><span class="o">=</span><span class="mi">113</span><span class="p">,</span>
+                                                         <span class="n">start_char</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                                                         <span class="n">oov_char</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+                                                         <span class="n">index_from</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 </code></pre></div>
-<p>取余</p>
-<div class="highlight"><pre><span></span><code><span class="n">a</span><span class="o">%</span><span class="n">b</span>
+<p>规格与 IMDB 数据集的规格相同，但增加了<code>test_split</code>参数。</p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">),</span> <span class="p">(</span><span class="n">x_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span> <span class="o">=</span> <span class="n">reuters</span><span class="o">.</span><span class="n">load_data</span><span class="p">()</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>&lt;tf.Tensor: shape=(4,), dtype=int32, numpy=array([0, 1, 0, 1])&gt;
+<div class="highlight"><pre><span></span><code>x_train.shape: (8982,)
+y_train.shape: (8982,)
+x_test.shape : (2246,)
+y_test.shape : (2246,)
 </code></pre></div>
-<p>平方运算</p>
-<div class="highlight"><pre><span></span><code><span class="n">a</span><span class="o">**</span><span class="mi">2</span>
-<span class="n">tf</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>&lt;tf.Tensor: shape=(4,), dtype=int32, numpy=array([0, 1, 4, 9])&gt;
-</code></pre></div>
-<p>幂运算</p>
-<div class="highlight"><pre><span></span><code><span class="n">a</span><span class="o">**</span><span class="n">b</span>
-<span class="n">tf</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>&lt;tf.Tensor: shape=(4,), dtype=int32, numpy=array([0, 1, 4, 9])&gt;
-</code></pre></div>
-<p>开根号 (必须是浮点数)</p>
-<div class="highlight"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="mf">9.0</span><span class="p">))</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>&lt;tf.Tensor: shape=(), dtype=float32, numpy=3.0&gt;
-</code></pre></div>
-<p>指数</p>
-<div class="highlight"><pre><span></span><code><span class="mi">2</span><span class="o">**</span><span class="n">a</span>
-<span class="c1"># 必须是浮点数</span>
-<span class="n">tf</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mf">3.0</span><span class="p">)</span>
-<span class="n">np</span><span class="o">.</span><span class="n">e</span><span class="o">**</span><span class="mf">3.0</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>20.085536923187664
-</code></pre></div>
-<p>对数</p>
-<blockquote>
-<p>如果希望计算其它底数的对数，暂时只能通过换底公式实现</p>
-</blockquote>
-<div class="highlight"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">math</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="mf">9.0</span><span class="p">))</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>&lt;tf.Tensor: shape=(), dtype=float32, numpy=2.1972246&gt;
-</code></pre></div>
-<p>矩阵乘法</p>
-<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]])</span>
-<span class="n">b</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
-
-<span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>tf.Tensor(
-[[2 2]
- [1 2]], shape=(2, 2), dtype=int32)
-tf.Tensor(
-[[2 3]
- [1 1]], shape=(2, 2), dtype=int32)
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>&lt;tf.Tensor: shape=(2, 2), dtype=int32, numpy=
-array([[6, 8],
-       [4, 5]])&gt;
-</code></pre></div>
-<h2 id="_8">合并</h2>
-<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span><span class="mi">35</span><span class="p">,</span><span class="mi">8</span><span class="p">])</span>
-<span class="n">b</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">([</span><span class="mi">6</span><span class="p">,</span><span class="mi">35</span><span class="p">,</span><span class="mi">8</span><span class="p">])</span>
-</code></pre></div>
-<p>不需要合并的维度的大小必须完全相等</p>
-<div class="highlight"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">tf</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>TensorShape([10, 35, 8])
-</code></pre></div>
-<h2 id="_9">堆叠</h2>
-<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">([</span><span class="mi">35</span><span class="p">,</span><span class="mi">8</span><span class="p">])</span>
-<span class="n">b</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">([</span><span class="mi">35</span><span class="p">,</span><span class="mi">8</span><span class="p">])</span>
-<span class="n">P</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-
-<span class="n">a</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">([</span><span class="mi">35</span><span class="p">,</span><span class="mi">8</span><span class="p">])</span>
-<span class="n">b</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">([</span><span class="mi">35</span><span class="p">,</span><span class="mi">8</span><span class="p">])</span>
-<span class="n">P</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">],</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>TensorShape([2, 35, 8])
-TensorShape([35, 8, 2])
-</code></pre></div>
-<h2 id="_10">拆分</h2>
-<div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">8</span><span class="p">])</span>
-<span class="c1"># 等长切割为 10 份</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">num_or_size_splits</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">)</span> <span class="c1"># 返回 10 个张量组成的列表</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>10
-</code></pre></div>
-<p>特别地，如果希望在某个维度上全部按长度为 1 的方式分割，还可以使用 <code>tf.unstack(x, axis)</code>函数。这种方式是 <code>tf.split</code> 的一种特殊情况，切割长度固定为 1，只需要指定切割维度的索引号即可。</p>
-<div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span><span class="mi">35</span><span class="p">,</span><span class="mi">8</span><span class="p">])</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">unstack</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="c1"># Unstack 为长度为 1 的张量</span>
-<span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">)</span> <span class="c1"># 返回 10 个张量的列表</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>10
-</code></pre></div>
-<h2 id="_11">统计计算</h2>
-<h3 id="_12">范数</h3>
-<div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">ones</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
-<span class="n">tf</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="nb">ord</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># 计算 L1 范数</span>
-<span class="n">tf</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="nb">ord</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span> <span class="c1"># 计算 L2 范数</span>
-<span class="n">tf</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="nb">ord</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">)</span> <span class="c1"># 计算∞范数</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>&lt;tf.Tensor: shape=(), dtype=float32, numpy=1.0&gt;
-</code></pre></div>
-<h3 id="_13">最值、均值、和</h3>
-<div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
-<span class="n">tf</span><span class="o">.</span><span class="n">reduce_max</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># 最大值</span>
-<span class="n">tf</span><span class="o">.</span><span class="n">reduce_min</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># 最小值</span>
-<span class="n">tf</span><span class="o">.</span><span class="n">reduce_mean</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># 均值</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>&lt;tf.Tensor: shape=(2,), dtype=float32, numpy=array([-0.16865723,
-0.29473132], dtype=float32)&gt;
-</code></pre></div>
-<p>统计全局的最大、最小、均值、和，返回的张量均为标量</p>
-<div class="highlight"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">reduce_max</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">tf</span><span class="o">.</span><span class="n">reduce_min</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">tf</span><span class="o">.</span><span class="n">reduce_mean</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-
-<span class="n">tf</span><span class="o">.</span><span class="n">reduce_sum</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># 求最后一个维度的和</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>&lt;tf.Tensor: shape=(2,), dtype=float32, numpy=array([-0.6746289,
-1.1789253], dtype=float32)&gt;
-</code></pre></div>
-<p>通过 <code>tf.argmax(x, axis)</code> 和 <code>tf.argmin(x, axis)</code> 可以求解在 <code>axis</code> 轴上，<code>x</code> 的最大值、最小值所在的索引</p>
-<div class="highlight"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="n">tf</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>&lt;tf.Tensor: shape=(4,), dtype=int64, numpy=array([0, 0, 1, 0],
-dtype=int64)&gt;
-</code></pre></div>
-<h2 id="_14">张量比较</h2>
-<div class="highlight"><pre><span></span><code><span class="c1">#  tf.equal(a, b)</span>
-<span class="c1"># tf.math.greater 𝑏 &gt; 𝑐</span>
-<span class="c1"># tf.math.less 𝑏 &lt; 𝑐</span>
-<span class="c1"># tf.math.greater_equal 𝑏 ≥ 𝑐</span>
-<span class="c1"># tf.math.less_equal 𝑏 ≤ 𝑐</span>
-<span class="c1"># tf.math.not_equal 𝑏 ≠ 𝑐</span>
-<span class="c1"># tf.math.is_nan 𝑏 = nan</span>
-</code></pre></div>
-<h2 id="_15">填充与复制</h2>
-<p>这里所说的填充实际上是插入</p>
-<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">])</span> <span class="c1"># 第一个句子</span>
-<span class="n">b</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">([</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">])</span>     <span class="c1"># 第二个句子</span>
-<span class="n">b</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">pad</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">]])</span>         <span class="c1"># 句子末尾填充 2 个 0</span>
-<span class="n">b</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>&lt;tf.Tensor: shape=(6,), dtype=int32, numpy=array([7, 8, 1, 6, 0, 0])&gt;
-</code></pre></div>
-<h2 id="_16">数据限幅运算</h2>
-<div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">range</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
-<span class="n">P</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span> <span class="c1"># 下限幅到 2</span>
-<span class="n">P</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">minimum</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span> <span class="c1"># 上限幅到 7</span>
-<span class="n">P</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">minimum</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">11</span><span class="p">))</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>&lt;tf.Tensor: shape=(9,), dtype=int32, numpy=array([2, 2, 2, 3, 4, 5, 6,
-7, 8])&gt;
-&lt;tf.Tensor: shape=(9,), dtype=int32, numpy=array([0, 1, 2, 3, 4, 5, 6,
-7, 7])&gt;
-&lt;tf.Tensor: shape=(9,), dtype=int32, numpy=array([0, 1, 2, 3, 4, 5, 6,
-7, 8])&gt;
-</code></pre></div>
-<p>高级操作</p>
-<div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span> <span class="n">maxval</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
-<span class="n">tf</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>&lt;tf.Tensor: shape=(2, 5, 6), dtype=int32, numpy=
-array([[[20, 91, 41, 61, 83,  7],
-        [28, 74,  8, 56, 23, 28],
-        [21, 71, 19, 35, 85, 24],
-        [59, 96, 14, 87, 17, 22],
-        [65, 27, 42, 94, 52, 94]],
-
-       [[35, 66, 70,  6, 18, 99],
-        [90, 15, 85, 12, 74, 20],
-        [ 4, 97, 55, 91, 90,  1],
-        [79, 74, 81, 83, 78,  9],
-        [85, 32, 71,  1,  9, 28]]])&gt;
-</code></pre></div>
-<p>实际上，对于上述需求，通过切片<code>y[:2]</code>可以更加方便地实现。但是对于不规则的索引方式，比如，需要抽取第二轴索引为 0、2、3 的数据，则切片方式实现起来非常麻烦，而 <code>tf.gather</code> 则是针对于此需求设计的，使用起来更加方便。</p>
-<div class="highlight"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span><span class="n">x</span><span class="p">,[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>&lt;tf.Tensor: shape=(4, 3, 6), dtype=int32, numpy=
-array([[[20, 91, 41, 61, 83,  7],
-        [21, 71, 19, 35, 85, 24],
-        [59, 96, 14, 87, 17, 22]],
-
-       [[35, 66, 70,  6, 18, 99],
-        [ 4, 97, 55, 91, 90,  1],
-        [79, 74, 81, 83, 78,  9]],
-
-       [[90, 46,  9, 12, 51, 19],
-        [99, 16, 88, 28, 24, 73],
-        [79, 28, 45, 55, 66, 84]],
-
-       [[73, 33,  4, 57, 75, 86],
-        [95, 46, 59, 67, 48, 67],
-        [20, 89, 20, 94, 87, 38]]])&gt;
-</code></pre></div>
-<p>通过 <code>tf.gather_nd</code> 函数，可以通过指定每次采样点的多维坐标来实现采样多个点的目的：</p>
-<div class="highlight"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">gather_nd</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">]])</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>&lt;tf.Tensor: shape=(3, 6), dtype=int32, numpy=
-array([[90, 15, 85, 12, 74, 20],
-       [99, 16, 88, 28, 24, 73],
-       [20, 89, 20, 94, 87, 38]])&gt;
-</code></pre></div>
-<p>通过 <code>tf.where(cond, a, b)</code> 操作可以根据 <code>cond</code> 条件的真假从参数b或c中读取数据。</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># tf.where()</span>
-<span class="c1"># tf.scatter_nd()</span>
+<div class="highlight"><pre><span></span><code><span class="n">word_index</span> <span class="o">=</span> <span class="n">reuters</span><span class="o">.</span><span class="n">get_word_index</span>
 </code></pre></div>
                 
               
@@ -2632,7 +2420,7 @@ array([[90, 15, 85, 12, 74, 20],
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
-        <a href="12.2.%E5%88%9B%E5%BB%BA%E5%BC%A0%E9%87%8F.html" class="md-footer__link md-footer__link--prev" rel="prev">
+        <a href="../scikit-learn/11.15.%E5%86%B3%E7%AD%96%E6%A0%91.html" class="md-footer__link md-footer__link--prev" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -2641,19 +2429,19 @@ array([[90, 15, 85, 12, 74, 20],
               <span class="md-footer__direction">
                 上一页
               </span>
-              12.2.创建张量
+              11.15.决策树
             </div>
           </div>
         </a>
       
       
-        <a href="12.4.%E6%B1%82%E5%AF%BC.html" class="md-footer__link md-footer__link--next" rel="next">
+        <a href="12.2.create%20tensor.html" class="md-footer__link md-footer__link--next" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 下一页
               </span>
-              12.4.求导
+              12.2.创建张量
             </div>
           </div>
           <div class="md-footer__button md-icon">
