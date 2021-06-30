@@ -9,8 +9,10 @@
       
       
       
+        <link rel="canonical" href="https://siwing.github.io/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%AE%A1%E7%90%86/5.2.pip%E7%AC%94%E8%AE%B0.html">
+      
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.6">
+      <meta name="generator" content="mkdocs-1.2.1, mkdocs-material-7.1.9">
     
     
       
@@ -18,7 +20,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.875de78c.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.ca7ac06f.min.css">
       
         
         <link rel="stylesheet" href="../assets/stylesheets/palette.f1a3b89f.min.css">
@@ -38,6 +40,8 @@
     
     
       
+
+
     
     
   </head>
@@ -70,7 +74,7 @@
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href=".." title="Python笔记" class="md-header__button md-logo" aria-label="Python笔记" data-md-component="logo">
+    <a href="../index.html" title="Python笔记" class="md-header__button md-logo" aria-label="Python笔记" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -163,7 +167,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href=".." title="Python笔记" class="md-nav__button md-logo" aria-label="Python笔记" data-md-component="logo">
+    <a href="../index.html" title="Python笔记" class="md-nav__button md-logo" aria-label="Python笔记" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -647,10 +651,17 @@
       
         <li class="md-nav__item">
   <a href="#pip" class="md-nav__link">
-    为 pip指定清华镜像源
+    pip 镜像源
   </a>
   
-    <nav class="md-nav" aria-label="为 pip指定清华镜像源">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pip_1" class="md-nav__link">
+    为 pip 指定镜像源
+  </a>
+  
+    <nav class="md-nav" aria-label="为 pip 指定镜像源">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -681,7 +692,7 @@
       
         <li class="md-nav__item">
   <a href="#package-index" class="md-nav__link">
-    关于 Package Index 的设置
+    设置 Package Index
   </a>
   
 </li>
@@ -722,8 +733,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#pip_1" class="md-nav__link">
+  <a href="#pip_2" class="md-nav__link">
     更新 pip
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    缓存管理
   </a>
   
 </li>
@@ -2153,10 +2171,17 @@
       
         <li class="md-nav__item">
   <a href="#pip" class="md-nav__link">
-    为 pip指定清华镜像源
+    pip 镜像源
   </a>
   
-    <nav class="md-nav" aria-label="为 pip指定清华镜像源">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pip_1" class="md-nav__link">
+    为 pip 指定镜像源
+  </a>
+  
+    <nav class="md-nav" aria-label="为 pip 指定镜像源">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2187,7 +2212,7 @@
       
         <li class="md-nav__item">
   <a href="#package-index" class="md-nav__link">
-    关于 Package Index 的设置
+    设置 Package Index
   </a>
   
 </li>
@@ -2228,8 +2253,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#pip_1" class="md-nav__link">
+  <a href="#pip_2" class="md-nav__link">
     更新 pip
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    缓存管理
   </a>
   
 </li>
@@ -2253,12 +2285,20 @@
                 
                   <h1>5.2.pip笔记</h1>
                 
-                <h2 id="pip">为 pip指定清华镜像源</h2>
-<p>清华 pypi 镜像每 5 分钟同步一次。</p>
+                <p>pip 是 Python 官方的 package 管理程序（package installer for Python），主要用于安装、卸载或下载 Python package。pypi（Python Package Index）是Python 官方 package 仓库，可以使用 pip 从 pypi 安装 package。pip 只能安装 Python package，不能安装非 Python package，也不能创建 Python 虚拟环境。</p>
+<h2 id="pip">pip 镜像源</h2>
+<ol>
+<li>阿里云：<a href="https://mirrors.aliyun.com/pypi/simple/">https://mirrors.aliyun.com/pypi/simple</a></li>
+<li>网易云：<a href="https://mirrors.163.com/pypi/simple/">https://mirrors.163.com/pypi/simple</a></li>
+<li>华为云：<a href="https://repo.huaweicloud.com/repository/pypi/simple">https://repo.huaweicloud.com/repository/pypi/simple</a></li>
+<li>腾讯云：<a href="https://mirrors.cloud.tencent.com/pypi/simple">https://mirrors.cloud.tencent.com/pypi/simple</a></li>
+<li>清华大学：<a href="https://pypi.tuna.tsinghua.edu.cn/simple">https://pypi.tuna.tsinghua.edu.cn/simple</a></li>
+<li>北京外国语大学：<a href="https://mirrors.bfsu.edu.cn/pypi/web/simple">https://mirrors.bfsu.edu.cn/pypi/web/simple</a></li>
+</ol>
+<h2 id="pip_1">为 pip 指定镜像源</h2>
 <h3 id="_1">临时使用</h3>
 <div class="highlight"><pre><span></span><code>pip install -i https://pypi.tuna.tsinghua.edu.cn/simple some-package
 </code></pre></div>
-<p>注意，<code>simple</code> 不能少, 是 <code>https</code> 而不是 <code>http</code></p>
 <h3 id="_2">设为默认</h3>
 <p>升级 pip 到最新的版本 (&gt;=10.0.0) 后进行配置：</p>
 <div class="highlight"><pre><span></span><code>pip install pip -U
@@ -2290,17 +2330,30 @@ pip install -i https://pypi.tuna.tsinghua.edu.cn/simple
 
 <span class="c1"># 从本地目录安装package</span>
 pip install -r &lt;file&gt; --no-index --find-links &lt;<span class="nb">local</span> path&gt;
+
+<span class="c1"># 不安装软件包依赖项</span>
+pip install --no-deps
+
+<span class="c1"># 将软件包安装到当前系统平台的用户安装目录</span>
+pip install --user
 </code></pre></div>
-<h2 id="package-index">关于 Package Index 的设置</h2>
+<h2 id="package-index">设置 Package Index</h2>
 <div class="highlight"><pre><span></span><code>-i, --index-url &lt;url&gt;      指定 Package Index URL
 --extra-index-url &lt;url&gt;    除了使用 --index-url 指定的 URL
                            还使用 --extra-index-url 指定的 URL
---no-index                 忽略package index (仅在 --find-links 指定的URL中查找包)
+--no-index                 忽略package index 
+                           仅在 --find-links 指定的URL中查找包
 -f, --find-links &lt;url&gt;     可以是一个网址，或者储存了package的本地目录
 </code></pre></div>
 <h2 id="package_1">下载 package</h2>
-<div class="highlight"><pre><span></span><code><span class="c1"># 从清华镜像下载requirements文件指定的package到当前目录</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># 从清华镜像下载 requirements 文件指定的 package 到当前目录</span>
 pip download -r &lt;file&gt; -d . -i https://pypi.tuna.tsinghua.edu.cn/simple
+
+pip download --only-binary<span class="o">=</span>:all: <span class="se">\</span>
+             --platform macosx-10_10_x86_64 <span class="se">\</span>
+             --python-version <span class="m">27</span> <span class="se">\</span>
+             --implementation cp <span class="se">\</span>
+             SomePackage
 </code></pre></div>
 <h2 id="_3">检查依赖是否满足</h2>
 <div class="highlight"><pre><span></span><code><span class="c1"># 检查numpy的依赖是否满足</span>
@@ -2326,8 +2379,20 @@ pip freeze
 <span class="c1"># 输出到文件</span>
 pip freeze &gt; &lt;file&gt;
 </code></pre></div>
-<h2 id="pip_1">更新 pip</h2>
+<h2 id="pip_2">更新 pip</h2>
 <div class="highlight"><pre><span></span><code>python -m pip install --upgrade pip -i https://pypi.tuna.tsinghua.edu.cn/simple
+</code></pre></div>
+<h2 id="_4">缓存管理</h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># 查看当前缓存目录</span>
+pip cache dir
+<span class="c1"># 显示缓存的相关信息</span>
+pip cache info
+<span class="c1"># 列出缓存中的 package 名字</span>
+pip cache list
+<span class="c1"># 从缓存中移除指定 package</span>
+pip cache remove
+<span class="c1"># 删除所有 package 的缓存</span>
+pip cache purge
 </code></pre></div>
                 
               
@@ -2347,7 +2412,8 @@ pip freeze &gt; &lt;file&gt;
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
-        <a href="5.1.conda%E7%AC%94%E8%AE%B0.html" class="md-footer__link md-footer__link--prev" rel="prev">
+        
+        <a href="5.1.conda%E7%AC%94%E8%AE%B0.html" class="md-footer__link md-footer__link--prev" aria-label="上一页: 5.1.conda笔记" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -2362,7 +2428,8 @@ pip freeze &gt; &lt;file&gt;
         </a>
       
       
-        <a href="5.3.pip%E5%AF%B9%E6%AF%94conda.html" class="md-footer__link md-footer__link--next" rel="next">
+        
+        <a href="5.3.pip%E5%AF%B9%E6%AF%94conda.html" class="md-footer__link md-footer__link--next" aria-label="下一页: 5.3.pip对比conda" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
@@ -2397,10 +2464,10 @@ pip freeze &gt; &lt;file&gt;
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../assets/javascripts/workers/search.d351de03.min.js", "version": null}</script>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.477d984a.min.js", "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.34eae1b6.min.js"></script>
+      <script src="../assets/javascripts/bundle.82b56eb2.min.js"></script>
       
         <script src="../javascript/extra.js"></script>
       
