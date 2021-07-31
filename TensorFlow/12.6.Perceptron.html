@@ -1653,7 +1653,7 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    样本生成
+    生成样本
   </a>
   
 </li>
@@ -1675,48 +1675,14 @@
         
           <li class="md-nav__item">
   <a href="#1-0" class="md-nav__link">
-    测试 1-0 数据
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#0-1-1-1" class="md-nav__link">
-    0-1标签数据转化为-1-1数据
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#scikit-learn" class="md-nav__link">
-    调用scikit-learn感知机
-  </a>
-  
-    <nav class="md-nav" aria-label="调用scikit-learn感知机">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-0_1" class="md-nav__link">
-    测试 1-0 数据
+    测试 1-0 标签
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#-1-1" class="md-nav__link">
-    测试-1-1数据
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#-3-10-target" class="md-nav__link">
-    测试 -3-10 target
+    测试 -1-1 标签
   </a>
   
 </li>
@@ -1727,9 +1693,43 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#keras" class="md-nav__link">
-    调用keras感知机
+  <a href="#_4" class="md-nav__link">
+    梯度下降可视化
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scikit-learn" class="md-nav__link">
+    scikit-learn 感知机
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tensorflow" class="md-nav__link">
+    TensorFlow 感知机
+  </a>
+  
+    <nav class="md-nav" aria-label="TensorFlow 感知机">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    奇怪的感知机
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keras" class="md-nav__link">
+    Keras 如何实现感知机
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2156,7 +2156,7 @@
       
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    样本生成
+    生成样本
   </a>
   
 </li>
@@ -2178,48 +2178,14 @@
         
           <li class="md-nav__item">
   <a href="#1-0" class="md-nav__link">
-    测试 1-0 数据
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#0-1-1-1" class="md-nav__link">
-    0-1标签数据转化为-1-1数据
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#scikit-learn" class="md-nav__link">
-    调用scikit-learn感知机
-  </a>
-  
-    <nav class="md-nav" aria-label="调用scikit-learn感知机">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-0_1" class="md-nav__link">
-    测试 1-0 数据
+    测试 1-0 标签
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#-1-1" class="md-nav__link">
-    测试-1-1数据
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#-3-10-target" class="md-nav__link">
-    测试 -3-10 target
+    测试 -1-1 标签
   </a>
   
 </li>
@@ -2230,9 +2196,43 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#keras" class="md-nav__link">
-    调用keras感知机
+  <a href="#_4" class="md-nav__link">
+    梯度下降可视化
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scikit-learn" class="md-nav__link">
+    scikit-learn 感知机
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tensorflow" class="md-nav__link">
+    TensorFlow 感知机
+  </a>
+  
+    <nav class="md-nav" aria-label="TensorFlow 感知机">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    奇怪的感知机
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keras" class="md-nav__link">
+    Keras 如何实现感知机
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2255,145 +2255,181 @@
                 
                   <h1>12.6.Perceptron</h1>
                 
-                <div class="highlight"><pre><span></span><code>Windows 10
-Python 3.7.7 @ MSC v.1916 64 bit (AMD64)
-Latest build date 2020.11.23
-tensorflow version:  2.3.0
+                <div class="highlight"><pre><span></span><code>Linux 5.4.0-80-generic
+Python 3.9.5 @ GCC 7.3.0
+Latest build date 2021.07.31
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">make_classification</span>
-<span class="kn">from</span> <span class="nn">toolkit.blog.util</span> <span class="kn">import</span> <span class="n">get_md_dir</span>
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">copy</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">sklearn.datasets</span> <span class="kn">import</span> <span class="n">make_classification</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span>
+<span class="kn">from</span> <span class="nn">toolkit.blog.util</span> <span class="kn">import</span> <span class="n">get_md_dir</span>
 </code></pre></div>
-<h2 id="_1">样本生成</h2>
+<h2 id="_1">生成样本</h2>
 <p>生成一个线性可分的样本集</p>
 <div class="highlight"><pre><span></span><code><span class="n">X</span><span class="p">,</span> <span class="n">y_0_1</span> <span class="o">=</span> <span class="n">make_classification</span><span class="p">(</span><span class="n">n_samples</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">n_features</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">n_classes</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
                                <span class="n">n_informative</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">n_redundant</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
                                <span class="n">n_repeated</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
                                <span class="n">n_clusters_per_class</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">flip_y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
-                               <span class="n">random_state</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-
-<span class="c1"># plt.figure()</span>
-<span class="c1"># plt.plot(X_one[:, 0], X_one[:, 1], &#39;o&#39;, color=&#39;steelblue&#39;)</span>
-<span class="c1"># plt.plot(X_zero[:, 0], X_zero[:, 1], &#39;o&#39;, color=&#39;darkorange&#39;)</span>
-<span class="c1"># plt.savefig(r&quot;.\markdown\figures/perceptron_data_0704.svg&quot;, dpi=600)</span>
-<span class="c1"># plt.show()</span>
-
-<span class="c1"># 保存数据</span>
-<span class="c1"># np.savetxt(r&quot;.\datasets\perceptron_data.csv&quot;, np.c_[X, y], delimiter=&#39;,&#39;)</span>
-<span class="c1"># 导入数据</span>
-<span class="c1"># data = np.loadtxt(open(r&quot;.\datasets\perceptron_data.csv&quot;, &quot;rb&quot;),</span>
-<span class="c1">#                   delimiter=&quot;,&quot;, skiprows=0)</span>
-<span class="c1"># X, y = np.split(data, indices_or_sections=[2], axis=1)</span>
+                               <span class="n">random_state</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 </code></pre></div>
-<p><img alt="" src="figures/perceptron_data_0704.svg" /></p>
 <p>对target赋予其他值：</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># 反转数据</span>
-<span class="n">y_1_0</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">y_0_1</span><span class="p">)</span>
-<span class="n">y_1_0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="nb">int</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">y_0_1</span> <span class="o">==</span> <span class="mi">0</span><span class="p">])</span>
-
+<span class="n">y_1_0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span> <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">y_0_1</span><span class="p">])</span>
 <span class="c1"># -1-1数据</span>
-<span class="n">y_1_1</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">y_0_1</span><span class="p">)</span>
-<span class="n">y_1_1</span><span class="p">[</span><span class="n">y_1_1</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
-
+<span class="n">y_1_1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span> <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="mi">1</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">y_0_1</span><span class="p">])</span>
 <span class="c1"># -3-10数据</span>
-<span class="n">y_1_10</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">y_0_1</span><span class="p">)</span>
-<span class="n">y_1_10</span><span class="p">[</span><span class="n">y_1_10</span><span class="o">==</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">3</span>
-<span class="n">y_1_10</span><span class="p">[</span><span class="n">y_1_10</span><span class="o">==</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">y_1_10</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">3</span> <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="mi">10</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">y_0_1</span><span class="p">])</span>
 </code></pre></div>
+<p>绘制训练数据的图像，可以发现数据是线性可分的，根据感知机的理论，感知机算法必定能找到一条直线，将两类样本完全分开。</p>
+<div align=center><img src="figures/Perceptron_Dataset.svg" style="zoom:70%;" /></div>
+
 <h2 id="_2">定义画图函数</h2>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">plot_perceptron</span><span class="p">(</span><span class="n">w_1</span><span class="p">,</span> <span class="n">w_2</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-    <span class="n">x2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="mf">0.01</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">plot_perceptron</span><span class="p">(</span><span class="n">w_1</span><span class="p">,</span> <span class="n">w_2</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>  <span class="c1"># noqa</span>
+    <span class="n">x2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="mf">0.01</span><span class="p">)</span>  <span class="c1"># noqa</span>
     <span class="n">x1</span> <span class="o">=</span> <span class="o">-</span><span class="p">(</span><span class="n">w_2</span> <span class="o">*</span> <span class="n">x2</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span> <span class="o">/</span> <span class="n">w_1</span>
 
     <span class="n">labels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
-    <span class="n">y_one_index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argwhere</span><span class="p">(</span><span class="n">y</span> <span class="o">==</span> <span class="n">labels</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
-    <span class="n">y_zero_index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argwhere</span><span class="p">(</span><span class="n">y</span> <span class="o">==</span> <span class="n">labels</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
-    <span class="n">X_one</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">y_one_index</span><span class="p">]</span>
-    <span class="n">X_zero</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">y_zero_index</span><span class="p">]</span>
-    <span class="n">label_zero</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">labels</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-    <span class="n">label_one</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">labels</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">X_zero</span><span class="p">,</span> <span class="n">X_one</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">y</span> <span class="o">==</span> <span class="n">labels</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span> <span class="n">X</span><span class="p">[</span><span class="n">y</span> <span class="o">==</span> <span class="n">labels</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>  <span class="c1"># noqa</span>
+    <span class="n">label_zero</span><span class="p">,</span> <span class="n">label_one</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">labels</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="nb">str</span><span class="p">(</span><span class="n">labels</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 
-    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X_one</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X_one</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;steelblue&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">label_one</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">X_zero</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X_zero</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;darkorange&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">label_zero</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;darkolivegreen&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;perceptron&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_one</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X_one</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;steelblue&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">label_one</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X_zero</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X_zero</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;darkorange&#39;</span><span class="p">,</span>
+                <span class="n">label</span><span class="o">=</span><span class="n">label_zero</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;darkolivegreen&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;perceptron&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">title</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">title</span><span class="si">}</span><span class="se">\n</span><span class="s2">w1=</span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">w_1</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span><span class="si">}</span><span class="s2"> w2=</span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">w_2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span><span class="si">}</span><span class="s2"> &quot;</span>
+                  <span class="sa">f</span><span class="s2">&quot;b=</span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">13</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">filename</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">MD_DIR</span> <span class="o">=</span> <span class="n">get_md_dir</span><span class="p">()</span>
-        <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">MD_DIR</span><span class="p">,</span> <span class="s2">&quot;figures&quot;</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">get_md_dir</span><span class="p">(),</span> <span class="s2">&quot;figures&quot;</span><span class="p">,</span> <span class="n">filename</span><span class="p">))</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div>
 <h2 id="_3">手动实现感知机</h2>
-<p><code>Perceptron</code>类是自定义的感知机模型。</p>
+<p>Perceptron 算法于 1958 年由 Frank Rosenblatt 在康奈尔航空实验室发明，这个项目由美国海军研究办公室资助。最开始的 Perceptron 旨在成为一台专门用于图像识别的机器，而不是一个程序，虽然它的第一个实现是在 IBM 704 的软件中实现的。当时，美国海军组织对 Perceptron 寄予厚望，希望它能够走路、说话、看、写、复制自己并意识到它的存在。尽管感知器最初看起来很有前途，但很快就证明感知器无法通过训练来识别多类别的模式，这导致神经网络研究领域停滞多年。1969年，由 Marvin Minsky 和 Seymour Papert 撰写的书籍 <em>Perceptrons</em> 表明：感知机算法无法解决异或问题，并推测多层感知机网络也无法解决异或问题。</p>
+<p><code>Perceptron</code> 类是手动实现的 Rosenblatt 感知机，以随机梯度下降的方式更新权重，且支持两种损失函数：</p>
+<ol>
+<li>误分类点到 Perceptron 直线的距离</li>
+<li>平方损失</li>
+</ol>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">toolkit.example.perceptron</span> <span class="kn">import</span> <span class="n">Perceptron</span>
-</code></pre></div>
-<p>定义激活函数</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">activation</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">x</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">return</span> <span class="mi">1</span>
-    <span class="k">elif</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
-        <span class="k">return</span> <span class="mi">0</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="n">model</span> <span class="o">=</span> <span class="n">Perceptron</span><span class="p">(</span><span class="n">input_num</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">activation_func</span><span class="o">=</span><span class="n">activation</span><span class="p">)</span>
-<span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y_0_1</span><span class="p">,</span> <span class="n">iteration</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">learn_rate</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span>
-<span class="c1"># 输出权重、偏置信息</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;weights:&quot;</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">weights</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;bias:   &quot;</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">bias</span><span class="p">)</span>
-<span class="c1"># 进行预测</span>
-<span class="n">y_predict</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-<span class="c1"># 绘制分类效果图</span>
-<span class="n">b</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">bias</span>
-<span class="n">w_1</span><span class="p">,</span> <span class="n">w_2</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">weights</span>
 
-<span class="n">plot_perceptron</span><span class="p">(</span><span class="n">w_1</span><span class="p">,</span> <span class="n">w_2</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y_0_1</span><span class="p">,</span> <span class="s2">&quot;my_perceptron.svg&quot;</span><span class="p">)</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>weights: [-0.10291166  0.01125555]
-bias:    0.0
-</code></pre></div>
-<p><img alt="" src="figures/my_perceptron.svg" /></p>
-<h3 id="1-0">测试 1-0 数据</h3>
-<p>对 Perceptron 测试 1-0 target。</p>
-<div class="highlight"><pre><span></span><code><span class="n">model_1</span> <span class="o">=</span> <span class="n">Perceptron</span><span class="p">(</span><span class="n">input_num</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">activation_func</span> <span class="o">=</span> <span class="n">activation</span><span class="p">)</span>
-<span class="n">model_1</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y_1_0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">)</span>
-<span class="c1"># 输出权重、偏置信息</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">Perceptron</span><span class="p">(</span><span class="n">iteration</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">learn_rate</span><span class="o">=</span><span class="mf">0.02</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="s2">&quot;distance&quot;</span><span class="p">,</span>
+                   <span class="n">use_bias</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">kernel_initializer</span><span class="o">=</span><span class="mf">0.</span><span class="p">,</span> <span class="n">bias_initializer</span><span class="o">=</span><span class="mf">0.</span><span class="p">)</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y_0_1</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;weights:&quot;</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">weights</span><span class="p">)</span>
+
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;bias:   &quot;</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">bias</span><span class="p">)</span>
-<span class="c1"># 进行预测</span>
 <span class="n">y_predict</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-<span class="c1"># 绘制分类效果图</span>
-<span class="n">b</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">bias</span>
-<span class="n">w_1</span><span class="p">,</span> <span class="n">w_2</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">weights</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;accuracy score:&quot;</span><span class="p">,</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_0_1</span><span class="p">,</span> <span class="n">y_predict</span><span class="p">))</span>
+
+<span class="p">(</span><span class="n">w_1</span><span class="p">,</span> <span class="n">w_2</span><span class="p">),</span> <span class="n">b</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">weights</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">bias</span>
+<span class="n">plot_perceptron</span><span class="p">(</span><span class="n">w_1</span><span class="p">,</span> <span class="n">w_2</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y_0_1</span><span class="p">,</span> <span class="s2">&quot;my_perceptron.svg&quot;</span><span class="p">,</span> <span class="s2">&quot;My Perceptron&quot;</span><span class="p">)</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>weights: [-0.10291166  0.01125555]
-bias:    0.0
+<div class="highlight"><pre><span></span><code>weights: [-0.13499787 -0.0660545 ]
+bias:    0.02
+accuracy score: 1.0
 </code></pre></div>
-<p>反转0-1数据并没有影响</p>
-<div class="highlight"><pre><span></span><code><span class="n">plot_perceptron</span><span class="p">(</span><span class="n">w_1</span><span class="p">,</span> <span class="n">w_2</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y_1_0</span><span class="p">,</span> <span class="s2">&quot;my_perceptron_1_0.svg&quot;</span><span class="p">)</span>
-</code></pre></div>
-<p><img alt="" src="figures/my_perceptron_1_0.svg" /></p>
-<h3 id="0-1-1-1">0-1标签数据转化为-1-1数据</h3>
-<div class="highlight"><pre><span></span><code><span class="n">model_2</span> <span class="o">=</span> <span class="n">Perceptron</span><span class="p">(</span><span class="n">input_num</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span> <span class="n">activation_func</span> <span class="o">=</span> <span class="n">activation</span><span class="p">)</span>
-<span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y_1_1</span><span class="p">,</span> <span class="n">iteration</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">learn_rate</span><span class="o">=</span><span class="mf">0.05</span><span class="p">)</span>
+<div align=center><img src="figures/my_perceptron.svg"></div>
+
+<h3 id="1-0">测试 1-0 标签</h3>
+<p>对 Perceptron 测试 1-0 target。</p>
+<div class="highlight"><pre><span></span><code><span class="n">model_1</span> <span class="o">=</span> <span class="n">Perceptron</span><span class="p">(</span><span class="n">iteration</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">learn_rate</span><span class="o">=</span><span class="mf">0.02</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="s2">&quot;square&quot;</span><span class="p">,</span>
+                     <span class="n">use_bias</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">kernel_initializer</span><span class="o">=</span><span class="mf">0.</span><span class="p">,</span> <span class="n">bias_initializer</span><span class="o">=</span><span class="mf">0.</span><span class="p">)</span>
+<span class="n">model_1</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y_1_0</span><span class="p">)</span>
 <span class="c1"># 输出权重、偏置信息</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;weights:&quot;</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">weights</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;bias:   &quot;</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">bias</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;weights:&quot;</span><span class="p">,</span> <span class="n">model_1</span><span class="o">.</span><span class="n">weights</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;bias:   &quot;</span><span class="p">,</span> <span class="n">model_1</span><span class="o">.</span><span class="n">bias</span><span class="p">)</span>
+<span class="c1"># 进行预测</span>
+<span class="n">y_predict</span> <span class="o">=</span> <span class="n">model_1</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;accuracy score:&quot;</span><span class="p">,</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_1_0</span><span class="p">,</span> <span class="n">y_predict</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>weights: [0.12463955 0.05923452]
+bias:    -0.02
+accuracy score: 1.0
+</code></pre></div>
+<h3 id="-1-1">测试 -1-1 标签</h3>
+<div class="highlight"><pre><span></span><code><span class="n">model_2</span> <span class="o">=</span> <span class="n">Perceptron</span><span class="p">(</span><span class="n">iteration</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">learn_rate</span><span class="o">=</span><span class="mf">0.02</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="s2">&quot;square&quot;</span><span class="p">,</span>
+                     <span class="n">use_bias</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">kernel_initializer</span><span class="o">=</span><span class="mf">0.</span><span class="p">,</span> <span class="n">bias_initializer</span><span class="o">=</span><span class="mf">0.</span><span class="p">)</span>
+<span class="n">model_2</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y_1_1</span><span class="p">)</span>
+<span class="c1"># 输出权重、偏置信息</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;weights:&quot;</span><span class="p">,</span> <span class="n">model_2</span><span class="o">.</span><span class="n">weights</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;bias:   &quot;</span><span class="p">,</span> <span class="n">model_2</span><span class="o">.</span><span class="n">bias</span><span class="p">)</span>
 
 <span class="n">y_predict</span> <span class="o">=</span> <span class="n">model_2</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;accuracy score:&quot;</span><span class="p">,</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_1_1</span><span class="p">,</span> <span class="n">y_predict</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>weights: [-0.13499787 -0.0660545 ]
+bias:    0.02
+accuracy score: 1.0
+</code></pre></div>
+<h2 id="_4">梯度下降可视化</h2>
+<p>下图为手动实现的 Perceptron 算法在训练时，随机梯度下降的过程。因为三维空间中只能绘制两个变量，所以偏置（截距）固定为 0。随机梯度下降只更新两个权重的值，且权重$w_1$和$w_2$分别初始化为 0.3 和 0.2，学习率为常数 0.002，使用平方损失。</p>
+<p>可以发现，在损失函数较平滑的地方，梯度下降较为缓慢，在损失函数较陡峭的地方，梯度下降较快。在靠近最小值点时，由于学习率固定不变，好几次越过了最小值点而反复横跳。学习率设置得越大，震荡就会越明显。</p>
+<div align=center><img src="figures/Gradient_Descent_Animation.gif" style="zoom:70%;" /></div>
 
-<span class="n">b</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">bias</span>
-<span class="n">w_1</span><span class="p">,</span> <span class="n">w_2</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">weights</span>
+<p>容易看出，权重初始值和学习率直接影响训练所需的迭代次数(epoch)，权重初始值离(局部)最小值点越远，学习率越小，需要的迭代次数越多。</p>
+<h2 id="scikit-learn">scikit-learn 感知机</h2>
+<details class="abstract"><summary><strong><code>sklearn.linear_model.Perceptron</code></strong></summary><div class="highlight"><pre><span></span><code><span class="n">Perceptron</span><span class="p">(</span><span class="n">penalty</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.0001</span><span class="p">,</span> <span class="n">l1_ratio</span><span class="o">=</span><span class="mf">0.15</span><span class="p">,</span> <span class="n">fit_intercept</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+           <span class="n">max_iter</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">0.001</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">eta0</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+           <span class="n">n_jobs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">early_stopping</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+           <span class="n">validation_fraction</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">n_iter_no_change</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">class_weight</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+           <span class="n">warm_start</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>weights: [-314.87203203 -160.23410029]
-bias:    -160.00000000000213
-</code></pre></div>
-<p>0-1标签数据转化为-1-1数据，优化方法失效</p>
-<div class="highlight"><pre><span></span><code><span class="n">plot_perceptron</span><span class="p">(</span><span class="n">w_1</span><span class="p">,</span> <span class="n">w_2</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y_1_1</span><span class="p">,</span> <span class="s2">&quot;my_perceptron_1_1.svg&quot;</span><span class="p">)</span>
-</code></pre></div>
-<p><img alt="" src="figures/my_perceptron_1_1.svg" /></p>
-<h2 id="scikit-learn">调用scikit-learn感知机</h2>
+<ul>
+<li>
+<p><strong><code>penalty</code></strong>: <code>{‘l2’,’l1’,’elasticnet’}</code>，要使用的正则化项（惩罚项）。</p>
+</li>
+<li>
+<p><strong><code>alpha</code></strong>: <code>float</code>，正则化项的系数，是一个常数。</p>
+</li>
+<li>
+<p><strong><code>l1_ratio</code></strong>: <code>float</code>，<code>0 &lt;= l1_ratio &lt;= 1</code>，弹性网络混合参数，仅当<code>penalty='elasticnet'</code>时生效。
+<code>l1_ratio=0</code>时即是 L2 正则项，<code>l1_ratio=1</code>时即是 L1 正则项。New in version 0.24.</p>
+</li>
+<li>
+<p><strong><code>fit_intercept</code></strong>: 是否拟合截距（偏置）。<code>fit_intercept=False</code>即是假设数据已经中心化。</p>
+</li>
+<li>
+<p><strong><code>max_iter</code></strong>: 整个训练集的最大迭代次数，该参数又名为<code>epochs</code>。
+ 仅影响<code>fit</code>方法，不会影响<a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Perceptron.html#sklearn.linear_model.Perceptron.partial_fit"><code>partial_fit</code></a>方法。New in version 0.19.</p>
+</li>
+<li>
+<p><strong><code>tol</code></strong>: <code>float</code>，早停规则。如果设置了<code>tol</code>，则训练会在 (loss &gt; previous_loss - tol) 时停止。New in version 0.19.</p>
+</li>
+<li>
+<p><strong><code>shuffle</code></strong>: 是否在每个epoch完成之后打乱训练集。</p>
+</li>
+<li>
+<p><strong><code>eta0</code></strong>: 梯度下降的学习率。</p>
+</li>
+<li>
+<p><strong><code>n_jobs</code></strong>: 执行 OVA (One Versus All, for multi-class problems) 计算时，使用的 CPU 核心数。</p>
+</li>
+<li>
+<p><strong><code>random_state</code></strong>: 随机数种子。当 <code>shuffle=True</code> 时，设置该参数可以重现训练过程。</p>
+</li>
+<li>
+<p><strong><code>early_stopping</code></strong>: 是否早停。如果<code>early_stopping=True</code>，将自动留出一部分数据用于验证模型，
+并在连续 <code>n_iter_no_change</code> 次迭代 (epochs) 后，验证分数都没有提高至少 <code>tol</code> 时，停止训练。New in version 0.20.</p>
+</li>
+<li>
+<p><strong><code>validation_fraction</code></strong>: <code>float</code>，用于早停的验证集大小，介于0与1之间。仅当<code>early_stopping=True</code>时生效。New in version 0.20.</p>
+</li>
+<li>
+<p><strong><code>n_iter_no_change</code></strong>: <code>int</code>，若<code>n_iter_no_change</code>次迭代后，验证集上的损失没有显著下降，则停止训练。New in version 0.20.</p>
+</li>
+<li>
+<p><strong><code>warm_start</code></strong>: 是否使用上一次训练得到的权重与偏置进行初始化，
+参考 <a href="https://scikit-learn.org/stable/glossary.html#term-warm_start">the Glossary</a>。</p>
+</li>
+</ul>
+</details>
+<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">training</label><div class="tabbed-content">
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">Perceptron</span>
 
 <span class="n">perceptron</span> <span class="o">=</span> <span class="n">Perceptron</span><span class="p">(</span><span class="n">penalty</span><span class="o">=</span><span class="s1">&#39;l1&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.0001</span><span class="p">,</span> <span class="n">fit_intercept</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
@@ -2402,105 +2438,229 @@ bias:    -160.00000000000213
                         <span class="n">validation_fraction</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">n_iter_no_change</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
                         <span class="n">class_weight</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">warm_start</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
-<span class="c1"># alpha 正则化的系数</span>
-<span class="c1"># eta0 梯度下降的学习率</span>
-<span class="c1"># tol 迭代在loss&gt; previous_loss-tol时停止</span>
-<span class="c1"># early_stopping 是否早停，若设置早停，则验证集的分数没有提高 tol 时，停止训练</span>
-<span class="c1"># validation_fraction 用于早停验证的数据比例，从训练集中划分，仅当 early_stopping=True时使用</span>
-
 <span class="n">perceptron</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y_0_1</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">verbose</label><div class="tabbed-content">
+<div class="highlight"><pre><span></span><code>-- Epoch 1
+Norm: 3.79, NNZs: 2, Bias: 1.000000, T: 100, Avg. loss: 0.045638
+Total training time: 0.00 seconds.
+-- Epoch 2
+Norm: 4.88, NNZs: 2, Bias: 2.000000, T: 200, Avg. loss: 0.049804
+Total training time: 0.00 seconds.
+-- Epoch 3
+Norm: 4.39, NNZs: 2, Bias: 2.000000, T: 300, Avg. loss: 0.053986
+Total training time: 0.00 seconds.
+-- Epoch 4
+Norm: 4.76, NNZs: 2, Bias: 0.000000, T: 400, Avg. loss: 0.016852
+Total training time: 0.00 seconds.
+-- Epoch 5
+Norm: 5.20, NNZs: 2, Bias: 1.000000, T: 500, Avg. loss: 0.031670
+Total training time: 0.00 seconds.
+-- Epoch 6
+Norm: 6.04, NNZs: 2, Bias: 1.000000, T: 600, Avg. loss: 0.026127
+Total training time: 0.00 seconds.
+-- Epoch 7
+Norm: 6.53, NNZs: 2, Bias: 1.000000, T: 700, Avg. loss: 0.039767
+Total training time: 0.00 seconds.
+-- Epoch 8
+Norm: 6.58, NNZs: 2, Bias: 1.000000, T: 800, Avg. loss: 0.027038
+Total training time: 0.00 seconds.
+-- Epoch 9
+Norm: 6.58, NNZs: 2, Bias: 1.000000, T: 900, Avg. loss: 0.000000
+Total training time: 0.00 seconds.
+-- Epoch 10
+Norm: 6.58, NNZs: 2, Bias: 1.000000, T: 1000, Avg. loss: 0.000000
+Total training time: 0.00 seconds.
+-- Epoch 11
+Norm: 6.58, NNZs: 2, Bias: 1.000000, T: 1100, Avg. loss: 0.000000
+Total training time: 0.00 seconds.
+-- Epoch 12
+Norm: 6.58, NNZs: 2, Bias: 1.000000, T: 1200, Avg. loss: 0.000000
+Total training time: 0.00 seconds.
+-- Epoch 13
+Norm: 6.58, NNZs: 2, Bias: 1.000000, T: 1300, Avg. loss: 0.000000
+Total training time: 0.00 seconds.
+-- Epoch 14
+Norm: 6.58, NNZs: 2, Bias: 1.000000, T: 1400, Avg. loss: 0.000000
+Total training time: 0.00 seconds.
+Convergence after 14 epochs took 0.00 seconds
+</code></pre></div>
+</div>
+</div>
+<div class="highlight"><pre><span></span><code>Perceptron(eta0=1, max_iter=100, n_jobs=-1, penalty=&#39;l1&#39;, random_state=1,
+           verbose=1)
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">W</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">perceptron</span><span class="o">.</span><span class="n">coef_</span><span class="p">,</span> <span class="n">perceptron</span><span class="o">.</span><span class="n">intercept_</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># noqa</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;weights:&quot;</span><span class="p">,</span> <span class="n">W</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;bias:   &quot;</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<span class="n">y_predict</span> <span class="o">=</span> <span class="n">perceptron</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;accuracy score:&quot;</span><span class="p">,</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_0_1</span><span class="p">,</span> <span class="n">y_predict</span><span class="p">))</span>
 
-<span class="n">b</span> <span class="o">=</span> <span class="n">perceptron</span><span class="o">.</span><span class="n">intercept_</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">W</span> <span class="o">=</span> <span class="n">perceptron</span><span class="o">.</span><span class="n">coef_</span>
-<span class="n">w_1</span> <span class="o">=</span> <span class="n">W</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">w_2</span> <span class="o">=</span> <span class="n">W</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">plot_perceptron</span><span class="p">(</span><span class="n">W</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">W</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">b</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y_0_1</span><span class="p">,</span>
+                <span class="s2">&quot;sk_perceptron_0_1.svg&quot;</span><span class="p">,</span> <span class="s2">&quot;scikit-learn Perceptron&quot;</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>weights: [[-5.81308582 -2.71686054]]
+bias:    1.0
+accuracy score: 1.0
+</code></pre></div>
+<div align=center><img src="figures/sk_perceptron_0_1.svg"></div>
 
-<span class="n">np</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">perceptron</span><span class="o">.</span><span class="n">coef_</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span> <span class="o">+</span> <span class="n">b</span>
+<p>可以验证，scikit learn 感知机输出的预测结果是符合以下公式的：</p>
+<div class="highlight"><pre><span></span><code><span class="n">y_decision_predict</span> <span class="o">=</span> <span class="n">perceptron</span><span class="o">.</span><span class="n">decision_function</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="n">y_decision_predict_mu</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">perceptron</span><span class="o">.</span><span class="n">coef_</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span> <span class="o">+</span> <span class="n">b</span>
+<span class="nb">all</span><span class="p">(</span><span class="n">y_decision_predict</span> <span class="o">==</span> <span class="n">y_decision_predict_mu</span><span class="o">.</span><span class="n">flatten</span><span class="p">())</span>  <span class="c1"># noqa</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="n">plot_perceptron</span><span class="p">(</span><span class="n">w_1</span><span class="p">,</span> <span class="n">w_2</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y_0_1</span><span class="p">,</span> <span class="s2">&quot;sk_perceptron_0_1.svg&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code>True
 </code></pre></div>
-<p><img alt="" src="figures/sk_perceptron_0_1.svg" /></p>
-<h3 id="1-0_1">测试 1-0 数据</h3>
-<p>对 scikit-learn Perceptron 测试 1-0 target。</p>
-<div class="highlight"><pre><span></span><code><span class="n">perceptron</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y_1_0</span><span class="p">)</span>
-
-<span class="n">b</span> <span class="o">=</span> <span class="n">perceptron</span><span class="o">.</span><span class="n">intercept_</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">W</span> <span class="o">=</span> <span class="n">perceptron</span><span class="o">.</span><span class="n">coef_</span>
-<span class="n">w_1</span> <span class="o">=</span> <span class="n">W</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">w_2</span> <span class="o">=</span> <span class="n">W</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+<p>scikit learn 感知机可以自适应不同的数据标签，即 <mark>scikit-learn 的优化方法不固定于 y 的label。</mark></p>
+<p>对 scikit-learn Perceptron 测试 1-0 target：</p>
+<div class="highlight"><pre><span></span><code><span class="n">perceptron</span><span class="o">.</span><span class="n">verbose</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">perceptron</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y_1_0</span><span class="p">)</span>
+<span class="n">y_predict</span> <span class="o">=</span> <span class="n">perceptron</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="n">W</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">perceptron</span><span class="o">.</span><span class="n">coef_</span><span class="p">,</span> <span class="n">perceptron</span><span class="o">.</span><span class="n">intercept_</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># noqa</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;weights:&quot;</span><span class="p">,</span> <span class="n">W</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;bias:   &quot;</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;accuracy score:&quot;</span><span class="p">,</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_1_0</span><span class="p">,</span> <span class="n">y_predict</span><span class="p">))</span>
 </code></pre></div>
-<p>没有问题</p>
-<div class="highlight"><pre><span></span><code><span class="n">plot_perceptron</span><span class="p">(</span><span class="n">w_1</span><span class="p">,</span> <span class="n">w_2</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y_1_0</span><span class="p">,</span> <span class="s2">&quot;sk_perceptron_1_0.svg&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code>weights: [[5.81308582 2.71686054]]
+bias:    -1.0
+accuracy score: 1.0
 </code></pre></div>
-<p><img alt="" src="figures/sk_perceptron_1_0.svg" /></p>
-<h3 id="-1-1">测试-1-1数据</h3>
 <p>对 scikit-learn Perceptron 测试 -1-1 target。</p>
 <div class="highlight"><pre><span></span><code><span class="n">perceptron</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y_1_1</span><span class="p">)</span>
-
-<span class="n">b</span> <span class="o">=</span> <span class="n">perceptron</span><span class="o">.</span><span class="n">intercept_</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">W</span> <span class="o">=</span> <span class="n">perceptron</span><span class="o">.</span><span class="n">coef_</span>
-<span class="n">w_1</span> <span class="o">=</span> <span class="n">W</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">w_2</span> <span class="o">=</span> <span class="n">W</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">y_predict</span> <span class="o">=</span> <span class="n">perceptron</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="n">W</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">perceptron</span><span class="o">.</span><span class="n">coef_</span><span class="p">,</span> <span class="n">perceptron</span><span class="o">.</span><span class="n">intercept_</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># noqa</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;weights:&quot;</span><span class="p">,</span> <span class="n">W</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;bias:   &quot;</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;accuracy score:&quot;</span><span class="p">,</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_1_1</span><span class="p">,</span> <span class="n">y_predict</span><span class="p">))</span>
 </code></pre></div>
-<p>没有问题</p>
-<div class="highlight"><pre><span></span><code><span class="n">plot_perceptron</span><span class="p">(</span><span class="n">w_1</span><span class="p">,</span> <span class="n">w_2</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y_1_1</span><span class="p">,</span> <span class="s2">&quot;sk_perceptron_1_1.svg&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code>weights: [[-5.81308582 -2.71686054]]
+bias:    1.0
+accuracy score: 1.0
 </code></pre></div>
-<p><img alt="" src="figures/sk_perceptron_1_1.svg" /></p>
-<h3 id="-3-10-target">测试 -3-10 target</h3>
 <p>对 scikit-learn Perceptron 测试 -3-10 target。</p>
 <div class="highlight"><pre><span></span><code><span class="n">perceptron</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y_1_10</span><span class="p">)</span>
-
-<span class="n">b</span> <span class="o">=</span> <span class="n">perceptron</span><span class="o">.</span><span class="n">intercept_</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">W</span> <span class="o">=</span> <span class="n">perceptron</span><span class="o">.</span><span class="n">coef_</span>
-<span class="n">w_1</span> <span class="o">=</span> <span class="n">W</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">w_2</span> <span class="o">=</span> <span class="n">W</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">y_predict</span> <span class="o">=</span> <span class="n">perceptron</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="n">W</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">perceptron</span><span class="o">.</span><span class="n">coef_</span><span class="p">,</span> <span class="n">perceptron</span><span class="o">.</span><span class="n">intercept_</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># noqa</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;weights:&quot;</span><span class="p">,</span> <span class="n">W</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;bias:   &quot;</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;accuracy score:&quot;</span><span class="p">,</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_1_10</span><span class="p">,</span> <span class="n">y_predict</span><span class="p">))</span>
 </code></pre></div>
-<p>没有问题。<mark>scikit-learn 的优化方法不固定于 y 的label</mark> 。</p>
-<div class="highlight"><pre><span></span><code><span class="n">plot_perceptron</span><span class="p">(</span><span class="n">w_1</span><span class="p">,</span> <span class="n">w_2</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y_1_10</span><span class="p">,</span> <span class="s2">&quot;sk_perceptron_1_10.svg&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code>weights: [[5.81308582 2.71686054]]
+bias:    -1.0
+accuracy score: 1.0
 </code></pre></div>
-<p><img alt="" src="figures/sk_perceptron_1_10.svg" /></p>
-<h2 id="keras">调用keras感知机</h2>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">keras</span>
+<h2 id="tensorflow">TensorFlow 感知机</h2>
+<h3 id="_5">奇怪的感知机</h3>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
 <span class="kn">from</span> <span class="nn">tensorflow.keras.models</span> <span class="kn">import</span> <span class="n">Sequential</span>
-<span class="kn">from</span> <span class="nn">tensorflow.keras.layers</span> <span class="kn">import</span> <span class="n">Dense</span><span class="p">,</span> <span class="n">Dropout</span>
-<span class="kn">from</span> <span class="nn">tensorflow.keras.optimizers</span> <span class="kn">import</span> <span class="n">RMSprop</span>
-</code></pre></div>
-<div class="highlight"><pre><span></span><code>---------------------------------------------------------------------------ModuleNotFoundError
-Traceback (most recent call last)&lt;ipython-input-1-e5919df254e4&gt; in
-&lt;module&gt;
-----&gt; 1 import keras
-      2 from tensorflow.keras.models import Sequential
-      3 from tensorflow.keras.layers import Dense, Dropout
-      4 from tensorflow.keras.optimizers import RMSprop
-ModuleNotFoundError: No module named &#39;keras&#39;
-</code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="n">y_seq</span> <span class="o">=</span> <span class="n">keras</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">to_categorical</span><span class="p">(</span><span class="n">y_0_1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">tensorflow.keras.layers</span> <span class="kn">import</span> <span class="n">Dense</span>
 
 <span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
-<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s1">&#39;softsign&#39;</span><span class="p">,</span> <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,),</span>
-                <span class="n">use_bias</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">kernel_initializer</span><span class="o">=</span><span class="s1">&#39;zeros&#39;</span><span class="p">,</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">&quot;softsign&quot;</span><span class="p">,</span> <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,),</span>
+                <span class="n">use_bias</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s2">&quot;SGD&quot;</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="s1">&#39;mean_squared_error&#39;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">])</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y_0_1</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">y_predict</span> <span class="o">=</span> <span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mf">0.5</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;int32&#39;</span><span class="p">)</span>
+
+<span class="n">W</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">get_weights</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;weights:&quot;</span><span class="p">,</span> <span class="n">W</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;bias:   &quot;</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;accuracy score:&quot;</span><span class="p">,</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_0_1</span><span class="p">,</span> <span class="n">y_predict</span><span class="p">))</span>
+
+<span class="n">plot_perceptron</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">W</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]),</span> <span class="nb">float</span><span class="p">(</span><span class="n">W</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]),</span> <span class="nb">float</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">X</span><span class="p">,</span> <span class="n">y_0_1</span><span class="p">,</span>
+                <span class="s2">&quot;keras_perceptron_softsign_0_1.svg&quot;</span><span class="p">,</span> <span class="s2">&quot;keras Perceptron&quot;</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>weights: [[-1.0029898 ]
+ [-0.07301947]]
+bias:    [1.2841063]
+accuracy score: 0.98
+</code></pre></div>
+<div align=center><img src="figures/keras_perceptron_softsign_0_1.svg"></div>
+
+<p>我们基于 Keras 实现了感知机模型，但 Keras 的感知机显然有点奇怪。按照 Rosenblatt 的感知机理论，感知机直线应该将两类样本点划分开来，但上图的感知机直线却使得两类样本点混杂在一起，然而模型预测结果的准确率却高达 0.98。</p>
+<p>究竟是哪里出了问题呢？细心的读者可能已经发现，以上模型使用的激活函数是 softsign 函数，并不是 Rosenblatt 感知机所用的越阶函数。既然使用的激活函数不同，为什么最终还可以达到这么高的准确率呢？其实，这是由梯度下降算法保障的，梯度下降算法会尽量让感知机在训练集上的输出值逼近真实值。</p>
+<p>既然如此，那是不是将 softsign 激活函数改为越阶激活函数就可以实现 Rosenblatt 感知机了呢？但 TensorFlow 或 Keras 并没有提供越阶激活函数，因为 TensorFlow 利用自动微分寻找最优的权重值，但越阶函数的梯度处处为0，这会导致梯度消失，模型无法训练。</p>
+<h3 id="keras">Keras 如何实现感知机</h3>
+<p>虽然我们无法在 TensorFlow 模型中使用越阶函数，但可以用 hard_sigmoid 函数去近似代替越阶函数，这样可以近似地实现一个 Rosenblatt 感知机。</p>
+<div class="highlight"><pre><span></span><code><span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">&quot;hard_sigmoid&quot;</span><span class="p">,</span> <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,),</span>
+                <span class="n">use_bias</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s2">&quot;SGD&quot;</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="s1">&#39;mean_squared_error&#39;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">])</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y_0_1</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1"># model.predict_classes(X)</span>
+<span class="n">y_predict</span> <span class="o">=</span> <span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mf">0.5</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;int32&#39;</span><span class="p">)</span>
+<span class="n">W</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">get_weights</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;weights:&quot;</span><span class="p">,</span> <span class="n">W</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;bias:   &quot;</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;accuracy score:&quot;</span><span class="p">,</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_0_1</span><span class="p">,</span> <span class="n">y_predict</span><span class="p">))</span>
+
+<span class="n">plot_perceptron</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">W</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]),</span> <span class="nb">float</span><span class="p">(</span><span class="n">W</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]),</span> <span class="nb">float</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">X</span><span class="p">,</span> <span class="n">y_0_1</span><span class="p">,</span>
+                <span class="s2">&quot;keras_perceptron_16_batch_0_1.svg&quot;</span><span class="p">,</span> <span class="s2">&quot;keras Perceptron&quot;</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>weights: [[-1.3330553 ]
+ [-0.05380743]]
+bias:    [-0.02743404]
+accuracy score: 0.98
+</code></pre></div>
+<div align=center><img src="figures/keras_perceptron_16_batch_0_1.svg"></div>
+
+<p>现在上图的感知机模型效果图看起来正常多了，但还有一个问题：数据集是线性可分的，但上述模型要达到百分百的准确率似乎并不容易。</p>
+<p>要弄清楚这个问题，需要先熟悉 Rosenblatt 感知机理论。Rosenblatt 感知机算法每次只使用一个分类错误的样本点更新权重，也就是随机梯度下降的方式。而上述模型则是使用批梯度下降的方式更新权重，每批次为16个样本。显然，16个样本的平均梯度和1个样本的梯度是有一点差异的。那么，我们来测试一下 <code>batch_size=1</code> 的效果：</p>
+<div class="highlight"><pre><span></span><code><span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">&quot;hard_sigmoid&quot;</span><span class="p">,</span> <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,),</span>
+                <span class="n">use_bias</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">kernel_initializer</span><span class="o">=</span><span class="s1">&#39;zeros&#39;</span><span class="p">,</span>
                 <span class="n">bias_initializer</span><span class="o">=</span><span class="s1">&#39;zeros&#39;</span><span class="p">))</span>
 
-<span class="s1">&#39;mean_squared_error&#39;</span>
-<span class="s1">&#39;categorical_crossentropy&#39;</span>
-<span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s1">&#39;SGD&#39;</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="s1">&#39;mean_squared_error&#39;</span><span class="p">,</span> 
-              <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">])</span>
-<span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y_0_1</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
-
-<span class="n">y_predict</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict_classes</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-
-<span class="c1"># 模型的结构</span>
-<span class="n">model</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> only one layer:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">layers</span><span class="p">)</span>
-
-<span class="c1"># model.weights</span>
+<span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="s2">&quot;SGD&quot;</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="s1">&#39;mean_squared_error&#39;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">])</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y_0_1</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">y_predict</span> <span class="o">=</span> <span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mf">0.5</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;int32&#39;</span><span class="p">)</span>
 <span class="n">W</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">get_weights</span><span class="p">()</span>
-<span class="n">w_1</span> <span class="o">=</span> <span class="n">W</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">w_2</span> <span class="o">=</span> <span class="n">W</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;weights:&quot;</span><span class="p">,</span> <span class="n">W</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;bias:   &quot;</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;accuracy score:&quot;</span><span class="p">,</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_0_1</span><span class="p">,</span> <span class="n">y_predict</span><span class="p">))</span>
+
+<span class="n">plot_perceptron</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">W</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]),</span> <span class="nb">float</span><span class="p">(</span><span class="n">W</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]),</span> <span class="nb">float</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">X</span><span class="p">,</span> <span class="n">y_0_1</span><span class="p">,</span>
+                <span class="s2">&quot;keras_perceptron_incorrect_sgd_0_1.svg&quot;</span><span class="p">,</span> <span class="s2">&quot;keras Perceptron&quot;</span><span class="p">)</span>
 </code></pre></div>
-<div class="highlight"><pre><span></span><code><span class="n">plot_perceptron</span><span class="p">(</span><span class="n">w_1</span><span class="p">,</span> <span class="n">w_2</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y_0_1</span><span class="p">,</span> <span class="s2">&quot;tf_perceptron_0_1.svg&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code>weights: [[-3.5219226]
+ [-1.1625581]]
+bias:    [0.75313836]
+accuracy score: 0.98
 </code></pre></div>
-<p><img alt="" src="figures/tf_perceptron_0_1.svg" /></p>
+<div align=center><img src="figures/keras_perceptron_incorrect_sgd_0_1.svg"></div>
+
+<p>结果出乎意料，即使将<code>batch_size</code>设置为1，Keras Perceptron 的准确率还是无法达到1。实际上，这与学习率也有关系，有时，我们需要选取一个恰当的梯度下降策略，才能找到最优的权重值。</p>
+<div class="highlight"><pre><span></span><code><span class="n">model</span> <span class="o">=</span> <span class="n">Sequential</span><span class="p">()</span>
+<span class="n">model</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">Dense</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">activation</span><span class="o">=</span><span class="s2">&quot;hard_sigmoid&quot;</span><span class="p">,</span> <span class="n">input_shape</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,),</span>
+                <span class="n">use_bias</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">kernel_initializer</span><span class="o">=</span><span class="s1">&#39;zeros&#39;</span><span class="p">,</span>
+                <span class="n">bias_initializer</span><span class="o">=</span><span class="s1">&#39;zeros&#39;</span><span class="p">))</span>
+
+<span class="n">sgd</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">optimizers</span><span class="o">.</span><span class="n">SGD</span><span class="p">(</span><span class="n">lr</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">decay</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span> <span class="n">momentum</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span> <span class="n">nesterov</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">model</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">optimizer</span><span class="o">=</span><span class="n">sgd</span><span class="p">,</span> <span class="n">loss</span><span class="o">=</span><span class="s1">&#39;mean_squared_error&#39;</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;accuracy&#39;</span><span class="p">])</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y_0_1</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">y_predict</span> <span class="o">=</span> <span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mf">0.5</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;int32&#39;</span><span class="p">)</span>
+<span class="n">W</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">get_weights</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;weights:&quot;</span><span class="p">,</span> <span class="n">W</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;bias:   &quot;</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;accuracy score:&quot;</span><span class="p">,</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_0_1</span><span class="p">,</span> <span class="n">y_predict</span><span class="p">))</span>
+
+<span class="n">plot_perceptron</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">W</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]),</span> <span class="nb">float</span><span class="p">(</span><span class="n">W</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]),</span> <span class="nb">float</span><span class="p">(</span><span class="n">b</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">X</span><span class="p">,</span> <span class="n">y_0_1</span><span class="p">,</span>
+                <span class="s2">&quot;keras_perceptron_0_1.svg&quot;</span><span class="p">,</span> <span class="s2">&quot;keras Perceptron&quot;</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>weights: [[-6.69984 ]
+ [-3.005875]]
+bias:    [0.98682415]
+accuracy score: 1.0
+</code></pre></div>
+<div align=center><img src="figures/keras_perceptron_0_1.svg"></div>
                 
               
               
