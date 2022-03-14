@@ -1,0 +1,2922 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://siwing.github.io/Python3/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/1.1.CPU.html">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.2.5">
+    
+    
+      
+        <title>1.1.CPU - SW Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.2d9f7617.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.e6a45f82.min.css">
+        
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../index.html" title="SW Documentation" class="md-header__button md-logo" aria-label="SW Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            SW Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              1.1.CPU
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/siwing/siwing.github.io/" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../index.html" class="md-tabs__link">
+      Math Resource
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../index.html" class="md-tabs__link md-tabs__link--active">
+        Python 3
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../C%23/1.%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.html" class="md-tabs__link">
+        C Sharp
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../index.html" title="SW Documentation" class="md-nav__button md-logo" aria-label="SW Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    SW Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/siwing/siwing.github.io/" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index.html" class="md-nav__link">
+        Math Resource
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Python 3
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Python 3" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Python 3
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        Python Resource
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2">
+          计算机基础
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="计算机基础" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          计算机基础
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          1.1.CPU
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="1.1.CPU.html" class="md-nav__link md-nav__link--active">
+        1.1.CPU
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    简介
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cpu" class="md-nav__link">
+    CPU工作过程
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cpu_1" class="md-nav__link">
+    CPU部件
+  </a>
+  
+    <nav class="md-nav" aria-label="CPU部件">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    寄存器
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    运算器
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    控制器
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    流水线技术
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    参考
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="1.2.Memory.html" class="md-nav__link">
+        1.2.Memory
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="1.3.%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5.html" class="md-nav__link">
+        1.3.基本概念
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="1.4.%E7%BC%96%E8%AF%91%E5%9E%8B%E8%AF%AD%E8%A8%80%E5%92%8C%E8%A7%A3%E9%87%8A%E5%9E%8B%E8%AF%AD%E8%A8%80%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9%E5%AF%B9%E6%AF%94.html" class="md-nav__link">
+        1.4.编译型语言 vs 解释型语言
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="1.5.%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81.html" class="md-nav__link">
+        1.5.字符编码
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" type="checkbox" id="__nav_2_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_3">
+          Python基础
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Python基础" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Python基础
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python%E5%9F%BA%E7%A1%80/2.1.Python%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95.html" class="md-nav__link">
+        2.1.Python基本语法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python%E5%9F%BA%E7%A1%80/2.2.%E8%AF%AD%E5%8F%A5.html" class="md-nav__link">
+        2.2.语句
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python%E5%9F%BA%E7%A1%80/2.3.%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.html" class="md-nav__link">
+        2.3.数据类型
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python%E5%9F%BA%E7%A1%80/2.4.Number.html" class="md-nav__link">
+        2.4.Number
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python%E5%9F%BA%E7%A1%80/2.5.String.html" class="md-nav__link">
+        2.5.String
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python%E5%9F%BA%E7%A1%80/2.6.List.html" class="md-nav__link">
+        2.6.List
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python%E5%9F%BA%E7%A1%80/2.7.Tuple.html" class="md-nav__link">
+        2.7.Tuple
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python%E5%9F%BA%E7%A1%80/2.8.Dict.html" class="md-nav__link">
+        2.8.Dict
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python%E5%9F%BA%E7%A1%80/2.9.%E7%AE%80%E6%B4%81%E7%9A%84Python.html" class="md-nav__link">
+        2.9.简洁的Python
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python%E5%9F%BA%E7%A1%80/2.10.%E8%B5%8B%E5%80%BC%E4%B8%8E%E6%B7%B1%E6%8B%B7%E8%B4%9D.html" class="md-nav__link">
+        2.10.赋值与深拷贝
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python%E5%9F%BA%E7%A1%80/2.11.%E5%87%BD%E6%95%B0.html" class="md-nav__link">
+        2.11.函数
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python%E5%9F%BA%E7%A1%80/2.12.%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0.html" class="md-nav__link">
+        2.12.内置函数
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python%E5%9F%BA%E7%A1%80/2.13.%E7%AE%80%E6%B4%81%E7%9A%84Python.html" class="md-nav__link">
+        2.13.简洁的Python
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python%E5%9F%BA%E7%A1%80/3.1.%E5%BC%82%E5%B8%B8.html" class="md-nav__link">
+        3.1.异常
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python%E5%9F%BA%E7%A1%80/3.2.%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4%E5%92%8C%E4%BD%9C%E7%94%A8%E5%9F%9F.html" class="md-nav__link">
+        3.2.命名空间和作用域
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python%E5%9F%BA%E7%A1%80/3.3.%E9%97%AD%E5%8C%85.html" class="md-nav__link">
+        3.3.闭包
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python%E5%9F%BA%E7%A1%80/3.4.%E8%A3%85%E9%A5%B0%E5%99%A8.html" class="md-nav__link">
+        3.4.装饰器
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python%E5%9F%BA%E7%A1%80/4.1.%E7%B1%BB.html" class="md-nav__link">
+        4.1.类
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python%E5%9F%BA%E7%A1%80/4.2.%E5%A4%9A%E9%87%8D%E7%BB%A7%E6%89%BF%E5%92%8CMRO.html" class="md-nav__link">
+        4.2.多重继承和MRO
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python%E5%9F%BA%E7%A1%80/4.3.%E6%A8%A1%E5%9D%97.html" class="md-nav__link">
+        4.3.模块
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python%E5%9F%BA%E7%A1%80/4.4.%E9%AD%94%E6%9C%AF%E6%96%B9%E6%B3%95.html" class="md-nav__link">
+        4.4.魔术方法
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" type="checkbox" id="__nav_2_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_4">
+          开发环境管理
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="开发环境管理" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          开发环境管理
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%AE%A1%E7%90%86/5.1.conda%E7%AC%94%E8%AE%B0.html" class="md-nav__link">
+        5.1.conda笔记
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%AE%A1%E7%90%86/5.2.pip%E7%AC%94%E8%AE%B0.html" class="md-nav__link">
+        5.2.pip笔记
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%AE%A1%E7%90%86/5.3.pip%E5%AF%B9%E6%AF%94conda.html" class="md-nav__link">
+        5.3.pip对比conda
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%AE%A1%E7%90%86/5.4.anaconda.html" class="md-nav__link">
+        5.4.anaconda
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%AE%A1%E7%90%86/5.5.jupyter%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0.html" class="md-nav__link">
+        5.5.jupyter使用笔记
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5" type="checkbox" id="__nav_2_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_5">
+          标准库
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="标准库" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_5">
+          <span class="md-nav__icon md-icon"></span>
+          标准库
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.1.string.html" class="md-nav__link">
+        6.1.string
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.2.textwrap.html" class="md-nav__link">
+        6.2.textwrap
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.3.time.html" class="md-nav__link">
+        6.3.time
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.4.datetime.html" class="md-nav__link">
+        6.4.datetime
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.5.calendar.html" class="md-nav__link">
+        6.5.calendar
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.7.urllib.html" class="md-nav__link">
+        6.7.urllib
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.8.requests.html" class="md-nav__link">
+        6.8.requests
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.9.re.html" class="md-nav__link">
+        6.9.re
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.10.os_path.html" class="md-nav__link">
+        6.10.os.path
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.11.traceback.html" class="md-nav__link">
+        6.11.traceback
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.12.enum.html" class="md-nav__link">
+        6.12.enum
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.13.difflib%E2%80%94%E2%80%94%E5%AD%97%E7%AC%A6%E6%AF%94%E8%BE%83.html" class="md-nav__link">
+        6.13.difflib——字符比较
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.14.logging.html" class="md-nav__link">
+        6.14.logging
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.15.Compression_Archiving.html" class="md-nav__link">
+        6.15.Compression_Archiving
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.16.shutil.html" class="md-nav__link">
+        6.16.shutil
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6" type="checkbox" id="__nav_2_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_6">
+          设计模式
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="设计模式" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_6">
+          <span class="md-nav__icon md-icon"></span>
+          设计模式
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/7.1.%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%9F%BA%E7%A1%80.html" class="md-nav__link">
+        7.1.面向对象程序设计基础
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/7.2.%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99.html" class="md-nav__link">
+        7.2.面向对象软件设计原则
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/7.3.%E5%88%9B%E5%BB%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F.html" class="md-nav__link">
+        7.3.创建型模式
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../设计模式/7.4.结构型模式.md" class="md-nav__link">
+        7.4.结构型模式
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_7" type="checkbox" id="__nav_2_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_7">
+          NumPy
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="NumPy" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_7">
+          <span class="md-nav__icon md-icon"></span>
+          NumPy
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../NumPy/8.1.%E5%88%9B%E5%BB%BA%E6%95%B0%E7%BB%84.html" class="md-nav__link">
+        8.1.创建数组
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../NumPy/8.2.%E7%B4%A2%E5%BC%95.html" class="md-nav__link">
+        8.2.索引
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../NumPy/8.3.%E5%86%85%E5%AD%98%E5%B8%83%E5%B1%80.html" class="md-nav__link">
+        8.3.内存布局
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../NumPy/8.4.%E5%B9%BF%E6%92%AD.html" class="md-nav__link">
+        8.4.广播
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../NumPy/8.5.%E5%B8%B8%E9%87%8F.html" class="md-nav__link">
+        8.5.常量
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../NumPy/8.6.%E6%89%93%E5%8D%B0%E6%95%B0%E7%BB%84.html" class="md-nav__link">
+        8.6.打印数组
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../NumPy/8.7.%E6%95%B0%E7%BB%84%E6%93%8D%E4%BD%9C.html" class="md-nav__link">
+        8.7.数组操作
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../NumPy/8.8.ufunc%E5%87%BD%E6%95%B0.html" class="md-nav__link">
+        8.8.ufunc函数
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../NumPy/8.9.%E5%87%BD%E6%95%B0%E5%BA%93.html" class="md-nav__link">
+        8.9.函数库
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../NumPy/8.10.%E4%BF%9D%E5%AD%98%E5%92%8C%E5%8A%A0%E8%BD%BD.html" class="md-nav__link">
+        8.10.保存和加载
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../NumPy/8.11.%E7%BB%93%E6%9E%84%E5%8C%96%E6%95%B0%E7%BB%84.html" class="md-nav__link">
+        8.11.结构化数组
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../NumPy/8.12.%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86.html" class="md-nav__link">
+        8.12.数据处理
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_8" type="checkbox" id="__nav_2_8" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_8">
+          pandas
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="pandas" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_8">
+          <span class="md-nav__icon md-icon"></span>
+          pandas
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pandas/9.1.Series.html" class="md-nav__link">
+        9.1.Series
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pandas/9.2.DataFra.html" class="md-nav__link">
+        9.2.DataFra
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pandas/9.3.%E9%80%89%E6%8B%A9%E6%95%B0%E6%8D%AE.html" class="md-nav__link">
+        9.3.选择数据
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pandas/9.4.%E7%B4%A2%E5%BC%95%E5%AF%B9%E8%B1%A1.html" class="md-nav__link">
+        9.4.索引对象
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pandas/9.5.%E9%80%89%E6%8B%A9%E6%95%B0%E6%8D%AE%E8%BF%9B%E9%98%B6.html" class="md-nav__link">
+        9.5.选择数据进阶
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pandas/9.6.%E7%B4%A2%E5%BC%95%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C.html" class="md-nav__link">
+        9.6.索引的基本操作
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pandas/9.7.%E6%8B%BC%E6%8E%A5.html" class="md-nav__link">
+        9.7.拼接
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pandas/9.8.%E5%8F%98%E6%8D%A2%E7%B4%A2%E5%BC%95.html" class="md-nav__link">
+        9.8.变换索引
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pandas/9.9.%E5%88%86%E7%BB%84%E4%B8%8E%E8%81%9A%E5%90%88.html" class="md-nav__link">
+        9.9.分组与聚合
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pandas/9.10.%E7%BB%98%E5%9B%BE.html" class="md-nav__link">
+        9.10.绘图
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pandas/9.11.%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86.html" class="md-nav__link">
+        9.11.数据处理
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_9" type="checkbox" id="__nav_2_9" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_9">
+          Matplotlib
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Matplotlib" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_9">
+          <span class="md-nav__icon md-icon"></span>
+          Matplotlib
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Matplotlib/10.1.%E6%9E%B6%E6%9E%84.html" class="md-nav__link">
+        10.1.架构
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Matplotlib/10.2.plot.html" class="md-nav__link">
+        10.2.plot
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_10" type="checkbox" id="__nav_2_10" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_10">
+          scikit-learn
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="scikit-learn" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_10">
+          <span class="md-nav__icon md-icon"></span>
+          scikit-learn
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scikit-learn/11.1.%E6%95%B0%E6%8D%AE%E9%9B%86.html" class="md-nav__link">
+        11.1.数据集
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scikit-learn/11.2.%E8%AF%84%E4%BB%B7%E6%8C%87%E6%A0%87.html" class="md-nav__link">
+        11.2.评价指标-分类
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scikit-learn/11.5.%E6%8B%86%E5%88%86%E6%95%B0%E6%8D%AE.html" class="md-nav__link">
+        11.5.拆分数据
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scikit-learn/11.6.%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81.html" class="md-nav__link">
+        11.6.交叉验证
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scikit-learn/11.7.%E8%B6%85%E5%8F%82%E6%95%B0%E5%AF%BB%E4%BC%98.html" class="md-nav__link">
+        11.7.超参数寻优
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scikit-learn/11.8.%E4%BF%9D%E5%AD%98%E6%A8%A1%E5%9E%8B.html" class="md-nav__link">
+        11.8.保存模型
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scikit-learn/11.9.%E7%89%B9%E5%BE%81%E5%A4%84%E7%90%86.html" class="md-nav__link">
+        11.9.特征处理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scikit-learn/11.10.%E8%BD%AC%E6%8D%A2%E9%A2%84%E6%B5%8B%E7%9B%AE%E6%A0%87y.html" class="md-nav__link">
+        11.10.转换预测目标y
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scikit-learn/11.11.%E7%89%B9%E5%BE%81%E9%80%89%E6%8B%A9.html" class="md-nav__link">
+        11.11.特征选择
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scikit-learn/11.12.%E7%89%B9%E5%BE%81%E6%8F%90%E5%8F%96.html" class="md-nav__link">
+        11.12.特征提取
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scikit-learn/11.13.%E7%BC%BA%E5%A4%B1%E5%80%BC%E5%A4%84%E7%90%86.html" class="md-nav__link">
+        11.13.缺失值处理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scikit-learn/11.14.%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92.html" class="md-nav__link">
+        11.14.线性回归
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scikit-learn/11.15.%E5%86%B3%E7%AD%96%E6%A0%91.html" class="md-nav__link">
+        11.15.决策树
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_11" type="checkbox" id="__nav_2_11" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_11">
+          TensorFlow
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="TensorFlow" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_11">
+          <span class="md-nav__icon md-icon"></span>
+          TensorFlow
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TensorFlow/12.1.keras%E6%95%B0%E6%8D%AE%E9%9B%86.html" class="md-nav__link">
+        12.1.keras数据集
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TensorFlow/12.2.create%20tensor.html" class="md-nav__link">
+        12.2.创建张量
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TensorFlow/12.3.%E5%BC%A0%E9%87%8F%E8%BF%9B%E9%98%B6%E6%93%8D%E4%BD%9C.html" class="md-nav__link">
+        12.3.张量进阶操作
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TensorFlow/12.4.Differentiation.html" class="md-nav__link">
+        12.4.求导
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TensorFlow/12.5.%E5%8F%AF%E7%94%A8%E6%80%A7%E6%B5%8B%E8%AF%95.html" class="md-nav__link">
+        12.5.可用性测试
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TensorFlow/12.6.Perceptron.html" class="md-nav__link">
+        12.6.Perceptron
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TensorFlow/12.7.keras%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B.html" class="md-nav__link">
+        12.7.keras快速开始
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TensorFlow/12.8.math%20operations.html" class="md-nav__link">
+        12.8.数学运算
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TensorFlow/12.9.%E6%A8%A1%E5%9E%8B%E7%9A%84%E4%BF%9D%E5%AD%98%E4%B8%8E%E5%AF%BC%E5%85%A5.html" class="md-nav__link">
+        12.9.模型的保存与导入
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_12" type="checkbox" id="__nav_2_12" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_12">
+          爬虫
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="爬虫" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_12">
+          <span class="md-nav__icon md-icon"></span>
+          爬虫
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%88%AC%E8%99%AB/13.1.lxml.html" class="md-nav__link">
+        13.1.lxml
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%88%AC%E8%99%AB/13.3.pyquery.html" class="md-nav__link">
+        13.3.pyquery
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_13" type="checkbox" id="__nav_2_13" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_13">
+          gensim
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="gensim" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_13">
+          <span class="md-nav__icon md-icon"></span>
+          gensim
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gensim/14.1.word2vec%20model.html" class="md-nav__link">
+        14.1.word2vec model
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gensim/14.2.word2vec%E5%8F%82%E6%95%B0.html" class="md-nav__link">
+        14.2.word2vec参数
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_14" type="checkbox" id="__nav_2_14" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_14">
+          数据库
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="数据库" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_14">
+          <span class="md-nav__icon md-icon"></span>
+          数据库
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%95%B0%E6%8D%AE%E5%BA%93/15.1.DBAPI.html" class="md-nav__link">
+        15.1.DBAPI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%95%B0%E6%8D%AE%E5%BA%93/15.2.PostgreSQL.html" class="md-nav__link">
+        15.2.PostgreSQL
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%95%B0%E6%8D%AE%E5%BA%93/15.3.MSSQL.html" class="md-nav__link">
+        15.3.MSSQL
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%95%B0%E6%8D%AE%E5%BA%93/15.4.SQLite.html" class="md-nav__link">
+        15.4.SQLite
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%95%B0%E6%8D%AE%E5%BA%93/15.5.SQLAlchemy.html" class="md-nav__link">
+        15.5.SQLAlchemy
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_15" type="checkbox" id="__nav_2_15" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_15">
+          文件操作
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="文件操作" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_15">
+          <span class="md-nav__icon md-icon"></span>
+          文件操作
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/16.2.PDF.html" class="md-nav__link">
+        16.2.PDF
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/16.3.docx.html" class="md-nav__link">
+        16.3.docx
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/16.4.OCR.html" class="md-nav__link">
+        16.4.OCR
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_16" type="checkbox" id="__nav_2_16" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_16">
+          Docker
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Docker" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_16">
+          <span class="md-nav__icon md-icon"></span>
+          Docker
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Docker/17.2.Dockerfile.html" class="md-nav__link">
+        17.2.Python3/Dockerfile
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Docker/17.3.Image.html" class="md-nav__link">
+        17.3.Image
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_17" type="checkbox" id="__nav_2_17" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_17">
+          Linux
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Linux" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_17">
+          <span class="md-nav__icon md-icon"></span>
+          Linux
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Linux/18.1.%E7%9B%AE%E5%BD%95%E8%A7%84%E8%8C%83.html" class="md-nav__link">
+        18.1.目录规范
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          C Sharp
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="C Sharp" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          C Sharp
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%23/1.%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.html" class="md-nav__link">
+        1.数据类型
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    简介
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cpu" class="md-nav__link">
+    CPU工作过程
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cpu_1" class="md-nav__link">
+    CPU部件
+  </a>
+  
+    <nav class="md-nav" aria-label="CPU部件">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    寄存器
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    运算器
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    控制器
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    流水线技术
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    参考
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+<a href="https://github.com/siwing/siwing.github.io/edit/master/docs/Python3/计算机基础/1.1.CPU.md" title="编辑此页" class="md-content__button md-icon">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+</a>
+
+
+
+  <h1>1.1.CPU</h1>
+
+<h2 id="_1">简介</h2>
+<p>计算机的工作过程就是计算机执行程序的过程。程序是一个指令序列，这个序列明确告诉计算机应该执行什么操作，在什么地方能够找到用来操作的数据。</p>
+<p>一旦把程序装入主存储器，计算机就可以自动执行取出指令和执行指令的任务。<strong>专门用来完成此项工作的计算机部件称为中央处理器（Central Processing Unit, CPU）</strong>，做成单片集成电路的CPU通常又称为微处理器（Microprocessor），在一个集成电路中集成了两个 CPU 芯片，称之为双核（dual core）微处理器。现代的个人计算机一般都是使用微处理器作为CPU。</p>
+<blockquote>
+<p>注意：<mark>CPU不是指一个特定的某一类东西，而是具有某种功能的部件的总称。</mark> 所以，不管是何种形态、设计、原理的部件，只要它能具有取出指令、执行指令的功能，它就是CPU。 简而言之，<mark>CPU 是用来表示计算机内部元件功能的术语。</mark></p>
+</blockquote>
+<div align=center><img src="https://upload.cc/i1/2018/09/30/hPXsTp.png">
+<center><font size=3> 陶瓷PGA封装的Intel 80486 DX2 CPU</font> </center>
+</div>
+
+<blockquote>
+<p>顶视图是CPU的顶盖，用来保护CPU Die。底视图是CPU引脚，引脚用于输入或输出电信号，CPU通过引脚控制整个计算机。</p>
+</blockquote>
+<p>计算机工业从1960W年代早期开始使用CPU这个术语。迄今为止，CPU从形态、设计到实现都已发生了巨大的变化，但是其基本工作原理却一直没有大的变化。</p>
+<p>早期的CPU通常是为大型、特定的应用而定制的。目前，这种为特定应用而设计定制CPU的昂贵方法，在很大程度上已经让位于可大规模生产的通用处理器。这种标准化趋势，诞生于分立晶体管大型计算机（Mainframe）和小型计算机（Minicomputer）年代，并且随着集成电路（IC）的普及而大大加速。</p>
+<p>现代的CPU使用集成电路制作，集成电路可以把日益复杂的CPU设计制造在很小的空间里。CPU的小型化和标准化，大大增加了这些数字器件在现代生活中的应用范围，远远超出了专用运算机器这一有限的应用。现代微处理器已经随处可见，从汽车到手机，甚至儿童玩具。</p>
+<h2 id="cpu">CPU工作过程</h2>
+<p>CPU和内存由数字集成电路（数字芯片）构成，集成电路通常称为IC（Integrated Circuit），它由晶体管组成，每一个晶体管具有ON/OFF两个状态。CPU中不同的数字电路实现不同的运算，相同的运算也可以用不同的数字电路实现。CPU能实现的各种最基本的运算统称为指令集，而 <mark>CPU自身就是一种指令集的实现。</mark></p>
+<blockquote>
+<p>实际上，从计算机组成的层次结构看，计算机指令又分为微指令、机器指令、宏指令。</p>
+<ol>
+<li>
+<p>微指令：微程序级的命令，属于硬件。</p>
+</li>
+<li>
+<p>宏指令：若干条机器指令组成的命令，属于软件（汇编语言的宏指令）。</p>
+</li>
+<li>
+<p>机器指令：通常所说的指令，介于微指令和宏指令之前 ，可完成一个独立的算术运算或逻辑运算操作。<mark>机器指令是CPU可以直接识别（执行）的指令。</mark> </p>
+</li>
+</ol>
+</blockquote>
+<p>CPU的基本工作是执行内存中的指令序列，即程序。</p>
+<p>几乎所有的冯诺伊曼型计算机的CPU，其工作都可以分为5个阶段：取指令、指令译码、执行指令、访存取数和结果写回。其中取指令、指令译码、执行指令是三个不可或缺的阶段。</p>
+<div align=center><img src="https://software.intel.com/content/dam/develop/external/us/en/images/3-4-257058.jpg">
+<center><font size=3> 指令的执行过程</font> </center>
+</div>
+
+<p>计算机在工作时，CPU会不断重复这5个过程，除非遇到停机指令。</p>
+<p><strong>1．取指令</strong></p>
+<p>取指令（Instruction Fetch，IF）是将一条指令从主存中取到指令寄存器的过程。指令先从内存中被取到数据缓冲寄存器（DR），然后送入指令寄存器（IR）。</p>
+<p><strong>2．指令译码</strong></p>
+<p>取出指令后，计算机立即进入指令译码（Instruction Decode，ID）阶段。</p>
+<p>在指令译码阶段，指令译码器（ID）按照预定的指令格式，对指令寄存器（IR）中的指令进行拆分和解释，识别和区分出不同的指令类别及各种获取操作数的方法。</p>
+<p>在组合逻辑控制的计算机中，指令译码器对不同的指令操作码产生不同的控制电位，以形成不同的微操作序列；在微程序控制的计算机中，指令译码器用指令操作码找到执行该指令的微程序的入口，并从此入口开始执行。</p>
+<p>在传统的设计里，CPU中负责指令译码的部分是无法改变的硬件。不过，在众多运用微程序控制技术的新型CPU中，微程序有时是可重写的，可以通过修改成品CPU来改变CPU的译码方式。</p>
+<p><strong>3．执行指令阶段</strong></p>
+<p>在取指令和指令译码阶段之后，接着进入执行指令（Execute，EX）阶段。</p>
+<p>此阶段的任务是完成指令所规定的各种操作，具体实现指令的功能。为此，CPU的不同部分被连接起来，以执行所需的操作。</p>
+<p>例如，如果要求完成一个加法运算，算术逻辑单元（ALU）将被连接到一组输入和一组输出，输入端提供需要相加的数值，而输出端将含有最后的运算结果。</p>
+<p><strong>4．访存取数阶段</strong></p>
+<p>根据指令需要，有可能要访问主存，读取操作数，这样就进入了访存取数（Memory，MEM）阶段。</p>
+<p>此阶段的任务是：根据指令地址码，得到操作数在主存中的地址，并从主存中读取该操作数用于运算。</p>
+<p><strong>5．结果写回阶段</strong></p>
+<p>作为最后一个阶段，结果写回（Writeback，WB）阶段把执行指令阶段的运行结果数据“写回”到某种存储形式。结果数据经常被写到CPU的内部寄存器中，以便被后续的指令快速地存取。在有些情况下，结果数据也可被写入相对较慢、但较廉价且容量较大的主存。许多指令还会改变程序状态字寄存器中标志位的状态，这些标志位标识着不同的操作结果，可被用来影响程序的动作。</p>
+<p>在指令执行完毕、结果数据写回之后，若无意外事件（如结果溢出等）发生，计算机就接着从程序计数器PC中取得下一条指令地址，开始新一轮的循环，下一个指令周期将正常地顺序取出下一条指令。</p>
+<p>许多新型CPU可以同时取出、译码和执行多条指令，体现出并行处理的特性。</p>
+<h2 id="cpu_1">CPU部件</h2>
+<div align=center><img src="https://software.intel.com/content/dam/develop/external/us/en/images/3-2-257071.jpg" style="zoom:110%;"></center>
+<center><font size=3>CPU主要逻辑结构</font></center>
+</div>
+
+<p>从功能方面来看，CPU的内部由寄存器、控制器、运算器和时钟四个部件构成，其中，控制器和运算器是CPU不可或缺的部件。各部件之间由电流信号相互连通。</p>
+<ul>
+<li>
+<p>寄存器用来暂存指令、数据等处理对象，是储存器的一种。根据种类的不同，一个 CPU 内部会有20～100个寄存器。</p>
+</li>
+<li>
+<p>控制器负责把内存上的指令、数据等读入寄存器，并根据指令的执行结果来控制整个计算机。</p>
+</li>
+<li>
+<p>运算器负责运算从内存读入寄存器的数据。</p>
+</li>
+<li>
+<p>时钟负责发出 CPU 开始计时的时钟信号。不过，也有些计算机的时钟位于 CPU 的外部。</p>
+</li>
+</ul>
+<h3 id="_2">寄存器</h3>
+<p>分为通用寄存器和专用寄存器。专用寄存器作用是固定的，如控制器和运算器中的寄存器。而通用寄存器可以由程序员指定用途。</p>
+<p>根据功能的不同，可以将寄存器大致划分为八类。可以看出，<mark>寄存器中存储的内容既可以是指令也可以是数据。其中，数据分为“用于运算的数值”和“表示内存地址的数值”两种。</mark> 数据种类不同，存储该数值的寄存器也不同。CPU 中每个寄存器的功能都是不同的。</p>
+<table>
+<thead>
+<tr>
+<th>种类</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>累加寄存器 accumulator</td>
+<td>存储执行运算的数据和运算后的数据</td>
+</tr>
+<tr>
+<td>标志寄存器 flag register</td>
+<td>存储运算处理后的 CPU 的状态</td>
+</tr>
+<tr>
+<td>程序计数器 program counter</td>
+<td>存储下一条指令所在内存的地址</td>
+</tr>
+<tr>
+<td>基址寄存器 base register</td>
+<td>存储数据内存的起始地址</td>
+</tr>
+<tr>
+<td>变址寄存器 index register</td>
+<td>存储基址寄存器的相对地址</td>
+</tr>
+<tr>
+<td>通用寄存器 general purpose register</td>
+<td>存储任意数据</td>
+</tr>
+<tr>
+<td>指令寄存器 instruction register</td>
+<td>存储指令。CPU 内部使用，程序员无法通过程序对该寄存器进行读写操作</td>
+</tr>
+<tr>
+<td>栈寄存器 stack register</td>
+<td>存储栈区域的起始地址</td>
+</tr>
+</tbody>
+</table>
+<p>其中<strong>程序计数器、累加寄存器、标志寄存器、指令寄存器和栈寄存器</strong>都只有一个，其他寄存器一般有多个。</p>
+<div align=center><img src="figures/寄存器数量.png"></center></div>
+
+<p>寄存器对程序员来说比较特殊，因为在汇编语言中，程序员需要直接操纵寄存器：</p>
+<div class="highlight"><pre><span></span><code># 汇编语言编写的程序示例
+mov  eax, dword ptr [ebp-8]    # 把数值从内存复制到 eax
+add  eax, dword ptr [ebp-0Ch]  # exa 的数值和内存的数值相加
+mov  dword ptr [ebp-4], eax    # 把 exa 的数值（上一步的相加结果）存储在内存中
+</code></pre></div>
+<p>eax 和 ebp 是 CPU 内部的寄存器的名称。<mark>内存的存储场所通过地址编号来区分，而寄存器的种类则通过名字来区分。</mark> </p>
+<h3 id="_3">运算器</h3>
+<ul>
+<li>算术逻辑单元（Arithmetic and Logic Unit, <code>ALU</code>）：负责对数据进行算术运算和逻辑运算。</li>
+<li>累加寄存器（<code>AC</code>）：累加器，通用寄存器，为 <code>ALU</code>提供了一个工作区。</li>
+<li>数据缓冲寄存器（<code>DR</code>）：为CPU和内存、外围设备之间数据传送的中转站、缓冲。</li>
+<li>状态条件寄存器（<code>PSW</code>）：包括状态标准和控制标志，例如进位(C)、溢出(V)、运算结果为0（Z）、运算结果为负值（N）、中断（I）等。</li>
+</ul>
+<h3 id="_4">控制器</h3>
+<p>控制器用于控制整个CPU的工作。一般包括：</p>
+<ul>
+<li>指令寄存器（<code>IR</code>）：当CPU执行一条指令时，先把它从内存中取到 <code>DR</code>，然后送入 <code>IR</code>暂存。指令译码器根据 <code>IR</code>的内容产生各种微操作指令，控制其他部件完成工作。</li>
+<li>程序计数器（<code>PC</code>）: 又称之为指令计数器，<code>PC</code>有寄存信息和计数两个功能。执行指令时，CPU将自动修改 <code>PC</code>内容，使其保持的总是将要执行的下一条指令的地址。</li>
+<li>地址寄存器（<code>AR</code>）: 保存了当前CPU所访问内容单元的地址，直到对内存的读写操作完成。</li>
+<li>指令译码器（<code>ID</code>）: 指令分为操作码和地址码两部分。<code>ID</code>是对指令中的操作码字段进行分析解释，识别指令规定的操作，向操作控制器发出具体的控制信号，控制各部件完成工作。</li>
+</ul>
+<p>其他还包括：</p>
+<ul>
+<li>时序控制器：为每条指令按时间顺序提供有效的控制信号。</li>
+<li>总线逻辑：信息通路的控制电路。</li>
+<li>中断控制器：用于控制各种中断请求，并根据优先级进行排队，逐个交给CPU处理。</li>
+<li>e.t.c</li>
+</ul>
+<h2 id="_5">流水线技术</h2>
+<p>CPU可以有分开的取值单元、解码单元、和执行单元。也就是说，不必等到一条指令从头到尾执行完毕后再开始处理下一条指令。三级流水线其示意图为：</p>
+<div class="highlight"><pre><span></span><code><span class="err">//</span> <span class="err">流水线技术</span>
+          <span class="err">^</span>
+          <span class="err">|</span>                                           <span class="err">X</span> <span class="p">:</span> <span class="err">取指流水线</span>
+          <span class="err">|</span>                                           <span class="err">Y</span> <span class="p">:</span> <span class="err">解码流水线</span>
+          <span class="err">|</span>                                           <span class="err">Z</span> <span class="p">:</span> <span class="err">执行流水线</span>
+          <span class="err">|</span>
+          <span class="err">|</span>
+<span class="err">+</span><span class="mf">-------+</span> <span class="err">+</span><span class="mf">------+------+-----------------+-----+</span>
+   <span class="err">X</span>      <span class="err">|</span>  <span class="mi">1</span>   <span class="err">|</span>  <span class="mi">2</span>   <span class="err">|</span>       <span class="err">...</span>       <span class="err">|</span>  <span class="kc">n</span>  <span class="err">|</span>
+<span class="err">+</span><span class="mf">-------+</span> <span class="err">+</span><span class="mf">----------+------+-------------+----------+</span>
+   <span class="err">Y</span>      <span class="err">|</span>      <span class="err">|</span> <span class="mi">1</span> <span class="err">|</span>  <span class="err">|</span> <span class="mi">2</span> <span class="err">|</span>      <span class="err">...</span>          <span class="err">|</span> <span class="kc">n</span>  <span class="err">|</span>
+<span class="err">+</span><span class="mf">-------+</span> <span class="err">|</span>      <span class="err">+</span><span class="mf">------+---------+-----+-----+-+---------+</span>
+   <span class="err">Z</span>      <span class="err">|</span>          <span class="err">|</span>  <span class="mi">1</span>   <span class="err">|</span>  <span class="mi">2</span>  <span class="err">|</span>  <span class="mi">3</span>  <span class="err">|</span> <span class="err">...</span> <span class="err">|</span>      <span class="err">|</span> <span class="kc">n</span>  <span class="err">|</span>   <span class="err">时间</span>
+<span class="err">+</span><span class="mf">-------+</span> <span class="err">+</span><span class="mf">-----------------+-----+-----+-----+------------------</span><span class="err">&gt;</span>
+          <span class="err">|XXXXXX|YYY|</span>                               <span class="err">|ZZZZ|</span>
+          <span class="err">|XXXXXX|YYY|</span>                               <span class="err">|ZZZZ|</span>
+          <span class="err">+</span><span class="mf">----------+</span>                               <span class="err">+</span><span class="mf">----+</span>
+</code></pre></div>
+<p>在某个时刻，第一条指令取指完成（对应图中XXXXXX标注区域），解码流水线立即开始第一条指令的解码，同时取指流水线开始对第二条指令的取指；第一条指令的解码操作完成之后（对应图中YYYY标注区域），执行流水线开始对第一条指令的执行操作，同时解码流水线等待第二条指令送达。</p>
+<h2 id="_6">参考</h2>
+<ol>
+<li><a href="https://software.intel.com/zh-cn/articles/book-Processor-Architecture_CPU_function_and_composition">CPU的功能和组成</a></li>
+<li><a href="https://software.intel.com/content/www/cn/zh/develop/articles/book-processor-architecture_cpu_work_process.html">CPU的工作过程</a></li>
+<li><a href="[https://www.itminus.com/blog/2017/10/26/Boulevard/OS/%E7%A1%AC%E4%BB%B6%E5%9F%BA%E7%A1%80/CPU/](https://www.itminus.com/blog/2017/10/26/Boulevard/OS/硬件基础/CPU/)">操作系统笔记 硬件基础——CPU</a></li>
+</ol>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="页脚">
+      
+        
+        <a href="../index.html" class="md-footer__link md-footer__link--prev" aria-label="上一页: Python Resource" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              Python Resource
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="1.2.Memory.html" class="md-footer__link md-footer__link--next" aria-label="下一页: 1.2.Memory" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              1.2.Memory
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "search": "../../assets/javascripts/workers/search.bd0b6b67.min.js"}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.467223ff.min.js"></script>
+      
+        <script src="../../javascript/extra.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+    
+  </body>
+</html>

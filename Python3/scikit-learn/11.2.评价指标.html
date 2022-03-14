@@ -1,0 +1,3814 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://siwing.github.io/Python3/scikit-learn/11.2.%E8%AF%84%E4%BB%B7%E6%8C%87%E6%A0%87.html">
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.2.5">
+    
+    
+      
+        <title>11.2.评价指标-分类 - SW Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.2d9f7617.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.e6a45f82.min.css">
+        
+      
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../index.html" title="SW Documentation" class="md-header__button md-logo" aria-label="SW Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            SW Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              11.2.评价指标-分类
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/siwing/siwing.github.io/" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../index.html" class="md-tabs__link">
+      Math Resource
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../index.html" class="md-tabs__link md-tabs__link--active">
+        Python 3
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../C%23/1.%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.html" class="md-tabs__link">
+        C Sharp
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../index.html" title="SW Documentation" class="md-nav__button md-logo" aria-label="SW Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    SW Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/siwing/siwing.github.io/" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../index.html" class="md-nav__link">
+        Math Resource
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Python 3
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Python 3" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Python 3
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        Python Resource
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2">
+          计算机基础
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="计算机基础" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          计算机基础
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/1.1.CPU.html" class="md-nav__link">
+        1.1.CPU
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/1.2.Memory.html" class="md-nav__link">
+        1.2.Memory
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/1.3.%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5.html" class="md-nav__link">
+        1.3.基本概念
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/1.4.%E7%BC%96%E8%AF%91%E5%9E%8B%E8%AF%AD%E8%A8%80%E5%92%8C%E8%A7%A3%E9%87%8A%E5%9E%8B%E8%AF%AD%E8%A8%80%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9%E5%AF%B9%E6%AF%94.html" class="md-nav__link">
+        1.4.编译型语言 vs 解释型语言
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/1.5.%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81.html" class="md-nav__link">
+        1.5.字符编码
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" type="checkbox" id="__nav_2_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_3">
+          Python基础
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Python基础" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Python基础
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python%E5%9F%BA%E7%A1%80/2.1.Python%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95.html" class="md-nav__link">
+        2.1.Python基本语法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python%E5%9F%BA%E7%A1%80/2.2.%E8%AF%AD%E5%8F%A5.html" class="md-nav__link">
+        2.2.语句
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python%E5%9F%BA%E7%A1%80/2.3.%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.html" class="md-nav__link">
+        2.3.数据类型
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python%E5%9F%BA%E7%A1%80/2.4.Number.html" class="md-nav__link">
+        2.4.Number
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python%E5%9F%BA%E7%A1%80/2.5.String.html" class="md-nav__link">
+        2.5.String
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python%E5%9F%BA%E7%A1%80/2.6.List.html" class="md-nav__link">
+        2.6.List
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python%E5%9F%BA%E7%A1%80/2.7.Tuple.html" class="md-nav__link">
+        2.7.Tuple
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python%E5%9F%BA%E7%A1%80/2.8.Dict.html" class="md-nav__link">
+        2.8.Dict
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python%E5%9F%BA%E7%A1%80/2.9.%E7%AE%80%E6%B4%81%E7%9A%84Python.html" class="md-nav__link">
+        2.9.简洁的Python
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python%E5%9F%BA%E7%A1%80/2.10.%E8%B5%8B%E5%80%BC%E4%B8%8E%E6%B7%B1%E6%8B%B7%E8%B4%9D.html" class="md-nav__link">
+        2.10.赋值与深拷贝
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python%E5%9F%BA%E7%A1%80/2.11.%E5%87%BD%E6%95%B0.html" class="md-nav__link">
+        2.11.函数
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python%E5%9F%BA%E7%A1%80/2.12.%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0.html" class="md-nav__link">
+        2.12.内置函数
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python%E5%9F%BA%E7%A1%80/2.13.%E7%AE%80%E6%B4%81%E7%9A%84Python.html" class="md-nav__link">
+        2.13.简洁的Python
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python%E5%9F%BA%E7%A1%80/3.1.%E5%BC%82%E5%B8%B8.html" class="md-nav__link">
+        3.1.异常
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python%E5%9F%BA%E7%A1%80/3.2.%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4%E5%92%8C%E4%BD%9C%E7%94%A8%E5%9F%9F.html" class="md-nav__link">
+        3.2.命名空间和作用域
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python%E5%9F%BA%E7%A1%80/3.3.%E9%97%AD%E5%8C%85.html" class="md-nav__link">
+        3.3.闭包
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python%E5%9F%BA%E7%A1%80/3.4.%E8%A3%85%E9%A5%B0%E5%99%A8.html" class="md-nav__link">
+        3.4.装饰器
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python%E5%9F%BA%E7%A1%80/4.1.%E7%B1%BB.html" class="md-nav__link">
+        4.1.类
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python%E5%9F%BA%E7%A1%80/4.2.%E5%A4%9A%E9%87%8D%E7%BB%A7%E6%89%BF%E5%92%8CMRO.html" class="md-nav__link">
+        4.2.多重继承和MRO
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python%E5%9F%BA%E7%A1%80/4.3.%E6%A8%A1%E5%9D%97.html" class="md-nav__link">
+        4.3.模块
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python%E5%9F%BA%E7%A1%80/4.4.%E9%AD%94%E6%9C%AF%E6%96%B9%E6%B3%95.html" class="md-nav__link">
+        4.4.魔术方法
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" type="checkbox" id="__nav_2_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_4">
+          开发环境管理
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="开发环境管理" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          开发环境管理
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%AE%A1%E7%90%86/5.1.conda%E7%AC%94%E8%AE%B0.html" class="md-nav__link">
+        5.1.conda笔记
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%AE%A1%E7%90%86/5.2.pip%E7%AC%94%E8%AE%B0.html" class="md-nav__link">
+        5.2.pip笔记
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%AE%A1%E7%90%86/5.3.pip%E5%AF%B9%E6%AF%94conda.html" class="md-nav__link">
+        5.3.pip对比conda
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%AE%A1%E7%90%86/5.4.anaconda.html" class="md-nav__link">
+        5.4.anaconda
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%AE%A1%E7%90%86/5.5.jupyter%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0.html" class="md-nav__link">
+        5.5.jupyter使用笔记
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5" type="checkbox" id="__nav_2_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_5">
+          标准库
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="标准库" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_5">
+          <span class="md-nav__icon md-icon"></span>
+          标准库
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.1.string.html" class="md-nav__link">
+        6.1.string
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.2.textwrap.html" class="md-nav__link">
+        6.2.textwrap
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.3.time.html" class="md-nav__link">
+        6.3.time
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.4.datetime.html" class="md-nav__link">
+        6.4.datetime
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.5.calendar.html" class="md-nav__link">
+        6.5.calendar
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.7.urllib.html" class="md-nav__link">
+        6.7.urllib
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.8.requests.html" class="md-nav__link">
+        6.8.requests
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.9.re.html" class="md-nav__link">
+        6.9.re
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.10.os_path.html" class="md-nav__link">
+        6.10.os.path
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.11.traceback.html" class="md-nav__link">
+        6.11.traceback
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.12.enum.html" class="md-nav__link">
+        6.12.enum
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.13.difflib%E2%80%94%E2%80%94%E5%AD%97%E7%AC%A6%E6%AF%94%E8%BE%83.html" class="md-nav__link">
+        6.13.difflib——字符比较
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.14.logging.html" class="md-nav__link">
+        6.14.logging
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.15.Compression_Archiving.html" class="md-nav__link">
+        6.15.Compression_Archiving
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%A0%87%E5%87%86%E5%BA%93/6.16.shutil.html" class="md-nav__link">
+        6.16.shutil
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6" type="checkbox" id="__nav_2_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_6">
+          设计模式
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="设计模式" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_6">
+          <span class="md-nav__icon md-icon"></span>
+          设计模式
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/7.1.%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%9F%BA%E7%A1%80.html" class="md-nav__link">
+        7.1.面向对象程序设计基础
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/7.2.%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99.html" class="md-nav__link">
+        7.2.面向对象软件设计原则
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/7.3.%E5%88%9B%E5%BB%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F.html" class="md-nav__link">
+        7.3.创建型模式
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../设计模式/7.4.结构型模式.md" class="md-nav__link">
+        7.4.结构型模式
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_7" type="checkbox" id="__nav_2_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_7">
+          NumPy
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="NumPy" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_7">
+          <span class="md-nav__icon md-icon"></span>
+          NumPy
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../NumPy/8.1.%E5%88%9B%E5%BB%BA%E6%95%B0%E7%BB%84.html" class="md-nav__link">
+        8.1.创建数组
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../NumPy/8.2.%E7%B4%A2%E5%BC%95.html" class="md-nav__link">
+        8.2.索引
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../NumPy/8.3.%E5%86%85%E5%AD%98%E5%B8%83%E5%B1%80.html" class="md-nav__link">
+        8.3.内存布局
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../NumPy/8.4.%E5%B9%BF%E6%92%AD.html" class="md-nav__link">
+        8.4.广播
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../NumPy/8.5.%E5%B8%B8%E9%87%8F.html" class="md-nav__link">
+        8.5.常量
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../NumPy/8.6.%E6%89%93%E5%8D%B0%E6%95%B0%E7%BB%84.html" class="md-nav__link">
+        8.6.打印数组
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../NumPy/8.7.%E6%95%B0%E7%BB%84%E6%93%8D%E4%BD%9C.html" class="md-nav__link">
+        8.7.数组操作
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../NumPy/8.8.ufunc%E5%87%BD%E6%95%B0.html" class="md-nav__link">
+        8.8.ufunc函数
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../NumPy/8.9.%E5%87%BD%E6%95%B0%E5%BA%93.html" class="md-nav__link">
+        8.9.函数库
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../NumPy/8.10.%E4%BF%9D%E5%AD%98%E5%92%8C%E5%8A%A0%E8%BD%BD.html" class="md-nav__link">
+        8.10.保存和加载
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../NumPy/8.11.%E7%BB%93%E6%9E%84%E5%8C%96%E6%95%B0%E7%BB%84.html" class="md-nav__link">
+        8.11.结构化数组
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../NumPy/8.12.%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86.html" class="md-nav__link">
+        8.12.数据处理
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_8" type="checkbox" id="__nav_2_8" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_8">
+          pandas
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="pandas" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_8">
+          <span class="md-nav__icon md-icon"></span>
+          pandas
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pandas/9.1.Series.html" class="md-nav__link">
+        9.1.Series
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pandas/9.2.DataFra.html" class="md-nav__link">
+        9.2.DataFra
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pandas/9.3.%E9%80%89%E6%8B%A9%E6%95%B0%E6%8D%AE.html" class="md-nav__link">
+        9.3.选择数据
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pandas/9.4.%E7%B4%A2%E5%BC%95%E5%AF%B9%E8%B1%A1.html" class="md-nav__link">
+        9.4.索引对象
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pandas/9.5.%E9%80%89%E6%8B%A9%E6%95%B0%E6%8D%AE%E8%BF%9B%E9%98%B6.html" class="md-nav__link">
+        9.5.选择数据进阶
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pandas/9.6.%E7%B4%A2%E5%BC%95%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C.html" class="md-nav__link">
+        9.6.索引的基本操作
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pandas/9.7.%E6%8B%BC%E6%8E%A5.html" class="md-nav__link">
+        9.7.拼接
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pandas/9.8.%E5%8F%98%E6%8D%A2%E7%B4%A2%E5%BC%95.html" class="md-nav__link">
+        9.8.变换索引
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pandas/9.9.%E5%88%86%E7%BB%84%E4%B8%8E%E8%81%9A%E5%90%88.html" class="md-nav__link">
+        9.9.分组与聚合
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pandas/9.10.%E7%BB%98%E5%9B%BE.html" class="md-nav__link">
+        9.10.绘图
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pandas/9.11.%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86.html" class="md-nav__link">
+        9.11.数据处理
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_9" type="checkbox" id="__nav_2_9" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_9">
+          Matplotlib
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Matplotlib" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_9">
+          <span class="md-nav__icon md-icon"></span>
+          Matplotlib
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Matplotlib/10.1.%E6%9E%B6%E6%9E%84.html" class="md-nav__link">
+        10.1.架构
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Matplotlib/10.2.plot.html" class="md-nav__link">
+        10.2.plot
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_10" type="checkbox" id="__nav_2_10" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_10">
+          scikit-learn
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="scikit-learn" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_10">
+          <span class="md-nav__icon md-icon"></span>
+          scikit-learn
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="11.1.%E6%95%B0%E6%8D%AE%E9%9B%86.html" class="md-nav__link">
+        11.1.数据集
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          11.2.评价指标-分类
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="11.2.%E8%AF%84%E4%BB%B7%E6%8C%87%E6%A0%87.html" class="md-nav__link md-nav__link--active">
+        11.2.评价指标-分类
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    应用场景
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#accuracy" class="md-nav__link">
+    accuracy
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#balanced-accuracy" class="md-nav__link">
+    balanced accuracy
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#confusion-matrix" class="md-nav__link">
+    confusion matrix
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multilabel-confusion-matrix" class="md-nav__link">
+    multilabel confusion matrix
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#confusion-matrix_1" class="md-nav__link">
+    confusion matrix可视化
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    从二分类到多分类、多标签
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#precisionrecallf1" class="md-nav__link">
+    precision、recall、F1
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#f-beta" class="md-nav__link">
+    F-beta
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    显示主要的分类指标
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#p-r" class="md-nav__link">
+    P-R曲线
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#roc" class="md-nav__link">
+    ROC曲线
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#auc" class="md-nav__link">
+    计算AUC
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#average-precision" class="md-nav__link">
+    Average Precision
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#brier-score" class="md-nav__link">
+    brier score
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cohen-kappa-score" class="md-nav__link">
+    cohen kappa score
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dcg-score" class="md-nav__link">
+    dcg score
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hamming-loss" class="md-nav__link">
+    hamming loss
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hinge-loss" class="md-nav__link">
+    Hinge loss
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jaccard-score" class="md-nav__link">
+    jaccard score
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#log-loss" class="md-nav__link">
+    log loss
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#matthews-corrcoef" class="md-nav__link">
+    matthews corrcoef
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zero-one-loss" class="md-nav__link">
+    zero one loss
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="11.5.%E6%8B%86%E5%88%86%E6%95%B0%E6%8D%AE.html" class="md-nav__link">
+        11.5.拆分数据
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="11.6.%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81.html" class="md-nav__link">
+        11.6.交叉验证
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="11.7.%E8%B6%85%E5%8F%82%E6%95%B0%E5%AF%BB%E4%BC%98.html" class="md-nav__link">
+        11.7.超参数寻优
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="11.8.%E4%BF%9D%E5%AD%98%E6%A8%A1%E5%9E%8B.html" class="md-nav__link">
+        11.8.保存模型
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="11.9.%E7%89%B9%E5%BE%81%E5%A4%84%E7%90%86.html" class="md-nav__link">
+        11.9.特征处理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="11.10.%E8%BD%AC%E6%8D%A2%E9%A2%84%E6%B5%8B%E7%9B%AE%E6%A0%87y.html" class="md-nav__link">
+        11.10.转换预测目标y
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="11.11.%E7%89%B9%E5%BE%81%E9%80%89%E6%8B%A9.html" class="md-nav__link">
+        11.11.特征选择
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="11.12.%E7%89%B9%E5%BE%81%E6%8F%90%E5%8F%96.html" class="md-nav__link">
+        11.12.特征提取
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="11.13.%E7%BC%BA%E5%A4%B1%E5%80%BC%E5%A4%84%E7%90%86.html" class="md-nav__link">
+        11.13.缺失值处理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="11.14.%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92.html" class="md-nav__link">
+        11.14.线性回归
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="11.15.%E5%86%B3%E7%AD%96%E6%A0%91.html" class="md-nav__link">
+        11.15.决策树
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_11" type="checkbox" id="__nav_2_11" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_11">
+          TensorFlow
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="TensorFlow" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_11">
+          <span class="md-nav__icon md-icon"></span>
+          TensorFlow
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TensorFlow/12.1.keras%E6%95%B0%E6%8D%AE%E9%9B%86.html" class="md-nav__link">
+        12.1.keras数据集
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TensorFlow/12.2.create%20tensor.html" class="md-nav__link">
+        12.2.创建张量
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TensorFlow/12.3.%E5%BC%A0%E9%87%8F%E8%BF%9B%E9%98%B6%E6%93%8D%E4%BD%9C.html" class="md-nav__link">
+        12.3.张量进阶操作
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TensorFlow/12.4.Differentiation.html" class="md-nav__link">
+        12.4.求导
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TensorFlow/12.5.%E5%8F%AF%E7%94%A8%E6%80%A7%E6%B5%8B%E8%AF%95.html" class="md-nav__link">
+        12.5.可用性测试
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TensorFlow/12.6.Perceptron.html" class="md-nav__link">
+        12.6.Perceptron
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TensorFlow/12.7.keras%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B.html" class="md-nav__link">
+        12.7.keras快速开始
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TensorFlow/12.8.math%20operations.html" class="md-nav__link">
+        12.8.数学运算
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TensorFlow/12.9.%E6%A8%A1%E5%9E%8B%E7%9A%84%E4%BF%9D%E5%AD%98%E4%B8%8E%E5%AF%BC%E5%85%A5.html" class="md-nav__link">
+        12.9.模型的保存与导入
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_12" type="checkbox" id="__nav_2_12" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_12">
+          爬虫
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="爬虫" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_12">
+          <span class="md-nav__icon md-icon"></span>
+          爬虫
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%88%AC%E8%99%AB/13.1.lxml.html" class="md-nav__link">
+        13.1.lxml
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E7%88%AC%E8%99%AB/13.3.pyquery.html" class="md-nav__link">
+        13.3.pyquery
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_13" type="checkbox" id="__nav_2_13" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_13">
+          gensim
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="gensim" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_13">
+          <span class="md-nav__icon md-icon"></span>
+          gensim
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gensim/14.1.word2vec%20model.html" class="md-nav__link">
+        14.1.word2vec model
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gensim/14.2.word2vec%E5%8F%82%E6%95%B0.html" class="md-nav__link">
+        14.2.word2vec参数
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_14" type="checkbox" id="__nav_2_14" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_14">
+          数据库
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="数据库" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_14">
+          <span class="md-nav__icon md-icon"></span>
+          数据库
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%95%B0%E6%8D%AE%E5%BA%93/15.1.DBAPI.html" class="md-nav__link">
+        15.1.DBAPI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%95%B0%E6%8D%AE%E5%BA%93/15.2.PostgreSQL.html" class="md-nav__link">
+        15.2.PostgreSQL
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%95%B0%E6%8D%AE%E5%BA%93/15.3.MSSQL.html" class="md-nav__link">
+        15.3.MSSQL
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%95%B0%E6%8D%AE%E5%BA%93/15.4.SQLite.html" class="md-nav__link">
+        15.4.SQLite
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%95%B0%E6%8D%AE%E5%BA%93/15.5.SQLAlchemy.html" class="md-nav__link">
+        15.5.SQLAlchemy
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_15" type="checkbox" id="__nav_2_15" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_15">
+          文件操作
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="文件操作" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_15">
+          <span class="md-nav__icon md-icon"></span>
+          文件操作
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/16.2.PDF.html" class="md-nav__link">
+        16.2.PDF
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/16.3.docx.html" class="md-nav__link">
+        16.3.docx
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/16.4.OCR.html" class="md-nav__link">
+        16.4.OCR
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_16" type="checkbox" id="__nav_2_16" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_16">
+          Docker
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Docker" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_16">
+          <span class="md-nav__icon md-icon"></span>
+          Docker
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Docker/17.2.Dockerfile.html" class="md-nav__link">
+        17.2.Python3/Dockerfile
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Docker/17.3.Image.html" class="md-nav__link">
+        17.3.Image
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_17" type="checkbox" id="__nav_2_17" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_17">
+          Linux
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Linux" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_17">
+          <span class="md-nav__icon md-icon"></span>
+          Linux
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Linux/18.1.%E7%9B%AE%E5%BD%95%E8%A7%84%E8%8C%83.html" class="md-nav__link">
+        18.1.目录规范
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          C Sharp
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="C Sharp" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          C Sharp
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../C%23/1.%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.html" class="md-nav__link">
+        1.数据类型
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    应用场景
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#accuracy" class="md-nav__link">
+    accuracy
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#balanced-accuracy" class="md-nav__link">
+    balanced accuracy
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#confusion-matrix" class="md-nav__link">
+    confusion matrix
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multilabel-confusion-matrix" class="md-nav__link">
+    multilabel confusion matrix
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#confusion-matrix_1" class="md-nav__link">
+    confusion matrix可视化
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    从二分类到多分类、多标签
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#precisionrecallf1" class="md-nav__link">
+    precision、recall、F1
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#f-beta" class="md-nav__link">
+    F-beta
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    显示主要的分类指标
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#p-r" class="md-nav__link">
+    P-R曲线
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#roc" class="md-nav__link">
+    ROC曲线
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#auc" class="md-nav__link">
+    计算AUC
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#average-precision" class="md-nav__link">
+    Average Precision
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#brier-score" class="md-nav__link">
+    brier score
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cohen-kappa-score" class="md-nav__link">
+    cohen kappa score
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dcg-score" class="md-nav__link">
+    dcg score
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hamming-loss" class="md-nav__link">
+    hamming loss
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hinge-loss" class="md-nav__link">
+    Hinge loss
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jaccard-score" class="md-nav__link">
+    jaccard score
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#log-loss" class="md-nav__link">
+    log loss
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#matthews-corrcoef" class="md-nav__link">
+    matthews corrcoef
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#zero-one-loss" class="md-nav__link">
+    zero one loss
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+<a href="https://github.com/siwing/siwing.github.io/edit/master/docs/Python3/scikit-learn/11.2.评价指标.md" title="编辑此页" class="md-content__button md-icon">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+</a>
+
+
+
+<div class="highlight"><pre><span></span><code>Windows 10
+Python 3.7.3 @ MSC v.1915 64 bit (AMD64)
+Latest build date 2020.05.10
+sklearn version:  0.22.1
+</code></pre></div>
+<h1 id="_1">评价指标</h1>
+<p>sklearn提供了以下评估指标可用于分类任务：</p>
+<table>
+<thead>
+<tr>
+<th>函数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong><code>accuracy_score(y_true, y_pred[, …])</code></strong></td>
+<td>✅ 计算accuracy</td>
+</tr>
+<tr>
+<td><strong><code>balanced_accuracy_score(y_true, y_pred)</code></strong></td>
+<td>✅ 计算 balanced accuracy</td>
+</tr>
+<tr>
+<td><strong><code>precision_score(y_true, y_pred[, …])</code></strong></td>
+<td>✅ 计算 precision</td>
+</tr>
+<tr>
+<td><strong><code>recall_score(y_true, y_pred[, …])</code></strong></td>
+<td>✅ 计算 recall</td>
+</tr>
+<tr>
+<td><strong><code>f1_score(y_true, y_pred[, labels, …])</code></strong></td>
+<td>✅ 计算 F1 score</td>
+</tr>
+<tr>
+<td><strong><code>fbeta_score(y_true, y_pred, beta[, …])</code></strong></td>
+<td>✅ 计算 F-beta score</td>
+</tr>
+<tr>
+<td><strong><code>classification_report(y_true, y_pred)</code></strong></td>
+<td>✅ 显示主要的分类指标</td>
+</tr>
+<tr>
+<td><strong><code>precision_recall_fscore_support(…)</code></strong></td>
+<td>✅ 计算每个类别的 precision、recall、F-measure、support</td>
+</tr>
+<tr>
+<td><strong><code>confusion_matrix(y_true, y_pred[, …])</code></strong></td>
+<td>✅ 计算混淆矩阵</td>
+</tr>
+<tr>
+<td><strong><code>precision_recall_curve(y_true, …)</code></strong></td>
+<td>✅ 计算不同概率阈值的 precision 和 recall</td>
+</tr>
+<tr>
+<td><strong><code>roc_curve(y_true, y_score[, …])</code></strong></td>
+<td>✅ 计算 Receiver operating characteristic (ROC)</td>
+</tr>
+<tr>
+<td><strong><code>roc_auc_score(y_true, y_score[, …])</code></strong></td>
+<td>✅ 计算  ROC 曲线下的面积（AUC）</td>
+</tr>
+<tr>
+<td><strong><code>auc(x, y)</code></strong></td>
+<td>✅ 计算  AUC，使用梯形计算公式</td>
+</tr>
+<tr>
+<td><strong><code>average_precision_score(y_true, y_score)</code></strong></td>
+<td>✅ 计算average precision (AP)</td>
+</tr>
+<tr>
+<td><strong><code>brier_score_loss(y_true, y_prob[, …])</code></strong></td>
+<td>✅ 计算 Brier score</td>
+</tr>
+<tr>
+<td><strong><code>cohen_kappa_score(y1, y2[, labels, …])</code></strong></td>
+<td>🔲 Cohen’s kappa: a statistic that measures inter-annotator agreement</td>
+</tr>
+<tr>
+<td><strong><code>dcg_score(y_true, y_score[, k, …])</code></strong></td>
+<td>🔲 计算Discounted Cumulative Gain</td>
+</tr>
+<tr>
+<td><strong><code>hamming_loss(y_true, y_pred[, …])</code></strong></td>
+<td>✅ 计算 average Hamming loss</td>
+</tr>
+<tr>
+<td><strong><code>hinge_loss(y_true, pred_decision[, …])</code></strong></td>
+<td>🔲 计算 Average hinge loss (non-regularized)</td>
+</tr>
+<tr>
+<td><strong><code>jaccard_score(y_true, y_pred[, …])</code></strong></td>
+<td>✅ 计算 Jaccard similarity coefficient score</td>
+</tr>
+<tr>
+<td><strong><code>log_loss(y_true, y_pred[, eps, …])</code></strong></td>
+<td>✅ Log loss, aka logistic loss or cross-entropy loss</td>
+</tr>
+<tr>
+<td><strong><code>matthews_corrcoef(y_true, y_pred[, …])</code></strong></td>
+<td>🔲 计算 the Matthews correlation coefficient (MCC)</td>
+</tr>
+<tr>
+<td><strong><code>multilabel_confusion_matrix(y_true, …)</code></strong></td>
+<td>✅ Compute a confusion matrix for each class or sample</td>
+</tr>
+<tr>
+<td><strong><code>ndcg_score(y_true, y_score[, k, …])</code></strong></td>
+<td>🔲 Compute Normalized Discounted Cumulative Gain.</td>
+</tr>
+<tr>
+<td><strong><code>zero_one_loss(y_true, y_pred[, …])</code></strong></td>
+<td>✅ 计算Zero-one分类损失</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_2">应用场景</h2>
+<p><strong>只能用于二分类：</strong></p>
+<ol>
+<li>precision_recall_curve</li>
+<li>roc_curve</li>
+<li>brier_score_loss</li>
+</ol>
+<p><strong>只能用于多分类：</strong></p>
+<ol>
+<li>confusion_matrix</li>
+<li>balanced_accuracy_score</li>
+<li>hinge_loss</li>
+<li>cohen_kappa_score</li>
+<li>matthews_corrcoef</li>
+</ol>
+<p><strong>多分类和多标签：</strong></p>
+<ol>
+<li>accuracy_score</li>
+<li>recall_score</li>
+<li>precision_score</li>
+<li>f1_score</li>
+<li>fbeta_score</li>
+<li>classification_report</li>
+<li>precision_recall_fscore_support</li>
+<li>hamming_loss</li>
+<li>jaccard_similarity_score</li>
+<li>log_loss</li>
+<li>zero_one_loss</li>
+</ol>
+<p><strong>二分类和多标签：</strong></p>
+<ol>
+<li>average_precision_score</li>
+<li>roc_auc_score</li>
+</ol>
+<p><strong>ranking：</strong></p>
+<ol>
+<li>dcg_score</li>
+<li>ndcg_score</li>
+</ol>
+<h2 id="accuracy">accuracy</h2>
+<p>$$
+\texttt{accuracy}(y, \hat{y}) = \frac{1}{n_\text{samples}} \sum_{i=0}^{n_\text{samples}-1} \mathbb{I}(\hat{y}_i = y_i)
+$$</p>
+<p>如果设置了权重，则一般化的公式如下：</p>
+<p>$$
+\texttt{accuracy}(y, \hat{y}) = \frac{1}{\sum_{i=0}^{n_\text{samples}-1}w_i} \sum_{i=0}^{n_\text{samples}-1} \mathbb{I}(\hat{y}_i = y_i)w_i
+$$</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">sample_weight</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</code></pre></div>
+<ul>
+<li><code>normalize</code> : 如果<code>False</code>，则返回分类正确的样本数量，如果<code>True</code>，则返回总体的正确率。</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="n">y_true</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">normalize</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">sample_weight</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">)))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>0.5
+2
+0.8461538461538461
+</code></pre></div>
+<h2 id="balanced-accuracy">balanced accuracy</h2>
+<p>$$
+\texttt{balanced accuracy}(y, \hat{y}) = \frac{1}{n_\text{class}} \sum_{i=1}^{n_\text{class}} \text{accuracy}_i
+$$</p>
+<p>如果设置了权重，则$\text{accuracy}_i$应该先按权重计算。</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">balanced_accuracy_score</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">balanced_accuracy_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">sample_weight</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">adjusted</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</code></pre></div>
+<ul>
+<li><code>adjusted</code>: The best value is 1 and the worst value is 0 when <code>adjusted=False</code>. When true, the result is adjusted for chance, so that random performance would score 0, and perfect performance scores 1.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="n">y_true</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">balanced_accuracy_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>0.625
+</code></pre></div>
+<h2 id="confusion-matrix">confusion matrix</h2>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">toolkit</span> <span class="kn">import</span> <span class="n">H</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">confusion_matrix</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">multilabel_confusion_matrix</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">plot_confusion_matrix</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">ConfusionMatrixDisplay</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">sample_weight</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">normalize</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">y_true</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+
+<span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>array([[2, 1, 0],
+       [1, 3, 0],
+       [0, 1, 2]], dtype=int64)
+</code></pre></div>
+<h2 id="multilabel-confusion-matrix"><code>multilabel confusion matrix</code></h2>
+<div class="highlight"><pre><span></span><code><span class="n">multilabel_confusion_matrix</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">sample_weight</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                                <span class="n">labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">samplewise</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">y_true</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;cat&quot;</span><span class="p">,</span> <span class="s2">&quot;ant&quot;</span><span class="p">,</span> <span class="s2">&quot;cat&quot;</span><span class="p">,</span> <span class="s2">&quot;cat&quot;</span><span class="p">,</span> <span class="s2">&quot;ant&quot;</span><span class="p">,</span> <span class="s2">&quot;bird&quot;</span><span class="p">]</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;ant&quot;</span><span class="p">,</span> <span class="s2">&quot;ant&quot;</span><span class="p">,</span> <span class="s2">&quot;cat&quot;</span><span class="p">,</span> <span class="s2">&quot;cat&quot;</span><span class="p">,</span> <span class="s2">&quot;ant&quot;</span><span class="p">,</span> <span class="s2">&quot;cat&quot;</span><span class="p">]</span>
+<span class="n">multilabel_confusion_matrix</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span>
+                            <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;ant&quot;</span><span class="p">,</span> <span class="s2">&quot;bird&quot;</span><span class="p">,</span> <span class="s2">&quot;cat&quot;</span><span class="p">])</span>
+
+
+<span class="n">y_true</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+                   <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
+
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+                   <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
+<span class="n">multilabel_confusion_matrix</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">samplewise</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>array([[[1, 0],
+        [1, 1]],
+
+       [[1, 1],
+        [0, 1]]], dtype=int64)
+</code></pre></div>
+<h2 id="confusion-matrix_1">confusion matrix可视化</h2>
+<p><code>confusion_matrix</code>函数和<code>multilabel_confusion_matrix</code>函数可以通过<code>labels</code>参数设置label的排列顺序。但它们的输出是<code>ndarray</code>对象，并没有指明真实值、预测值与行、列的对应关系。使用<code>plot_confusion_matrix</code>函数可以把混淆矩阵输出为图表，得到更直观的效果：</p>
+<div class="highlight"><pre><span></span><code><span class="n">plot_confusion_matrix</span><span class="p">(</span><span class="n">estimator</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y_true</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">sample_weight</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>    
+                      <span class="n">normalize</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">display_labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">include_values</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+                      <span class="n">xticks_rotation</span><span class="o">=</span><span class="s1">&#39;horizontal&#39;</span><span class="p">,</span> <span class="n">values_format</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
+                      <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</code></pre></div>
+<p>要注意的是，需要把<code>estimator</code>传入<code>plot_confusion_matrix</code>函数。</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">svm</span><span class="p">,</span> <span class="n">datasets</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+
+
+<span class="c1"># import some data to play with</span>
+<span class="n">iris</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">load_iris</span><span class="p">()</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">data</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">target</span>
+<span class="n">class_names</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">target_names</span>
+
+<span class="c1"># Split the data into a training set and a test set</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># Run classifier, using a model that is too regularized (C too low) to see</span>
+<span class="c1"># the impact on the results</span>
+<span class="n">classifier</span> <span class="o">=</span> <span class="n">svm</span><span class="o">.</span><span class="n">SVC</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">,</span> <span class="n">C</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="n">np</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">precision</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># Plot non-normalized confusion matrix</span>
+<span class="n">disp</span> <span class="o">=</span> <span class="n">plot_confusion_matrix</span><span class="p">(</span><span class="n">classifier</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span>
+                             <span class="n">display_labels</span><span class="o">=</span><span class="n">class_names</span><span class="p">,</span>
+                             <span class="n">cmap</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">cm</span><span class="o">.</span><span class="n">Blues</span><span class="p">,</span>
+                             <span class="n">include_values</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                             <span class="n">normalize</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+
+<span class="n">disp</span><span class="o">.</span><span class="n">ax_</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Confusion matrix&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">disp</span><span class="o">.</span><span class="n">confusion_matrix</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>[[13  0  0]
+ [ 0 10  6]
+ [ 0  0  9]]
+</code></pre></div>
+<p><img alt="confusion_matrix" src="figures/confusion_matrix.svg" /></p>
+<p>通过 <code>plot_confusion_matrix</code> 函数返回的<code>ConfusionMatrixDisplay</code>对象的<code>ax_</code>属性可以访问<code>Axes</code>对象。</p>
+<p>如果已有混淆矩阵，也可以直接通过<code>ConfusionMatrixDisplay</code>类输出混淆矩阵图。</p>
+<div class="highlight"><pre><span></span><code><span class="n">ConfusionMatrixDisplay</span><span class="p">(</span><span class="n">confusion_matrix</span><span class="p">,</span> <span class="n">display_labels</span><span class="p">)</span>
+
+<span class="n">ConfusionMatrixDisplay</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">include_values</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span><span class="p">,</span> 
+                            <span class="n">xticks_rotation</span><span class="o">=</span><span class="s1">&#39;horizontal&#39;</span><span class="p">,</span> 
+                            <span class="n">values_format</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">disp_2</span> <span class="o">=</span> <span class="n">ConfusionMatrixDisplay</span><span class="p">(</span><span class="n">disp</span><span class="o">.</span><span class="n">confusion_matrix</span><span class="p">,</span> 
+                                <span class="n">display_labels</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="c1"># disp_2.figure_.savefig()</span>
+<span class="n">disp_2</span><span class="o">.</span><span class="n">figure_</span>
+</code></pre></div>
+<p><img alt="confusion_matrix" src="figures/confusion_matrix_2.svg" /></p>
+<h2 id="_3">从二分类到多分类、多标签</h2>
+<p>一些评价指标基本上是为二分类任务定义的（例如 f1_score、roc_auc_score）。在这些情况下，默认情况下仅评估 positive label。</p>
+<p><mark>将 binary metric 拓展到 multiclass 或 multilabel 问题时，数据将被视为二分类问题的集合，每个类都有一个metric。</mark> 例如，以下两种情况都被拆分为3个二分类任务：</p>
+<div class="highlight"><pre><span></span><code>multiclass task: [1, 2, 3]
+multilabel task: [1, 0, 1]
+</code></pre></div>
+<p><mark>然后各个类的metric将以某种方式作均值运算，得到的均值将作为 multiclass 或 multilabel 问题的评价指标。</mark> 均值运算的方式通过 <code>average</code> 参数指定。</p>
+<ul>
+<li><code>macro</code> ：各个 binary metrics 作简单的算术平均，每个类别具有相同的权重。<strong>binary metrics 由各类的混淆矩阵得到</strong>（每个类有一个混淆矩阵）。在那些具有不频繁类别，但不频繁类仍然重要的问题上，macro-averaging是突出其性能的一种手段。但另一方面，所有类别同样重要的假设通常是不真实的，因此 macro-averaging 将过度强调不频繁类的低性能。</li>
+<li><code>weighted</code>：每个样本赋予一个权重，各个类的权重取决于它们样本的权重。所以实际上，<code>weighted</code>平均是加权的<code>macro</code>平均。</li>
+<li><code>micro</code>： 各个类的混淆矩阵求和，再根据样本数求平均值（各个样本有同样的权重），得到平均混淆矩阵，最后根据平均混淆矩阵求出metric。在 multilabel 任务和需要忽略频繁类的 multiclass任务中，Micro-averaging 可能是优先选择的。</li>
+<li><code>samples</code>：<mark>仅适用于 multilabel problems。</mark> 各个 binary metrics 作的算术平均，<strong>binary metrics 由各样本的混淆矩阵得到</strong>（每个样本有一个混淆矩阵）。并返回 (<code>sample_weight</code>-weighted) 加权平均。</li>
+<li><code>None</code>：返回每个类的 score 。</li>
+</ul>
+<h2 id="precisionrecallf1">precision、recall、F1</h2>
+<p><strong>二分类</strong></p>
+<p>一般情况下，二分类混淆矩阵的precision、recall、F1计算公式如下：</p>
+<p>$$
+\text{precision} = \frac{TP}{TP+FP}
+$$</p>
+<p>$$
+\text{recall} = \frac{TP}{TP+FN}
+$$</p>
+<p>$$
+F1 = \frac{2\times\text{precision}\times \text{recall}}{\text{precision}+ \text{recall}}
+$$</p>
+<p>如果是多分类混淆矩阵，则可能使用如下计算公式：</p>
+<p><strong>Macro-averaging</strong></p>
+<p>宏平均（Macro-averaging）是指所有类别的每一个统计指标值的算术平均值，计算公式如下：</p>
+<p>$$
+{P_{\text {macro}}=\frac{1}{n} \sum_{i=1}^{n} P_{i}}
+$$</p>
+<p>$$
+{R_{\text {macro}}=\frac{1}{n} \sum_{i=1}^{n} R_{i}}
+$$</p>
+<p>$$
+{F_{\text {macro}}=\frac{2 \times P_{\text {macro}} \times R_{\text {macro}}}{P_{\text {macro}}+R_{\text {macro}}}}
+$$</p>
+<p><strong>Micro-averaging</strong></p>
+<p>微平均（Micro-averaging）是对数据集中的每一个示例不分类别进行统计建立全局混淆矩阵，然后计算相应的指标。其计算公式如下：</p>
+<p>$$
+\begin{aligned} 
+P_{\text {micro }}=\frac{\overline{T P}}{\overline{T P}+\overline{F P}}&amp; =\frac{\frac{1}{n_{\text {class}}} \sum_{i=1}^{n} T P_{i}}{\frac{1}{n_{\text {class}}} \sum_{i=1}^{n} T P_{i}+\frac{1}{n_{\text {class}}} \sum_{i=1}^{n} F P_{i}} 
+\\
+&amp;=\frac{\sum_{i=1}^{n} T P_{i}}{\sum_{i=1}^{n} T P_{i}+\sum_{i=1}^{n} F P_{i}} \end{aligned}
+$$</p>
+<p>$$
+{R_{\text {micro}}=\frac{\overline{TP}}{\overline{TP} + \overline{F N}}=\frac{\sum_{i=1}^{n} T P_{i}}{\sum_{i=1}^{n} T P_{i}+\sum_{i=1}^{n} F N_{i}}}
+$$</p>
+<p>$$
+{F_{\text {micro}}=\frac{2 \times P_{\text {micro}} \times R_{\text {micro}}}{P_{\text {micro}}+R_{\text {micro}}}}
+$$</p>
+<p>在<code>sklearn</code>中，<code>precision_score</code>、<code>recall_score</code>和<code>f1_score</code>三个函数的接口是一致，它们拥有相同的参数。</p>
+<div class="highlight"><pre><span></span><code><span class="n">precision_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span><span class="n">labels</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">pos_label</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="n">average</span> <span class="o">=</span><span class="s1">&#39;binary&#39;</span><span class="p">,</span> <span class="n">sample_weight</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span>
+
+<span class="n">recall_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">pos_label</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> 
+             <span class="n">average</span><span class="o">=</span><span class="s1">&#39;binary&#39;</span><span class="p">,</span> <span class="n">sample_weight</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+
+<span class="n">f1_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">pos_label</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+         <span class="n">average</span><span class="o">=</span><span class="s1">&#39;binary&#39;</span><span class="p">,</span> <span class="n">sample_weight</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</code></pre></div>
+<p><strong><code>labels</code></strong> :  <code>list</code>, optional。可以排除数据中存在的label，而如果输入数据中不存在的label，则会以0填充对应的位置。默认情况下，<code>y_true</code>和<code>y_pred</code>中的所有label会自动排序。</p>
+<p><strong><code>pos_label</code></strong> :  <code>str</code> or <code>int</code>, 1 by default。对于二分类数据有效，如果数据是多分类的，该参数将被忽略。</p>
+<p><strong><code>average</code> </strong>:  <code>string, [None, 'binary' (default), 'micro', 'macro', 'samples','weighted']</code>。对于多类、多标签数据，此参数是必需的。如果为<code>None</code>，则返回每个类别的分数。否则将执行指定的平均类型。</p>
+<ol>
+<li>
+<p><code>'binary'</code>: 仅返回<code>pos_label</code>的分数，仅当二分类时才适用。</p>
+</li>
+<li>
+<p><code>'micro'</code>: 返回micro平均。</p>
+</li>
+<li>
+<p><code>'macro'</code>: 返回macro平均（未加权，即未考虑数据不平衡的问题）</p>
+</li>
+<li>
+<p><code>'weighted'</code>: 加权的macro平均，考虑数据不平衡的问题，可能会导致F1不在precision和recall之间。</p>
+</li>
+<li>
+<p><code>'samples'</code>: 计算每个实例的指标，并找到其平均值，仅对于多标签分类有意义。</p>
+</li>
+</ol>
+<p><strong><code>sample_weight</code></strong> : array-like of shape = [n_samples], optional。Sample weights.</p>
+<p>假设现在有如下数据：</p>
+<div class="highlight"><pre><span></span><code><span class="n">y_true</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+</code></pre></div>
+<p>导入函数：</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">precision_score</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">recall_score</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">f1_score</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">confusion_matrix</span>
+</code></pre></div>
+<p>先计算出混淆矩阵如下：</p>
+<div class="highlight"><pre><span></span><code><span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>array([[3, 0, 1],
+       [1, 1, 1],
+       [0, 1, 2]], dtype=int64)
+</code></pre></div>
+<p>根据公式，各分类的指标计算如下：
+$$
+P_{0} = \frac{\text{正确预测为0的样本个数}}{\text{预测为0的样本个数}} = \frac{3}{4}
+\\
+R_{0} = \frac{\text{正确预测为0的样本个数}}{\text{真实为0的样本个数}} = \frac{3}{4}
+\\
+F_{0} = \frac{2\times P_{0}\times R_{0}}{P_{0} + R_{0}} = \frac{3}{4}
+$$</p>
+<p>$$
+P_{1} = \frac{\text{正确预测为1的样本个数}}{\text{预测为1的样本个数}} = \frac{1}{2}
+\\
+R_{1} = \frac{\text{正确预测为1的样本个数}}{\text{真实为1的样本个数}} = \frac{1}{3}
+\\
+F_{1} = \frac{2\times P_{1}\times R_{1}}{P_{1} + R_{1}} = \frac{2}{5}
+$$</p>
+<p>$$
+P_{2} = \frac{\text{正确预测为2的样本个数}}{\text{预测为2的样本个数}} = \frac{2}{4}
+\\
+R_{2} = \frac{\text{正确预测为2的样本个数}}{\text{真实为2的样本个数}} = \frac{2}{3}
+\\
+F_{2} = \frac{2\times P_{2}\times R_{2}}{P_{2} + R_{2}} = \frac{4}{7}
+$$</p>
+<p>即</p>
+<p>$$
+P_{0} = \frac{3}{4}   P_{1}=\frac{1}{2}   P_{2}=\frac{1}{2}
+\\
+R_{0} = \frac{3}{4}   R_{1}=\frac{1}{3}   R_{2}=\frac{2}{3}
+\\
+F_{0} = \frac{3}{4}   F_{1}=\frac{2}{5}   F_{2}=\frac{4}{7}
+$$</p>
+<div class="highlight"><pre><span></span><code><span class="n">precision_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>array([0.75, 0.5 , 0.5 ])
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">recall_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>array([0.75, 0.33, 0.67])
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">f1_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>array([0.75, 0.4 , 0.57])
+</code></pre></div>
+<p>再计算Macro-averaging和Micro-averaging：</p>
+<p>$$
+P_{\text {macro}} = \frac{1}{3}\times (\frac{3}{4} + \frac{1}{2} + \frac{1}{2}) = 0.58
+\\
+R_{\text {macro}} = \frac{1}{3}\times (\frac{3}{4} + \frac{1}{3} + \frac{2}{3}) = 0.58
+\\
+F_{\text {macro}} = \frac{1}{3}\times (\frac{3}{4} + \frac{2}{5} + \frac{4}{7}) = 0.57
+$$</p>
+<p><mark>注意：在<code>sklearn</code>中，$F_\text{macro}$和$F_{\text{mirco}}$的计算方式都是算术平均，并不是上述公式中的调和平均。</mark> </p>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span> <span class="n">precision_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="s1">&#39;macro&#39;</span><span class="p">)</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">recall_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="s1">&#39;macro&#39;</span><span class="p">)</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">recall_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="s1">&#39;macro&#39;</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>0.5833333333333334
+0.5833333333333334
+0.5833333333333334
+</code></pre></div>
+<p>$$
+P_{\text {micro}} = \frac{3+1+2}{4+2+4} = 0.6
+\\
+R_{\text {micro}} = \frac{3+1+2}{4+3+3} = 0.6
+\\
+F_{\text {micro}} = 0.6
+$$</p>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span> <span class="n">precision_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="s1">&#39;micro&#39;</span><span class="p">)</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">recall_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="s1">&#39;micro&#39;</span><span class="p">)</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">f1_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="s1">&#39;micro&#39;</span><span class="p">)</span> <span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>0.6
+0.6
+0.6
+</code></pre></div>
+<p>在上述数据中，各分类的权重分别为：<code>0</code>类：4、<code>1</code>类：3、<code>2</code>类：3，总权重为10。那么，加权的macro平均计算如下：</p>
+<p>$$
+P_{\text {macro}} = \frac{1}{10}\times (\frac{3}{4}\times4 + \frac{1}{2}\times3 + \frac{1}{2}\times3) = 0.6
+\\
+R_{\text {macro}} = \frac{1}{10}\times (\frac{3}{4}\times4 + \frac{1}{3}\times3 + \frac{2}{3}\times3) = 0.6
+\\
+F_{\text {macro}} = \frac{1}{10}\times (\frac{3}{4}\times4 + \frac{2}{5}\times3 + \frac{4}{7}\times3) = 0.59
+$$</p>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span> <span class="n">precision_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="s1">&#39;weighted&#39;</span><span class="p">)</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">recall_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="s1">&#39;weighted&#39;</span><span class="p">)</span> <span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span> <span class="n">f1_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="s1">&#39;weighted&#39;</span><span class="p">)</span> <span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>0.6
+0.6
+0.5914285714285714
+</code></pre></div>
+<h2 id="f-beta">F-beta</h2>
+<p>$$
+F_{\beta} = \frac{(1+\beta^2)\times P\times R}{\beta^2\times P + R}
+$$</p>
+<div class="highlight"><pre><span></span><code><span class="n">fbeta_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">pos_label</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="err">’</span><span class="n">binary</span><span class="err">’</span><span class="p">,</span> 
+            <span class="n">sample_weight</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="_4">显示主要的分类指标</h2>
+<p><code>classification_report</code>函数和<code>precision_recall_fscore_support</code>函数都可以显示主要的分类指标。<code>classification_report</code>函数更齐全和方便一些。</p>
+<p><strong><code>classification_report</code></strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">classification_report</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">target_names</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                          <span class="n">sample_weight</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">digits</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">output_dict</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="o">-</span> <span class="n">labels</span><span class="p">:</span> <span class="n">选择展示分数信息的类别</span><span class="err">，</span><span class="n">默认为None</span><span class="err">，</span><span class="n">展示所有类别</span>
+<span class="o">-</span> <span class="n">target_names</span><span class="err">：</span><span class="n">label的别名</span>
+<span class="o">-</span> <span class="n">digits</span><span class="err">：</span><span class="n">小数精度</span><span class="err">，</span><span class="n">仅当output_dict</span><span class="o">=</span><span class="n">False时有效</span>
+<span class="o">-</span> <span class="n">output_dict</span><span class="err">：</span><span class="n">默认为False</span><span class="err">，</span><span class="n">返回字符串</span><span class="err">，</span><span class="n">若为True</span><span class="err">，</span><span class="n">返回dict</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">classification_report</span>
+
+<span class="n">y_true</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span> <span class="n">classification_report</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">target_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;A&quot;</span><span class="p">,</span><span class="s2">&quot;B&quot;</span><span class="p">,</span><span class="s2">&quot;C&quot;</span><span class="p">])</span> <span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>              precision    recall  f1-score   support
+
+           A       0.75      0.75      0.75         4
+           B       0.50      0.33      0.40         3
+           C       0.50      0.67      0.57         3
+
+    accuracy                           0.60        10
+   macro avg       0.58      0.58      0.57        10
+weighted avg       0.60      0.60      0.59        10
+</code></pre></div>
+<p><strong><code>precision_recall_fscore_support</code></strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">precision_recall_fscore_support</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>  
+                                <span class="n">labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">pos_label</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
+                                <span class="n">warn_for</span><span class="o">=</span><span class="p">(</span><span class="err">‘</span><span class="n">precision</span><span class="err">’</span><span class="p">,</span> <span class="err">’</span><span class="n">recall</span><span class="err">’</span><span class="p">,</span> <span class="err">’</span><span class="n">f</span><span class="o">-</span><span class="n">score</span><span class="err">’</span><span class="p">),</span> 
+                                <span class="n">sample_weight</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">precision_recall_fscore_support</span>
+
+<span class="n">y_true</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">precision_recall_fscore_support</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="s1">&#39;macro&#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">precision_recall_fscore_support</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="s1">&#39;micro&#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">precision_recall_fscore_support</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="s1">&#39;weighted&#39;</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>(0.5833333333333334, 0.5833333333333334, 0.5738095238095239, None)
+(0.6, 0.6, 0.6, None)
+(0.6, 0.6, 0.5914285714285714, None)
+</code></pre></div>
+<h2 id="p-r">P-R曲线</h2>
+<div class="highlight"><pre><span></span><code><span class="n">precision_recall_curve</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">probas_pred</span><span class="p">,</span> <span class="n">pos_label</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">sample_weight</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">precision_recall_curve</span>
+
+<span class="n">y_true</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">y_scores</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.35</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">])</span>
+
+<span class="n">precision</span><span class="p">,</span> <span class="n">recall</span><span class="p">,</span> <span class="n">thresholds</span> <span class="o">=</span> <span class="n">precision_recall_curve</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_scores</span><span class="p">)</span>
+<span class="c1"># precision, recall, thresholds = precision_recall_curve(y_true, y_scores, </span>
+<span class="c1">#                                                        pos_label=0)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">thresholds</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">precision</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">recall</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>[0.35 0.4  0.8 ]
+[0.67 0.5  1.   1.  ]
+[1.  0.5 0.5 0. ]
+</code></pre></div>
+<p>有了各个阈值所对应的<code>precision</code>和<code>recall</code>数据，可以快速第绘制一个简单的P-R曲线图：</p>
+<p><img alt="simple_pr_curve" src="figures/simple_pr_curve.svg" /></p>
+<p><code>sklearn</code>提供了<code>plot_precision_recall_curve</code>函数，可以快速地绘制P-R曲线图：</p>
+<div class="highlight"><pre><span></span><code><span class="n">plot_precision_recall_curve</span><span class="p">(</span><span class="n">estimator</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">sample_weight</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
+                            <span class="n">response_method</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">plot_precision_recall_curve</span>
+
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">svm</span><span class="p">,</span> <span class="n">datasets</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">plot_precision_recall_curve</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">iris</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">load_iris</span><span class="p">()</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">data</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">iris</span><span class="o">.</span><span class="n">target</span>
+
+<span class="c1"># Add noisy features</span>
+<span class="n">random_state</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">RandomState</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">n_samples</span><span class="p">,</span> <span class="n">n_features</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">X</span><span class="p">,</span> <span class="n">random_state</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">n_samples</span><span class="p">,</span> <span class="mi">200</span> <span class="o">*</span> <span class="n">n_features</span><span class="p">)]</span>
+
+<span class="c1"># Limit to the two first classes, and split into training and test</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">y</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="n">y</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">],</span>
+                                                    <span class="n">test_size</span><span class="o">=</span><span class="mf">.5</span><span class="p">,</span>
+                                                    <span class="n">random_state</span><span class="o">=</span><span class="n">random_state</span><span class="p">)</span>
+
+<span class="c1"># Create a simple classifier</span>
+<span class="n">classifier</span> <span class="o">=</span> <span class="n">svm</span><span class="o">.</span><span class="n">LinearSVC</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="n">random_state</span><span class="p">)</span>
+<span class="n">classifier</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">y_score</span> <span class="o">=</span> <span class="n">classifier</span><span class="o">.</span><span class="n">decision_function</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="n">disp</span> <span class="o">=</span> <span class="n">plot_precision_recall_curve</span><span class="p">(</span><span class="n">classifier</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+<span class="n">disp</span><span class="o">.</span><span class="n">ax_</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;2-class Precision-Recall curve&#39;</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>Text(0.5, 1.0, &#39;2-class Precision-Recall curve&#39;)
+</code></pre></div>
+<p><img alt="simple_pr_curve" src="figures/pr_curve.svg" /></p>
+<h2 id="roc">ROC曲线</h2>
+<div class="highlight"><pre><span></span><code><span class="n">roc_curve</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_score</span><span class="p">,</span> <span class="n">pos_label</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">sample_weight</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
+          <span class="n">drop_intermediate</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">metrics</span>
+
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<span class="n">scores</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.35</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">])</span>
+<span class="n">fpr</span><span class="p">,</span> <span class="n">tpr</span><span class="p">,</span> <span class="n">thresholds</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">roc_curve</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">scores</span><span class="p">,</span> <span class="n">pos_label</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">thresholds</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">fpr</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tpr</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>[1.8  0.8  0.4  0.35 0.1 ]
+[0.  0.  0.5 0.5 1. ]
+[0.  0.5 0.5 1.  1. ]
+</code></pre></div>
+<h2 id="auc">计算AUC</h2>
+<p>在<code>sklearn</code>中，计算AUC有两个函数：<code>auc</code>、<code>roc_auc_score</code>。<code>auc</code>是使用梯形面积公式计算AUC，需要传入<code>fpr</code>、<code>tpr</code>参数；而<code>roc_auc_score</code>则是直接传入<code>y_true</code>、<code>y_score</code>参数就可以得出AUC。</p>
+<div class="highlight"><pre><span></span><code><span class="n">roc_auc_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_score</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="err">’</span><span class="n">macro</span><span class="err">’</span><span class="p">,</span> <span class="n">sample_weight</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">max_fpr</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="n">auc</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">reorder</span><span class="o">=</span><span class="err">’</span><span class="n">deprecated</span><span class="err">’</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">roc_auc_score</span>
+<span class="n">y_true</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">y_scores</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.35</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">])</span>
+<span class="n">roc_auc_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_scores</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>0.75
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">metrics</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<span class="n">pred</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.35</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">])</span>
+<span class="n">fpr</span><span class="p">,</span> <span class="n">tpr</span><span class="p">,</span> <span class="n">thresholds</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">roc_curve</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">pred</span><span class="p">,</span> <span class="n">pos_label</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">metrics</span><span class="o">.</span><span class="n">auc</span><span class="p">(</span><span class="n">fpr</span><span class="p">,</span> <span class="n">tpr</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>0.75
+</code></pre></div>
+<h2 id="average-precision">Average Precision</h2>
+<div class="highlight"><pre><span></span><code><span class="n">average_precision_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_score</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="s1">&#39;macro&#39;</span><span class="p">,</span> <span class="n">pos_label</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> 
+                        <span class="n">sample_weight</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</code></pre></div>
+<p>$$
+\text{AP} = \sum_n (R_n - R_{n-1}) P_n
+$$</p>
+<p>其中，$P_n$ 和 $R_n$ 是第$n$个阈值处的precision和recall。</p>
+<p><img src="https://innerpeace-wu.github.io/images/posts/metric/ap.png" style="zoom: 50%;" /></p>
+<p>该计算公式与使用梯形公式精确计算曲线下的面积不同。实际上，如果在连续的场合，该公式就是一个定积分。在sklearn中，此实现未进行插值，因为使用线性插值可能使结果过于乐观。</p>
+<p>注意：此实现仅限于二分类任务或者 multilabel classification任务。</p>
+<h2 id="brier-score">brier score</h2>
+<div class="highlight"><pre><span></span><code><span class="n">brier_score_loss</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_prob</span><span class="p">,</span> <span class="n">sample_weight</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">pos_label</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</code></pre></div>
+<p>Brier分数最常见的表述是</p>
+<p>$$
+B S=\frac{1}{N} \sum_{t=1}<sup 2="2">{N}\left(f_{t}-o_{t}\right)</sup>
+$$</p>
+<p>其中，$f_{t}$是被预测的概率，$o_{t}$是事件在$t$时刻的实际结果（$o_{t}=0$ 事件没有发生，$o_{t}=1$ 事件发生），$N$是预测实例数。实际上，<mark>Brier分数就是所有样本的<strong>预测概率</strong>与<strong>实际结果</strong>之间的均方差。</mark> Brier分数越小越好，因此命名为“ loss”。Brier分数的取值范围在0到1之间。此公式主要用于二分类任务，但 Brier 分数的<a href="https://en.wikipedia.org/wiki/Brier_score">原始定义</a>是适用于多分类任务的。</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">brier_score_loss</span>
+
+<span class="n">y_true</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">y_prob</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+
+<span class="c1"># pos_label指明了y_prob是哪个label的概率</span>
+<span class="n">brier_score_loss</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_prob</span><span class="p">,</span> <span class="n">sample_weight</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">pos_label</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>0.3333333333333333
+</code></pre></div>
+<h2 id="cohen-kappa-score">cohen kappa score</h2>
+<h2 id="dcg-score">dcg score</h2>
+<h2 id="hamming-loss">hamming loss</h2>
+<div class="highlight"><pre><span></span><code><span class="n">hamming_loss</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">sample_weight</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</code></pre></div>
+<p>$$
+\text{Hamming Loss}=\frac{1}{N}\sum_{i=1}^N\frac{\text{XOR}(Y_{i,j}, P_{i,j})}{L}
+$$</p>
+<p>$N$ 是样本的数量，$L$ 是标签的个数，$Y_{i,j}$ 是第$i$个预测结果中第$j$个分量的真实值，$P_{i,j}$ 是第$i$个预测结果中第$j$个分量的预测值，$\text{XOR}$是抑或，$\text{XOR}(0,1)=\text{XOR}(1,0)=1$，$\text{XOR}(0,0)=\text{XOR}(1,1)=0$。</p>
+<p>Hamming Loss是用来计算多标签分类 (Multi-label classification) 模型精度的。</p>
+<p><mark>在multiclass任务中, Hamming loss 等价于 zero_one_loss（<code>normalize=True</code> ）</mark> 。</p>
+<p>在multilabel任务中, Hamming loss 和 zero-one loss 有点不同。zero-one loss会考虑样本真实label的集合和预测label的集合是否完全一致。只有完全一致时，zero-one loss 为0。但 Hamming loss 则没有这么严格，它只惩罚单个标签。</p>
+<p>Hamming loss 是 zero-one loss（<code>normalize=True</code> ）的上限，Hamming loss的值总是位于0和1之间。</p>
+<p>例子：三个样本</p>
+<p>$$
+Y_{1}=(0,1,1,1,0), P_{1}=(1,1,1,0,0)
+$$</p>
+<p>$$
+Y_{2}=(1,0,0,1,1), P_{2}=(1,0,0,0,1)
+$$</p>
+<p>$$
+Y_{3}=(1,1,0,0,0), P_{3}=(1,0,1,0,1)
+$$</p>
+<p>$$
+\text{HammingLoss}=\frac{1}{3}\times\frac{2+1+3}{5}=0.4
+$$</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">hamming_loss</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">y_true</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">y_pred</span><span class="p">)</span>
+
+<span class="c1"># 一共2个样本 每个样本有2个label</span>
+<span class="c1"># 只有1个label预测正确 👉 因此 loss = 3/4</span>
+<span class="n">hamming_loss</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>[[0 1]
+ [1 1]]
+
+[[0. 0.]
+ [0. 0.]]
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>0.75
+</code></pre></div>
+<h2 id="hinge-loss">Hinge loss</h2>
+<p>https://zh.wikipedia.org/wiki/Hinge_loss</p>
+<h2 id="jaccard-score">jaccard score</h2>
+<div class="highlight"><pre><span></span><code><span class="n">jaccard_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">pos_label</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> 
+              <span class="n">average</span><span class="o">=</span><span class="s1">&#39;binary&#39;</span><span class="p">,</span> <span class="n">sample_weight</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</code></pre></div>
+<p>数学定义参考于<a href="https://www.statisticshowto.com/jaccard-index/">statisticshowto-accardindex</a>。</p>
+<p><code>jaccard_similarity_score</code>函数会计算两对label集之间的Jaccard相似度系数的平均值（默认情况下）或总和。它也被称为Jaccard index。</p>
+<p>第$i$个样本的Jaccard相似度系数（Jaccard similarity coefficient），定义如下：</p>
+<p>$$
+J(y_i, \hat{y}_i) = \frac{|y_i \cap \hat{y}_i|}{|y_i \cup \hat{y}_i|}.
+$$</p>
+<p>其中，真实标签集为$y_i$，预测标签集为：$\hat{y}_j$。</p>
+<p>二分类的情况：</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">jaccard_score</span>
+
+<span class="n">y_true</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+
+<span class="c1"># (0/2 + 1/1 + 1/1)*(1/3) = 2/3</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">jaccard_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">pos_label</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+<span class="c1"># (0/2)*(1/1) = 0</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">jaccard_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">pos_label</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>0.6666666666666666
+0.0
+</code></pre></div>
+<p>multilabel的情况:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">y_true</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+                   <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+                   <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">jaccard_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="s1">&#39;samples&#39;</span><span class="p">))</span> <span class="c1"># 0.5833333333333333</span>
+<span class="c1"># a = jaccard_score(y_true[0], y_pred[0], pos_label=1)</span>
+<span class="c1"># b = jaccard_score(y_true[1], y_pred[1], pos_label=1)</span>
+<span class="c1"># (a+b)/2 = 0.5833333333333333</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">jaccard_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="s1">&#39;macro&#39;</span><span class="p">))</span> <span class="c1"># 0.6666666666666666</span>
+<span class="c1"># label问题转换为3个二分类</span>
+<span class="c1"># (1/2 + 1/2 + 1/1)/3 = 0.6666666666666666</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">jaccard_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="s1">&#39;micro&#39;</span><span class="p">))</span> <span class="c1"># 0.6</span>
+<span class="c1"># label问题转换为3个二分类</span>
+<span class="c1"># (1 + 1 + 1) / (2 + 2 + 1) = 0.6</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">jaccard_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="kc">None</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>0.5833333333333333
+0.6666666666666666
+0.6
+[0.5 0.5 1. ]
+</code></pre></div>
+<p>多分类的情况:</p>
+<div class="highlight"><pre><span></span><code><span class="n">y_pred</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="n">y_true</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+
+<span class="c1"># 多分类 average 参数不能使用 ‘samples’ </span>
+<span class="nb">print</span><span class="p">(</span><span class="n">jaccard_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="kc">None</span><span class="p">))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">jaccard_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="s2">&quot;macro&quot;</span><span class="p">))</span> <span class="c1"># 0.4444444444444444</span>
+<span class="c1"># sum(jaccard_score(y_true, y_pred, average=None))/3</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">jaccard_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">average</span><span class="o">=</span><span class="s2">&quot;micro&quot;</span><span class="p">))</span> <span class="c1"># 0.3333333333333333</span>
+<span class="c1"># 第一个分类 0 匹配 1个 基数为1</span>
+<span class="c1"># 第二个分类 1 匹配 0个 基数为2</span>
+<span class="c1"># 第二个分类 3 匹配 1个 基数为3</span>
+<span class="c1"># (1+0+1)/(1+2+3) = 0.3333333333333333</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>[1.   0.   0.33]
+0.4444444444444444
+0.3333333333333333
+</code></pre></div>
+<h2 id="log-loss">log loss</h2>
+<div class="highlight"><pre><span></span><code><span class="n">log_loss</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">1e-15</span><span class="p">,</span> <span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">sample_weight</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+         <span class="n">labels</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</code></pre></div>
+<p>Log loss也被称为 logistic 回归损失，或者交叉熵损失(cross-entropy loss)，用于概率估计。它通常用在(multinomial)的LR和神经网络上，以最大期望（EM: expectation-maximization）的变种的方式，用于评估一个分类器的概率输出，而非进行离散预测。</p>
+<p>对于二分类，真实类别为：$y∈{0,1}$，概率估计为：$p=P(y=1)$。单个样本的log loss为：</p>
+<p>$$
+L_{\log}(y, p) = -\log \operatorname{P}(y|p) = -\left( y \log (p) + (1 - y) \log (1 - p) \right)
+$$</p>
+<p>也就是：</p>
+<p>$$
+L_{\log}(y, p) = 
+\begin{cases}
+-\log(p) &amp;, \text{if}  y=1 \\
+-\log(1-p) &amp;, \text{if}  y=0 \\
+\end{cases}
+$$</p>
+<p>下面两幅图展示了真实类别为1和0时，Log Loss取值随着 $p$ 增大的变化趋势。显然，当真实类别为1，$p$越大，损失应该越小；当真实类别为0，$p$越大，损失应该越大。</p>
+<p><img src="../figures/log_loss_1.svg" alt="log_loss_1" style="zoom: 80%;" /></p>
+<p>当扩展到多元分类（multiclass）时。可以将样本的 true label 编码成 1-of-K 个二元指示器矩阵$Y$，如果从label K集合中取出的样本i，对应的label为k，则$y_{i,k}=1$，$P$为概率估计矩阵，$p_{i,k} = \operatorname{P}(t_{i,k} = 1)$。整个集合的log loss表示如下：
+$$
+L_{\log}(Y, P) = -\log \operatorname{P}(Y|P) = - \frac{1}{N} \sum_{i=0}^{N-1} \sum_{k=0}^{K-1} y_{i,k} \log p_{i,k}
+$$</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">log_loss</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">y_true</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span>   <span class="mi">0</span><span class="p">,</span>   <span class="mi">1</span><span class="p">,</span>    <span class="mi">0</span><span class="p">]</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.85</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">]</span>
+
+<span class="n">loss_1</span> <span class="o">=</span> <span class="n">log_loss</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">normalize</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">loss_2</span> <span class="o">=</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mf">0.8</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mf">0.8</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mf">0.85</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mf">0.4</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;loss_1:&quot;</span><span class="p">,</span> <span class="n">loss_1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;loss_2:&quot;</span><span class="p">,</span> <span class="n">loss_2</span><span class="p">)</span>
+
+<span class="n">loss_1</span> <span class="o">=</span> <span class="n">log_loss</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">loss_2</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mf">0.8</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mf">0.8</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mf">0.85</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mf">0.4</span><span class="p">))</span><span class="o">/</span><span class="mi">4</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;loss_1:&quot;</span><span class="p">,</span> <span class="n">loss_1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;loss_2:&quot;</span><span class="p">,</span> <span class="n">loss_2</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>loss_1: 1.5250967640003492
+loss_2: 1.5250967640003492
+loss_1: 0.3812741910000873
+loss_2: 0.3812741910000873
+</code></pre></div>
+<h2 id="matthews-corrcoef">matthews corrcoef</h2>
+<p>http://d0evi1.com/sklearn/model_evaluation/</p>
+<h2 id="zero-one-loss">zero one loss</h2>
+<div class="highlight"><pre><span></span><code><span class="n">zero_one_loss</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">sample_weight</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</code></pre></div>
+<p>0-1损失很简单，如果各个样本权重相等，那么损失就是真实值和预测值不相等的个数求和。</p>
+<p><img alt="L_{0-1} = L_{0-1}(y_i, \hat{y}_i) = \sum_{i=1}^{n_{\text{sample}}} \mathbb{I}(\hat{y}_i \not= y_i) \times w_i" src="figures/math1.svg" /></p>
+<p>但默认情况下，<code>zero_one_loss</code>的结果会进行归一化处理：</p>
+<p><img alt="L_{0-1} = L_{0-1}(y_i, \hat{y}_i) = {1\over \sum_{i=1}^{n_{\text{sample}}}w_i } \sum_{i=1}^{n_{\text{sample}}} \mathbb{I}(\hat{y}_i \not= y_i) \times w_i" src="figures/math2.svg" /></p>
+<p>其中，$w_i$是权重。</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">zero_one_loss</span>
+
+<span class="n">y_true</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">weight</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">zero_one_loss</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">normalize</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">sample_weight</span><span class="o">=</span><span class="n">weight</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">zero_one_loss</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">sample_weight</span><span class="o">=</span><span class="n">weight</span><span class="p">))</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>3
+0.4285714285714286
+</code></pre></div>
+<p>如果是 multilabel 分类任务，真实值的label和预测值的label要严格匹配，0-1损失才为0。</p>
+<div class="highlight"><pre><span></span><code><span class="n">y_true</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]]</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]]</span>
+<span class="n">zero_one_loss</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">normalize</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>2
+</code></pre></div>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="页脚">
+      
+        
+        <a href="11.1.%E6%95%B0%E6%8D%AE%E9%9B%86.html" class="md-footer__link md-footer__link--prev" aria-label="上一页: 11.1.数据集" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              11.1.数据集
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="11.5.%E6%8B%86%E5%88%86%E6%95%B0%E6%8D%AE.html" class="md-footer__link md-footer__link--next" aria-label="下一页: 11.5.拆分数据" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              11.5.拆分数据
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "search": "../../assets/javascripts/workers/search.bd0b6b67.min.js"}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.467223ff.min.js"></script>
+      
+        <script src="../../javascript/extra.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+    
+  </body>
+</html>
