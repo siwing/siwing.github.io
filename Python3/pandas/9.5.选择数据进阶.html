@@ -2835,7 +2835,9 @@ pandas version:  1.2.2
 numpy version:  1.20.1
 </code></pre></div>
 <h2 id="_1">创建索引和示例数据</h2>
-<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">Create index</label><div class="tabbed-content">
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Create index</label><label for="__tabbed_1_2">output</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">mklbl</span><span class="p">(</span><span class="n">prefix</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
     <span class="k">return</span> <span class="p">[</span><span class="s1">&#39;</span><span class="si">%s%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">prefix</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
 
@@ -2855,7 +2857,7 @@ numpy version:  1.20.1
 <span class="nb">print</span><span class="p">(</span><span class="n">micolumns</span><span class="p">,</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
 </code></pre></div>
 </div>
-<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">output</label><div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code>MultiIndex([(&#39;A0&#39;, &#39;B0&#39;, &#39;C0&#39;, &#39;D0&#39;),
             (&#39;A0&#39;, &#39;B0&#39;, &#39;C0&#39;, &#39;D1&#39;),
             (&#39;A0&#39;, &#39;B0&#39;, &#39;C1&#39;, &#39;D0&#39;),
@@ -2928,6 +2930,7 @@ MultiIndex([(&#39;a&#39;, &#39;foo&#39;),
             (&#39;b&#39;, &#39;bah&#39;)],
            names=[&#39;lvl0&#39;, &#39;lvl1&#39;])
 </code></pre></div>
+</div>
 </div>
 </div>
 <div class="highlight"><pre><span></span><code><span class="c1"># Create DataFrame</span>
@@ -3018,7 +3021,9 @@ KeyError: &#39;a&#39;
 <span class="n">dfmi</span><span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">]</span>                           <span class="c1"># √</span>
 </code></pre></div>
 <p>对于<code>loc</code>，如果“单个标签元组”内嵌序列索引，且省略列索引，在如下特殊情况中，不能省略括号<code>()</code>：</p>
-<div class="tabbed-set" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">input</label><div class="tabbed-content">
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">input</label><label for="__tabbed_2_2">output</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="c1"># Is actually interpreted as dfmi.loc[&quot;A0&quot;, [&quot;B0&quot;, &quot;B1&quot;]]</span>
 <span class="k">try</span><span class="p">:</span>
     <span class="n">dfmi</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="s2">&quot;A0&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;B0&quot;</span><span class="p">,</span> <span class="s2">&quot;B1&quot;</span><span class="p">])]</span>
@@ -3031,7 +3036,7 @@ KeyError: &#39;a&#39;
 <span class="nb">print</span><span class="p">(</span><span class="n">dfmi</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s2">&quot;A0&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;B0&quot;</span><span class="p">,</span> <span class="s2">&quot;B1&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;C0&quot;</span><span class="p">]])</span>
 </code></pre></div>
 </div>
-<input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><label for="__tabbed_2_2">output</label><div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code>&quot;[&#39;B0&#39; &#39;B1&#39;] not in index&quot;
 lvl0          a       b
 lvl1        bar foo bah foo
@@ -3060,6 +3065,7 @@ A0 B0 C0 D0   1   0   3   2
 </code></pre></div>
 </div>
 </div>
+</div>
 <p>如果“序列索引”非嵌套在“单个标签元组”内，其元素要么是 <mark>同一层级且非重复的标签标量</mark>，要么是完整的多级索引。</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Label scalar</span>
 <span class="n">dfmi</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="s2">&quot;A0&quot;</span><span class="p">,</span> <span class="s2">&quot;B1&quot;</span><span class="p">])]</span>  <span class="c1"># KeyError: &quot;[&#39;B1&#39;] not in index&quot;</span>
@@ -3083,12 +3089,14 @@ A0 B0 C0 D0   1   0   3   2
 </code></pre></div>
 <h2 id="_2">使用切片</h2>
 <h3 id="slice">slice</h3>
-<div class="tabbed-set" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">input</label><div class="tabbed-content">
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">input</label><label for="__tabbed_3_2">output</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="n">dfmi</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="nb">slice</span><span class="p">(</span><span class="s1">&#39;A1&#39;</span><span class="p">,</span> <span class="s1">&#39;A3&#39;</span><span class="p">),</span> <span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">),</span> <span class="p">[</span><span class="s1">&#39;C1&#39;</span><span class="p">,</span> <span class="s1">&#39;C3&#39;</span><span class="p">]),</span> <span class="p">:]</span>
 <span class="n">dfmi</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;A1&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">),</span> <span class="s1">&#39;foo&#39;</span><span class="p">)]</span>
 </code></pre></div>
 </div>
-<input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><label for="__tabbed_3_2">output</label><div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code>lvl0        a    b
 lvl1      foo  foo
 B0 C0 D0   64   66
@@ -3110,13 +3118,16 @@ B1 C0 D0   96   98
 </code></pre></div>
 </div>
 </div>
+</div>
 <h3 id="indexslice">IndexSlice</h3>
-<div class="tabbed-set" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><label for="__tabbed_4_1">input</label><div class="tabbed-content">
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">input</label><label for="__tabbed_4_2">output</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="n">idx</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">IndexSlice</span>
 <span class="n">dfmi</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">idx</span><span class="p">[:,</span> <span class="p">:,</span> <span class="p">[</span><span class="s1">&#39;C1&#39;</span><span class="p">,</span> <span class="s1">&#39;C3&#39;</span><span class="p">]],</span> <span class="n">idx</span><span class="p">[:,</span> <span class="s1">&#39;foo&#39;</span><span class="p">]]</span>
 </code></pre></div>
 </div>
-<input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><label for="__tabbed_4_2">output</label><div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code>lvl0           a    b
 lvl1         foo  foo
 A0 B0 C1 D0    8   10
@@ -3154,14 +3165,17 @@ A3 B0 C1 D0  200  202
 </code></pre></div>
 </div>
 </div>
+</div>
 <h2 id="lociloc">给 <code>loc</code>或<code>iloc</code> 指定轴参数</h2>
 <p><code>loc</code>默认对行进行索引，但也可以对其指定<code>axis</code>参数，指定需要索引的轴。当存在多级索引，或者想显式指定需要索引的轴时比较有用。</p>
-<div class="tabbed-set" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><label for="__tabbed_5_1">input</label><div class="tabbed-content">
+<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">input</label><label for="__tabbed_5_2">output</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">dfmi</span><span class="o">.</span><span class="n">loc</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)[:,</span> <span class="p">:,</span> <span class="p">[</span><span class="s1">&#39;C1&#39;</span><span class="p">,</span> <span class="s1">&#39;C3&#39;</span><span class="p">]])</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">dfmi</span><span class="o">.</span><span class="n">loc</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)[</span><span class="s1">&#39;a&#39;</span><span class="p">])</span>
 </code></pre></div>
 </div>
-<input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><label for="__tabbed_5_2">output</label><div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code>lvl0           a         b
 lvl1         bar  foo  bah  foo
 A0 B0 C1 D0    9    8   11   10
@@ -3211,6 +3225,7 @@ A3 B1 C1 D1  237  236
 
 [64 rows x 2 columns]
 </code></pre></div>
+</div>
 </div>
 </div>
 <h2 id="_3">布尔索引</h2>
@@ -3389,13 +3404,15 @@ A0 B0 C0 D0    1    0
 <p><code>query</code>方法允许DataFrame对象具有使用表达式选择列数据。<code>query</code>方法目前使用两种后端执行表达式：纯Python、numexpr。</p>
 <div class="highlight"><pre><span></span><code>df.query(expr, inplace=False, kwargs)
 </code></pre></div>
-<div class="tabbed-set" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><label for="__tabbed_6_1">query</label><div class="tabbed-content">
+<div class="tabbed-set tabbed-alternate" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">query</label><label for="__tabbed_6_2">result</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="s1">&#39;abc&#39;</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">])</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;b&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;c&#39;</span><span class="p">])])</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;(a &lt; b) &amp; (b &lt; c)&#39;</span><span class="p">))</span>
 </code></pre></div>
 </div>
-<input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><label for="__tabbed_6_2">result</label><div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code>          a         b         c
 3  0.393407  0.755739  0.924355
 7  0.126168  0.249316  0.434050
@@ -3405,31 +3422,38 @@ A0 B0 C0 D0    1    0
 </code></pre></div>
 </div>
 </div>
+</div>
 <p>如果没有名称为<code>a</code>的列，则使用命名行索引：</p>
-<div class="tabbed-set" data-tabs="7:2"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><label for="__tabbed_7_1">query</label><div class="tabbed-content">
+<div class="tabbed-set tabbed-alternate" data-tabs="7:2"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">query</label><label for="__tabbed_7_2">result</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">)),</span> <span class="n">columns</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="s1">&#39;bc&#39;</span><span class="p">))</span>
 <span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;a&#39;</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;a &lt; b and b &lt; c&#39;</span><span class="p">))</span>
 </code></pre></div>
 </div>
-<input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><label for="__tabbed_7_2">result</label><div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code>Empty DataFrame
 Columns: [b, c]
 Index: []
 </code></pre></div>
 </div>
 </div>
+</div>
 <p>如果行索引名称与列名重叠，则列名优先。如果您不想或无法命名行索引，则可以在查询表达式中使用<code>"index"</code>：</p>
-<div class="tabbed-set" data-tabs="8:2"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><label for="__tabbed_8_1">query</label><div class="tabbed-content">
+<div class="tabbed-set tabbed-alternate" data-tabs="8:2"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="__tabbed_8_1">query</label><label for="__tabbed_8_2">result</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">)),</span> <span class="n">columns</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="s1">&#39;bc&#39;</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;index &lt; b &lt; c&#39;</span><span class="p">))</span>
 </code></pre></div>
 </div>
-<input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><label for="__tabbed_8_2">result</label><div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code>Empty DataFrame
 Columns: [b, c]
 Index: []
 </code></pre></div>
+</div>
 </div>
 </div>
 <p>不管行索引是否被命名，都可以通过使用特殊标识符<code>'index'</code>在查询表达式中使用行索引。如果已经有一个名为<code>'index'</code>的列，那么也可以通过<code>'ilevel_0'</code>引用行索引，<code>'ilevel_0'</code>表示行索引的第0层级。但此时，您应该考虑将列重命名为不太模糊的名称。</p>
@@ -3525,7 +3549,9 @@ red ham  -0.112306 -0.397632
 </code></pre></div>
 <h3 id="_4">布尔运算符</h3>
 <p>可以使用<code>not</code>或<code>~</code>运算符对布尔表达式求反。</p>
-<div class="tabbed-set" data-tabs="9:2"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio" /><label for="__tabbed_9_1">query</label><div class="tabbed-content">
+<div class="tabbed-set tabbed-alternate" data-tabs="9:2"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio" /><input id="__tabbed_9_2" name="__tabbed_9" type="radio" /><div class="tabbed-labels"><label for="__tabbed_9_1">query</label><label for="__tabbed_9_2">result</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="s1">&#39;abc&#39;</span><span class="p">))</span>
 <span class="n">df</span><span class="p">[</span><span class="s1">&#39;bools&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">))</span> <span class="o">&gt;</span> <span class="mf">0.5</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;~bools&#39;</span><span class="p">))</span>
@@ -3533,7 +3559,7 @@ red ham  -0.112306 -0.397632
 <span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;not bools&#39;</span><span class="p">)</span> <span class="o">==</span> <span class="n">df</span><span class="p">[</span><span class="o">~</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;bools&#39;</span><span class="p">]])</span>
 </code></pre></div>
 </div>
-<input id="__tabbed_9_2" name="__tabbed_9" type="radio" /><label for="__tabbed_9_2">result</label><div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code>          a         b         c  bools
 0  0.735107  0.618887  0.925549  False
 1  0.688604  0.147859  0.128913  False
@@ -3547,6 +3573,7 @@ red ham  -0.112306 -0.397632
 1  True  True  True   True
 2  True  True  True   True
 </code></pre></div>
+</div>
 </div>
 </div>
 <p>当然，表达式也可以任意复杂:</p>

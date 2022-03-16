@@ -2981,7 +2981,7 @@ Latest build date 2020.11.22
 <p>Python 并没有块注释符，因此，有时多行字符串会被用作块注释。</p>
 <div class="highlight"><pre><span></span><code><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">这是多行注释</span>
-<span class="sd">这是多行注释</span>
+<span class="sd">这是多行注释  </span>
 <span class="sd">&quot;&quot;&quot;</span>
 </code></pre></div>
 <p>虽然多行字符串用于多行注释时，Python 解释器并不会为此生成代码（多行注释作为文档字符串时除外），也没有负作用（negative effects），但这却是一种副作用（side effects）。基于此，PEP-8 建议多行注释均以<code>#</code>号和空格开头：</p>
@@ -2991,16 +2991,19 @@ Latest build date 2020.11.22
 <h2 id="_5">缩进</h2>
 <p>位于逻辑行开始前的空白（空格和制表符）用于计算行的缩进层次，该层次用于语句的分组。不能使用<code>\</code>连接两个物理行的缩进。</p>
 <p>相同层次的代码必须保持相同的缩进量，缩进量则可以随意。<mark>当源码文件混用制表符和空格时，运行时会触发 <code>TabError</code>。</mark> 由于非Unix平台的文本编辑器的特性，最好<strong>不要用制表符表示缩进</strong>。<strong>一般约定俗成使用4个空格的缩进。</strong></p>
-<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">input</label><div class="tabbed-content">
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">input</label><label for="__tabbed_1_2">output</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="kc">True</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;True&quot;</span><span class="p">)</span>
 <span class="k">else</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;False&quot;</span><span class="p">)</span>
 </code></pre></div>
 </div>
-<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">output</label><div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code>True
 </code></pre></div>
+</div>
 </div>
 </div>
 <p>使用缩进划分代码块，而不是使用大括号<code>{}</code>，是 Python 最具特色的地方，但这也是 Python 时常被诟病的地方。</p>
@@ -3038,7 +3041,9 @@ Latest build date 2020.11.22
 </code></pre></div>
 <h2 id="print">Print 输出</h2>
 <p><code>print</code>函数将对象转换为字符串，默认将这些字符串输出到 STDOUT，并且默认在字符串末尾添加换行符。如果不想换行打印，需要更改<code>print</code>函数的<code>end</code>参数：</p>
-<div class="tabbed-set" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">换行打印</label><div class="tabbed-content">
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">换行打印</label><label for="__tabbed_2_2">不换行打印</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;b&quot;</span><span class="p">)</span>
 </code></pre></div>
@@ -3046,12 +3051,13 @@ Latest build date 2020.11.22
 b
 </code></pre></div>
 </div>
-<input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><label for="__tabbed_2_2">不换行打印</label><div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>a b
 </code></pre></div>
+</div>
 </div>
 </div>
 <p>程序可能会产生多种输出。虽然 <code>print</code> 函数是一个方便的方式，但通常我们会使用更高级的技术来代替它：</p>
@@ -3148,17 +3154,20 @@ from somemodule import *                          导入某个模块的全部定
 </tbody>
 </table>
 <p>Python默认将<code>\</code>作为转义符处理，但有时候我们想输入的是反斜杠符号<code>\</code>，例如输入 windows 系统的文件路径。此时，可以在反斜杠前加上转义符<code>\</code>，即<code>\\</code>表示一个反斜杠符号。如果字符串包含了很多反斜杠<code>\</code>，这样做就比较麻烦。Python提供了一个简化的操作，Pyhon允许用 <code>r"字符串内容"</code> 表示 <code>"字符串内容"</code> 内部的字符默认不转义：</p>
-<div class="tabbed-set" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><label for="__tabbed_3_1">Normal String Literal</label><div class="tabbed-content">
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Normal String Literal</label><label for="__tabbed_3_2">Raw String Literal</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\\\t\\</span><span class="s1">&#39;</span><span class="p">)</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>\       \
 </code></pre></div>
 </div>
-<input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><label for="__tabbed_3_2">Raw String Literal</label><div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;</span><span class="se">\\</span><span class="s1">\t</span><span class="se">\\</span><span class="s1">&#39;</span><span class="p">)</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>\\\t\\
 </code></pre></div>
+</div>
 </div>
 </div>
 <h2 id="_11">变量与对象</h2>
@@ -3285,7 +3294,9 @@ from somemodule import *                          导入某个模块的全部定
 <div class="highlight"><pre><span></span><code>14
 </code></pre></div>
 <h2 id="_14">运算符</h2>
-<div class="tabbed-set" data-tabs="4:7"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><label for="__tabbed_4_1">算术运算符</label><div class="tabbed-content">
+<div class="tabbed-set tabbed-alternate" data-tabs="4:7"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><input id="__tabbed_4_4" name="__tabbed_4" type="radio" /><input id="__tabbed_4_5" name="__tabbed_4" type="radio" /><input id="__tabbed_4_6" name="__tabbed_4" type="radio" /><input id="__tabbed_4_7" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">算术运算符</label><label for="__tabbed_4_2">比较运算符</label><label for="__tabbed_4_3">赋值运算符</label><label for="__tabbed_4_4">按位运算符</label><label for="__tabbed_4_5">逻辑运算符</label><label for="__tabbed_4_6">成员运算符</label><label for="__tabbed_4_7">身份运算符</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <table>
 <thead>
 <tr>
@@ -3325,7 +3336,7 @@ from somemodule import *                          导入某个模块的全部定
 </tbody>
 </table>
 </div>
-<input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><label for="__tabbed_4_2">比较运算符</label><div class="tabbed-content">
+<div class="tabbed-block">
 <table>
 <thead>
 <tr>
@@ -3361,7 +3372,7 @@ from somemodule import *                          导入某个模块的全部定
 </tbody>
 </table>
 </div>
-<input id="__tabbed_4_3" name="__tabbed_4" type="radio" /><label for="__tabbed_4_3">赋值运算符</label><div class="tabbed-content">
+<div class="tabbed-block">
 <table>
 <thead>
 <tr>
@@ -3405,7 +3416,7 @@ from somemodule import *                          导入某个模块的全部定
 </tbody>
 </table>
 </div>
-<input id="__tabbed_4_4" name="__tabbed_4" type="radio" /><label for="__tabbed_4_4">按位运算符</label><div class="tabbed-content">
+<div class="tabbed-block">
 <table>
 <thead>
 <tr>
@@ -3474,7 +3485,7 @@ Did you mean &quot;==&quot;?
 -0b1011 -0b1011
 </code></pre></div>
 </div>
-<input id="__tabbed_4_5" name="__tabbed_4" type="radio" /><label for="__tabbed_4_5">逻辑运算符</label><div class="tabbed-content">
+<div class="tabbed-block">
 <table>
 <thead>
 <tr>
@@ -3511,7 +3522,7 @@ Did you mean &quot;==&quot;?
 <p>如果没有输入名字，上述<code>or</code>表达式的结果将为<code>'&lt; unknown&gt;'</code>。</p>
 <p><mark>在很多情况下，宁愿使用条件表达式，而不耍这样的短路花样，因为过多的短路逻辑可能会让代码逻辑变得隐晦，更容易出错。</mark> 不过前面这样的语句确实有其用武之地。</p>
 </div>
-<input id="__tabbed_4_6" name="__tabbed_4" type="radio" /><label for="__tabbed_4_6">成员运算符</label><div class="tabbed-content">
+<div class="tabbed-block">
 <table>
 <thead>
 <tr>
@@ -3531,7 +3542,7 @@ Did you mean &quot;==&quot;?
 </tbody>
 </table>
 </div>
-<input id="__tabbed_4_7" name="__tabbed_4" type="radio" /><label for="__tabbed_4_7">身份运算符</label><div class="tabbed-content">
+<div class="tabbed-block">
 <table>
 <thead>
 <tr>
@@ -3553,6 +3564,7 @@ Did you mean &quot;==&quot;?
 </tr>
 </tbody>
 </table>
+</div>
 </div>
 </div>
 <h2 id="_15">运算符优先级</h2>

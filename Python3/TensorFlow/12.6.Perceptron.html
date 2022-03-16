@@ -2913,7 +2913,9 @@ accuracy score: 1.0
 </li>
 </ul>
 </details>
-<div class="tabbed-set" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">training</label><div class="tabbed-content">
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">training</label><label for="__tabbed_1_2">verbose</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">Perceptron</span>
 
 <span class="n">perceptron</span> <span class="o">=</span> <span class="n">Perceptron</span><span class="p">(</span><span class="n">penalty</span><span class="o">=</span><span class="s1">&#39;l1&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.0001</span><span class="p">,</span> <span class="n">fit_intercept</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
@@ -2925,7 +2927,7 @@ accuracy score: 1.0
 <span class="n">perceptron</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y_0_1</span><span class="p">)</span>
 </code></pre></div>
 </div>
-<input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><label for="__tabbed_1_2">verbose</label><div class="tabbed-content">
+<div class="tabbed-block">
 <div class="highlight"><pre><span></span><code>-- Epoch 1
 Norm: 3.79, NNZs: 2, Bias: 1.000000, T: 100, Avg. loss: 0.045638
 Total training time: 0.00 seconds.
@@ -2970,6 +2972,7 @@ Norm: 6.58, NNZs: 2, Bias: 1.000000, T: 1400, Avg. loss: 0.000000
 Total training time: 0.00 seconds.
 Convergence after 14 epochs took 0.00 seconds
 </code></pre></div>
+</div>
 </div>
 </div>
 <div class="highlight"><pre><span></span><code>Perceptron(eta0=1, max_iter=100, n_jobs=-1, penalty=&#39;l1&#39;, random_state=1,
