@@ -10,8 +10,10 @@
       
         <link rel="canonical" href="https://siwing.github.io/Python3/Linux/18.2.%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4.html">
       
+      
+      
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-8.2.5">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.6">
     
     
       
@@ -19,12 +21,13 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.2d9f7617.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ded33207.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.e6a45f82.min.css">
-        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.a0c5b2b5.min.css">
       
+      
+
     
     
     
@@ -37,10 +40,11 @@
       
     
     
-    <script>__md_scope=new URL("../..",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
+    
     
     
   </head>
@@ -51,7 +55,7 @@
     
     
     
-    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
   
     
     
@@ -78,11 +82,11 @@
     <a href="../.." title="SW Documentation" class="md-header__button md-logo" aria-label="SW Documentation" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
     </label>
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
@@ -104,7 +108,7 @@
     
     
       <label class="md-header__button md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
       </label>
       <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
@@ -112,13 +116,13 @@
     <form class="md-search__form" name="search">
       <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
       </label>
       <nav class="md-search__options" aria-label="查找">
         
-        <button type="reset" class="md-search__icon md-icon" aria-label="清空当前内容" tabindex="-1">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
         </button>
       </nav>
       
@@ -129,7 +133,7 @@
           <div class="md-search-result__meta">
             正在初始化搜索引擎
           </div>
-          <ol class="md-search-result__list"></ol>
+          <ol class="md-search-result__list" role="presentation"></ol>
         </div>
       </div>
     </div>
@@ -138,10 +142,10 @@
     
     
       <div class="md-header__source">
-        <a href="https://github.com/siwing/siwing.github.io/" title="前往仓库" class="md-source" data-md-component="source">
+        <a href="https://github.com/siwing/siwing.github.io" title="前往仓库" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
     GitHub
@@ -160,7 +164,7 @@
           
             
 <nav class="md-tabs" aria-label="标签" data-md-component="tabs">
-  <div class="md-tabs__inner md-grid">
+  <div class="md-grid">
     <ul class="md-tabs__list">
       
         
@@ -211,6 +215,45 @@
   
 
       
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../JavaScriptNote/index.html" class="md-tabs__link">
+        JavaScript
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../Flutter/Vivo%20phone%20system%20log%20output%20problem.html" class="md-tabs__link">
+        Flutter
+      </a>
+    </li>
+  
+
+  
+
+      
     </ul>
   </div>
 </nav>
@@ -235,17 +278,17 @@
     <a href="../.." title="SW Documentation" class="md-nav__button md-logo" aria-label="SW Documentation" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
 
     </a>
     SW Documentation
   </label>
   
     <div class="md-nav__source">
-      <a href="https://github.com/siwing/siwing.github.io/" title="前往仓库" class="md-source" data-md-component="source">
+      <a href="https://github.com/siwing/siwing.github.io" title="前往仓库" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
     GitHub
@@ -266,17 +309,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_1" type="checkbox" id="__nav_1" >
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
       
       
       
-      
-        <label class="md-nav__link" for="__nav_1">
+        <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
           Math
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="Math" data-md-level="1">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_1">
           <span class="md-nav__icon md-icon"></span>
           Math
@@ -314,17 +358,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
       
       
       
-      
-        <label class="md-nav__link" for="__nav_2">
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
           Python 3
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="Python 3" data-md-level="1">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_2">
           <span class="md-nav__icon md-icon"></span>
           Python 3
@@ -354,17 +399,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_2" type="checkbox" id="__nav_2_2" >
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
       
       
       
-      
-        <label class="md-nav__link" for="__nav_2_2">
+        <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
           计算机基础
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="计算机基础" data-md-level="2">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_2_2">
           <span class="md-nav__icon md-icon"></span>
           计算机基础
@@ -457,17 +503,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" type="checkbox" id="__nav_2_3" >
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
       
       
       
-      
-        <label class="md-nav__link" for="__nav_2_3">
+        <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
           Python基础
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="Python基础" data-md-level="2">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_2_3">
           <span class="md-nav__icon md-icon"></span>
           Python基础
@@ -784,17 +831,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_4" type="checkbox" id="__nav_2_4" >
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
       
       
       
-      
-        <label class="md-nav__link" for="__nav_2_4">
+        <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
           开发环境管理
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="开发环境管理" data-md-level="2">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_2_4">
           <span class="md-nav__icon md-icon"></span>
           开发环境管理
@@ -887,17 +935,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_5" type="checkbox" id="__nav_2_5" >
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
       
       
       
-      
-        <label class="md-nav__link" for="__nav_2_5">
+        <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
           标准库
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="标准库" data-md-level="2">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_2_5">
           <span class="md-nav__icon md-icon"></span>
           标准库
@@ -1130,17 +1179,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_6" type="checkbox" id="__nav_2_6" >
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
       
       
       
-      
-        <label class="md-nav__link" for="__nav_2_6">
+        <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
           设计模式
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="设计模式" data-md-level="2">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_2_6">
           <span class="md-nav__icon md-icon"></span>
           设计模式
@@ -1219,17 +1269,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_7" type="checkbox" id="__nav_2_7" >
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7" >
       
       
       
-      
-        <label class="md-nav__link" for="__nav_2_7">
+        <label class="md-nav__link" for="__nav_2_7" id="__nav_2_7_label" tabindex="0">
           NumPy
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="NumPy" data-md-level="2">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_2_7">
           <span class="md-nav__icon md-icon"></span>
           NumPy
@@ -1420,17 +1471,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_8" type="checkbox" id="__nav_2_8" >
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_8" >
       
       
       
-      
-        <label class="md-nav__link" for="__nav_2_8">
+        <label class="md-nav__link" for="__nav_2_8" id="__nav_2_8_label" tabindex="0">
           pandas
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="pandas" data-md-level="2">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_8_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_2_8">
           <span class="md-nav__icon md-icon"></span>
           pandas
@@ -1607,17 +1659,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_9" type="checkbox" id="__nav_2_9" >
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_9" >
       
       
       
-      
-        <label class="md-nav__link" for="__nav_2_9">
+        <label class="md-nav__link" for="__nav_2_9" id="__nav_2_9_label" tabindex="0">
           Matplotlib
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="Matplotlib" data-md-level="2">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_9_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_2_9">
           <span class="md-nav__icon md-icon"></span>
           Matplotlib
@@ -1668,17 +1721,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_10" type="checkbox" id="__nav_2_10" >
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_10" >
       
       
       
-      
-        <label class="md-nav__link" for="__nav_2_10">
+        <label class="md-nav__link" for="__nav_2_10" id="__nav_2_10_label" tabindex="0">
           scikit-learn
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="scikit-learn" data-md-level="2">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_10_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_2_10">
           <span class="md-nav__icon md-icon"></span>
           scikit-learn
@@ -1883,17 +1937,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_11" type="checkbox" id="__nav_2_11" >
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_11" >
       
       
       
-      
-        <label class="md-nav__link" for="__nav_2_11">
+        <label class="md-nav__link" for="__nav_2_11" id="__nav_2_11_label" tabindex="0">
           TensorFlow
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="TensorFlow" data-md-level="2">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_11_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_2_11">
           <span class="md-nav__icon md-icon"></span>
           TensorFlow
@@ -2042,17 +2097,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_12" type="checkbox" id="__nav_2_12" >
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_12" >
       
       
       
-      
-        <label class="md-nav__link" for="__nav_2_12">
+        <label class="md-nav__link" for="__nav_2_12" id="__nav_2_12_label" tabindex="0">
           爬虫
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="爬虫" data-md-level="2">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_12_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_2_12">
           <span class="md-nav__icon md-icon"></span>
           爬虫
@@ -2103,17 +2159,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_13" type="checkbox" id="__nav_2_13" >
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_13" >
       
       
       
-      
-        <label class="md-nav__link" for="__nav_2_13">
+        <label class="md-nav__link" for="__nav_2_13" id="__nav_2_13_label" tabindex="0">
           gensim
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="gensim" data-md-level="2">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_13_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_2_13">
           <span class="md-nav__icon md-icon"></span>
           gensim
@@ -2164,17 +2221,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_14" type="checkbox" id="__nav_2_14" >
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_14" >
       
       
       
-      
-        <label class="md-nav__link" for="__nav_2_14">
+        <label class="md-nav__link" for="__nav_2_14" id="__nav_2_14_label" tabindex="0">
           数据库
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="数据库" data-md-level="2">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_14_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_2_14">
           <span class="md-nav__icon md-icon"></span>
           数据库
@@ -2267,17 +2325,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_15" type="checkbox" id="__nav_2_15" >
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_15" >
       
       
       
-      
-        <label class="md-nav__link" for="__nav_2_15">
+        <label class="md-nav__link" for="__nav_2_15" id="__nav_2_15_label" tabindex="0">
           文件操作
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="文件操作" data-md-level="2">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_15_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_2_15">
           <span class="md-nav__icon md-icon"></span>
           文件操作
@@ -2342,17 +2401,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_16" type="checkbox" id="__nav_2_16" >
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_16" >
       
       
       
-      
-        <label class="md-nav__link" for="__nav_2_16">
+        <label class="md-nav__link" for="__nav_2_16" id="__nav_2_16_label" tabindex="0">
           Docker
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="Docker" data-md-level="2">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_16_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_2_16">
           <span class="md-nav__icon md-icon"></span>
           Docker
@@ -2403,17 +2463,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_17" type="checkbox" id="__nav_2_17" >
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_17" >
       
       
       
-      
-        <label class="md-nav__link" for="__nav_2_17">
+        <label class="md-nav__link" for="__nav_2_17" id="__nav_2_17_label" tabindex="0">
           Linux
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="Linux" data-md-level="2">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_17_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_2_17">
           <span class="md-nav__icon md-icon"></span>
           Linux
@@ -2458,17 +2519,18 @@
     <li class="md-nav__item md-nav__item--nested">
       
       
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
       
       
       
-      
-        <label class="md-nav__link" for="__nav_3">
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
           C Sharp
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" aria-label="C Sharp" data-md-level="1">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_3">
           <span class="md-nav__icon md-icon"></span>
           C Sharp
@@ -2484,6 +2546,194 @@
       <a href="../../C%23/1.%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.html" class="md-nav__link">
         1.数据类型
       </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          JavaScript
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          JavaScript
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../JavaScriptNote/index.html" class="md-nav__link">
+        JavaScript Resource
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../JavaScriptNote/1.1.JS%E5%9F%BA%E7%A1%80_%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95.html" class="md-nav__link">
+        基本语法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../JavaScriptNote/1.4.JS%E5%9F%BA%E7%A1%80_%E8%AF%AD%E5%8F%A5.html" class="md-nav__link">
+        语句
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../JavaScriptNote/1.2.JS%E5%9F%BA%E7%A1%80_%E5%86%85%E7%BD%AE%E5%8E%9F%E5%AD%90%E7%B1%BB%E5%9E%8B.html" class="md-nav__link">
+        内置原子类型
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../JavaScriptNote/1.3.JS%E5%9F%BA%E7%A1%80_%E5%86%85%E7%BD%AE%E5%A4%8D%E5%90%88%E7%B1%BB%E5%9E%8B.html" class="md-nav__link">
+        内置复合类型
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          Flutter
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Flutter
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+          Issues
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_1">
+          <span class="md-nav__icon md-icon"></span>
+          Issues
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Flutter/Vivo%20phone%20system%20log%20output%20problem.html" class="md-nav__link">
+        1.1.Vivo phone
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
     </li>
   
 
@@ -2849,14 +3099,14 @@
               </div>
             
           
-          <div class="md-content" data-md-component="content">
-            <article class="md-content__inner md-typeset">
-              
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
                 
-<a href="https://github.com/siwing/siwing.github.io/edit/master/docs/Python3/Linux/18.2.常用命令.md" title="编辑此页" class="md-content__button md-icon">
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
-</a>
+                  
 
+  
+  
 
 
   <h1>18.2.常用命令</h1>
@@ -2864,17 +3114,17 @@
 <h2 id="_1">系统管理</h2>
 <h3 id="shutdown-">shutdown - 关机、重启</h3>
 <details class="abstract"><summary>shutdown  - 关闭或重启。</summary></details>
-<div class="highlight"><pre><span></span><code>shutdown <span class="o">[</span>OPTIONS...<span class="o">]</span> <span class="o">[</span>TIME<span class="o">]</span> <span class="o">[</span>WALL...<span class="o">]</span>
+<div class="highlight"><pre><span></span><code>shutdown<span class="w"> </span><span class="o">[</span>OPTIONS...<span class="o">]</span><span class="w"> </span><span class="o">[</span>TIME<span class="o">]</span><span class="w"> </span><span class="o">[</span>WALL...<span class="o">]</span>
 
-Shut down the system.
+Shut<span class="w"> </span>down<span class="w"> </span>the<span class="w"> </span>system.
 
-  -H --halt      停机
-  -P --poweroff  关机
-  -r --reboot    重启
-  -h             等效于--poweroff, 会被--halt覆盖
-  -k             不停机/关机/重启, 只发送警告
-     --no-wall   在停止/关机/重新启动之前不发送警告消息
-  -c             取消关机任务
+<span class="w">  </span>-H<span class="w"> </span>--halt<span class="w">      </span>停机
+<span class="w">  </span>-P<span class="w"> </span>--poweroff<span class="w">  </span>关机
+<span class="w">  </span>-r<span class="w"> </span>--reboot<span class="w">    </span>重启
+<span class="w">  </span>-h<span class="w">             </span>等效于--poweroff,<span class="w"> </span>会被--halt覆盖
+<span class="w">  </span>-k<span class="w">             </span>不停机/关机/重启,<span class="w"> </span>只发送警告
+<span class="w">     </span>--no-wall<span class="w">   </span>在停止/关机/重新启动之前不发送警告消息
+<span class="w">  </span>-c<span class="w">             </span>取消关机任务
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>shutdown [options] when [message]
 shutdown -h now
@@ -2887,124 +3137,124 @@ shutdown -c
 <h2 id="_2">命令帮助</h2>
 <h3 id="man-">man - 查看在线帮助</h3>
 <details class="abstract"><summary>man - manual - 查看命令的在线帮助。</summary></details>
-<div class="highlight"><pre><span></span><code>man wc
+<div class="highlight"><pre><span></span><code>man<span class="w"> </span>wc
 </code></pre></div>
 <h3 id="whatis-">whatis - 命令简述</h3>
 <details class="abstract"><summary>whatis - 查询一个命令的简短描述（单行描述）。</summary></details>
 <p>whatis 命令在用 catman -w 命令创建的数据库中查找 command 参数指定的命令、系统调用、库函数或特殊文件名。whatis命令显示手册部分的页眉行。whatis命令等同于使用 man -f 命令。</p>
-<div class="highlight"><pre><span></span><code>whatis wc
+<div class="highlight"><pre><span></span><code>whatis<span class="w"> </span>wc
 </code></pre></div>
 <h3 id="apropos-">apropos - 查找命令</h3>
 <details class="abstract"><summary>apropos - 在whatis数据库中查找字符串。</summary></details>
 <p>使用man -k命令，可以得到和apropos命令相同的结果（实际上是相同的命令）。</p>
-<div class="highlight"><pre><span></span><code>-r, -- regex    <span class="c1"># 将每个keyword作为正则表达式解释, 默认行为</span>
--w, --wildcard  <span class="c1"># 将每个keyword作为shell样式的通配符解释</span>
--e, --exact     <span class="c1"># 精确匹配</span>
--a, --and       <span class="c1"># 所有keyword是“并”的关系</span>
--s section,     <span class="c1"># 只查找指定的手册section</span>
-   --section section
+<div class="highlight"><pre><span></span><code>-r,<span class="w"> </span>--<span class="w"> </span>regex<span class="w">    </span><span class="c1"># 将每个keyword作为正则表达式解释, 默认行为</span>
+-w,<span class="w"> </span>--wildcard<span class="w">  </span><span class="c1"># 将每个keyword作为shell样式的通配符解释</span>
+-e,<span class="w"> </span>--exact<span class="w">     </span><span class="c1"># 精确匹配</span>
+-a,<span class="w"> </span>--and<span class="w">       </span><span class="c1"># 所有keyword是“并”的关系</span>
+-s<span class="w"> </span>section,<span class="w">     </span><span class="c1"># 只查找指定的手册section</span>
+<span class="w">   </span>--section<span class="w"> </span>section
 </code></pre></div>
-<div class="highlight"><pre><span></span><code>apropos pip
+<div class="highlight"><pre><span></span><code>apropos<span class="w"> </span>pip
 </code></pre></div>
 <h2 id="_3">文件管理</h2>
 <h3 id="ls-">ls - 列出文件</h3>
 <details class="abstract"><summary>ls - list - 列出文件，可以使用通配符。</summary></details>
 <p><img alt="" src="https://i.pinimg.com/originals/d3/e7/4a/d3e74a87f423bbb62e39d9de30e6399d.gif" /></p>
 <p><strong>其他参数</strong></p>
-<div class="highlight"><pre><span></span><code>-F, --classify              <span class="c1"># 每个条目后面附加一个指示符，用来说明文件的类型。</span>
-                            <span class="c1"># 全部指示符有 */=&gt;@|</span>
-                            <span class="c1"># /目录，*可执行文件，@符号链接，|FIFO文件，=套接字</span>
-                            <span class="c1"># 没有指示符表示普通文件</span>
+<div class="highlight"><pre><span></span><code>-F,<span class="w"> </span>--classify<span class="w">              </span><span class="c1"># 每个条目后面附加一个指示符，用来说明文件的类型。</span>
+<span class="w">                            </span><span class="c1"># 全部指示符有 */=&gt;@|</span>
+<span class="w">                            </span><span class="c1"># /目录，*可执行文件，@符号链接，|FIFO文件，=套接字</span>
+<span class="w">                            </span><span class="c1"># 没有指示符表示普通文件</span>
 
---file-type                 <span class="c1"># 同上，但不附加 &#39;*&#39;</span>
--p, --indicator-style<span class="o">=</span>slash <span class="c1"># 将 / 指示符附加到目录</span>
---indicator-style<span class="o">=</span>WORD      <span class="c1"># 指示符风格: none (default), slash (-p), </span>
-                            <span class="c1"># file-type (--file-type), classify (-F)</span>
--R, --recursive             <span class="c1"># 递归列出</span>
--a, --all                   <span class="c1"># 列出全部文件，包括以&#39;.&#39;开头的隐藏文件</span>
--A, --almost-all            <span class="c1"># 同上，但不列出 . 和 ..</span>
--B, --ignore-backups        <span class="c1"># 不列出以 ~ 结尾的隐藏文件</span>
--d, --directory             <span class="c1"># 列出目录本身，而不是列出其内容</span>
+--file-type<span class="w">                 </span><span class="c1"># 同上，但不附加 &#39;*&#39;</span>
+-p,<span class="w"> </span>--indicator-style<span class="o">=</span>slash<span class="w"> </span><span class="c1"># 将 / 指示符附加到目录</span>
+--indicator-style<span class="o">=</span>WORD<span class="w">      </span><span class="c1"># 指示符风格: none (default), slash (-p), </span>
+<span class="w">                            </span><span class="c1"># file-type (--file-type), classify (-F)</span>
+-R,<span class="w"> </span>--recursive<span class="w">             </span><span class="c1"># 递归列出</span>
+-a,<span class="w"> </span>--all<span class="w">                   </span><span class="c1"># 列出全部文件，包括以&#39;.&#39;开头的隐藏文件</span>
+-A,<span class="w"> </span>--almost-all<span class="w">            </span><span class="c1"># 同上，但不列出 . 和 ..</span>
+-B,<span class="w"> </span>--ignore-backups<span class="w">        </span><span class="c1"># 不列出以 ~ 结尾的隐藏文件</span>
+-d,<span class="w"> </span>--directory<span class="w">             </span><span class="c1"># 列出目录本身，而不是列出其内容</span>
 
---hide<span class="o">=</span>PATTERN              <span class="c1"># 不列出与shell PATTERN匹配的隐式条目，</span>
-                            <span class="c1"># 会被-a或-A参数覆盖</span>
--I, --ignore<span class="o">=</span>PATTERN        <span class="c1"># 不列出与shell PATTERN匹配的隐式条目，</span>
-                            <span class="c1"># 不会被-a或-A参数覆盖</span>
+--hide<span class="o">=</span>PATTERN<span class="w">              </span><span class="c1"># 不列出与shell PATTERN匹配的隐式条目，</span>
+<span class="w">                            </span><span class="c1"># 会被-a或-A参数覆盖</span>
+-I,<span class="w"> </span>--ignore<span class="o">=</span>PATTERN<span class="w">        </span><span class="c1"># 不列出与shell PATTERN匹配的隐式条目，</span>
+<span class="w">                            </span><span class="c1"># 不会被-a或-A参数覆盖</span>
 </code></pre></div>
 <p><strong>格式参数</strong></p>
 <div class="highlight"><pre><span></span><code><span class="c1"># 排列格式</span>
--C, --format<span class="o">=</span>vertical      <span class="c1"># 多列纵向排列</span>
--x, --format<span class="o">=</span>across,       <span class="c1"># 多列横向排列 </span>
-    --format<span class="o">=</span>horizontal
--l, --format<span class="o">=</span>long,         <span class="c1"># 单列输出，并显示详细信息</span>
-    --format<span class="o">=</span>verbose
--1, --format<span class="o">=</span>single-column <span class="c1"># 单列输出，如果不是输出到终端，此选项就是默认选项</span>
--m, --format<span class="o">=</span>commas        <span class="c1"># 水平输出，以逗号分割 </span>
--o                         <span class="c1"># 长格式单列输出，等价于&quot;--format-long --no-group&quot;</span>
--w, --width<span class="o">=</span>COLS           <span class="c1"># 将输出宽度设置为COLS个字符，0表示没有限制</span>
+-C,<span class="w"> </span>--format<span class="o">=</span>vertical<span class="w">      </span><span class="c1"># 多列纵向排列</span>
+-x,<span class="w"> </span>--format<span class="o">=</span>across,<span class="w">       </span><span class="c1"># 多列横向排列 </span>
+<span class="w">    </span>--format<span class="o">=</span>horizontal
+-l,<span class="w"> </span>--format<span class="o">=</span>long,<span class="w">         </span><span class="c1"># 单列输出，并显示详细信息</span>
+<span class="w">    </span>--format<span class="o">=</span>verbose
+-1,<span class="w"> </span>--format<span class="o">=</span>single-column<span class="w"> </span><span class="c1"># 单列输出，如果不是输出到终端，此选项就是默认选项</span>
+-m,<span class="w"> </span>--format<span class="o">=</span>commas<span class="w">        </span><span class="c1"># 水平输出，以逗号分割 </span>
+-o<span class="w">                         </span><span class="c1"># 长格式单列输出，等价于&quot;--format-long --no-group&quot;</span>
+-w,<span class="w"> </span>--width<span class="o">=</span>COLS<span class="w">           </span><span class="c1"># 将输出宽度设置为COLS个字符，0表示没有限制</span>
 
 <span class="c1"># 字面值格式</span>
--b, --escape               <span class="c1"># 使用C风格的转义序列表示非可打印字符</span>
--Q, --quote-name           <span class="c1"># 条目名称使用双引号</span>
---quoting-style<span class="o">=</span>WORD       <span class="c1"># 使用WORD将条目名字括起来</span>
-                           <span class="c1"># WORD 的有效值为:</span>
-                           <span class="c1"># literal,locale,shell,shell-always, </span>
-                           <span class="c1"># shell-escape, shell-escape-always, c, escape</span>
--q, --hide-control-chars   <span class="c1"># 不可打印字符用问号代替</span>
---show-control-chars       <span class="c1"># 原样显示不可打印字符，</span>
-                           <span class="c1"># 默认值，除非程序为&quot;ls&quot;，并输出到终端</span>
--N, --literal              <span class="c1"># 打印文件的原始名称，不特别处理控制符</span>
+-b,<span class="w"> </span>--escape<span class="w">               </span><span class="c1"># 使用C风格的转义序列表示非可打印字符</span>
+-Q,<span class="w"> </span>--quote-name<span class="w">           </span><span class="c1"># 条目名称使用双引号</span>
+--quoting-style<span class="o">=</span>WORD<span class="w">       </span><span class="c1"># 使用WORD将条目名字括起来</span>
+<span class="w">                           </span><span class="c1"># WORD 的有效值为:</span>
+<span class="w">                           </span><span class="c1"># literal,locale,shell,shell-always, </span>
+<span class="w">                           </span><span class="c1"># shell-escape, shell-escape-always, c, escape</span>
+-q,<span class="w"> </span>--hide-control-chars<span class="w">   </span><span class="c1"># 不可打印字符用问号代替</span>
+--show-control-chars<span class="w">       </span><span class="c1"># 原样显示不可打印字符，</span>
+<span class="w">                           </span><span class="c1"># 默认值，除非程序为&quot;ls&quot;，并输出到终端</span>
+-N,<span class="w"> </span>--literal<span class="w">              </span><span class="c1"># 打印文件的原始名称，不特别处理控制符</span>
 
 <span class="c1"># 时间格式</span>
---full-time                <span class="c1"># 类似 -l --time-style=full-iso</span>
---time-style<span class="o">=</span>STYLE         <span class="c1"># 和-l一起使用，设置时间格式</span>
-                           <span class="c1"># STYLE: full-iso,long-iso,iso,locale,+FORMAT</span>
-                           <span class="c1"># FORMAT的解释方式类似于&#39;date&#39;；</span>
-                           <span class="c1"># 如果FORMAT是 FORMAT1 &lt;newline&gt; FORMAT2，</span>
-                           <span class="c1"># 则FORMAT1适用于非最新文件，FORMAT2适用于最新文件；</span>
-                           <span class="c1"># 如果STYLE带有&#39;posix-&#39;前缀，</span>
-                           <span class="c1"># 则STYLE仅在POSIX语言环境外生效</span>
+--full-time<span class="w">                </span><span class="c1"># 类似 -l --time-style=full-iso</span>
+--time-style<span class="o">=</span>STYLE<span class="w">         </span><span class="c1"># 和-l一起使用，设置时间格式</span>
+<span class="w">                           </span><span class="c1"># STYLE: full-iso,long-iso,iso,locale,+FORMAT</span>
+<span class="w">                           </span><span class="c1"># FORMAT的解释方式类似于&#39;date&#39;；</span>
+<span class="w">                           </span><span class="c1"># 如果FORMAT是 FORMAT1 &lt;newline&gt; FORMAT2，</span>
+<span class="w">                           </span><span class="c1"># 则FORMAT1适用于非最新文件，FORMAT2适用于最新文件；</span>
+<span class="w">                           </span><span class="c1"># 如果STYLE带有&#39;posix-&#39;前缀，</span>
+<span class="w">                           </span><span class="c1"># 则STYLE仅在POSIX语言环境外生效</span>
 </code></pre></div>
 <p><strong>信息参数</strong></p>
-<div class="highlight"><pre><span></span><code>-i, --inode           <span class="c1"># 为每个条目列出 inode</span>
--s, --size            <span class="c1"># 在开头以块为单位打印每个文件的大小</span>
---author              <span class="c1"># 和-l共用，打印每个文件的所有者</span>
--G, --no-group        <span class="c1"># 和-l共用，不打印组名</span>
--g                    <span class="c1"># 类似-l，但不打印所有者</span>
---block-size<span class="o">=</span>SIZE     <span class="c1"># 以 SIZE 为单位打印每个文件的大小，</span>
-                      <span class="c1"># 例如&#39;--block-size=M&#39;，则以 1024*1024 bytes 为单位</span>
--k, --kilobytes       <span class="c1"># 文件的大小以 1024-byte blocks 为单位</span>
--h, --human-readable  <span class="c1"># 和-l或-s一起使用，文件的大小以可读的方式输出</span>
---si                  <span class="c1"># 类似-h，但使用1000作为底数，而不是1024    </span>
--n, --numeric-uid-gid <span class="c1"># 类似-l, 但用数字表示UID和GID，而不是用户名和组名</span>
--L, --dereference     <span class="c1"># 显示符号链接引用的文件信息，而不是链接本身</span>
--Z, --context         <span class="c1"># 打印文件的 security context</span>
+<div class="highlight"><pre><span></span><code>-i,<span class="w"> </span>--inode<span class="w">           </span><span class="c1"># 为每个条目列出 inode</span>
+-s,<span class="w"> </span>--size<span class="w">            </span><span class="c1"># 在开头以块为单位打印每个文件的大小</span>
+--author<span class="w">              </span><span class="c1"># 和-l共用，打印每个文件的所有者</span>
+-G,<span class="w"> </span>--no-group<span class="w">        </span><span class="c1"># 和-l共用，不打印组名</span>
+-g<span class="w">                    </span><span class="c1"># 类似-l，但不打印所有者</span>
+--block-size<span class="o">=</span>SIZE<span class="w">     </span><span class="c1"># 以 SIZE 为单位打印每个文件的大小，</span>
+<span class="w">                      </span><span class="c1"># 例如&#39;--block-size=M&#39;，则以 1024*1024 bytes 为单位</span>
+-k,<span class="w"> </span>--kilobytes<span class="w">       </span><span class="c1"># 文件的大小以 1024-byte blocks 为单位</span>
+-h,<span class="w"> </span>--human-readable<span class="w">  </span><span class="c1"># 和-l或-s一起使用，文件的大小以可读的方式输出</span>
+--si<span class="w">                  </span><span class="c1"># 类似-h，但使用1000作为底数，而不是1024    </span>
+-n,<span class="w"> </span>--numeric-uid-gid<span class="w"> </span><span class="c1"># 类似-l, 但用数字表示UID和GID，而不是用户名和组名</span>
+-L,<span class="w"> </span>--dereference<span class="w">     </span><span class="c1"># 显示符号链接引用的文件信息，而不是链接本身</span>
+-Z,<span class="w"> </span>--context<span class="w">         </span><span class="c1"># 打印文件的 security context</span>
 </code></pre></div>
 <p><strong>排序参数</strong></p>
-<div class="highlight"><pre><span></span><code>-U, --sort<span class="o">=</span>none           <span class="c1"># 不排序，按它们在磁盘上存储的顺序列出</span>
-                          <span class="c1"># 因为不加排序，目录内容很多时，能显著地加快速度</span>
--f                        <span class="c1"># 不排序，启用&quot;-aU&quot;，禁用&quot;-ls --color&quot;       </span>
--r, --reverse             <span class="c1"># 逆序排序</span>
--t, --sort<span class="o">=</span><span class="nb">time</span>           <span class="c1"># 按 mtime 排序</span>
+<div class="highlight"><pre><span></span><code>-U,<span class="w"> </span>--sort<span class="o">=</span>none<span class="w">           </span><span class="c1"># 不排序，按它们在磁盘上存储的顺序列出</span>
+<span class="w">                          </span><span class="c1"># 因为不加排序，目录内容很多时，能显著地加快速度</span>
+-f<span class="w">                        </span><span class="c1"># 不排序，启用&quot;-aU&quot;，禁用&quot;-ls --color&quot;       </span>
+-r,<span class="w"> </span>--reverse<span class="w">             </span><span class="c1"># 逆序排序</span>
+-t,<span class="w"> </span>--sort<span class="o">=</span><span class="nb">time</span><span class="w">           </span><span class="c1"># 按 mtime 排序</span>
 
--c, --time<span class="o">=</span>ctime, 
-    --time<span class="o">=</span>status         <span class="c1"># 和-lt一起使用，按 ctime 排序，并显示 ctime</span>
-                          <span class="c1"># 和-l一起使用，按文件名排序，显示 ctime</span>
-                          <span class="c1"># 单独使用，按 ctime 纵向排序，时间最新的在最前面</span>
+-c,<span class="w"> </span>--time<span class="o">=</span>ctime,<span class="w"> </span>
+<span class="w">    </span>--time<span class="o">=</span>status<span class="w">         </span><span class="c1"># 和-lt一起使用，按 ctime 排序，并显示 ctime</span>
+<span class="w">                          </span><span class="c1"># 和-l一起使用，按文件名排序，显示 ctime</span>
+<span class="w">                          </span><span class="c1"># 单独使用，按 ctime 纵向排序，时间最新的在最前面</span>
 
--u                        <span class="c1"># 和-lt共用: 显示并以access time排序</span>
-                          <span class="c1"># 和-l共用: 显示access time，以文件名排序</span>
-                          <span class="c1"># 否则以access time排序，最新的优先</span>
+-u<span class="w">                        </span><span class="c1"># 和-lt共用: 显示并以access time排序</span>
+<span class="w">                          </span><span class="c1"># 和-l共用: 显示access time，以文件名排序</span>
+<span class="w">                          </span><span class="c1"># 否则以access time排序，最新的优先</span>
 
--S, --sort<span class="o">=</span>size           <span class="c1"># 按文件大小排序，大文件靠前</span>
--X, --sort<span class="o">=</span>extension      <span class="c1"># 按文件扩展名排序，没有扩展名的先列出</span>
---sort<span class="o">=</span>WORD               <span class="c1"># 按 WORD 排序: none (-U), size (-S), </span>
-                          <span class="c1"># time (-t), version (-v), extension (-X)</span>
---time<span class="o">=</span>WORD               <span class="c1"># 和-l共用，显示WORD时间，而不是modification时间</span>
-                          <span class="c1"># WORD: atime or access or use (-u); </span>
-                          <span class="c1">#       ctime or status (-c); </span>
-                          <span class="c1"># 当与 --sort=time 共用时，WORD是用于排序的时间</span>
---group-directories-first <span class="c1"># 将目录排在文件前面</span>
+-S,<span class="w"> </span>--sort<span class="o">=</span>size<span class="w">           </span><span class="c1"># 按文件大小排序，大文件靠前</span>
+-X,<span class="w"> </span>--sort<span class="o">=</span>extension<span class="w">      </span><span class="c1"># 按文件扩展名排序，没有扩展名的先列出</span>
+--sort<span class="o">=</span>WORD<span class="w">               </span><span class="c1"># 按 WORD 排序: none (-U), size (-S), </span>
+<span class="w">                          </span><span class="c1"># time (-t), version (-v), extension (-X)</span>
+--time<span class="o">=</span>WORD<span class="w">               </span><span class="c1"># 和-l共用，显示WORD时间，而不是modification时间</span>
+<span class="w">                          </span><span class="c1"># WORD: atime or access or use (-u); </span>
+<span class="w">                          </span><span class="c1">#       ctime or status (-c); </span>
+<span class="w">                          </span><span class="c1"># 当与 --sort=time 共用时，WORD是用于排序的时间</span>
+--group-directories-first<span class="w"> </span><span class="c1"># 将目录排在文件前面</span>
 </code></pre></div>
 <h3 id="cd-">cd - 进入目录</h3>
 <details class="abstract"><summary>cd - change working directory - 进入指定目录。</summary></details>
@@ -3012,103 +3262,103 @@ shutdown -c
 <details class="abstract"><summary>pwd - print working directory - 打印当前目录的绝对路径。</summary></details>
 <h3 id="mkdir-">mkdir - 创建目录</h3>
 <details class="abstract"><summary>mkdir - make directory - 创建目录，若目录已存在，默认报错。</summary></details>
-<div class="highlight"><pre><span></span><code>-m, --mode<span class="o">=</span>MODE <span class="c1"># 设置文件权限（类似chmod），不会减去umask</span>
--p, --parents   <span class="c1"># 如果目录已存在不会报错；根据需要创建父目录</span>
--v, --verbose   <span class="c1"># 为创建的每个目录显示一条消息</span>
+<div class="highlight"><pre><span></span><code>-m,<span class="w"> </span>--mode<span class="o">=</span>MODE<span class="w"> </span><span class="c1"># 设置文件权限（类似chmod），不会减去umask</span>
+-p,<span class="w"> </span>--parents<span class="w">   </span><span class="c1"># 如果目录已存在不会报错；根据需要创建父目录</span>
+-v,<span class="w"> </span>--verbose<span class="w">   </span><span class="c1"># 为创建的每个目录显示一条消息</span>
 </code></pre></div>
 <h3 id="rm-">rm - 删除文件或目录</h3>
 <details class="abstract"><summary>rm - remove - 删除文件或目录。</summary></details>
-<div class="highlight"><pre><span></span><code>-f, --force          <span class="c1"># 忽略不存在的文件和参数，从不提示</span>
--i                   <span class="c1"># 在每次删除之前提示，默认行为</span>
--1                   <span class="c1"># 在删除三个以上的文件之前或递归删除时，提示1次</span>
---interactive<span class="o">[=</span>WHEN<span class="o">]</span> <span class="c1"># 根据WHEN进行提示: never, once (-I), or always (-i)</span>
---one-file-system    <span class="c1"># 递归删除时，跳过任何与指定文件系统不同的目录</span>
---no-preserve-root   <span class="c1"># 不保护&#39;/&#39;目录</span>
---preserve-root      <span class="c1"># 不删除&#39;/&#39; (默认)</span>
--r, -R, -recursive   <span class="c1"># 递归删除目录及其内容</span>
--d, --dir            <span class="c1"># 删除空目录</span>
+<div class="highlight"><pre><span></span><code>-f,<span class="w"> </span>--force<span class="w">          </span><span class="c1"># 忽略不存在的文件和参数，从不提示</span>
+-i<span class="w">                   </span><span class="c1"># 在每次删除之前提示，默认行为</span>
+-1<span class="w">                   </span><span class="c1"># 在删除三个以上的文件之前或递归删除时，提示1次</span>
+--interactive<span class="o">[=</span>WHEN<span class="o">]</span><span class="w"> </span><span class="c1"># 根据WHEN进行提示: never, once (-I), or always (-i)</span>
+--one-file-system<span class="w">    </span><span class="c1"># 递归删除时，跳过任何与指定文件系统不同的目录</span>
+--no-preserve-root<span class="w">   </span><span class="c1"># 不保护&#39;/&#39;目录</span>
+--preserve-root<span class="w">      </span><span class="c1"># 不删除&#39;/&#39; (默认)</span>
+-r,<span class="w"> </span>-R,<span class="w"> </span>-recursive<span class="w">   </span><span class="c1"># 递归删除目录及其内容</span>
+-d,<span class="w"> </span>--dir<span class="w">            </span><span class="c1"># 删除空目录</span>
 </code></pre></div>
 <h3 id="rmdir-">rmdir - 删除空目录</h3>
 <details class="abstract"><summary>rmdir - remove directory - 删除空目录。</summary></details>
-<div class="highlight"><pre><span></span><code>--ignore-fail-on-non-empty <span class="c1"># 忽略目录非空导致的失败</span>
--p, --parents              <span class="c1"># 删除目录及其父目录</span>
+<div class="highlight"><pre><span></span><code>--ignore-fail-on-non-empty<span class="w"> </span><span class="c1"># 忽略目录非空导致的失败</span>
+-p,<span class="w"> </span>--parents<span class="w">              </span><span class="c1"># 删除目录及其父目录</span>
 </code></pre></div>
 <h3 id="mv-">mv - 重命名 / 移动文件或目录</h3>
 <details class="abstract"><summary>mv - 移动文件或目录；重命名。</summary></details>
-<div class="highlight"><pre><span></span><code>--backup<span class="o">[=</span>CONTROL<span class="o">]</span>               <span class="c1"># 备份每个现有目标文件</span>
--b                               <span class="c1"># 类似--backup，但不接受参数</span>
--f, --force                      <span class="c1"># 覆盖前不提示</span>
--i, --interactive                <span class="c1"># 覆盖前提示</span>
--n, --no-clobber                 <span class="c1"># 不覆盖现有文件</span>
---strip-trailing-slashes         <span class="c1"># 从每个SOURCE参数中删除所有尾随斜杠</span>
--S, --suffix<span class="o">=</span>SUFFIX              <span class="c1"># 覆盖通常的备份后缀</span>
--t, --target-directory<span class="o">=</span>DIRECTORY <span class="c1"># 将所有的SOURCE移至DIRECTORY</span>
--T, --no-target-directory        <span class="c1"># 将DEST视为普通文件</span>
--u, --update                     <span class="c1"># 仅在SOURCE比DEST更新时，或DEST不存在时移动</span>
+<div class="highlight"><pre><span></span><code>--backup<span class="o">[=</span>CONTROL<span class="o">]</span><span class="w">               </span><span class="c1"># 备份每个现有目标文件</span>
+-b<span class="w">                               </span><span class="c1"># 类似--backup，但不接受参数</span>
+-f,<span class="w"> </span>--force<span class="w">                      </span><span class="c1"># 覆盖前不提示</span>
+-i,<span class="w"> </span>--interactive<span class="w">                </span><span class="c1"># 覆盖前提示</span>
+-n,<span class="w"> </span>--no-clobber<span class="w">                 </span><span class="c1"># 不覆盖现有文件</span>
+--strip-trailing-slashes<span class="w">         </span><span class="c1"># 从每个SOURCE参数中删除所有尾随斜杠</span>
+-S,<span class="w"> </span>--suffix<span class="o">=</span>SUFFIX<span class="w">              </span><span class="c1"># 覆盖通常的备份后缀</span>
+-t,<span class="w"> </span>--target-directory<span class="o">=</span>DIRECTORY<span class="w"> </span><span class="c1"># 将所有的SOURCE移至DIRECTORY</span>
+-T,<span class="w"> </span>--no-target-directory<span class="w">        </span><span class="c1"># 将DEST视为普通文件</span>
+-u,<span class="w"> </span>--update<span class="w">                     </span><span class="c1"># 仅在SOURCE比DEST更新时，或DEST不存在时移动</span>
 </code></pre></div>
 <h3 id="cp-">cp - 复制文件或目录。</h3>
 <p>cp：复制文件或目录。</p>
-<div class="highlight"><pre><span></span><code>-a, --archive         <span class="c1"># 等效于-dR --preserve=all</span>
---attributes-only     <span class="c1"># 不复制文件数据，仅复制属性</span>
---backup<span class="o">[=</span>CONTROL<span class="o">]</span>    <span class="c1"># 对每个存在的目标文件进行备份</span>
--b                    <span class="c1"># 类似--backup，但不接受参数</span>
---copy-contents       <span class="c1"># copy contents of special files when recursive</span>
--d                    <span class="c1"># 等效于--no-dereference --preserve=links</span>
--f, --force           <span class="c1"># 如果已存在的目标文件不能打开，删除它并重试</span>
-                      <span class="c1"># 当-n选项也被使用时，该选项将被忽略 </span>
--i, --interactive     <span class="c1"># 覆盖前提示，该选项会被-n覆盖</span>
--H                    <span class="c1"># follow command-line symbolic links in SOURCE</span>
--l, --link            <span class="c1"># 创建硬链接，而不是复制</span>
--L, --dereference     <span class="c1"># always follow symbolic links in SOURCE</span>
--n, --no-clobber      <span class="c1"># 不要覆盖已有的文件</span>
--P, --no-dereference  <span class="c1"># never follow symbolic links in SOURCE</span>
--p                    <span class="c1"># 等效于--preserve=mode,ownership,timestamps</span>
+<div class="highlight"><pre><span></span><code>-a,<span class="w"> </span>--archive<span class="w">         </span><span class="c1"># 等效于-dR --preserve=all</span>
+--attributes-only<span class="w">     </span><span class="c1"># 不复制文件数据，仅复制属性</span>
+--backup<span class="o">[=</span>CONTROL<span class="o">]</span><span class="w">    </span><span class="c1"># 对每个存在的目标文件进行备份</span>
+-b<span class="w">                    </span><span class="c1"># 类似--backup，但不接受参数</span>
+--copy-contents<span class="w">       </span><span class="c1"># copy contents of special files when recursive</span>
+-d<span class="w">                    </span><span class="c1"># 等效于--no-dereference --preserve=links</span>
+-f,<span class="w"> </span>--force<span class="w">           </span><span class="c1"># 如果已存在的目标文件不能打开，删除它并重试</span>
+<span class="w">                      </span><span class="c1"># 当-n选项也被使用时，该选项将被忽略 </span>
+-i,<span class="w"> </span>--interactive<span class="w">     </span><span class="c1"># 覆盖前提示，该选项会被-n覆盖</span>
+-H<span class="w">                    </span><span class="c1"># follow command-line symbolic links in SOURCE</span>
+-l,<span class="w"> </span>--link<span class="w">            </span><span class="c1"># 创建硬链接，而不是复制</span>
+-L,<span class="w"> </span>--dereference<span class="w">     </span><span class="c1"># always follow symbolic links in SOURCE</span>
+-n,<span class="w"> </span>--no-clobber<span class="w">      </span><span class="c1"># 不要覆盖已有的文件</span>
+-P,<span class="w"> </span>--no-dereference<span class="w">  </span><span class="c1"># never follow symbolic links in SOURCE</span>
+-p<span class="w">                    </span><span class="c1"># 等效于--preserve=mode,ownership,timestamps</span>
 --preserve<span class="o">[=</span>ATTR_LIST<span class="o">]</span><span class="c1"># 尽可能保留指定的属性(default:mode,ownership,timestamps)</span>
-                      <span class="c1"># additional attributes: context, links, xattr,all</span>
---no-preserve<span class="o">=</span>ATTR_LIST <span class="c1"># 不保留指定的属性</span>
---parents             <span class="c1"># 在目标目录下使用完整的源文件名</span>
--R, -r, --recursive   <span class="c1"># 递归复制目录</span>
---reflink<span class="o">[=</span>WHEN<span class="o">]</span>      <span class="c1"># control clone/CoW copies. See below</span>
---remove-destination  <span class="c1"># 复制前，直接移除已存在的目标文件，和--force冲突</span>
---sparse<span class="o">=</span>WHEN         <span class="c1"># control creation of sparse files. See below</span>
---strip-trailing-slashes  <span class="c1"># 移除源文件的尾随斜杠</span>
--s, --symbolic-link   <span class="c1"># 创建符号链接，而不是复制</span>
--S, --suffix<span class="o">=</span>SUFFIX   <span class="c1"># override the usual backup suffix</span>
--t, --target-directory<span class="o">=</span>DIRECTORY <span class="c1"># 复制所有指定的SOURCE到DIRECTORY</span>
--T, --no-target-directory <span class="c1"># 将DEST视为普通文件</span>
--u, --update          <span class="c1"># 只有SOURCE文件比目标文件更新，或目标文件不存在时才复制</span>
+<span class="w">                      </span><span class="c1"># additional attributes: context, links, xattr,all</span>
+--no-preserve<span class="o">=</span>ATTR_LIST<span class="w"> </span><span class="c1"># 不保留指定的属性</span>
+--parents<span class="w">             </span><span class="c1"># 在目标目录下使用完整的源文件名</span>
+-R,<span class="w"> </span>-r,<span class="w"> </span>--recursive<span class="w">   </span><span class="c1"># 递归复制目录</span>
+--reflink<span class="o">[=</span>WHEN<span class="o">]</span><span class="w">      </span><span class="c1"># control clone/CoW copies. See below</span>
+--remove-destination<span class="w">  </span><span class="c1"># 复制前，直接移除已存在的目标文件，和--force冲突</span>
+--sparse<span class="o">=</span>WHEN<span class="w">         </span><span class="c1"># control creation of sparse files. See below</span>
+--strip-trailing-slashes<span class="w">  </span><span class="c1"># 移除源文件的尾随斜杠</span>
+-s,<span class="w"> </span>--symbolic-link<span class="w">   </span><span class="c1"># 创建符号链接，而不是复制</span>
+-S,<span class="w"> </span>--suffix<span class="o">=</span>SUFFIX<span class="w">   </span><span class="c1"># override the usual backup suffix</span>
+-t,<span class="w"> </span>--target-directory<span class="o">=</span>DIRECTORY<span class="w"> </span><span class="c1"># 复制所有指定的SOURCE到DIRECTORY</span>
+-T,<span class="w"> </span>--no-target-directory<span class="w"> </span><span class="c1"># 将DEST视为普通文件</span>
+-u,<span class="w"> </span>--update<span class="w">          </span><span class="c1"># 只有SOURCE文件比目标文件更新，或目标文件不存在时才复制</span>
 </code></pre></div>
 <h3 id="gzip-">gzip  - 压缩文件</h3>
 <h3 id="zcat-gzip">zcat - 读取gzip文件</h3>
 <p>zcat：读取gzip文件，而无需先解压缩它们。</p>
 <h2 id="_4">文件编辑</h2>
 <h3 id="head-">head - 查看文件头部</h3>
-<div class="highlight"><pre><span></span><code>-c, --bytes<span class="o">=[</span>-<span class="o">]</span>NUM    <span class="c1"># 打印每个文件的前NUM个字节</span>
-                      <span class="c1"># 以&#39;-&#39;开头, 打印所有内容，除了最后一个NUM bytes</span>
--n, --lines<span class="o">=[</span>-<span class="o">]</span>NUM    <span class="c1"># 打印前NUM行，默认为前10行</span>
-                      <span class="c1"># 以&#39;-&#39;开头, 打印所有内容，除了最后一个NUM lines</span>
--q, --quiet, --silent <span class="c1"># 不打印标题</span>
--v, --verbose         <span class="c1"># 总是打印标题</span>
--z, --zero-terminated <span class="c1"># 行终止符为NUL，而不是换行符</span>
+<div class="highlight"><pre><span></span><code>-c,<span class="w"> </span>--bytes<span class="o">=[</span>-<span class="o">]</span>NUM<span class="w">    </span><span class="c1"># 打印每个文件的前NUM个字节</span>
+<span class="w">                      </span><span class="c1"># 以&#39;-&#39;开头, 打印所有内容，除了最后一个NUM bytes</span>
+-n,<span class="w"> </span>--lines<span class="o">=[</span>-<span class="o">]</span>NUM<span class="w">    </span><span class="c1"># 打印前NUM行，默认为前10行</span>
+<span class="w">                      </span><span class="c1"># 以&#39;-&#39;开头, 打印所有内容，除了最后一个NUM lines</span>
+-q,<span class="w"> </span>--quiet,<span class="w"> </span>--silent<span class="w"> </span><span class="c1"># 不打印标题</span>
+-v,<span class="w"> </span>--verbose<span class="w">         </span><span class="c1"># 总是打印标题</span>
+-z,<span class="w"> </span>--zero-terminated<span class="w"> </span><span class="c1"># 行终止符为NUL，而不是换行符</span>
 </code></pre></div>
 <h3 id="tail-">tail - 查看文件尾部</h3>
-<div class="highlight"><pre><span></span><code>-c, --bytes<span class="o">=[</span>+<span class="o">]</span>NUM  <span class="c1"># 输出最后NUM个字节；</span>
-                    <span class="c1"># 或使用-c +NUM输出从NUM字节开始的内容</span>
--f,                 <span class="c1"># 显示文件新追加的内容，查看日志文件比较有用</span>
---follow <span class="o">[={</span>name<span class="p">|</span>descriptor<span class="o">}]</span>
--F                  <span class="c1"># 与--follow=name --retry相同</span>
--n, --lines<span class="o">=[</span>+<span class="o">]</span>NUM  <span class="c1"># 输出最后NUM行，默认为最后10行；</span>
-                    <span class="c1"># 或使用-n +NUM从NUM行开始输出</span>
---max-unchanged-stats<span class="o">=</span>N <span class="c1"># 和--follow=name共用</span>
-                        <span class="c1"># 重新打开在N次（默认5次）迭代后未更改大小的FILE，</span>
-                        <span class="c1"># 以查看其是否已取消链接或重命名</span>
-                        <span class="c1">#（这是循环日志文件的常见情况）； </span>
-                        <span class="c1"># 使用inotify时，此选项很少有用</span>
---pid<span class="o">=</span>PID               <span class="c1"># 和-f共用，在进程PID终止之后，停止打印</span>
---retry                 <span class="c1"># 如果无法访问文件，不断尝试</span>
--s, --sleep-interval<span class="o">=</span>N  <span class="c1"># 和-f共用，睡眠大约N秒，默认值为1.0；</span>
-                        <span class="c1"># 和inotify或--pid=P共用，每N秒检查进程PID至少一次</span>
--z, --zero-terminated   <span class="c1"># 行定界符为NUL，而不是换行符</span>
+<div class="highlight"><pre><span></span><code>-c,<span class="w"> </span>--bytes<span class="o">=[</span>+<span class="o">]</span>NUM<span class="w">  </span><span class="c1"># 输出最后NUM个字节；</span>
+<span class="w">                    </span><span class="c1"># 或使用-c +NUM输出从NUM字节开始的内容</span>
+-f,<span class="w">                 </span><span class="c1"># 显示文件新追加的内容，查看日志文件比较有用</span>
+--follow<span class="w"> </span><span class="o">[={</span>name<span class="p">|</span>descriptor<span class="o">}]</span>
+-F<span class="w">                  </span><span class="c1"># 与--follow=name --retry相同</span>
+-n,<span class="w"> </span>--lines<span class="o">=[</span>+<span class="o">]</span>NUM<span class="w">  </span><span class="c1"># 输出最后NUM行，默认为最后10行；</span>
+<span class="w">                    </span><span class="c1"># 或使用-n +NUM从NUM行开始输出</span>
+--max-unchanged-stats<span class="o">=</span>N<span class="w"> </span><span class="c1"># 和--follow=name共用</span>
+<span class="w">                        </span><span class="c1"># 重新打开在N次（默认5次）迭代后未更改大小的FILE，</span>
+<span class="w">                        </span><span class="c1"># 以查看其是否已取消链接或重命名</span>
+<span class="w">                        </span><span class="c1">#（这是循环日志文件的常见情况）； </span>
+<span class="w">                        </span><span class="c1"># 使用inotify时，此选项很少有用</span>
+--pid<span class="o">=</span>PID<span class="w">               </span><span class="c1"># 和-f共用，在进程PID终止之后，停止打印</span>
+--retry<span class="w">                 </span><span class="c1"># 如果无法访问文件，不断尝试</span>
+-s,<span class="w"> </span>--sleep-interval<span class="o">=</span>N<span class="w">  </span><span class="c1"># 和-f共用，睡眠大约N秒，默认值为1.0；</span>
+<span class="w">                        </span><span class="c1"># 和inotify或--pid=P共用，每N秒检查进程PID至少一次</span>
+-z,<span class="w"> </span>--zero-terminated<span class="w">   </span><span class="c1"># 行定界符为NUL，而不是换行符</span>
 </code></pre></div>
 <h3 id="cat-">cat - 显示文件内容</h3>
 <p>cat：在终端显示文件内容、将输入终端的文本保存进文件、将多个文本文件保存到一个文本文件。</p>
@@ -3116,15 +3366,15 @@ shutdown -c
 <li>> ：表示覆盖原内容</li>
 <li>>> ：表示追加</li>
 </ol>
-<div class="highlight"><pre><span></span><code>-A, --show-all          <span class="c1"># 等效于-vET</span>
--b, --number-nonblank     <span class="c1"># 给非空行编号</span>
--e                      <span class="c1"># 等效于-vE</span>
--E, --show-ends         <span class="c1"># 每行末尾显示$</span>
--n, --number            <span class="c1"># 给每行编号</span>
--s, --squeeze-blank     <span class="c1"># 多个连续的空行替换为一个空行</span>
--t                      <span class="c1"># equivalent to -vT</span>
--T, --show-tabs         <span class="c1"># 将TAB characters显示为^I</span>
--v, --show-nonprinting  <span class="c1"># 使用^和M-表示法, LFD和TAB除外</span>
+<div class="highlight"><pre><span></span><code>-A,<span class="w"> </span>--show-all<span class="w">          </span><span class="c1"># 等效于-vET</span>
+-b,<span class="w"> </span>--number-nonblank<span class="w">     </span><span class="c1"># 给非空行编号</span>
+-e<span class="w">                      </span><span class="c1"># 等效于-vE</span>
+-E,<span class="w"> </span>--show-ends<span class="w">         </span><span class="c1"># 每行末尾显示$</span>
+-n,<span class="w"> </span>--number<span class="w">            </span><span class="c1"># 给每行编号</span>
+-s,<span class="w"> </span>--squeeze-blank<span class="w">     </span><span class="c1"># 多个连续的空行替换为一个空行</span>
+-t<span class="w">                      </span><span class="c1"># equivalent to -vT</span>
+-T,<span class="w"> </span>--show-tabs<span class="w">         </span><span class="c1"># 将TAB characters显示为^I</span>
+-v,<span class="w"> </span>--show-nonprinting<span class="w">  </span><span class="c1"># 使用^和M-表示法, LFD和TAB除外</span>
 </code></pre></div>
 <h3 id="less-">less - 浏览文件内容</h3>
 <p>less：分屏上下翻页浏览文件内容。用PageUp键向上翻页，用PageDown键向下翻页。按Q键退出less程序。</p>
@@ -3136,24 +3386,24 @@ shutdown -c
 <p>sort：排序文本（文本可以来自终端输入、也可以来自文件）。</p>
 <h2 id="_5">用户管理</h2>
 <h3 id="who-">who - 当前所有登陆用户的信息</h3>
-<div class="highlight"><pre><span></span><code>-a, --all      <span class="c1"># 等价于调用 &#39;-b -d --login -p -r -t -T -u&#39;</span>
--b, --boot     <span class="c1"># 上次系统启动的时间</span>
--d, --dead     <span class="c1"># 打印 dead 状态的进程</span>
--H, --heading  <span class="c1"># 打印列标题行</span>
--l, --login    <span class="c1"># 打印系统登录进程</span>
---lookup       <span class="c1"># 尝试通过 DNS 规范主机名</span>
--m             <span class="c1"># 仅显示和标准输入关联的主机名和用户</span>
--p, --process  <span class="c1"># 打印由 init 生成的活动进程</span>
--q, --count    <span class="c1"># 列出所有已登录用户的名称和数量</span>
--r, --runlevel <span class="c1"># 打印当前运行级别</span>
--s, --short    <span class="c1"># 仅打印名称、行和时间（默认）</span>
--t, --time     <span class="c1"># 打印上次系统时钟更改</span>
--u, --users    <span class="c1"># 列出登录的用户</span>
--T, -w, --mesg, --message, --writable 
-               <span class="c1"># 将&quot;+、-、?&quot;中的一个作为用户的消息状态添加到用户名称后面</span>
-               <span class="c1">#   &#39;+&#39;  允许写入信息</span>
-               <span class="c1">#   &#39;-&#39;  禁止写入信息</span>
-               <span class="c1">#   &#39;?&#39;  不能查找到终端设备</span>
+<div class="highlight"><pre><span></span><code>-a,<span class="w"> </span>--all<span class="w">      </span><span class="c1"># 等价于调用 &#39;-b -d --login -p -r -t -T -u&#39;</span>
+-b,<span class="w"> </span>--boot<span class="w">     </span><span class="c1"># 上次系统启动的时间</span>
+-d,<span class="w"> </span>--dead<span class="w">     </span><span class="c1"># 打印 dead 状态的进程</span>
+-H,<span class="w"> </span>--heading<span class="w">  </span><span class="c1"># 打印列标题行</span>
+-l,<span class="w"> </span>--login<span class="w">    </span><span class="c1"># 打印系统登录进程</span>
+--lookup<span class="w">       </span><span class="c1"># 尝试通过 DNS 规范主机名</span>
+-m<span class="w">             </span><span class="c1"># 仅显示和标准输入关联的主机名和用户</span>
+-p,<span class="w"> </span>--process<span class="w">  </span><span class="c1"># 打印由 init 生成的活动进程</span>
+-q,<span class="w"> </span>--count<span class="w">    </span><span class="c1"># 列出所有已登录用户的名称和数量</span>
+-r,<span class="w"> </span>--runlevel<span class="w"> </span><span class="c1"># 打印当前运行级别</span>
+-s,<span class="w"> </span>--short<span class="w">    </span><span class="c1"># 仅打印名称、行和时间（默认）</span>
+-t,<span class="w"> </span>--time<span class="w">     </span><span class="c1"># 打印上次系统时钟更改</span>
+-u,<span class="w"> </span>--users<span class="w">    </span><span class="c1"># 列出登录的用户</span>
+-T,<span class="w"> </span>-w,<span class="w"> </span>--mesg,<span class="w"> </span>--message,<span class="w"> </span>--writable<span class="w"> </span>
+<span class="w">               </span><span class="c1"># 将&quot;+、-、?&quot;中的一个作为用户的消息状态添加到用户名称后面</span>
+<span class="w">               </span><span class="c1">#   &#39;+&#39;  允许写入信息</span>
+<span class="w">               </span><span class="c1">#   &#39;-&#39;  禁止写入信息</span>
+<span class="w">               </span><span class="c1">#   &#39;?&#39;  不能查找到终端设备</span>
 </code></pre></div>
 <h3 id="whoami-id">whoami - 打印与当前有效用户ID关联的用户名。</h3>
 <h3 id="chmod-">chmod - 更改权限</h3>
@@ -3239,16 +3489,16 @@ shutdown -c
 </tr>
 </tbody>
 </table>
-<div class="highlight"><pre><span></span><code>Usage: chmod <span class="o">[{</span>ugoa<span class="o">}{</span>+-<span class="o">=}{</span>rwx<span class="o">}]</span> <span class="o">[</span>文件或目录<span class="o">]</span> 
-             <span class="o">[</span><span class="nv">mode</span><span class="o">=</span><span class="m">421</span><span class="o">]</span> <span class="o">[</span>文件或目录<span class="o">]</span>
--c, --changes      <span class="c1"># 当文件的权限更改时输出操作信息</span>
---no-preserve-root <span class="c1"># 不保护根目录，默认选项</span>
---preserve-root    <span class="c1"># 不能在根目录下递归操作</span>
--f, --silent,      <span class="c1"># 抑制多数错误消息的输出</span>
-    --quiet 
--v, --verbose      <span class="c1"># 无论文件是否更改了权限，一律输出操作信息</span>
---reference<span class="o">=</span>RFILE  <span class="c1"># 使用参考文件或参考目录RFILE的权限来设置目标文件或目录的权限</span>
--R, --recursive    <span class="c1"># 递归更改权限</span>
+<div class="highlight"><pre><span></span><code>Usage:<span class="w"> </span>chmod<span class="w"> </span><span class="o">[{</span>ugoa<span class="o">}{</span>+-<span class="o">=}{</span>rwx<span class="o">}]</span><span class="w"> </span><span class="o">[</span>文件或目录<span class="o">]</span><span class="w"> </span>
+<span class="w">             </span><span class="o">[</span><span class="nv">mode</span><span class="o">=</span><span class="m">421</span><span class="o">]</span><span class="w"> </span><span class="o">[</span>文件或目录<span class="o">]</span>
+-c,<span class="w"> </span>--changes<span class="w">      </span><span class="c1"># 当文件的权限更改时输出操作信息</span>
+--no-preserve-root<span class="w"> </span><span class="c1"># 不保护根目录，默认选项</span>
+--preserve-root<span class="w">    </span><span class="c1"># 不能在根目录下递归操作</span>
+-f,<span class="w"> </span>--silent,<span class="w">      </span><span class="c1"># 抑制多数错误消息的输出</span>
+<span class="w">    </span>--quiet<span class="w"> </span>
+-v,<span class="w"> </span>--verbose<span class="w">      </span><span class="c1"># 无论文件是否更改了权限，一律输出操作信息</span>
+--reference<span class="o">=</span>RFILE<span class="w">  </span><span class="c1"># 使用参考文件或参考目录RFILE的权限来设置目标文件或目录的权限</span>
+-R,<span class="w"> </span>--recursive<span class="w">    </span><span class="c1"># 递归更改权限</span>
 </code></pre></div>
 <h2 id="_6">程序管理</h2>
 <p>ps
@@ -3264,25 +3514,25 @@ sleep 10 &amp;
 <p>kill：删除执行中的程序或工作。</p>
 <h2 id="_7">磁盘管理</h2>
 <h3 id="df-">df  - 显示磁盘相关信息</h3>
-<div class="highlight"><pre><span></span><code>df .
-% 显示当前目录磁盘相关信息（文件系统、挂载点等等）
+<div class="highlight"><pre><span></span><code>df<span class="w"> </span>.
+%<span class="w"> </span>显示当前目录磁盘相关信息（文件系统、挂载点等等）
 </code></pre></div>
 <h3 id="du-">du - 显示每个子目录使用的千字节数</h3>
 <p>du：du 命令输出每个子目录使用的千字节数。如果磁盘空间不足，希望找出哪个目录中的文件最多，则此选项非常有用。</p>
-<div class="highlight"><pre><span></span><code>du -s *
+<div class="highlight"><pre><span></span><code>du<span class="w"> </span>-s<span class="w"> </span>*
 </code></pre></div>
 <h3 id="file-">file - 文件分类</h3>
 <p>file：根据命名文件包含的数据类型对其进行分类，例如 ascii（文本）、图片、压缩数据等。 </p>
-<div class="highlight"><pre><span></span><code>file *
-％　报告主目录中的所有文件
+<div class="highlight"><pre><span></span><code>file<span class="w"> </span>*
+％<span class="w">　</span>报告主目录中的所有文件
 </code></pre></div>
 <h3 id="find-">find - 查找文件</h3>
 <p>find：这将在目录中搜索具有给定名称、日期、大小或任何其他要指定的属性的文件和目录。这是一个简单的命令，但有许多选项，可以通过键入man find来阅读手册。</p>
 <p>例如：要搜索扩展名为<code>.txt</code>的所有文件，从当前目录（.）开始，遍历所有子目录，然后将文件名打印到屏幕上：</p>
-<div class="highlight"><pre><span></span><code>find . -name <span class="s2">&quot;*.txt&quot;</span> -print
+<div class="highlight"><pre><span></span><code>find<span class="w"> </span>.<span class="w"> </span>-name<span class="w"> </span><span class="s2">&quot;*.txt&quot;</span><span class="w"> </span>-print
 </code></pre></div>
 <p>搜索当前目录中大于１兆的文件：</p>
-<div class="highlight"><pre><span></span><code>find . -size +1M -ls
+<div class="highlight"><pre><span></span><code>find<span class="w"> </span>.<span class="w"> </span>-size<span class="w"> </span>+1M<span class="w"> </span>-ls
 </code></pre></div>
 <h2 id="_8">参考网址</h2>
 <p>https://www.linuxcool.com/</p>
@@ -3290,9 +3540,15 @@ sleep 10 &amp;
 <p>https://www.runoob.com/linux/linux-command-manual.html</p>
 <p>http://c.biancheng.net/linux_tutorial/10/</p>
 
-              
-            </article>
-          </div>
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
         </div>
         
       </main>
@@ -3319,10 +3575,11 @@ sleep 10 &amp;
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "translations": {"clipboard.copy": "\u590d\u5236", "clipboard.copied": "\u5df2\u590d\u5236", "search.config.lang": "ja", "search.config.pipeline": "trimmer, stemmer", "search.config.separator": "[\\uff0c\\u3002]+", "search.placeholder": "\u641c\u7d22", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.term.missing": "\u7f3a\u5c11", "select.version.title": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "search": "../../assets/javascripts/workers/search.bd0b6b67.min.js"}</script>
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "search": "../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.467223ff.min.js"></script>
+      <script src="../../assets/javascripts/bundle.51198bba.min.js"></script>
       
         <script src="../../javascript/extra.js"></script>
       
