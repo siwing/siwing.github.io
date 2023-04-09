@@ -1,0 +1,3328 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://siwing.github.io/JavaScriptNote/1.1.JS%E5%9F%BA%E7%A1%80_%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95.html">
+      
+      
+        <link rel="prev" href="index.html">
+      
+      
+        <link rel="next" href="1.4.JS%E5%9F%BA%E7%A1%80_%E8%AF%AD%E5%8F%A5.html">
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.6">
+    
+    
+      
+        <title>基本语法 - SW Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ded33207.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.a0c5b2b5.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ecmascript" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href=".." title="SW Documentation" class="md-header__button md-logo" aria-label="SW Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            SW Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              基本语法
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/siwing/siwing.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../index.html" class="md-tabs__link">
+        Math
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Python3/index.html" class="md-tabs__link">
+        Python 3
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../C%23/1.%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.html" class="md-tabs__link">
+        C Sharp
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="index.html" class="md-tabs__link md-tabs__link--active">
+        JavaScript
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../Flutter/Vivo%20phone%20system%20log%20output%20problem.html" class="md-tabs__link">
+        Flutter
+      </a>
+    </li>
+  
+
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="SW Documentation" class="md-nav__button md-logo" aria-label="SW Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    SW Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/siwing/siwing.github.io" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+          Math
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Math
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        Math Resource
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          Python 3
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Python 3
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/index.html" class="md-nav__link">
+        Python Resource
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+          计算机基础
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          计算机基础
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/1.1.CPU.html" class="md-nav__link">
+        1.1.CPU
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/1.2.Memory.html" class="md-nav__link">
+        1.2.Memory
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/1.3.%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5.html" class="md-nav__link">
+        1.3.基本概念
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/1.4.%E7%BC%96%E8%AF%91%E5%9E%8B%E8%AF%AD%E8%A8%80%E5%92%8C%E8%A7%A3%E9%87%8A%E5%9E%8B%E8%AF%AD%E8%A8%80%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9%E5%AF%B9%E6%AF%94.html" class="md-nav__link">
+        1.4.编译型语言 vs 解释型语言
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80/1.5.%E5%AD%97%E7%AC%A6%E7%BC%96%E7%A0%81.html" class="md-nav__link">
+        1.5.字符编码
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+          Python基础
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Python基础
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/Python%E5%9F%BA%E7%A1%80/2.1.Python%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95.html" class="md-nav__link">
+        2.1.Python基本语法
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/Python%E5%9F%BA%E7%A1%80/2.2.%E8%AF%AD%E5%8F%A5.html" class="md-nav__link">
+        2.2.语句
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/Python%E5%9F%BA%E7%A1%80/2.3.%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.html" class="md-nav__link">
+        2.3.数据类型
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/Python%E5%9F%BA%E7%A1%80/2.4.Number.html" class="md-nav__link">
+        2.4.Number
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/Python%E5%9F%BA%E7%A1%80/2.5.String.html" class="md-nav__link">
+        2.5.String
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/Python%E5%9F%BA%E7%A1%80/2.6.List.html" class="md-nav__link">
+        2.6.List
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/Python%E5%9F%BA%E7%A1%80/2.7.Tuple.html" class="md-nav__link">
+        2.7.Tuple
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/Python%E5%9F%BA%E7%A1%80/2.8.Dict.html" class="md-nav__link">
+        2.8.Dict
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/Python%E5%9F%BA%E7%A1%80/2.9.%E7%AE%80%E6%B4%81%E7%9A%84Python.html" class="md-nav__link">
+        2.9.简洁的Python
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/Python%E5%9F%BA%E7%A1%80/2.10.%E8%B5%8B%E5%80%BC%E4%B8%8E%E6%B7%B1%E6%8B%B7%E8%B4%9D.html" class="md-nav__link">
+        2.10.赋值与深拷贝
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/Python%E5%9F%BA%E7%A1%80/2.11.%E5%87%BD%E6%95%B0.html" class="md-nav__link">
+        2.11.函数
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/Python%E5%9F%BA%E7%A1%80/2.12.%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0.html" class="md-nav__link">
+        2.12.内置函数
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/Python%E5%9F%BA%E7%A1%80/2.13.%E7%AE%80%E6%B4%81%E7%9A%84Python.html" class="md-nav__link">
+        2.13.简洁的Python
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/Python%E5%9F%BA%E7%A1%80/3.1.%E5%BC%82%E5%B8%B8.html" class="md-nav__link">
+        3.1.异常
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/Python%E5%9F%BA%E7%A1%80/3.2.%E5%91%BD%E5%90%8D%E7%A9%BA%E9%97%B4%E5%92%8C%E4%BD%9C%E7%94%A8%E5%9F%9F.html" class="md-nav__link">
+        3.2.命名空间和作用域
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/Python%E5%9F%BA%E7%A1%80/3.3.%E9%97%AD%E5%8C%85.html" class="md-nav__link">
+        3.3.闭包
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/Python%E5%9F%BA%E7%A1%80/3.4.%E8%A3%85%E9%A5%B0%E5%99%A8.html" class="md-nav__link">
+        3.4.装饰器
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/Python%E5%9F%BA%E7%A1%80/4.1.%E7%B1%BB.html" class="md-nav__link">
+        4.1.类
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/Python%E5%9F%BA%E7%A1%80/4.2.%E5%A4%9A%E9%87%8D%E7%BB%A7%E6%89%BF%E5%92%8CMRO.html" class="md-nav__link">
+        4.2.多重继承和MRO
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/Python%E5%9F%BA%E7%A1%80/4.3.%E6%A8%A1%E5%9D%97.html" class="md-nav__link">
+        4.3.模块
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/Python%E5%9F%BA%E7%A1%80/4.4.%E9%AD%94%E6%9C%AF%E6%96%B9%E6%B3%95.html" class="md-nav__link">
+        4.4.魔术方法
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+          开发环境管理
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          开发环境管理
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%AE%A1%E7%90%86/5.1.conda%E7%AC%94%E8%AE%B0.html" class="md-nav__link">
+        5.1.conda笔记
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%AE%A1%E7%90%86/5.2.pip%E7%AC%94%E8%AE%B0.html" class="md-nav__link">
+        5.2.pip笔记
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%AE%A1%E7%90%86/5.3.pip%E5%AF%B9%E6%AF%94conda.html" class="md-nav__link">
+        5.3.pip对比conda
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%AE%A1%E7%90%86/5.4.anaconda.html" class="md-nav__link">
+        5.4.anaconda
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E7%AE%A1%E7%90%86/5.5.jupyter%E4%BD%BF%E7%94%A8%E7%AC%94%E8%AE%B0.html" class="md-nav__link">
+        5.5.jupyter使用笔记
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+          标准库
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_5">
+          <span class="md-nav__icon md-icon"></span>
+          标准库
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/%E6%A0%87%E5%87%86%E5%BA%93/6.1.string.html" class="md-nav__link">
+        6.1.string
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/%E6%A0%87%E5%87%86%E5%BA%93/6.2.textwrap.html" class="md-nav__link">
+        6.2.textwrap
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/%E6%A0%87%E5%87%86%E5%BA%93/6.3.time.html" class="md-nav__link">
+        6.3.time
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/%E6%A0%87%E5%87%86%E5%BA%93/6.4.datetime.html" class="md-nav__link">
+        6.4.datetime
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/%E6%A0%87%E5%87%86%E5%BA%93/6.5.calendar.html" class="md-nav__link">
+        6.5.calendar
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/%E6%A0%87%E5%87%86%E5%BA%93/6.7.urllib.html" class="md-nav__link">
+        6.7.urllib
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/%E6%A0%87%E5%87%86%E5%BA%93/6.8.requests.html" class="md-nav__link">
+        6.8.requests
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/%E6%A0%87%E5%87%86%E5%BA%93/6.9.re.html" class="md-nav__link">
+        6.9.re
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/%E6%A0%87%E5%87%86%E5%BA%93/6.10.os_path.html" class="md-nav__link">
+        6.10.os.path
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/%E6%A0%87%E5%87%86%E5%BA%93/6.11.traceback.html" class="md-nav__link">
+        6.11.traceback
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/%E6%A0%87%E5%87%86%E5%BA%93/6.12.enum.html" class="md-nav__link">
+        6.12.enum
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/%E6%A0%87%E5%87%86%E5%BA%93/6.13.difflib%E2%80%94%E2%80%94%E5%AD%97%E7%AC%A6%E6%AF%94%E8%BE%83.html" class="md-nav__link">
+        6.13.difflib——字符比较
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/%E6%A0%87%E5%87%86%E5%BA%93/6.14.logging.html" class="md-nav__link">
+        6.14.logging
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/%E6%A0%87%E5%87%86%E5%BA%93/6.15.Compression_Archiving.html" class="md-nav__link">
+        6.15.Compression_Archiving
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/%E6%A0%87%E5%87%86%E5%BA%93/6.16.shutil.html" class="md-nav__link">
+        6.16.shutil
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+          设计模式
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_6">
+          <span class="md-nav__icon md-icon"></span>
+          设计模式
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/7.1.%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E5%9F%BA%E7%A1%80.html" class="md-nav__link">
+        7.1.面向对象程序设计基础
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/7.2.%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99.html" class="md-nav__link">
+        7.2.面向对象软件设计原则
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/7.3.%E5%88%9B%E5%BB%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F.html" class="md-nav__link">
+        7.3.创建型模式
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/设计模式/7.4.结构型模式.md" class="md-nav__link">
+        7.4.结构型模式
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_7" id="__nav_2_7_label" tabindex="0">
+          NumPy
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_7">
+          <span class="md-nav__icon md-icon"></span>
+          NumPy
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/NumPy/8.1.%E5%88%9B%E5%BB%BA%E6%95%B0%E7%BB%84.html" class="md-nav__link">
+        8.1.创建数组
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/NumPy/8.2.%E7%B4%A2%E5%BC%95.html" class="md-nav__link">
+        8.2.索引
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/NumPy/8.3.%E5%86%85%E5%AD%98%E5%B8%83%E5%B1%80.html" class="md-nav__link">
+        8.3.内存布局
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/NumPy/8.4.%E5%B9%BF%E6%92%AD.html" class="md-nav__link">
+        8.4.广播
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/NumPy/8.5.%E5%B8%B8%E9%87%8F.html" class="md-nav__link">
+        8.5.常量
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/NumPy/8.6.%E6%89%93%E5%8D%B0%E6%95%B0%E7%BB%84.html" class="md-nav__link">
+        8.6.打印数组
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/NumPy/8.7.%E6%95%B0%E7%BB%84%E6%93%8D%E4%BD%9C.html" class="md-nav__link">
+        8.7.数组操作
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/NumPy/8.8.ufunc%E5%87%BD%E6%95%B0.html" class="md-nav__link">
+        8.8.ufunc函数
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/NumPy/8.9.%E5%87%BD%E6%95%B0%E5%BA%93.html" class="md-nav__link">
+        8.9.函数库
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/NumPy/8.10.%E4%BF%9D%E5%AD%98%E5%92%8C%E5%8A%A0%E8%BD%BD.html" class="md-nav__link">
+        8.10.保存和加载
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/NumPy/8.11.%E7%BB%93%E6%9E%84%E5%8C%96%E6%95%B0%E7%BB%84.html" class="md-nav__link">
+        8.11.结构化数组
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/NumPy/8.12.%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86.html" class="md-nav__link">
+        8.12.数据处理
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_8" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_8" id="__nav_2_8_label" tabindex="0">
+          pandas
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_8_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_8">
+          <span class="md-nav__icon md-icon"></span>
+          pandas
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/pandas/9.1.Series.html" class="md-nav__link">
+        9.1.Series
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/pandas/9.2.DataFra.html" class="md-nav__link">
+        9.2.DataFra
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/pandas/9.3.%E9%80%89%E6%8B%A9%E6%95%B0%E6%8D%AE.html" class="md-nav__link">
+        9.3.选择数据
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/pandas/9.4.%E7%B4%A2%E5%BC%95%E5%AF%B9%E8%B1%A1.html" class="md-nav__link">
+        9.4.索引对象
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/pandas/9.5.%E9%80%89%E6%8B%A9%E6%95%B0%E6%8D%AE%E8%BF%9B%E9%98%B6.html" class="md-nav__link">
+        9.5.选择数据进阶
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/pandas/9.6.%E7%B4%A2%E5%BC%95%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C.html" class="md-nav__link">
+        9.6.索引的基本操作
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/pandas/9.7.%E6%8B%BC%E6%8E%A5.html" class="md-nav__link">
+        9.7.拼接
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/pandas/9.8.%E5%8F%98%E6%8D%A2%E7%B4%A2%E5%BC%95.html" class="md-nav__link">
+        9.8.变换索引
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/pandas/9.9.%E5%88%86%E7%BB%84%E4%B8%8E%E8%81%9A%E5%90%88.html" class="md-nav__link">
+        9.9.分组与聚合
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/pandas/9.10.%E7%BB%98%E5%9B%BE.html" class="md-nav__link">
+        9.10.绘图
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/pandas/9.11.%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86.html" class="md-nav__link">
+        9.11.数据处理
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_9" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_9" id="__nav_2_9_label" tabindex="0">
+          Matplotlib
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_9_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_9">
+          <span class="md-nav__icon md-icon"></span>
+          Matplotlib
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/Matplotlib/10.1.%E6%9E%B6%E6%9E%84.html" class="md-nav__link">
+        10.1.架构
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/Matplotlib/10.2.plot.html" class="md-nav__link">
+        10.2.plot
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_10" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_10" id="__nav_2_10_label" tabindex="0">
+          scikit-learn
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_10_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_10">
+          <span class="md-nav__icon md-icon"></span>
+          scikit-learn
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/scikit-learn/11.1.%E6%95%B0%E6%8D%AE%E9%9B%86.html" class="md-nav__link">
+        11.1.数据集
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/scikit-learn/11.2.%E8%AF%84%E4%BB%B7%E6%8C%87%E6%A0%87.html" class="md-nav__link">
+        11.2.评价指标-分类
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/scikit-learn/11.5.%E6%8B%86%E5%88%86%E6%95%B0%E6%8D%AE.html" class="md-nav__link">
+        11.5.拆分数据
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/scikit-learn/11.6.%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81.html" class="md-nav__link">
+        11.6.交叉验证
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/scikit-learn/11.7.%E8%B6%85%E5%8F%82%E6%95%B0%E5%AF%BB%E4%BC%98.html" class="md-nav__link">
+        11.7.超参数寻优
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/scikit-learn/11.8.%E4%BF%9D%E5%AD%98%E6%A8%A1%E5%9E%8B.html" class="md-nav__link">
+        11.8.保存模型
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/scikit-learn/11.9.%E7%89%B9%E5%BE%81%E5%A4%84%E7%90%86.html" class="md-nav__link">
+        11.9.特征处理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/scikit-learn/11.10.%E8%BD%AC%E6%8D%A2%E9%A2%84%E6%B5%8B%E7%9B%AE%E6%A0%87y.html" class="md-nav__link">
+        11.10.转换预测目标y
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/scikit-learn/11.11.%E7%89%B9%E5%BE%81%E9%80%89%E6%8B%A9.html" class="md-nav__link">
+        11.11.特征选择
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/scikit-learn/11.12.%E7%89%B9%E5%BE%81%E6%8F%90%E5%8F%96.html" class="md-nav__link">
+        11.12.特征提取
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/scikit-learn/11.13.%E7%BC%BA%E5%A4%B1%E5%80%BC%E5%A4%84%E7%90%86.html" class="md-nav__link">
+        11.13.缺失值处理
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/scikit-learn/11.14.%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92.html" class="md-nav__link">
+        11.14.线性回归
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/scikit-learn/11.15.%E5%86%B3%E7%AD%96%E6%A0%91.html" class="md-nav__link">
+        11.15.决策树
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_11" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_11" id="__nav_2_11_label" tabindex="0">
+          TensorFlow
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_11_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_11">
+          <span class="md-nav__icon md-icon"></span>
+          TensorFlow
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/TensorFlow/12.1.keras%E6%95%B0%E6%8D%AE%E9%9B%86.html" class="md-nav__link">
+        12.1.keras数据集
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/TensorFlow/12.2.create%20tensor.html" class="md-nav__link">
+        12.2.创建张量
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/TensorFlow/12.3.%E5%BC%A0%E9%87%8F%E8%BF%9B%E9%98%B6%E6%93%8D%E4%BD%9C.html" class="md-nav__link">
+        12.3.张量进阶操作
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/TensorFlow/12.4.Differentiation.html" class="md-nav__link">
+        12.4.求导
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/TensorFlow/12.5.%E5%8F%AF%E7%94%A8%E6%80%A7%E6%B5%8B%E8%AF%95.html" class="md-nav__link">
+        12.5.可用性测试
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/TensorFlow/12.6.Perceptron.html" class="md-nav__link">
+        12.6.Perceptron
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/TensorFlow/12.7.keras%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B.html" class="md-nav__link">
+        12.7.keras快速开始
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/TensorFlow/12.8.math%20operations.html" class="md-nav__link">
+        12.8.数学运算
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/TensorFlow/12.9.%E6%A8%A1%E5%9E%8B%E7%9A%84%E4%BF%9D%E5%AD%98%E4%B8%8E%E5%AF%BC%E5%85%A5.html" class="md-nav__link">
+        12.9.模型的保存与导入
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_12" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_12" id="__nav_2_12_label" tabindex="0">
+          爬虫
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_12_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_12">
+          <span class="md-nav__icon md-icon"></span>
+          爬虫
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/%E7%88%AC%E8%99%AB/13.1.lxml.html" class="md-nav__link">
+        13.1.lxml
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/%E7%88%AC%E8%99%AB/13.3.pyquery.html" class="md-nav__link">
+        13.3.pyquery
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_13" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_13" id="__nav_2_13_label" tabindex="0">
+          gensim
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_13_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_13">
+          <span class="md-nav__icon md-icon"></span>
+          gensim
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/gensim/14.1.word2vec%20model.html" class="md-nav__link">
+        14.1.word2vec model
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/gensim/14.2.word2vec%E5%8F%82%E6%95%B0.html" class="md-nav__link">
+        14.2.word2vec参数
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_14" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_14" id="__nav_2_14_label" tabindex="0">
+          数据库
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_14_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_14">
+          <span class="md-nav__icon md-icon"></span>
+          数据库
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/%E6%95%B0%E6%8D%AE%E5%BA%93/15.1.DBAPI.html" class="md-nav__link">
+        15.1.DBAPI
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/%E6%95%B0%E6%8D%AE%E5%BA%93/15.2.PostgreSQL.html" class="md-nav__link">
+        15.2.PostgreSQL
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/%E6%95%B0%E6%8D%AE%E5%BA%93/15.3.MSSQL.html" class="md-nav__link">
+        15.3.MSSQL
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/%E6%95%B0%E6%8D%AE%E5%BA%93/15.4.SQLite.html" class="md-nav__link">
+        15.4.SQLite
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/%E6%95%B0%E6%8D%AE%E5%BA%93/15.5.SQLAlchemy.html" class="md-nav__link">
+        15.5.SQLAlchemy
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_15" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_15" id="__nav_2_15_label" tabindex="0">
+          文件操作
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_15_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_15">
+          <span class="md-nav__icon md-icon"></span>
+          文件操作
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/16.2.PDF.html" class="md-nav__link">
+        16.2.PDF
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/16.3.docx.html" class="md-nav__link">
+        16.3.docx
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C/16.4.OCR.html" class="md-nav__link">
+        16.4.OCR
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_16" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_16" id="__nav_2_16_label" tabindex="0">
+          Docker
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_16_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_16">
+          <span class="md-nav__icon md-icon"></span>
+          Docker
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/Docker/17.2.Dockerfile.html" class="md-nav__link">
+        17.2.Python3/Dockerfile
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/Docker/17.3.Image.html" class="md-nav__link">
+        17.3.Image
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_17" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_17" id="__nav_2_17_label" tabindex="0">
+          Linux
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_17_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_17">
+          <span class="md-nav__icon md-icon"></span>
+          Linux
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Python3/Linux/18.1.%E7%9B%AE%E5%BD%95%E8%A7%84%E8%8C%83.html" class="md-nav__link">
+        18.1.目录规范
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          C Sharp
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          C Sharp
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../C%23/1.%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.html" class="md-nav__link">
+        1.数据类型
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          JavaScript
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          JavaScript
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        JavaScript Resource
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          基本语法
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="1.1.JS%E5%9F%BA%E7%A1%80_%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95.html" class="md-nav__link md-nav__link--active">
+        基本语法
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ecmascript" class="md-nav__link">
+    ECMAScript
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    保留字
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    标识符命名规则
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    注释
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    语句分隔符和语句终止符
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    空格
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    字符转义
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    声明和初始化
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    复合声明和赋值*
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    命名空间和作用域
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    相等操作
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    内置原子类型（基本类型）
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    内置复合类型（对象类型）
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    函数
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="1.4.JS%E5%9F%BA%E7%A1%80_%E8%AF%AD%E5%8F%A5.html" class="md-nav__link">
+        语句
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="1.2.JS%E5%9F%BA%E7%A1%80_%E5%86%85%E7%BD%AE%E5%8E%9F%E5%AD%90%E7%B1%BB%E5%9E%8B.html" class="md-nav__link">
+        内置原子类型
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="1.3.JS%E5%9F%BA%E7%A1%80_%E5%86%85%E7%BD%AE%E5%A4%8D%E5%90%88%E7%B1%BB%E5%9E%8B.html" class="md-nav__link">
+        内置复合类型
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+          Flutter
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Flutter
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5_1" id="__nav_5_1_label" tabindex="0">
+          Issues
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_5_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_5_1">
+          <span class="md-nav__icon md-icon"></span>
+          Issues
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Flutter/Vivo%20phone%20system%20log%20output%20problem.html" class="md-nav__link">
+        1.1.Vivo phone
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ecmascript" class="md-nav__link">
+    ECMAScript
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    保留字
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    标识符命名规则
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    注释
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    语句分隔符和语句终止符
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    空格
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    字符转义
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    声明和初始化
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    复合声明和赋值*
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    命名空间和作用域
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    相等操作
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    内置原子类型（基本类型）
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    内置复合类型（对象类型）
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    函数
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+  <h1>基本语法</h1>
+
+<h2 id="ecmascript">ECMAScript</h2>
+<p>JavaScript 在 1995 年由 Netscape 公司（网景公司）的 <a href="https://link.segmentfault.com/?enc=XRE1%2FcB9WRKJyqdZvL8y8w%3D%3D.KoXlShjuQHHCaFCBGfDFzpI17K6Ek1POn3qmCJdUOZus8Kol2SCcJ7%2FqCuR3gDVE8H1Fa7VvcXItwRshb2XP%2FQ%3D%3D">Brendan Eich</a> 在网景导航者浏览器上首次设计实现。1996 年 11 月，Netscape 公司希望能将这门语言制定成国际标准，于是将 JavaScript 提交至国际标准化组织 ECMA（Ecma International）。次年，ECMA 发布了<a href="https://www.ecma-international.org/publications-and-standards/standards/ecma-262/">ECMA-262号标准文件</a>的第一版，规定了 JavaScript 的标准化规范，并将这门标准化的脚本语言称为 ECMAScript。</p>
+<p>既然 ECMAScript 从始至终就是针对 JavaScript 语言制定的，那为什么不直接叫做 JavaScript 呢？考虑以下两点原因：</p>
+<ol>
+<li>版权原因：Java 是 Sun 公司的商标，根据授权协议，只有 Netscape 公司可以合法地使用 JavaScript 这个名字，而且 JavaScript 早已被 Netscape 公司注册为商标。</li>
+<li>ECMA 也希望体现这门语言的规范是由 ECMA 制定，而不是 Netscape，这样也能更好地保证这门语言的开放性和中立性。</li>
+</ol>
+<p>因此，ECMAScript 是 JavaScript 的规范，而 JavaScript 是 ECMAScript 的其中一种实现。</p>
+<h2 id="_1">保留字</h2>
+<p>ECMAScript 2015 (ES6) 规定的关键字如下：</p>
+<div class="highlight"><pre><span></span><code><span class="kr">as</span><span class="w">      </span><span class="kd">const</span><span class="w">      </span><span class="k">export</span><span class="w">     </span><span class="nx">get</span><span class="w">         </span><span class="kc">null</span><span class="w">     </span><span class="nx">target</span><span class="w">   </span><span class="ow">void</span>
+<span class="k">async</span><span class="w">   </span><span class="k">continue</span><span class="w">   </span><span class="k">extends</span><span class="w">    </span><span class="k">if</span><span class="w">          </span><span class="k">of</span><span class="w">       </span><span class="k">this</span><span class="w">     </span><span class="k">while</span>
+<span class="k">await</span><span class="w">   </span><span class="k">debugger</span><span class="w">   </span><span class="kc">false</span><span class="w">      </span><span class="k">import</span><span class="w">      </span><span class="k">return</span><span class="w">   </span><span class="k">throw</span><span class="w">    </span><span class="kd">with</span>
+<span class="k">break</span><span class="w">   </span><span class="k">default</span><span class="w">    </span><span class="k">finally</span><span class="w">    </span><span class="ow">in</span><span class="w">          </span><span class="nx">set</span><span class="w">      </span><span class="kc">true</span><span class="w">     </span><span class="k">yield</span>
+<span class="k">case</span><span class="w">    </span><span class="ow">delete</span><span class="w">     </span><span class="k">for</span><span class="w">        </span><span class="ow">instanceof</span><span class="w">  </span><span class="k">static</span><span class="w">   </span><span class="k">try</span>
+<span class="k">catch</span><span class="w">   </span><span class="k">do</span><span class="w">         </span><span class="kr">from</span><span class="w">       </span><span class="kd">let</span><span class="w">         </span><span class="k">super</span><span class="w">    </span><span class="ow">typeof</span>
+<span class="kd">class</span><span class="w">   </span><span class="k">else</span><span class="w">       </span><span class="kd">function</span><span class="w">   </span><span class="ow">new</span><span class="w">         </span><span class="k">switch</span><span class="w">   </span><span class="kd">var</span>
+</code></pre></div>
+<p>JavaScript 还预留或限制使用某些关键字，目前没有使用，但可能会在未来的版本中使用：</p>
+<div class="highlight"><pre><span></span><code><span class="kr">enum</span><span class="w">  </span><span class="kr">implements</span><span class="w">  </span><span class="kr">interface</span><span class="w">  </span><span class="kr">package</span><span class="w">  </span><span class="kr">private</span><span class="w">  </span><span class="kr">protected</span><span class="w">  </span><span class="kr">public</span>
+</code></pre></div>
+<blockquote>
+<p>由于历史原因，<code>arguments</code>  和 <code>eval</code> 在某些情况下不允许作为标识符，最好完全避免使用。</p>
+</blockquote>
+<h2 id="_2">标识符命名规则</h2>
+<p>JavaScript 是一种大小写敏感的语言。JavaScript 标识符可以由数字、大小写字母、下划线、美元符号组成，但不能以数字开头。</p>
+<p>注意，一般应避免使用以<strong>下划线</strong>开头的标识符（这和 C 语言一样）。</p>
+<p>实际上，JavaScript 程序是使用 Unicode 字符集编写的，该语言允许在标识符中使用 Unicode 字母、数字和表意文字（但不允许使用表情符号）。为了便于移植和编辑，通常在标识符中只使用 ASCII 字母和数字，但这只是一种编程约定。例如，我们可以使用如下数学符号和单词作为常量和变量：</p>
+<div class="highlight"><pre><span></span><code>const π = 3.14;
+const sí = true;
+</code></pre></div>
+<p>要注意的是：相同的 Unicode 字符可能会有多种不同的 Unicode 编码方式，例如字符 <code>é</code> 的 Unicode 序列可以为 <code>\u00E9</code>，也可以是 <code>e\u0301</code>。这两种编码在文本编辑器中显示时看起来是完全一样的，但是它们有不同的二进制编码，这意味着它们被 JavaScript 认为是不同的，这可能会导致非常混乱的程序:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">café</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span><span class="w">  </span><span class="c1">// This constant is named &quot;caf\u{e9}&quot;</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">café</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2</span><span class="p">;</span><span class="w">  </span><span class="c1">// This constant is different: &quot;cafe\u{301}&quot;</span>
+<span class="nx">café</span><span class="w">  </span><span class="c1">// =&gt; 1: this constant has one value</span>
+<span class="nx">café</span><span class="w">  </span><span class="c1">// =&gt; 2: this indistinguishable constant has a different value</span>
+</code></pre></div>
+<p>Unicode 标准定义了所有字符的首选编码，并指定了一个标准化过程将文本转换为适合于比较的规范形式。JavaScript 假设它要解释的源代码已经被规范化了，它自己不做任何规范化。如果您计划在 JavaScript 程序中使用 Unicode 字符，那么应该确保您的编辑器或其他工具对源代码执行 Unicode 规范化，以防止出现不同但视觉上无法区分的标识符。</p>
+<h2 id="_3">注释</h2>
+<p>多行注释中不能嵌套多行注释。</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// 单行注释</span>
+
+<span class="cm">/* 多行注释 */</span>
+</code></pre></div>
+<h2 id="_4">语句分隔符和语句终止符</h2>
+<p>JavaScript 以半角分号 <code>;</code> 作为语句分隔符和语句终止符。值得注意的是，虽然空行不是 JavaScript 语法的一部分，但 <mark>换行符是 JavaScript 语法的一部分</mark> 。 JavaScript 识别换行符、回车符和回车/换行序列作为语句终止符，因此在 JavaScript 代码中，有时候可以省略分隔符 <code>;</code>：</p>
+<ol>
+<li>如果两个语句写在不同的行上，通常可以省略这两个语句之间的分号。</li>
+<li>若语句被花括号 <code>{}</code> 括起来，可以省略右花括号 <code>}</code>后面的分号。</li>
+</ol>
+<p>请注意， <mark>JavaScript 并不把每个换行符都当作分号来处理：它通常只在不添加隐式分号而无法解析代码时才把断行符当作分号来处理。</mark> 更正式的说法是，如果下一个非空格字符不能解释为当前语句的延续，JavaScript将换行符视为分号。考虑以下代码：</p>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">a</span>
+<span class="nx">a</span>
+<span class="o">=</span>
+<span class="mf">3</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">)</span>
+</code></pre></div>
+<p>JavaScript 这样解释这段代码：</p>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">a</span><span class="p">;</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">3</span><span class="p">;</span><span class="w"> </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span>
+</code></pre></div>
+<p>这些语句终止规则会导致一些奇怪的情况。这段代码看起来像用换行符分隔的两个单独的语句：</p>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">f</span>
+<span class="p">(</span><span class="nx">a</span><span class="o">+</span><span class="nx">b</span><span class="p">).</span><span class="nx">toString</span><span class="p">()</span>
+</code></pre></div>
+<p>但 JavaScript 是这样解释的：</p>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">f</span><span class="p">(</span><span class="nx">a</span><span class="o">+</span><span class="nx">b</span><span class="p">).</span><span class="nx">toString</span><span class="p">();</span>
+</code></pre></div>
+<p>很可能，这不是代码作者想要的解释。为了作为两个独立的语句工作，在这种情况下需要显式的分号。</p>
+<p>当 JavaScript 无法将第二行解析为第一行语句的延续时，JavaScript 将换行符解释为分号，但这个规则有三种例外。</p>
+<p><img alt="1⃣" class="twemoji" src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/svg/31-20e3.svg" title=":one:" /> 第一种情况涉及 <code>return</code>、<code>throw</code>、<code>yield</code>、<code>break</code>和 <code>continue</code> 语句，这些语句通常是单独的，但有时候，它们后面会跟一个标识符或表达式。JavaScript 总是将它们后面出现的第一个换行符解释为分号。例如，如果你写：</p>
+<div class="highlight"><pre><span></span><code><span class="k">return</span>
+<span class="kc">true</span><span class="p">;</span>
+</code></pre></div>
+<p>JavaScript 假设您的意思是：</p>
+<div class="highlight"><pre><span></span><code><span class="k">return</span><span class="p">;</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+</code></pre></div>
+<p>不过，你的意思可能是：</p>
+<div class="highlight"><pre><span></span><code><span class="k">return</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
+</code></pre></div>
+<p>这意味着不能在 <code>return</code>、<code>break</code>或 <code>continue</code>和关键字后面的表达式之间插入换行符。如果您确实插入了一个换行符，那么您的代码很可能会陷入一种难以调试且不明显的错误中。</p>
+<p><img alt="2⃣" class="twemoji" src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/svg/32-20e3.svg" title=":two:" /> 有些操作符可以作为前缀操作符，也可以作为后缀操作符，例如<code>++</code>和<code>--</code>。如果要让这些操作符中作为后缀操作符，则它们必须与应用它们的表达式出现在同一行。</p>
+<p><img alt="3⃣" class="twemoji" src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/svg/33-20e3.svg" title=":three:" /> 第三种例外涉及“箭头函数”，<code>=&gt;</code> 箭头本身必须与参数列表出现在同一行。</p>
+<h2 id="_5">空格</h2>
+<p>空格也不是 JavaScript 语法的一部分，JavaScript 会忽略所有空格。<mark>除了常规的空格字符（<code>\u0020</code>）之外，JavaScript 还将制表符、各种 ASCII 控制字符和各种 Unicode 空格字符识别为空格。</mark> </p>
+<h2 id="_6">字符转义</h2>
+<p>和 C、Python 一致，以反斜杠 <code>\</code> 作为转义符。转义符用于处理一些计算机硬件和软件不能显示、输入或正确处理完整的 Unicode 字符集。</p>
+<p>为了支持使用较旧技术的程序员和系统，JavaScript 定义了转义序列，允许我们仅使用 ASCII 字符编写 Unicode 字符。这些 Unicode 转义以字符 <code>\u</code> 开始，后跟四个 16 进制数字（使用大写或小写字母A-F），或者用大括号括起来的一到六个 16 进制数字。这些 Unicode 转义可能以 JavaScript 字符串、正则表达式和标识符的形式出现（但不会以语言关键字的形式出现）。</p>
+<p>例如，Unicode 字符 “<code>é,</code>” 的转义是<code>\u00E9</code>；这里有三种不同的方式来写一个变量名，包括这个字符：</p>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">café</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span><span class="w"> </span><span class="c1">// Define a variable using a Unicode character</span>
+<span class="nx">caf\u00e9</span><span class="w">     </span><span class="c1">// =&gt; 1; access the variable using an escape sequence</span>
+<span class="nx">caf</span><span class="err">\</span><span class="nx">u</span><span class="p">{</span><span class="nx">E9</span><span class="p">}</span><span class="w">     </span><span class="c1">// =&gt; 1; another form of the same escape sequence</span>
+</code></pre></div>
+<p>早期版本的 JavaScript 只支持四位数转义序列。带花括号的版本是在 ES6 中引入的，目的是为了更好地支持需要超过16位元的 Unicode 码点，比如表情符号:</p>
+<div class="highlight"><pre><span></span><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;\u{1F600}&quot;</span><span class="p">);</span><span class="w">  </span><span class="c1">// Prints a smiley face emoji 😀</span>
+</code></pre></div>
+<h2 id="_7">声明和初始化</h2>
+<p>在现代 JavaScript (ES6及以后的版本) 中，变量是用 <code>let</code> 关键字声明的，就像这样：</p>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="p">;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">sum</span><span class="p">;</span>
+</code></pre></div>
+<p>你也可以在一个 <code>let</code> 语句中声明多个变量：</p>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="p">,</span><span class="w"> </span><span class="nx">sum</span><span class="p">;</span>
+</code></pre></div>
+<p>在声明变量时，可以同时给它们赋一个初始值：</p>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="nx">message</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;hello&quot;</span><span class="p">;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="nx">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="nx">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="nx">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">x</span><span class="o">*</span><span class="nx">x</span><span class="p">;</span><span class="w"> </span><span class="c1">// Initializers can use previously declared variables</span>
+</code></pre></div>
+<p>如果仅声明变量，而不赋初始值，则在代码为其赋值之前，变量的值是未定义的。</p>
+<p>使用 <code>const</code> 关键字声明常量。<code>const</code> 的工作方式与 <code>let</code> 类似，只是在声明常量时必须初始化它：</p>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">H0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">74</span><span class="p">;</span><span class="w">         </span><span class="c1">// Hubble constant (km/s/Mpc)</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">C</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">299792.458</span><span class="p">;</span><span class="w">  </span><span class="c1">// Speed of light in a vacuum (km/s)</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">AU</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1.496E8</span><span class="p">;</span><span class="w">    </span><span class="c1">// Astronomical Unit: distance to the sun (km)</span>
+</code></pre></div>
+<p>顾名思义，常量不能改变它们的值，任何赋值的尝试都会引发 <code>TypeError</code>。</p>
+<div class="highlight"><pre><span></span><code><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">1</span><span class="p">;</span>
+<span class="w">    </span><span class="nx">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2</span>
+<span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="nx">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">error</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>TypeError: Assignment to constant variable.
+</code></pre></div>
+<p>通常约定是使用全大写字母的名称来声明常量，以将它们与变量区分开来。</p>
+<p>你可能会觉得奇怪，但是你也可以使用 <code>const</code> 来声明 <code>for/in</code> 和 <code>for/of</code> 循环的循环“变量”，只要循环体不重新赋值。在这种情况下，<code>const</code> 声明只是表示该值在循环迭代的持续时间内为常量：</p>
+<div class="highlight"><pre><span></span><code><span class="nx">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="mf">3</span><span class="p">];</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">const</span><span class="w"> </span><span class="nx">datum</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="nx">data</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">datum</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>1
+2
+3
+</code></pre></div>
+<p>在 ES6 之前的 JavaScript 版本中，声明变量的唯一方法是使用 <code>var</code> 关键字，且不支持声明常量。<code>var</code> 的语法就像 <code>let</code> 的语法一样，但它们有一些本质的区别：</p>
+<ol>
+<li>
+<p>用 <code>var</code> 声明的变量没有块作用域，因此如果你在函数体之外使用 <code>var</code>，它会声明一个全局变量。</p>
+</li>
+<li>
+<p>用 <code>var</code> 声明的全局变量与用 <code>let</code> 声明的全局变量在一个重要的方面不同：用<code>var</code>声明的全局变量是作为全局对象的属性实现的。全局对象可以引用为<code>globalThis</code>。例如，如果你通过 <code>var x = 2</code> 初始化变量<code>x</code>，就像你通过 <code>globalThis.x = 2;</code> 初始化变量<code>x</code>（这个类比并不完美）。用 <code>var</code> 声明的属性不能用 <code>delete</code> 操作符删除。用 <code>let</code> 和 <code>const</code> 声明的全局变量和常量不是全局对象的属性。</p>
+</li>
+<li>
+<p>用 <code>var</code> 多次声明同一个变量是合法的，而用 <code>let</code> 不能重复声明变量。JavaScript 编译器在解析代码时，遇到 <code>var</code> 声明的变量，先在当前作用域判断该变量是否已经存在，若不存在，则在当前作用域声明一个新变量，否则忽略 <code>var</code> 继续往下编译。<code>var</code> 的重声明实际上是很常见的。变量<code>i</code>经常被用来表示循环变量，在有多个<code>for</code>循环的函数中，每个循环都可以为<code>for(var i = 0;...</code>，因为 <code>var</code> 没有将这些变量作用域限定在循环体中，所以每个循环都 (无害地) 重新声明并初始化同一个变量。</p>
+</li>
+<li>
+<p><code>var</code> 声明最不寻常的特性之一是 <strong>hoisting</strong>（变量提升）：当用 <code>var</code> 声明一个变量时，这个声明会被提升到当前作用域的顶部，但变量的初始化保持在原来的地方。例如：</p>
+</li>
+</ol>
+<p><div class="highlight"><pre><span></span><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span><span class="w"> </span><span class="c1">// undefined </span>
+</code></pre></div>
+   上述代码在编译后会变成
+   <div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">a</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">a</span><span class="p">);</span><span class="w"> </span><span class="c1">// undefined</span>
+<span class="nx">a</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;hoisting&#39;</span><span class="p">;</span>
+</code></pre></div>
+   因此，用 <code>var</code> 声明的变量可以在声明的位置之前使用，而不会出错。如果初始化代码还没有运行，那么变量的值会是<code>undefined</code>。这可能是bug的来源，也是 <code>let</code>纠正的重要错误特性之一：如果你用 <code>let</code> 声明了一个变量，但试图在 <code>let</code> 语句运行之前使用它，程序将抛出错误，而不仅仅是得到一个未定义的值。</p>
+<h2 id="_8">复合声明和赋值*</h2>
+<p>ES6 实现了一种复合声明和赋值语法，称为解构赋值。在解构赋值中，等号右边的值是一个数组或对象（“结构化的”值），左边使用模仿数组和对象字面量语法的语法指定一个或多个变量名。当发生解构赋值时，将从右边的值中提取一个或多个值（“解构”），并存储到左边命名的变量中。解构赋值可能常用来初始化<code>const</code>、<code>let</code> 或 <code>var</code> 的声明，但它也可以用在正则赋值表达式中（使用已经声明的变量）。而且，我们将在 §8.3.5 中看到的，解构也可以用于定义函数的形参。</p>
+<div class="highlight"><pre><span></span><code><span class="kd">let</span><span class="w"> </span><span class="p">[</span><span class="nx">x</span><span class="p">,</span><span class="nx">y</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mf">1</span><span class="p">,</span><span class="mf">2</span><span class="p">];</span><span class="w">  </span><span class="c1">// Same as let x=1, y=2</span>
+<span class="p">[</span><span class="nx">x</span><span class="p">,</span><span class="nx">y</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="nx">x</span><span class="o">+</span><span class="mf">1</span><span class="p">,</span><span class="nx">y</span><span class="o">+</span><span class="mf">1</span><span class="p">];</span><span class="w">  </span><span class="c1">// Same as x = x + 1, y = y + 1</span>
+<span class="p">[</span><span class="nx">x</span><span class="p">,</span><span class="nx">y</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="nx">y</span><span class="p">,</span><span class="nx">x</span><span class="p">];</span><span class="w">      </span><span class="c1">// Swap the value of the two variables</span>
+<span class="p">[</span><span class="nx">x</span><span class="p">,</span><span class="nx">y</span><span class="p">]</span><span class="w">               </span><span class="c1">// =&gt; [3,2]: the incremented and swapped values</span>
+</code></pre></div>
+<h2 id="_9">命名空间和作用域</h2>
+<pre class="mermaid"><code>flowchart LR
+   B[Global Scope] &amp; C[Local Scope]
+    C[Local Scope] --&gt; D[Function Scope] &amp; E[Block Scope]</code></pre>
+<p><strong>全局作用域（Global Scope）</strong></p>
+<p>JavaScript 文件中只有一个全局范围。所有函数之外的区域被认为是全局范围，在全局范围内定义的变量可以在任何范围内访问和更改。</p>
+<p><strong>局部作用域（Local Scope）</strong></p>
+<p>局部作用域是相对于全局作用域的概念，局部作用域包括函数作用域和块作用域。各个局部作用域是独立的，相同的变量名可以在不同的局部作用域中使用，而不会相互影响。</p>
+<p><strong>函数作用域（Function Scope）</strong></p>
+<p>在函数中声明的变量仅在函数内可用，您无法在函数之外访问它。</p>
+<p><strong>块作用域（Block Scope）</strong></p>
+<p>块作用域是 <code>if</code>、<code>switch</code>、<code>for</code> 和 <code>while</code> 代码块的区域。一般来说，只要你看到花括号<code>{}</code>，它就是一个块。ES6 引入了块作用域的概念，且提供了新关键字 <code>const</code> 和 <code>let</code> 让开发人员在块作用域内声明变量，这意味着这些变量只存在于相应的代码块中。</p>
+<div class="highlight"><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">foo</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="kc">true</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="nx">fruit1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;apple&#39;</span><span class="p">;</span><span class="w">        </span><span class="c1">//exist in function scope</span>
+<span class="w">        </span><span class="kd">const</span><span class="w"> </span><span class="nx">fruit2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;banana&#39;</span><span class="p">;</span><span class="w">     </span><span class="c1">//exist in block scope</span>
+<span class="w">        </span><span class="kd">let</span><span class="w"> </span><span class="nx">fruit3</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;strawberry&#39;</span><span class="p">;</span><span class="w">   </span><span class="c1">//exist in block scope</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">fruit1</span><span class="p">);</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">fruit2</span><span class="p">);</span><span class="w">  </span><span class="c1">// ReferenceError: fruit2 is not defined</span>
+<span class="w">    </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">fruit3</span><span class="p">);</span><span class="w">  </span><span class="c1">// ReferenceError: fruit3 is not defined</span>
+<span class="p">}</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">fruit1</span><span class="p">);</span><span class="w">  </span><span class="c1">// ReferenceError: fruit1 is not defined</span>
+
+<span class="p">{</span>
+<span class="w">    </span><span class="kd">var</span><span class="w"> </span><span class="nx">txt1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;defined in global scope&quot;</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">txt2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;defined in block scope&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">txt1</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">txt2</span><span class="p">);</span><span class="w">    </span><span class="c1">// ReferenceError: txt is not defined</span>
+</code></pre></div>
+<p>从以上代码可以看出，虽然函数代码块也是用花括号括起来的，但函数作用域和块作用域是不一样的，函数内定义的变量只能在函数内访问，而通过<code>var</code>关键字在块作用域内定义的变量能够在全局作用域访问，<mark>因为<code>var</code>声明的变量是没有块作用域的。</mark></p>
+<p>虽然 Python 和 JavaScript 都是动态检查的语言，但 Python 没有提供关键字用来声明变量。因此，如果我们想在局部作用域修改全局作用域变量的值，这两种语言会有不同的行为。Python 默认不能在局部作用域修改外部作用域的变量，除非使用 <code>global</code> 或 <code>nonlocal</code> 关键字来声明变量来自全局作用域或 enclosing 作用域。</p>
+<p>JavaScript 则默认能够在局部作用域修改外部作用域的变量，除非在局部作用域重新声明变量，让 JavaScript 解析器知道该变量来自局部作用域。</p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">fruit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;apple&#39;</span><span class="p">;</span>
+<span class="kd">let</span><span class="w"> </span><span class="nx">txt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;JavaScript Language&#39;</span><span class="p">;</span>
+
+<span class="kd">function</span><span class="w"> </span><span class="nx">foo</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">fruit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;banana&#39;</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">txt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;TypeScript Language&#39;</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nx">foo</span><span class="p">();</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">fruit</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">txt</span><span class="p">);</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>banana
+JavaScript Language
+</code></pre></div>
+<h2 id="_10">相等操作</h2>
+<p>JavaScript 允许隐式转换变量的类型，这些值类型转换规则会影响相等的定义，<mark><code>==</code> 相等操作符允许隐式类型转换</mark>。</p>
+<div class="highlight"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="s2">&quot;1&quot;</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mf">1</span><span class="p">){</span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;equal&quot;</span><span class="p">)</span>
+<span class="p">}</span><span class="w"> </span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>equal
+</code></pre></div>
+<p>在实践中，<code>==</code> 相等操作符已弃用，而使用严格的相等操作符 <code>===</code>，它不进行类型转换。</p>
+<div class="highlight"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="s2">&quot;1&quot;</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="mf">1</span><span class="p">){</span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;equal&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="k">else</span><span class="p">{</span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;not equal&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code>not equal
+</code></pre></div>
+<h2 id="_11">内置原子类型（基本类型）</h2>
+<p>JavaScript 的基本类型包括：</p>
+<ol>
+<li>数字（整型和浮点型）</li>
+<li>字符串</li>
+<li>布尔值</li>
+<li><code>null</code> </li>
+<li><code>undefined</code></li>
+</ol>
+<p><code>null</code> 和 <code>undefined</code> 是特殊的 JavaScript 值，但不是数字、字符串或布尔值。</p>
+<h2 id="_12">内置复合类型（对象类型）</h2>
+<p>不是内置原子类型的内置类型都是对象。</p>
+<p>对象(即类型对象的成员)是属性的集合，其中每个属性都有一个名称和一个值(原始值或另一个对象)。</p>
+<p>普通的 JavaScript 对象是命名值的无序集合。该语言还定义了一种特殊类型的对象，称为数组，它表示编号值的有序集合。</p>
+<h2 id="_13">函数</h2>
+<p>定义函数的语法格式：</p>
+<div class="highlight"><pre><span></span><code><span class="kd">function</span><span class="w"> </span><span class="nx">function_name</span><span class="p">(</span><span class="nx">parameter1</span><span class="p">,</span><span class="w"> </span><span class="nx">parameter2</span><span class="p">){</span>
+<span class="w">    </span><span class="nx">statements</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">object</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs"], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.51198bba.min.js"></script>
+      
+        <script src="../javascript/extra.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      
+    
+  </body>
+</html>
