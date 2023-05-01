@@ -17,7 +17,7 @@
         <link rel="next" href="12.3.%E5%BC%A0%E9%87%8F%E8%BF%9B%E9%98%B6%E6%93%8D%E4%BD%9C.html">
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.6">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.8">
     
     
       
@@ -26,9 +26,6 @@
     
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.ded33207.min.css">
-      
-        
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.a0c5b2b5.min.css">
       
       
 
@@ -54,14 +51,11 @@
   </head>
   
   
-    
-    
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+    <body dir="ltr">
   
     
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -2908,7 +2902,9 @@ Latest build date 2021.06.21
 tensorflow version:  2.5.0
 </code></pre></div>
 <h2 id="_1">创建张量</h2>
-<details class="abstract"><summary><strong><code>tf.constant(value, dtype=None, shape=None, name='Const')</code></strong></summary><p>创建标量</p>
+<details class="abstract">
+<summary><strong><code>tf.constant(value, dtype=None, shape=None, name='Const')</code></strong></summary>
+<p>创建标量</p>
 <div class="highlight"><pre><span></span><code><span class="n">scalar</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="mf">1.2</span><span class="p">)</span>
 <span class="c1"># 查看 scalar 的类型</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">scalar</span><span class="p">))</span>
@@ -2947,36 +2943,48 @@ array([[1, 2],
   [7 8]]], shape=(2, 2, 2), dtype=int32)
 </code></pre></div>
 </details>
-<details class="abstract"><summary><strong><code>tf.range(start, limit=None, delta=1, dtype=None, name='range')</code></strong></summary><div class="highlight"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">range</span><span class="p">(</span><span class="n">start</span><span class="o">=-</span><span class="mi">5</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">delta</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;test&#39;</span><span class="p">)</span>
+<details class="abstract">
+<summary><strong><code>tf.range(start, limit=None, delta=1, dtype=None, name='range')</code></strong></summary>
+<div class="highlight"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">range</span><span class="p">(</span><span class="n">start</span><span class="o">=-</span><span class="mi">5</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">delta</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">&#39;test&#39;</span><span class="p">)</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>&lt;tf.Tensor: shape=(5,), dtype=int32, numpy=array([-5, -3, -1,  1,  3], dtype=int32)&gt;
 </code></pre></div>
 </details>
-<details class="abstract"><summary><strong><code>tf.zeros(shape, dtype=dtypes.float32, name=None)</code></strong></summary><div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)))</span>
+<details class="abstract">
+<summary><strong><code>tf.zeros(shape, dtype=dtypes.float32, name=None)</code></strong></summary>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)))</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>tf.Tensor(
 [[0. 0. 0.]
  [0. 0. 0.]], shape=(2, 3), dtype=float32)
 </code></pre></div>
 </details>
-<details class="abstract"><summary><strong><code>tf.zeros_like(input, dtype=None, name=None)</code></strong></summary><div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)))</span>
+<details class="abstract">
+<summary><strong><code>tf.zeros_like(input, dtype=None, name=None)</code></strong></summary>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)))</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>tf.Tensor([0 0], shape=(2,), dtype=int32)
 </code></pre></div>
 </details>
-<details class="abstract"><summary><strong><code>tf.ones(shape, dtype=dtypes.float32, name=None)</code></strong></summary><div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)))</span>
+<details class="abstract">
+<summary><strong><code>tf.ones(shape, dtype=dtypes.float32, name=None)</code></strong></summary>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)))</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>tf.Tensor(
 [[1. 1. 1.]
  [1. 1. 1.]], shape=(2, 3), dtype=float32)
 </code></pre></div>
 </details>
-<details class="abstract"><summary><strong><code>tf.ones_like(input, dtype=None, name=None)</code></strong></summary><div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">ones_like</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)))</span>
+<details class="abstract">
+<summary><strong><code>tf.ones_like(input, dtype=None, name=None)</code></strong></summary>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">ones_like</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)))</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>tf.Tensor([1 1], shape=(2,), dtype=int32)
 </code></pre></div>
 </details>
-<details class="abstract"><summary><strong><code>tf.fill(dims, value, name=None)</code></strong></summary><div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="n">dims</span><span class="o">=</span><span class="p">[],</span> <span class="n">value</span><span class="o">=</span><span class="mi">8</span><span class="p">))</span>  <span class="c1"># 标量</span>
+<details class="abstract">
+<summary><strong><code>tf.fill(dims, value, name=None)</code></strong></summary>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="n">dims</span><span class="o">=</span><span class="p">[],</span> <span class="n">value</span><span class="o">=</span><span class="mi">8</span><span class="p">))</span>  <span class="c1"># 标量</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span><span class="n">dims</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">value</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>tf.Tensor(8, shape=(), dtype=int32)
@@ -2985,7 +2993,9 @@ tf.Tensor(
  [2 2 2]], shape=(2, 3), dtype=int32)
 </code></pre></div>
 </details>
-<details class="abstract"><summary><strong><code>tf.eye(num_rows, num_columns=None, batch_shape=None, dtype=dtype.float32, name=None)</code></strong></summary><div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<details class="abstract">
+<summary><strong><code>tf.eye(num_rows, num_columns=None, batch_shape=None, dtype=dtype.float32, name=None)</code></strong></summary>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)),</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
@@ -3025,7 +3035,9 @@ tf.Tensor(
 (2, 3, 2, 2)
 </code></pre></div>
 </details>
-<details class="abstract"><summary><strong><code>tf.tile(input, multiples, name=None)</code></strong></summary><div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]],</span> <span class="n">tf</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+<details class="abstract">
+<summary><strong><code>tf.tile(input, multiples, name=None)</code></strong></summary>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]],</span> <span class="n">tf</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
 <span class="n">b</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">tf</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
 <span class="n">tf</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
 </code></pre></div>
@@ -3052,7 +3064,9 @@ array([[1, 2, 3, 1, 2, 3],
        [4, 5, 6, 4, 5, 6]], dtype=int32)&gt;
 </code></pre></div>
 </details>
-<details class="abstract"><summary><strong><code>tf.repeat(input, repeats, axis=None, name=None)</code></strong></summary><div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]],</span> <span class="n">tf</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
+<details class="abstract">
+<summary><strong><code>tf.repeat(input, repeats, axis=None, name=None)</code></strong></summary>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]],</span> <span class="n">tf</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))</span>
 </code></pre></div>
@@ -3060,14 +3074,20 @@ array([[1, 2, 3, 1, 2, 3],
 tf.Tensor([1 1 2 2 3 3 3 4], shape=(8,), dtype=int32)
 </code></pre></div>
 </details>
-<details class="abstract"><summary><strong><code>tf.convert_to_tensor(value, dtype=None, dtype_hint=None, name=None)</code></strong></summary><div class="highlight"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">convert_to_tensor</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<details class="abstract">
+<summary><strong><code>tf.convert_to_tensor(value, dtype=None, dtype_hint=None, name=None)</code></strong></summary>
+<div class="highlight"><pre><span></span><code><span class="n">tf</span><span class="o">.</span><span class="n">convert_to_tensor</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>&lt;tf.Tensor: shape=(2,), dtype=int32, numpy=array([1, 2], dtype=int32)&gt;
 </code></pre></div>
 </details>
-<details class="abstract"><summary><strong><code>tf.one_hot(indices, depth, on_value=None, off_value=None, axis=None, dtype=None, name=None)</code></strong></summary></details>
+<details class="abstract">
+<summary><strong><code>tf.one_hot(indices, depth, on_value=None, off_value=None, axis=None, dtype=None, name=None)</code></strong></summary>
+</details>
 <h2 id="_2">拼接张量</h2>
-<details class="abstract"><summary><strong><code>tf.concat(values, axis, name='concat')</code></strong></summary><div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<details class="abstract">
+<summary><strong><code>tf.concat(values, axis, name='concat')</code></strong></summary>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
 <span class="n">b</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;shape&quot;</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
@@ -3080,7 +3100,9 @@ tf.Tensor([1 1 2 2 3 3 3 4], shape=(8,), dtype=int32)
 shape (4, 3)
 </code></pre></div>
 </details>
-<details class="abstract"><summary><strong><code>tf.stack(values, axis=0, name='stack')</code></strong></summary><div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<details class="abstract">
+<summary><strong><code>tf.stack(values, axis=0, name='stack')</code></strong></summary>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
 <span class="n">b</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
 <span class="n">tf</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;shape&quot;</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
@@ -3093,7 +3115,9 @@ shape (4, 3)
   [0. 0. 0.]]], shape=(2, 2, 3), dtype=float32)
 </code></pre></div>
 </details>
-<details class="abstract"><summary><strong><code>tf.tuple(tensors, control_inputs=None, name=None)</code></strong></summary><div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<details class="abstract">
+<summary><strong><code>tf.tuple(tensors, control_inputs=None, name=None)</code></strong></summary>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
 <span class="n">b</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">tuple</span><span class="p">([</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">]))</span>
 </code></pre></div>
@@ -3106,7 +3130,9 @@ array([[0., 0., 0.],
 </code></pre></div>
 </details>
 <h2 id="_3">拆分张量</h2>
-<details class="abstract"><summary><strong><code>tf.unstack(value, num=None, axis=0, name='unstack')</code></strong></summary><div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<details class="abstract">
+<summary><strong><code>tf.unstack(value, num=None, axis=0, name='unstack')</code></strong></summary>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
 <span class="n">b</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
 <span class="n">c</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">unstack</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
@@ -3119,7 +3145,9 @@ array([[0., 0., 0.],
        [0., 0., 0.]], dtype=float32)&gt;]
 </code></pre></div>
 </details>
-<details class="abstract"><summary><strong><code>tf.split(value, num_or_size_splits, axis=0, num=None, name='split')</code></strong></summary><div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<details class="abstract">
+<summary><strong><code>tf.split(value, num_or_size_splits, axis=0, num=None, name='split')</code></strong></summary>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
 <span class="n">b</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
 <span class="n">c</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">num_or_size_splits</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
@@ -3133,13 +3161,17 @@ array([[0., 0., 0.],
 </code></pre></div>
 </details>
 <h2 id="_4">获取张量属性信息</h2>
-<details class="abstract"><summary><strong><code>tf.shape(input, out_type=tf.int32, name=None)</code></strong></summary><div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<details class="abstract">
+<summary><strong><code>tf.shape(input, out_type=tf.int32, name=None)</code></strong></summary>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>tf.Tensor([2 3], shape=(2,), dtype=int32)
 </code></pre></div>
 </details>
-<details class="abstract"><summary><strong><code>tf.shape_n(input, out_type=tf.int32, name=None)</code></strong></summary><div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<details class="abstract">
+<summary><strong><code>tf.shape_n(input, out_type=tf.int32, name=None)</code></strong></summary>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
 <span class="n">b</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">shape_n</span><span class="p">([</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">]))</span>
 </code></pre></div>
@@ -3148,25 +3180,41 @@ dtype=int32)&gt;, &lt;tf.Tensor: shape=(2,), dtype=int32, numpy=array([2,
 4], dtype=int32)&gt;]
 </code></pre></div>
 </details>
-<details class="abstract"><summary><strong><code>tf.size(input, out_type=tf.int32, name=None)</code></strong></summary><div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<details class="abstract">
+<summary><strong><code>tf.size(input, out_type=tf.int32, name=None)</code></strong></summary>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>tf.Tensor(6, shape=(), dtype=int32)
 </code></pre></div>
 </details>
-<details class="abstract"><summary><strong><code>tf.rank(input, name=None)</code></strong></summary><div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<details class="abstract">
+<summary><strong><code>tf.rank(input, name=None)</code></strong></summary>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">rank</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>tf.Tensor(3, shape=(), dtype=int32)
 </code></pre></div>
 </details>
 <h2 id="_5">形状操纵</h2>
-<details class="abstract"><summary><strong><code>tf.expand_dims(input, axis, name=None)</code></strong></summary></details>
-<details class="abstract"><summary><strong><code>tf.reshape(tensor, shape, name=None)</code></strong></summary></details>
-<details class="abstract"><summary><strong><code>tf.reverse(tensor, axis, name=None)</code></strong></summary></details>
-<details class="abstract"><summary><strong><code>tf.squeeze(input, axis=None, name=None)</code></strong></summary></details>
-<details class="abstract"><summary><strong><code>tf.transpose(a, perm=None, conjugate=False, name='transpose')</code></strong></summary></details>
-<details class="abstract"><summary><strong><code>tf.roll(input, shift, axis, name=None)</code></strong></summary></details>
+<details class="abstract">
+<summary><strong><code>tf.expand_dims(input, axis, name=None)</code></strong></summary>
+</details>
+<details class="abstract">
+<summary><strong><code>tf.reshape(tensor, shape, name=None)</code></strong></summary>
+</details>
+<details class="abstract">
+<summary><strong><code>tf.reverse(tensor, axis, name=None)</code></strong></summary>
+</details>
+<details class="abstract">
+<summary><strong><code>tf.squeeze(input, axis=None, name=None)</code></strong></summary>
+</details>
+<details class="abstract">
+<summary><strong><code>tf.transpose(a, perm=None, conjugate=False, name='transpose')</code></strong></summary>
+</details>
+<details class="abstract">
+<summary><strong><code>tf.roll(input, shift, axis, name=None)</code></strong></summary>
+</details>
 
 
 

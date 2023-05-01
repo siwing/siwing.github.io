@@ -17,7 +17,7 @@
         <link rel="next" href="12.9.%E6%A8%A1%E5%9E%8B%E7%9A%84%E4%BF%9D%E5%AD%98%E4%B8%8E%E5%AF%BC%E5%85%A5.html">
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.6">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.8">
     
     
       
@@ -26,9 +26,6 @@
     
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.ded33207.min.css">
-      
-        
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.a0c5b2b5.min.css">
       
       
 
@@ -54,14 +51,11 @@
   </head>
   
   
-    
-    
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+    <body dir="ltr">
   
     
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -2922,16 +2916,24 @@ Latest build date 2021.06.21
 tensorflow version:  2.5.0
 </code></pre></div>
 <h2 id="_1">四则运算</h2>
-<details class="abstract"><summary><strong><code>tf.add(x, y, name=None)</code></strong></summary></details>
-<details class="abstract"><summary><strong><code>tf.add_n(inputs, name=None)</code></strong></summary></details>
-<details class="abstract"><summary><strong><code>tf.divide(x, y, name=None)</code></strong></summary><div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">([</span><span class="mi">16</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">11</span><span class="p">])</span>
+<details class="abstract">
+<summary><strong><code>tf.add(x, y, name=None)</code></strong></summary>
+</details>
+<details class="abstract">
+<summary><strong><code>tf.add_n(inputs, name=None)</code></strong></summary>
+</details>
+<details class="abstract">
+<summary><strong><code>tf.divide(x, y, name=None)</code></strong></summary>
+<div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">([</span><span class="mi">16</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">11</span><span class="p">])</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
 <span class="n">tf</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>&lt;tf.Tensor: shape=(3,), dtype=float64, numpy=array([4. , 2. , 5.5])&gt;
 </code></pre></div>
 </details>
-<details class="abstract"><summary><strong><code>tf.multiply(x, y, name=None)</code></strong></summary><p>元素乘法。</p>
+<details class="abstract">
+<summary><strong><code>tf.multiply(x, y, name=None)</code></strong></summary>
+<p>元素乘法。</p>
 <div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span>
 
@@ -2945,16 +2947,30 @@ tf.Tensor(
  [1. 1.]], shape=(2, 2), dtype=float32)
 </code></pre></div>
 </details>
-<details class="abstract"><summary><strong><code>tf.realdiv(x, y, name=None)</code></strong></summary></details>
-<details class="abstract"><summary><strong><code>tf.truncatediv(x, y, name=None)</code></strong></summary></details>
-<details class="abstract"><summary><strong><code>tf.truncatemod(x, y, name=None)</code></strong></summary></details>
-<details class="abstract"><summary><strong><code>tf.subtract(x, y, name=None)</code></strong></summary><p>返回$x-y$。</p>
+<details class="abstract">
+<summary><strong><code>tf.realdiv(x, y, name=None)</code></strong></summary>
 </details>
-<details class="abstract"><summary><strong><code>tf.truediv(x, y, name=None)</code></strong></summary><p>返回$x / y$。</p>
+<details class="abstract">
+<summary><strong><code>tf.truncatediv(x, y, name=None)</code></strong></summary>
+</details>
+<details class="abstract">
+<summary><strong><code>tf.truncatemod(x, y, name=None)</code></strong></summary>
+</details>
+<details class="abstract">
+<summary><strong><code>tf.subtract(x, y, name=None)</code></strong></summary>
+<p>返回$x-y$。</p>
+</details>
+<details class="abstract">
+<summary><strong><code>tf.truediv(x, y, name=None)</code></strong></summary>
+<p>返回$x / y$。</p>
 </details>
 <h2 id="_2">其他常见运算</h2>
-<details class="abstract"><summary><strong><code>tf.abs(x, name=None)</code></strong></summary></details>
-<details class="abstract"><summary><strong><code>tf.cumsum(x, axis=0, exclusive=False, reverse=False, name=None)</code></strong></summary><div class="highlight"><pre><span></span><code><span class="c1"># tf.cumsum([a, b, c])   # [a, a + b, a + b + c]</span>
+<details class="abstract">
+<summary><strong><code>tf.abs(x, name=None)</code></strong></summary>
+</details>
+<details class="abstract">
+<summary><strong><code>tf.cumsum(x, axis=0, exclusive=False, reverse=False, name=None)</code></strong></summary>
+<div class="highlight"><pre><span></span><code><span class="c1"># tf.cumsum([a, b, c])   # [a, a + b, a + b + c]</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">])</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">exclusive</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
@@ -2966,29 +2982,55 @@ tf.Tensor([ 0  2  6 12], shape=(4,), dtype=int32)
 tf.Tensor([20 18 14  8], shape=(4,), dtype=int32)
 </code></pre></div>
 </details>
-<details class="abstract"><summary><strong><code>tf.exp(x, name=None)</code></strong></summary><p>$y=e^x$</p>
+<details class="abstract">
+<summary><strong><code>tf.exp(x, name=None)</code></strong></summary>
+<p>$y=e^x$</p>
 </details>
-<details class="abstract"><summary><strong><code>tf.floor(x, name=None)</code></strong></summary><div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">([</span><span class="mf">1.3324</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">5.555</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.532</span><span class="p">,</span> <span class="mf">0.99</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="s2">&quot;inf&quot;</span><span class="p">)])</span>
+<details class="abstract">
+<summary><strong><code>tf.floor(x, name=None)</code></strong></summary>
+<div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">([</span><span class="mf">1.3324</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">5.555</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.532</span><span class="p">,</span> <span class="mf">0.99</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="s2">&quot;inf&quot;</span><span class="p">)])</span>
 <span class="n">tf</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>array([ 1., -2.,  5., -3.,  0., inf], dtype=float32)
 </code></pre></div>
 </details>
-<details class="abstract"><summary><strong><code>tf.maximum(x, y, name=None)</code></strong></summary></details>
-<details class="abstract"><summary><strong><code>tf.minimum(x, y, name=None)</code></strong></summary></details>
-<details class="abstract"><summary><strong><code>tf.negative(x, name=None)</code></strong></summary></details>
-<details class="abstract"><summary><strong><code>tf.pow(x, y, name=None)</code></strong></summary><p>返回$x^y$。</p>
+<details class="abstract">
+<summary><strong><code>tf.maximum(x, y, name=None)</code></strong></summary>
 </details>
-<details class="abstract"><summary><strong><code>tf.round(x, name=None)</code></strong></summary></details>
-<details class="abstract"><summary><strong><code>tf.sqrt(x, name=None)</code></strong></summary><p>返回$\sqrt{x}$。</p>
+<details class="abstract">
+<summary><strong><code>tf.minimum(x, y, name=None)</code></strong></summary>
 </details>
-<details class="abstract"><summary><strong><code>tf.square(x, name=None)</code></strong></summary><p>返回$x^2$。</p>
+<details class="abstract">
+<summary><strong><code>tf.negative(x, name=None)</code></strong></summary>
 </details>
-<details class="abstract"><summary><strong><code>tf.sigmoid(x, name=None)</code></strong></summary></details>
-<details class="abstract"><summary><strong><code>tf.sign(x, name=None)</code></strong></summary></details>
-<details class="abstract"><summary><strong><code>tf.scalar_mul(scalar, x, name=None)</code></strong></summary></details>
+<details class="abstract">
+<summary><strong><code>tf.pow(x, y, name=None)</code></strong></summary>
+<p>返回$x^y$。</p>
+</details>
+<details class="abstract">
+<summary><strong><code>tf.round(x, name=None)</code></strong></summary>
+</details>
+<details class="abstract">
+<summary><strong><code>tf.sqrt(x, name=None)</code></strong></summary>
+<p>返回$\sqrt{x}$。</p>
+</details>
+<details class="abstract">
+<summary><strong><code>tf.square(x, name=None)</code></strong></summary>
+<p>返回$x^2$。</p>
+</details>
+<details class="abstract">
+<summary><strong><code>tf.sigmoid(x, name=None)</code></strong></summary>
+</details>
+<details class="abstract">
+<summary><strong><code>tf.sign(x, name=None)</code></strong></summary>
+</details>
+<details class="abstract">
+<summary><strong><code>tf.scalar_mul(scalar, x, name=None)</code></strong></summary>
+</details>
 <h2 id="_3">降维函数</h2>
-<details class="abstract" open="open"><summary><strong><code>tf.reduce_all(input_tensor, axis=None, keepdims=False, name=None)</code></strong></summary><div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">([[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">],</span> <span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">]])</span>
+<details class="abstract" open="open">
+<summary><strong><code>tf.reduce_all(input_tensor, axis=None, keepdims=False, name=None)</code></strong></summary>
+<div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">([[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">],</span> <span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">]])</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">reduce_all</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">reduce_all</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">reduce_all</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
@@ -3002,39 +3044,99 @@ tf.Tensor(
  [ True]], shape=(2, 1), dtype=bool)
 </code></pre></div>
 </details>
-<details class="abstract"><summary><strong><code>tf.reduce_any(input_tensor, axis=None, keepdims=False, name=None)</code></strong></summary></details>
-<details class="abstract"><summary><strong><code>tf.reduce_logsumexp(input_tensor, axis=None, keepdims=False, name=None)</code></strong></summary></details>
-<details class="abstract"><summary><strong><code>tf.reduce_max(input_tensor, axis=None, keepdims=False, name=None)</code></strong></summary></details>
-<details class="abstract"><summary><strong><code>tf.reduce_mean(input_tensor, axis=None, keepdims=False, name=None)</code></strong></summary></details>
-<details class="abstract"><summary><strong><code>tf.reduce_min(input_tensor, axis=None, keepdims=False, name=None)</code></strong></summary></details>
-<details class="abstract"><summary><strong><code>tf.reduce_prod(input_tensor, axis=None, keepdims=False, name=None)</code></strong></summary></details>
-<details class="abstract"><summary><strong><code>tf.reduce_sum(input_tensor, axis=None, keepdims=False, name=None)</code></strong></summary></details>
+<details class="abstract">
+<summary><strong><code>tf.reduce_any(input_tensor, axis=None, keepdims=False, name=None)</code></strong></summary>
+</details>
+<details class="abstract">
+<summary><strong><code>tf.reduce_logsumexp(input_tensor, axis=None, keepdims=False, name=None)</code></strong></summary>
+</details>
+<details class="abstract">
+<summary><strong><code>tf.reduce_max(input_tensor, axis=None, keepdims=False, name=None)</code></strong></summary>
+</details>
+<details class="abstract">
+<summary><strong><code>tf.reduce_mean(input_tensor, axis=None, keepdims=False, name=None)</code></strong></summary>
+</details>
+<details class="abstract">
+<summary><strong><code>tf.reduce_min(input_tensor, axis=None, keepdims=False, name=None)</code></strong></summary>
+</details>
+<details class="abstract">
+<summary><strong><code>tf.reduce_prod(input_tensor, axis=None, keepdims=False, name=None)</code></strong></summary>
+</details>
+<details class="abstract">
+<summary><strong><code>tf.reduce_sum(input_tensor, axis=None, keepdims=False, name=None)</code></strong></summary>
+</details>
 <h2 id="_4">三角函数</h2>
-<details class="abstract"><summary><strong><code>tf.acos(x, name=None)</code></strong></summary></details>
-<details class="abstract"><summary><strong><code>tf.acosh(x, name=None)</code></strong></summary></details>
-<details class="abstract"><summary><strong><code>tf.asin(x, name=None)</code></strong></summary></details>
-<details class="abstract"><summary><strong><code>tf.asinh(x, name=None)</code></strong></summary></details>
-<details class="abstract"><summary><strong><code>tf.atan(x, name=None)</code></strong></summary></details>
-<details class="abstract"><summary><strong><code>tf.atan2(y, x, name=None)</code></strong></summary></details>
-<details class="abstract"><summary><strong><code>tf.atanh(x, name=None)</code></strong></summary></details>
-<details class="abstract"><summary><strong><code>tf.cos(x, name=None)</code></strong></summary></details>
-<details class="abstract"><summary><strong><code>tf.cosh(x, name=None)</code></strong></summary></details>
-<details class="abstract"><summary><strong><code>tf.sin(x, name=None)</code></strong></summary></details>
-<details class="abstract"><summary><strong><code>tf.sinh(x, name=None)</code></strong></summary></details>
-<details class="abstract"><summary><strong><code>tf.tan(x, name=None)</code></strong></summary></details>
-<details class="abstract"><summary><strong><code>tf.tanh(x, name=None)</code></strong></summary></details>
+<details class="abstract">
+<summary><strong><code>tf.acos(x, name=None)</code></strong></summary>
+</details>
+<details class="abstract">
+<summary><strong><code>tf.acosh(x, name=None)</code></strong></summary>
+</details>
+<details class="abstract">
+<summary><strong><code>tf.asin(x, name=None)</code></strong></summary>
+</details>
+<details class="abstract">
+<summary><strong><code>tf.asinh(x, name=None)</code></strong></summary>
+</details>
+<details class="abstract">
+<summary><strong><code>tf.atan(x, name=None)</code></strong></summary>
+</details>
+<details class="abstract">
+<summary><strong><code>tf.atan2(y, x, name=None)</code></strong></summary>
+</details>
+<details class="abstract">
+<summary><strong><code>tf.atanh(x, name=None)</code></strong></summary>
+</details>
+<details class="abstract">
+<summary><strong><code>tf.cos(x, name=None)</code></strong></summary>
+</details>
+<details class="abstract">
+<summary><strong><code>tf.cosh(x, name=None)</code></strong></summary>
+</details>
+<details class="abstract">
+<summary><strong><code>tf.sin(x, name=None)</code></strong></summary>
+</details>
+<details class="abstract">
+<summary><strong><code>tf.sinh(x, name=None)</code></strong></summary>
+</details>
+<details class="abstract">
+<summary><strong><code>tf.tan(x, name=None)</code></strong></summary>
+</details>
+<details class="abstract">
+<summary><strong><code>tf.tanh(x, name=None)</code></strong></summary>
+</details>
 <h2 id="_5">逻辑函数</h2>
-<details class="abstract"><summary><strong><code>tf.equal(x, y, name=None)</code></strong></summary></details>
-<details class="abstract"><summary><strong><code>tf.not_equal(x, y, name=None)</code></strong></summary></details>
-<details class="abstract"><summary><strong><code>tf.greater(x, y, name=None)</code></strong></summary></details>
-<details class="abstract"><summary><strong><code>tf.greater_equal(x, y, name=None)</code></strong></summary></details>
-<details class="abstract"><summary><strong><code>tf.less(x, y, name=None)</code></strong></summary></details>
-<details class="abstract"><summary><strong><code>tf.less_equal(x, y, name=None)</code></strong></summary></details>
-<details class="abstract"><summary><strong><code>tf.logical_not(x, name=None)</code></strong></summary></details>
-<details class="abstract"><summary><strong><code>tf.logical_or(x, y, name=None)</code></strong></summary></details>
-<details class="abstract"><summary><strong><code>tf.logical_and(x, y, name=None)</code></strong></summary></details>
+<details class="abstract">
+<summary><strong><code>tf.equal(x, y, name=None)</code></strong></summary>
+</details>
+<details class="abstract">
+<summary><strong><code>tf.not_equal(x, y, name=None)</code></strong></summary>
+</details>
+<details class="abstract">
+<summary><strong><code>tf.greater(x, y, name=None)</code></strong></summary>
+</details>
+<details class="abstract">
+<summary><strong><code>tf.greater_equal(x, y, name=None)</code></strong></summary>
+</details>
+<details class="abstract">
+<summary><strong><code>tf.less(x, y, name=None)</code></strong></summary>
+</details>
+<details class="abstract">
+<summary><strong><code>tf.less_equal(x, y, name=None)</code></strong></summary>
+</details>
+<details class="abstract">
+<summary><strong><code>tf.logical_not(x, name=None)</code></strong></summary>
+</details>
+<details class="abstract">
+<summary><strong><code>tf.logical_or(x, y, name=None)</code></strong></summary>
+</details>
+<details class="abstract">
+<summary><strong><code>tf.logical_and(x, y, name=None)</code></strong></summary>
+</details>
 <h2 id="_6">线性代数</h2>
-<details class="abstract"><summary><strong><code>tf.matmul(a, b, transpose_a, transpose_b, adjoint_a, adjoint_b, a_is_sparse, b_is_sparse)</code></strong></summary><p>矩阵乘法。</p>
+<details class="abstract">
+<summary><strong><code>tf.matmul(a, b, transpose_a, transpose_b, adjoint_a, adjoint_b, a_is_sparse, b_is_sparse)</code></strong></summary>
+<p>矩阵乘法。</p>
 <ul>
 <li><code>transpose_a</code> / <code>transpose_b</code>：如果<code>True</code>，<code>a</code> / <code>b</code>在乘法之前转置。</li>
 <li><code>adjoint_a</code> / <code>adjoint_b</code>：如果<code>True</code>，<code>a</code> / <code>b</code>在乘法之前共轭和转置。</li>
@@ -3059,7 +3161,9 @@ tf.Tensor(
  [139 154]], shape=(2, 2), dtype=int32)
 </code></pre></div>
 </details>
-<details class="abstract"><summary><strong><code>tf.tensordot(a, b, axes, name=None)</code></strong></summary><p>$\mathbf{x}^\top \mathbf{y} = \sum_{i=1}^{d} x_i y_i$</p>
+<details class="abstract">
+<summary><strong><code>tf.tensordot(a, b, axes, name=None)</code></strong></summary>
+<p>$\mathbf{x}^\top \mathbf{y} = \sum_{i=1}^{d} x_i y_i$</p>
 </details>
 
 

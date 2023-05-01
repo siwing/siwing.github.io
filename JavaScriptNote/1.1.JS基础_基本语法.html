@@ -17,7 +17,7 @@
         <link rel="next" href="1.4.JS%E5%9F%BA%E7%A1%80_%E8%AF%AD%E5%8F%A5.html">
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.6">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.8">
     
     
       
@@ -26,9 +26,6 @@
     
     
       <link rel="stylesheet" href="../assets/stylesheets/main.ded33207.min.css">
-      
-        
-        <link rel="stylesheet" href="../assets/stylesheets/palette.a0c5b2b5.min.css">
       
       
 
@@ -54,14 +51,11 @@
   </head>
   
   
-    
-    
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+    <body dir="ltr">
   
     
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -3092,7 +3086,7 @@ const sí = true;
 </code></pre></div>
 <p>很可能，这不是代码作者想要的解释。为了作为两个独立的语句工作，在这种情况下需要显式的分号。</p>
 <p>当 JavaScript 无法将第二行解析为第一行语句的延续时，JavaScript 将换行符解释为分号，但这个规则有三种例外。</p>
-<p><img alt="1⃣" class="twemoji" src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/svg/31-20e3.svg" title=":one:" /> 第一种情况涉及 <code>return</code>、<code>throw</code>、<code>yield</code>、<code>break</code>和 <code>continue</code> 语句，这些语句通常是单独的，但有时候，它们后面会跟一个标识符或表达式。JavaScript 总是将它们后面出现的第一个换行符解释为分号。例如，如果你写：</p>
+<p><img alt="1⃣" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/31-20e3.svg" title=":one:" /> 第一种情况涉及 <code>return</code>、<code>throw</code>、<code>yield</code>、<code>break</code>和 <code>continue</code> 语句，这些语句通常是单独的，但有时候，它们后面会跟一个标识符或表达式。JavaScript 总是将它们后面出现的第一个换行符解释为分号。例如，如果你写：</p>
 <div class="highlight"><pre><span></span><code><span class="k">return</span>
 <span class="kc">true</span><span class="p">;</span>
 </code></pre></div>
@@ -3103,8 +3097,8 @@ const sí = true;
 <div class="highlight"><pre><span></span><code><span class="k">return</span><span class="w"> </span><span class="kc">true</span><span class="p">;</span>
 </code></pre></div>
 <p>这意味着不能在 <code>return</code>、<code>break</code>或 <code>continue</code>和关键字后面的表达式之间插入换行符。如果您确实插入了一个换行符，那么您的代码很可能会陷入一种难以调试且不明显的错误中。</p>
-<p><img alt="2⃣" class="twemoji" src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/svg/32-20e3.svg" title=":two:" /> 有些操作符可以作为前缀操作符，也可以作为后缀操作符，例如<code>++</code>和<code>--</code>。如果要让这些操作符中作为后缀操作符，则它们必须与应用它们的表达式出现在同一行。</p>
-<p><img alt="3⃣" class="twemoji" src="https://cdnjs.cloudflare.com/ajax/libs/twemoji/14.0.2/svg/33-20e3.svg" title=":three:" /> 第三种例外涉及“箭头函数”，<code>=&gt;</code> 箭头本身必须与参数列表出现在同一行。</p>
+<p><img alt="2⃣" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/32-20e3.svg" title=":two:" /> 有些操作符可以作为前缀操作符，也可以作为后缀操作符，例如<code>++</code>和<code>--</code>。如果要让这些操作符中作为后缀操作符，则它们必须与应用它们的表达式出现在同一行。</p>
+<p><img alt="3⃣" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@14.1.2/assets/svg/33-20e3.svg" title=":three:" /> 第三种例外涉及“箭头函数”，<code>=&gt;</code> 箭头本身必须与参数列表出现在同一行。</p>
 <h2 id="_5">空格</h2>
 <p>空格也不是 JavaScript 语法的一部分，JavaScript 会忽略所有空格。<mark>除了常规的空格字符（<code>\u0020</code>）之外，JavaScript 还将制表符、各种 ASCII 控制字符和各种 Unicode 空格字符识别为空格。</mark> </p>
 <h2 id="_6">字符转义</h2>

@@ -17,7 +17,7 @@
         <link rel="next" href="9.4.%E7%B4%A2%E5%BC%95%E5%AF%B9%E8%B1%A1.html">
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.6">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.8">
     
     
       
@@ -26,9 +26,6 @@
     
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.ded33207.min.css">
-      
-        
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.a0c5b2b5.min.css">
       
       
 
@@ -54,14 +51,11 @@
   </head>
   
   
-    
-    
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+    <body dir="ltr">
   
     
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -3975,7 +3969,9 @@ False
 <p><code>__getitem__</code>和<code>__setitem__</code>是两个独立的操作，<code>__setitem__</code>并不知道<code>__getitem__</code>。</p>
 <p>关于chained assignment的警告/异常旨在通知用户可能存在无效的赋值，有可能出现误报（假阳性）、或者漏报（假阴性）的情况。</p>
 <p>误报在早期的 pandas 版本中较为普遍，但此后大部分被消除了。为了完整起见，在此处收录一些常见的误报示例。如果您在使用较早版本的 pandas 时遇到以下任何情况，则可以安全地忽略或消除该警告（或通过升级完全避免该警告）。</p>
-<details class="attention"><summary>误报示例</summary><p>使用已存在的列的值向<code>DataFrame</code> 中添加新列会<a href="https://stackoverflow.com/q/42105859/604687">生成警告</a>，但此问题已得到解决。</p>
+<details class="attention">
+<summary>误报示例</summary>
+<p>使用已存在的列的值向<code>DataFrame</code> 中添加新列会<a href="https://stackoverflow.com/q/42105859/604687">生成警告</a>，但此问题已得到解决。</p>
 <div class="highlight"><pre><span></span><code><span class="n">data</span><span class="p">[</span><span class="s1">&#39;bidtime_hours&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">bidtime</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">24</span><span class="p">)</span>
 <span class="n">data</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 </code></pre></div>

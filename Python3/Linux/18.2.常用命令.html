@@ -13,7 +13,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.6">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.8">
     
     
       
@@ -22,9 +22,6 @@
     
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.ded33207.min.css">
-      
-        
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.a0c5b2b5.min.css">
       
       
 
@@ -50,14 +47,11 @@
   </head>
   
   
-    
-    
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+    <body dir="ltr">
   
     
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -3113,7 +3107,9 @@
 
 <h2 id="_1">系统管理</h2>
 <h3 id="shutdown-">shutdown - 关机、重启</h3>
-<details class="abstract"><summary>shutdown  - 关闭或重启。</summary></details>
+<details class="abstract">
+<summary>shutdown  - 关闭或重启。</summary>
+</details>
 <div class="highlight"><pre><span></span><code>shutdown<span class="w"> </span><span class="o">[</span>OPTIONS...<span class="o">]</span><span class="w"> </span><span class="o">[</span>TIME<span class="o">]</span><span class="w"> </span><span class="o">[</span>WALL...<span class="o">]</span>
 
 Shut<span class="w"> </span>down<span class="w"> </span>the<span class="w"> </span>system.
@@ -3136,16 +3132,22 @@ shutdown -c
 </code></pre></div>
 <h2 id="_2">命令帮助</h2>
 <h3 id="man-">man - 查看在线帮助</h3>
-<details class="abstract"><summary>man - manual - 查看命令的在线帮助。</summary></details>
+<details class="abstract">
+<summary>man - manual - 查看命令的在线帮助。</summary>
+</details>
 <div class="highlight"><pre><span></span><code>man<span class="w"> </span>wc
 </code></pre></div>
 <h3 id="whatis-">whatis - 命令简述</h3>
-<details class="abstract"><summary>whatis - 查询一个命令的简短描述（单行描述）。</summary></details>
+<details class="abstract">
+<summary>whatis - 查询一个命令的简短描述（单行描述）。</summary>
+</details>
 <p>whatis 命令在用 catman -w 命令创建的数据库中查找 command 参数指定的命令、系统调用、库函数或特殊文件名。whatis命令显示手册部分的页眉行。whatis命令等同于使用 man -f 命令。</p>
 <div class="highlight"><pre><span></span><code>whatis<span class="w"> </span>wc
 </code></pre></div>
 <h3 id="apropos-">apropos - 查找命令</h3>
-<details class="abstract"><summary>apropos - 在whatis数据库中查找字符串。</summary></details>
+<details class="abstract">
+<summary>apropos - 在whatis数据库中查找字符串。</summary>
+</details>
 <p>使用man -k命令，可以得到和apropos命令相同的结果（实际上是相同的命令）。</p>
 <div class="highlight"><pre><span></span><code>-r,<span class="w"> </span>--<span class="w"> </span>regex<span class="w">    </span><span class="c1"># 将每个keyword作为正则表达式解释, 默认行为</span>
 -w,<span class="w"> </span>--wildcard<span class="w">  </span><span class="c1"># 将每个keyword作为shell样式的通配符解释</span>
@@ -3158,7 +3160,9 @@ shutdown -c
 </code></pre></div>
 <h2 id="_3">文件管理</h2>
 <h3 id="ls-">ls - 列出文件</h3>
-<details class="abstract"><summary>ls - list - 列出文件，可以使用通配符。</summary></details>
+<details class="abstract">
+<summary>ls - list - 列出文件，可以使用通配符。</summary>
+</details>
 <p><img alt="" src="https://i.pinimg.com/originals/d3/e7/4a/d3e74a87f423bbb62e39d9de30e6399d.gif" /></p>
 <p><strong>其他参数</strong></p>
 <div class="highlight"><pre><span></span><code>-F,<span class="w"> </span>--classify<span class="w">              </span><span class="c1"># 每个条目后面附加一个指示符，用来说明文件的类型。</span>
@@ -3257,17 +3261,25 @@ shutdown -c
 --group-directories-first<span class="w"> </span><span class="c1"># 将目录排在文件前面</span>
 </code></pre></div>
 <h3 id="cd-">cd - 进入目录</h3>
-<details class="abstract"><summary>cd - change working directory - 进入指定目录。</summary></details>
+<details class="abstract">
+<summary>cd - change working directory - 进入指定目录。</summary>
+</details>
 <h3 id="pwd-">pwd - 打印当前目录</h3>
-<details class="abstract"><summary>pwd - print working directory - 打印当前目录的绝对路径。</summary></details>
+<details class="abstract">
+<summary>pwd - print working directory - 打印当前目录的绝对路径。</summary>
+</details>
 <h3 id="mkdir-">mkdir - 创建目录</h3>
-<details class="abstract"><summary>mkdir - make directory - 创建目录，若目录已存在，默认报错。</summary></details>
+<details class="abstract">
+<summary>mkdir - make directory - 创建目录，若目录已存在，默认报错。</summary>
+</details>
 <div class="highlight"><pre><span></span><code>-m,<span class="w"> </span>--mode<span class="o">=</span>MODE<span class="w"> </span><span class="c1"># 设置文件权限（类似chmod），不会减去umask</span>
 -p,<span class="w"> </span>--parents<span class="w">   </span><span class="c1"># 如果目录已存在不会报错；根据需要创建父目录</span>
 -v,<span class="w"> </span>--verbose<span class="w">   </span><span class="c1"># 为创建的每个目录显示一条消息</span>
 </code></pre></div>
 <h3 id="rm-">rm - 删除文件或目录</h3>
-<details class="abstract"><summary>rm - remove - 删除文件或目录。</summary></details>
+<details class="abstract">
+<summary>rm - remove - 删除文件或目录。</summary>
+</details>
 <div class="highlight"><pre><span></span><code>-f,<span class="w"> </span>--force<span class="w">          </span><span class="c1"># 忽略不存在的文件和参数，从不提示</span>
 -i<span class="w">                   </span><span class="c1"># 在每次删除之前提示，默认行为</span>
 -1<span class="w">                   </span><span class="c1"># 在删除三个以上的文件之前或递归删除时，提示1次</span>
@@ -3279,12 +3291,16 @@ shutdown -c
 -d,<span class="w"> </span>--dir<span class="w">            </span><span class="c1"># 删除空目录</span>
 </code></pre></div>
 <h3 id="rmdir-">rmdir - 删除空目录</h3>
-<details class="abstract"><summary>rmdir - remove directory - 删除空目录。</summary></details>
+<details class="abstract">
+<summary>rmdir - remove directory - 删除空目录。</summary>
+</details>
 <div class="highlight"><pre><span></span><code>--ignore-fail-on-non-empty<span class="w"> </span><span class="c1"># 忽略目录非空导致的失败</span>
 -p,<span class="w"> </span>--parents<span class="w">              </span><span class="c1"># 删除目录及其父目录</span>
 </code></pre></div>
 <h3 id="mv-">mv - 重命名 / 移动文件或目录</h3>
-<details class="abstract"><summary>mv - 移动文件或目录；重命名。</summary></details>
+<details class="abstract">
+<summary>mv - 移动文件或目录；重命名。</summary>
+</details>
 <div class="highlight"><pre><span></span><code>--backup<span class="o">[=</span>CONTROL<span class="o">]</span><span class="w">               </span><span class="c1"># 备份每个现有目标文件</span>
 -b<span class="w">                               </span><span class="c1"># 类似--backup，但不接受参数</span>
 -f,<span class="w"> </span>--force<span class="w">                      </span><span class="c1"># 覆盖前不提示</span>

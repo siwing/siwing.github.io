@@ -17,7 +17,7 @@
         <link rel="next" href="2.8.Dict.html">
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.6">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.8">
     
     
       
@@ -26,9 +26,6 @@
     
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.ded33207.min.css">
-      
-        
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.a0c5b2b5.min.css">
       
       
 
@@ -54,14 +51,11 @@
   </head>
   
   
-    
-    
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+    <body dir="ltr">
   
     
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -2917,7 +2911,9 @@ Latest build date 2020.11.22
 </code></pre></div>
 <p><code>tuple</code> 是一种一维的、不可变的 Python 对象序列，元素写在小括号 <code>()</code> 里，元素之间用逗号隔开，元组中的元素类型可以不相同。其名称来自拉丁语中与倍数有关的单词的后缀：double, triple, quadpleple, quinpleple。</p>
 <p>不可变是指 <code>tuple</code> 对象创建之后，该 <code>tuple</code> 对象已包含的元素不能被修改或删除，也不能添加新元素。虽然 <code>tuple</code> 是不可变对象，但它可以包含可变的对象，比如一个 <code>tuple</code> 对象包含一个 <code>list</code> 对象。</p>
-<details class="question"><summary>不可变的<code>tuple</code>有什么意义？</summary><p>对于某些操作，不可变的元组对象比可变列表对象更有效或更安全。创建元组后，只能对其进行访问，不必担心其中的元素被意外地修改。</p>
+<details class="question">
+<summary>不可变的<code>tuple</code>有什么意义？</summary>
+<p>对于某些操作，不可变的元组对象比可变列表对象更有效或更安全。创建元组后，只能对其进行访问，不必担心其中的元素被意外地修改。</p>
 <p>最重要的是，元组可以可靠地哈希为某个值，因此可以作为映射类型的键。</p>
 </details>
 <h2 id="1tuple">陷阱——1个元素的Tuple</h2>

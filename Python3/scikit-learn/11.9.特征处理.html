@@ -17,7 +17,7 @@
         <link rel="next" href="11.10.%E8%BD%AC%E6%8D%A2%E9%A2%84%E6%B5%8B%E7%9B%AE%E6%A0%87y.html">
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.6">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.8">
     
     
       
@@ -26,9 +26,6 @@
     
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.ded33207.min.css">
-      
-        
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.a0c5b2b5.min.css">
       
       
 
@@ -54,14 +51,11 @@
   </head>
   
   
-    
-    
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+    <body dir="ltr">
   
     
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -3193,7 +3187,9 @@ sklearn version:  0.24.2
 z = \frac{x-\mu}{s}
 $$</p>
 <p>其中，$\mu$ 是训练数据的均值；$s$ 是训练数据的标准差。</p>
-<details class="abstract"><summary><strong><code>StandardScaler(copy=True, with_mean=True, with_std=True)</code></strong></summary><ul>
+<details class="abstract">
+<summary><strong><code>StandardScaler(copy=True, with_mean=True, with_std=True)</code></strong></summary>
+<ul>
 <li><code>copy</code>：是否拷贝数据。</li>
 <li><code>with_mean</code>：转换时是否执行中心化。若为<code>True</code>，则缩放之前先将特征数据减去均值。 如果数据是稀疏矩阵的格式，则不能指定<code>with_mean=True</code>。</li>
 <li><code>with_std</code>：是否方差归一化。如果为<code>True</code>，则缩放每个特征到单位方差。</li>
@@ -3226,7 +3222,9 @@ $$</p>
 </code></pre></div>
 <h2 id="minmaxscaler">归一化 MinMaxScaler</h2>
 <p><code>MinMaxScaler</code>估计器分别缩放和转换每个特征，以使其处于训练集的给定范围内。该转换常常作为零均值、单位方差缩放的代替。</p>
-<details class="abstract"><summary><strong><code>MinMaxScaler(feature_range=(0, 1), copy=True, clip=False)</code></strong></summary><ul>
+<details class="abstract">
+<summary><strong><code>MinMaxScaler(feature_range=(0, 1), copy=True, clip=False)</code></strong></summary>
+<ul>
 <li><code>feature_range</code>：一个元组<code>(min,max)</code>，指定了执行变换之后特征的取值范围。</li>
 </ul>
 <p><strong>属性</strong></p>
@@ -3266,7 +3264,9 @@ $$</p>
 </code></pre></div>
 <h2 id="maxabsscaler">MaxAbsScaler</h2>
 <p><code>MaxAbsScaler</code> 实现了<code>max-abs</code> 标准化：</p>
-<details class="abstract"><summary><strong><code>MaxAbsScaler(copy=True)</code></strong></summary><p><strong>属性</strong></p>
+<details class="abstract">
+<summary><strong><code>MaxAbsScaler(copy=True)</code></strong></summary>
+<p><strong>属性</strong></p>
 <ul>
 <li><code>scale_</code>：一个数组，给出了每个特征的缩放倍数的倒数。</li>
 <li><code>max_abs_</code>：一个数组，给出了每个特征的绝对值的最大值。</li>

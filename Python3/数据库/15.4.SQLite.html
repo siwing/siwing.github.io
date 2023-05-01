@@ -17,7 +17,7 @@
         <link rel="next" href="15.5.SQLAlchemy.html">
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.6">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.8">
     
     
       
@@ -26,9 +26,6 @@
     
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.ded33207.min.css">
-      
-        
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.a0c5b2b5.min.css">
       
       
 
@@ -54,14 +51,11 @@
   </head>
   
   
-    
-    
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+    <body dir="ltr">
   
     
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -3064,11 +3058,11 @@ SQLite version:  3.33.0
 </li>
 </ul>
 <h3 id="sqlite3register_converter"><code>sqlite3.register_converter</code></h3>
-<div class="highlight"><pre><span></span><code><span class="n">sqlite3</span><span class="o">.</span><span class="n">register_converter</span><span class="p">(</span><span class="n">typename</span><span class="p">,</span> <span class="n">callable</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">sqlite3</span><span class="o">.</span><span class="n">register_converter</span><span class="p">(</span><span class="n">typename</span><span class="p">,</span> <span class="nb">callable</span><span class="p">)</span>
 </code></pre></div>
 <p>注册一个callable，将数据库中的字节串转换为自定义Python类型。即为<code>typename</code>类型的所有数据库值调用callable。需要为<code>connect()</code>方法传入<code>detect_types</code>参数，开启类型检测功能。注意，<code>typename</code>和查询中类型名称在匹配时不区分大小写。</p>
 <h3 id="sqlite3register_adapter"><code>sqlite3.register_adapter</code></h3>
-<div class="highlight"><pre><span></span><code><span class="n">sqlite3</span><span class="o">.</span><span class="n">register_adapter</span><span class="p">(</span><span class="nb">type</span><span class="p">,</span> <span class="n">callable</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">sqlite3</span><span class="o">.</span><span class="n">register_adapter</span><span class="p">(</span><span class="nb">type</span><span class="p">,</span> <span class="nb">callable</span><span class="p">)</span>
 </code></pre></div>
 <p>注册一个 callable 以将自定义 Python 类型转换为 SQLite 支持的类型。callable 接受 Python 值作为单个参数，并且必须返回 <code>int</code>、<code>float</code>、<code>str</code>或<code>bytes</code>类型。</p>
 <h3 id="sqlite3complete_statement"><code>sqlite3.complete_statement</code></h3>

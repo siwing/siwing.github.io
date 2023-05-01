@@ -17,7 +17,7 @@
         <link rel="next" href="../scikit-learn/11.1.%E6%95%B0%E6%8D%AE%E9%9B%86.html">
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.6">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.8">
     
     
       
@@ -26,9 +26,6 @@
     
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.ded33207.min.css">
-      
-        
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.a0c5b2b5.min.css">
       
       
 
@@ -54,14 +51,11 @@
   </head>
   
   
-    
-    
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+    <body dir="ltr">
   
     
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -2859,7 +2853,9 @@
 
 <h2 id="plot">plot</h2>
 <h2 id="plot_1">plot</h2>
-<details class="summary" open="open"><summary><code>plt.plot</code> - 绘制折线图或散点图</summary><div class="highlight"><pre><span></span><code><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">scalex</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">scaley</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span>
+<details class="summary" open="open">
+<summary><code>plt.plot</code> - 绘制折线图或散点图</summary>
+<div class="highlight"><pre><span></span><code><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">scalex</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">scaley</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span>
 </code></pre></div>
 <p><strong>Plot y versus x as lines and/or markers.</strong></p>
 <p>使用格式如下，点或线条的坐标系由 <code>x</code>、<code>y</code> 给出。：
@@ -2904,44 +2900,60 @@
 <li><strong><code>visible</code></strong>：bool；Line2D是否可见。</li>
 </ul>
 </details>
-<details class="summary" open="open"><summary><code>plt.scatter</code> - 绘制散点图</summary><div class="highlight"><pre><span></span><code><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<details class="summary" open="open">
+<summary><code>plt.scatter</code> - 绘制散点图</summary>
+<div class="highlight"><pre><span></span><code><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
             <span class="n">vmin</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">linewidths</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
             <span class="n">verts</span><span class="o">=&lt;</span><span class="n">deprecated</span> <span class="n">parameter</span><span class="o">&gt;</span><span class="p">,</span> <span class="n">edgecolors</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
             <span class="n">plotnonfinite</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span>
 </code></pre></div>
 </details>
-<details class="summary" open="open"><summary><code>plt.xlabel</code> - 设置 X 轴标签</summary><div class="highlight"><pre><span></span><code><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="n">xlabel</span><span class="p">,</span> <span class="n">fontdict</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">labelpad</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span>
+<details class="summary" open="open">
+<summary><code>plt.xlabel</code> - 设置 X 轴标签</summary>
+<div class="highlight"><pre><span></span><code><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="n">xlabel</span><span class="p">,</span> <span class="n">fontdict</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">labelpad</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span>
 </code></pre></div>
 <ul>
 <li><code>loc</code> : {'left', 'center', 'right'}, default::rc:<code>xaxis.labellocation</code></li>
 </ul>
 </details>
-<details class="summary"><summary><code>plt.ylabel</code> - 设置 Y 轴标签</summary><div class="highlight"><pre><span></span><code><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="n">ylabel</span><span class="p">,</span> <span class="n">fontdict</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">labelpad</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span>
+<details class="summary">
+<summary><code>plt.ylabel</code> - 设置 Y 轴标签</summary>
+<div class="highlight"><pre><span></span><code><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="n">ylabel</span><span class="p">,</span> <span class="n">fontdict</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">labelpad</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span>
 </code></pre></div>
 <ul>
 <li><code>loc</code> : {'left', 'center', 'right'}, default::rc:<code>yaxis.labellocation</code></li>
 </ul>
 </details>
-<details class="summary" open="open"><summary><code>plt.xlim</code> - 设置/获取 X 轴范围</summary><div class="highlight"><pre><span></span><code><span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<details class="summary" open="open">
+<summary><code>plt.xlim</code> - 设置/获取 X 轴范围</summary>
+<div class="highlight"><pre><span></span><code><span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 </code></pre></div>
 <p><code>xlim(left, right)</code>: set the xlim to left, right</p>
 <p><code>left, right = xlim()</code>: return the current xlim</p>
 </details>
-<details class="summary"><summary><code>plt.ylim</code> - 设置/获取 Y 轴范围</summary><div class="highlight"><pre><span></span><code><span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<details class="summary">
+<summary><code>plt.ylim</code> - 设置/获取 Y 轴范围</summary>
+<div class="highlight"><pre><span></span><code><span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 </code></pre></div>
 <p><code>ylim(bottom, top)</code>: set the ylim to bottom, top</p>
 <p><code>bottom, top = ylim()</code>: return the current ylim</p>
 </details>
-<details class="summary" open="open"><summary><code>plt.xticks</code> - 设置/获取 X 轴刻度的标签</summary><div class="highlight"><pre><span></span><code><span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">ticks</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span>
+<details class="summary" open="open">
+<summary><code>plt.xticks</code> - 设置/获取 X 轴刻度的标签</summary>
+<div class="highlight"><pre><span></span><code><span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">ticks</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span>
 </code></pre></div>
 <p><code>xticks(np.arange(3), ['Tom', 'Dick', 'Sue'], rotation=20)</code>: Set text labels and properties.</p>
 <p><code>xticks([])</code>: Disable xticks.</p>
 <p><code>locs, labels = xticks()</code>: Get the current locations and labels.</p>
 </details>
-<details class="summary"><summary><code>plt.yticks</code> - 设置/获取 Y 轴刻度的标签</summary><div class="highlight"><pre><span></span><code><span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">ticks</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span>
+<details class="summary">
+<summary><code>plt.yticks</code> - 设置/获取 Y 轴刻度的标签</summary>
+<div class="highlight"><pre><span></span><code><span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">(</span><span class="n">ticks</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span>
 </code></pre></div>
 </details>
-<details class="summary" open="open"><summary><code>plt.legend</code> - 设置图例</summary><div class="highlight"><pre><span></span><code><span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span>
+<details class="summary" open="open">
+<summary><code>plt.legend</code> - 设置图例</summary>
+<div class="highlight"><pre><span></span><code><span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span>
 </code></pre></div>
 <p>所有 Artist 类的 label 默认值为 None，因此在没有 label 参数的情况下调用 “Axes.legend” 不绘制任何图例。</p>
 <p>使用 <code>legend( )</code> 添加图例有三种方法：</p>
@@ -3027,10 +3039,14 @@
 <li><strong><code>borderaxespad</code></strong>：float or None. The pad between the axes and legend border.Measured in font-size units.</li>
 </ul>
 </details>
-<details class="summary" open="open"><summary><code>plt.text</code> - 添加文本到 axes</summary><div class="highlight"><pre><span></span><code><span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">fontdict</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span>
+<details class="summary" open="open">
+<summary><code>plt.text</code> - 添加文本到 axes</summary>
+<div class="highlight"><pre><span></span><code><span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">fontdict</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span>
 </code></pre></div>
 </details>
-<details class="summary" open="open"><summary><code>plt.annotate</code> - 在指定点添加注解</summary><div class="highlight"><pre><span></span><code><span class="n">plt</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">xy</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span>
+<details class="summary" open="open">
+<summary><code>plt.annotate</code> - 在指定点添加注解</summary>
+<div class="highlight"><pre><span></span><code><span class="n">plt</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">xy</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">kwargs</span><span class="p">)</span>
 </code></pre></div>
 <ul>
 <li><strong><code>text</code></strong>：注解的文字，<code>s</code>是该参数已弃用的同义词。</li>

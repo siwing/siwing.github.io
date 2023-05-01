@@ -17,7 +17,7 @@
         <link rel="next" href="8.8.ufunc%E5%87%BD%E6%95%B0.html">
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.6">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.8">
     
     
       
@@ -26,9 +26,6 @@
     
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.ded33207.min.css">
-      
-        
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.a0c5b2b5.min.css">
       
       
 
@@ -54,14 +51,11 @@
   </head>
   
   
-    
-    
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+    <body dir="ltr">
   
     
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -2939,7 +2933,9 @@ numpy version:  1.20.3
 <div class="highlight"><pre><span></span><code><span class="n">data</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 </code></pre></div>
 <h2 id="shape">改变数组形状(<code>shape</code>)</h2>
-<details class="abstract"><summary><strong><code>array.shape</code></strong></summary><div class="highlight"><pre><span></span><code><span class="c1"># 创建示例数据</span>
+<details class="abstract">
+<summary><strong><code>array.shape</code></strong></summary>
+<div class="highlight"><pre><span></span><code><span class="c1"># 创建示例数据</span>
 <span class="n">array</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Original shape = </span><span class="si">{</span><span class="n">array</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
@@ -2955,7 +2951,9 @@ New shape = (5, 10)
 New shape = (25, 2)
 </code></pre></div>
 </details>
-<details class="abstract"><summary><strong><code>np.reshape(a, newshape, order='C')</code></strong></summary><p><code>array.reshape</code>不会直接修改原始数组，而是返回副本：</p>
+<details class="abstract">
+<summary><strong><code>np.reshape(a, newshape, order='C')</code></strong></summary>
+<p><code>array.reshape</code>不会直接修改原始数组，而是返回副本：</p>
 <div class="highlight"><pre><span></span><code><span class="n">array</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
 <span class="n">array</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
@@ -2967,7 +2965,9 @@ New shape = (25, 2)
        [40, 41, 42, 43, 44, 45, 46, 47, 48, 49]])
 </code></pre></div>
 </details>
-<details class="abstract"><summary><strong><code>np.resize(a, newshape)</code></strong></summary><p><code>array.resize</code>会就地修改原始数组，<code>np.resize</code>会返回副本：</p>
+<details class="abstract">
+<summary><strong><code>np.resize(a, newshape)</code></strong></summary>
+<p><code>array.resize</code>会就地修改原始数组，<code>np.resize</code>会返回副本：</p>
 <div class="highlight"><pre><span></span><code><span class="n">array</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="n">new_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">new_array</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
@@ -2983,7 +2983,9 @@ New shape = (25, 2)
 New ndim = 3
 </code></pre></div>
 </details>
-<details class="abstract"><summary><strong><code>array.flatten()</code></strong> / <strong><code>array.reval()</code></strong></summary><p><code>array.flatten</code>方法将多维数组转为一维数组，总是返回副本：</p>
+<details class="abstract">
+<summary><strong><code>array.flatten()</code></strong> / <strong><code>array.reval()</code></strong></summary>
+<p><code>array.flatten</code>方法将多维数组转为一维数组，总是返回副本：</p>
 <div class="highlight"><pre><span></span><code><span class="n">array</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>array([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14, 15, 16,
@@ -3006,7 +3008,9 @@ False
 True
 </code></pre></div>
 </details>
-<details class="abstract"><summary><strong><code>array.T</code></strong></summary><p>转置。</p>
+<details class="abstract">
+<summary><strong><code>array.T</code></strong></summary>
+<p>转置。</p>
 <div class="highlight"><pre><span></span><code><span class="n">array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">array</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
 </code></pre></div>
@@ -3017,7 +3021,9 @@ True
 </code></pre></div>
 </details>
 <h2 id="ndim">更改维度数(<code>ndim</code>)</h2>
-<details class="abstract"><summary><strong><code>np.squeeze(a, axis=None)</code></strong> / <strong><code>array.squeeze()</code></strong></summary><p>将大小等于1的轴删除，返回副本：</p>
+<details class="abstract">
+<summary><strong><code>np.squeeze(a, axis=None)</code></strong> / <strong><code>array.squeeze()</code></strong></summary>
+<p>将大小等于1的轴删除，返回副本：</p>
 <div class="highlight"><pre><span></span><code><span class="n">array</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="n">array</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 
@@ -3028,7 +3034,9 @@ True
 (25, 2)
 </code></pre></div>
 </details>
-<details class="abstract"><summary><strong><code>np.atleast_1d(*arys)</code></strong></summary><p>将输入转换为至少一维的数组。</p>
+<details class="abstract">
+<summary><strong><code>np.atleast_1d(*arys)</code></strong></summary>
+<p>将输入转换为至少一维的数组。</p>
 <div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">atleast_1d</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">atleast_1d</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
 </code></pre></div>
@@ -3036,13 +3044,17 @@ True
 [array([1]), array([2])]
 </code></pre></div>
 </details>
-<details class="abstract"><summary><strong><code>np.atleast_2d(*arys)</code></strong></summary><p>将输入转换为至少二维的数组。</p>
+<details class="abstract">
+<summary><strong><code>np.atleast_2d(*arys)</code></strong></summary>
+<p>将输入转换为至少二维的数组。</p>
 <div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">atleast_2d</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]))</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>[[1 2 3 4]]
 </code></pre></div>
 </details>
-<details class="abstract"><summary><strong><code>np.atleast_3d(*arys)</code></strong></summary><p>将输入转换为至少三维的数组。</p>
+<details class="abstract">
+<summary><strong><code>np.atleast_3d(*arys)</code></strong></summary>
+<p>将输入转换为至少三维的数组。</p>
 <div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">atleast_3d</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]]))</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>[[[1]
@@ -3052,7 +3064,9 @@ True
   [4]]]
 </code></pre></div>
 </details>
-<details class="abstract"><summary><strong><code>np.expand_dims()</code></strong></summary><p>在指定位置插入大小为1的新轴。</p>
+<details class="abstract">
+<summary><strong><code>np.expand_dims()</code></strong></summary>
+<p>在指定位置插入大小为1的新轴。</p>
 <div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 </code></pre></div>
@@ -3061,7 +3075,9 @@ True
 </code></pre></div>
 </details>
 <h2 id="axis">轴操作(<code>axis</code>)</h2>
-<details class="abstract"><summary><strong><code>np.swapaxes(a, axis1, axis2)</code></strong> / <strong><code>array.swapaxes()</code></strong></summary><p>交换指定的两个轴（<code>axis1</code>和<code>axis2</code>），返回视图：</p>
+<details class="abstract">
+<summary><strong><code>np.swapaxes(a, axis1, axis2)</code></strong> / <strong><code>array.swapaxes()</code></strong></summary>
+<p>交换指定的两个轴（<code>axis1</code>和<code>axis2</code>），返回视图：</p>
 <div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">swapaxes</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">swapaxes</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
@@ -3073,7 +3089,9 @@ True
 False
 </code></pre></div>
 </details>
-<details class="abstract"><summary><strong><code>np.transpose(a, axes=None)</code></strong> / <strong><code>array.transpose()</code></strong></summary><p>改变轴的顺序，返回视图。如果<code>axes=None</code>，则默认将轴序改为逆序，例如原轴序<code>shape=(1,2,3)</code>，逆序则为<code>(3,2,1）</code>。</p>
+<details class="abstract">
+<summary><strong><code>np.transpose(a, axes=None)</code></strong> / <strong><code>array.transpose()</code></strong></summary>
+<p>改变轴的顺序，返回视图。如果<code>axes=None</code>，则默认将轴序改为逆序，例如原轴序<code>shape=(1,2,3)</code>，逆序则为<code>(3,2,1）</code>。</p>
 <div class="highlight"><pre><span></span><code><span class="n">array</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">array</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">array</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
@@ -3082,7 +3100,9 @@ False
 (5, 2, 5)
 </code></pre></div>
 </details>
-<details class="abstract"><summary><strong><code>np.moveaxis(a, source, destination)</code></strong></summary><p>将<code>a</code>的<code>source</code>轴移动到位置<code>destination</code>。<code>source</code>、<code>destination</code>可以是<code>int of list</code>，一次性移动多个轴。</p>
+<details class="abstract">
+<summary><strong><code>np.moveaxis(a, source, destination)</code></strong></summary>
+<p>将<code>a</code>的<code>source</code>轴移动到位置<code>destination</code>。<code>source</code>、<code>destination</code>可以是<code>int of list</code>，一次性移动多个轴。</p>
 <div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">moveaxis</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">moveaxis</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
@@ -3103,7 +3123,9 @@ False
 (5, 4, 3)
 </code></pre></div>
 </details>
-<details class="abstract"><summary><strong><code>np.rollaxis(a, axis, start=0)</code></strong></summary><p>向后滚动指定的轴，直到它位于给定位置。使用<code>np.moveaxis</code>代替<code>np.rollaxis</code>可能更好。</p>
+<details class="abstract">
+<summary><strong><code>np.rollaxis(a, axis, start=0)</code></strong></summary>
+<p>向后滚动指定的轴，直到它位于给定位置。使用<code>np.moveaxis</code>代替<code>np.rollaxis</code>可能更好。</p>
 <div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;np.rollaxis(a, 2).shape&quot;</span><span class="p">,</span> <span class="s2">&quot;--&gt;&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">rollaxis</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;np.rollaxis(a, 3, 1).shape&quot;</span><span class="p">,</span> <span class="s2">&quot;--&gt;&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">rollaxis</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
@@ -3115,7 +3137,9 @@ np.rollaxis(a, 1, 4).shape --&gt; (3, 5, 6, 4)
 </code></pre></div>
 </details>
 <h2 id="_1">拼接数组</h2>
-<details class="abstract"><summary><strong><code>np.concatenate(arrays, axis=None, out=None, *, dtype=None, casting=None)</code></strong></summary><p>沿着指定的轴拼接一系列数组。</p>
+<details class="abstract">
+<summary><strong><code>np.concatenate(arrays, axis=None, out=None, *, dtype=None, casting=None)</code></strong></summary>
+<p>沿着指定的轴拼接一系列数组。</p>
 <ul>
 <li><code>arrays</code>：包含数组的序列。待连接的数组除了<code>axis</code>轴之外，其他轴的大小必须相同。</li>
 </ul>
@@ -3142,12 +3166,16 @@ np.rollaxis(a, 1, 4).shape --&gt; (3, 5, 6, 4)
 ValueError all the input array dimensions for the concatenation axis must match exactly, but along dimension 0, the array at index 0 has size 4 and the array at index 1 has size 3
 </code></pre></div>
 </details>
-<details class="abstract"><summary><strong><code>np.stack(arrays, axis=0, out=None)</code></strong></summary><p>沿着“新轴”拼接数组。注意，<code>np.hstack</code>和<code>np.vstack</code>是沿着已存在的轴拼接数组。</p>
+<details class="abstract">
+<summary><strong><code>np.stack(arrays, axis=0, out=None)</code></strong></summary>
+<p>沿着“新轴”拼接数组。注意，<code>np.hstack</code>和<code>np.vstack</code>是沿着已存在的轴拼接数组。</p>
 <ul>
 <li><code>out</code>：储存结果的变量。</li>
 </ul>
 </details>
-<details class="abstract"><summary><strong><code>np.vstack(tup)</code></strong></summary><p>沿 0 轴拼接（垂直拼接），增加行数。</p>
+<details class="abstract">
+<summary><strong><code>np.vstack(tup)</code></strong></summary>
+<p>沿 0 轴拼接（垂直拼接），增加行数。</p>
 <div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 
@@ -3164,7 +3192,9 @@ ValueError all the input array dimensions for the concatenation axis must match 
  [4 5]]
 </code></pre></div>
 </details>
-<details class="abstract"><summary><strong><code>np.hstack(tup)</code></strong></summary><p>沿 1 轴拼接（水平拼接），增加列数。</p>
+<details class="abstract">
+<summary><strong><code>np.hstack(tup)</code></strong></summary>
+<p>沿 1 轴拼接（水平拼接），增加列数。</p>
 <div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 
@@ -3177,11 +3207,17 @@ ValueError all the input array dimensions for the concatenation axis must match 
  [2 4 5]]
 </code></pre></div>
 </details>
-<details class="abstract"><summary><strong><code>np.dstack(tup)</code></strong></summary><p>沿着3轴堆叠数组。</p>
+<details class="abstract">
+<summary><strong><code>np.dstack(tup)</code></strong></summary>
+<p>沿着3轴堆叠数组。</p>
 </details>
-<details class="abstract"><summary><strong><code>np.column_stack(tup)</code></strong></summary><p>类似于<code>hstack</code>，但是如果被拼接的数组是一维的，则将其形状修改为二维的 $(N, 1)$。</p>
+<details class="abstract">
+<summary><strong><code>np.column_stack(tup)</code></strong></summary>
+<p>类似于<code>hstack</code>，但是如果被拼接的数组是一维的，则将其形状修改为二维的 $(N, 1)$。</p>
 </details>
-<details class="abstract"><summary><strong><code>np.c_[]</code></strong></summary><p>类似于<code>hstack</code>，但是如果被拼接的数组是一维的，则将其形状修改为二维的$(N, 1)$，这和<code>np.column_stack</code>的效果一样。</p>
+<details class="abstract">
+<summary><strong><code>np.c_[]</code></strong></summary>
+<p>类似于<code>hstack</code>，但是如果被拼接的数组是一维的，则将其形状修改为二维的$(N, 1)$，这和<code>np.column_stack</code>的效果一样。</p>
 <div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">c_</span><span class="p">[</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">]</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">([</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">]))</span>
@@ -3213,7 +3249,9 @@ ValueError all the input array dimensions for the concatenation axis must match 
 </code></pre></div>
 </details>
 <h2 id="_2">拆分数组</h2>
-<details class="abstract"><summary><strong><a href="https://numpy.org/devdocs/reference/generated/numpy.split.html#numpy.split" title="numpy官网文档"><code>np.split(ary, indices_or_sections, axis=0)</code></a></strong></summary><p>沿着指定的轴拆分数组<code>ary</code>。</p>
+<details class="abstract">
+<summary><strong><a href="https://numpy.org/devdocs/reference/generated/numpy.split.html#numpy.split" title="numpy官网文档"><code>np.split(ary, indices_or_sections, axis=0)</code></a></strong></summary>
+<p>沿着指定的轴拆分数组<code>ary</code>。</p>
 <ul>
 <li>
 <p><code>indices_or_sections</code>：指定了拆分点：</p>
@@ -3243,7 +3281,9 @@ ValueError all the input array dimensions for the concatenation axis must match 
 3
 </code></pre></div>
 </details>
-<details class="abstract"><summary><strong><a href="https://numpy.org/devdocs/reference/generated/numpy.array_split.html#numpy.array_split" title="numpy官网文档"><code>np.array_split(ary, indices_or_sections, axis=0)</code></a></strong></summary><p>作用与<code>.split()</code>类似。唯一的区别在于：当indices_or_sections为整数，且无法平均拆分时，并不报错，而是尽可能的维持平均拆分。</p>
+<details class="abstract">
+<summary><strong><a href="https://numpy.org/devdocs/reference/generated/numpy.array_split.html#numpy.array_split" title="numpy官网文档"><code>np.array_split(ary, indices_or_sections, axis=0)</code></a></strong></summary>
+<p>作用与<code>.split()</code>类似。唯一的区别在于：当indices_or_sections为整数，且无法平均拆分时，并不报错，而是尽可能的维持平均拆分。</p>
 <div class="highlight"><pre><span></span><code><span class="n">array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
 <span class="n">arrays</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array_split</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">arrays</span><span class="p">))</span>
@@ -3253,7 +3293,9 @@ ValueError all the input array dimensions for the concatenation axis must match 
 2
 </code></pre></div>
 </details>
-<details class="abstract"><summary><strong><a href="https://numpy.org/devdocs/reference/generated/numpy.vsplit.html#numpy.vsplit" title="numpy官网文档"><code>np.vsplit(ary, indices_or_sections)</code></a></strong></summary><p>沿着行方向（垂直方向）将数组拆分为多个子数组。</p>
+<details class="abstract">
+<summary><strong><a href="https://numpy.org/devdocs/reference/generated/numpy.vsplit.html#numpy.vsplit" title="numpy官网文档"><code>np.vsplit(ary, indices_or_sections)</code></a></strong></summary>
+<p>沿着行方向（垂直方向）将数组拆分为多个子数组。</p>
 <div class="highlight"><pre><span></span><code><span class="n">array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">np</span><span class="o">.</span><span class="n">vsplit</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 </code></pre></div>
@@ -3263,17 +3305,23 @@ ValueError all the input array dimensions for the concatenation axis must match 
         [3]])]
 </code></pre></div>
 </details>
-<details class="abstract"><summary><strong><a href="https://numpy.org/devdocs/reference/generated/numpy.hsplit.html#numpy.hsplit" title="numpy官网文档"><code>np.hsplit(ary, indices_or_sections)</code></a></strong></summary><p>沿着列方向（水平方向）将数组拆分为多个子数组。</p>
+<details class="abstract">
+<summary><strong><a href="https://numpy.org/devdocs/reference/generated/numpy.hsplit.html#numpy.hsplit" title="numpy官网文档"><code>np.hsplit(ary, indices_or_sections)</code></a></strong></summary>
+<p>沿着列方向（水平方向）将数组拆分为多个子数组。</p>
 <div class="highlight"><pre><span></span><code><span class="n">array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
 <span class="n">np</span><span class="o">.</span><span class="n">hsplit</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>[array([[0, 1]]), array([[2, 3]])]
 </code></pre></div>
 </details>
-<details class="abstract"><summary><strong><a href="https://numpy.org/devdocs/reference/generated/numpy.dsplit.html#numpy.dsplit" title="numpy官网文档"><code>np.dsplit(ary, indices_or_sections)</code></a></strong></summary><p>沿第3轴将数组拆分为多个子数组。</p>
+<details class="abstract">
+<summary><strong><a href="https://numpy.org/devdocs/reference/generated/numpy.dsplit.html#numpy.dsplit" title="numpy官网文档"><code>np.dsplit(ary, indices_or_sections)</code></a></strong></summary>
+<p>沿第3轴将数组拆分为多个子数组。</p>
 </details>
 <h2 id="_3">添加和删除数组元素</h2>
-<details class="abstract"><summary><a href="https://numpy.org/devdocs/reference/generated/numpy.delete.html#numpy.delete"><strong><code>np.delete(arr, obj, axis=None)</code></strong></a></summary><p>沿指定轴删除指定的元素，返回未删除的数组。</p>
+<details class="abstract">
+<summary><a href="https://numpy.org/devdocs/reference/generated/numpy.delete.html#numpy.delete"><strong><code>np.delete(arr, obj, axis=None)</code></strong></a></summary>
+<p>沿指定轴删除指定的元素，返回未删除的数组。</p>
 <div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
 <span class="n">np</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 </code></pre></div>
@@ -3281,7 +3329,9 @@ ValueError all the input array dimensions for the concatenation axis must match 
        [4, 5]])
 </code></pre></div>
 </details>
-<details class="abstract"><summary><a href="https://numpy.org/devdocs/reference/generated/numpy.insert.html#numpy.insert"><strong><code>np.insert(arr, values, axis=None)</code></strong></a></summary><p>沿指定轴在指定索引之前插入值。</p>
+<details class="abstract">
+<summary><a href="https://numpy.org/devdocs/reference/generated/numpy.insert.html#numpy.insert"><strong><code>np.insert(arr, values, axis=None)</code></strong></a></summary>
+<p>沿指定轴在指定索引之前插入值。</p>
 <div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
 <span class="c1"># obj 是索引</span>
 <span class="n">np</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">obj</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
@@ -3291,7 +3341,9 @@ ValueError all the input array dimensions for the concatenation axis must match 
        [ 2,  3]])
 </code></pre></div>
 </details>
-<details class="abstract"><summary><a href="https://numpy.org/devdocs/reference/generated/numpy.append.html#numpy.append"><strong><code>np.append(arr, obj, values, axis=None)</code></strong></a></summary><p>将值附加到数组的末尾。</p>
+<details class="abstract">
+<summary><a href="https://numpy.org/devdocs/reference/generated/numpy.append.html#numpy.append"><strong><code>np.append(arr, obj, values, axis=None)</code></strong></a></summary>
+<p>将值附加到数组的末尾。</p>
 <div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
 <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="p">[[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 </code></pre></div>
@@ -3301,7 +3353,9 @@ ValueError all the input array dimensions for the concatenation axis must match 
        [6, 7]])
 </code></pre></div>
 </details>
-<details class="abstract"><summary><a href="https://numpy.org/devdocs/reference/generated/numpy.trim_zeros.html#numpy.trim_zeros"><strong><code>np.trim_zeros(filt, trim='fb')</code></strong></a></summary><p>删除一维数组或序列中开头或结尾的零。</p>
+<details class="abstract">
+<summary><a href="https://numpy.org/devdocs/reference/generated/numpy.trim_zeros.html#numpy.trim_zeros"><strong><code>np.trim_zeros(filt, trim='fb')</code></strong></a></summary>
+<p>删除一维数组或序列中开头或结尾的零。</p>
 <ul>
 <li><code>trim</code>：<code>trim='f'</code>，从前面裁剪；<code>trim='b'</code>，从后面裁剪。默认<code>trim='fb'</code>。</li>
 </ul>
@@ -3311,7 +3365,9 @@ ValueError all the input array dimensions for the concatenation axis must match 
 <div class="highlight"><pre><span></span><code>array([1, 2, 3])
 </code></pre></div>
 </details>
-<details class="abstract"><summary><a href="https://numpy.org/devdocs/reference/generated/numpy.unique.html#numpy.unique"><strong><code>np.unique(ar, return_index=False, return_inverse=False, return_counts=False, axis=None)</code></strong></a></summary><p>返回没有重复元素的数组 。</p>
+<details class="abstract">
+<summary><a href="https://numpy.org/devdocs/reference/generated/numpy.unique.html#numpy.unique"><strong><code>np.unique(ar, return_index=False, return_inverse=False, return_counts=False, axis=None)</code></strong></a></summary>
+<p>返回没有重复元素的数组 。</p>
 <p>默认返回一维数组：</p>
 <div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]])</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
@@ -3349,7 +3405,9 @@ ValueError all the input array dimensions for the concatenation axis must match 
 </code></pre></div>
 </details>
 <h2 id="_4">重排列元素</h2>
-<details class="abstract"><summary><strong><code>np.flip(m, axis=None)</code></strong></summary><p>沿给定轴反转数组中元素的顺序，数组的 shape 不变。</p>
+<details class="abstract">
+<summary><strong><code>np.flip(m, axis=None)</code></strong></summary>
+<p>沿给定轴反转数组中元素的顺序，数组的 shape 不变。</p>
 <ul>
 <li><code>axis</code>：指定需要反转元素顺序的轴，可以是整数或整数序列。</li>
 </ul>
@@ -3381,7 +3439,9 @@ ValueError all the input array dimensions for the concatenation axis must match 
 <div class="highlight"><pre><span></span><code>array([[[5, 4], [7, 6]], [[1, 0], [3, 2]]])
 </code></pre></div>
 </details>
-<details class="abstract"><summary><strong><code>np.fliplr(m)</code></strong></summary><p>左右方向翻转数组，输入数组至少是2维的。</p>
+<details class="abstract">
+<summary><strong><code>np.fliplr(m)</code></strong></summary>
+<p>左右方向翻转数组，输入数组至少是2维的。</p>
 <div class="highlight"><pre><span></span><code><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">([</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">])</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">------&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">fliplr</span><span class="p">(</span><span class="n">A</span><span class="p">))</span>
@@ -3398,7 +3458,9 @@ ValueError all the input array dimensions for the concatenation axis must match 
 <div class="highlight"><pre><span></span><code>True
 </code></pre></div>
 </details>
-<details class="abstract"><summary><strong><code>np.flipud(m)</code></strong></summary><p>上下方向翻转数组。</p>
+<details class="abstract">
+<summary><strong><code>np.flipud(m)</code></strong></summary>
+<p>上下方向翻转数组。</p>
 <div class="highlight"><pre><span></span><code><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">([</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">])</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">A</span><span class="p">,</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">------&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">flipud</span><span class="p">(</span><span class="n">A</span><span class="p">))</span>
@@ -3415,7 +3477,9 @@ ValueError all the input array dimensions for the concatenation axis must match 
 <div class="highlight"><pre><span></span><code>True
 </code></pre></div>
 </details>
-<details class="abstract"><summary><strong><code>np.rot90(m, k=1, axes=(0, 1))</code></strong></summary><p>在轴指定的平面中将数组旋转 90 度。的旋转方向是从 0 轴到 1 轴。</p>
+<details class="abstract">
+<summary><strong><code>np.rot90(m, k=1, axes=(0, 1))</code></strong></summary>
+<p>在轴指定的平面中将数组旋转 90 度。的旋转方向是从 0 轴到 1 轴。</p>
 <div class="highlight"><pre><span></span><code><span class="n">m</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]],</span> <span class="nb">int</span><span class="p">)</span>
 <span class="n">m</span>
 </code></pre></div>
@@ -3457,7 +3521,9 @@ ValueError all the input array dimensions for the concatenation axis must match 
         [4, 6]]])
 </code></pre></div>
 </details>
-<details class="abstract"><summary><strong><code>np.roll(a, shift, axis=None)</code></strong></summary><p>沿给定轴滚动数组元素。</p>
+<details class="abstract">
+<summary><strong><code>np.roll(a, shift, axis=None)</code></strong></summary>
+<p>沿给定轴滚动数组元素。</p>
 <div class="highlight"><pre><span></span><code><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">roll</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">))</span>

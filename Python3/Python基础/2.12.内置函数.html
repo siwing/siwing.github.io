@@ -17,7 +17,7 @@
         <link rel="next" href="2.13.%E7%AE%80%E6%B4%81%E7%9A%84Python.html">
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.6">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.8">
     
     
       
@@ -26,9 +26,6 @@
     
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.ded33207.min.css">
-      
-        
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.a0c5b2b5.min.css">
       
       
 
@@ -54,14 +51,11 @@
   </head>
   
   
-    
-    
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+    <body dir="ltr">
   
     
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -3226,7 +3220,9 @@ Latest build date 2021.06.20
 </tbody>
 </table>
 <h2 id="a">A</h2>
-<details class="abstract"><summary><strong><code>abs(x)</code></strong> - 返回一个数的绝对值</summary><p>参数可以是一个整数或浮点数。 如果参数是一个复数，则返回它的模。如果 <code>x</code> 定义了 <code>__abs__()</code>，则 <code>abs(x)</code> 将返回 <code>x.__abs__()</code>。</p>
+<details class="abstract">
+<summary><strong><code>abs(x)</code></strong> - 返回一个数的绝对值</summary>
+<p>参数可以是一个整数或浮点数。 如果参数是一个复数，则返回它的模。如果 <code>x</code> 定义了 <code>__abs__()</code>，则 <code>abs(x)</code> 将返回 <code>x.__abs__()</code>。</p>
 <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">A</span><span class="p">:</span>
     <span class="k">def</span> <span class="fm">__abs__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">return</span> <span class="mi">10</span>
@@ -3235,7 +3231,9 @@ Latest build date 2021.06.20
 <div class="highlight"><pre><span></span><code>10
 </code></pre></div>
 </details>
-<details class="abstract"><summary><strong><code>all(iterable)</code></strong> - 如果<code>iterable</code>的所有元素均为真值（或可迭代对象为空）则返回 <code>True</code> </summary><p>等价于:</p>
+<details class="abstract">
+<summary><strong><code>all(iterable)</code></strong> - 如果<code>iterable</code>的所有元素均为真值（或可迭代对象为空）则返回 <code>True</code> </summary>
+<p>等价于:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">all</span><span class="p">(</span><span class="n">iterable</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">iterable</span><span class="p">:</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">element</span><span class="p">:</span>
@@ -3243,7 +3241,9 @@ Latest build date 2021.06.20
     <span class="k">return</span> <span class="kc">True</span>
 </code></pre></div>
 </details>
-<details class="abstract"><summary><strong><code>any(iterable)</code></strong>：如果 <code>iterable</code>的任一元素为真值则返回 <code>True</code>；如果可迭代对象为空，返回 <code>False</code></summary><p>等价于:</p>
+<details class="abstract">
+<summary><strong><code>any(iterable)</code></strong>：如果 <code>iterable</code>的任一元素为真值则返回 <code>True</code>；如果可迭代对象为空，返回 <code>False</code></summary>
+<p>等价于:</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">any</span><span class="p">(</span><span class="n">iterable</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">iterable</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">element</span><span class="p">:</span>
@@ -3251,7 +3251,9 @@ Latest build date 2021.06.20
     <span class="k">return</span> <span class="kc">False</span>
 </code></pre></div>
 </details>
-<details class="abstract"><summary><strong><code>ascii(object)</code></strong>：返回对象的ASCII表示形式</summary><p>类似函数 <code>repr()</code>，返回一个对象可打印的字符串，但是<code>repr()</code> 返回的字符串中非 ASCII 编码的字符，会使用 <code>\x</code>、<code>\u</code> 和 <code>\U</code> 来转义。生成的字符串和 Python 2 的<code>repr()</code>返回的结果相似。</p>
+<details class="abstract">
+<summary><strong><code>ascii(object)</code></strong>：返回对象的ASCII表示形式</summary>
+<p>类似函数 <code>repr()</code>，返回一个对象可打印的字符串，但是<code>repr()</code> 返回的字符串中非 ASCII 编码的字符，会使用 <code>\x</code>、<code>\u</code> 和 <code>\U</code> 来转义。生成的字符串和 Python 2 的<code>repr()</code>返回的结果相似。</p>
 <div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">ascii</span><span class="p">(</span><span class="s2">&quot;编码&quot;</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="s2">&quot;编码&quot;</span><span class="p">))</span>
 </code></pre></div>
@@ -3260,7 +3262,9 @@ Latest build date 2021.06.20
 </code></pre></div>
 </details>
 <h2 id="b">B</h2>
-<details class="abstract"><summary><strong><code>bin(x)</code></strong>：将一个整数转变为一个前缀为“0b”的二进制字符串</summary><p>如果 <code>x</code> 不是 Python 的<code>int</code>对象，那它需要定义 <code>__index__()</code> 方法返回一个整数。</p>
+<details class="abstract">
+<summary><strong><code>bin(x)</code></strong>：将一个整数转变为一个前缀为“0b”的二进制字符串</summary>
+<p>如果 <code>x</code> 不是 Python 的<code>int</code>对象，那它需要定义 <code>__index__()</code> 方法返回一个整数。</p>
 <div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="mi">2</span><span class="p">)))</span>
 <span class="nb">eval</span><span class="p">(</span><span class="nb">bin</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span> <span class="o">==</span> <span class="mi">2</span>
@@ -3279,21 +3283,29 @@ Latest build date 2021.06.20
 <div class="highlight"><pre><span></span><code>&#39;0b1010&#39;
 </code></pre></div>
 </details>
-<details class="abstract"><summary><strong><code>class bool([x])</code></strong>：将输入转换为布尔值</summary><p><code>bool</code> 是 <code>int</code> 的子类。其他类不能继承自它。它只有 <code>False</code> 和 <code>True</code> 两个实例（参见 <a href="https://docs.python.org/zh-cn/3/library/stdtypes.html#bltin-boolean-values">布尔值</a>）。</p>
+<details class="abstract">
+<summary><strong><code>class bool([x])</code></strong>：将输入转换为布尔值</summary>
+<p><code>bool</code> 是 <code>int</code> 的子类。其他类不能继承自它。它只有 <code>False</code> 和 <code>True</code> 两个实例（参见 <a href="https://docs.python.org/zh-cn/3/library/stdtypes.html#bltin-boolean-values">布尔值</a>）。</p>
 </details>
-<details class="abstract"><summary><strong><code>breakpoint(*args, \**kws)</code></strong>：此函数会在调用时进入调试器</summary><p>具体来说，它调用 <a href="https://docs.python.org/zh-cn/3/library/sys.html#sys.breakpointhook"><code>sys.breakpointhook()</code></a>  。默认情况下， <code>sys.breakpointhook()</code> 调用 <a href="https://docs.python.org/zh-cn/3/library/pdb.html#pdb.set_trace"><code>pdb.set_trace()</code></a> 且没有参数。在这种情况下，它纯粹是一个便利函数，因此您不必显式导入 <a href="https://docs.python.org/zh-cn/3/library/pdb.html#module-pdb"><code>pdb</code></a> 且键入尽可能少的代码即可进入调试器。但是， <a href="https://docs.python.org/zh-cn/3/library/sys.html#sys.breakpointhook"><code>sys.breakpointhook()</code></a> 可以设置为其他一些函数并被 <a href="https://docs.python.org/zh-cn/3/library/functions.html#breakpoint"><code>breakpoint()</code></a> 自动调用，以允许进入你想用的调试器。</p>
+<details class="abstract">
+<summary><strong><code>breakpoint(*args, \**kws)</code></strong>：此函数会在调用时进入调试器</summary>
+<p>具体来说，它调用 <a href="https://docs.python.org/zh-cn/3/library/sys.html#sys.breakpointhook"><code>sys.breakpointhook()</code></a>  。默认情况下， <code>sys.breakpointhook()</code> 调用 <a href="https://docs.python.org/zh-cn/3/library/pdb.html#pdb.set_trace"><code>pdb.set_trace()</code></a> 且没有参数。在这种情况下，它纯粹是一个便利函数，因此您不必显式导入 <a href="https://docs.python.org/zh-cn/3/library/pdb.html#module-pdb"><code>pdb</code></a> 且键入尽可能少的代码即可进入调试器。但是， <a href="https://docs.python.org/zh-cn/3/library/sys.html#sys.breakpointhook"><code>sys.breakpointhook()</code></a> 可以设置为其他一些函数并被 <a href="https://docs.python.org/zh-cn/3/library/functions.html#breakpoint"><code>breakpoint()</code></a> 自动调用，以允许进入你想用的调试器。</p>
 </details>
 <h2 id="c">C</h2>
-<details class="abstract"><summary><strong><code>callable(object)</code></strong>：如果参数 <code>object</code> 是可调用的就返回<code>True</code>，否则返回<code>False</code></summary><p>如果返回 <code>True</code>，调用仍可能失败，但如果返回 <code>False</code>，则调用 <em>object</em> 将肯定不会成功。</p>
+<details class="abstract">
+<summary><strong><code>callable(object)</code></strong>：如果参数 <code>object</code> 是可调用的就返回<code>True</code>，否则返回<code>False</code></summary>
+<p>如果返回 <code>True</code>，调用仍可能失败，但如果返回 <code>False</code>，则调用 <em>object</em> 将肯定不会成功。</p>
 <div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">test</span><span class="p">():</span>
     <span class="k">raise</span> <span class="ne">Exception</span>
 
-<span class="n">callable</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
+<span class="nb">callable</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code>True
 </code></pre></div>
 </details>
-<details class="abstract"><summary><strong><code>chr(i)</code></strong>：返回 Unicode 码位为整数 <code>i</code> 的字符</summary><p>这是<code>ord()</code>的逆函数。实参的合法范围是 0 到 1114111（16 进制表示是 0x10FFFF）。如果 <code>i</code> 超过这个范围，会触发<code>ValueError</code>异常。</p>
+<details class="abstract">
+<summary><strong><code>chr(i)</code></strong>：返回 Unicode 码位为整数 <code>i</code> 的字符</summary>
+<p>这是<code>ord()</code>的逆函数。实参的合法范围是 0 到 1114111（16 进制表示是 0x10FFFF）。如果 <code>i</code> 超过这个范围，会触发<code>ValueError</code>异常。</p>
 <div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="nb">chr</span><span class="p">(</span><span class="mi">97</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">chr</span><span class="p">(</span><span class="mi">8364</span><span class="p">))</span>
 </code></pre></div>
@@ -3302,9 +3314,13 @@ Latest build date 2021.06.20
 </code></pre></div>
 </details>
 <h2 id="d">D</h2>
-<details class="abstract"><summary><strong><code>delattr(object, name)</code></strong>：如果对象允许，该函数将删除指定的属性</summary><p><code>delattr(x, 'foobar')</code> 等价于 <code>del x.foobar</code>。</p>
+<details class="abstract">
+<summary><strong><code>delattr(object, name)</code></strong>：如果对象允许，该函数将删除指定的属性</summary>
+<p><code>delattr(x, 'foobar')</code> 等价于 <code>del x.foobar</code>。</p>
 </details>
-<details class="abstract"><summary><strong><code>divmod(a, b)</code></strong>：它将两个（非复数）数字作为实参，并在执行整数除法时返回一对商和余数</summary><p>对于整数，结果和 <code>(a // b, a % b)</code> 一致。对于浮点数，结果是 <code>(q, a % b)</code> ，<em>q</em> 通常是 <code>math.floor(a / b)</code> ，但可能会比 1 小。在任何情况下， <code>q * b + a % b</code> 和 <em>a</em> 基本相等；如果 <code>a % b</code> 非零，它的符号和 <em>b</em> 一样，并且 <code>0 &lt;= abs(a % b) &lt; abs(b)</code> 。</p>
+<details class="abstract">
+<summary><strong><code>divmod(a, b)</code></strong>：它将两个（非复数）数字作为实参，并在执行整数除法时返回一对商和余数</summary>
+<p>对于整数，结果和 <code>(a // b, a % b)</code> 一致。对于浮点数，结果是 <code>(q, a % b)</code> ，<em>q</em> 通常是 <code>math.floor(a / b)</code> ，但可能会比 1 小。在任何情况下， <code>q * b + a % b</code> 和 <em>a</em> 基本相等；如果 <code>a % b</code> 非零，它的符号和 <em>b</em> 一样，并且 <code>0 &lt;= abs(a % b) &lt; abs(b)</code> 。</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># 整数</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">divmod</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">((</span><span class="mi">10</span><span class="o">//</span><span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="o">%</span><span class="mi">5</span><span class="p">))</span>
@@ -3322,9 +3338,13 @@ Latest build date 2021.06.20
 </code></pre></div>
 </details>
 <h2 id="e">E</h2>
-<details class="abstract"><summary><strong><code>enumerate(iterable, start=0)</code></strong>：返回一个枚举对象</summary></details>
+<details class="abstract">
+<summary><strong><code>enumerate(iterable, start=0)</code></strong>：返回一个枚举对象</summary>
+</details>
 <h2 id="f">F</h2>
-<details class="abstract"><summary><strong><code>filter(function, iterable)</code></strong>：用函数 <code>function</code> 返回真值的 <code>iterable</code> 元素构建一个新的迭代器</summary><p>该函数相当于一个生成器表达式，当 <code>function</code> 不是 <code>None</code> 的时候，相当于：</p>
+<details class="abstract">
+<summary><strong><code>filter(function, iterable)</code></strong>：用函数 <code>function</code> 返回真值的 <code>iterable</code> 元素构建一个新的迭代器</summary>
+<p>该函数相当于一个生成器表达式，当 <code>function</code> 不是 <code>None</code> 的时候，相当于：</p>
 <div class="highlight"><pre><span></span><code><span class="p">(</span><span class="n">item</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">iterable</span> <span class="k">if</span> <span class="n">function</span><span class="p">(</span><span class="n">item</span><span class="p">))</span>
 </code></pre></div>
 <p>当 <code>function</code> 是 <code>None</code> 时，相当于：</p>
@@ -3333,7 +3353,9 @@ Latest build date 2021.06.20
 <p>另外，请参阅 <a href="https://docs.python.org/zh-cn/3/library/itertools.html#itertools.filterfalse"><code>itertools.filterfalse()</code></a> 了解，
 只有 <code>function</code> 返回 false 时才选取 <code>iterable</code> 元素的补充函数。</p>
 </details>
-<details class="abstract"><summary><strong><code>class float([x])</code></strong>：返回从数字或字符串 <em>x</em> 生成的浮点数</summary><p>如果实参是字符串，则它必须是包含十进制数字的字符串，字符串前面可以有符号，之前也可以有空格。可选的符号有 <code>'+'</code> 和 <code>'-'</code>。 </p>
+<details class="abstract">
+<summary><strong><code>class float([x])</code></strong>：返回从数字或字符串 <em>x</em> 生成的浮点数</summary>
+<p>如果实参是字符串，则它必须是包含十进制数字的字符串，字符串前面可以有符号，之前也可以有空格。可选的符号有 <code>'+'</code> 和 <code>'-'</code>。 </p>
 <div class="highlight"><pre><span></span><code><span class="nb">float</span><span class="p">(</span><span class="s2">&quot;+5&quot;</span><span class="p">)</span>
 <span class="nb">float</span><span class="p">(</span><span class="s2">&quot; +5&quot;</span><span class="p">)</span>
 <span class="nb">float</span><span class="p">(</span><span class="s2">&quot;NaN&quot;</span><span class="p">)</span>
@@ -3342,21 +3364,37 @@ Latest build date 2021.06.20
 <span class="nb">float</span><span class="p">(</span><span class="s1">&#39;+1E6&#39;</span><span class="p">)</span>
 </code></pre></div>
 </details>
-<details class="abstract"><summary><strong><code>class frozenset ([iterable])</code></strong>：返回一个新的 <a href="https://docs.python.org/zh-cn/3/library/stdtypes.html#frozenset"><code>frozenset</code></a> 对象，它包含可选参数 <em>iterable</em> 中的元素。 <code>frozenset</code> 是一个内置的类。有关此类的文档，请参阅 <a href="https://docs.python.org/zh-cn/3/library/stdtypes.html#frozenset"><code>frozenset</code></a> 和 <a href="https://docs.python.org/zh-cn/3/library/stdtypes.html#types-set">集合类型 --- set, frozenset</a>。请参阅内建的 <a href="https://docs.python.org/zh-cn/3/library/stdtypes.html#set"><code>set</code></a>、<a href="https://docs.python.org/zh-cn/3/library/stdtypes.html#list"><code>list</code></a>、<a href="https://docs.python.org/zh-cn/3/library/stdtypes.html#tuple"><code>tuple</code></a> 和 <a href="https://docs.python.org/zh-cn/3/library/stdtypes.html#dict"><code>dict</code></a> 类，以及 <a href="https://docs.python.org/zh-cn/3/library/collections.html#module-collections"><code>collections</code></a> 模块来了解其它的容器。</summary></details>
+<details class="abstract">
+<summary><strong><code>class frozenset ([iterable])</code></strong>：返回一个新的 <a href="https://docs.python.org/zh-cn/3/library/stdtypes.html#frozenset"><code>frozenset</code></a> 对象，它包含可选参数 <em>iterable</em> 中的元素。 <code>frozenset</code> 是一个内置的类。有关此类的文档，请参阅 <a href="https://docs.python.org/zh-cn/3/library/stdtypes.html#frozenset"><code>frozenset</code></a> 和 <a href="https://docs.python.org/zh-cn/3/library/stdtypes.html#types-set">集合类型 --- set, frozenset</a>。请参阅内建的 <a href="https://docs.python.org/zh-cn/3/library/stdtypes.html#set"><code>set</code></a>、<a href="https://docs.python.org/zh-cn/3/library/stdtypes.html#list"><code>list</code></a>、<a href="https://docs.python.org/zh-cn/3/library/stdtypes.html#tuple"><code>tuple</code></a> 和 <a href="https://docs.python.org/zh-cn/3/library/stdtypes.html#dict"><code>dict</code></a> 类，以及 <a href="https://docs.python.org/zh-cn/3/library/collections.html#module-collections"><code>collections</code></a> 模块来了解其它的容器。</summary>
+</details>
 <h2 id="g">G</h2>
-<details class="abstract"><summary><strong><code>getattr(object, name[, default])</code></strong>：返回<code>object</code>对象<code>name</code>属性的值</summary><p>如果指定的属性不存在，且提供了 <code>default</code> 值，则返回<code>default</code>，否则触发 <code>AttributeError</code>。</p>
+<details class="abstract">
+<summary><strong><code>getattr(object, name[, default])</code></strong>：返回<code>object</code>对象<code>name</code>属性的值</summary>
+<p>如果指定的属性不存在，且提供了 <code>default</code> 值，则返回<code>default</code>，否则触发 <code>AttributeError</code>。</p>
 </details>
 <h2 id="h">H</h2>
-<details class="abstract"><summary><strong><code>hasattr(object, name)</code></strong>：查看<code>object</code>对象是否具有属性<code>name</code>，如果有则返回 <code>True</code>，否则返回 <code>False</code></summary><p>此功能是通过调用 <code>getattr(object, name)</code> 看是否有 <code>AttributeError</code> 异常来实现的。</p>
+<details class="abstract">
+<summary><strong><code>hasattr(object, name)</code></strong>：查看<code>object</code>对象是否具有属性<code>name</code>，如果有则返回 <code>True</code>，否则返回 <code>False</code></summary>
+<p>此功能是通过调用 <code>getattr(object, name)</code> 看是否有 <code>AttributeError</code> 异常来实现的。</p>
 </details>
-<details class="abstract"><summary><strong><code>hash(object)</code></strong>：返回对象的哈希值（如果有的话），哈希值是整数</summary></details>
-<details class="abstract"><summary><strong><code>hex(x)</code></strong>：将整数转换为以“0x”为前缀的小写十六进制字符串</summary></details>
+<details class="abstract">
+<summary><strong><code>hash(object)</code></strong>：返回对象的哈希值（如果有的话），哈希值是整数</summary>
+</details>
+<details class="abstract">
+<summary><strong><code>hex(x)</code></strong>：将整数转换为以“0x”为前缀的小写十六进制字符串</summary>
+</details>
 <h2 id="i">I</h2>
-<details class="abstract"><summary><strong><code>id(object)</code></strong>：返回对象的“标识值”</summary><p>该值是一个整数，在此对象的生命周期中保证是唯一且恒定的。两个生命期不重叠的对象可能具有相同的 <code>id</code> 值。<strong>CPython implementation detail:</strong> This is the address of the object in memory.</p>
+<details class="abstract">
+<summary><strong><code>id(object)</code></strong>：返回对象的“标识值”</summary>
+<p>该值是一个整数，在此对象的生命周期中保证是唯一且恒定的。两个生命期不重叠的对象可能具有相同的 <code>id</code> 值。<strong>CPython implementation detail:</strong> This is the address of the object in memory.</p>
 </details>
-<details class="abstract"><summary><strong><code>input([prompt])</code></strong>：从标准输出读入用户的输入数据</summary><p>如果存在 <code>prompt</code> 实参，则将其写入标准输出，并且末尾不带换行符。接着该函数从输入中读取一行，将其转换为字符串（除了末尾的换行符）并返回。当读取到 EOF 时，则触发 <code>EOFError</code>。</p>
+<details class="abstract">
+<summary><strong><code>input([prompt])</code></strong>：从标准输出读入用户的输入数据</summary>
+<p>如果存在 <code>prompt</code> 实参，则将其写入标准输出，并且末尾不带换行符。接着该函数从输入中读取一行，将其转换为字符串（除了末尾的换行符）并返回。当读取到 EOF 时，则触发 <code>EOFError</code>。</p>
 </details>
-<details class="abstract"><summary><strong><code>class int(x, base=10)</code></strong>：返回一个基于数字或字符串 <code>x</code> 构造的整数对象，或者在未给出参数时返回 <code>0</code></summary><p><code>base</code>表示进制，允许的进制有 0、2-36。进制为 0 将安照代码的字面量来精确解释，最后的结果会是 2、8、10、16 进制中的一个。</p>
+<details class="abstract">
+<summary><strong><code>class int(x, base=10)</code></strong>：返回一个基于数字或字符串 <code>x</code> 构造的整数对象，或者在未给出参数时返回 <code>0</code></summary>
+<p><code>base</code>表示进制，允许的进制有 0、2-36。进制为 0 将安照代码的字面量来精确解释，最后的结果会是 2、8、10、16 进制中的一个。</p>
 <p>如果<code>x</code>不是数字类型，则会按以下调用顺序返回值（Python3.8）：</p>
 <ol>
 <li>如果 <code>x</code> 定义了 <a href="https://docs.python.org/zh-cn/3/reference/datamodel.html#object.__int__"><code>__int__()</code></a>，<code>int(x)</code> 将返回 <code>x.__int__()</code></li>
@@ -3365,7 +3403,9 @@ Latest build date 2021.06.20
 </ol>
 <p>如果 <code>x</code> 不是数字，或者传入了 <code>base</code> 参数，那么 <code>x</code> 必须是<code>str</code>、<code>bytes</code>、表示进制为 <code>base</code> 的整数字面值的 <a href="https://docs.python.org/zh-cn/3/library/stdtypes.html#bytearray"><code>bytearray</code></a> 实例。</p>
 </details>
-<details class="abstract"><summary><strong><code>isinstance(object, classinfo)</code></strong>：如果<code>object</code>是<code>classinfo</code>的实例或者是其 (直接、间接或 <a href="https://docs.python.org/zh-cn/3/glossary.html#term-abstract-base-class">虚拟</a>) 子类则返回 <code>True</code>，否则返回<code>False</code></summary><p>如果 <code>classinfo</code> 是类型对象元组（或由其他此类元组递归组成的元组），那么如果 <code>object</code> 是其中任何一个类型的实例就返回 <code>True</code>。如果 <code>classinfo</code> 既不是类型，也不是类型元组或类型元组的元组，则将引发 <code>TypeError</code> 异常。</p>
+<details class="abstract">
+<summary><strong><code>isinstance(object, classinfo)</code></strong>：如果<code>object</code>是<code>classinfo</code>的实例或者是其 (直接、间接或 <a href="https://docs.python.org/zh-cn/3/glossary.html#term-abstract-base-class">虚拟</a>) 子类则返回 <code>True</code>，否则返回<code>False</code></summary>
+<p>如果 <code>classinfo</code> 是类型对象元组（或由其他此类元组递归组成的元组），那么如果 <code>object</code> 是其中任何一个类型的实例就返回 <code>True</code>。如果 <code>classinfo</code> 既不是类型，也不是类型元组或类型元组的元组，则将引发 <code>TypeError</code> 异常。</p>
 <div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">A</span><span class="p">:</span>
     <span class="k">pass</span>
 
@@ -3387,20 +3427,30 @@ True
 <div class="highlight"><pre><span></span><code>isinstance() arg 2 must be a type or tuple of types
 </code></pre></div>
 </details>
-<details class="abstract"><summary><strong><code>issubclass(class, classinfo)</code></strong>：如果 <code>class</code> 是 <code>classinfo</code> 的 (直接、间接或 <a href="https://docs.python.org/zh-cn/3/glossary.html#term-abstract-base-class">虚拟</a>) 子类则返回 <code>True</code></summary><p>类会被视作其自身的子类。<code>classinfo</code> 也可以是类对象的元组，在此情况下 <code>classinfo</code> 中的每个条目都将被检查。在任何其他情况下，都将引发 <code>TypeError</code> 异常。</p>
+<details class="abstract">
+<summary><strong><code>issubclass(class, classinfo)</code></strong>：如果 <code>class</code> 是 <code>classinfo</code> 的 (直接、间接或 <a href="https://docs.python.org/zh-cn/3/glossary.html#term-abstract-base-class">虚拟</a>) 子类则返回 <code>True</code></summary>
+<p>类会被视作其自身的子类。<code>classinfo</code> 也可以是类对象的元组，在此情况下 <code>classinfo</code> 中的每个条目都将被检查。在任何其他情况下，都将引发 <code>TypeError</code> 异常。</p>
 </details>
-<details class="abstract"><summary><strong><code>iter(object[, sentinel])</code></strong>：返回一个iterator对象</summary><ol>
+<details class="abstract">
+<summary><strong><code>iter(object[, sentinel])</code></strong>：返回一个iterator对象</summary>
+<ol>
 <li>当只传入实参<code>object</code>时，<code>object</code>必须是支持迭代协议（<a href="https://docs.python.org/zh-cn/3/reference/datamodel.html#object.__iter__"><code>__iter__()</code></a> 方法）的集合对象，或必须支持序列协议（<a href="https://docs.python.org/zh-cn/3/reference/datamodel.html#object.__getitem__"><code>__getitem__()</code></a> 方法，且数字参数从 <code>0</code> 开始）。如果它不支持这些协议，会触发 <code>TypeError</code>。</li>
 <li>如果传入实参<code>object</code>和第二个实参<code>sentinel</code>，那么 <code>object</code>必须是可调用的对象。在这种情况下生成的迭代器，每次迭代调用它的 <a href="https://docs.python.org/zh-cn/3/library/stdtypes.html#iterator.__next__"><code>__next__()</code></a> 方法时都会不带参数调用 <code>object</code>；如果返回的结果是 <code>sentinel</code> 则触发 <a href="https://docs.python.org/zh-cn/3/library/exceptions.html#StopIteration"><code>StopIteration</code></a>，否则返回调用结果。</li>
 </ol>
 <p>另请参阅 <a href="https://docs.python.org/zh-cn/3/library/stdtypes.html#typeiter">迭代器类型</a>。适合 <code>iter()</code> 的应用之一是构建块读取器。例如，从二进制数据库文件中读取固定宽度的块，直至到达文件的末尾。</p>
 </details>
 <h2 id="l">L</h2>
-<details class="abstract"><summary><strong><code>len(s)</code></strong></summary></details>
-<h2 id="m">M</h2>
-<details class="abstract"><summary><strong><code>map(function, iterable, ...)</code></strong>：依次将<code>iterable</code>的元素输入函数<code>function</code>，全部输出结果以迭代器的形式返回</summary><p>如果<code>function</code>需要多个参数，则需要传入多个<code>iterable</code>参数，<code>function</code>从所有可迭代对象中并行获取参数。当有多个可迭代对象时，最短的可迭代对象耗尽则整个迭代就将结束。对于函数的输入已经是参数元组的情况，请参阅 <a href="https://docs.python.org/zh-cn/3/library/itertools.html#itertools.starmap"><code>itertools.starmap()</code></a>。</p>
+<details class="abstract">
+<summary><strong><code>len(s)</code></strong></summary>
 </details>
-<details class="abstract"><summary><strong><code>max()</code></strong>：返回可迭代对象中最大的元素，或者返回多个实参中最大的元素</summary><div class="highlight"><pre><span></span><code><span class="nb">max</span><span class="p">(</span><span class="n">iterable</span><span class="p">,</span> <span class="o">*</span><span class="p">[,</span> <span class="n">default</span><span class="o">=</span><span class="n">obj</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">func</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">value</span>
+<h2 id="m">M</h2>
+<details class="abstract">
+<summary><strong><code>map(function, iterable, ...)</code></strong>：依次将<code>iterable</code>的元素输入函数<code>function</code>，全部输出结果以迭代器的形式返回</summary>
+<p>如果<code>function</code>需要多个参数，则需要传入多个<code>iterable</code>参数，<code>function</code>从所有可迭代对象中并行获取参数。当有多个可迭代对象时，最短的可迭代对象耗尽则整个迭代就将结束。对于函数的输入已经是参数元组的情况，请参阅 <a href="https://docs.python.org/zh-cn/3/library/itertools.html#itertools.starmap"><code>itertools.starmap()</code></a>。</p>
+</details>
+<details class="abstract">
+<summary><strong><code>max()</code></strong>：返回可迭代对象中最大的元素，或者返回多个实参中最大的元素</summary>
+<div class="highlight"><pre><span></span><code><span class="nb">max</span><span class="p">(</span><span class="n">iterable</span><span class="p">,</span> <span class="o">*</span><span class="p">[,</span> <span class="n">default</span><span class="o">=</span><span class="n">obj</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">func</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">value</span>
 <span class="nb">max</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">*</span><span class="p">[,</span> <span class="n">key</span><span class="o">=</span><span class="n">func</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">value</span>
 </code></pre></div>
 <ol>
@@ -3414,39 +3464,61 @@ True
 </ul>
 <p>如果有多个最大元素，则此函数将返回第一个找到的。这和其他稳定排序工具如 <code>sorted(iterable, key=keyfunc, reverse=True)[0]</code> 和 <code>heapq.nlargest(1, iterable, key=keyfunc)</code> 保持一致。</p>
 </details>
-<details class="abstract"><summary><strong><code>class memoryview(object)</code></strong>：返回由给定实参创建的“内存视图”对象</summary><p>有关详细信息，请参阅 <a href="https://docs.python.org/zh-cn/3/library/stdtypes.html#typememoryview">内存视图</a>。</p>
+<details class="abstract">
+<summary><strong><code>class memoryview(object)</code></strong>：返回由给定实参创建的“内存视图”对象</summary>
+<p>有关详细信息，请参阅 <a href="https://docs.python.org/zh-cn/3/library/stdtypes.html#typememoryview">内存视图</a>。</p>
 </details>
-<details class="abstract"><summary><strong><code>min()</code></strong>：返回可迭代对象中最小的元素，或者返回多个实参中最小的元素</summary><div class="highlight"><pre><span></span><code><span class="nb">min</span><span class="p">(</span><span class="n">iterable</span><span class="p">,</span> <span class="o">*</span><span class="p">[,</span> <span class="n">default</span><span class="o">=</span><span class="n">obj</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">func</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">value</span>
+<details class="abstract">
+<summary><strong><code>min()</code></strong>：返回可迭代对象中最小的元素，或者返回多个实参中最小的元素</summary>
+<div class="highlight"><pre><span></span><code><span class="nb">min</span><span class="p">(</span><span class="n">iterable</span><span class="p">,</span> <span class="o">*</span><span class="p">[,</span> <span class="n">default</span><span class="o">=</span><span class="n">obj</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">func</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">value</span>
 <span class="nb">min</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">*</span><span class="p">[,</span> <span class="n">key</span><span class="o">=</span><span class="n">func</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">value</span>
 </code></pre></div>
 </details>
 <h2 id="n">N</h2>
-<details class="abstract"><summary><strong><code>next(iterator[, default])</code></strong>：通过调用 <code>iterator</code> 的 <code>__next__()</code> 方法获取下一个元素</summary><p>如果迭代器耗尽，则返回给定的 <code>default</code>，如果没有默认值则触发 <code>StopIteration</code>。</p>
+<details class="abstract">
+<summary><strong><code>next(iterator[, default])</code></strong>：通过调用 <code>iterator</code> 的 <code>__next__()</code> 方法获取下一个元素</summary>
+<p>如果迭代器耗尽，则返回给定的 <code>default</code>，如果没有默认值则触发 <code>StopIteration</code>。</p>
 </details>
 <h2 id="o">O</h2>
-<details class="abstract"><summary><strong><code>oct(x)</code></strong>：将一个整数转变为前缀为“0o”的八进制字符串</summary><p>结果是一个合法的 Python 表达式。如果 <code>x</code> 不是 Python 的 <code>int</code> 对象，那它需要定义 <code>__index__()</code> 方法返回一个整数。</p>
+<details class="abstract">
+<summary><strong><code>oct(x)</code></strong>：将一个整数转变为前缀为“0o”的八进制字符串</summary>
+<p>结果是一个合法的 Python 表达式。如果 <code>x</code> 不是 Python 的 <code>int</code> 对象，那它需要定义 <code>__index__()</code> 方法返回一个整数。</p>
 </details>
-<details class="abstract"><summary><strong><code>ord(c)</code></strong>：返回单个 Unicode 字符的 Unicode 码位，以10进制数表示</summary><p>例如 <code>ord('a')</code> 返回整数 <code>97</code>， <code>ord('€')</code> 返回 <code>8364</code> 。这是 <a href="https://docs.python.org/zh-cn/3/library/functions.html#chr"><code>chr()</code></a> 的逆函数。</p>
+<details class="abstract">
+<summary><strong><code>ord(c)</code></strong>：返回单个 Unicode 字符的 Unicode 码位，以10进制数表示</summary>
+<p>例如 <code>ord('a')</code> 返回整数 <code>97</code>， <code>ord('€')</code> 返回 <code>8364</code> 。这是 <a href="https://docs.python.org/zh-cn/3/library/functions.html#chr"><code>chr()</code></a> 的逆函数。</p>
 </details>
 <h2 id="p">P</h2>
-<details class="abstract"><summary><strong><code>pow(base, exp[, mod])</code></strong></summary></details>
-<details class="abstract"><summary><strong><code>print(objects, sep=' ', end='\n', file=sys.stdout, flush=False)</code></strong>：将 <code>objects</code> 打印到 <code>file</code> 指定的文本流，以 <code>sep</code> 分隔并在末尾加上 <code>end</code></summary><p>如果要传入<code>sep</code>、<code>end</code>、<code>file</code> 和 <code>flush</code>参数，则必须以关键字参数的形式传入。</p>
+<details class="abstract">
+<summary><strong><code>pow(base, exp[, mod])</code></strong></summary>
+</details>
+<details class="abstract">
+<summary><strong><code>print(objects, sep=' ', end='\n', file=sys.stdout, flush=False)</code></strong>：将 <code>objects</code> 打印到 <code>file</code> 指定的文本流，以 <code>sep</code> 分隔并在末尾加上 <code>end</code></summary>
+<p>如果要传入<code>sep</code>、<code>end</code>、<code>file</code> 和 <code>flush</code>参数，则必须以关键字参数的形式传入。</p>
 <p><em>sep</em> 和 <em>end</em> 都必须为字符串；它们也可以为 <code>None</code>，这意味着使用默认值。如果没有给出 <code>objects</code>，则 <code>print()</code> 函数将只写入 <code>end</code>。</p>
 <p><code>file</code> 参数必须是一个具有 <code>write(string)</code> 方法的对象；如果参数不存在或为 <code>None</code>，则将使用 <a href="https://docs.python.org/zh-cn/3/library/sys.html#sys.stdout"><code>sys.stdout</code></a>。</p>
 <p>由于要打印的参数会被转换为文本字符串，因此 <code>print()</code> 不能用于二进制模式的文件对象。对于二进制模式的文件对象，应改用 <code>file.write(...)</code>。</p>
 <p>输出是否被缓存通常决定于 <code>file</code>，但如果 <code>flush</code> 关键字参数为真值，流会被强制刷新。该参数在 Python 3.3 中增加进来。</p>
 </details>
 <h2 id="q">Q</h2>
-<details class="abstract"><summary><strong><code>range()</code></strong></summary><div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">range</span><span class="p">(</span><span class="n">stop</span><span class="p">)</span>
+<details class="abstract">
+<summary><strong><code>range()</code></strong></summary>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">range</span><span class="p">(</span><span class="n">stop</span><span class="p">)</span>
 <span class="k">class</span> <span class="nc">range</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">[,</span> <span class="n">step</span><span class="p">])</span>
 </code></pre></div>
 </details>
 <h2 id="r">R</h2>
-<details class="abstract"><summary><strong><code>repr(object)</code></strong>：返回<code>object</code>的可打印表示形式的字符串</summary><p>对于许多类型来说，该函数尝试返回的字符串将会与该对象被传递给 <code>eval()</code> 函数所生成的对象具有相同的值。类可以通过定义 <a href="https://docs.python.org/zh-cn/3/reference/datamodel.html#object.__repr__"><code>__repr__()</code></a> 方法来控制此函数为它的实例所返回的内容。</p>
+<details class="abstract">
+<summary><strong><code>repr(object)</code></strong>：返回<code>object</code>的可打印表示形式的字符串</summary>
+<p>对于许多类型来说，该函数尝试返回的字符串将会与该对象被传递给 <code>eval()</code> 函数所生成的对象具有相同的值。类可以通过定义 <a href="https://docs.python.org/zh-cn/3/reference/datamodel.html#object.__repr__"><code>__repr__()</code></a> 方法来控制此函数为它的实例所返回的内容。</p>
 </details>
-<details class="abstract"><summary><strong><code>reversed(seq)</code></strong>：返回一个逆序的 <a href="https://docs.python.org/zh-cn/3/glossary.html#term-iterator">iterator</a></summary><p><code>seq</code>必须是一个具有 <a href="https://docs.python.org/zh-cn/3/reference/datamodel.html#object.__reversed__"><code>__reversed__()</code></a> 方法的对象或者是支持该序列协议（具有从 <code>0</code> 开始的整数类型参数的 <a href="https://docs.python.org/zh-cn/3/reference/datamodel.html#object.__len__"><code>__len__()</code></a> 方法和 <a href="https://docs.python.org/zh-cn/3/reference/datamodel.html#object.__getitem__"><code>__getitem__()</code></a> 方法）。</p>
+<details class="abstract">
+<summary><strong><code>reversed(seq)</code></strong>：返回一个逆序的 <a href="https://docs.python.org/zh-cn/3/glossary.html#term-iterator">iterator</a></summary>
+<p><code>seq</code>必须是一个具有 <a href="https://docs.python.org/zh-cn/3/reference/datamodel.html#object.__reversed__"><code>__reversed__()</code></a> 方法的对象或者是支持该序列协议（具有从 <code>0</code> 开始的整数类型参数的 <a href="https://docs.python.org/zh-cn/3/reference/datamodel.html#object.__len__"><code>__len__()</code></a> 方法和 <a href="https://docs.python.org/zh-cn/3/reference/datamodel.html#object.__getitem__"><code>__getitem__()</code></a> 方法）。</p>
 </details>
-<details class="abstract"><summary><strong><code>round(number[, ndigits])</code></strong>：返回 <code>number</code> 舍入到小数点后<code>ndigits</code>位精度的值</summary><p>如果<code>ndigits</code>被省略或为 <code>None</code>，则返回最接近输入值的整数。任何整数值都可作为有效的 <code>ndigits</code>(正数、零或负数)。对于支持 <a href="https://docs.python.org/zh-cn/3/library/functions.html#round"><code>round()</code></a> 的内置类型，值会被舍入到最接近的 10 的负 <code>ndigits</code>次幂的倍数；如果与两个倍数的距离相等，则选择偶数 (因此，<code>round(0.5)</code> 和 <code>round(-0.5)</code> 均为 <code>0</code> 而 <code>round(1.5)</code> 为 <code>2</code>)。 对于一般的 Python 对象 <code>number</code>, <code>round</code> 将委托给 <code>number.__round__</code>。</p>
+<details class="abstract">
+<summary><strong><code>round(number[, ndigits])</code></strong>：返回 <code>number</code> 舍入到小数点后<code>ndigits</code>位精度的值</summary>
+<p>如果<code>ndigits</code>被省略或为 <code>None</code>，则返回最接近输入值的整数。任何整数值都可作为有效的 <code>ndigits</code>(正数、零或负数)。对于支持 <a href="https://docs.python.org/zh-cn/3/library/functions.html#round"><code>round()</code></a> 的内置类型，值会被舍入到最接近的 10 的负 <code>ndigits</code>次幂的倍数；如果与两个倍数的距离相等，则选择偶数 (因此，<code>round(0.5)</code> 和 <code>round(-0.5)</code> 均为 <code>0</code> 而 <code>round(1.5)</code> 为 <code>2</code>)。 对于一般的 Python 对象 <code>number</code>, <code>round</code> 将委托给 <code>number.__round__</code>。</p>
 <p>对浮点数执行 <a href="https://docs.python.org/zh-cn/3/library/functions.html#round"><code>round()</code></a> 的行为可能会令人惊讶：例如，<code>round(2.675, 2)</code> 将给出 <code>2.67</code> 而不是期望的 <code>2.68</code>。 这不算是程序错误：这一结果是由于大多数十进制小数实际上都不能以浮点数精确地表示。 请参阅 <a href="https://docs.python.org/zh-cn/3/tutorial/floatingpoint.html#tut-fp-issues">浮点算术：争议和限制</a> 了解更多信息。</p>
 <div class="highlight"><pre><span></span><code><span class="nb">round</span><span class="p">(</span><span class="mf">2.675</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 </code></pre></div>
@@ -3454,13 +3526,19 @@ True
 </code></pre></div>
 </details>
 <h2 id="s">S</h2>
-<details class="abstract"><summary><strong><code>setattr(object, name, value)</code></strong>：给<code>object</code>设置<code>name</code>属性的值</summary><p>此函数与 <code>getattr()</code> 相对应。<code>setattr(x, 'foobar', 123)</code> 等价于 <code>x.foobar = 123</code>。</p>
+<details class="abstract">
+<summary><strong><code>setattr(object, name, value)</code></strong>：给<code>object</code>设置<code>name</code>属性的值</summary>
+<p>此函数与 <code>getattr()</code> 相对应。<code>setattr(x, 'foobar', 123)</code> 等价于 <code>x.foobar = 123</code>。</p>
 </details>
-<details class="abstract"><summary><strong><code>class slice()</code></strong></summary><div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">slice</span><span class="p">(</span><span class="n">stop</span><span class="p">)</span>
+<details class="abstract">
+<summary><strong><code>class slice()</code></strong></summary>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">slice</span><span class="p">(</span><span class="n">stop</span><span class="p">)</span>
 <span class="k">class</span> <span class="nc">slice</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">stop</span><span class="p">[,</span> <span class="n">step</span><span class="p">])</span>
 </code></pre></div>
 </details>
-<details class="abstract"><summary><strong><code>sorted(iterable, key=None, reverse=False)</code></strong>：根据 <code>iterable</code> 中的项返回一个新的已排序列表</summary><ul>
+<details class="abstract">
+<summary><strong><code>sorted(iterable, key=None, reverse=False)</code></strong>：根据 <code>iterable</code> 中的项返回一个新的已排序列表</summary>
+<ul>
 <li><code>key</code>：指定带有单个参数的函数，用于从 <code>iterable</code> 的每个元素中提取用于比较的键 (例如 <code>key=str.lower</code>)。 默认值为 <code>None</code> (直接比较元素)。使用 <a href="https://docs.python.org/zh-cn/3/library/functools.html#functools.cmp_to_key"><code>functools.cmp_to_key()</code></a> 可将老式的 <code>cmp</code> 函数转换为 <code>key</code> 函数。</li>
 <li><code>reverse</code>：布尔值。如果设为 <code>True</code>，则每个列表元素将按反向顺序比较进行排序。</li>
 </ul>
@@ -3473,9 +3551,13 @@ True
 [&#39;aaa&#39;, &#39;aa&#39;, &#39;a&#39;]
 </code></pre></div>
 </details>
-<details class="abstract"><summary><strong><code>sum(iterable, start=0)</code></strong></summary></details>
+<details class="abstract">
+<summary><strong><code>sum(iterable, start=0)</code></strong></summary>
+</details>
 <h2 id="t">T</h2>
-<details class="abstract"><summary><strong><code>class type()</code></strong></summary><div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">type</span><span class="p">(</span><span class="nb">object</span><span class="p">)</span>
+<details class="abstract">
+<summary><strong><code>class type()</code></strong></summary>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">type</span><span class="p">(</span><span class="nb">object</span><span class="p">)</span>
 <span class="k">class</span> <span class="nc">type</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">bases</span><span class="p">,</span> <span class="nb">dict</span><span class="p">)</span>
 </code></pre></div>
 <p>传入一个参数时，返回 <code>object</code> 的类型。 返回值是一个 type 对象，通常与 <a href="https://docs.python.org/zh-cn/3/library/stdtypes.html#instance.__class__"><code>object.__class__</code></a> 所返回的对象相同。
@@ -3504,10 +3586,14 @@ True
 </code></pre></div>
 </details>
 <h2 id="v">V</h2>
-<details class="abstract"><summary><strong><code>vars([object])</code></strong>：返回模块、类、实例或任何其它具有<code>__dict__</code>属性的对象的<code>__dict__</code>属性</summary><p>模块和实例这样的对象具有可更新的<code>__dict__</code>属性，但是其它对象的<code>__dict__</code>属性可能会设为限制写入。例如，类会使用 <a href="https://docs.python.org/zh-cn/3/library/types.html#types.MappingProxyType"><code>types.MappingProxyType</code></a> 来防止直接更新字典。不带参数时，<code>vars()</code> 的行为类似 <code>locals()</code>。 请注意，locals 字典仅对于读取起作用，因为对 locals 字典的更新会被忽略。</p>
+<details class="abstract">
+<summary><strong><code>vars([object])</code></strong>：返回模块、类、实例或任何其它具有<code>__dict__</code>属性的对象的<code>__dict__</code>属性</summary>
+<p>模块和实例这样的对象具有可更新的<code>__dict__</code>属性，但是其它对象的<code>__dict__</code>属性可能会设为限制写入。例如，类会使用 <a href="https://docs.python.org/zh-cn/3/library/types.html#types.MappingProxyType"><code>types.MappingProxyType</code></a> 来防止直接更新字典。不带参数时，<code>vars()</code> 的行为类似 <code>locals()</code>。 请注意，locals 字典仅对于读取起作用，因为对 locals 字典的更新会被忽略。</p>
 </details>
 <h2 id="z">Z</h2>
-<details class="abstract"><summary><strong><code>zip(iterables)</code></strong>：创建一个聚合了来自每个可迭代对象中的元素的迭代器</summary><div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<details class="abstract">
+<summary><strong><code>zip(iterables)</code></strong>：创建一个聚合了来自每个可迭代对象中的元素的迭代器</summary>
+<div class="highlight"><pre><span></span><code><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 <span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;d&quot;</span><span class="p">]</span>
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>

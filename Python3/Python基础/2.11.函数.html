@@ -17,7 +17,7 @@
         <link rel="next" href="2.12.%E5%86%85%E7%BD%AE%E5%87%BD%E6%95%B0.html">
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.6">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.8">
     
     
       
@@ -26,9 +26,6 @@
     
     
       <link rel="stylesheet" href="../../assets/stylesheets/main.ded33207.min.css">
-      
-        
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.a0c5b2b5.min.css">
       
       
 
@@ -54,14 +51,11 @@
   </head>
   
   
-    
-    
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="" data-md-color-accent="">
+    <body dir="ltr">
   
     
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -3077,7 +3071,9 @@
 <p>则可以认为，Python的函数传参是传引用，也可以认为Python的函数传参即是赋值。</p>
 <p>在这里，我们没必要关心使用哪个传参术语，<mark>只需要知道Python传参的本质是assignment即可。</mark> 传参的行为和赋值的行为是一样的，具体细节可以参考《<a href="2.10.%E8%B5%8B%E5%80%BC%E4%B8%8E%E6%B7%B1%E6%8B%B7%E8%B4%9D.html">2.10.赋值与深拷贝</a>》。</p>
 <p>在对可变对象的参数进行操作前，最好先深拷贝参数的值，否则可能会影响函数外部的命名空间。</p>
-<details class="quote"><summary>参考</summary><ol>
+<details class="quote">
+<summary>参考</summary>
+<ol>
 <li><a href="https://www.quora.com/Are-arguments-passed-by-value-or-by-reference-in-Python">Are arguments passed by value or by reference in Python?</a></li>
 <li><a href="https://stackoverflow.com/questions/52685928/in-python-if-i-type-a-1-b-2-c-a-c-b-what-is-the-value-of-c-what-does-c-point">In Python, if I type a=1 b=2 c=a c=b, what is the value of c? What does c point to?</a></li>
 <li><a href="https://blog.csdn.net/easion_zms/article/details/46309657">从符号表来理解指针和引用</a></li>
@@ -3096,7 +3092,9 @@
 <li>它可以被包含在数据结构之中。</li>
 </ul>
 <p>基本上，这意味着您可以使用此编程语言元素来完成您可以使用该编程语言中的所有其他元素来进行的所有操作。</p>
-<details class="quote"><summary>参考</summary><ol>
+<details class="quote">
+<summary>参考</summary>
+<ol>
 <li>
 <p><a href="https://stackoverflow.com/questions/1599176/what-are-first-class-objects-in-java-and-c">What are first-class objects in Java and C#?</a></p>
 </li>
@@ -3115,7 +3113,9 @@
 </ol>
 </details>
 <p>为什么在一些编程语言中，函数不是对象呢？本文无法对此问题进行深入的探究，但可以给出一个简短的解释。函数与对象的区别归结于指向函数的指针和指向对象的指针是严格区分的，这与计算机的设计方式有关。</p>
-<details class="quote"><summary>参考</summary><ol>
+<details class="quote">
+<summary>参考</summary>
+<ol>
 <li><a href="https://stackoverflow.com/questions/43971298/why-is-a-function-not-an-object">Why is a function not an object?</a></li>
 </ol>
 </details>
